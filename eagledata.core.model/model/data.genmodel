@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/eagledata.core.model/src" modelPluginID="eagledata.core.model"
+    modelName="Data" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="8.0" copyrightFields="false"
+    operationReflection="true" importOrganizing="true">
+  <foreignModel>data.ecore</foreignModel>
+  <genPackages prefix="Data" resource="XML" disposableProviderFactory="true" ecorePackage="data.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="data.ecore#//TypeKind">
+      <genEnumLiterals ecoreEnumLiteral="data.ecore#//TypeKind/string"/>
+      <genEnumLiterals ecoreEnumLiteral="data.ecore#//TypeKind/numeral"/>
+      <genEnumLiterals ecoreEnumLiteral="data.ecore#//TypeKind/date"/>
+      <genEnumLiterals ecoreEnumLiteral="data.ecore#//TypeKind/time"/>
+      <genEnumLiterals ecoreEnumLiteral="data.ecore#//TypeKind/year"/>
+      <genEnumLiterals ecoreEnumLiteral="data.ecore#//TypeKind/month"/>
+      <genEnumLiterals ecoreEnumLiteral="data.ecore#//TypeKind/day"/>
+      <genEnumLiterals ecoreEnumLiteral="data.ecore#//TypeKind/boolean"/>
+      <genEnumLiterals ecoreEnumLiteral="data.ecore#//TypeKind/place"/>
+      <genEnumLiterals ecoreEnumLiteral="data.ecore#//TypeKind/latitude"/>
+      <genEnumLiterals ecoreEnumLiteral="data.ecore#//TypeKind/longitude"/>
+      <genEnumLiterals ecoreEnumLiteral="data.ecore#//TypeKind/UTMe"/>
+      <genEnumLiterals ecoreEnumLiteral="data.ecore#//TypeKind/UTMn"/>
+      <genEnumLiterals ecoreEnumLiteral="data.ecore#//TypeKind/UTMz"/>
+      <genEnumLiterals ecoreEnumLiteral="data.ecore#//TypeKind/UTMHemi"/>
+      <genEnumLiterals ecoreEnumLiteral="data.ecore#//TypeKind/name"/>
+      <genEnumLiterals ecoreEnumLiteral="data.ecore#//TypeKind/familyname"/>
+      <genEnumLiterals ecoreEnumLiteral="data.ecore#//TypeKind/personalID"/>
+      <genEnumLiterals ecoreEnumLiteral="data.ecore#//TypeKind/price"/>
+      <genEnumLiterals ecoreEnumLiteral="data.ecore#//TypeKind/coin"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="data.ecore#//FormatKind">
+      <genEnumLiterals ecoreEnumLiteral="data.ecore#//FormatKind/CSV"/>
+      <genEnumLiterals ecoreEnumLiteral="data.ecore#//FormatKind/JSON"/>
+      <genEnumLiterals ecoreEnumLiteral="data.ecore#//FormatKind/XML"/>
+    </genEnums>
+    <genClasses ecoreClass="data.ecore#//DataSource">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute data.ecore#//DataSource/link"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference data.ecore#//DataSource/format"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference data.ecore#//DataSource/fragments"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="data.ecore#//Node">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute data.ecore#//Node/representedAs"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference data.ecore#//Node/datadescription"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference data.ecore#//Node/compositenode"/>
+    </genClasses>
+    <genClasses ecoreClass="data.ecore#//CompositeNode">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference data.ecore#//CompositeNode/subnodes"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference data.ecore#//CompositeNode/extends"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference data.ecore#//CompositeNode/deprecations"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute data.ecore#//CompositeNode/environment"/>
+    </genClasses>
+    <genClasses ecoreClass="data.ecore#//LeafNode">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute data.ecore#//LeafNode/key"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute data.ecore#//LeafNode/unique"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference data.ecore#//LeafNode/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute data.ecore#//LeafNode/keyword"/>
+    </genClasses>
+    <genClasses ecoreClass="data.ecore#//DataFragment"/>
+    <genClasses image="false" ecoreClass="data.ecore#//DataDescription">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference data.ecore#//DataDescription/nodes"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference data.ecore#//DataDescription/datasource"/>
+    </genClasses>
+    <genClasses ecoreClass="data.ecore#//DataModel">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute data.ecore#//DataModel/importURI"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference data.ecore#//DataModel/descriptions"/>
+    </genClasses>
+    <genClasses ecoreClass="data.ecore#//Remove"/>
+    <genClasses ecoreClass="data.ecore#//Retype">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference data.ecore#//Retype/newType"/>
+    </genClasses>
+    <genClasses ecoreClass="data.ecore#//Rename">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute data.ecore#//Rename/newRepresentedAs"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="data.ecore#//NodeDeprecation">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference data.ecore#//NodeDeprecation/deprecated"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="data.ecore#//NamedElement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute data.ecore#//NamedElement/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference data.ecore#//NamedElement/options"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="data.ecore#//NamedParameter"/>
+    <genClasses ecoreClass="data.ecore#//Option">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute data.ecore#//Option/key"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute data.ecore#//Option/values"/>
+    </genClasses>
+    <genClasses ecoreClass="data.ecore#//FormatSpecification">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute data.ecore#//FormatSpecification/format"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute data.ecore#//FormatSpecification/specialFormat"/>
+    </genClasses>
+    <genClasses ecoreClass="data.ecore#//DataType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute data.ecore#//DataType/specialType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute data.ecore#//DataType/type"/>
+    </genClasses>
+    <genClasses ecoreClass="data.ecore#//Reference">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference data.ecore#//Reference/referenceType"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="data.ecore#//TypeSpecification">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute data.ecore#//TypeSpecification/max"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute data.ecore#//TypeSpecification/min"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>
