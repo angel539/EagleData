@@ -13,6 +13,7 @@ a {
     color: #1b98f8;
 }
 
+td { white-space:pre }
 
 /*
  * -- HELPER STYLES --
