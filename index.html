@@ -549,8 +549,11 @@
 			</div>
 			
 			<div class="pure-u-1-2">
+				<div>
 				<img class=".pure-img" src="images/example1.png" height="80" border="2" alt="Example1">
-				<pre>
+				</div>
+				<div>
+					<pre>
 <b>datatype</b> course : <b>date</b> {
 	format = "YYYY/YY"
 },
@@ -561,12 +564,13 @@
 	<b>int</b> classId {null = "99"},
 	<b>string</b> name,
 	<b>date</b> birthDate {format = "ddmmYYYY", separator = "/"},
-	<b>course</b> firstEnrolled,
-	<b>grade</b> finalGrade,
+	course firstEnrolled,
+	grade finalGrade,
 	<b>string</b> id {null = " ", regex = "\\d{8}[A-Za-z]"},
 	<b>boolean</b> passExam {format = "1 | 0"}
 }
-			</pre>
+					</pre>
+				</div>
 			</div>
         </div>
     </div>
