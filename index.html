@@ -7,6 +7,7 @@
 	<meta name="description" content="EagleData: Engineering applications over social and open data through domain-specific languages">
     <title>EagleData</title>
     <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
+	 <link rel="stylesheet" href="css/code.css">
 	<!--[if lte IE 8]>
         <link rel="stylesheet" href="css/layouts/email-old-ie.css">
     <![endif]-->
@@ -81,6 +82,21 @@
                 <p class="email-desc">
                     <!--<a id="move" href="javascript:moveMenuDown();">Watch a demo.</a>-->
 					<a href="#code">languages definition and examples</a>
+                </p>
+            </div>
+        </div>
+		
+		<div class="email-item pure-g">
+            <div class="pure-u">
+                <img class="email-avatar" alt="Code avatar" height="64" width="64" src="images/example.png">
+            </div>
+
+			<div class="pure-u-3-4">
+                <h5 class="email-name">Descriptions</h5>
+                <h4 class="email-subject">Examples</h4>
+                <p class="email-desc">
+                    <!--<a id="move" href="javascript:moveMenuDown();">Watch a demo.</a>-->
+					<a href="#example">Check some examples and cases</a>
                 </p>
             </div>
         </div>
@@ -495,9 +511,9 @@
 						<tr class="pure-table-odd">
 							<td>LONG</td>
 							<td>
-								<dl style="list-style-type:none; font-weight:bold">
-									<dt>NULL
-								</dl>
+								<ul style="list-style-type:none; font-weight:bold">
+									<li>NULL
+								</ul>
 							</td>
 							<td>
 								<dl style="list-style-type:none">
@@ -516,6 +532,43 @@
             </div>
         </div>
 		
+		
+		<div id = "example" class="email-content-header pure-g">
+                <div class="pure-u-1-2">
+					<h2 class="email-content-title">Examples and cases</h2>
+                </div>
+
+                <div class="email-content-controls pure-u-1-2">
+					<a class="secondary-button pure-button" href="">Move to top</a>
+                </div>
+        </div>
+		
+		<div class="email-content-body pure-u-md-1-2">
+			<div class="pure-u-1-2">
+					<h4 class="email-content-title"><code>#1_ Class List and grades</code></h4>
+			</div>
+			
+			<div class="pure-u-1-2">
+				<img class=".pure-img" src="images/example1.png" height="80" border="2" alt="Example1">
+				<pre>
+<b>datatype</b> course : date {
+	format = "YYYY/YY"
+},
+
+<b>enumeration</b> grade {"A", "B", "C", "D", "E", "F"},
+
+<b>description</b> CSV classList {
+	<b>int</b> classId {null = "99"},
+	<b>string</b> name,
+	<b>date</b> birthDate {format = "ddmmYYYY", separator = "/"},
+	<b>course</b> firstEnrolled,
+	<b>grade</b> finalGrade,
+	<b>string</b> id {null = " ", regex = "\\d{8}[A-Za-z]"},
+	<b>boolean</b> passExam {format = "1 | 0"}
+}
+			</pre>
+			</div>
+        </div>
     </div>
 </div>
 
@@ -538,3 +591,4 @@
 </script>
 </body>
 </html>
+
