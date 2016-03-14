@@ -2,6 +2,11 @@ code {
     background: hsl(220, 80%, 90%); 
 }
 
+code b{
+	color:#610B0B;
+}
+
+
 pre {
     white-space: pre-wrap;
     background: hsl(30,80%,90%);

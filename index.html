@@ -280,11 +280,11 @@
 					<h3 class="email-content-title">Parsing Cells / Describing nodes with values</h3>
 					<dl>
 						<dt>Uniqueness Quality:
-						<dd>[KEY | UNIQUE]
+						<dd>[<code><b>key</b></code> | <code><b>unique</b></code>]
 					</dl>
 					<dl>
 						<dt>Type:
-						<dd>[STRING | INTEGER | FLOATSTRING | DATE | TIME | YEAR | MONTH | DAY | BOOLEAN | LAT | LONG]
+						<dd>[<code><b>string</b></code> | <code><b>integer</b></code> | <code><b>real</b></code> | <code><b>date</b></code> | <code><b>time</b></code> | <code><b>year</b></code> | <code><b>month</b></code> | <code><b>day</b></code> | <code><b>boolean</b></code> | <code><b>lat</b></code> | <code><b>long</b></code>]
 					</dl>
 					<dl>
 						<dt>Name:
@@ -295,8 +295,16 @@
 						<dd>Must use if representation have a specific name for the list of values, if not descriptions will be taken in order.
 					</dl>
 					<dl>
-						<dt>{key = value, ...} //OPTIONS
+						<dt>Options: {key = value, ...}
 						<dd>The list of options by type is presented below
+					</dl>
+					<dl>
+						<dt><code><b>datatype</b></code> extension definition
+						<dd>Personalized datatypes with predefined options can be saved with an identificator. Then it can be used as a basic type to describe a column. 
+					</dl>
+					<dl>
+						<dt><code><b>enumeration</b></code>
+						<dd>If column must fit one value contained in a series of elements
 					</dl>
 				</div>
 				<div>
@@ -311,213 +319,213 @@
 					<!--
 						'STRING' | 'INTEGER' | 'FLOATSTRING' | 'DATE' | 'TIME' | 'YEAR' | 'MONTH' | 'DAY' | 'BOOLEAN' | 'LAT' | 'LONG';
 					-->
-					<tbody style="font-family:courier;">
+					<tbody>
 						<tr class="pure-table-odd">
-							<td>INTEGER</td>
+							<td><code><b>integer</b></code></td>
 							<td>
-								<ul style="list-style-type:none; font-weight:bold">
-									<li>NULL
-									<li>SEPARATOR
-									<li>DEFAULT
-								</ul>
+								<dl style="list-style-type:none;">
+									<dt>null
+									<dt>separator
+									<dt>default
+								</dl>
 							</td>
 							<td>
 								<dl style="list-style-type:none">
-									<dt>{NULL = "99"}
-									<dt>{SEPARATOR = " "}
+									<dt><code>{null = "99"}</code>
+									<dt><code>{separator = " "}</code>
 									<dd><font color="green">This involves a value "1 5 7" will be processed as a list [1, 5, 7]</font>
-									<dt>{DEFAULT = "3"}
+									<dt><code>{default = "3"}</code>
 									<dd><font color="green">Empty values will be processed as a "3" by default</font>
 								</dl>
 							</td>
 						</tr>
 						<tr>
-							<td>STRING</td>
+							<td><code><b>string</b></code></td>
 							<td>
-								<ul style="list-style-type:none; font-weight:bold">
-									<li>NULL
-									<li>REGEX
-									<li>REGEX_FLAGS
-								</ul>
+								<dl style="list-style-type:none;">
+									<dt>null
+									<dt>regex
+									<dt>regex_flags
+								</dl>
 							</td>
 							<td>
 								<dl style="list-style-type:none">
-									<dt>{NULL = "NIL-"}
-									<dt>{REGEX = "\\d\\d\\d([,\\s])?\\d\\d\\d([,\\s])?\\d\\d\\d"}
+									<dt><code>{null = "NIL-"}</code>
+									<dt><code>{regex = "\\d{3}([,\\s])?\\d{3}([,\\s])?\\d{3}"}</code>
 									<dd><font color="green">Acording to the Regular expression admited by java.util.regex. Example given for a phone number</font>
-									<dd style="font-family:arial;"><font color="red" size="2">[error] STRING. REGEX is not valid"</font>
-									<dt>{REGEX_FLAGS = "CASE_INSENSITIVE"}
+									<dd style="font-family:arial;"><font color="red" size="2">[error] STRING. regex is not valid"</font>
+									<dt><code>{regex_flags = "CASE_INSENSITIVE"}</code>
 									<dd><font color="green">Acording to the Regular expression flags admited by java.util.regex.</font>
-									<dd style="font-family:arial;"><font color="red" size="2">[error] REGEX_FLAGS can not be called without REGEX option"</font>
-									<dd style="font-family:arial;"><font color="red" size="2">[error] STRING. REGEX_FLAGS is not valid"</font>
+									<dd style="font-family:arial;"><font color="red" size="2">[error] regex_flags can not be called without regex option"</font>
+									<dd style="font-family:arial;"><font color="red" size="2">[error] STRING. regex_flags is not valid"</font>
 								</dl>
 							</td>
 						</tr>
 						<tr class="pure-table-odd">
-							<td>FLOATSTRING</td>
+							<td><code><b>real</b></code></td>
 							<td>
-								<ul style="list-style-type:none; font-weight:bold">
-									<li>NULL
-									<li>SEPARATOR
-									<li>DEFAULT
-									<li>DECIMALCHAR
-									<li>PATTERN
-								</ul>
+								<dl style="list-style-type:none;">
+									<dt>null
+									<dt>separator
+									<dt>default
+									<dt>decimalchar
+									<dt>pattern
+								</dl>
 							</td>
 							<td>
 								<dl style="list-style-type:none">
-									<dt>{NULL = "nil"}
-									<dt>{SEPARATOR = " "}
+									<dt><code>{null = "nil"}</code>
+									<dt><code>{separator = " "}</code>
 									<dd><font color="green">This involves a value "1 5.1 7.0" will be processed as a list [1, 5.1, 7.0]</font>
-									<dt>{DEFAULT = "3"}
+									<dt><code>{default = "3"}</code>
 									<dd><font color="green">Empty values will be processed as a "3" by default</font>
-									<dt>{DECIMALCHAR = "."}
+									<dt><code>{decimalchar = "."}</code>
 									<dd><font color="green">7.0 will be OK but 7,0 will be not valid</font>
-									<dd style="font-family:arial;"><font color="orange" size="2">[warning] DECIMALCHAR. You should consider to specify a character for the decimal separator."</font>
-									<dd style="font-family:arial;"><font color="red" size="2">[error] DECIMALCHAR. Option must be a ".", ",", "\'"</font>
-									<dt>{PATTERN = "^\d+(\.\d+)?%"}
+									<dd style="font-family:arial;"><font color="orange" size="2">[warning] decimalchar. You should consider to specify a character for the decimal separator."</font>
+									<dd style="font-family:arial;"><font color="red" size="2">[error] decimalchar. Option must be a ".", ",", "\'"</font>
+									<dt><code>{pattern = "^\d+(\.\d+)?%"}</code>
 									<dd><font color="green">"6%", "7.5%" and "1.80%" are valid, if the value is not valid will be process as a STRING </font>
 								</dl>
 							</td>
 						</tr>
 						<tr>
-							<td>DATE</td>
+							<td><code><b>date</b></code></td>
 							<td>
-								<ul style="list-style-type:none; font-weight:bold">
-									<li>NULL
-									<li>FORMAT
-									<li>SEPARATOR
-								</ul>
+								<dl style="list-style-type:none;">
+									<dt>null
+									<dt>format
+									<dt>separator
+								</dl>
 							</td>
 							<td>
 								<dl style="list-style-type:none">
-									<dt>{NULL = "-1"}
-									<dt>{"FORMAT" = "YYYYMMDD"}
+									<dt><code>{null = "-1"}</code>
+									<dt><code>{format = "YYYYMMDD"}</code>
 									<dd><font color="green">Description for a 20160530 date</font>
-									<dd style="font-family:arial;"><font color="orange" size="2">[warning] FORMAT not DEFINED. You should consider to specify a format string. MMddYYYY could be one"</font>
-									<dd style="font-family:arial;"><font color="red" size="2">[error] FORMAT not correctly spell. MUST USE M/m for MONTHS, D/d for DAYS, Y/y for YEARS"</font>
-									<dt>{"SEPARATOR" = "/"}
+									<dd style="font-family:arial;"><font color="orange" size="2">[warning] format not DEFINED. You should consider to specify a format string. MMddYYYY could be one"</font>
+									<dd style="font-family:arial;"><font color="red" size="2">[error] format not correctly spell. MUST USE M/m for MONTHS, D/d for DAYS, Y/y for YEARS"</font>
+									<dt><code>{separator = "/"}</code>
 									<dd><font color="green">Together with format, it describes a date with the value similar to 2016/05/30</font>
-									<dd style="font-family:arial;"><font color="orange" size="2">[warning] SEPARATOR not DEFINED. You should consider to specify a separator character"</font>
+									<dd style="font-family:arial;"><font color="orange" size="2">[warning] separator not DEFINED. You should consider to specify a separator character"</font>
 								</dl>
 							</td>
 						</tr>
 						<tr class="pure-table-odd">
-							<td>TIME</td>
+							<td><code><b>time</b></code></td>
 							<td>
-								<ul style="list-style-type:none; font-weight:bold">
-									<li>NULL
-									<li>FORMAT
-									<li>SEPARATOR
-								</ul>
+								<dl style="list-style-type:none;">
+									<dt>null
+									<dt>format
+									<dt>separator
+								</dl>
 							</td>
 							<td>
 								<dl style="list-style-type:none">
-									<dt>{NULL = "-1"}
-									<dt>{"FORMAT" = "HHmmSS"}
+									<dt><code>{null = "-1"}</code>
+									<dt><code>{format = "HHmmSS"}</code>
 									<dd><font color="green">Description for a 113118 date</font>
-									<dd style="font-family:arial;"><font color="orange" size="2">[warning] FORMAT not DEFINED. You should consider to specify a format string. HHmmSS could be one"</font>
-									<dd style="font-family:arial;"><font color="red" size="2">[error] FORMAT not correctly spell. MUST USE H/h for HOURS, M/m for MINUTES, S/s for SECONDS"</font>
-									<dt>{"SEPARATOR" = ":"}
+									<dd style="font-family:arial;"><font color="orange" size="2">[warning] format not DEFINED. You should consider to specify a format string. HHmmSS could be one"</font>
+									<dd style="font-family:arial;"><font color="red" size="2">[error] format not correctly spell. MUST USE H/h for HOURS, M/m for MINUTES, S/s for SECONDS"</font>
+									<dt><code>{separator = ":"}</code>
 									<dd><font color="green">Together with format, it describes a time with the value similar to 11:31:18</font>
-									<dd style="font-family:arial;"><font color="orange" size="2">[warning] SEPARATOR not DEFINED. You should consider to specify a separator character"</font>
+									<dd style="font-family:arial;"><font color="orange" size="2">[warning] separator not DEFINED. You should consider to specify a separator character"</font>
 								</dl>
 							</td>
 						</tr>
 						<tr>
-							<td>YEAR</td>
+							<td><code><b>year</b></code></td>
 							<td>
-								<ul style="list-style-type:none; font-weight:bold">
-									<li>NULL
-									<li>FORMAT
-								</ul>
+								<dl style="list-style-type:none;">
+									<dt>null
+									<dt>format
+								</dl>
 							</td>
 							<td>
 								<dl style="list-style-type:none">
-									<dt>{NULL = "-1"}
-									<dt>{"FORMAT" = "YY"}
+									<dt><code>{null = "-1"}</code>
+									<dt><code>{format = "YY"}</code>
 									<dd><font color="green">85 will be a correct value, but 1985 will not</font>
-									<dd style="font-family:arial;"><font color="red" size="2">[error] FORMAT not correctly spell. MUST USE Y/y for YEARS"</font>
-									<dd style="font-family:arial;"><font color="red" size="2">[error] FORMAT not correctly spell. YEARS must have less than 4 CHARS"</font>
+									<dd style="font-family:arial;"><font color="red" size="2">[error] format not correctly spell. MUST USE Y/y for YEARS"</font>
+									<dd style="font-family:arial;"><font color="red" size="2">[error] format not correctly spell. YEARS must have less than 4 CHARS"</font>
 								</dl>
 							</td>
 						</tr>
 						<tr class="pure-table-odd">
-							<td>MONTH</td>
+							<td><code><b>month</b></code></td>
 							<td>
-								<ul style="list-style-type:none; font-weight:bold">
-									<li>NULL
-									<li>FORMAT
-								</ul>
+								<dl style="list-style-type:none;">
+									<dt>null
+									<dt>format
+								</dl>
 							</td>
 							<td>
 								<dl style="list-style-type:none">
-									<dt>{NULL = "-1"}
-									<dt>{"FORMAT" = "mm"}
+									<dt><code>{null = "-1"}</code>
+									<dt><code>{format = "mm"}</code>
 									<dd><font color="green">09 will be a correct value, but 9 will not</font>
-									<dd style="font-family:arial;"><font color="red" size="2">[error] FORMAT not correctly spell. MUST USE M/m for MONTHS"</font>
-									<dd style="font-family:arial;"><font color="red" size="2">[error] FORMAT not correctly spell. MONTHS must have less than 2 CHARS"</font>
+									<dd style="font-family:arial;"><font color="red" size="2">[error] format not correctly spell. MUST USE M/m for MONTHS"</font>
+									<dd style="font-family:arial;"><font color="red" size="2">[error] format not correctly spell. MONTHS must have less than 2 CHARS"</font>
 								</dl>
 							</td>
 						</tr>
 						<tr>
-							<td>DAY</td>
+							<td><code><b>day</b></code></td>
 							<td>
-								<ul style="list-style-type:none; font-weight:bold">
-									<li>NULL
-									<li>FORMAT
-								</ul>
+								<dl style="list-style-type:none;">
+									<dt>null
+									<dt>format
+								</dl>
 							</td>
 							<td>
 								<dl style="list-style-type:none">
-									<dt>{NULL = "-1"}
-									<dt>{"FORMAT" = "dd"}
+									<dt><code>{null = "-1"}</code>
+									<dt><code>{format = "dd"}</code>
 									<dd><font color="green">05 will be a correct value, but 5 will not</font>
-									<dd style="font-family:arial;"><font color="red" size="2">[error] FORMAT not correctly spell. MUST USE D/d for DAYS"</font>
-									<dd style="font-family:arial;"><font color="red" size="2">[error] FORMAT not correctly spell. DAYS must have less than 2 CHARS"</font>
+									<dd style="font-family:arial;"><font color="red" size="2">[error] format not correctly spell. MUST USE D/d for DAYS"</font>
+									<dd style="font-family:arial;"><font color="red" size="2">[error] format not correctly spell. DAYS must have less than 2 CHARS"</font>
 								</dl>
 							</td>
 						</tr>
 						<tr class="pure-table-odd">
-							<td>BOOLEAN</td>
+							<td><code><b>boolean</b></code></td>
 							<td>
-								<ul style="list-style-type:none; font-weight:bold">
-									<li>NULL
-									<li>FORMAT
-								</ul>
+								<dl style="list-style-type:none;">
+									<dt>null
+									<dt>format
+								</dl>
 							</td>
 							<td>
 								<dl style="list-style-type:none">
-									<dt>{NULL = "nil"}
-									<dt>{"FORMAT" = "1 | 0"}
+									<dt><code>{null = "nil"}</code>
+									<dt><code>{format = "1 | 0"}</code>
 									<dd><font color="green">It gives an specific value for true | false. </font>
 									<dd style="font-family:arial;"><font color="orange" size="2">[warning] BOOLEAN. Implementation does not contain value for FALSE representation (must use | separator): TRUE | FALSE"</font>
 								</dl>
 							</td>
 						</tr>
 						<tr>
-							<td>LAT</td>
+							<td><code><b>lat</b></code></td>
 							<td>
-								<ul style="list-style-type:none; font-weight:bold">
-									<li>NULL
-								</ul>
+								<dl style="list-style-type:none;">
+									<dt>null
+								</dl>
 							</td>
 							<td>
 								<dl style="list-style-type:none">
-									<dt>{NULL = "nil"}
+									<dt><code>{null = "nil"}</code>
 								</dl>
 							</td>
 						</tr>
 						<tr class="pure-table-odd">
-							<td>LONG</td>
+							<td><code><b>long</b></code></td>
 							<td>
-								<ul style="list-style-type:none; font-weight:bold">
-									<li>NULL
-								</ul>
+								<dl style="list-style-type:none;">
+									<dt>null
+								</dl>
 							</td>
 							<td>
 								<dl style="list-style-type:none">
-									<dt>{NULL = "nil"}
+									<dt><code>{null = "nil"}</code>
 								</dl>
 							</td>
 						</tr>
@@ -527,7 +535,7 @@
 			<div>
 				<h3 class="email-content-title">References</h3>
 				<p><a href="https://www.w3.org/TR/tabular-data-model/">Model for Tabular Data and Metadata on the Web</a></p>
-				<p><a href="https://docs.oracle.com/javase/7/docs/api/java/util/regex/Pattern.html">java.util.regex.Pattern</a></p>
+				<p><a href="https://docs.oracle.com/javase/7/docs/api/java/util/regex/pattern.html">java.util.regex.pattern</a></p>
 			</div>
             </div>
         </div>
