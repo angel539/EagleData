@@ -1,0 +1,15 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Extensions
+Bundle-SymbolicName: eagledata.core.extensions;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: eagledata.core.extensions.Activator
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ eagledata.core.dsl.streamingdata
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Bundle-ActivationPolicy: lazy
+Bundle-ClassPath: lib/json-20160212.jar,
+ .
+Export-Package: eagledata.core.extensions,
+ org.json

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension-point id="eagledata.core.extensions.streaming" name="StreamingData" schema="schema/eagledata.core.extensions.streaming.exsd"/>
+
+</plugin>

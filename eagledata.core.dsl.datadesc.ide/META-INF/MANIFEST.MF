@@ -1,0 +1,14 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: eagledata.core.dsl.datadesc.ide
+Bundle-Vendor: My Company
+Bundle-Version: 1.0.0.qualifier
+Bundle-SymbolicName: eagledata.core.dsl.datadesc.ide; singleton:=true
+Bundle-ActivationPolicy: lazy
+Require-Bundle: eagledata.core.dsl.datadesc,
+ org.eclipse.xtext.ide,
+ org.eclipse.xtext.xbase.ide
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Export-Package: eagledata.core.dsl.datadesc.ide.contentassist.antlr.internal,
+ eagledata.core.dsl.datadesc.ide.contentassist.antlr
+

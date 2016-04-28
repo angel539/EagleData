@@ -1,0 +1,14 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Csv
+Bundle-SymbolicName: eagledata.core.csv
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: eagledata.core.csv.Activator
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ eagledata.core.discoverer
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Bundle-ActivationPolicy: lazy
+Bundle-ClassPath: lib/commons-csv-1.2.jar,
+ .
+Export-Package: eagledata.core.csv
