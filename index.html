@@ -592,16 +592,16 @@
                 </div>
                 <div>
                     <pre>
-import BusLine.*
-import Address.*
-description "CSV" SantanderCityBus{
+<b>import</b> BusLine.*
+<b>import</b> Address.*
+<b>description</b> "CSV" SantanderCityBus{
     Id lineId
     AddressPoint address
     Stop stop
 } (
-  language={"es-ES"},
-  separator={";"}, 
-  order={stop.stopID, stop.name, lineId, address.addressPoint, stop.stopPoint}
+  <b>language</b>={"es-ES"},
+  <b>separator</b>={";"}, 
+  <b>order</b>={stop.stopID, stop.name, lineId, address.addressPoint, stop.stopPoint}
 )
                     </pre>
                 </div>
@@ -609,19 +609,6 @@ description "CSV" SantanderCityBus{
         </div>
     </div>
 </div>
-
-
-import BusLine.*
-import Address.*
-description "CSV" SantanderCityBus{
-    Id lineId
-    AddressPoint address
-    Stop stop
-} (
-  language={"es-ES"},
-  separator={";"}, 
-  order={stop.stopID, stop.name, lineId, address.addressPoint, stop.stopPoint}
-)
 
 <script src="http://yui.yahooapis.com/3.17.2/build/yui/yui-min.js"></script>
 
