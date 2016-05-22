@@ -65,13 +65,12 @@
                 <h5 class="email-name">Demo</h5>
                 <h4 class="email-subject">Screencasts and video demo</h4>
                 <p class="email-desc">
-                    <!--<a id="move" href="javascript:moveMenuDown();">Watch a demo.</a>-->
 					<a href="#demos">Watch a demo.</a>
                 </p>
             </div>
         </div>
 		
-		<div class="email-item pure-g">
+		<!--<div class="email-item pure-g">
             <div class="pure-u">
                 <img class="email-avatar" alt="Code avatar" height="64" width="64" src="images/code.png">
             </div>
@@ -80,11 +79,11 @@
                 <h5 class="email-name">DSLs</h5>
                 <h4 class="email-subject">Syntax</h4>
                 <p class="email-desc">
-                    <!--<a id="move" href="javascript:moveMenuDown();">Watch a demo.</a>-->
+                    <a id="move" href="javascript:moveMenuDown();">Watch a demo.</a>
 					<a href="#code">languages definition and examples</a>
                 </p>
             </div>
-        </div>
+        </div>-->
 		
 		<div class="email-item pure-g">
             <div class="pure-u">
@@ -92,8 +91,8 @@
             </div>
 
 			<div class="pure-u-3-4">
-                <h5 class="email-name">Descriptions</h5>
-                <h4 class="email-subject">Examples</h4>
+                <h5 class="email-name">Running Example</h5>
+                <h4 class="email-subject">Integrating open data descriptions with Eagle Data</h4>
                 <p class="email-desc">
                     <!--<a id="move" href="javascript:moveMenuDown();">Watch a demo.</a>-->
 					<a href="#example">Check some examples and cases</a>
@@ -263,7 +262,7 @@
 			</table>
             </div>
 			
-			<div id = "code" class="email-content-header pure-g">
+			<!--<div id = "code" class="email-content-header pure-g">
                 <div class="pure-u-1-2">
 					<h2 class="email-content-title">Syntax and examples</h2>
                 </div>
@@ -275,7 +274,6 @@
             </div>
 			
 			<div class="email-content-body pure-u-md-1-2">
-				<!-- (key?='key')? (unique?='unique')? type=TypeSpecification (keyword?="#")?name=ID  (representedAs=STRING)? ('{' options+=Option ( "," options+=Option)* '}' )? -->
 				<div>
 					<h3 class="email-content-title">Parsing Cells / Describing nodes with values</h3>
 					<dl>
@@ -309,16 +307,13 @@
 				</div>
 				<div>
 				<table class="pure-table">
-					 <thead><!--class=highlight-->
+					 <thead>
 						<tr>
 							<th>TYPE</th>
 							<th>OPTIONS</th>
 							<th>EXAMPLES</th>
 						</tr>
 					</thead>
-					<!--
-						'STRING' | 'INTEGER' | 'FLOATSTRING' | 'DATE' | 'TIME' | 'YEAR' | 'MONTH' | 'DAY' | 'BOOLEAN' | 'LAT' | 'LONG';
-					-->
 					<tbody>
 						<tr class="pure-table-odd">
 							<td><code><b>integer</b></code></td>
@@ -538,12 +533,12 @@
 				<p><a href="https://docs.oracle.com/javase/7/docs/api/java/util/regex/pattern.html">java.util.regex.pattern</a></p>
 			</div>
             </div>
-        </div>
+        </div>-->
 		
 		
 		<div id = "example" class="email-content-header pure-g">
                 <div class="pure-u-1-2">
-					<h2 class="email-content-title">Examples and cases</h2>
+					<h2 class="email-content-title">Running Example</h2>
                 </div>
 
                 <div class="email-content-controls pure-u-1-2">
@@ -553,7 +548,7 @@
 		
 		<div class="email-content-body pure-u-md-1-2">
 			<div class="pure-u-1-2">
-					<h4 class="email-content-title">#1_ Class List and grades in CSV format</h4>
+					<h4 class="email-content-title">#1_ </h4>
 			</div>
 			
 			<div class="pure-u-1-2">
@@ -561,25 +556,57 @@
 					<div>
 						<p><code>CSV content snippet</code></p>
 					<div>
-						<img class=".pure-img" src="images/example1.png" height="80" border="2" alt="Example1">
+						<pre>
+56; Camarreal 109;          A;  Calle;  Camarreal;  109;    43.44625;   -3.87072;
+61; Campogiro 23;           A;  Calle;  Campogiro;  23;     43.45044;   -3.85070;
+63; Campogiro 5;            A;  Calle;  Campogiro;  5;      43.45017;   -3.85127;
+64; Cajo 17;                B;  Calle;  Cajo;       17;     43.45405;   -3.83708;
+80; Parque Doctor Morales;  A;  Calle;  Cajo;       1;      43.45496;   -3.83419;
+88; Camarreal 109;          B;  Calle;  Camarreal;  109;    43.44625;   -3.87072;
+                        </pre>
 					</div>
 				</div>
 				<div>
 					<pre>
-<b>datatype</b> course : <b>date</b> {
-	format = "YYYY/YY"
-},
-
-<b>enumeration</b> grade {"A", "B", "C", "D", "E", "F"},
-
-<b>description</b> CSV classList {
-	<b>int</b> classId {null = "99"},
-	<b>string</b> name,
-	<b>date</b> birthDate {format = "ddmmYYYY", separator = "/"},
-	course firstEnrolled,
-	grade finalGrade,
-	<b>string</b> id {null = " ", regex = "\\d{8}[A-Za-z]"},
-	<b>boolean</b> passExam {format = "1 | 0"}
+@transport
+<b>package</b> BusLine{
+    <b>datatype</b> Id : Int (minLen = 1, maxLen = 3)
+    <b>fragment</b> Line{
+        <b>key</b> Id id
+        <b>String</b> source 
+        <b>String</b> destination 
+        GeoPoint sourcePoint (null = "")
+        GeoPoint destinationPoint (null = "")
+        <b>Stop</b>[*] stops   
+    }
+    <b>fragment</b> Stop{
+        <b>key</b> <b>Int</b> stopID
+        <b>String</b> name
+        GeoPoint stopPoint
+    }
+    <b>fragment</b> GeoPoint{
+        <b>Lat</b> latit (min = -90.0, max = 90.0)
+        <b>Long</b> longit (min = -180.0, max = 180.0)
+    }
+}
+@city
+@geo
+<b>package</b> Address{
+    <b>enumeration</b> AddrKind{"Calle","Avenida","Paseo"}
+    <b>datatype</b> PostalCode : String {
+        Digits[2] city 
+        Digits[3] district 
+    }
+    <b>fragment</b> Address{
+        AddressPoint addressPoint
+        <b>String</b> others
+        PostalCode postalcode
+    }
+    <b>fragment</b> AddressPoint{
+        AddrKind kind
+        <b>String</b> name
+        <b>Int</b> number
+    }
 }
 					</pre>
 				</div>
