@@ -178,7 +178,7 @@
                     <h1 class="email-content-title">EagleData</h1>
 					<h2 class="email-content-title">Engineering applications over Social and Open Data through Domain-Specific Languages</h2>
                     <p class="email-content-subtitle">
-                        From <a>Angel Mora-Segura</a> at <span>March, 2016</span>
+                        From <a>Angel Mora-Segura</a> at <span>May, 2016</span>
                     </p>
                 </div>
             </div>
@@ -537,20 +537,6 @@
 			
 			<div class="pure-u-1-1">
 				<div>
-					<div>
-						<p><code>CSV content snippet</code></p>
-					<div>
-						<pre>
-56; Camarreal 109;          A;  Calle;  Camarreal;  109;    43.44625;   -3.87072;
-61; Campogiro 23;           A;  Calle;  Campogiro;  23;     43.45044;   -3.85070;
-63; Campogiro 5;            A;  Calle;  Campogiro;  5;      43.45017;   -3.85127;
-64; Cajo 17;                B;  Calle;  Cajo;       17;     43.45405;   -3.83708;
-80; Parque Doctor Morales;  A;  Calle;  Cajo;       1;      43.45496;   -3.83419;
-88; Camarreal 109;          B;  Calle;  Camarreal;  109;    43.44625;   -3.87072;
-                        </pre>
-					</div>
-				</div>
-				<div>
 					<pre>
 @transport
 <b>package</b> BusLine{
@@ -594,10 +580,48 @@
 }
 					</pre>
 				</div>
+                <div>
+                    <pre>
+56; Camarreal 109;          A;  Calle;  Camarreal;  109;    43.44625;   -3.87072;
+61; Campogiro 23;           A;  Calle;  Campogiro;  23;     43.45044;   -3.85070;
+63; Campogiro 5;            A;  Calle;  Campogiro;  5;      43.45017;   -3.85127;
+64; Cajo 17;                B;  Calle;  Cajo;       17;     43.45405;   -3.83708;
+80; Parque Doctor Morales;  A;  Calle;  Cajo;       1;      43.45496;   -3.83419;
+88; Camarreal 109;          B;  Calle;  Camarreal;  109;    43.44625;   -3.87072;
+                    </pre>
+                </div>
+                <div>
+                    <pre>
+import BusLine.*
+import Address.*
+description "CSV" SantanderCityBus{
+    Id lineId
+    AddressPoint address
+    Stop stop
+} (
+  language={"es-ES"},
+  separator={";"}, 
+  order={stop.stopID, stop.name, lineId, address.addressPoint, stop.stopPoint}
+)
+                    </pre>
+                </div>
 			</div>
         </div>
     </div>
 </div>
+
+
+import BusLine.*
+import Address.*
+description "CSV" SantanderCityBus{
+    Id lineId
+    AddressPoint address
+    Stop stop
+} (
+  language={"es-ES"},
+  separator={";"}, 
+  order={stop.stopID, stop.name, lineId, address.addressPoint, stop.stopPoint}
+)
 
 <script src="http://yui.yahooapis.com/3.17.2/build/yui/yui-min.js"></script>
 
