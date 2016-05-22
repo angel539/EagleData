@@ -1,5 +1,5 @@
 code { 
-    background: hsl(220, 80%, 90%); 
+    /*background: hsl(220, 80%, 90%);*/ 
 }
 
 code b{
@@ -9,7 +9,7 @@ code b{
 
 pre {
     white-space: pre-wrap;
-    background: hsl(30,80%,90%);
+    /*background: hsl(30,80%,90%);*/
 }
 
 pre b{
