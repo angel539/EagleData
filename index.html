@@ -219,9 +219,11 @@
 	            </div>
 
 	            <div class="email-content-body">
-	            	<p>There is a current trend among governments and organizations to make all sort of information (like budgets, demographic or economic data) public. The information released in this way is called {\em Open Data}. Many institutions promote the creation of innovative applications using the data they have released, e.g., in combination with social networks, but only highly skilled engineers can accomplish this task.</p>
+	            	<p>There is a current trend among governments and organizations to make all sort of information (like budgets, demographic or economic data) public. The information released in this way is called Open Data. Many institutions promote the creation of innovative applications using the data they have released, e.g., in combination with social networks, but only highly skilled engineers can accomplish this task.</p>
 
 	            	<p>Our goal is to facilitate the construction of applications using open data and social networks as communication platform. For this purpose, we propose a family of domain-specific languages directed to automate the different tasks involved, like describing the structure and semantics of the heterogeneous data sets, the patterns to be sought in social network messages, the information to be extracted from static and dynamic data and the messages (over social networks) that the system needs to produce. We have built an extensible working prototype, which allows adding new open data formats and support for different social networks.</p>
+                    
+                    <p>DataDSL is a textual DSL that allows describing the semantics of data in het- erogeneous formats. </p>
 	            </div>
 
                 
@@ -528,16 +530,53 @@
                 <div class="email-content-controls pure-u-1-2">
 					<a class="secondary-button pure-button" href="">Move to top</a>
                 </div>
-        </div>
-		
+        </div>    
 		<div class="email-content-body pure-u-md-1-2">
-			<div class="pure-u-1-2">
-					<h4 class="email-content-title">#1_ Fragments</h4>
-			</div>
-            <div class="pure-u-1-2">
+            <div class="pure-u-1-1">
                 <div>
-                    A <code>fragment</code> is a format-independent, reusable description for describing the semantics of data in heterogeneous format.
+                    We would like to create an application to visualise the route of a given bus line, so that users can see the closest stop to their current position. The city of Santander (Spain) has made available the static data of the stop positions and bus lines at the open data Spanish portal, in CSV format. In the file, the bus line names have been abbreviated to A and B. In the data set, there is a row per stop and bus line, so that if both lines share a stop (e.g., Camarreal 109), there are two rows representing that stop: one for line A, and another for line B.
                 </div>
+                <div>
+                    <pre>
+56; Camarreal 109;          A;  Calle;  Camarreal;  109;    43.44625;   -3.87072;
+61; Campogiro 23;           A;  Calle;  Campogiro;  23;     43.45044;   -3.85070;
+63; Campogiro 5;            A;  Calle;  Campogiro;  5;      43.45017;   -3.85127;
+64; Cajo 17;                B;  Calle;  Cajo;       17;     43.45405;   -3.83708;
+80; Parque Doctor Morales;  A;  Calle;  Cajo;       1;      43.45496;   -3.83419;
+88; Camarreal 109;          B;  Calle;  Camarreal;  109;    43.44625;   -3.87072;
+                    </pre>
+                </div>
+            </div>
+			<div class="pure-u-1-2">
+					<h4 class="email-content-title">Descriptions</h4>
+			</div>
+            <div class="pure-u-1-1">
+                <p>
+                    A <code>data description</code> is a format-specific semantic description for concrete data sources. They may reuse fragments by importing them or by providing an extension. For example, the description for the CSV file snippet is:
+                </p>
+            </div>
+            <div class="pure-u-1-1">
+                    <pre>
+<b>enumeration</b> AddressKind {”Calle”, ”Avenida”}
+<b>enumeration</b> Line {”A”, ”B”}
+<b>description</b> CSV SantanderCityBus{
+    <b>Int</b> id (min=56,max=88)
+    <b>String</b> idStop (null = ” ”)
+    <b>Line</b> line
+    AddressKind addressKind
+    <b>String</b> addressName (null = ” ”)
+    <b>Int</b> addressNum (min = 1, max = 109)
+    <b>Lat</b> latPoint (minDouble = 43.44625, maxDouble = 43.45496)
+    <b>Long</b> longPoint (minDouble = −3.83419, maxDouble = −3.87072)
+}(”delimiter” = ”;”)
+                    </pre>
+                </div>
+            
+
+            <div class="pure-u-1-1">
+                <p>
+                    A <code>fragment</code> is a format-independent, reusable description for describing the semantics of data in heterogeneous format. An example of fragments is shown below:
+                </p>
             </div>			
 			<div class="pure-u-1-1">
 				<div>
@@ -584,22 +623,13 @@
 }
 					</pre>
 				</div>
-                <div class="pure-u-1-2">
-                    <div>
-                        A <code>data description</code> is a format-specific semantic description for concrete data sources. They may reuse fragments by importing them or by providing an extension. For example, an snipplet of a CSV is shown with its description.
-                    </div>
+                
+                <div class="pure-u-1-1">
+                    <p>
+                        Fragments can be imported and extended by descriptions. So, rewritting the CSV description reusing fragments we would obtain:
+                    </p>
                 </div>
-                <div>
-                    <pre>
-56; Camarreal 109;          A;  Calle;  Camarreal;  109;    43.44625;   -3.87072;
-61; Campogiro 23;           A;  Calle;  Campogiro;  23;     43.45044;   -3.85070;
-63; Campogiro 5;            A;  Calle;  Campogiro;  5;      43.45017;   -3.85127;
-64; Cajo 17;                B;  Calle;  Cajo;       17;     43.45405;   -3.83708;
-80; Parque Doctor Morales;  A;  Calle;  Cajo;       1;      43.45496;   -3.83419;
-88; Camarreal 109;          B;  Calle;  Camarreal;  109;    43.44625;   -3.87072;
-                    </pre>
-                </div>
-                <div>
+                <div class="pure-u-1-1">
                     <pre>
 <b>import</b> BusLine.*
 <b>import</b> Address.*
@@ -612,6 +642,19 @@
   <b>separator</b>={";"}, 
   <b>order</b>={stop.stopID, stop.name, lineId, address.addressPoint, stop.stopPoint}
 )
+                    </pre>
+                </div>
+                <div class="pure-u-1-1">
+                    <p>
+                        DataDSL is integrated with two more languages (PatternDSL and RuleDSL). Both languages are useful for describing simple applications over Twitter by detecting patterns on messages and for performing rule-based actions, like sending a message.
+                    </p>
+                </div>
+                <div class="pure-u-1-1">
+                    <pre>
+<b>phrase</b> MessageLine (”Line”, id)
+<b>on</b> MessageLine <b>do
+    addresses: <b>select</b> latPoint, longPoint where MessageLine.id = SantanderCityBus.id
+    <b>compose</b> ”https://www.google.com/maps/dir/@{addresses.latPoint,addresses.longPoint}[separator=’/’]”
                     </pre>
                 </div>
 			</div>
