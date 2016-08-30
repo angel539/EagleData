@@ -547,7 +547,7 @@
                     </pre>
                 </div>
             </div>
-			<div class="pure-u-1-2">
+			<div class="pure-u-1-1">
 					<h4 class="email-content-title">Descriptions</h4>
 			</div>
             <div class="pure-u-1-1">
@@ -572,7 +572,9 @@
                     </pre>
                 </div>
             
-
+            <div class="pure-u-1-1">
+					<h4 class="email-content-title">Fragments</h4>
+			</div>
             <div class="pure-u-1-1">
                 <p>
                     A <code>fragment</code> is a format-independent, reusable description for describing the semantics of data in heterogeneous format. An example of fragments is shown below:
@@ -623,7 +625,9 @@
 }
 					</pre>
 				</div>
-                
+                <div class="pure-u-1-1">
+					<h4 class="email-content-title">Descriptions + Fragments</h4>
+			     </div>
                 <div class="pure-u-1-1">
                     <p>
                         Fragments can be imported and extended by descriptions. So, rewritting the CSV description reusing fragments we would obtain:
@@ -645,6 +649,9 @@
                     </pre>
                 </div>
                 <div class="pure-u-1-1">
+					<h4 class="email-content-title">Integration with EagleData</h4>
+			     </div>
+                <div class="pure-u-1-1">
                     <p>
                         DataDSL is integrated with two more languages (PatternDSL and RuleDSL). Both languages are useful for describing simple applications over Twitter by detecting patterns on messages and for performing rule-based actions, like sending a message.
                     </p>
@@ -652,7 +659,7 @@
                 <div class="pure-u-1-1">
                     <pre>
 <b>phrase</b> MessageLine (”Line”, id)
-<b>on</b> MessageLine <b>do
+<b>on</b> MessageLine <b>do</b>
     addresses: <b>select</b> latPoint, longPoint where MessageLine.id = SantanderCityBus.id
     <b>compose</b> ”https://www.google.com/maps/dir/@{addresses.latPoint,addresses.longPoint}[separator=’/’]”
                     </pre>
