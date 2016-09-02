@@ -20,7 +20,14 @@ Require-Bundle: org.eclipse.ui,
  eagledata.core.twitter,
  eagledata.core.csv;bundle-version="1.0.0",
  eagledata.core.discoverer;bundle-version="1.0.0",
- eagledata.core.extensions;bundle-version="1.0.0"
+ eagledata.core.extensions;bundle-version="1.0.0",
+ org.eclipse.swt,
+ eagledata.core.dsl.datadesc.ui;bundle-version="1.0.0",
+ org.eclipse.ui.ide,
+ org.eclipse.equinox.registry,
+ eagledata.core.dsl.rule,
+ org.eclipse.emf.mwe.core,
+ eagledata.core.dsl.rule.ui
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-ActivationPolicy: lazy
 Bundle-ClassPath: icons/,
@@ -30,3 +37,7 @@ Bundle-ClassPath: icons/,
  lib/commons-lang3-3.4.jar
 Import-Package: com.google.inject,
  org.eclipse.ui.part
+Export-Package: eagledata.ui,
+ eagledata.ui.views.datatypes,
+ eagledata.ui.views.fragments,
+ eagledata.ui.views.streaming

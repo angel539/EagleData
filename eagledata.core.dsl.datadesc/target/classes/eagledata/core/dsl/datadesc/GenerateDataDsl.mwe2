@@ -1,12 +1,12 @@
 module eagledata.core.dsl.datadesc.GenerateDataDsl
 
+
 import org.eclipse.xtext.xtext.generator.*
 import org.eclipse.xtext.xtext.generator.model.project.*
 
 var rootPath = ".."
 
 Workflow {
-	
 	component = XtextGenerator {
 		configuration = {
 			project = StandardProjectConfig {
@@ -35,6 +35,16 @@ Workflow {
 			name = "eagledata.core.dsl.datadesc.DataDsl"
 			fileExtensions = "datad"
 
+			fragment = formatting.Formatter2Fragment2 auto-inject{}
+			//fragment = scoping.ImportNamespacesScopingFragment {}
+			//fragment = exporting.QualifiedNamesFragment {}
+			//fragment = builder.BuilderIntegrationFragment {}
+			//fragment = resourceFactory.ResourceFactoryFragment2 auto-inject{}
+			/*fragment = serializer.SerializerFragment2 auto-inject{
+				generateStub = true
+			}*/
+			//fragment = resourceFactory.ResourceFactoryFragment2 auto-inject{}
+    		
 			serializer = {
 				generateStub = false
 			}

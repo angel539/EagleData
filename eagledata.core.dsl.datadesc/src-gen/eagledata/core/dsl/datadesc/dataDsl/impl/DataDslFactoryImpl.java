@@ -3,37 +3,38 @@
  */
 package eagledata.core.dsl.datadesc.dataDsl.impl;
 
+import eagledata.core.dsl.datadesc.dataDsl.AbstractDescription;
 import eagledata.core.dsl.datadesc.dataDsl.BasicType;
 import eagledata.core.dsl.datadesc.dataDsl.BooleanOption;
 import eagledata.core.dsl.datadesc.dataDsl.BooleanOptionKey;
+import eagledata.core.dsl.datadesc.dataDsl.Cardinality;
+import eagledata.core.dsl.datadesc.dataDsl.CompositeNode;
+import eagledata.core.dsl.datadesc.dataDsl.DataDescription;
 import eagledata.core.dsl.datadesc.dataDsl.DataDslFactory;
 import eagledata.core.dsl.datadesc.dataDsl.DataDslPackage;
-import eagledata.core.dsl.datadesc.dataDsl.DataFragment;
 import eagledata.core.dsl.datadesc.dataDsl.DataModel;
 import eagledata.core.dsl.datadesc.dataDsl.DataModelElement;
 import eagledata.core.dsl.datadesc.dataDsl.DataOption;
-import eagledata.core.dsl.datadesc.dataDsl.DataOptionKey;
-import eagledata.core.dsl.datadesc.dataDsl.DataPackableDescription;
-import eagledata.core.dsl.datadesc.dataDsl.DataSourceDescription;
-import eagledata.core.dsl.datadesc.dataDsl.DataType;
+import eagledata.core.dsl.datadesc.dataDsl.DataTypeRefinement;
 import eagledata.core.dsl.datadesc.dataDsl.DoubleOption;
 import eagledata.core.dsl.datadesc.dataDsl.DoubleOptionKey;
 import eagledata.core.dsl.datadesc.dataDsl.Enumeration;
-import eagledata.core.dsl.datadesc.dataDsl.Format;
+import eagledata.core.dsl.datadesc.dataDsl.Fragment;
+import eagledata.core.dsl.datadesc.dataDsl.FragmentNode;
 import eagledata.core.dsl.datadesc.dataDsl.Import;
 import eagledata.core.dsl.datadesc.dataDsl.IntOption;
 import eagledata.core.dsl.datadesc.dataDsl.IntOptionKey;
-import eagledata.core.dsl.datadesc.dataDsl.LeafNode;
-import eagledata.core.dsl.datadesc.dataDsl.Multiplicity;
+import eagledata.core.dsl.datadesc.dataDsl.ListQualifiedNameOption;
+import eagledata.core.dsl.datadesc.dataDsl.ListQualifiedNameOptionKey;
+import eagledata.core.dsl.datadesc.dataDsl.Node;
 import eagledata.core.dsl.datadesc.dataDsl.Option;
-import eagledata.core.dsl.datadesc.dataDsl.SequenceOption;
-import eagledata.core.dsl.datadesc.dataDsl.SequenceOptionKey;
-import eagledata.core.dsl.datadesc.dataDsl.StringConcept;
+import eagledata.core.dsl.datadesc.dataDsl.PrimitiveNode;
+import eagledata.core.dsl.datadesc.dataDsl.SpecificationElement;
 import eagledata.core.dsl.datadesc.dataDsl.StringOption;
 import eagledata.core.dsl.datadesc.dataDsl.StringOptionKey;
-import eagledata.core.dsl.datadesc.dataDsl.StructDataType;
 import eagledata.core.dsl.datadesc.dataDsl.Substring;
 import eagledata.core.dsl.datadesc.dataDsl.SubstringConcept;
+import eagledata.core.dsl.datadesc.dataDsl.Tag;
 import eagledata.core.dsl.datadesc.dataDsl.TypeCharacter;
 import eagledata.core.dsl.datadesc.dataDsl.TypeSpecification;
 import eagledata.core.dsl.datadesc.dataDsl.TypeString;
@@ -103,24 +104,28 @@ public class DataDslFactoryImpl extends EFactoryImpl implements DataDslFactory
       case DataDslPackage.IMPORT: return createImport();
       case DataDslPackage.DATA_MODEL_ELEMENT: return createDataModelElement();
       case DataDslPackage.PACKAGE: return createPackage();
-      case DataDslPackage.DATA_PACKABLE_DESCRIPTION: return createDataPackableDescription();
-      case DataDslPackage.STRING_CONCEPT: return createStringConcept();
+      case DataDslPackage.TAG: return createTag();
+      case DataDslPackage.SPECIFICATION_ELEMENT: return createSpecificationElement();
+      case DataDslPackage.TYPE_SPECIFICATION: return createTypeSpecification();
+      case DataDslPackage.ABSTRACT_DESCRIPTION: return createAbstractDescription();
       case DataDslPackage.SUBSTRING_CONCEPT: return createSubstringConcept();
       case DataDslPackage.SUBSTRING: return createSubstring();
       case DataDslPackage.CHARACTER: return createCharacter();
-      case DataDslPackage.DATA_SOURCE_DESCRIPTION: return createDataSourceDescription();
-      case DataDslPackage.DATA_FRAGMENT: return createDataFragment();
-      case DataDslPackage.TYPE_SPECIFICATION: return createTypeSpecification();
-      case DataDslPackage.DATA_TYPE: return createDataType();
+      case DataDslPackage.NODE: return createNode();
+      case DataDslPackage.COMPOSITE_NODE: return createCompositeNode();
+      case DataDslPackage.FRAGMENT_NODE: return createFragmentNode();
+      case DataDslPackage.PRIMITIVE_NODE: return createPrimitiveNode();
+      case DataDslPackage.CARDINALITY: return createCardinality();
+      case DataDslPackage.DATA_DESCRIPTION: return createDataDescription();
+      case DataDslPackage.FRAGMENT: return createFragment();
+      case DataDslPackage.DATA_TYPE_REFINEMENT: return createDataTypeRefinement();
       case DataDslPackage.ENUMERATION: return createEnumeration();
-      case DataDslPackage.STRUCT_DATA_TYPE: return createStructDataType();
-      case DataDslPackage.LEAF_NODE: return createLeafNode();
       case DataDslPackage.OPTION: return createOption();
       case DataDslPackage.STRING_OPTION: return createStringOption();
       case DataDslPackage.INT_OPTION: return createIntOption();
       case DataDslPackage.DOUBLE_OPTION: return createDoubleOption();
       case DataDslPackage.BOOLEAN_OPTION: return createBooleanOption();
-      case DataDslPackage.SEQUENCE_OPTION: return createSequenceOption();
+      case DataDslPackage.LIST_QUALIFIED_NAME_OPTION: return createListQualifiedNameOption();
       case DataDslPackage.DATA_OPTION: return createDataOption();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
@@ -141,10 +146,6 @@ public class DataDslFactoryImpl extends EFactoryImpl implements DataDslFactory
         return createTypeCharacterFromString(eDataType, initialValue);
       case DataDslPackage.TYPE_STRING:
         return createTypeStringFromString(eDataType, initialValue);
-      case DataDslPackage.MULTIPLICITY:
-        return createMultiplicityFromString(eDataType, initialValue);
-      case DataDslPackage.SEQUENCE_OPTION_KEY:
-        return createSequenceOptionKeyFromString(eDataType, initialValue);
       case DataDslPackage.BASIC_TYPE:
         return createBasicTypeFromString(eDataType, initialValue);
       case DataDslPackage.STRING_OPTION_KEY:
@@ -155,10 +156,8 @@ public class DataDslFactoryImpl extends EFactoryImpl implements DataDslFactory
         return createDoubleOptionKeyFromString(eDataType, initialValue);
       case DataDslPackage.BOOLEAN_OPTION_KEY:
         return createBooleanOptionKeyFromString(eDataType, initialValue);
-      case DataDslPackage.DATA_OPTION_KEY:
-        return createDataOptionKeyFromString(eDataType, initialValue);
-      case DataDslPackage.FORMAT:
-        return createFormatFromString(eDataType, initialValue);
+      case DataDslPackage.LIST_QUALIFIED_NAME_OPTION_KEY:
+        return createListQualifiedNameOptionKeyFromString(eDataType, initialValue);
       default:
         throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
     }
@@ -178,10 +177,6 @@ public class DataDslFactoryImpl extends EFactoryImpl implements DataDslFactory
         return convertTypeCharacterToString(eDataType, instanceValue);
       case DataDslPackage.TYPE_STRING:
         return convertTypeStringToString(eDataType, instanceValue);
-      case DataDslPackage.MULTIPLICITY:
-        return convertMultiplicityToString(eDataType, instanceValue);
-      case DataDslPackage.SEQUENCE_OPTION_KEY:
-        return convertSequenceOptionKeyToString(eDataType, instanceValue);
       case DataDslPackage.BASIC_TYPE:
         return convertBasicTypeToString(eDataType, instanceValue);
       case DataDslPackage.STRING_OPTION_KEY:
@@ -192,10 +187,8 @@ public class DataDslFactoryImpl extends EFactoryImpl implements DataDslFactory
         return convertDoubleOptionKeyToString(eDataType, instanceValue);
       case DataDslPackage.BOOLEAN_OPTION_KEY:
         return convertBooleanOptionKeyToString(eDataType, instanceValue);
-      case DataDslPackage.DATA_OPTION_KEY:
-        return convertDataOptionKeyToString(eDataType, instanceValue);
-      case DataDslPackage.FORMAT:
-        return convertFormatToString(eDataType, instanceValue);
+      case DataDslPackage.LIST_QUALIFIED_NAME_OPTION_KEY:
+        return convertListQualifiedNameOptionKeyToString(eDataType, instanceValue);
       default:
         throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
     }
@@ -250,10 +243,10 @@ public class DataDslFactoryImpl extends EFactoryImpl implements DataDslFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public DataPackableDescription createDataPackableDescription()
+  public Tag createTag()
   {
-    DataPackableDescriptionImpl dataPackableDescription = new DataPackableDescriptionImpl();
-    return dataPackableDescription;
+    TagImpl tag = new TagImpl();
+    return tag;
   }
 
   /**
@@ -261,10 +254,32 @@ public class DataDslFactoryImpl extends EFactoryImpl implements DataDslFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public StringConcept createStringConcept()
+  public SpecificationElement createSpecificationElement()
   {
-    StringConceptImpl stringConcept = new StringConceptImpl();
-    return stringConcept;
+    SpecificationElementImpl specificationElement = new SpecificationElementImpl();
+    return specificationElement;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public TypeSpecification createTypeSpecification()
+  {
+    TypeSpecificationImpl typeSpecification = new TypeSpecificationImpl();
+    return typeSpecification;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public AbstractDescription createAbstractDescription()
+  {
+    AbstractDescriptionImpl abstractDescription = new AbstractDescriptionImpl();
+    return abstractDescription;
   }
 
   /**
@@ -305,10 +320,10 @@ public class DataDslFactoryImpl extends EFactoryImpl implements DataDslFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public DataSourceDescription createDataSourceDescription()
+  public Node createNode()
   {
-    DataSourceDescriptionImpl dataSourceDescription = new DataSourceDescriptionImpl();
-    return dataSourceDescription;
+    NodeImpl node = new NodeImpl();
+    return node;
   }
 
   /**
@@ -316,10 +331,10 @@ public class DataDslFactoryImpl extends EFactoryImpl implements DataDslFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public DataFragment createDataFragment()
+  public CompositeNode createCompositeNode()
   {
-    DataFragmentImpl dataFragment = new DataFragmentImpl();
-    return dataFragment;
+    CompositeNodeImpl compositeNode = new CompositeNodeImpl();
+    return compositeNode;
   }
 
   /**
@@ -327,10 +342,10 @@ public class DataDslFactoryImpl extends EFactoryImpl implements DataDslFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public TypeSpecification createTypeSpecification()
+  public FragmentNode createFragmentNode()
   {
-    TypeSpecificationImpl typeSpecification = new TypeSpecificationImpl();
-    return typeSpecification;
+    FragmentNodeImpl fragmentNode = new FragmentNodeImpl();
+    return fragmentNode;
   }
 
   /**
@@ -338,10 +353,54 @@ public class DataDslFactoryImpl extends EFactoryImpl implements DataDslFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public DataType createDataType()
+  public PrimitiveNode createPrimitiveNode()
   {
-    DataTypeImpl dataType = new DataTypeImpl();
-    return dataType;
+    PrimitiveNodeImpl primitiveNode = new PrimitiveNodeImpl();
+    return primitiveNode;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Cardinality createCardinality()
+  {
+    CardinalityImpl cardinality = new CardinalityImpl();
+    return cardinality;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public DataDescription createDataDescription()
+  {
+    DataDescriptionImpl dataDescription = new DataDescriptionImpl();
+    return dataDescription;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Fragment createFragment()
+  {
+    FragmentImpl fragment = new FragmentImpl();
+    return fragment;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public DataTypeRefinement createDataTypeRefinement()
+  {
+    DataTypeRefinementImpl dataTypeRefinement = new DataTypeRefinementImpl();
+    return dataTypeRefinement;
   }
 
   /**
@@ -353,28 +412,6 @@ public class DataDslFactoryImpl extends EFactoryImpl implements DataDslFactory
   {
     EnumerationImpl enumeration = new EnumerationImpl();
     return enumeration;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public StructDataType createStructDataType()
-  {
-    StructDataTypeImpl structDataType = new StructDataTypeImpl();
-    return structDataType;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public LeafNode createLeafNode()
-  {
-    LeafNodeImpl leafNode = new LeafNodeImpl();
-    return leafNode;
   }
 
   /**
@@ -437,10 +474,10 @@ public class DataDslFactoryImpl extends EFactoryImpl implements DataDslFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public SequenceOption createSequenceOption()
+  public ListQualifiedNameOption createListQualifiedNameOption()
   {
-    SequenceOptionImpl sequenceOption = new SequenceOptionImpl();
-    return sequenceOption;
+    ListQualifiedNameOptionImpl listQualifiedNameOption = new ListQualifiedNameOptionImpl();
+    return listQualifiedNameOption;
   }
 
   /**
@@ -494,50 +531,6 @@ public class DataDslFactoryImpl extends EFactoryImpl implements DataDslFactory
    * @generated
    */
   public String convertTypeStringToString(EDataType eDataType, Object instanceValue)
-  {
-    return instanceValue == null ? null : instanceValue.toString();
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Multiplicity createMultiplicityFromString(EDataType eDataType, String initialValue)
-  {
-    Multiplicity result = Multiplicity.get(initialValue);
-    if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-    return result;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public String convertMultiplicityToString(EDataType eDataType, Object instanceValue)
-  {
-    return instanceValue == null ? null : instanceValue.toString();
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public SequenceOptionKey createSequenceOptionKeyFromString(EDataType eDataType, String initialValue)
-  {
-    SequenceOptionKey result = SequenceOptionKey.get(initialValue);
-    if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-    return result;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public String convertSequenceOptionKeyToString(EDataType eDataType, Object instanceValue)
   {
     return instanceValue == null ? null : instanceValue.toString();
   }
@@ -657,9 +650,9 @@ public class DataDslFactoryImpl extends EFactoryImpl implements DataDslFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public DataOptionKey createDataOptionKeyFromString(EDataType eDataType, String initialValue)
+  public ListQualifiedNameOptionKey createListQualifiedNameOptionKeyFromString(EDataType eDataType, String initialValue)
   {
-    DataOptionKey result = DataOptionKey.get(initialValue);
+    ListQualifiedNameOptionKey result = ListQualifiedNameOptionKey.get(initialValue);
     if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
     return result;
   }
@@ -669,29 +662,7 @@ public class DataDslFactoryImpl extends EFactoryImpl implements DataDslFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public String convertDataOptionKeyToString(EDataType eDataType, Object instanceValue)
-  {
-    return instanceValue == null ? null : instanceValue.toString();
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Format createFormatFromString(EDataType eDataType, String initialValue)
-  {
-    Format result = Format.get(initialValue);
-    if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-    return result;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public String convertFormatToString(EDataType eDataType, Object instanceValue)
+  public String convertListQualifiedNameOptionKeyToString(EDataType eDataType, Object instanceValue)
   {
     return instanceValue == null ? null : instanceValue.toString();
   }

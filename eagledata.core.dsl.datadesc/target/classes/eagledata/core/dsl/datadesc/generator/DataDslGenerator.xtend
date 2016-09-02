@@ -14,11 +14,11 @@ import eagledata.core.dsl.datadesc.dataDsl.Package
 
 class DataDslGenerator extends AbstractGenerator {
 	override void doGenerate(Resource resource, IFileSystemAccess2 fsa, IGeneratorContext context) {
-		for (e : resource.allContents.toIterable.filter(Package)) {
+		/*for (e : resource.allContents.toIterable.filter(Package)) {
 			fsa.generateFile(
                 e.name + ".log", "")
 			}
-		}
+		}*/
 			
             //fsa.generateFile(
             //    e.fullyQualifiedName.toString("/") + ".java",
@@ -48,4 +48,6 @@ class DataDslGenerator extends AbstractGenerator {
             package «e.eContainer.fullyQualifiedName»;
         «ENDIF»
     '''*/
+
+    }
 }

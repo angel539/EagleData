@@ -51,8 +51,4 @@ public class FragmentsViewContentProvider implements IStructuredContentProvider,
 			return ((TreeParent)parent).hasChildren();
 		return false;
 	}
-	
-	/*private void initialize() {
-		invisibleRoot = new TreeParent("");
-	}*/
 }

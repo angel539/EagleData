@@ -16,7 +16,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link eagledata.core.dsl.datadesc.dataDsl.DataModel#getDescriptions <em>Descriptions</em>}</li>
+ *   <li>{@link eagledata.core.dsl.datadesc.dataDsl.DataModel#getElements <em>Elements</em>}</li>
  * </ul>
  *
  * @see eagledata.core.dsl.datadesc.dataDsl.DataDslPackage#getDataModel()
@@ -26,19 +26,19 @@ import org.eclipse.emf.ecore.EObject;
 public interface DataModel extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Descriptions</b></em>' containment reference list.
+   * Returns the value of the '<em><b>Elements</b></em>' containment reference list.
    * The list contents are of type {@link eagledata.core.dsl.datadesc.dataDsl.DataModelElement}.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Descriptions</em>' containment reference list isn't clear,
+   * If the meaning of the '<em>Elements</em>' containment reference list isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Descriptions</em>' containment reference list.
-   * @see eagledata.core.dsl.datadesc.dataDsl.DataDslPackage#getDataModel_Descriptions()
+   * @return the value of the '<em>Elements</em>' containment reference list.
+   * @see eagledata.core.dsl.datadesc.dataDsl.DataDslPackage#getDataModel_Elements()
    * @model containment="true"
    * @generated
    */
-  EList<DataModelElement> getDescriptions();
+  EList<DataModelElement> getElements();
 
 } // DataModel

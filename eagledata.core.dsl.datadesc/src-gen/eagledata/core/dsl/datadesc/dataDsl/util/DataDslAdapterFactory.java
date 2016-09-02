@@ -3,27 +3,31 @@
  */
 package eagledata.core.dsl.datadesc.dataDsl.util;
 
+import eagledata.core.dsl.datadesc.dataDsl.AbstractDescription;
 import eagledata.core.dsl.datadesc.dataDsl.BooleanOption;
+import eagledata.core.dsl.datadesc.dataDsl.Cardinality;
+import eagledata.core.dsl.datadesc.dataDsl.CompositeNode;
+import eagledata.core.dsl.datadesc.dataDsl.DataDescription;
 import eagledata.core.dsl.datadesc.dataDsl.DataDslPackage;
-import eagledata.core.dsl.datadesc.dataDsl.DataFragment;
 import eagledata.core.dsl.datadesc.dataDsl.DataModel;
 import eagledata.core.dsl.datadesc.dataDsl.DataModelElement;
 import eagledata.core.dsl.datadesc.dataDsl.DataOption;
-import eagledata.core.dsl.datadesc.dataDsl.DataPackableDescription;
-import eagledata.core.dsl.datadesc.dataDsl.DataSourceDescription;
-import eagledata.core.dsl.datadesc.dataDsl.DataType;
+import eagledata.core.dsl.datadesc.dataDsl.DataTypeRefinement;
 import eagledata.core.dsl.datadesc.dataDsl.DoubleOption;
 import eagledata.core.dsl.datadesc.dataDsl.Enumeration;
+import eagledata.core.dsl.datadesc.dataDsl.Fragment;
+import eagledata.core.dsl.datadesc.dataDsl.FragmentNode;
 import eagledata.core.dsl.datadesc.dataDsl.Import;
 import eagledata.core.dsl.datadesc.dataDsl.IntOption;
-import eagledata.core.dsl.datadesc.dataDsl.LeafNode;
+import eagledata.core.dsl.datadesc.dataDsl.ListQualifiedNameOption;
+import eagledata.core.dsl.datadesc.dataDsl.Node;
 import eagledata.core.dsl.datadesc.dataDsl.Option;
-import eagledata.core.dsl.datadesc.dataDsl.SequenceOption;
-import eagledata.core.dsl.datadesc.dataDsl.StringConcept;
+import eagledata.core.dsl.datadesc.dataDsl.PrimitiveNode;
+import eagledata.core.dsl.datadesc.dataDsl.SpecificationElement;
 import eagledata.core.dsl.datadesc.dataDsl.StringOption;
-import eagledata.core.dsl.datadesc.dataDsl.StructDataType;
 import eagledata.core.dsl.datadesc.dataDsl.Substring;
 import eagledata.core.dsl.datadesc.dataDsl.SubstringConcept;
+import eagledata.core.dsl.datadesc.dataDsl.Tag;
 import eagledata.core.dsl.datadesc.dataDsl.TypeSpecification;
 
 import org.eclipse.emf.common.notify.Adapter;
@@ -117,14 +121,24 @@ public class DataDslAdapterFactory extends AdapterFactoryImpl
         return createPackageAdapter();
       }
       @Override
-      public Adapter caseDataPackableDescription(DataPackableDescription object)
+      public Adapter caseTag(Tag object)
       {
-        return createDataPackableDescriptionAdapter();
+        return createTagAdapter();
       }
       @Override
-      public Adapter caseStringConcept(StringConcept object)
+      public Adapter caseSpecificationElement(SpecificationElement object)
       {
-        return createStringConceptAdapter();
+        return createSpecificationElementAdapter();
+      }
+      @Override
+      public Adapter caseTypeSpecification(TypeSpecification object)
+      {
+        return createTypeSpecificationAdapter();
+      }
+      @Override
+      public Adapter caseAbstractDescription(AbstractDescription object)
+      {
+        return createAbstractDescriptionAdapter();
       }
       @Override
       public Adapter caseSubstringConcept(SubstringConcept object)
@@ -142,39 +156,49 @@ public class DataDslAdapterFactory extends AdapterFactoryImpl
         return createCharacterAdapter();
       }
       @Override
-      public Adapter caseDataSourceDescription(DataSourceDescription object)
+      public Adapter caseNode(Node object)
       {
-        return createDataSourceDescriptionAdapter();
+        return createNodeAdapter();
       }
       @Override
-      public Adapter caseDataFragment(DataFragment object)
+      public Adapter caseCompositeNode(CompositeNode object)
       {
-        return createDataFragmentAdapter();
+        return createCompositeNodeAdapter();
       }
       @Override
-      public Adapter caseTypeSpecification(TypeSpecification object)
+      public Adapter caseFragmentNode(FragmentNode object)
       {
-        return createTypeSpecificationAdapter();
+        return createFragmentNodeAdapter();
       }
       @Override
-      public Adapter caseDataType(DataType object)
+      public Adapter casePrimitiveNode(PrimitiveNode object)
       {
-        return createDataTypeAdapter();
+        return createPrimitiveNodeAdapter();
+      }
+      @Override
+      public Adapter caseCardinality(Cardinality object)
+      {
+        return createCardinalityAdapter();
+      }
+      @Override
+      public Adapter caseDataDescription(DataDescription object)
+      {
+        return createDataDescriptionAdapter();
+      }
+      @Override
+      public Adapter caseFragment(Fragment object)
+      {
+        return createFragmentAdapter();
+      }
+      @Override
+      public Adapter caseDataTypeRefinement(DataTypeRefinement object)
+      {
+        return createDataTypeRefinementAdapter();
       }
       @Override
       public Adapter caseEnumeration(Enumeration object)
       {
         return createEnumerationAdapter();
-      }
-      @Override
-      public Adapter caseStructDataType(StructDataType object)
-      {
-        return createStructDataTypeAdapter();
-      }
-      @Override
-      public Adapter caseLeafNode(LeafNode object)
-      {
-        return createLeafNodeAdapter();
       }
       @Override
       public Adapter caseOption(Option object)
@@ -202,9 +226,9 @@ public class DataDslAdapterFactory extends AdapterFactoryImpl
         return createBooleanOptionAdapter();
       }
       @Override
-      public Adapter caseSequenceOption(SequenceOption object)
+      public Adapter caseListQualifiedNameOption(ListQualifiedNameOption object)
       {
-        return createSequenceOptionAdapter();
+        return createListQualifiedNameOptionAdapter();
       }
       @Override
       public Adapter caseDataOption(DataOption object)
@@ -294,31 +318,61 @@ public class DataDslAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link eagledata.core.dsl.datadesc.dataDsl.DataPackableDescription <em>Data Packable Description</em>}'.
+   * Creates a new adapter for an object of class '{@link eagledata.core.dsl.datadesc.dataDsl.Tag <em>Tag</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see eagledata.core.dsl.datadesc.dataDsl.DataPackableDescription
+   * @see eagledata.core.dsl.datadesc.dataDsl.Tag
    * @generated
    */
-  public Adapter createDataPackableDescriptionAdapter()
+  public Adapter createTagAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link eagledata.core.dsl.datadesc.dataDsl.StringConcept <em>String Concept</em>}'.
+   * Creates a new adapter for an object of class '{@link eagledata.core.dsl.datadesc.dataDsl.SpecificationElement <em>Specification Element</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see eagledata.core.dsl.datadesc.dataDsl.StringConcept
+   * @see eagledata.core.dsl.datadesc.dataDsl.SpecificationElement
    * @generated
    */
-  public Adapter createStringConceptAdapter()
+  public Adapter createSpecificationElementAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link eagledata.core.dsl.datadesc.dataDsl.TypeSpecification <em>Type Specification</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see eagledata.core.dsl.datadesc.dataDsl.TypeSpecification
+   * @generated
+   */
+  public Adapter createTypeSpecificationAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link eagledata.core.dsl.datadesc.dataDsl.AbstractDescription <em>Abstract Description</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see eagledata.core.dsl.datadesc.dataDsl.AbstractDescription
+   * @generated
+   */
+  public Adapter createAbstractDescriptionAdapter()
   {
     return null;
   }
@@ -369,61 +423,121 @@ public class DataDslAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link eagledata.core.dsl.datadesc.dataDsl.DataSourceDescription <em>Data Source Description</em>}'.
+   * Creates a new adapter for an object of class '{@link eagledata.core.dsl.datadesc.dataDsl.Node <em>Node</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see eagledata.core.dsl.datadesc.dataDsl.DataSourceDescription
+   * @see eagledata.core.dsl.datadesc.dataDsl.Node
    * @generated
    */
-  public Adapter createDataSourceDescriptionAdapter()
+  public Adapter createNodeAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link eagledata.core.dsl.datadesc.dataDsl.DataFragment <em>Data Fragment</em>}'.
+   * Creates a new adapter for an object of class '{@link eagledata.core.dsl.datadesc.dataDsl.CompositeNode <em>Composite Node</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see eagledata.core.dsl.datadesc.dataDsl.DataFragment
+   * @see eagledata.core.dsl.datadesc.dataDsl.CompositeNode
    * @generated
    */
-  public Adapter createDataFragmentAdapter()
+  public Adapter createCompositeNodeAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link eagledata.core.dsl.datadesc.dataDsl.TypeSpecification <em>Type Specification</em>}'.
+   * Creates a new adapter for an object of class '{@link eagledata.core.dsl.datadesc.dataDsl.FragmentNode <em>Fragment Node</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see eagledata.core.dsl.datadesc.dataDsl.TypeSpecification
+   * @see eagledata.core.dsl.datadesc.dataDsl.FragmentNode
    * @generated
    */
-  public Adapter createTypeSpecificationAdapter()
+  public Adapter createFragmentNodeAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link eagledata.core.dsl.datadesc.dataDsl.DataType <em>Data Type</em>}'.
+   * Creates a new adapter for an object of class '{@link eagledata.core.dsl.datadesc.dataDsl.PrimitiveNode <em>Primitive Node</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see eagledata.core.dsl.datadesc.dataDsl.DataType
+   * @see eagledata.core.dsl.datadesc.dataDsl.PrimitiveNode
    * @generated
    */
-  public Adapter createDataTypeAdapter()
+  public Adapter createPrimitiveNodeAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link eagledata.core.dsl.datadesc.dataDsl.Cardinality <em>Cardinality</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see eagledata.core.dsl.datadesc.dataDsl.Cardinality
+   * @generated
+   */
+  public Adapter createCardinalityAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link eagledata.core.dsl.datadesc.dataDsl.DataDescription <em>Data Description</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see eagledata.core.dsl.datadesc.dataDsl.DataDescription
+   * @generated
+   */
+  public Adapter createDataDescriptionAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link eagledata.core.dsl.datadesc.dataDsl.Fragment <em>Fragment</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see eagledata.core.dsl.datadesc.dataDsl.Fragment
+   * @generated
+   */
+  public Adapter createFragmentAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link eagledata.core.dsl.datadesc.dataDsl.DataTypeRefinement <em>Data Type Refinement</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see eagledata.core.dsl.datadesc.dataDsl.DataTypeRefinement
+   * @generated
+   */
+  public Adapter createDataTypeRefinementAdapter()
   {
     return null;
   }
@@ -439,36 +553,6 @@ public class DataDslAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createEnumerationAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link eagledata.core.dsl.datadesc.dataDsl.StructDataType <em>Struct Data Type</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see eagledata.core.dsl.datadesc.dataDsl.StructDataType
-   * @generated
-   */
-  public Adapter createStructDataTypeAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link eagledata.core.dsl.datadesc.dataDsl.LeafNode <em>Leaf Node</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see eagledata.core.dsl.datadesc.dataDsl.LeafNode
-   * @generated
-   */
-  public Adapter createLeafNodeAdapter()
   {
     return null;
   }
@@ -549,16 +633,16 @@ public class DataDslAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link eagledata.core.dsl.datadesc.dataDsl.SequenceOption <em>Sequence Option</em>}'.
+   * Creates a new adapter for an object of class '{@link eagledata.core.dsl.datadesc.dataDsl.ListQualifiedNameOption <em>List Qualified Name Option</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see eagledata.core.dsl.datadesc.dataDsl.SequenceOption
+   * @see eagledata.core.dsl.datadesc.dataDsl.ListQualifiedNameOption
    * @generated
    */
-  public Adapter createSequenceOptionAdapter()
+  public Adapter createListQualifiedNameOptionAdapter()
   {
     return null;
   }

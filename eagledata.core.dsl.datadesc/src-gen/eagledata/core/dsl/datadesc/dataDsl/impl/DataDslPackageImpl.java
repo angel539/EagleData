@@ -3,37 +3,38 @@
  */
 package eagledata.core.dsl.datadesc.dataDsl.impl;
 
+import eagledata.core.dsl.datadesc.dataDsl.AbstractDescription;
 import eagledata.core.dsl.datadesc.dataDsl.BasicType;
 import eagledata.core.dsl.datadesc.dataDsl.BooleanOption;
 import eagledata.core.dsl.datadesc.dataDsl.BooleanOptionKey;
+import eagledata.core.dsl.datadesc.dataDsl.Cardinality;
+import eagledata.core.dsl.datadesc.dataDsl.CompositeNode;
+import eagledata.core.dsl.datadesc.dataDsl.DataDescription;
 import eagledata.core.dsl.datadesc.dataDsl.DataDslFactory;
 import eagledata.core.dsl.datadesc.dataDsl.DataDslPackage;
-import eagledata.core.dsl.datadesc.dataDsl.DataFragment;
 import eagledata.core.dsl.datadesc.dataDsl.DataModel;
 import eagledata.core.dsl.datadesc.dataDsl.DataModelElement;
 import eagledata.core.dsl.datadesc.dataDsl.DataOption;
-import eagledata.core.dsl.datadesc.dataDsl.DataOptionKey;
-import eagledata.core.dsl.datadesc.dataDsl.DataPackableDescription;
-import eagledata.core.dsl.datadesc.dataDsl.DataSourceDescription;
-import eagledata.core.dsl.datadesc.dataDsl.DataType;
+import eagledata.core.dsl.datadesc.dataDsl.DataTypeRefinement;
 import eagledata.core.dsl.datadesc.dataDsl.DoubleOption;
 import eagledata.core.dsl.datadesc.dataDsl.DoubleOptionKey;
 import eagledata.core.dsl.datadesc.dataDsl.Enumeration;
-import eagledata.core.dsl.datadesc.dataDsl.Format;
+import eagledata.core.dsl.datadesc.dataDsl.Fragment;
+import eagledata.core.dsl.datadesc.dataDsl.FragmentNode;
 import eagledata.core.dsl.datadesc.dataDsl.Import;
 import eagledata.core.dsl.datadesc.dataDsl.IntOption;
 import eagledata.core.dsl.datadesc.dataDsl.IntOptionKey;
-import eagledata.core.dsl.datadesc.dataDsl.LeafNode;
-import eagledata.core.dsl.datadesc.dataDsl.Multiplicity;
+import eagledata.core.dsl.datadesc.dataDsl.ListQualifiedNameOption;
+import eagledata.core.dsl.datadesc.dataDsl.ListQualifiedNameOptionKey;
+import eagledata.core.dsl.datadesc.dataDsl.Node;
 import eagledata.core.dsl.datadesc.dataDsl.Option;
-import eagledata.core.dsl.datadesc.dataDsl.SequenceOption;
-import eagledata.core.dsl.datadesc.dataDsl.SequenceOptionKey;
-import eagledata.core.dsl.datadesc.dataDsl.StringConcept;
+import eagledata.core.dsl.datadesc.dataDsl.PrimitiveNode;
+import eagledata.core.dsl.datadesc.dataDsl.SpecificationElement;
 import eagledata.core.dsl.datadesc.dataDsl.StringOption;
 import eagledata.core.dsl.datadesc.dataDsl.StringOptionKey;
-import eagledata.core.dsl.datadesc.dataDsl.StructDataType;
 import eagledata.core.dsl.datadesc.dataDsl.Substring;
 import eagledata.core.dsl.datadesc.dataDsl.SubstringConcept;
+import eagledata.core.dsl.datadesc.dataDsl.Tag;
 import eagledata.core.dsl.datadesc.dataDsl.TypeCharacter;
 import eagledata.core.dsl.datadesc.dataDsl.TypeSpecification;
 import eagledata.core.dsl.datadesc.dataDsl.TypeString;
@@ -87,14 +88,28 @@ public class DataDslPackageImpl extends EPackageImpl implements DataDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass dataPackableDescriptionEClass = null;
+  private EClass tagEClass = null;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass stringConceptEClass = null;
+  private EClass specificationElementEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass typeSpecificationEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass abstractDescriptionEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -122,28 +137,56 @@ public class DataDslPackageImpl extends EPackageImpl implements DataDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass dataSourceDescriptionEClass = null;
+  private EClass nodeEClass = null;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass dataFragmentEClass = null;
+  private EClass compositeNodeEClass = null;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass typeSpecificationEClass = null;
+  private EClass fragmentNodeEClass = null;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass dataTypeEClass = null;
+  private EClass primitiveNodeEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass cardinalityEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass dataDescriptionEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass fragmentEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass dataTypeRefinementEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -151,20 +194,6 @@ public class DataDslPackageImpl extends EPackageImpl implements DataDslPackage
    * @generated
    */
   private EClass enumerationEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass structDataTypeEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass leafNodeEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -206,7 +235,7 @@ public class DataDslPackageImpl extends EPackageImpl implements DataDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass sequenceOptionEClass = null;
+  private EClass listQualifiedNameOptionEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -228,20 +257,6 @@ public class DataDslPackageImpl extends EPackageImpl implements DataDslPackage
    * @generated
    */
   private EEnum typeStringEEnum = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EEnum multiplicityEEnum = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EEnum sequenceOptionKeyEEnum = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -283,14 +298,7 @@ public class DataDslPackageImpl extends EPackageImpl implements DataDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  private EEnum dataOptionKeyEEnum = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EEnum formatEEnum = null;
+  private EEnum listQualifiedNameOptionKeyEEnum = null;
 
   /**
    * Creates an instance of the model <b>Package</b>, registered with
@@ -370,7 +378,7 @@ public class DataDslPackageImpl extends EPackageImpl implements DataDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getDataModel_Descriptions()
+  public EReference getDataModel_Elements()
   {
     return (EReference)dataModelEClass.getEStructuralFeatures().get(0);
   }
@@ -420,9 +428,19 @@ public class DataDslPackageImpl extends EPackageImpl implements DataDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EReference getPackage_Tags()
+  {
+    return (EReference)packageEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EAttribute getPackage_Name()
   {
-    return (EAttribute)packageEClass.getEStructuralFeatures().get(0);
+    return (EAttribute)packageEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -432,7 +450,7 @@ public class DataDslPackageImpl extends EPackageImpl implements DataDslPackage
    */
   public EReference getPackage_Elements()
   {
-    return (EReference)packageEClass.getEStructuralFeatures().get(1);
+    return (EReference)packageEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -440,9 +458,9 @@ public class DataDslPackageImpl extends EPackageImpl implements DataDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getDataPackableDescription()
+  public EClass getTag()
   {
-    return dataPackableDescriptionEClass;
+    return tagEClass;
   }
 
   /**
@@ -450,9 +468,9 @@ public class DataDslPackageImpl extends EPackageImpl implements DataDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getDataPackableDescription_Name()
+  public EAttribute getTag_Tag()
   {
-    return (EAttribute)dataPackableDescriptionEClass.getEStructuralFeatures().get(0);
+    return (EAttribute)tagEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -460,9 +478,9 @@ public class DataDslPackageImpl extends EPackageImpl implements DataDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getStringConcept()
+  public EClass getSpecificationElement()
   {
-    return stringConceptEClass;
+    return specificationElementEClass;
   }
 
   /**
@@ -470,9 +488,49 @@ public class DataDslPackageImpl extends EPackageImpl implements DataDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getStringConcept_Subsequence()
+  public EAttribute getSpecificationElement_Name()
   {
-    return (EReference)stringConceptEClass.getEStructuralFeatures().get(0);
+    return (EAttribute)specificationElementEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getTypeSpecification()
+  {
+    return typeSpecificationEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getAbstractDescription()
+  {
+    return abstractDescriptionEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getAbstractDescription_Fragments()
+  {
+    return (EReference)abstractDescriptionEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getAbstractDescription_Nodes()
+  {
+    return (EReference)abstractDescriptionEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -570,9 +628,9 @@ public class DataDslPackageImpl extends EPackageImpl implements DataDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getDataSourceDescription()
+  public EClass getNode()
   {
-    return dataSourceDescriptionEClass;
+    return nodeEClass;
   }
 
   /**
@@ -580,9 +638,9 @@ public class DataDslPackageImpl extends EPackageImpl implements DataDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getDataSourceDescription_Format()
+  public EAttribute getNode_Name()
   {
-    return (EAttribute)dataSourceDescriptionEClass.getEStructuralFeatures().get(0);
+    return (EAttribute)nodeEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -590,9 +648,9 @@ public class DataDslPackageImpl extends EPackageImpl implements DataDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getDataSourceDescription_Name()
+  public EReference getNode_Cardinality()
   {
-    return (EAttribute)dataSourceDescriptionEClass.getEStructuralFeatures().get(1);
+    return (EReference)nodeEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -600,9 +658,9 @@ public class DataDslPackageImpl extends EPackageImpl implements DataDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getDataSourceDescription_Fragments()
+  public EReference getNode_Options()
   {
-    return (EReference)dataSourceDescriptionEClass.getEStructuralFeatures().get(2);
+    return (EReference)nodeEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -610,9 +668,9 @@ public class DataDslPackageImpl extends EPackageImpl implements DataDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getDataSourceDescription_Nodes()
+  public EClass getCompositeNode()
   {
-    return (EReference)dataSourceDescriptionEClass.getEStructuralFeatures().get(3);
+    return compositeNodeEClass;
   }
 
   /**
@@ -620,9 +678,9 @@ public class DataDslPackageImpl extends EPackageImpl implements DataDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getDataSourceDescription_Options()
+  public EAttribute getCompositeNode_Key()
   {
-    return (EReference)dataSourceDescriptionEClass.getEStructuralFeatures().get(4);
+    return (EAttribute)compositeNodeEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -630,9 +688,9 @@ public class DataDslPackageImpl extends EPackageImpl implements DataDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getDataFragment()
+  public EAttribute getCompositeNode_Unique()
   {
-    return dataFragmentEClass;
+    return (EAttribute)compositeNodeEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -640,9 +698,9 @@ public class DataDslPackageImpl extends EPackageImpl implements DataDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getDataFragment_Fragments()
+  public EReference getCompositeNode_Type()
   {
-    return (EReference)dataFragmentEClass.getEStructuralFeatures().get(0);
+    return (EReference)compositeNodeEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -650,9 +708,9 @@ public class DataDslPackageImpl extends EPackageImpl implements DataDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getDataFragment_Nodes()
+  public EClass getFragmentNode()
   {
-    return (EReference)dataFragmentEClass.getEStructuralFeatures().get(1);
+    return fragmentNodeEClass;
   }
 
   /**
@@ -660,9 +718,9 @@ public class DataDslPackageImpl extends EPackageImpl implements DataDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getTypeSpecification()
+  public EReference getFragmentNode_Type()
   {
-    return typeSpecificationEClass;
+    return (EReference)fragmentNodeEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -670,9 +728,9 @@ public class DataDslPackageImpl extends EPackageImpl implements DataDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getDataType()
+  public EClass getPrimitiveNode()
   {
-    return dataTypeEClass;
+    return primitiveNodeEClass;
   }
 
   /**
@@ -680,9 +738,9 @@ public class DataDslPackageImpl extends EPackageImpl implements DataDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getDataType_Refine()
+  public EAttribute getPrimitiveNode_Key()
   {
-    return (EAttribute)dataTypeEClass.getEStructuralFeatures().get(0);
+    return (EAttribute)primitiveNodeEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -690,9 +748,129 @@ public class DataDslPackageImpl extends EPackageImpl implements DataDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getDataType_Options()
+  public EAttribute getPrimitiveNode_Unique()
   {
-    return (EReference)dataTypeEClass.getEStructuralFeatures().get(1);
+    return (EAttribute)primitiveNodeEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getPrimitiveNode_Type()
+  {
+    return (EAttribute)primitiveNodeEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getCardinality()
+  {
+    return cardinalityEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getCardinality_Min()
+  {
+    return (EAttribute)cardinalityEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getCardinality_Max()
+  {
+    return (EAttribute)cardinalityEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getDataDescription()
+  {
+    return dataDescriptionEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getDataDescription_Format()
+  {
+    return (EAttribute)dataDescriptionEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getDataDescription_Options()
+  {
+    return (EReference)dataDescriptionEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getFragment()
+  {
+    return fragmentEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getDataTypeRefinement()
+  {
+    return dataTypeRefinementEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getDataTypeRefinement_Refine()
+  {
+    return (EAttribute)dataTypeRefinementEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getDataTypeRefinement_Subsequences()
+  {
+    return (EReference)dataTypeRefinementEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getDataTypeRefinement_Options()
+  {
+    return (EReference)dataTypeRefinementEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -713,116 +891,6 @@ public class DataDslPackageImpl extends EPackageImpl implements DataDslPackage
   public EAttribute getEnumeration_Values()
   {
     return (EAttribute)enumerationEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EClass getStructDataType()
-  {
-    return structDataTypeEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getStructDataType_Subnodes()
-  {
-    return (EReference)structDataTypeEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getStructDataType_Options()
-  {
-    return (EReference)structDataTypeEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EClass getLeafNode()
-  {
-    return leafNodeEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getLeafNode_Key()
-  {
-    return (EAttribute)leafNodeEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getLeafNode_Unique()
-  {
-    return (EAttribute)leafNodeEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getLeafNode_List()
-  {
-    return (EAttribute)leafNodeEClass.getEStructuralFeatures().get(2);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getLeafNode_Type()
-  {
-    return (EAttribute)leafNodeEClass.getEStructuralFeatures().get(3);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getLeafNode_TypeCall()
-  {
-    return (EReference)leafNodeEClass.getEStructuralFeatures().get(4);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getLeafNode_Name()
-  {
-    return (EAttribute)leafNodeEClass.getEStructuralFeatures().get(5);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getLeafNode_Options()
-  {
-    return (EReference)leafNodeEClass.getEStructuralFeatures().get(6);
   }
 
   /**
@@ -960,9 +1028,9 @@ public class DataDslPackageImpl extends EPackageImpl implements DataDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getSequenceOption()
+  public EClass getListQualifiedNameOption()
   {
-    return sequenceOptionEClass;
+    return listQualifiedNameOptionEClass;
   }
 
   /**
@@ -970,9 +1038,9 @@ public class DataDslPackageImpl extends EPackageImpl implements DataDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getSequenceOption_Key()
+  public EAttribute getListQualifiedNameOption_Key()
   {
-    return (EAttribute)sequenceOptionEClass.getEStructuralFeatures().get(0);
+    return (EAttribute)listQualifiedNameOptionEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -980,9 +1048,9 @@ public class DataDslPackageImpl extends EPackageImpl implements DataDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getSequenceOption_Value()
+  public EReference getListQualifiedNameOption_Fragments()
   {
-    return (EReference)sequenceOptionEClass.getEStructuralFeatures().get(1);
+    return (EReference)listQualifiedNameOptionEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -1040,26 +1108,6 @@ public class DataDslPackageImpl extends EPackageImpl implements DataDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EEnum getMultiplicity()
-  {
-    return multiplicityEEnum;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EEnum getSequenceOptionKey()
-  {
-    return sequenceOptionKeyEEnum;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EEnum getBasicType()
   {
     return basicTypeEEnum;
@@ -1110,19 +1158,9 @@ public class DataDslPackageImpl extends EPackageImpl implements DataDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EEnum getDataOptionKey()
+  public EEnum getListQualifiedNameOptionKey()
   {
-    return dataOptionKeyEEnum;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EEnum getFormat()
-  {
-    return formatEEnum;
+    return listQualifiedNameOptionKeyEEnum;
   }
 
   /**
@@ -1156,7 +1194,7 @@ public class DataDslPackageImpl extends EPackageImpl implements DataDslPackage
 
     // Create classes and their features
     dataModelEClass = createEClass(DATA_MODEL);
-    createEReference(dataModelEClass, DATA_MODEL__DESCRIPTIONS);
+    createEReference(dataModelEClass, DATA_MODEL__ELEMENTS);
 
     importEClass = createEClass(IMPORT);
     createEAttribute(importEClass, IMPORT__IMPORTED_NAMESPACE);
@@ -1164,14 +1202,21 @@ public class DataDslPackageImpl extends EPackageImpl implements DataDslPackage
     dataModelElementEClass = createEClass(DATA_MODEL_ELEMENT);
 
     packageEClass = createEClass(PACKAGE);
+    createEReference(packageEClass, PACKAGE__TAGS);
     createEAttribute(packageEClass, PACKAGE__NAME);
     createEReference(packageEClass, PACKAGE__ELEMENTS);
 
-    dataPackableDescriptionEClass = createEClass(DATA_PACKABLE_DESCRIPTION);
-    createEAttribute(dataPackableDescriptionEClass, DATA_PACKABLE_DESCRIPTION__NAME);
+    tagEClass = createEClass(TAG);
+    createEAttribute(tagEClass, TAG__TAG);
 
-    stringConceptEClass = createEClass(STRING_CONCEPT);
-    createEReference(stringConceptEClass, STRING_CONCEPT__SUBSEQUENCE);
+    specificationElementEClass = createEClass(SPECIFICATION_ELEMENT);
+    createEAttribute(specificationElementEClass, SPECIFICATION_ELEMENT__NAME);
+
+    typeSpecificationEClass = createEClass(TYPE_SPECIFICATION);
+
+    abstractDescriptionEClass = createEClass(ABSTRACT_DESCRIPTION);
+    createEReference(abstractDescriptionEClass, ABSTRACT_DESCRIPTION__FRAGMENTS);
+    createEReference(abstractDescriptionEClass, ABSTRACT_DESCRIPTION__NODES);
 
     substringConceptEClass = createEClass(SUBSTRING_CONCEPT);
     createEAttribute(substringConceptEClass, SUBSTRING_CONCEPT__NAME);
@@ -1185,38 +1230,41 @@ public class DataDslPackageImpl extends EPackageImpl implements DataDslPackage
     createEAttribute(characterEClass, CHARACTER__TYPE_CHARACTER);
     createEAttribute(characterEClass, CHARACTER__VALUE);
 
-    dataSourceDescriptionEClass = createEClass(DATA_SOURCE_DESCRIPTION);
-    createEAttribute(dataSourceDescriptionEClass, DATA_SOURCE_DESCRIPTION__FORMAT);
-    createEAttribute(dataSourceDescriptionEClass, DATA_SOURCE_DESCRIPTION__NAME);
-    createEReference(dataSourceDescriptionEClass, DATA_SOURCE_DESCRIPTION__FRAGMENTS);
-    createEReference(dataSourceDescriptionEClass, DATA_SOURCE_DESCRIPTION__NODES);
-    createEReference(dataSourceDescriptionEClass, DATA_SOURCE_DESCRIPTION__OPTIONS);
+    nodeEClass = createEClass(NODE);
+    createEAttribute(nodeEClass, NODE__NAME);
+    createEReference(nodeEClass, NODE__CARDINALITY);
+    createEReference(nodeEClass, NODE__OPTIONS);
 
-    dataFragmentEClass = createEClass(DATA_FRAGMENT);
-    createEReference(dataFragmentEClass, DATA_FRAGMENT__FRAGMENTS);
-    createEReference(dataFragmentEClass, DATA_FRAGMENT__NODES);
+    compositeNodeEClass = createEClass(COMPOSITE_NODE);
+    createEAttribute(compositeNodeEClass, COMPOSITE_NODE__KEY);
+    createEAttribute(compositeNodeEClass, COMPOSITE_NODE__UNIQUE);
+    createEReference(compositeNodeEClass, COMPOSITE_NODE__TYPE);
 
-    typeSpecificationEClass = createEClass(TYPE_SPECIFICATION);
+    fragmentNodeEClass = createEClass(FRAGMENT_NODE);
+    createEReference(fragmentNodeEClass, FRAGMENT_NODE__TYPE);
 
-    dataTypeEClass = createEClass(DATA_TYPE);
-    createEAttribute(dataTypeEClass, DATA_TYPE__REFINE);
-    createEReference(dataTypeEClass, DATA_TYPE__OPTIONS);
+    primitiveNodeEClass = createEClass(PRIMITIVE_NODE);
+    createEAttribute(primitiveNodeEClass, PRIMITIVE_NODE__KEY);
+    createEAttribute(primitiveNodeEClass, PRIMITIVE_NODE__UNIQUE);
+    createEAttribute(primitiveNodeEClass, PRIMITIVE_NODE__TYPE);
+
+    cardinalityEClass = createEClass(CARDINALITY);
+    createEAttribute(cardinalityEClass, CARDINALITY__MIN);
+    createEAttribute(cardinalityEClass, CARDINALITY__MAX);
+
+    dataDescriptionEClass = createEClass(DATA_DESCRIPTION);
+    createEAttribute(dataDescriptionEClass, DATA_DESCRIPTION__FORMAT);
+    createEReference(dataDescriptionEClass, DATA_DESCRIPTION__OPTIONS);
+
+    fragmentEClass = createEClass(FRAGMENT);
+
+    dataTypeRefinementEClass = createEClass(DATA_TYPE_REFINEMENT);
+    createEAttribute(dataTypeRefinementEClass, DATA_TYPE_REFINEMENT__REFINE);
+    createEReference(dataTypeRefinementEClass, DATA_TYPE_REFINEMENT__SUBSEQUENCES);
+    createEReference(dataTypeRefinementEClass, DATA_TYPE_REFINEMENT__OPTIONS);
 
     enumerationEClass = createEClass(ENUMERATION);
     createEAttribute(enumerationEClass, ENUMERATION__VALUES);
-
-    structDataTypeEClass = createEClass(STRUCT_DATA_TYPE);
-    createEReference(structDataTypeEClass, STRUCT_DATA_TYPE__SUBNODES);
-    createEReference(structDataTypeEClass, STRUCT_DATA_TYPE__OPTIONS);
-
-    leafNodeEClass = createEClass(LEAF_NODE);
-    createEAttribute(leafNodeEClass, LEAF_NODE__KEY);
-    createEAttribute(leafNodeEClass, LEAF_NODE__UNIQUE);
-    createEAttribute(leafNodeEClass, LEAF_NODE__LIST);
-    createEAttribute(leafNodeEClass, LEAF_NODE__TYPE);
-    createEReference(leafNodeEClass, LEAF_NODE__TYPE_CALL);
-    createEAttribute(leafNodeEClass, LEAF_NODE__NAME);
-    createEReference(leafNodeEClass, LEAF_NODE__OPTIONS);
 
     optionEClass = createEClass(OPTION);
 
@@ -1236,9 +1284,9 @@ public class DataDslPackageImpl extends EPackageImpl implements DataDslPackage
     createEAttribute(booleanOptionEClass, BOOLEAN_OPTION__KEY);
     createEAttribute(booleanOptionEClass, BOOLEAN_OPTION__VALUE);
 
-    sequenceOptionEClass = createEClass(SEQUENCE_OPTION);
-    createEAttribute(sequenceOptionEClass, SEQUENCE_OPTION__KEY);
-    createEReference(sequenceOptionEClass, SEQUENCE_OPTION__VALUE);
+    listQualifiedNameOptionEClass = createEClass(LIST_QUALIFIED_NAME_OPTION);
+    createEAttribute(listQualifiedNameOptionEClass, LIST_QUALIFIED_NAME_OPTION__KEY);
+    createEReference(listQualifiedNameOptionEClass, LIST_QUALIFIED_NAME_OPTION__FRAGMENTS);
 
     dataOptionEClass = createEClass(DATA_OPTION);
     createEAttribute(dataOptionEClass, DATA_OPTION__KEY);
@@ -1247,15 +1295,12 @@ public class DataDslPackageImpl extends EPackageImpl implements DataDslPackage
     // Create enums
     typeCharacterEEnum = createEEnum(TYPE_CHARACTER);
     typeStringEEnum = createEEnum(TYPE_STRING);
-    multiplicityEEnum = createEEnum(MULTIPLICITY);
-    sequenceOptionKeyEEnum = createEEnum(SEQUENCE_OPTION_KEY);
     basicTypeEEnum = createEEnum(BASIC_TYPE);
     stringOptionKeyEEnum = createEEnum(STRING_OPTION_KEY);
     intOptionKeyEEnum = createEEnum(INT_OPTION_KEY);
     doubleOptionKeyEEnum = createEEnum(DOUBLE_OPTION_KEY);
     booleanOptionKeyEEnum = createEEnum(BOOLEAN_OPTION_KEY);
-    dataOptionKeyEEnum = createEEnum(DATA_OPTION_KEY);
-    formatEEnum = createEEnum(FORMAT);
+    listQualifiedNameOptionKeyEEnum = createEEnum(LIST_QUALIFIED_NAME_OPTION_KEY);
   }
 
   /**
@@ -1289,25 +1334,27 @@ public class DataDslPackageImpl extends EPackageImpl implements DataDslPackage
     // Add supertypes to classes
     importEClass.getESuperTypes().add(this.getDataModelElement());
     packageEClass.getESuperTypes().add(this.getDataModelElement());
-    dataPackableDescriptionEClass.getESuperTypes().add(this.getDataModelElement());
-    stringConceptEClass.getESuperTypes().add(this.getDataPackableDescription());
+    specificationElementEClass.getESuperTypes().add(this.getDataModelElement());
+    typeSpecificationEClass.getESuperTypes().add(this.getSpecificationElement());
+    abstractDescriptionEClass.getESuperTypes().add(this.getSpecificationElement());
     substringEClass.getESuperTypes().add(this.getSubstringConcept());
     characterEClass.getESuperTypes().add(this.getSubstringConcept());
-    dataSourceDescriptionEClass.getESuperTypes().add(this.getDataModelElement());
-    dataFragmentEClass.getESuperTypes().add(this.getDataPackableDescription());
-    typeSpecificationEClass.getESuperTypes().add(this.getDataPackableDescription());
-    dataTypeEClass.getESuperTypes().add(this.getTypeSpecification());
+    compositeNodeEClass.getESuperTypes().add(this.getNode());
+    fragmentNodeEClass.getESuperTypes().add(this.getNode());
+    primitiveNodeEClass.getESuperTypes().add(this.getNode());
+    dataDescriptionEClass.getESuperTypes().add(this.getAbstractDescription());
+    fragmentEClass.getESuperTypes().add(this.getAbstractDescription());
+    dataTypeRefinementEClass.getESuperTypes().add(this.getTypeSpecification());
     enumerationEClass.getESuperTypes().add(this.getTypeSpecification());
-    structDataTypeEClass.getESuperTypes().add(this.getTypeSpecification());
     stringOptionEClass.getESuperTypes().add(this.getOption());
     intOptionEClass.getESuperTypes().add(this.getOption());
     doubleOptionEClass.getESuperTypes().add(this.getOption());
     booleanOptionEClass.getESuperTypes().add(this.getOption());
-    sequenceOptionEClass.getESuperTypes().add(this.getOption());
+    listQualifiedNameOptionEClass.getESuperTypes().add(this.getOption());
 
     // Initialize classes and features; add operations and parameters
     initEClass(dataModelEClass, DataModel.class, "DataModel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getDataModel_Descriptions(), this.getDataModelElement(), null, "descriptions", null, 0, -1, DataModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getDataModel_Elements(), this.getDataModelElement(), null, "elements", null, 0, -1, DataModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(importEClass, Import.class, "Import", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getImport_ImportedNamespace(), ecorePackage.getEString(), "importedNamespace", null, 0, 1, Import.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1315,14 +1362,21 @@ public class DataDslPackageImpl extends EPackageImpl implements DataDslPackage
     initEClass(dataModelElementEClass, DataModelElement.class, "DataModelElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     initEClass(packageEClass, eagledata.core.dsl.datadesc.dataDsl.Package.class, "Package", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getPackage_Tags(), this.getTag(), null, "tags", null, 0, -1, eagledata.core.dsl.datadesc.dataDsl.Package.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getPackage_Name(), ecorePackage.getEString(), "name", null, 0, 1, eagledata.core.dsl.datadesc.dataDsl.Package.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getPackage_Elements(), this.getDataPackableDescription(), null, "elements", null, 0, -1, eagledata.core.dsl.datadesc.dataDsl.Package.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getPackage_Elements(), this.getSpecificationElement(), null, "elements", null, 0, -1, eagledata.core.dsl.datadesc.dataDsl.Package.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(dataPackableDescriptionEClass, DataPackableDescription.class, "DataPackableDescription", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getDataPackableDescription_Name(), ecorePackage.getEString(), "name", null, 0, 1, DataPackableDescription.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(tagEClass, Tag.class, "Tag", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getTag_Tag(), ecorePackage.getEString(), "tag", null, 0, 1, Tag.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(stringConceptEClass, StringConcept.class, "StringConcept", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getStringConcept_Subsequence(), this.getSubstringConcept(), null, "subsequence", null, 0, -1, StringConcept.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(specificationElementEClass, SpecificationElement.class, "SpecificationElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getSpecificationElement_Name(), ecorePackage.getEString(), "name", null, 0, 1, SpecificationElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(typeSpecificationEClass, TypeSpecification.class, "TypeSpecification", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(abstractDescriptionEClass, AbstractDescription.class, "AbstractDescription", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getAbstractDescription_Fragments(), this.getFragment(), null, "fragments", null, 0, -1, AbstractDescription.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getAbstractDescription_Nodes(), this.getNode(), null, "nodes", null, 0, -1, AbstractDescription.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(substringConceptEClass, SubstringConcept.class, "SubstringConcept", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getSubstringConcept_Name(), ecorePackage.getEString(), "name", null, 0, 1, SubstringConcept.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1336,38 +1390,41 @@ public class DataDslPackageImpl extends EPackageImpl implements DataDslPackage
     initEAttribute(getCharacter_TypeCharacter(), this.getTypeCharacter(), "typeCharacter", null, 0, 1, eagledata.core.dsl.datadesc.dataDsl.Character.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getCharacter_Value(), ecorePackage.getEString(), "value", null, 0, 1, eagledata.core.dsl.datadesc.dataDsl.Character.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(dataSourceDescriptionEClass, DataSourceDescription.class, "DataSourceDescription", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getDataSourceDescription_Format(), this.getFormat(), "format", null, 0, 1, DataSourceDescription.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getDataSourceDescription_Name(), ecorePackage.getEString(), "name", null, 0, 1, DataSourceDescription.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getDataSourceDescription_Fragments(), this.getDataFragment(), null, "fragments", null, 0, -1, DataSourceDescription.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getDataSourceDescription_Nodes(), this.getLeafNode(), null, "nodes", null, 0, -1, DataSourceDescription.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getDataSourceDescription_Options(), this.getDataOption(), null, "options", null, 0, -1, DataSourceDescription.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(nodeEClass, Node.class, "Node", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getNode_Name(), ecorePackage.getEString(), "name", null, 0, 1, Node.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getNode_Cardinality(), this.getCardinality(), null, "cardinality", null, 0, 1, Node.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getNode_Options(), this.getOption(), null, "options", null, 0, -1, Node.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(dataFragmentEClass, DataFragment.class, "DataFragment", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getDataFragment_Fragments(), this.getDataFragment(), null, "fragments", null, 0, -1, DataFragment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getDataFragment_Nodes(), this.getLeafNode(), null, "nodes", null, 0, -1, DataFragment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(compositeNodeEClass, CompositeNode.class, "CompositeNode", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getCompositeNode_Key(), ecorePackage.getEBoolean(), "key", null, 0, 1, CompositeNode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getCompositeNode_Unique(), ecorePackage.getEBoolean(), "unique", null, 0, 1, CompositeNode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getCompositeNode_Type(), this.getTypeSpecification(), null, "type", null, 0, 1, CompositeNode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(typeSpecificationEClass, TypeSpecification.class, "TypeSpecification", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEClass(fragmentNodeEClass, FragmentNode.class, "FragmentNode", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getFragmentNode_Type(), this.getFragment(), null, "type", null, 0, 1, FragmentNode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(dataTypeEClass, DataType.class, "DataType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getDataType_Refine(), this.getBasicType(), "refine", null, 0, 1, DataType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getDataType_Options(), this.getOption(), null, "options", null, 0, -1, DataType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(primitiveNodeEClass, PrimitiveNode.class, "PrimitiveNode", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getPrimitiveNode_Key(), ecorePackage.getEBoolean(), "key", null, 0, 1, PrimitiveNode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getPrimitiveNode_Unique(), ecorePackage.getEBoolean(), "unique", null, 0, 1, PrimitiveNode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getPrimitiveNode_Type(), this.getBasicType(), "type", null, 0, 1, PrimitiveNode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(cardinalityEClass, Cardinality.class, "Cardinality", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getCardinality_Min(), ecorePackage.getEInt(), "min", null, 0, 1, Cardinality.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getCardinality_Max(), ecorePackage.getEInt(), "max", null, 0, 1, Cardinality.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(dataDescriptionEClass, DataDescription.class, "DataDescription", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getDataDescription_Format(), ecorePackage.getEString(), "format", null, 0, 1, DataDescription.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getDataDescription_Options(), this.getDataOption(), null, "options", null, 0, -1, DataDescription.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(fragmentEClass, Fragment.class, "Fragment", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(dataTypeRefinementEClass, DataTypeRefinement.class, "DataTypeRefinement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getDataTypeRefinement_Refine(), this.getBasicType(), "refine", null, 0, 1, DataTypeRefinement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getDataTypeRefinement_Subsequences(), this.getSubstringConcept(), null, "subsequences", null, 0, -1, DataTypeRefinement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getDataTypeRefinement_Options(), this.getOption(), null, "options", null, 0, -1, DataTypeRefinement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(enumerationEClass, Enumeration.class, "Enumeration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getEnumeration_Values(), ecorePackage.getEString(), "values", null, 0, -1, Enumeration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(structDataTypeEClass, StructDataType.class, "StructDataType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getStructDataType_Subnodes(), this.getLeafNode(), null, "subnodes", null, 0, -1, StructDataType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getStructDataType_Options(), this.getOption(), null, "options", null, 0, -1, StructDataType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(leafNodeEClass, LeafNode.class, "LeafNode", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getLeafNode_Key(), ecorePackage.getEBoolean(), "key", null, 0, 1, LeafNode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getLeafNode_Unique(), ecorePackage.getEBoolean(), "unique", null, 0, 1, LeafNode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getLeafNode_List(), ecorePackage.getEBoolean(), "list", null, 0, 1, LeafNode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getLeafNode_Type(), this.getBasicType(), "type", null, 0, 1, LeafNode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getLeafNode_TypeCall(), this.getTypeSpecification(), null, "typeCall", null, 0, 1, LeafNode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getLeafNode_Name(), ecorePackage.getEString(), "name", null, 0, 1, LeafNode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getLeafNode_Options(), this.getOption(), null, "options", null, 0, -1, LeafNode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(optionEClass, Option.class, "Option", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -1387,12 +1444,12 @@ public class DataDslPackageImpl extends EPackageImpl implements DataDslPackage
     initEAttribute(getBooleanOption_Key(), this.getBooleanOptionKey(), "key", null, 0, 1, BooleanOption.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getBooleanOption_Value(), ecorePackage.getEString(), "value", null, 0, 1, BooleanOption.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(sequenceOptionEClass, SequenceOption.class, "SequenceOption", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getSequenceOption_Key(), this.getSequenceOptionKey(), "key", null, 0, 1, SequenceOption.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getSequenceOption_Value(), this.getStringConcept(), null, "value", null, 0, 1, SequenceOption.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(listQualifiedNameOptionEClass, ListQualifiedNameOption.class, "ListQualifiedNameOption", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getListQualifiedNameOption_Key(), this.getListQualifiedNameOptionKey(), "key", null, 0, 1, ListQualifiedNameOption.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getListQualifiedNameOption_Fragments(), this.getNode(), null, "fragments", null, 0, -1, ListQualifiedNameOption.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(dataOptionEClass, DataOption.class, "DataOption", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getDataOption_Key(), this.getDataOptionKey(), "key", null, 0, 1, DataOption.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getDataOption_Key(), ecorePackage.getEString(), "key", null, 0, 1, DataOption.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getDataOption_Value(), ecorePackage.getEString(), "value", null, 0, 1, DataOption.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     // Initialize enums and add enum literals
@@ -1406,24 +1463,11 @@ public class DataDslPackageImpl extends EPackageImpl implements DataDslPackage
     addEEnumLiteral(typeStringEEnum, TypeString.UPPERCASE);
     addEEnumLiteral(typeStringEEnum, TypeString.NUMBERS);
 
-    initEEnum(multiplicityEEnum, Multiplicity.class, "Multiplicity");
-    addEEnumLiteral(multiplicityEEnum, Multiplicity.CASESENSITIVE);
-    addEEnumLiteral(multiplicityEEnum, Multiplicity.NULL);
-    addEEnumLiteral(multiplicityEEnum, Multiplicity.SEPARATOR);
-    addEEnumLiteral(multiplicityEEnum, Multiplicity.DEFAULT);
-    addEEnumLiteral(multiplicityEEnum, Multiplicity.REGEX);
-    addEEnumLiteral(multiplicityEEnum, Multiplicity.FLAGS);
-    addEEnumLiteral(multiplicityEEnum, Multiplicity.DECIMALCHAR);
-    addEEnumLiteral(multiplicityEEnum, Multiplicity.PATTERN);
-    addEEnumLiteral(multiplicityEEnum, Multiplicity.FORMAT);
-
-    initEEnum(sequenceOptionKeyEEnum, SequenceOptionKey.class, "SequenceOptionKey");
-    addEEnumLiteral(sequenceOptionKeyEEnum, SequenceOptionKey.REGEX_FORM);
-
     initEEnum(basicTypeEEnum, BasicType.class, "BasicType");
     addEEnumLiteral(basicTypeEEnum, BasicType.STRING);
     addEEnumLiteral(basicTypeEEnum, BasicType.URL);
     addEEnumLiteral(basicTypeEEnum, BasicType.INT);
+    addEEnumLiteral(basicTypeEEnum, BasicType.LONG_INT);
     addEEnumLiteral(basicTypeEEnum, BasicType.REAL);
     addEEnumLiteral(basicTypeEEnum, BasicType.DATE);
     addEEnumLiteral(basicTypeEEnum, BasicType.TIME);
@@ -1433,9 +1477,16 @@ public class DataDslPackageImpl extends EPackageImpl implements DataDslPackage
     addEEnumLiteral(basicTypeEEnum, BasicType.BOOLEAN);
     addEEnumLiteral(basicTypeEEnum, BasicType.LAT);
     addEEnumLiteral(basicTypeEEnum, BasicType.LONG);
+    addEEnumLiteral(basicTypeEEnum, BasicType.PERCENT);
+    addEEnumLiteral(basicTypeEEnum, BasicType.EMAIL);
+    addEEnumLiteral(basicTypeEEnum, BasicType.CURRENCY);
+    addEEnumLiteral(basicTypeEEnum, BasicType.CREDITCARD);
+    addEEnumLiteral(basicTypeEEnum, BasicType.IBAN);
+    addEEnumLiteral(basicTypeEEnum, BasicType.ISBN);
+    addEEnumLiteral(basicTypeEEnum, BasicType.ISSN);
+    addEEnumLiteral(basicTypeEEnum, BasicType.INET);
 
     initEEnum(stringOptionKeyEEnum, StringOptionKey.class, "StringOptionKey");
-    addEEnumLiteral(stringOptionKeyEEnum, StringOptionKey.CASESENSITIVE);
     addEEnumLiteral(stringOptionKeyEEnum, StringOptionKey.NULL);
     addEEnumLiteral(stringOptionKeyEEnum, StringOptionKey.SEPARATOR);
     addEEnumLiteral(stringOptionKeyEEnum, StringOptionKey.DEFAULT);
@@ -1459,17 +1510,10 @@ public class DataDslPackageImpl extends EPackageImpl implements DataDslPackage
 
     initEEnum(booleanOptionKeyEEnum, BooleanOptionKey.class, "BooleanOptionKey");
     addEEnumLiteral(booleanOptionKeyEEnum, BooleanOptionKey.NULLABLE);
+    addEEnumLiteral(booleanOptionKeyEEnum, BooleanOptionKey.CASESENSITIVE);
 
-    initEEnum(dataOptionKeyEEnum, DataOptionKey.class, "DataOptionKey");
-    addEEnumLiteral(dataOptionKeyEEnum, DataOptionKey.FORMAT);
-    addEEnumLiteral(dataOptionKeyEEnum, DataOptionKey.SEPARATOR);
-    addEEnumLiteral(dataOptionKeyEEnum, DataOptionKey.HEADER);
-    addEEnumLiteral(dataOptionKeyEEnum, DataOptionKey.SQUEMA);
-
-    initEEnum(formatEEnum, Format.class, "Format");
-    addEEnumLiteral(formatEEnum, Format.CSV);
-    addEEnumLiteral(formatEEnum, Format.JSON);
-    addEEnumLiteral(formatEEnum, Format.XML);
+    initEEnum(listQualifiedNameOptionKeyEEnum, ListQualifiedNameOptionKey.class, "ListQualifiedNameOptionKey");
+    addEEnumLiteral(listQualifiedNameOptionKeyEEnum, ListQualifiedNameOptionKey.ORDER);
 
     // Create resource
     createResource(eNS_URI);

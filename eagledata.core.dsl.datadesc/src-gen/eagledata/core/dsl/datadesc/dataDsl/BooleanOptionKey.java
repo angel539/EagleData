@@ -28,7 +28,17 @@ public enum BooleanOptionKey implements Enumerator
    * @generated
    * @ordered
    */
-  NULLABLE(0, "nullable", "nullable");
+  NULLABLE(0, "nullable", "nullable"),
+
+  /**
+   * The '<em><b>Casesensitive</b></em>' literal object.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #CASESENSITIVE_VALUE
+   * @generated
+   * @ordered
+   */
+  CASESENSITIVE(1, "casesensitive", "casesensitive");
 
   /**
    * The '<em><b>Nullable</b></em>' literal value.
@@ -46,6 +56,21 @@ public enum BooleanOptionKey implements Enumerator
   public static final int NULLABLE_VALUE = 0;
 
   /**
+   * The '<em><b>Casesensitive</b></em>' literal value.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of '<em><b>Casesensitive</b></em>' literal object isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @see #CASESENSITIVE
+   * @model name="casesensitive"
+   * @generated
+   * @ordered
+   */
+  public static final int CASESENSITIVE_VALUE = 1;
+
+  /**
    * An array of all the '<em><b>Boolean Option Key</b></em>' enumerators.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -55,6 +80,7 @@ public enum BooleanOptionKey implements Enumerator
     new BooleanOptionKey[]
     {
       NULLABLE,
+      CASESENSITIVE,
     };
 
   /**
@@ -120,6 +146,7 @@ public enum BooleanOptionKey implements Enumerator
     switch (value)
     {
       case NULLABLE_VALUE: return NULLABLE;
+      case CASESENSITIVE_VALUE: return CASESENSITIVE;
     }
     return null;
   }

@@ -16,17 +16,19 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import eagledata.core.dsl.datadesc.dataDsl.BooleanOption;
-import eagledata.core.dsl.datadesc.dataDsl.DataFragment;
+import eagledata.core.dsl.datadesc.dataDsl.CompositeNode;
+import eagledata.core.dsl.datadesc.dataDsl.Fragment;
 import eagledata.core.dsl.datadesc.dataDsl.IntOption;
-import eagledata.core.dsl.datadesc.dataDsl.LeafNode;
-import eagledata.core.dsl.datadesc.dataDsl.Node;
 import eagledata.core.dsl.datadesc.dataDsl.Option;
+import eagledata.core.dsl.datadesc.dataDsl.PrimitiveNode;
 import eagledata.core.dsl.datadesc.dataDsl.StringOption;
+import eagledata.core.dsl.datadesc.dataDsl.Tag;
+import eagledata.core.dsl.datadesc.dataDsl.Node;
 
 public class JsonFragment{
 	static String URL = "http://diagrameditorserver.herokuapp.com/fragments?json=true";
 	
-	public static JSONObject fragment2json(DataFragment fragment){
+	public static JSONObject fragment2json(Fragment fragment, List<Tag> tags){
 		JSONObject newObject = new JSONObject();
 		String name = fragment.getName();
 	    newObject.put("name", name);
@@ -34,68 +36,74 @@ public class JsonFragment{
 	    String content = fragment.toString();
 	    newObject.put("content", content);
 	    
-	    //JSONArray newDomains = new JSONArray();
-	    //newDomains.put("dominio3");
-	    //newDomains.put("dominio4");
-	    
-	    //newObject.put("domains", newDomains);
+	    if(tags != null){
+	    	JSONArray newDomains = new JSONArray();
+	    	for(Tag tag : tags){
+	    		newDomains.put(tag.getTag());
+	    	}
+		    newObject.put("domains", newDomains);
+	    }
 	    
 	    JSONArray newExtends = new JSONArray();
-	    List<DataFragment> extensions = fragment.getFragments();
-	    for(DataFragment extension : extensions){
+	    List<Fragment> extensions = fragment.getFragments();
+	    for(Fragment extension : extensions){
 	    	newExtends.put(extension.getName());
 	    }
 	    newObject.put("extends", newExtends);
 	    
 	    JSONArray newContentKeys = new JSONArray();
-	    
 	    List<Node> nodes = fragment.getNodes();
+	    
 	    for(Node node : nodes){
-	    	if(node instanceof LeafNode){
-	    		 JSONObject newContentNode = new JSONObject();
-	    		 newContentNode.put("name", node.getName());
-	    		 
-	    		 if(((LeafNode) node).getType()!= null){
-	    			 newContentNode.put("type", ((LeafNode) node).getType().getName());
-	    		 }else{
-	    			 newContentNode.put("type", ((LeafNode) node).getTypeCall().getName());
-	    		 }
-	    		 
-	    		 String optionString = new String();
-	    		 for(Option option : node.getOptions()){
-	    			 
-	    			if(option instanceof StringOption){
-	    				String nameOption = ((StringOption) option).getKey().getLiteral();
-		    			String valueOption = ((StringOption) option).getValue();
-    		    		
-		    			newContentNode.put("name", ((StringOption) option).getKey().getLiteral());
-    			    	newContentNode.put("type", ((StringOption) option).getValue());
-    			    	optionString = optionString + nameOption + ";" + valueOption + ";";
-    		    	}
-    		    	
-    		    	if(option instanceof IntOption){
-    		    		String nameOption = ((IntOption) option).getKey().getLiteral();
-		    			String valueOption = Integer.toString(((IntOption) option).getValue());
-		    			
-    		    		newContentNode.put("name", ((IntOption) option).getKey().getLiteral());
-    			    	newContentNode.put("type", ((IntOption) option).getValue());
-    			    	optionString = optionString + nameOption + ";" + valueOption + ";";
-    		    	}
-    		    	
-    		    	if(option instanceof BooleanOption){
-    		    		String nameOption = ((BooleanOption) option).getKey().getLiteral();
-		    			String valueOption = ((BooleanOption) option).getValue();
-		    			
-    		    		newContentNode.put("name", ((BooleanOption) option).getKey().getLiteral());
-    			    	newContentNode.put("type", ((BooleanOption) option).getValue());
-    			    	optionString = optionString + nameOption + ";" + valueOption + ";";
-    		    	}
-	    		 }
-	    		 
-	    		 newContentNode.put("options", optionString);
-	    		 
-	    		 newContentKeys.put(newContentNode);
+	    	JSONObject newContentNode = new JSONObject();
+   		 	newContentNode.put("name", node.getName());
+   		 	
+	    	if(node instanceof PrimitiveNode){
+	    		PrimitiveNode primitiveNode = (PrimitiveNode) node;
+	    		if(primitiveNode != null){
+	    			newContentNode.put("type", ((PrimitiveNode) node).getType().getLiteral());
+	    		}
 	    	}
+	    	
+	    	if(node instanceof CompositeNode){
+	    		CompositeNode compositeNode = (CompositeNode) node;
+	    		if(compositeNode != null){
+	    			newContentNode.put("type", compositeNode.getName());
+	    		}
+	    	}
+	    	
+	    	String optionString = new String();
+    		for(Option option : node.getOptions()){
+    			if(option instanceof StringOption){
+    				String nameOption = ((StringOption) option).getKey().getLiteral();
+    				String valueOption = ((StringOption) option).getValue();
+    				
+    				newContentNode.put("name", ((StringOption) option).getKey().getLiteral());
+    				newContentNode.put("type", ((StringOption) option).getValue());
+    				optionString = optionString + nameOption + ";" + valueOption + ";";
+    			}
+		    	
+		    	if(option instanceof IntOption){
+		    		String nameOption = ((IntOption) option).getKey().getLiteral();
+	    			String valueOption = Integer.toString(((IntOption) option).getValue());
+	    			
+		    		newContentNode.put("name", ((IntOption) option).getKey().getLiteral());
+			    	newContentNode.put("type", ((IntOption) option).getValue());
+			    	optionString = optionString + nameOption + ";" + valueOption + ";";
+		    	}
+		    	
+		    	if(option instanceof BooleanOption){
+		    		String nameOption = ((BooleanOption) option).getKey().getLiteral();
+	    			String valueOption = ((BooleanOption) option).getValue();
+	    			
+		    		newContentNode.put("name", ((BooleanOption) option).getKey().getLiteral());
+			    	newContentNode.put("type", ((BooleanOption) option).getValue());
+			    	optionString = optionString + nameOption + ";" + valueOption + ";";
+		    	}
+		    }
+    		
+    		newContentNode.put("options", optionString);
+    		newContentKeys.put(newContentNode);
 	    }
 	    
 	    newObject.put("contentKeys", newContentKeys);
@@ -116,8 +124,6 @@ public class JsonFragment{
 		    	fragments.add(object);
 		    	
 		    }
-		    
-		    //post(newObject);
 		} catch (JSONException e) {
 			e.printStackTrace();
 		}
@@ -155,7 +161,7 @@ public class JsonFragment{
 		return sb.toString();
 	}
 	
-	public static String post(JSONObject writeObject){
+	public static boolean post(JSONObject writeObject){
 		String log = "";
 		try {
 			URL url = new URL(URL);
@@ -169,23 +175,22 @@ public class JsonFragment{
 			
 			DataOutputStream wr = new DataOutputStream(connection.getOutputStream());
 			wr.write(jsonBytes);
-
+			
 	        BufferedReader rd = new BufferedReader(new InputStreamReader(connection.getInputStream()));
-	        
 	        String line;
+	        
 	        while ((line = rd.readLine()) != null) {
 	        	log += line;
 	        }
-	        
 	        wr.close();
  	        rd.close();
-    		return log;
+ 	        return true;
 		} catch (MalformedURLException e) {
 			log += e.getMessage();
-			return log;
+			return false;
 		} catch (IOException e) {
 			log += e.getMessage();
-			return log;
+			return false;
 		} 
 	}
 }

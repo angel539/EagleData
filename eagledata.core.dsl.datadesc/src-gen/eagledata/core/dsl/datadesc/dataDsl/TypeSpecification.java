@@ -14,6 +14,6 @@ package eagledata.core.dsl.datadesc.dataDsl;
  * @model
  * @generated
  */
-public interface TypeSpecification extends DataPackableDescription
+public interface TypeSpecification extends SpecificationElement
 {
 } // TypeSpecification

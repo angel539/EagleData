@@ -60,22 +60,40 @@ public interface DataDslFactory extends EFactory
   Package createPackage();
 
   /**
-   * Returns a new object of class '<em>Data Packable Description</em>'.
+   * Returns a new object of class '<em>Tag</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Data Packable Description</em>'.
+   * @return a new object of class '<em>Tag</em>'.
    * @generated
    */
-  DataPackableDescription createDataPackableDescription();
+  Tag createTag();
 
   /**
-   * Returns a new object of class '<em>String Concept</em>'.
+   * Returns a new object of class '<em>Specification Element</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>String Concept</em>'.
+   * @return a new object of class '<em>Specification Element</em>'.
    * @generated
    */
-  StringConcept createStringConcept();
+  SpecificationElement createSpecificationElement();
+
+  /**
+   * Returns a new object of class '<em>Type Specification</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Type Specification</em>'.
+   * @generated
+   */
+  TypeSpecification createTypeSpecification();
+
+  /**
+   * Returns a new object of class '<em>Abstract Description</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Abstract Description</em>'.
+   * @generated
+   */
+  AbstractDescription createAbstractDescription();
 
   /**
    * Returns a new object of class '<em>Substring Concept</em>'.
@@ -105,40 +123,76 @@ public interface DataDslFactory extends EFactory
   Character createCharacter();
 
   /**
-   * Returns a new object of class '<em>Data Source Description</em>'.
+   * Returns a new object of class '<em>Node</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Data Source Description</em>'.
+   * @return a new object of class '<em>Node</em>'.
    * @generated
    */
-  DataSourceDescription createDataSourceDescription();
+  Node createNode();
 
   /**
-   * Returns a new object of class '<em>Data Fragment</em>'.
+   * Returns a new object of class '<em>Composite Node</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Data Fragment</em>'.
+   * @return a new object of class '<em>Composite Node</em>'.
    * @generated
    */
-  DataFragment createDataFragment();
+  CompositeNode createCompositeNode();
 
   /**
-   * Returns a new object of class '<em>Type Specification</em>'.
+   * Returns a new object of class '<em>Fragment Node</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Type Specification</em>'.
+   * @return a new object of class '<em>Fragment Node</em>'.
    * @generated
    */
-  TypeSpecification createTypeSpecification();
+  FragmentNode createFragmentNode();
 
   /**
-   * Returns a new object of class '<em>Data Type</em>'.
+   * Returns a new object of class '<em>Primitive Node</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Data Type</em>'.
+   * @return a new object of class '<em>Primitive Node</em>'.
    * @generated
    */
-  DataType createDataType();
+  PrimitiveNode createPrimitiveNode();
+
+  /**
+   * Returns a new object of class '<em>Cardinality</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Cardinality</em>'.
+   * @generated
+   */
+  Cardinality createCardinality();
+
+  /**
+   * Returns a new object of class '<em>Data Description</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Data Description</em>'.
+   * @generated
+   */
+  DataDescription createDataDescription();
+
+  /**
+   * Returns a new object of class '<em>Fragment</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Fragment</em>'.
+   * @generated
+   */
+  Fragment createFragment();
+
+  /**
+   * Returns a new object of class '<em>Data Type Refinement</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Data Type Refinement</em>'.
+   * @generated
+   */
+  DataTypeRefinement createDataTypeRefinement();
 
   /**
    * Returns a new object of class '<em>Enumeration</em>'.
@@ -148,24 +202,6 @@ public interface DataDslFactory extends EFactory
    * @generated
    */
   Enumeration createEnumeration();
-
-  /**
-   * Returns a new object of class '<em>Struct Data Type</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Struct Data Type</em>'.
-   * @generated
-   */
-  StructDataType createStructDataType();
-
-  /**
-   * Returns a new object of class '<em>Leaf Node</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Leaf Node</em>'.
-   * @generated
-   */
-  LeafNode createLeafNode();
 
   /**
    * Returns a new object of class '<em>Option</em>'.
@@ -213,13 +249,13 @@ public interface DataDslFactory extends EFactory
   BooleanOption createBooleanOption();
 
   /**
-   * Returns a new object of class '<em>Sequence Option</em>'.
+   * Returns a new object of class '<em>List Qualified Name Option</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Sequence Option</em>'.
+   * @return a new object of class '<em>List Qualified Name Option</em>'.
    * @generated
    */
-  SequenceOption createSequenceOption();
+  ListQualifiedNameOption createListQualifiedNameOption();
 
   /**
    * Returns a new object of class '<em>Data Option</em>'.

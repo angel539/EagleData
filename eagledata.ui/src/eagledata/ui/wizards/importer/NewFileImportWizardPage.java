@@ -43,8 +43,7 @@ public class NewFileImportWizardPage extends WizardPage {
 	    		  System.out.println(pathString);
 	    		  if(pathString != null) path.setText(pathString);
 	    	  }
-	    	}); 
-
+	    }); 
 
 	    path = new Text(container, SWT.BORDER | SWT.SINGLE);
 	    path.setText("");

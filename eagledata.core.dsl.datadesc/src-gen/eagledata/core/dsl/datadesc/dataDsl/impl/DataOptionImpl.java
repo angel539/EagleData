@@ -5,7 +5,6 @@ package eagledata.core.dsl.datadesc.dataDsl.impl;
 
 import eagledata.core.dsl.datadesc.dataDsl.DataDslPackage;
 import eagledata.core.dsl.datadesc.dataDsl.DataOption;
-import eagledata.core.dsl.datadesc.dataDsl.DataOptionKey;
 
 import org.eclipse.emf.common.notify.Notification;
 
@@ -38,7 +37,7 @@ public class DataOptionImpl extends MinimalEObjectImpl.Container implements Data
    * @generated
    * @ordered
    */
-  protected static final DataOptionKey KEY_EDEFAULT = DataOptionKey.FORMAT;
+  protected static final String KEY_EDEFAULT = null;
 
   /**
    * The cached value of the '{@link #getKey() <em>Key</em>}' attribute.
@@ -48,7 +47,7 @@ public class DataOptionImpl extends MinimalEObjectImpl.Container implements Data
    * @generated
    * @ordered
    */
-  protected DataOptionKey key = KEY_EDEFAULT;
+  protected String key = KEY_EDEFAULT;
 
   /**
    * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
@@ -96,7 +95,7 @@ public class DataOptionImpl extends MinimalEObjectImpl.Container implements Data
    * <!-- end-user-doc -->
    * @generated
    */
-  public DataOptionKey getKey()
+  public String getKey()
   {
     return key;
   }
@@ -106,10 +105,10 @@ public class DataOptionImpl extends MinimalEObjectImpl.Container implements Data
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setKey(DataOptionKey newKey)
+  public void setKey(String newKey)
   {
-    DataOptionKey oldKey = key;
-    key = newKey == null ? KEY_EDEFAULT : newKey;
+    String oldKey = key;
+    key = newKey;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, DataDslPackage.DATA_OPTION__KEY, oldKey, key));
   }
@@ -166,7 +165,7 @@ public class DataOptionImpl extends MinimalEObjectImpl.Container implements Data
     switch (featureID)
     {
       case DataDslPackage.DATA_OPTION__KEY:
-        setKey((DataOptionKey)newValue);
+        setKey((String)newValue);
         return;
       case DataDslPackage.DATA_OPTION__VALUE:
         setValue((String)newValue);
@@ -206,7 +205,7 @@ public class DataOptionImpl extends MinimalEObjectImpl.Container implements Data
     switch (featureID)
     {
       case DataDslPackage.DATA_OPTION__KEY:
-        return key != KEY_EDEFAULT;
+        return KEY_EDEFAULT == null ? key != null : !KEY_EDEFAULT.equals(key);
       case DataDslPackage.DATA_OPTION__VALUE:
         return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT.equals(value);
     }

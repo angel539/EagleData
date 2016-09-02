@@ -6,18 +6,17 @@ package eagledata.core.dsl.datadesc.validation;
 import com.google.common.base.Objects;
 import eagledata.core.dsl.datadesc.dataDsl.BasicType;
 import eagledata.core.dsl.datadesc.dataDsl.DataDslPackage;
-import eagledata.core.dsl.datadesc.dataDsl.DataOption;
-import eagledata.core.dsl.datadesc.dataDsl.DataOptionKey;
-import eagledata.core.dsl.datadesc.dataDsl.DataSourceDescription;
+import eagledata.core.dsl.datadesc.dataDsl.DataTypeRefinement;
 import eagledata.core.dsl.datadesc.dataDsl.DoubleOption;
 import eagledata.core.dsl.datadesc.dataDsl.DoubleOptionKey;
-import eagledata.core.dsl.datadesc.dataDsl.Format;
 import eagledata.core.dsl.datadesc.dataDsl.IntOption;
 import eagledata.core.dsl.datadesc.dataDsl.IntOptionKey;
-import eagledata.core.dsl.datadesc.dataDsl.LeafNode;
 import eagledata.core.dsl.datadesc.dataDsl.Option;
+import eagledata.core.dsl.datadesc.dataDsl.PrimitiveNode;
+import eagledata.core.dsl.datadesc.dataDsl.SpecificationElement;
 import eagledata.core.dsl.datadesc.dataDsl.StringOption;
 import eagledata.core.dsl.datadesc.dataDsl.StringOptionKey;
+import eagledata.core.dsl.datadesc.dataDsl.SubstringConcept;
 import eagledata.core.dsl.datadesc.validation.AbstractDataDslValidator;
 import java.util.List;
 import java.util.function.Consumer;
@@ -37,6 +36,10 @@ public class DataDslValidator extends AbstractDataDslValidator {
   public final static String DATADESCRIPTION_OPTION_NAME = "invalidDataOptions";
   
   public final static String SUBSEQUENCE_OPTION_NAME = "invalidSubsequenceProperties";
+  
+  public final static String DATATYPE_SUBS = "invalidRefineType";
+  
+  public final static String DEFINITIONS_NAMES = "invalidDefinitionName";
   
   /**
    * @Check
@@ -77,209 +80,76 @@ public class DataDslValidator extends AbstractDataDslValidator {
    * }
    */
   @Check
-  public void checkDataDescriptionsOptions(final DataSourceDescription datadescription) {
-    EList<DataOption> _options = datadescription.getOptions();
-    boolean _notEquals = (!Objects.equal(_options, null));
-    if (_notEquals) {
-      Format _format = datadescription.getFormat();
-      String _literal = _format.getLiteral();
-      switch (_literal) {
-        case "CSV":
-          EList<DataOption> _options_1 = datadescription.getOptions();
-          final Consumer<DataOption> _function = (DataOption option) -> {
-            DataOptionKey _key = option.getKey();
-            String _literal_1 = _key.getLiteral();
-            boolean _equals = _literal_1.equals("format");
-            boolean _not = (!_equals);
-            if (_not) {
-              this.error("Options are not valid for a CSV file", DataDslPackage.Literals.DATA_SOURCE_DESCRIPTION__NAME, DataDslValidator.DATADESCRIPTION_OPTION_NAME);
-            } else {
-              DataOptionKey _key_1 = option.getKey();
-              String _literal_2 = _key_1.getLiteral();
-              boolean _equals_1 = _literal_2.equals("format");
-              if (_equals_1) {
-                boolean _and = false;
-                boolean _and_1 = false;
-                boolean _and_2 = false;
-                boolean _and_3 = false;
-                String _value = option.getValue();
-                boolean _equals_2 = _value.equals("Default");
-                boolean _not_1 = (!_equals_2);
-                if (!_not_1) {
-                  _and_3 = false;
-                } else {
-                  String _value_1 = option.getValue();
-                  boolean _equals_3 = _value_1.equals("Excel");
-                  boolean _not_2 = (!_equals_3);
-                  _and_3 = _not_2;
-                }
-                if (!_and_3) {
-                  _and_2 = false;
-                } else {
-                  String _value_2 = option.getValue();
-                  boolean _equals_4 = _value_2.equals("MySQL");
-                  boolean _not_3 = (!_equals_4);
-                  _and_2 = _not_3;
-                }
-                if (!_and_2) {
-                  _and_1 = false;
-                } else {
-                  String _value_3 = option.getValue();
-                  boolean _equals_5 = _value_3.equals("RFC4180");
-                  boolean _not_4 = (!_equals_5);
-                  _and_1 = _not_4;
-                }
-                if (!_and_1) {
-                  _and = false;
-                } else {
-                  String _value_4 = option.getValue();
-                  boolean _equals_6 = _value_4.equals("TDF");
-                  boolean _not_5 = (!_equals_6);
-                  _and = _not_5;
-                }
-                if (_and) {
-                  this.error("CSV-FORMAT. Format MUST BE: Default, Excel, MySQL, RFC4180 or TDF", DataDslPackage.Literals.LEAF_NODE__NAME, DataDslValidator.DATATYPE_OPTION_NAME);
-                }
-              }
-            }
-          };
-          _options_1.forEach(_function);
-          break;
-        case "JSON":
-          EList<DataOption> _options_2 = datadescription.getOptions();
-          final Consumer<DataOption> _function_1 = (DataOption option) -> {
-            DataOptionKey _key = option.getKey();
-            String _literal_1 = _key.getLiteral();
-            boolean _equals = _literal_1.equals("format");
-            boolean _not = (!_equals);
-            if (_not) {
-              this.error("Options are not valid for a JSON file", DataDslPackage.Literals.DATA_SOURCE_DESCRIPTION__NAME, DataDslValidator.DATADESCRIPTION_OPTION_NAME);
-            } else {
-              DataOptionKey _key_1 = option.getKey();
-              String _literal_2 = _key_1.getLiteral();
-              boolean _equals_1 = _literal_2.equals("format");
-              if (_equals_1) {
-                boolean _and = false;
-                boolean _and_1 = false;
-                boolean _and_2 = false;
-                boolean _and_3 = false;
-                String _value = option.getValue();
-                boolean _equals_2 = _value.equals("Default");
-                boolean _not_1 = (!_equals_2);
-                if (!_not_1) {
-                  _and_3 = false;
-                } else {
-                  String _value_1 = option.getValue();
-                  boolean _equals_3 = _value_1.equals("Excel");
-                  boolean _not_2 = (!_equals_3);
-                  _and_3 = _not_2;
-                }
-                if (!_and_3) {
-                  _and_2 = false;
-                } else {
-                  String _value_2 = option.getValue();
-                  boolean _equals_4 = _value_2.equals("MySQL");
-                  boolean _not_3 = (!_equals_4);
-                  _and_2 = _not_3;
-                }
-                if (!_and_2) {
-                  _and_1 = false;
-                } else {
-                  String _value_3 = option.getValue();
-                  boolean _equals_5 = _value_3.equals("RFC4180");
-                  boolean _not_4 = (!_equals_5);
-                  _and_1 = _not_4;
-                }
-                if (!_and_1) {
-                  _and = false;
-                } else {
-                  String _value_4 = option.getValue();
-                  boolean _equals_6 = _value_4.equals("TDF");
-                  boolean _not_5 = (!_equals_6);
-                  _and = _not_5;
-                }
-                if (_and) {
-                  this.error("JSON-FORMAT. Format MUST BE: Default, Excel, MySQL, RFC4180 or TDF", DataDslPackage.Literals.LEAF_NODE__NAME, DataDslValidator.DATATYPE_OPTION_NAME);
-                }
-              }
-            }
-          };
-          _options_2.forEach(_function_1);
-          break;
-        case "XML":
-          EList<DataOption> _options_3 = datadescription.getOptions();
-          final Consumer<DataOption> _function_2 = (DataOption option) -> {
-            DataOptionKey _key = option.getKey();
-            String _literal_1 = _key.getLiteral();
-            boolean _equals = _literal_1.equals("squema");
-            boolean _not = (!_equals);
-            if (_not) {
-              this.error("Options are not valid for a XML file", DataDslPackage.Literals.DATA_SOURCE_DESCRIPTION__NAME, DataDslValidator.DATADESCRIPTION_OPTION_NAME);
-            } else {
-              DataOptionKey _key_1 = option.getKey();
-              String _literal_2 = _key_1.getLiteral();
-              boolean _equals_1 = _literal_2.equals("squema");
-              if (_equals_1) {
-                boolean _and = false;
-                boolean _and_1 = false;
-                boolean _and_2 = false;
-                boolean _and_3 = false;
-                String _value = option.getValue();
-                boolean _equals_2 = _value.equals("Default");
-                boolean _not_1 = (!_equals_2);
-                if (!_not_1) {
-                  _and_3 = false;
-                } else {
-                  String _value_1 = option.getValue();
-                  boolean _equals_3 = _value_1.equals("Excel");
-                  boolean _not_2 = (!_equals_3);
-                  _and_3 = _not_2;
-                }
-                if (!_and_3) {
-                  _and_2 = false;
-                } else {
-                  String _value_2 = option.getValue();
-                  boolean _equals_4 = _value_2.equals("MySQL");
-                  boolean _not_3 = (!_equals_4);
-                  _and_2 = _not_3;
-                }
-                if (!_and_2) {
-                  _and_1 = false;
-                } else {
-                  String _value_3 = option.getValue();
-                  boolean _equals_5 = _value_3.equals("RFC4180");
-                  boolean _not_4 = (!_equals_5);
-                  _and_1 = _not_4;
-                }
-                if (!_and_1) {
-                  _and = false;
-                } else {
-                  String _value_4 = option.getValue();
-                  boolean _equals_6 = _value_4.equals("TDF");
-                  boolean _not_5 = (!_equals_6);
-                  _and = _not_5;
-                }
-                if (_and) {
-                  this.error("XML-FORMAT. Format MUST BE: Default, Excel, MySQL, RFC4180 or TDF", DataDslPackage.Literals.LEAF_NODE__NAME, DataDslValidator.DATATYPE_OPTION_NAME);
-                }
-              }
-            }
-          };
-          _options_3.forEach(_function_2);
-          break;
-      }
+  public void checkDataTypeString(final DataTypeRefinement datatype) {
+    boolean _and = false;
+    BasicType _refine = datatype.getRefine();
+    String _literal = _refine.getLiteral();
+    boolean _equals = _literal.equals("String");
+    boolean _not = (!_equals);
+    if (!_not) {
+      _and = false;
+    } else {
+      EList<SubstringConcept> _subsequences = datatype.getSubsequences();
+      int _size = _subsequences.size();
+      boolean _greaterThan = (_size > 0);
+      _and = _greaterThan;
+    }
+    if (_and) {
+      this.error("Datatypes not extending STRING can not have subsequences descriptions", DataDslPackage.Literals.DATA_TYPE_REFINEMENT__REFINE, DataDslValidator.DATATYPE_SUBS);
     }
   }
   
+  /**
+   * @Check
+   * def checkDataDescriptionsOptions(DataSourceDescription datadescription) {
+   * if(datadescription.options != null){
+   * switch datadescription.format.literal{
+   * case "CSV":
+   * datadescription.options.forEach[
+   * option | if(!option.key.literal.equals("format"))
+   * error('Options are not valid for a CSV file', DataDslPackage.Literals.DATA_SOURCE_DESCRIPTION__NAME, DATADESCRIPTION_OPTION_NAME)
+   * else{
+   * if(option.key.literal.equals("format")){
+   * if(!option.value.equals("Default") && !option.value.equals("Excel") && !option.value.equals("MySQL") && !option.value.equals("RFC4180") && !option.value.equals("TDF"))
+   * error('CSV-FORMAT. Format MUST BE: Default, Excel, MySQL, RFC4180 or TDF', DataDslPackage.Literals.LEAF_SPECIFICATION_ELEMENT__NAME, DATATYPE_OPTION_NAME)
+   * }
+   * }
+   * ]
+   * case "JSON":
+   * datadescription.options.forEach[
+   * option | if(!option.key.literal.equals("format"))
+   * error('Options are not valid for a JSON file', DataDslPackage.Literals.DATA_SOURCE_DESCRIPTION__NAME, DATADESCRIPTION_OPTION_NAME)
+   * else{
+   * if(option.key.literal.equals("format")){
+   * if(!option.value.equals("Default") && !option.value.equals("Excel") && !option.value.equals("MySQL") && !option.value.equals("RFC4180") && !option.value.equals("TDF"))
+   * error('JSON-FORMAT. Format MUST BE: Default, Excel, MySQL, RFC4180 or TDF', DataDslPackage.Literals.LEAF_SPECIFICATION_ELEMENT__NAME, DATATYPE_OPTION_NAME)
+   * }
+   * }
+   * ]
+   * case "XML":
+   * datadescription.options.forEach[
+   * option | if(!option.key.literal.equals("squema"))
+   * error('Options are not valid for a XML file', DataDslPackage.Literals.DATA_SOURCE_DESCRIPTION__NAME, DATADESCRIPTION_OPTION_NAME)
+   * else{
+   * if(option.key.literal.equals("squema")){
+   * if(!option.value.equals("Default") && !option.value.equals("Excel") && !option.value.equals("MySQL") && !option.value.equals("RFC4180") && !option.value.equals("TDF"))
+   * error('XML-FORMAT. Format MUST BE: Default, Excel, MySQL, RFC4180 or TDF', DataDslPackage.Literals.LEAF_SPECIFICATION_ELEMENT__NAME, DATATYPE_OPTION_NAME)
+   * }
+   * }
+   * ]
+   * }
+   * }
+   * }
+   */
   @Check
-  public void checkDataTypeOptions(final LeafNode leafNode) {
-    BasicType _type = leafNode.getType();
-    boolean _notEquals = (!Objects.equal(_type, null));
+  public void checkDataTypeOptions(final DataTypeRefinement leafNode) {
+    BasicType _refine = leafNode.getRefine();
+    boolean _notEquals = (!Objects.equal(_refine, null));
     if (_notEquals) {
-      final BasicType datatype = leafNode.getType();
+      final BasicType datatype = leafNode.getRefine();
       String _literal = datatype.getLiteral();
       switch (_literal) {
-        case "int":
+        case "Int":
           EList<Option> _options = leafNode.getOptions();
           final Consumer<Option> _function = (Option option) -> {
             if ((option instanceof StringOption)) {
@@ -308,7 +178,7 @@ public class DataDslValidator extends AbstractDataDslValidator {
                 _and = _not_2;
               }
               if (_and) {
-                this.error("Options are not valid for an INTEGER", DataDslPackage.Literals.LEAF_NODE__NAME, DataDslValidator.DATATYPE_OPTION_NAME);
+                this.error("Options are not valid for an INTEGER", DataDslPackage.Literals.SPECIFICATION_ELEMENT__NAME, DataDslValidator.DATATYPE_OPTION_NAME);
               }
             }
             if ((option instanceof IntOption)) {
@@ -337,7 +207,7 @@ public class DataDslValidator extends AbstractDataDslValidator {
                 _and_2 = _not_5;
               }
               if (_and_2) {
-                this.error("Options are not valid for an INTEGER", DataDslPackage.Literals.LEAF_NODE__NAME, DataDslValidator.DATATYPE_OPTION_NAME);
+                this.error("Options are not valid for an INTEGER", DataDslPackage.Literals.SPECIFICATION_ELEMENT__NAME, DataDslValidator.DATATYPE_OPTION_NAME);
               }
             }
             if ((option instanceof DoubleOption)) {
@@ -366,13 +236,13 @@ public class DataDslValidator extends AbstractDataDslValidator {
                 _and_4 = _not_8;
               }
               if (_and_4) {
-                this.error("Options are not valid for an INTEGER", DataDslPackage.Literals.LEAF_NODE__NAME, DataDslValidator.DATATYPE_OPTION_NAME);
+                this.error("Options are not valid for an INTEGER", DataDslPackage.Literals.SPECIFICATION_ELEMENT__NAME, DataDslValidator.DATATYPE_OPTION_NAME);
               }
             }
           };
           _options.forEach(_function);
           break;
-        case "real":
+        case "Real":
           EList<Option> _options_1 = leafNode.getOptions();
           final Consumer<Option> _function_1 = (Option option) -> {
             if ((option instanceof StringOption)) {
@@ -431,7 +301,7 @@ public class DataDslValidator extends AbstractDataDslValidator {
                 _and = _not_5;
               }
               if (_and) {
-                this.error("Options are not valid for an REAL", DataDslPackage.Literals.LEAF_NODE__NAME, DataDslValidator.DATATYPE_OPTION_NAME);
+                this.error("Options are not valid for an REAL", DataDslPackage.Literals.SPECIFICATION_ELEMENT__NAME, DataDslValidator.DATATYPE_OPTION_NAME);
               } else {
                 StringOptionKey _key_6 = ((StringOption)option).getKey();
                 String _literal_7 = _key_6.getLiteral();
@@ -459,7 +329,7 @@ public class DataDslValidator extends AbstractDataDslValidator {
                     _and_5 = _not_8;
                   }
                   if (_and_5) {
-                    this.error("DECIMALCHAR. Option must be a \".\", \",\", \"\'\"", DataDslPackage.Literals.LEAF_NODE__NAME, DataDslValidator.DATATYPE_OPTION_NAME);
+                    this.error("DECIMALCHAR. Option must be a \".\", \",\", \"\'\"", DataDslPackage.Literals.SPECIFICATION_ELEMENT__NAME, DataDslValidator.DATATYPE_OPTION_NAME);
                   }
                 }
               }
@@ -490,7 +360,7 @@ public class DataDslValidator extends AbstractDataDslValidator {
                 _and_7 = _not_11;
               }
               if (_and_7) {
-                this.error("Options are not valid for an REAL", DataDslPackage.Literals.LEAF_NODE__NAME, DataDslValidator.DATATYPE_OPTION_NAME);
+                this.error("Options are not valid for an REAL", DataDslPackage.Literals.SPECIFICATION_ELEMENT__NAME, DataDslValidator.DATATYPE_OPTION_NAME);
               }
             }
             if ((option instanceof DoubleOption)) {
@@ -519,13 +389,13 @@ public class DataDslValidator extends AbstractDataDslValidator {
                 _and_9 = _not_14;
               }
               if (_and_9) {
-                this.error("Options are not valid for an REAL", DataDslPackage.Literals.LEAF_NODE__NAME, DataDslValidator.DATATYPE_OPTION_NAME);
+                this.error("Options are not valid for an REAL", DataDslPackage.Literals.SPECIFICATION_ELEMENT__NAME, DataDslValidator.DATATYPE_OPTION_NAME);
               }
             }
           };
           _options_1.forEach(_function_1);
           break;
-        case "boolean":
+        case "Boolean":
           EList<Option> _options_2 = leafNode.getOptions();
           final Consumer<Option> _function_2 = (Option option) -> {
             if ((option instanceof StringOption)) {
@@ -544,20 +414,20 @@ public class DataDslValidator extends AbstractDataDslValidator {
                 _and = _not_1;
               }
               if (_and) {
-                this.error("Options are not valid for an BOOLEAN", DataDslPackage.Literals.LEAF_NODE__NAME, DataDslValidator.DATATYPE_OPTION_NAME);
+                this.error("Options are not valid for an BOOLEAN", DataDslPackage.Literals.SPECIFICATION_ELEMENT__NAME, DataDslValidator.DATATYPE_OPTION_NAME);
               } else {
                 String _value = ((StringOption)option).getValue();
                 boolean _contains = _value.contains("|");
                 boolean _not_2 = (!_contains);
                 if (_not_2) {
-                  this.warning("BOOLEAN. Implementation does not contain value for FALSE representation (must use | separator): TRUE | FALSE", DataDslPackage.Literals.LEAF_NODE__NAME, DataDslValidator.DATATYPE_OPTION_NAME);
+                  this.warning("BOOLEAN. Implementation does not contain value for FALSE representation (must use | separator): TRUE | FALSE", DataDslPackage.Literals.SPECIFICATION_ELEMENT__NAME, DataDslValidator.DATATYPE_OPTION_NAME);
                 }
               }
             }
           };
           _options_2.forEach(_function_2);
           break;
-        case "date":
+        case "Date":
           EList<Option> _options_3 = leafNode.getOptions();
           final Consumer<Option> _function_3 = (Option option) -> {
             if ((option instanceof StringOption)) {
@@ -586,7 +456,7 @@ public class DataDslValidator extends AbstractDataDslValidator {
                 _and = _not_2;
               }
               if (_and) {
-                this.error("Options are not valid for a DATE", DataDslPackage.Literals.LEAF_NODE__NAME, DataDslValidator.DATATYPE_OPTION_NAME);
+                this.error("Options are not valid for a DATE", DataDslPackage.Literals.SPECIFICATION_ELEMENT__NAME, DataDslValidator.DATATYPE_OPTION_NAME);
               } else {
                 StringOptionKey _key_3 = ((StringOption)option).getKey();
                 String _literal_4 = _key_3.getLiteral();
@@ -644,7 +514,7 @@ public class DataDslValidator extends AbstractDataDslValidator {
                       _and_2 = _not_8;
                     }
                     if (_and_2) {
-                      this.error("FORMAT not correctly spell. MUST USE M/m for MONTHS, D/d for DAYS, Y/y for YEARS", DataDslPackage.Literals.LEAF_NODE__NAME, DataDslValidator.DATATYPE_OPTION_NAME);
+                      this.error("FORMAT not correctly spell. MUST USE M/m for MONTHS, D/d for DAYS, Y/y for YEARS", DataDslPackage.Literals.SPECIFICATION_ELEMENT__NAME, DataDslValidator.DATATYPE_OPTION_NAME);
                     }
                   };
                   ((List<Character>)Conversions.doWrapArray(_charArray)).forEach(_function_4);
@@ -666,7 +536,7 @@ public class DataDslValidator extends AbstractDataDslValidator {
                   Iterable<Character> _filter = IterableExtensions.<Character>filter(((Iterable<Character>)Conversions.doWrapArray(_charArray_1)), _function_5);
                   Integer mChar = Integer.valueOf(IterableExtensions.size(_filter));
                   if (((mChar).intValue() > 2)) {
-                    this.error("FORMAT not correctly spell. MONTHS must have less than 2 CHARS. 100th month does not exist (maybe in Pluto)", DataDslPackage.Literals.LEAF_NODE__NAME, DataDslValidator.DATATYPE_OPTION_NAME);
+                    this.error("FORMAT not correctly spell. MONTHS must have less than 2 CHARS. 100th month does not exist (maybe in Pluto)", DataDslPackage.Literals.SPECIFICATION_ELEMENT__NAME, DataDslValidator.DATATYPE_OPTION_NAME);
                   }
                   String _value_2 = ((StringOption)option).getValue();
                   char[] _charArray_2 = _value_2.toCharArray();
@@ -686,7 +556,7 @@ public class DataDslValidator extends AbstractDataDslValidator {
                   Iterable<Character> _filter_1 = IterableExtensions.<Character>filter(((Iterable<Character>)Conversions.doWrapArray(_charArray_2)), _function_6);
                   Integer dChar = Integer.valueOf(IterableExtensions.size(_filter_1));
                   if (((dChar).intValue() > 2)) {
-                    this.error("FORMAT not correctly spell. DAYS must have less than 2 CHARS. 100th day does not exist (maybe in Pluto)", DataDslPackage.Literals.LEAF_NODE__NAME, DataDslValidator.DATATYPE_OPTION_NAME);
+                    this.error("FORMAT not correctly spell. DAYS must have less than 2 CHARS. 100th day does not exist (maybe in Pluto)", DataDslPackage.Literals.SPECIFICATION_ELEMENT__NAME, DataDslValidator.DATATYPE_OPTION_NAME);
                   }
                   String _value_3 = ((StringOption)option).getValue();
                   char[] _charArray_3 = _value_3.toCharArray();
@@ -706,7 +576,7 @@ public class DataDslValidator extends AbstractDataDslValidator {
                   Iterable<Character> _filter_2 = IterableExtensions.<Character>filter(((Iterable<Character>)Conversions.doWrapArray(_charArray_3)), _function_7);
                   Integer yChar = Integer.valueOf(IterableExtensions.size(_filter_2));
                   if (((yChar).intValue() > 4)) {
-                    this.error("FORMAT not correctly spell. YEARS must have less than 4 CHARS. WHOW, you get to the 10000th year! How it is? Cars can fly?", DataDslPackage.Literals.LEAF_NODE__NAME, DataDslValidator.DATATYPE_OPTION_NAME);
+                    this.error("FORMAT not correctly spell. YEARS must have less than 4 CHARS. WHOW, you get to the 10000th year! How it is? Cars can fly?", DataDslPackage.Literals.SPECIFICATION_ELEMENT__NAME, DataDslValidator.DATATYPE_OPTION_NAME);
                   }
                 }
               }
@@ -714,7 +584,7 @@ public class DataDslValidator extends AbstractDataDslValidator {
           };
           _options_3.forEach(_function_3);
           break;
-        case "time":
+        case "Time":
           EList<Option> _options_4 = leafNode.getOptions();
           final Consumer<Option> _function_4 = (Option option) -> {
             if ((option instanceof StringOption)) {
@@ -743,7 +613,7 @@ public class DataDslValidator extends AbstractDataDslValidator {
                 _and = _not_2;
               }
               if (_and) {
-                this.error("Options are not valid for a TIME", DataDslPackage.Literals.LEAF_NODE__NAME, DataDslValidator.DATATYPE_OPTION_NAME);
+                this.error("Options are not valid for a TIME", DataDslPackage.Literals.SPECIFICATION_ELEMENT__NAME, DataDslValidator.DATATYPE_OPTION_NAME);
               } else {
                 StringOptionKey _key_3 = ((StringOption)option).getKey();
                 String _literal_4 = _key_3.getLiteral();
@@ -801,7 +671,7 @@ public class DataDslValidator extends AbstractDataDslValidator {
                       _and_2 = _not_8;
                     }
                     if (_and_2) {
-                      this.error("FORMAT not correctly spell. MUST USE H/h for HOURS, M/m for MINUTES, S/s for SECONDS", DataDslPackage.Literals.LEAF_NODE__NAME, DataDslValidator.DATATYPE_OPTION_NAME);
+                      this.error("FORMAT not correctly spell. MUST USE H/h for HOURS, M/m for MINUTES, S/s for SECONDS", DataDslPackage.Literals.SPECIFICATION_ELEMENT__NAME, DataDslValidator.DATATYPE_OPTION_NAME);
                     }
                   };
                   ((List<Character>)Conversions.doWrapArray(_charArray)).forEach(_function_5);
@@ -823,7 +693,7 @@ public class DataDslValidator extends AbstractDataDslValidator {
                   Iterable<Character> _filter = IterableExtensions.<Character>filter(((Iterable<Character>)Conversions.doWrapArray(_charArray_1)), _function_6);
                   Integer hChar = Integer.valueOf(IterableExtensions.size(_filter));
                   if (((hChar).intValue() > 2)) {
-                    this.error("FORMAT not correctly spell. HOURS must have less than 2 CHARS. See you at fifteen to 125, buddy", DataDslPackage.Literals.LEAF_NODE__NAME, DataDslValidator.DATATYPE_OPTION_NAME);
+                    this.error("FORMAT not correctly spell. HOURS must have less than 2 CHARS. See you at fifteen to 125, buddy", DataDslPackage.Literals.SPECIFICATION_ELEMENT__NAME, DataDslValidator.DATATYPE_OPTION_NAME);
                   }
                   String _value_2 = ((StringOption)option).getValue();
                   char[] _charArray_2 = _value_2.toCharArray();
@@ -843,7 +713,7 @@ public class DataDslValidator extends AbstractDataDslValidator {
                   Iterable<Character> _filter_1 = IterableExtensions.<Character>filter(((Iterable<Character>)Conversions.doWrapArray(_charArray_2)), _function_7);
                   Integer mChar = Integer.valueOf(IterableExtensions.size(_filter_1));
                   if (((mChar).intValue() > 2)) {
-                    this.error("FORMAT not correctly spell. MINUTES must have less than 2 CHARS. 100 minutes is 1 hour and 40 minutes HMM", DataDslPackage.Literals.LEAF_NODE__NAME, DataDslValidator.DATATYPE_OPTION_NAME);
+                    this.error("FORMAT not correctly spell. MINUTES must have less than 2 CHARS. 100 minutes is 1 hour and 40 minutes HMM", DataDslPackage.Literals.SPECIFICATION_ELEMENT__NAME, DataDslValidator.DATATYPE_OPTION_NAME);
                   }
                   String _value_3 = ((StringOption)option).getValue();
                   char[] _charArray_3 = _value_3.toCharArray();
@@ -863,7 +733,7 @@ public class DataDslValidator extends AbstractDataDslValidator {
                   Iterable<Character> _filter_2 = IterableExtensions.<Character>filter(((Iterable<Character>)Conversions.doWrapArray(_charArray_3)), _function_8);
                   Integer sChar = Integer.valueOf(IterableExtensions.size(_filter_2));
                   if (((sChar).intValue() > 4)) {
-                    this.error("FORMAT not correctly spell. SECONDS must have less than 2 CHARS. 100 seconds is 1 minute and 40 seconds Mss", DataDslPackage.Literals.LEAF_NODE__NAME, DataDslValidator.DATATYPE_OPTION_NAME);
+                    this.error("FORMAT not correctly spell. SECONDS must have less than 2 CHARS. 100 seconds is 1 minute and 40 seconds Mss", DataDslPackage.Literals.SPECIFICATION_ELEMENT__NAME, DataDslValidator.DATATYPE_OPTION_NAME);
                   }
                 }
               }
@@ -871,7 +741,7 @@ public class DataDslValidator extends AbstractDataDslValidator {
           };
           _options_4.forEach(_function_4);
           break;
-        case "year":
+        case "Year":
           EList<Option> _options_5 = leafNode.getOptions();
           final Consumer<Option> _function_5 = (Option option) -> {
             if ((option instanceof StringOption)) {
@@ -890,7 +760,7 @@ public class DataDslValidator extends AbstractDataDslValidator {
                 _and = _not_1;
               }
               if (_and) {
-                this.error("Options are not valid for a YEAR", DataDslPackage.Literals.LEAF_NODE__NAME, DataDslValidator.DATATYPE_OPTION_NAME);
+                this.error("Options are not valid for a YEAR", DataDslPackage.Literals.SPECIFICATION_ELEMENT__NAME, DataDslValidator.DATATYPE_OPTION_NAME);
               } else {
                 StringOptionKey _key_2 = ((StringOption)option).getKey();
                 String _literal_3 = _key_2.getLiteral();
@@ -911,7 +781,7 @@ public class DataDslValidator extends AbstractDataDslValidator {
                       boolean _not_3 = (!_equals_4);
                       _and_1 = _not_3;
                     }
-                    this.error("FORMAT not correctly spell. MUST USE Y/y for YEARS", DataDslPackage.Literals.LEAF_NODE__NAME, DataDslValidator.DATATYPE_OPTION_NAME);
+                    this.error("FORMAT not correctly spell. MUST USE Y/y for YEARS", DataDslPackage.Literals.SPECIFICATION_ELEMENT__NAME, DataDslValidator.DATATYPE_OPTION_NAME);
                   };
                   ((List<Character>)Conversions.doWrapArray(_charArray)).forEach(_function_6);
                   String _value_1 = ((StringOption)option).getValue();
@@ -932,7 +802,7 @@ public class DataDslValidator extends AbstractDataDslValidator {
                   Iterable<Character> _filter = IterableExtensions.<Character>filter(((Iterable<Character>)Conversions.doWrapArray(_charArray_1)), _function_7);
                   Integer yChar = Integer.valueOf(IterableExtensions.size(_filter));
                   if (((yChar).intValue() > 4)) {
-                    this.error("FORMAT not correctly spell. YEARS must have less than 4 CHARS. WHOW, you get to the 10000th year! How it is? Cars can fly?", DataDslPackage.Literals.LEAF_NODE__NAME, DataDslValidator.DATATYPE_OPTION_NAME);
+                    this.error("FORMAT not correctly spell. YEARS must have less than 4 CHARS. WHOW, you get to the 10000th year! How it is? Cars can fly?", DataDslPackage.Literals.SPECIFICATION_ELEMENT__NAME, DataDslValidator.DATATYPE_OPTION_NAME);
                   }
                 }
               }
@@ -940,7 +810,7 @@ public class DataDslValidator extends AbstractDataDslValidator {
           };
           _options_5.forEach(_function_5);
           break;
-        case "month":
+        case "Month":
           EList<Option> _options_6 = leafNode.getOptions();
           final Consumer<Option> _function_6 = (Option option) -> {
             if ((option instanceof StringOption)) {
@@ -959,7 +829,7 @@ public class DataDslValidator extends AbstractDataDslValidator {
                 _and = _not_1;
               }
               if (_and) {
-                this.error("Options are not valid for a MONTH", DataDslPackage.Literals.LEAF_NODE__NAME, DataDslValidator.DATATYPE_OPTION_NAME);
+                this.error("Options are not valid for a MONTH", DataDslPackage.Literals.SPECIFICATION_ELEMENT__NAME, DataDslValidator.DATATYPE_OPTION_NAME);
               } else {
                 StringOptionKey _key_2 = ((StringOption)option).getKey();
                 String _literal_3 = _key_2.getLiteral();
@@ -980,7 +850,7 @@ public class DataDslValidator extends AbstractDataDslValidator {
                       boolean _not_3 = (!_equals_4);
                       _and_1 = _not_3;
                     }
-                    this.error("FORMAT not correctly spell. MUST USE M/m for MONTHS", DataDslPackage.Literals.LEAF_NODE__NAME, DataDslValidator.DATATYPE_OPTION_NAME);
+                    this.error("FORMAT not correctly spell. MUST USE M/m for MONTHS", DataDslPackage.Literals.SPECIFICATION_ELEMENT__NAME, DataDslValidator.DATATYPE_OPTION_NAME);
                   };
                   ((List<Character>)Conversions.doWrapArray(_charArray)).forEach(_function_7);
                   String _value_1 = ((StringOption)option).getValue();
@@ -1001,7 +871,7 @@ public class DataDslValidator extends AbstractDataDslValidator {
                   Iterable<Character> _filter = IterableExtensions.<Character>filter(((Iterable<Character>)Conversions.doWrapArray(_charArray_1)), _function_8);
                   Integer mChar = Integer.valueOf(IterableExtensions.size(_filter));
                   if (((mChar).intValue() > 2)) {
-                    this.error("FORMAT not correctly spell. MONTHS must have less than 2 CHARS. 100th month does not exist (maybe in Pluto)", DataDslPackage.Literals.LEAF_NODE__NAME, DataDslValidator.DATATYPE_OPTION_NAME);
+                    this.error("FORMAT not correctly spell. MONTHS must have less than 2 CHARS. 100th month does not exist (maybe in Pluto)", DataDslPackage.Literals.SPECIFICATION_ELEMENT__NAME, DataDslValidator.DATATYPE_OPTION_NAME);
                   }
                 }
               }
@@ -1009,7 +879,7 @@ public class DataDslValidator extends AbstractDataDslValidator {
           };
           _options_6.forEach(_function_6);
           break;
-        case "day":
+        case "Day":
           EList<Option> _options_7 = leafNode.getOptions();
           final Consumer<Option> _function_7 = (Option option) -> {
             if ((option instanceof StringOption)) {
@@ -1028,7 +898,7 @@ public class DataDslValidator extends AbstractDataDslValidator {
                 _and = _not_1;
               }
               if (_and) {
-                this.error("Options are not valid for a DAY", DataDslPackage.Literals.LEAF_NODE__NAME, DataDslValidator.DATATYPE_OPTION_NAME);
+                this.error("Options are not valid for a DAY", DataDslPackage.Literals.SPECIFICATION_ELEMENT__NAME, DataDslValidator.DATATYPE_OPTION_NAME);
               } else {
                 StringOptionKey _key_2 = ((StringOption)option).getKey();
                 String _literal_3 = _key_2.getLiteral();
@@ -1049,7 +919,7 @@ public class DataDslValidator extends AbstractDataDslValidator {
                       boolean _not_3 = (!_equals_4);
                       _and_1 = _not_3;
                     }
-                    this.error("FORMAT not correctly spell. MUST USE D/d for DAYS", DataDslPackage.Literals.LEAF_NODE__NAME, DataDslValidator.DATATYPE_OPTION_NAME);
+                    this.error("FORMAT not correctly spell. MUST USE D/d for DAYS", DataDslPackage.Literals.SPECIFICATION_ELEMENT__NAME, DataDslValidator.DATATYPE_OPTION_NAME);
                   };
                   ((List<Character>)Conversions.doWrapArray(_charArray)).forEach(_function_8);
                   String _value_1 = ((StringOption)option).getValue();
@@ -1070,7 +940,7 @@ public class DataDslValidator extends AbstractDataDslValidator {
                   Iterable<Character> _filter = IterableExtensions.<Character>filter(((Iterable<Character>)Conversions.doWrapArray(_charArray_1)), _function_9);
                   Integer dChar = Integer.valueOf(IterableExtensions.size(_filter));
                   if (((dChar).intValue() > 2)) {
-                    this.error("FORMAT not correctly spell. DAYS must have less than 2 CHARS. 100th day does not exist (maybe in Pluto)", DataDslPackage.Literals.LEAF_NODE__NAME, DataDslValidator.DATATYPE_OPTION_NAME);
+                    this.error("FORMAT not correctly spell. DAYS must have less than 2 CHARS. 100th day does not exist (maybe in Pluto)", DataDslPackage.Literals.SPECIFICATION_ELEMENT__NAME, DataDslValidator.DATATYPE_OPTION_NAME);
                   }
                 }
               }
@@ -1078,7 +948,7 @@ public class DataDslValidator extends AbstractDataDslValidator {
           };
           _options_7.forEach(_function_7);
           break;
-        case "string":
+        case "String":
           EList<Option> _options_8 = leafNode.getOptions();
           final Consumer<Option> _function_8 = (Option option) -> {
             if ((option instanceof StringOption)) {
@@ -1107,7 +977,7 @@ public class DataDslValidator extends AbstractDataDslValidator {
                 _and = _not_2;
               }
               if (_and) {
-                this.error("Options are not valid for an STRING", DataDslPackage.Literals.LEAF_NODE__NAME, DataDslValidator.DATATYPE_OPTION_NAME);
+                this.error("Options are not valid for an STRING", DataDslPackage.Literals.SPECIFICATION_ELEMENT__NAME, DataDslValidator.DATATYPE_OPTION_NAME);
               } else {
                 StringOptionKey _key_3 = ((StringOption)option).getKey();
                 String _literal_4 = _key_3.getLiteral();
@@ -1119,7 +989,7 @@ public class DataDslValidator extends AbstractDataDslValidator {
                   } catch (final Throwable _t) {
                     if (_t instanceof PatternSyntaxException) {
                       final PatternSyntaxException exception = (PatternSyntaxException)_t;
-                      this.error("STRING. REGEX is not valid. See (https://docs.oracle.com/javase/7/docs/api/java/util/regex/Pattern.html) for valid pattern", DataDslPackage.Literals.LEAF_NODE__NAME, DataDslValidator.DATATYPE_OPTION_NAME);
+                      this.error("STRING. REGEX is not valid. See (https://docs.oracle.com/javase/7/docs/api/java/util/regex/Pattern.html) for valid pattern", DataDslPackage.Literals.SPECIFICATION_ELEMENT__NAME, DataDslValidator.DATATYPE_OPTION_NAME);
                     } else {
                       throw Exceptions.sneakyThrow(_t);
                     }
@@ -1143,7 +1013,7 @@ public class DataDslValidator extends AbstractDataDslValidator {
                     }
                   }
                   if (((dChar).intValue() < 1)) {
-                    this.error("REGEX_FLAGS can not be called without REGEX option", DataDslPackage.Literals.LEAF_NODE__NAME, DataDslValidator.DATATYPE_OPTION_NAME);
+                    this.error("REGEX_FLAGS can not be called without REGEX option", DataDslPackage.Literals.SPECIFICATION_ELEMENT__NAME, DataDslValidator.DATATYPE_OPTION_NAME);
                   }
                   boolean _and_2 = false;
                   boolean _and_3 = false;
@@ -1221,7 +1091,7 @@ public class DataDslValidator extends AbstractDataDslValidator {
                     _and_2 = _not_11;
                   }
                   if (_and_2) {
-                    this.error("STRING. REGEX_FLAGS is not valid. See (https://docs.oracle.com/javase/7/docs/api/java/util/regex/Pattern.html#compile(java.lang.String)) for help. It is hard but if Leo could win the Oscar you can do this.", DataDslPackage.Literals.LEAF_NODE__NAME, DataDslValidator.DATATYPE_OPTION_NAME);
+                    this.error("STRING. REGEX_FLAGS is not valid. See (https://docs.oracle.com/javase/7/docs/api/java/util/regex/Pattern.html#compile(java.lang.String)) for help. It is hard but if Leo could win the Oscar you can do this.", DataDslPackage.Literals.SPECIFICATION_ELEMENT__NAME, DataDslValidator.DATATYPE_OPTION_NAME);
                   }
                 }
               }
@@ -1229,7 +1099,7 @@ public class DataDslValidator extends AbstractDataDslValidator {
           };
           _options_8.forEach(_function_8);
           break;
-        case "lat":
+        case "Lat":
           EList<Option> _options_9 = leafNode.getOptions();
           final Consumer<Option> _function_9 = (Option option) -> {
             if ((option instanceof StringOption)) {
@@ -1238,13 +1108,13 @@ public class DataDslValidator extends AbstractDataDslValidator {
               boolean _equals = _literal_1.equals("null");
               boolean _not = (!_equals);
               if (_not) {
-                this.error("Options are not valid for an LAT", DataDslPackage.Literals.LEAF_NODE__NAME, DataDslValidator.DATATYPE_OPTION_NAME);
+                this.error("Options are not valid for an LAT", DataDslPackage.Literals.SPECIFICATION_ELEMENT__NAME, DataDslValidator.DATATYPE_OPTION_NAME);
               }
             }
           };
           _options_9.forEach(_function_9);
           break;
-        case "long":
+        case "Long":
           EList<Option> _options_10 = leafNode.getOptions();
           final Consumer<Option> _function_10 = (Option option) -> {
             if ((option instanceof StringOption)) {
@@ -1253,16 +1123,1052 @@ public class DataDslValidator extends AbstractDataDslValidator {
               boolean _equals = _literal_1.equals("null");
               boolean _not = (!_equals);
               if (_not) {
-                this.error("Options are not valid for an LONG", DataDslPackage.Literals.LEAF_NODE__NAME, DataDslValidator.DATATYPE_OPTION_NAME);
+                this.error("Options are not valid for an LONG", DataDslPackage.Literals.SPECIFICATION_ELEMENT__NAME, DataDslValidator.DATATYPE_OPTION_NAME);
               }
             }
           };
           _options_10.forEach(_function_10);
           break;
+        case "Url":
+          EList<Option> _options_11 = leafNode.getOptions();
+          final Consumer<Option> _function_11 = (Option option) -> {
+            if ((option instanceof StringOption)) {
+              StringOptionKey _key = ((StringOption)option).getKey();
+              String _literal_1 = _key.getLiteral();
+              boolean _equals = _literal_1.equals("null");
+              boolean _not = (!_equals);
+              if (_not) {
+                this.error("Options are not valid for an URL", DataDslPackage.Literals.SPECIFICATION_ELEMENT__NAME, DataDslValidator.DATATYPE_OPTION_NAME);
+              }
+            }
+          };
+          _options_11.forEach(_function_11);
+          break;
         default:
-          this.error("Options are not valid for node. Type not correct", DataDslPackage.Literals.LEAF_NODE__NAME, DataDslValidator.DATATYPE_OPTION_NAME);
+          this.error("Options are not valid for node. Type not correct", DataDslPackage.Literals.SPECIFICATION_ELEMENT__NAME, DataDslValidator.DATATYPE_OPTION_NAME);
           break;
       }
+    }
+  }
+  
+  @Check
+  public void checkDataTypeOptions(final PrimitiveNode leafNode) {
+    BasicType _type = leafNode.getType();
+    boolean _notEquals = (!Objects.equal(_type, null));
+    if (_notEquals) {
+      final BasicType datatype = leafNode.getType();
+      String _literal = datatype.getLiteral();
+      switch (_literal) {
+        case "Int":
+          EList<Option> _options = leafNode.getOptions();
+          final Consumer<Option> _function = (Option option) -> {
+            if ((option instanceof StringOption)) {
+              boolean _and = false;
+              boolean _and_1 = false;
+              StringOptionKey _key = ((StringOption)option).getKey();
+              String _literal_1 = _key.getLiteral();
+              boolean _equals = _literal_1.equals("null");
+              boolean _not = (!_equals);
+              if (!_not) {
+                _and_1 = false;
+              } else {
+                StringOptionKey _key_1 = ((StringOption)option).getKey();
+                String _literal_2 = _key_1.getLiteral();
+                boolean _equals_1 = _literal_2.equals("separator");
+                boolean _not_1 = (!_equals_1);
+                _and_1 = _not_1;
+              }
+              if (!_and_1) {
+                _and = false;
+              } else {
+                StringOptionKey _key_2 = ((StringOption)option).getKey();
+                String _literal_3 = _key_2.getLiteral();
+                boolean _equals_2 = _literal_3.equals("default");
+                boolean _not_2 = (!_equals_2);
+                _and = _not_2;
+              }
+              if (_and) {
+                this.error("Options are not valid for an INTEGER", DataDslPackage.Literals.NODE__NAME, DataDslValidator.DATATYPE_OPTION_NAME);
+              }
+            }
+            if ((option instanceof IntOption)) {
+              boolean _and_2 = false;
+              boolean _and_3 = false;
+              IntOptionKey _key_3 = ((IntOption)option).getKey();
+              String _literal_4 = _key_3.getLiteral();
+              boolean _equals_3 = _literal_4.equals("min");
+              boolean _not_3 = (!_equals_3);
+              if (!_not_3) {
+                _and_3 = false;
+              } else {
+                IntOptionKey _key_4 = ((IntOption)option).getKey();
+                String _literal_5 = _key_4.getLiteral();
+                boolean _equals_4 = _literal_5.equals("max");
+                boolean _not_4 = (!_equals_4);
+                _and_3 = _not_4;
+              }
+              if (!_and_3) {
+                _and_2 = false;
+              } else {
+                IntOptionKey _key_5 = ((IntOption)option).getKey();
+                String _literal_6 = _key_5.getLiteral();
+                boolean _equals_5 = _literal_6.equals("defaultvalue");
+                boolean _not_5 = (!_equals_5);
+                _and_2 = _not_5;
+              }
+              if (_and_2) {
+                this.error("Options are not valid for an INTEGER", DataDslPackage.Literals.NODE__NAME, DataDslValidator.DATATYPE_OPTION_NAME);
+              }
+            }
+            if ((option instanceof DoubleOption)) {
+              boolean _and_4 = false;
+              boolean _and_5 = false;
+              DoubleOptionKey _key_6 = ((DoubleOption)option).getKey();
+              String _literal_7 = _key_6.getLiteral();
+              boolean _equals_6 = _literal_7.equals("minDouble");
+              boolean _not_6 = (!_equals_6);
+              if (!_not_6) {
+                _and_5 = false;
+              } else {
+                DoubleOptionKey _key_7 = ((DoubleOption)option).getKey();
+                String _literal_8 = _key_7.getLiteral();
+                boolean _equals_7 = _literal_8.equals("maxDouble");
+                boolean _not_7 = (!_equals_7);
+                _and_5 = _not_7;
+              }
+              if (!_and_5) {
+                _and_4 = false;
+              } else {
+                DoubleOptionKey _key_8 = ((DoubleOption)option).getKey();
+                String _literal_9 = _key_8.getLiteral();
+                boolean _equals_8 = _literal_9.equals("defaultvalueDouble");
+                boolean _not_8 = (!_equals_8);
+                _and_4 = _not_8;
+              }
+              if (_and_4) {
+                this.error("Options are not valid for an INTEGER", DataDslPackage.Literals.NODE__NAME, DataDslValidator.DATATYPE_OPTION_NAME);
+              }
+            }
+          };
+          _options.forEach(_function);
+          break;
+        case "Real":
+          EList<Option> _options_1 = leafNode.getOptions();
+          final Consumer<Option> _function_1 = (Option option) -> {
+            if ((option instanceof StringOption)) {
+              boolean _and = false;
+              boolean _and_1 = false;
+              boolean _and_2 = false;
+              boolean _and_3 = false;
+              boolean _and_4 = false;
+              StringOptionKey _key = ((StringOption)option).getKey();
+              String _literal_1 = _key.getLiteral();
+              boolean _equals = _literal_1.equals("null");
+              boolean _not = (!_equals);
+              if (!_not) {
+                _and_4 = false;
+              } else {
+                StringOptionKey _key_1 = ((StringOption)option).getKey();
+                String _literal_2 = _key_1.getLiteral();
+                boolean _equals_1 = _literal_2.equals("separator");
+                boolean _not_1 = (!_equals_1);
+                _and_4 = _not_1;
+              }
+              if (!_and_4) {
+                _and_3 = false;
+              } else {
+                StringOptionKey _key_2 = ((StringOption)option).getKey();
+                String _literal_3 = _key_2.getLiteral();
+                boolean _equals_2 = _literal_3.equals("default");
+                boolean _not_2 = (!_equals_2);
+                _and_3 = _not_2;
+              }
+              if (!_and_3) {
+                _and_2 = false;
+              } else {
+                StringOptionKey _key_3 = ((StringOption)option).getKey();
+                String _literal_4 = _key_3.getLiteral();
+                boolean _equals_3 = _literal_4.equals("decimalchar");
+                boolean _not_3 = (!_equals_3);
+                _and_2 = _not_3;
+              }
+              if (!_and_2) {
+                _and_1 = false;
+              } else {
+                StringOptionKey _key_4 = ((StringOption)option).getKey();
+                String _literal_5 = _key_4.getLiteral();
+                boolean _equals_4 = _literal_5.equals("groupchar");
+                boolean _not_4 = (!_equals_4);
+                _and_1 = _not_4;
+              }
+              if (!_and_1) {
+                _and = false;
+              } else {
+                StringOptionKey _key_5 = ((StringOption)option).getKey();
+                String _literal_6 = _key_5.getLiteral();
+                boolean _equals_5 = _literal_6.equals("pattern");
+                boolean _not_5 = (!_equals_5);
+                _and = _not_5;
+              }
+              if (_and) {
+                this.error("Options are not valid for an REAL", DataDslPackage.Literals.NODE__NAME, DataDslValidator.DATATYPE_OPTION_NAME);
+              } else {
+                StringOptionKey _key_6 = ((StringOption)option).getKey();
+                String _literal_7 = _key_6.getLiteral();
+                boolean _equals_6 = _literal_7.equals("decimalchar");
+                if (_equals_6) {
+                  boolean _and_5 = false;
+                  boolean _and_6 = false;
+                  String _value = ((StringOption)option).getValue();
+                  boolean _equals_7 = _value.equals(".");
+                  boolean _not_6 = (!_equals_7);
+                  if (!_not_6) {
+                    _and_6 = false;
+                  } else {
+                    String _value_1 = ((StringOption)option).getValue();
+                    boolean _equals_8 = _value_1.equals(",");
+                    boolean _not_7 = (!_equals_8);
+                    _and_6 = _not_7;
+                  }
+                  if (!_and_6) {
+                    _and_5 = false;
+                  } else {
+                    String _value_2 = ((StringOption)option).getValue();
+                    boolean _equals_9 = _value_2.equals("\'");
+                    boolean _not_8 = (!_equals_9);
+                    _and_5 = _not_8;
+                  }
+                  if (_and_5) {
+                    this.error("DECIMALCHAR. Option must be a \".\", \",\", \"\'\"", DataDslPackage.Literals.NODE__NAME, DataDslValidator.DATATYPE_OPTION_NAME);
+                  }
+                }
+              }
+            }
+            if ((option instanceof IntOption)) {
+              boolean _and_7 = false;
+              boolean _and_8 = false;
+              IntOptionKey _key_7 = ((IntOption)option).getKey();
+              String _literal_8 = _key_7.getLiteral();
+              boolean _equals_10 = _literal_8.equals("min");
+              boolean _not_9 = (!_equals_10);
+              if (!_not_9) {
+                _and_8 = false;
+              } else {
+                IntOptionKey _key_8 = ((IntOption)option).getKey();
+                String _literal_9 = _key_8.getLiteral();
+                boolean _equals_11 = _literal_9.equals("max");
+                boolean _not_10 = (!_equals_11);
+                _and_8 = _not_10;
+              }
+              if (!_and_8) {
+                _and_7 = false;
+              } else {
+                IntOptionKey _key_9 = ((IntOption)option).getKey();
+                String _literal_10 = _key_9.getLiteral();
+                boolean _equals_12 = _literal_10.equals("defaultvalue");
+                boolean _not_11 = (!_equals_12);
+                _and_7 = _not_11;
+              }
+              if (_and_7) {
+                this.error("Options are not valid for an REAL", DataDslPackage.Literals.NODE__NAME, DataDslValidator.DATATYPE_OPTION_NAME);
+              }
+            }
+            if ((option instanceof DoubleOption)) {
+              boolean _and_9 = false;
+              boolean _and_10 = false;
+              DoubleOptionKey _key_10 = ((DoubleOption)option).getKey();
+              String _literal_11 = _key_10.getLiteral();
+              boolean _equals_13 = _literal_11.equals("minDouble");
+              boolean _not_12 = (!_equals_13);
+              if (!_not_12) {
+                _and_10 = false;
+              } else {
+                DoubleOptionKey _key_11 = ((DoubleOption)option).getKey();
+                String _literal_12 = _key_11.getLiteral();
+                boolean _equals_14 = _literal_12.equals("maxDouble");
+                boolean _not_13 = (!_equals_14);
+                _and_10 = _not_13;
+              }
+              if (!_and_10) {
+                _and_9 = false;
+              } else {
+                DoubleOptionKey _key_12 = ((DoubleOption)option).getKey();
+                String _literal_13 = _key_12.getLiteral();
+                boolean _equals_15 = _literal_13.equals("defaultvalueDouble");
+                boolean _not_14 = (!_equals_15);
+                _and_9 = _not_14;
+              }
+              if (_and_9) {
+                this.error("Options are not valid for an REAL", DataDslPackage.Literals.NODE__NAME, DataDslValidator.DATATYPE_OPTION_NAME);
+              }
+            }
+          };
+          _options_1.forEach(_function_1);
+          break;
+        case "Boolean":
+          EList<Option> _options_2 = leafNode.getOptions();
+          final Consumer<Option> _function_2 = (Option option) -> {
+            if ((option instanceof StringOption)) {
+              boolean _and = false;
+              StringOptionKey _key = ((StringOption)option).getKey();
+              String _literal_1 = _key.getLiteral();
+              boolean _equals = _literal_1.equals("null");
+              boolean _not = (!_equals);
+              if (!_not) {
+                _and = false;
+              } else {
+                StringOptionKey _key_1 = ((StringOption)option).getKey();
+                String _literal_2 = _key_1.getLiteral();
+                boolean _equals_1 = _literal_2.equals("format");
+                boolean _not_1 = (!_equals_1);
+                _and = _not_1;
+              }
+              if (_and) {
+                this.error("Options are not valid for an BOOLEAN", DataDslPackage.Literals.NODE__NAME, DataDslValidator.DATATYPE_OPTION_NAME);
+              } else {
+                String _value = ((StringOption)option).getValue();
+                boolean _contains = _value.contains("|");
+                boolean _not_2 = (!_contains);
+                if (_not_2) {
+                  this.warning("BOOLEAN. Implementation does not contain value for FALSE representation (must use | separator): TRUE | FALSE", DataDslPackage.Literals.NODE__NAME, DataDslValidator.DATATYPE_OPTION_NAME);
+                }
+              }
+            }
+          };
+          _options_2.forEach(_function_2);
+          break;
+        case "Date":
+          EList<Option> _options_3 = leafNode.getOptions();
+          final Consumer<Option> _function_3 = (Option option) -> {
+            if ((option instanceof StringOption)) {
+              boolean _and = false;
+              boolean _and_1 = false;
+              StringOptionKey _key = ((StringOption)option).getKey();
+              String _literal_1 = _key.getLiteral();
+              boolean _equals = _literal_1.equals("null");
+              boolean _not = (!_equals);
+              if (!_not) {
+                _and_1 = false;
+              } else {
+                StringOptionKey _key_1 = ((StringOption)option).getKey();
+                String _literal_2 = _key_1.getLiteral();
+                boolean _equals_1 = _literal_2.equals("format");
+                boolean _not_1 = (!_equals_1);
+                _and_1 = _not_1;
+              }
+              if (!_and_1) {
+                _and = false;
+              } else {
+                StringOptionKey _key_2 = ((StringOption)option).getKey();
+                String _literal_3 = _key_2.getLiteral();
+                boolean _equals_2 = _literal_3.equals("separator");
+                boolean _not_2 = (!_equals_2);
+                _and = _not_2;
+              }
+              if (_and) {
+                this.error("Options are not valid for a DATE", DataDslPackage.Literals.NODE__NAME, DataDslValidator.DATATYPE_OPTION_NAME);
+              } else {
+                StringOptionKey _key_3 = ((StringOption)option).getKey();
+                String _literal_4 = _key_3.getLiteral();
+                boolean _equals_3 = _literal_4.equals("format");
+                if (_equals_3) {
+                  String _value = ((StringOption)option).getValue();
+                  char[] _charArray = _value.toCharArray();
+                  final Consumer<Character> _function_4 = (Character c) -> {
+                    boolean _and_2 = false;
+                    boolean _and_3 = false;
+                    boolean _and_4 = false;
+                    boolean _and_5 = false;
+                    boolean _and_6 = false;
+                    int _compare = Character.compare((c).charValue(), 'M');
+                    boolean _equals_4 = (_compare == 0);
+                    boolean _not_3 = (!_equals_4);
+                    if (!_not_3) {
+                      _and_6 = false;
+                    } else {
+                      int _compare_1 = Character.compare((c).charValue(), 'm');
+                      boolean _equals_5 = (_compare_1 == 0);
+                      boolean _not_4 = (!_equals_5);
+                      _and_6 = _not_4;
+                    }
+                    if (!_and_6) {
+                      _and_5 = false;
+                    } else {
+                      int _compare_2 = Character.compare((c).charValue(), 'D');
+                      boolean _equals_6 = (_compare_2 == 0);
+                      boolean _not_5 = (!_equals_6);
+                      _and_5 = _not_5;
+                    }
+                    if (!_and_5) {
+                      _and_4 = false;
+                    } else {
+                      int _compare_3 = Character.compare((c).charValue(), 'd');
+                      boolean _equals_7 = (_compare_3 == 0);
+                      boolean _not_6 = (!_equals_7);
+                      _and_4 = _not_6;
+                    }
+                    if (!_and_4) {
+                      _and_3 = false;
+                    } else {
+                      int _compare_4 = Character.compare((c).charValue(), 'Y');
+                      boolean _equals_8 = (_compare_4 == 0);
+                      boolean _not_7 = (!_equals_8);
+                      _and_3 = _not_7;
+                    }
+                    if (!_and_3) {
+                      _and_2 = false;
+                    } else {
+                      int _compare_5 = Character.compare((c).charValue(), 'y');
+                      boolean _equals_9 = (_compare_5 == 0);
+                      boolean _not_8 = (!_equals_9);
+                      _and_2 = _not_8;
+                    }
+                    if (_and_2) {
+                      this.error("FORMAT not correctly spell. MUST USE M/m for MONTHS, D/d for DAYS, Y/y for YEARS", DataDslPackage.Literals.NODE__NAME, DataDslValidator.DATATYPE_OPTION_NAME);
+                    }
+                  };
+                  ((List<Character>)Conversions.doWrapArray(_charArray)).forEach(_function_4);
+                  String _value_1 = ((StringOption)option).getValue();
+                  char[] _charArray_1 = _value_1.toCharArray();
+                  final Function1<Character, Boolean> _function_5 = (Character c) -> {
+                    boolean _or = false;
+                    int _compare = Character.compare((c).charValue(), 'M');
+                    boolean _equals_4 = (_compare == 0);
+                    if (_equals_4) {
+                      _or = true;
+                    } else {
+                      int _compare_1 = Character.compare((c).charValue(), 'm');
+                      boolean _equals_5 = (_compare_1 == 0);
+                      _or = _equals_5;
+                    }
+                    return Boolean.valueOf(_or);
+                  };
+                  Iterable<Character> _filter = IterableExtensions.<Character>filter(((Iterable<Character>)Conversions.doWrapArray(_charArray_1)), _function_5);
+                  Integer mChar = Integer.valueOf(IterableExtensions.size(_filter));
+                  if (((mChar).intValue() > 2)) {
+                    this.error("FORMAT not correctly spell. MONTHS must have less than 2 CHARS. 100th month does not exist (maybe in Pluto)", DataDslPackage.Literals.NODE__NAME, DataDslValidator.DATATYPE_OPTION_NAME);
+                  }
+                  String _value_2 = ((StringOption)option).getValue();
+                  char[] _charArray_2 = _value_2.toCharArray();
+                  final Function1<Character, Boolean> _function_6 = (Character c) -> {
+                    boolean _or = false;
+                    int _compare = Character.compare((c).charValue(), 'D');
+                    boolean _equals_4 = (_compare == 0);
+                    if (_equals_4) {
+                      _or = true;
+                    } else {
+                      int _compare_1 = Character.compare((c).charValue(), 'd');
+                      boolean _equals_5 = (_compare_1 == 0);
+                      _or = _equals_5;
+                    }
+                    return Boolean.valueOf(_or);
+                  };
+                  Iterable<Character> _filter_1 = IterableExtensions.<Character>filter(((Iterable<Character>)Conversions.doWrapArray(_charArray_2)), _function_6);
+                  Integer dChar = Integer.valueOf(IterableExtensions.size(_filter_1));
+                  if (((dChar).intValue() > 2)) {
+                    this.error("FORMAT not correctly spell. DAYS must have less than 2 CHARS. 100th day does not exist (maybe in Pluto)", DataDslPackage.Literals.NODE__NAME, DataDslValidator.DATATYPE_OPTION_NAME);
+                  }
+                  String _value_3 = ((StringOption)option).getValue();
+                  char[] _charArray_3 = _value_3.toCharArray();
+                  final Function1<Character, Boolean> _function_7 = (Character c) -> {
+                    boolean _or = false;
+                    int _compare = Character.compare((c).charValue(), 'Y');
+                    boolean _equals_4 = (_compare == 0);
+                    if (_equals_4) {
+                      _or = true;
+                    } else {
+                      int _compare_1 = Character.compare((c).charValue(), 'y');
+                      boolean _equals_5 = (_compare_1 == 0);
+                      _or = _equals_5;
+                    }
+                    return Boolean.valueOf(_or);
+                  };
+                  Iterable<Character> _filter_2 = IterableExtensions.<Character>filter(((Iterable<Character>)Conversions.doWrapArray(_charArray_3)), _function_7);
+                  Integer yChar = Integer.valueOf(IterableExtensions.size(_filter_2));
+                  if (((yChar).intValue() > 4)) {
+                    this.error("FORMAT not correctly spell. YEARS must have less than 4 CHARS. WHOW, you get to the 10000th year! How it is? Cars can fly?", DataDslPackage.Literals.NODE__NAME, DataDslValidator.DATATYPE_OPTION_NAME);
+                  }
+                }
+              }
+            }
+          };
+          _options_3.forEach(_function_3);
+          break;
+        case "Time":
+          EList<Option> _options_4 = leafNode.getOptions();
+          final Consumer<Option> _function_4 = (Option option) -> {
+            if ((option instanceof StringOption)) {
+              boolean _and = false;
+              boolean _and_1 = false;
+              StringOptionKey _key = ((StringOption)option).getKey();
+              String _literal_1 = _key.getLiteral();
+              boolean _equals = _literal_1.equals("null");
+              boolean _not = (!_equals);
+              if (!_not) {
+                _and_1 = false;
+              } else {
+                StringOptionKey _key_1 = ((StringOption)option).getKey();
+                String _literal_2 = _key_1.getLiteral();
+                boolean _equals_1 = _literal_2.equals("format");
+                boolean _not_1 = (!_equals_1);
+                _and_1 = _not_1;
+              }
+              if (!_and_1) {
+                _and = false;
+              } else {
+                StringOptionKey _key_2 = ((StringOption)option).getKey();
+                String _literal_3 = _key_2.getLiteral();
+                boolean _equals_2 = _literal_3.equals("separator");
+                boolean _not_2 = (!_equals_2);
+                _and = _not_2;
+              }
+              if (_and) {
+                this.error("Options are not valid for a TIME", DataDslPackage.Literals.NODE__NAME, DataDslValidator.DATATYPE_OPTION_NAME);
+              } else {
+                StringOptionKey _key_3 = ((StringOption)option).getKey();
+                String _literal_4 = _key_3.getLiteral();
+                boolean _equals_3 = _literal_4.equals("format");
+                if (_equals_3) {
+                  String _value = ((StringOption)option).getValue();
+                  char[] _charArray = _value.toCharArray();
+                  final Consumer<Character> _function_5 = (Character c) -> {
+                    boolean _and_2 = false;
+                    boolean _and_3 = false;
+                    boolean _and_4 = false;
+                    boolean _and_5 = false;
+                    boolean _and_6 = false;
+                    int _compare = Character.compare((c).charValue(), 'H');
+                    boolean _equals_4 = (_compare == 0);
+                    boolean _not_3 = (!_equals_4);
+                    if (!_not_3) {
+                      _and_6 = false;
+                    } else {
+                      int _compare_1 = Character.compare((c).charValue(), 'h');
+                      boolean _equals_5 = (_compare_1 == 0);
+                      boolean _not_4 = (!_equals_5);
+                      _and_6 = _not_4;
+                    }
+                    if (!_and_6) {
+                      _and_5 = false;
+                    } else {
+                      int _compare_2 = Character.compare((c).charValue(), 'M');
+                      boolean _equals_6 = (_compare_2 == 0);
+                      boolean _not_5 = (!_equals_6);
+                      _and_5 = _not_5;
+                    }
+                    if (!_and_5) {
+                      _and_4 = false;
+                    } else {
+                      int _compare_3 = Character.compare((c).charValue(), 'm');
+                      boolean _equals_7 = (_compare_3 == 0);
+                      boolean _not_6 = (!_equals_7);
+                      _and_4 = _not_6;
+                    }
+                    if (!_and_4) {
+                      _and_3 = false;
+                    } else {
+                      int _compare_4 = Character.compare((c).charValue(), 'S');
+                      boolean _equals_8 = (_compare_4 == 0);
+                      boolean _not_7 = (!_equals_8);
+                      _and_3 = _not_7;
+                    }
+                    if (!_and_3) {
+                      _and_2 = false;
+                    } else {
+                      int _compare_5 = Character.compare((c).charValue(), 's');
+                      boolean _equals_9 = (_compare_5 == 0);
+                      boolean _not_8 = (!_equals_9);
+                      _and_2 = _not_8;
+                    }
+                    if (_and_2) {
+                      this.error("FORMAT not correctly spell. MUST USE H/h for HOURS, M/m for MINUTES, S/s for SECONDS", DataDslPackage.Literals.NODE__NAME, DataDslValidator.DATATYPE_OPTION_NAME);
+                    }
+                  };
+                  ((List<Character>)Conversions.doWrapArray(_charArray)).forEach(_function_5);
+                  String _value_1 = ((StringOption)option).getValue();
+                  char[] _charArray_1 = _value_1.toCharArray();
+                  final Function1<Character, Boolean> _function_6 = (Character c) -> {
+                    boolean _or = false;
+                    int _compare = Character.compare((c).charValue(), 'H');
+                    boolean _equals_4 = (_compare == 0);
+                    if (_equals_4) {
+                      _or = true;
+                    } else {
+                      int _compare_1 = Character.compare((c).charValue(), 'h');
+                      boolean _equals_5 = (_compare_1 == 0);
+                      _or = _equals_5;
+                    }
+                    return Boolean.valueOf(_or);
+                  };
+                  Iterable<Character> _filter = IterableExtensions.<Character>filter(((Iterable<Character>)Conversions.doWrapArray(_charArray_1)), _function_6);
+                  Integer hChar = Integer.valueOf(IterableExtensions.size(_filter));
+                  if (((hChar).intValue() > 2)) {
+                    this.error("FORMAT not correctly spell. HOURS must have less than 2 CHARS. See you at fifteen to 125, buddy", DataDslPackage.Literals.NODE__NAME, DataDslValidator.DATATYPE_OPTION_NAME);
+                  }
+                  String _value_2 = ((StringOption)option).getValue();
+                  char[] _charArray_2 = _value_2.toCharArray();
+                  final Function1<Character, Boolean> _function_7 = (Character c) -> {
+                    boolean _or = false;
+                    int _compare = Character.compare((c).charValue(), 'M');
+                    boolean _equals_4 = (_compare == 0);
+                    if (_equals_4) {
+                      _or = true;
+                    } else {
+                      int _compare_1 = Character.compare((c).charValue(), 'm');
+                      boolean _equals_5 = (_compare_1 == 0);
+                      _or = _equals_5;
+                    }
+                    return Boolean.valueOf(_or);
+                  };
+                  Iterable<Character> _filter_1 = IterableExtensions.<Character>filter(((Iterable<Character>)Conversions.doWrapArray(_charArray_2)), _function_7);
+                  Integer mChar = Integer.valueOf(IterableExtensions.size(_filter_1));
+                  if (((mChar).intValue() > 2)) {
+                    this.error("FORMAT not correctly spell. MINUTES must have less than 2 CHARS. 100 minutes is 1 hour and 40 minutes HMM", DataDslPackage.Literals.NODE__NAME, DataDslValidator.DATATYPE_OPTION_NAME);
+                  }
+                  String _value_3 = ((StringOption)option).getValue();
+                  char[] _charArray_3 = _value_3.toCharArray();
+                  final Function1<Character, Boolean> _function_8 = (Character c) -> {
+                    boolean _or = false;
+                    int _compare = Character.compare((c).charValue(), 'S');
+                    boolean _equals_4 = (_compare == 0);
+                    if (_equals_4) {
+                      _or = true;
+                    } else {
+                      int _compare_1 = Character.compare((c).charValue(), 's');
+                      boolean _equals_5 = (_compare_1 == 0);
+                      _or = _equals_5;
+                    }
+                    return Boolean.valueOf(_or);
+                  };
+                  Iterable<Character> _filter_2 = IterableExtensions.<Character>filter(((Iterable<Character>)Conversions.doWrapArray(_charArray_3)), _function_8);
+                  Integer sChar = Integer.valueOf(IterableExtensions.size(_filter_2));
+                  if (((sChar).intValue() > 4)) {
+                    this.error("FORMAT not correctly spell. SECONDS must have less than 2 CHARS. 100 seconds is 1 minute and 40 seconds Mss", DataDslPackage.Literals.NODE__NAME, DataDslValidator.DATATYPE_OPTION_NAME);
+                  }
+                }
+              }
+            }
+          };
+          _options_4.forEach(_function_4);
+          break;
+        case "Year":
+          EList<Option> _options_5 = leafNode.getOptions();
+          final Consumer<Option> _function_5 = (Option option) -> {
+            if ((option instanceof StringOption)) {
+              boolean _and = false;
+              StringOptionKey _key = ((StringOption)option).getKey();
+              String _literal_1 = _key.getLiteral();
+              boolean _equals = _literal_1.equals("null");
+              boolean _not = (!_equals);
+              if (!_not) {
+                _and = false;
+              } else {
+                StringOptionKey _key_1 = ((StringOption)option).getKey();
+                String _literal_2 = _key_1.getLiteral();
+                boolean _equals_1 = _literal_2.equals("format");
+                boolean _not_1 = (!_equals_1);
+                _and = _not_1;
+              }
+              if (_and) {
+                this.error("Options are not valid for a YEAR", DataDslPackage.Literals.NODE__NAME, DataDslValidator.DATATYPE_OPTION_NAME);
+              } else {
+                StringOptionKey _key_2 = ((StringOption)option).getKey();
+                String _literal_3 = _key_2.getLiteral();
+                boolean _equals_2 = _literal_3.equals("format");
+                if (_equals_2) {
+                  String _value = ((StringOption)option).getValue();
+                  char[] _charArray = _value.toCharArray();
+                  final Consumer<Character> _function_6 = (Character c) -> {
+                    boolean _and_1 = false;
+                    int _compare = Character.compare((c).charValue(), 'Y');
+                    boolean _equals_3 = (_compare == 0);
+                    boolean _not_2 = (!_equals_3);
+                    if (!_not_2) {
+                      _and_1 = false;
+                    } else {
+                      int _compare_1 = Character.compare((c).charValue(), 'y');
+                      boolean _equals_4 = (_compare_1 == 0);
+                      boolean _not_3 = (!_equals_4);
+                      _and_1 = _not_3;
+                    }
+                    this.error("FORMAT not correctly spell. MUST USE Y/y for YEARS", DataDslPackage.Literals.NODE__NAME, DataDslValidator.DATATYPE_OPTION_NAME);
+                  };
+                  ((List<Character>)Conversions.doWrapArray(_charArray)).forEach(_function_6);
+                  String _value_1 = ((StringOption)option).getValue();
+                  char[] _charArray_1 = _value_1.toCharArray();
+                  final Function1<Character, Boolean> _function_7 = (Character c) -> {
+                    boolean _or = false;
+                    int _compare = Character.compare((c).charValue(), 'Y');
+                    boolean _equals_3 = (_compare == 0);
+                    if (_equals_3) {
+                      _or = true;
+                    } else {
+                      int _compare_1 = Character.compare((c).charValue(), 'y');
+                      boolean _equals_4 = (_compare_1 == 0);
+                      _or = _equals_4;
+                    }
+                    return Boolean.valueOf(_or);
+                  };
+                  Iterable<Character> _filter = IterableExtensions.<Character>filter(((Iterable<Character>)Conversions.doWrapArray(_charArray_1)), _function_7);
+                  Integer yChar = Integer.valueOf(IterableExtensions.size(_filter));
+                  if (((yChar).intValue() > 4)) {
+                    this.error("FORMAT not correctly spell. YEARS must have less than 4 CHARS. WHOW, you get to the 10000th year! How it is? Cars can fly?", DataDslPackage.Literals.NODE__NAME, DataDslValidator.DATATYPE_OPTION_NAME);
+                  }
+                }
+              }
+            }
+          };
+          _options_5.forEach(_function_5);
+          break;
+        case "Month":
+          EList<Option> _options_6 = leafNode.getOptions();
+          final Consumer<Option> _function_6 = (Option option) -> {
+            if ((option instanceof StringOption)) {
+              boolean _and = false;
+              StringOptionKey _key = ((StringOption)option).getKey();
+              String _literal_1 = _key.getLiteral();
+              boolean _equals = _literal_1.equals("null");
+              boolean _not = (!_equals);
+              if (!_not) {
+                _and = false;
+              } else {
+                StringOptionKey _key_1 = ((StringOption)option).getKey();
+                String _literal_2 = _key_1.getLiteral();
+                boolean _equals_1 = _literal_2.equals("format");
+                boolean _not_1 = (!_equals_1);
+                _and = _not_1;
+              }
+              if (_and) {
+                this.error("Options are not valid for a MONTH", DataDslPackage.Literals.NODE__NAME, DataDslValidator.DATATYPE_OPTION_NAME);
+              } else {
+                StringOptionKey _key_2 = ((StringOption)option).getKey();
+                String _literal_3 = _key_2.getLiteral();
+                boolean _equals_2 = _literal_3.equals("format");
+                if (_equals_2) {
+                  String _value = ((StringOption)option).getValue();
+                  char[] _charArray = _value.toCharArray();
+                  final Consumer<Character> _function_7 = (Character c) -> {
+                    boolean _and_1 = false;
+                    int _compare = Character.compare((c).charValue(), 'M');
+                    boolean _equals_3 = (_compare == 0);
+                    boolean _not_2 = (!_equals_3);
+                    if (!_not_2) {
+                      _and_1 = false;
+                    } else {
+                      int _compare_1 = Character.compare((c).charValue(), 'm');
+                      boolean _equals_4 = (_compare_1 == 0);
+                      boolean _not_3 = (!_equals_4);
+                      _and_1 = _not_3;
+                    }
+                    this.error("FORMAT not correctly spell. MUST USE M/m for MONTHS", DataDslPackage.Literals.NODE__NAME, DataDslValidator.DATATYPE_OPTION_NAME);
+                  };
+                  ((List<Character>)Conversions.doWrapArray(_charArray)).forEach(_function_7);
+                  String _value_1 = ((StringOption)option).getValue();
+                  char[] _charArray_1 = _value_1.toCharArray();
+                  final Function1<Character, Boolean> _function_8 = (Character c) -> {
+                    boolean _or = false;
+                    int _compare = Character.compare((c).charValue(), 'M');
+                    boolean _equals_3 = (_compare == 0);
+                    if (_equals_3) {
+                      _or = true;
+                    } else {
+                      int _compare_1 = Character.compare((c).charValue(), 'm');
+                      boolean _equals_4 = (_compare_1 == 0);
+                      _or = _equals_4;
+                    }
+                    return Boolean.valueOf(_or);
+                  };
+                  Iterable<Character> _filter = IterableExtensions.<Character>filter(((Iterable<Character>)Conversions.doWrapArray(_charArray_1)), _function_8);
+                  Integer mChar = Integer.valueOf(IterableExtensions.size(_filter));
+                  if (((mChar).intValue() > 2)) {
+                    this.error("FORMAT not correctly spell. MONTHS must have less than 2 CHARS. 100th month does not exist (maybe in Pluto)", DataDslPackage.Literals.NODE__NAME, DataDslValidator.DATATYPE_OPTION_NAME);
+                  }
+                }
+              }
+            }
+          };
+          _options_6.forEach(_function_6);
+          break;
+        case "Day":
+          EList<Option> _options_7 = leafNode.getOptions();
+          final Consumer<Option> _function_7 = (Option option) -> {
+            if ((option instanceof StringOption)) {
+              boolean _and = false;
+              StringOptionKey _key = ((StringOption)option).getKey();
+              String _literal_1 = _key.getLiteral();
+              boolean _equals = _literal_1.equals("null");
+              boolean _not = (!_equals);
+              if (!_not) {
+                _and = false;
+              } else {
+                StringOptionKey _key_1 = ((StringOption)option).getKey();
+                String _literal_2 = _key_1.getLiteral();
+                boolean _equals_1 = _literal_2.equals("format");
+                boolean _not_1 = (!_equals_1);
+                _and = _not_1;
+              }
+              if (_and) {
+                this.error("Options are not valid for a DAY", DataDslPackage.Literals.NODE__NAME, DataDslValidator.DATATYPE_OPTION_NAME);
+              } else {
+                StringOptionKey _key_2 = ((StringOption)option).getKey();
+                String _literal_3 = _key_2.getLiteral();
+                boolean _equals_2 = _literal_3.equals("format");
+                if (_equals_2) {
+                  String _value = ((StringOption)option).getValue();
+                  char[] _charArray = _value.toCharArray();
+                  final Consumer<Character> _function_8 = (Character c) -> {
+                    boolean _and_1 = false;
+                    int _compare = Character.compare((c).charValue(), 'D');
+                    boolean _equals_3 = (_compare == 0);
+                    boolean _not_2 = (!_equals_3);
+                    if (!_not_2) {
+                      _and_1 = false;
+                    } else {
+                      int _compare_1 = Character.compare((c).charValue(), 'd');
+                      boolean _equals_4 = (_compare_1 == 0);
+                      boolean _not_3 = (!_equals_4);
+                      _and_1 = _not_3;
+                    }
+                    this.error("FORMAT not correctly spell. MUST USE D/d for DAYS", DataDslPackage.Literals.NODE__NAME, DataDslValidator.DATATYPE_OPTION_NAME);
+                  };
+                  ((List<Character>)Conversions.doWrapArray(_charArray)).forEach(_function_8);
+                  String _value_1 = ((StringOption)option).getValue();
+                  char[] _charArray_1 = _value_1.toCharArray();
+                  final Function1<Character, Boolean> _function_9 = (Character c) -> {
+                    boolean _or = false;
+                    int _compare = Character.compare((c).charValue(), 'D');
+                    boolean _equals_3 = (_compare == 0);
+                    if (_equals_3) {
+                      _or = true;
+                    } else {
+                      int _compare_1 = Character.compare((c).charValue(), 'd');
+                      boolean _equals_4 = (_compare_1 == 0);
+                      _or = _equals_4;
+                    }
+                    return Boolean.valueOf(_or);
+                  };
+                  Iterable<Character> _filter = IterableExtensions.<Character>filter(((Iterable<Character>)Conversions.doWrapArray(_charArray_1)), _function_9);
+                  Integer dChar = Integer.valueOf(IterableExtensions.size(_filter));
+                  if (((dChar).intValue() > 2)) {
+                    this.error("FORMAT not correctly spell. DAYS must have less than 2 CHARS. 100th day does not exist (maybe in Pluto)", DataDslPackage.Literals.NODE__NAME, DataDslValidator.DATATYPE_OPTION_NAME);
+                  }
+                }
+              }
+            }
+          };
+          _options_7.forEach(_function_7);
+          break;
+        case "String":
+          EList<Option> _options_8 = leafNode.getOptions();
+          final Consumer<Option> _function_8 = (Option option) -> {
+            if ((option instanceof StringOption)) {
+              boolean _and = false;
+              boolean _and_1 = false;
+              StringOptionKey _key = ((StringOption)option).getKey();
+              String _literal_1 = _key.getLiteral();
+              boolean _equals = _literal_1.equals("null");
+              boolean _not = (!_equals);
+              if (!_not) {
+                _and_1 = false;
+              } else {
+                StringOptionKey _key_1 = ((StringOption)option).getKey();
+                String _literal_2 = _key_1.getLiteral();
+                boolean _equals_1 = _literal_2.equals("regex");
+                boolean _not_1 = (!_equals_1);
+                _and_1 = _not_1;
+              }
+              if (!_and_1) {
+                _and = false;
+              } else {
+                StringOptionKey _key_2 = ((StringOption)option).getKey();
+                String _literal_3 = _key_2.getLiteral();
+                boolean _equals_2 = _literal_3.equals("flags");
+                boolean _not_2 = (!_equals_2);
+                _and = _not_2;
+              }
+              if (_and) {
+                this.error("Options are not valid for an STRING", DataDslPackage.Literals.NODE__NAME, DataDslValidator.DATATYPE_OPTION_NAME);
+              } else {
+                StringOptionKey _key_3 = ((StringOption)option).getKey();
+                String _literal_4 = _key_3.getLiteral();
+                boolean _equals_3 = _literal_4.equals("regex");
+                if (_equals_3) {
+                  try {
+                    String _value = ((StringOption)option).getValue();
+                    Pattern.compile(_value);
+                  } catch (final Throwable _t) {
+                    if (_t instanceof PatternSyntaxException) {
+                      final PatternSyntaxException exception = (PatternSyntaxException)_t;
+                      this.error("STRING. REGEX is not valid. See (https://docs.oracle.com/javase/7/docs/api/java/util/regex/Pattern.html) for valid pattern", DataDslPackage.Literals.NODE__NAME, DataDslValidator.DATATYPE_OPTION_NAME);
+                    } else {
+                      throw Exceptions.sneakyThrow(_t);
+                    }
+                  }
+                }
+                StringOptionKey _key_4 = ((StringOption)option).getKey();
+                String _literal_5 = _key_4.getLiteral();
+                boolean _equals_4 = _literal_5.equals("flags");
+                if (_equals_4) {
+                  Integer dChar = null;
+                  EList<Option> _options_9 = leafNode.getOptions();
+                  for (final Option o : _options_9) {
+                    if ((o instanceof StringOption)) {
+                      StringOptionKey _key_5 = ((StringOption)o).getKey();
+                      String _literal_6 = _key_5.getLiteral();
+                      boolean _equals_5 = _literal_6.equals("regex");
+                      boolean _equals_6 = Objects.equal(Boolean.valueOf(_equals_5), Integer.valueOf(0));
+                      if (_equals_6) {
+                        dChar++;
+                      }
+                    }
+                  }
+                  if (((dChar).intValue() < 1)) {
+                    this.error("REGEX_FLAGS can not be called without REGEX option", DataDslPackage.Literals.NODE__NAME, DataDslValidator.DATATYPE_OPTION_NAME);
+                  }
+                  boolean _and_2 = false;
+                  boolean _and_3 = false;
+                  boolean _and_4 = false;
+                  boolean _and_5 = false;
+                  boolean _and_6 = false;
+                  boolean _and_7 = false;
+                  boolean _and_8 = false;
+                  boolean _and_9 = false;
+                  String _value_1 = ((StringOption)option).getValue();
+                  boolean _equals_7 = _value_1.equals("CASE_INSENSITIVE");
+                  boolean _not_3 = (!_equals_7);
+                  if (!_not_3) {
+                    _and_9 = false;
+                  } else {
+                    String _value_2 = ((StringOption)option).getValue();
+                    boolean _equals_8 = _value_2.equals("MULTILINE");
+                    boolean _not_4 = (!_equals_8);
+                    _and_9 = _not_4;
+                  }
+                  if (!_and_9) {
+                    _and_8 = false;
+                  } else {
+                    String _value_3 = ((StringOption)option).getValue();
+                    boolean _equals_9 = _value_3.equals("DOTALL");
+                    boolean _not_5 = (!_equals_9);
+                    _and_8 = _not_5;
+                  }
+                  if (!_and_8) {
+                    _and_7 = false;
+                  } else {
+                    String _value_4 = ((StringOption)option).getValue();
+                    boolean _equals_10 = _value_4.equals("UNICODE_CASE");
+                    boolean _not_6 = (!_equals_10);
+                    _and_7 = _not_6;
+                  }
+                  if (!_and_7) {
+                    _and_6 = false;
+                  } else {
+                    String _value_5 = ((StringOption)option).getValue();
+                    boolean _equals_11 = _value_5.equals("CANON_EQ");
+                    boolean _not_7 = (!_equals_11);
+                    _and_6 = _not_7;
+                  }
+                  if (!_and_6) {
+                    _and_5 = false;
+                  } else {
+                    String _value_6 = ((StringOption)option).getValue();
+                    boolean _equals_12 = _value_6.equals("UNIX_LINES");
+                    boolean _not_8 = (!_equals_12);
+                    _and_5 = _not_8;
+                  }
+                  if (!_and_5) {
+                    _and_4 = false;
+                  } else {
+                    String _value_7 = ((StringOption)option).getValue();
+                    boolean _equals_13 = _value_7.equals("LITERAL");
+                    boolean _not_9 = (!_equals_13);
+                    _and_4 = _not_9;
+                  }
+                  if (!_and_4) {
+                    _and_3 = false;
+                  } else {
+                    String _value_8 = ((StringOption)option).getValue();
+                    boolean _equals_14 = _value_8.equals("UNICODE_CHARACTERE_CLASS");
+                    boolean _not_10 = (!_equals_14);
+                    _and_3 = _not_10;
+                  }
+                  if (!_and_3) {
+                    _and_2 = false;
+                  } else {
+                    String _value_9 = ((StringOption)option).getValue();
+                    boolean _equals_15 = _value_9.equals("COMMENTS");
+                    boolean _not_11 = (!_equals_15);
+                    _and_2 = _not_11;
+                  }
+                  if (_and_2) {
+                    this.error("STRING. REGEX_FLAGS is not valid. See (https://docs.oracle.com/javase/7/docs/api/java/util/regex/Pattern.html#compile(java.lang.String)) for help. It is hard but if Leo could win the Oscar you can do this.", DataDslPackage.Literals.SPECIFICATION_ELEMENT__NAME, DataDslValidator.DATATYPE_OPTION_NAME);
+                  }
+                }
+              }
+            }
+          };
+          _options_8.forEach(_function_8);
+          break;
+        case "Lat":
+          EList<Option> _options_9 = leafNode.getOptions();
+          final Consumer<Option> _function_9 = (Option option) -> {
+            if ((option instanceof StringOption)) {
+              StringOptionKey _key = ((StringOption)option).getKey();
+              String _literal_1 = _key.getLiteral();
+              boolean _equals = _literal_1.equals("null");
+              boolean _not = (!_equals);
+              if (_not) {
+                this.error("Options are not valid for an LAT", DataDslPackage.Literals.NODE__NAME, DataDslValidator.DATATYPE_OPTION_NAME);
+              }
+            }
+          };
+          _options_9.forEach(_function_9);
+          break;
+        case "Long":
+          EList<Option> _options_10 = leafNode.getOptions();
+          final Consumer<Option> _function_10 = (Option option) -> {
+            if ((option instanceof StringOption)) {
+              StringOptionKey _key = ((StringOption)option).getKey();
+              String _literal_1 = _key.getLiteral();
+              boolean _equals = _literal_1.equals("null");
+              boolean _not = (!_equals);
+              if (_not) {
+                this.error("Options are not valid for an LONG", DataDslPackage.Literals.NODE__NAME, DataDslValidator.DATATYPE_OPTION_NAME);
+              }
+            }
+          };
+          _options_10.forEach(_function_10);
+          break;
+        case "Url":
+          EList<Option> _options_11 = leafNode.getOptions();
+          final Consumer<Option> _function_11 = (Option option) -> {
+            if ((option instanceof StringOption)) {
+              StringOptionKey _key = ((StringOption)option).getKey();
+              String _literal_1 = _key.getLiteral();
+              boolean _equals = _literal_1.equals("null");
+              boolean _not = (!_equals);
+              if (_not) {
+                this.error("Options are not valid for an URL", DataDslPackage.Literals.NODE__NAME, DataDslValidator.DATATYPE_OPTION_NAME);
+              }
+            }
+          };
+          _options_11.forEach(_function_11);
+          break;
+        default:
+          this.error("Options are not valid for node. Type not correct", DataDslPackage.Literals.NODE__NAME, DataDslValidator.DATATYPE_OPTION_NAME);
+          break;
+      }
+    }
+  }
+  
+  @Check
+  public void namesUpperCase(final SpecificationElement specificationElement) {
+    String _name = specificationElement.getName();
+    char _charAt = _name.charAt(0);
+    boolean _isUpperCase = Character.isUpperCase(_charAt);
+    boolean _not = (!_isUpperCase);
+    if (_not) {
+      this.error("Definition names must start with UpperCase", DataDslPackage.Literals.SPECIFICATION_ELEMENT__NAME, DataDslValidator.DEFINITIONS_NAMES);
     }
   }
 }

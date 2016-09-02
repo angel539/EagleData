@@ -1,11 +1,12 @@
 grammar eagledata.core.dsl.datadesc.DataDsl with org.eclipse.xtext.common.Terminals
 
 generate dataDsl "http://www.core.eagledata/dsl/datadesc/DataDsl" as data
-import "http://www.eclipse.org/xtext/common/JavaVMTypes" as jvmTypes
+//import "http://www.eclipse.org/xtext/common/JavaVMTypes" as jvmTypes
 import "http://www.eclipse.org/emf/2002/Ecore" as ecore
 
 DataModel returns data::DataModel:
-	descriptions+=DataModelElement (descriptions+=DataModelElement)*
+	{data::DataModel}
+	elements+=DataModelElement (elements+=DataModelElement)*
 ;
 
 /******************** */
@@ -20,27 +21,37 @@ QualifiedName:
 /******************** */
 
 DataModelElement returns data::DataModelElement:
-    Import | PackageDeclaration | DataPackableDescription | DataSourceDescription;
+    Import | Package | SpecificationElement;
 
-PackageDeclaration returns data::Package:
+Package returns data::Package:
+	(tags+=Tag (tags+=Tag)*)?
     'package' name=QualifiedName '{'
-    			elements+=DataPackableDescription (elements+=DataPackableDescription)*
+    			elements+=SpecificationElement (elements+=SpecificationElement)*
     '}'
 ;
 
-DataPackableDescription returns data::DataPackableDescription:
-	StringConcept | TypeSpecification | DataFragment
+Tag returns data::Tag:
+	'@'tag=STRING
 ;
 
-StringConcept returns data::StringConcept:
-	'string' name=ID '=' '(' (subsequence+=SubstringConcept ( "," subsequence+=SubstringConcept)*)? ')';
+SpecificationElement returns data::SpecificationElement:
+	TypeSpecification | AbstractDescription
+;
+
+TypeSpecification returns data::TypeSpecification:
+	DataTypeRefinement | Enumeration
+;
+
+AbstractDescription returns data::AbstractDescription:
+	DataDescription | Fragment
+;
 
 SubstringConcept returns data::SubstringConcept:
 	Character | Substring
 ;
 
 Substring returns data::Substring:
-	typeString=TypeString name=ID '['minlength=INT "," maxlength=INT']'//('{'properties+= ( "," properties+=Property)* '}')?
+	typeString=TypeString name=ID '['minlength=INT "," maxlength=INT']'
 ;
 
 Character returns data::Character:
@@ -52,58 +63,54 @@ enum TypeCharacter returns data::TypeCharacter:
 ;
 
 enum TypeString returns data::TypeString:
-	//ignoreaccents = 'ignore_accents' | ignorecase = 'ignore_case' | iglowercase = 'lower_case' | uppercase = 'upper_case' | numbers = 'numbers'
 	anycase = 'anycase_string' | lowercase = 'lowercase_string' | uppercase = 'uppercase_string' | numbers = 'digits'
 ;
 
-DataSourceDescription returns data::DataSourceDescription:
-	'description' format=Format name=ID (':' fragments+=[data::DataFragment | QualifiedName] (',' fragments+=[data::DataFragment | QualifiedName])*)? '{'
-		(nodes+=LeafNode ("," nodes+=LeafNode)*)?
-	'}' ('{' options+=DataOption ("," options+=DataOption)* '}')?
+Node returns data::Node:
+	PrimitiveNode | CompositeNode | FragmentNode
 ;
 
-DataFragment returns data::DataFragment:
-	'fragment' name=ID (':' fragments+=[data::DataFragment | QualifiedName] (',' fragments+=[data::DataFragment | QualifiedName])*)? '{'
-		(nodes += LeafNode ( "," nodes += LeafNode)*)?
+CompositeNode returns data::CompositeNode:
+	(key?="key" | unique?="unique")?
+	type=[data::TypeSpecification | QualifiedName] name=ID ('['cardinality=Cardinality']')?	('(' options += Option ( "," options+=Option)* ')')?
+;
+
+FragmentNode returns data::FragmentNode:
+	'.'type=[data::Fragment | QualifiedName] name=ID ('['cardinality=Cardinality']')?	('(' options += Option ( "," options+=Option)* ')')?
+;
+
+PrimitiveNode returns data::PrimitiveNode:
+	(key?="key" | unique?="unique")?
+	type=BasicType name=ID ('['cardinality=Cardinality']')?	('(' options += Option ( "," options+=Option)* ')')?
+;
+
+Cardinality returns data::Cardinality:
+	min=INT (',' max=INT)?
+;
+
+DataDescription returns data::DataDescription:
+	'description' format=STRING name=ID (':' fragments+=[data::Fragment | QualifiedName] (',' fragments+=[data::Fragment | QualifiedName])*)? '{'
+		nodes += Node (nodes += Node)*
+	'}' ('(' options+=DataOption ("," options+=DataOption)* ')')?
+;
+
+Fragment returns data::Fragment:
+	'fragment' name=ID (':' fragments+=[data::Fragment | QualifiedName] (',' fragments+=[data::Fragment | QualifiedName])*)? '{'
+		nodes += Node (nodes += Node)*
 	'}'
 ;
 
-TypeSpecification returns data::TypeSpecification:
-	DataType | Enumeration | StructDataType
-;
 
-DataType returns data::DataType:
-	'datatype' name=ID ':' refine=BasicType ('{'options+=Option ( "," options+=Option)* '}')?
+DataTypeRefinement returns data::DataTypeRefinement:
+	'datatype' name=ID ':' refine=BasicType ('{'(subsequences+=SubstringConcept (subsequences+=SubstringConcept)*)? '}')? ('('options+=Option ( "," options+=Option)* ')')?
 ;
 
 Enumeration returns data::Enumeration:
 	'enumeration' name=ID "{"values+=STRING (','values += STRING)*"}"
 ;
 
-/*Node returns data::Node:
-	LeafNode
-;*/
-
-StructDataType returns data::StructDataType:
-	/*(environment?=">")?*/
-	'struct' name=ID /*(':' extends+=[data::CompositeNode | ID] (',' extends+=[data::CompositeNode | ID])*)?*/ '{'
-		(subnodes+=LeafNode ( "," subnodes+=LeafNode)*)
-	'}'
-	('{' options += Option ( "," options+=Option)* '}')?
-;
-
-LeafNode returns data::LeafNode:
-	/*(uniqueness=UNIQUENESS)?*/
-	(key?="key" | unique?="unique" | list?="list")?
-	(type=BasicType | typeCall=[data::TypeSpecification | ID]) name=ID ('{' options += Option ( "," options+=Option)* '}')?
-;
-
-enum Multiplicity returns data::Multiplicity:
-	casesensitive = 'casesensitive' | null = 'null' |  separator = 'separator' | default = 'default' | regex = 'regex' | flags = 'flags' | decimalchar = 'decimalchar' | pattern = 'pattern' | format = 'format'
-;
-
 Option returns data::Option:
-	StringOption | IntOption | BooleanOption | SequenceOption | DoubleOption
+	StringOption | IntOption | BooleanOption | DoubleOption | ListQualifiedNameOption
 ;
 
 StringOption returns data::StringOption:
@@ -122,20 +129,16 @@ BooleanOption returns data::BooleanOption:
 	key=BooleanOptionKey '=' value = BOOLEAN
 ;
 
-SequenceOption returns data::SequenceOption:
-	key=SequenceOptionKey '=' value = [data::StringConcept|QualifiedName]
-;
-
-enum SequenceOptionKey returns data::SequenceOptionKey:
-	regex_form = 'regex_form'
+ListQualifiedNameOption returns data::ListQualifiedNameOption:
+	key=ListQualifiedNameOptionKey '=' fragments+=[data::Node | QualifiedName] 
 ;
 
 enum BasicType returns data::BasicType:
-	string = 'string' | url = 'url' | int = 'int' | real = 'real' | date = 'date' | time = 'time' | year = 'year' | month = 'month' | day = 'day' | boolean = 'boolean' | lat = 'lat' | long = 'long'
+	string = 'String' | url = 'Url' | int = 'Int' | longInt = 'LongInt' | real = 'Real' | date = 'Date' | time = 'Time' | year = 'Year' | month = 'Month' | day = 'Day' | boolean = 'Boolean' | lat = 'Lat' | long = 'Long' | percent = 'Percent' | email = 'Email' | currency = 'Currency' | creditcard = 'CreditCard' | IBAN = 'IBAN' | ISBN = 'ISBN' | ISSN = 'ISSN' | inet = 'Inet'
 ;
 
 enum StringOptionKey returns data::StringOptionKey:
-	casesensitive = 'casesensitive' | null = 'null' |  separator = 'separator' | default = 'default' | regex = 'regex' | flags = 'flags' | decimalchar = 'decimalchar' | pattern = 'pattern' | format = 'format'
+	null = 'null' |  separator = 'separator' | default = 'default' | regex = 'regex' | flags = 'flags' | decimalchar = 'decimalchar' | pattern = 'pattern' | format = 'format'
 ;
 
 enum IntOptionKey returns data::IntOptionKey:
@@ -147,24 +150,31 @@ enum DoubleOptionKey returns data::DoubleOptionKey:
 ;
 
 enum BooleanOptionKey returns data::BooleanOptionKey:
-	nullable = "nullable"
+	nullable = "nullable" | casesensitive = 'casesensitive'
+;
+
+enum ListQualifiedNameOptionKey returns data::ListQualifiedNameOptionKey:
+	order = "order"
 ;
 
 DataOption returns data::DataOption:
+	key=STRING '=' value = STRING
+;
+
+/*DataOption returns data::DataOption:
 	key=DataOptionKey '=' value = STRING
-;
+;*/
 
-enum DataOptionKey returns data::DataOptionKey:
+/*enum DataOptionKey returns data::DataOptionKey:
 	format = 'format' | separator = 'separator' | header = 'header' | squema = 'squema'
-;
+;*/
 
-enum Format returns data::Format:
+/*enum Format returns data::Format:
 	CSV = 'CSV' | JSON = 'JSON' | XML = 'XML'
-;
+;*/
 
-terminal DELETATION_MARK : 'REMOVE';
-terminal MODIFICATION_MARK : 'RENAME' | 'RETYPE';
+//terminal DELETATION_MARK : 'REMOVE';
+//terminal MODIFICATION_MARK : 'RENAME' | 'RETYPE';
 //terminal UNIQUENESS : 'key' | 'unique';
 terminal BOOLEAN : "true" | "false";
-
 terminal DOUBLE returns ecore::EDouble: "-"?INT'.'INT;

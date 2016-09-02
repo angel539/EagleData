@@ -4,7 +4,8 @@
 package eagledata.core.dsl.datadesc.dataDsl.impl;
 
 import eagledata.core.dsl.datadesc.dataDsl.DataDslPackage;
-import eagledata.core.dsl.datadesc.dataDsl.DataPackableDescription;
+import eagledata.core.dsl.datadesc.dataDsl.SpecificationElement;
+import eagledata.core.dsl.datadesc.dataDsl.Tag;
 
 import java.util.Collection;
 
@@ -29,6 +30,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link eagledata.core.dsl.datadesc.dataDsl.impl.PackageImpl#getTags <em>Tags</em>}</li>
  *   <li>{@link eagledata.core.dsl.datadesc.dataDsl.impl.PackageImpl#getName <em>Name</em>}</li>
  *   <li>{@link eagledata.core.dsl.datadesc.dataDsl.impl.PackageImpl#getElements <em>Elements</em>}</li>
  * </ul>
@@ -37,6 +39,16 @@ import org.eclipse.emf.ecore.util.InternalEList;
  */
 public class PackageImpl extends DataModelElementImpl implements eagledata.core.dsl.datadesc.dataDsl.Package
 {
+  /**
+   * The cached value of the '{@link #getTags() <em>Tags</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getTags()
+   * @generated
+   * @ordered
+   */
+  protected EList<Tag> tags;
+
   /**
    * The default value of the '{@link #getName() <em>Name</em>}' attribute.
    * <!-- begin-user-doc -->
@@ -65,7 +77,7 @@ public class PackageImpl extends DataModelElementImpl implements eagledata.core.
    * @generated
    * @ordered
    */
-  protected EList<DataPackableDescription> elements;
+  protected EList<SpecificationElement> elements;
 
   /**
    * <!-- begin-user-doc -->
@@ -86,6 +98,20 @@ public class PackageImpl extends DataModelElementImpl implements eagledata.core.
   protected EClass eStaticClass()
   {
     return DataDslPackage.Literals.PACKAGE;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EList<Tag> getTags()
+  {
+    if (tags == null)
+    {
+      tags = new EObjectContainmentEList<Tag>(Tag.class, this, DataDslPackage.PACKAGE__TAGS);
+    }
+    return tags;
   }
 
   /**
@@ -116,11 +142,11 @@ public class PackageImpl extends DataModelElementImpl implements eagledata.core.
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<DataPackableDescription> getElements()
+  public EList<SpecificationElement> getElements()
   {
     if (elements == null)
     {
-      elements = new EObjectContainmentEList<DataPackableDescription>(DataPackableDescription.class, this, DataDslPackage.PACKAGE__ELEMENTS);
+      elements = new EObjectContainmentEList<SpecificationElement>(SpecificationElement.class, this, DataDslPackage.PACKAGE__ELEMENTS);
     }
     return elements;
   }
@@ -135,6 +161,8 @@ public class PackageImpl extends DataModelElementImpl implements eagledata.core.
   {
     switch (featureID)
     {
+      case DataDslPackage.PACKAGE__TAGS:
+        return ((InternalEList<?>)getTags()).basicRemove(otherEnd, msgs);
       case DataDslPackage.PACKAGE__ELEMENTS:
         return ((InternalEList<?>)getElements()).basicRemove(otherEnd, msgs);
     }
@@ -151,6 +179,8 @@ public class PackageImpl extends DataModelElementImpl implements eagledata.core.
   {
     switch (featureID)
     {
+      case DataDslPackage.PACKAGE__TAGS:
+        return getTags();
       case DataDslPackage.PACKAGE__NAME:
         return getName();
       case DataDslPackage.PACKAGE__ELEMENTS:
@@ -170,12 +200,16 @@ public class PackageImpl extends DataModelElementImpl implements eagledata.core.
   {
     switch (featureID)
     {
+      case DataDslPackage.PACKAGE__TAGS:
+        getTags().clear();
+        getTags().addAll((Collection<? extends Tag>)newValue);
+        return;
       case DataDslPackage.PACKAGE__NAME:
         setName((String)newValue);
         return;
       case DataDslPackage.PACKAGE__ELEMENTS:
         getElements().clear();
-        getElements().addAll((Collection<? extends DataPackableDescription>)newValue);
+        getElements().addAll((Collection<? extends SpecificationElement>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -191,6 +225,9 @@ public class PackageImpl extends DataModelElementImpl implements eagledata.core.
   {
     switch (featureID)
     {
+      case DataDslPackage.PACKAGE__TAGS:
+        getTags().clear();
+        return;
       case DataDslPackage.PACKAGE__NAME:
         setName(NAME_EDEFAULT);
         return;
@@ -211,6 +248,8 @@ public class PackageImpl extends DataModelElementImpl implements eagledata.core.
   {
     switch (featureID)
     {
+      case DataDslPackage.PACKAGE__TAGS:
+        return tags != null && !tags.isEmpty();
       case DataDslPackage.PACKAGE__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case DataDslPackage.PACKAGE__ELEMENTS:

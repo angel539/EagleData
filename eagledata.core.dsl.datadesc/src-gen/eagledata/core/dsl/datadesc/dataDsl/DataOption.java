@@ -26,7 +26,6 @@ public interface DataOption extends EObject
 {
   /**
    * Returns the value of the '<em><b>Key</b></em>' attribute.
-   * The literals are from the enumeration {@link eagledata.core.dsl.datadesc.dataDsl.DataOptionKey}.
    * <!-- begin-user-doc -->
    * <p>
    * If the meaning of the '<em>Key</em>' attribute isn't clear,
@@ -34,24 +33,22 @@ public interface DataOption extends EObject
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Key</em>' attribute.
-   * @see eagledata.core.dsl.datadesc.dataDsl.DataOptionKey
-   * @see #setKey(DataOptionKey)
+   * @see #setKey(String)
    * @see eagledata.core.dsl.datadesc.dataDsl.DataDslPackage#getDataOption_Key()
    * @model
    * @generated
    */
-  DataOptionKey getKey();
+  String getKey();
 
   /**
    * Sets the value of the '{@link eagledata.core.dsl.datadesc.dataDsl.DataOption#getKey <em>Key</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Key</em>' attribute.
-   * @see eagledata.core.dsl.datadesc.dataDsl.DataOptionKey
    * @see #getKey()
    * @generated
    */
-  void setKey(DataOptionKey value);
+  void setKey(String value);
 
   /**
    * Returns the value of the '<em><b>Value</b></em>' attribute.

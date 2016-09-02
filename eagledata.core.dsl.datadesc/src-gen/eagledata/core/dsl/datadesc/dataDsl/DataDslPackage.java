@@ -69,13 +69,13 @@ public interface DataDslPackage extends EPackage
   int DATA_MODEL = 0;
 
   /**
-   * The feature id for the '<em><b>Descriptions</b></em>' containment reference list.
+   * The feature id for the '<em><b>Elements</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int DATA_MODEL__DESCRIPTIONS = 0;
+  int DATA_MODEL__ELEMENTS = 0;
 
   /**
    * The number of structural features of the '<em>Data Model</em>' class.
@@ -144,13 +144,22 @@ public interface DataDslPackage extends EPackage
   int PACKAGE = 3;
 
   /**
+   * The feature id for the '<em><b>Tags</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PACKAGE__TAGS = DATA_MODEL_ELEMENT_FEATURE_COUNT + 0;
+
+  /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int PACKAGE__NAME = DATA_MODEL_ELEMENT_FEATURE_COUNT + 0;
+  int PACKAGE__NAME = DATA_MODEL_ELEMENT_FEATURE_COUNT + 1;
 
   /**
    * The feature id for the '<em><b>Elements</b></em>' containment reference list.
@@ -159,7 +168,7 @@ public interface DataDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int PACKAGE__ELEMENTS = DATA_MODEL_ELEMENT_FEATURE_COUNT + 1;
+  int PACKAGE__ELEMENTS = DATA_MODEL_ELEMENT_FEATURE_COUNT + 2;
 
   /**
    * The number of structural features of the '<em>Package</em>' class.
@@ -168,17 +177,45 @@ public interface DataDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int PACKAGE_FEATURE_COUNT = DATA_MODEL_ELEMENT_FEATURE_COUNT + 2;
+  int PACKAGE_FEATURE_COUNT = DATA_MODEL_ELEMENT_FEATURE_COUNT + 3;
 
   /**
-   * The meta object id for the '{@link eagledata.core.dsl.datadesc.dataDsl.impl.DataPackableDescriptionImpl <em>Data Packable Description</em>}' class.
+   * The meta object id for the '{@link eagledata.core.dsl.datadesc.dataDsl.impl.TagImpl <em>Tag</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see eagledata.core.dsl.datadesc.dataDsl.impl.DataPackableDescriptionImpl
-   * @see eagledata.core.dsl.datadesc.dataDsl.impl.DataDslPackageImpl#getDataPackableDescription()
+   * @see eagledata.core.dsl.datadesc.dataDsl.impl.TagImpl
+   * @see eagledata.core.dsl.datadesc.dataDsl.impl.DataDslPackageImpl#getTag()
    * @generated
    */
-  int DATA_PACKABLE_DESCRIPTION = 4;
+  int TAG = 4;
+
+  /**
+   * The feature id for the '<em><b>Tag</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TAG__TAG = 0;
+
+  /**
+   * The number of structural features of the '<em>Tag</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TAG_FEATURE_COUNT = 1;
+
+  /**
+   * The meta object id for the '{@link eagledata.core.dsl.datadesc.dataDsl.impl.SpecificationElementImpl <em>Specification Element</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see eagledata.core.dsl.datadesc.dataDsl.impl.SpecificationElementImpl
+   * @see eagledata.core.dsl.datadesc.dataDsl.impl.DataDslPackageImpl#getSpecificationElement()
+   * @generated
+   */
+  int SPECIFICATION_ELEMENT = 5;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -187,26 +224,26 @@ public interface DataDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int DATA_PACKABLE_DESCRIPTION__NAME = DATA_MODEL_ELEMENT_FEATURE_COUNT + 0;
+  int SPECIFICATION_ELEMENT__NAME = DATA_MODEL_ELEMENT_FEATURE_COUNT + 0;
 
   /**
-   * The number of structural features of the '<em>Data Packable Description</em>' class.
+   * The number of structural features of the '<em>Specification Element</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int DATA_PACKABLE_DESCRIPTION_FEATURE_COUNT = DATA_MODEL_ELEMENT_FEATURE_COUNT + 1;
+  int SPECIFICATION_ELEMENT_FEATURE_COUNT = DATA_MODEL_ELEMENT_FEATURE_COUNT + 1;
 
   /**
-   * The meta object id for the '{@link eagledata.core.dsl.datadesc.dataDsl.impl.StringConceptImpl <em>String Concept</em>}' class.
+   * The meta object id for the '{@link eagledata.core.dsl.datadesc.dataDsl.impl.TypeSpecificationImpl <em>Type Specification</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see eagledata.core.dsl.datadesc.dataDsl.impl.StringConceptImpl
-   * @see eagledata.core.dsl.datadesc.dataDsl.impl.DataDslPackageImpl#getStringConcept()
+   * @see eagledata.core.dsl.datadesc.dataDsl.impl.TypeSpecificationImpl
+   * @see eagledata.core.dsl.datadesc.dataDsl.impl.DataDslPackageImpl#getTypeSpecification()
    * @generated
    */
-  int STRING_CONCEPT = 5;
+  int TYPE_SPECIFICATION = 6;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -215,25 +252,62 @@ public interface DataDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int STRING_CONCEPT__NAME = DATA_PACKABLE_DESCRIPTION__NAME;
+  int TYPE_SPECIFICATION__NAME = SPECIFICATION_ELEMENT__NAME;
 
   /**
-   * The feature id for the '<em><b>Subsequence</b></em>' containment reference list.
+   * The number of structural features of the '<em>Type Specification</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int STRING_CONCEPT__SUBSEQUENCE = DATA_PACKABLE_DESCRIPTION_FEATURE_COUNT + 0;
+  int TYPE_SPECIFICATION_FEATURE_COUNT = SPECIFICATION_ELEMENT_FEATURE_COUNT + 0;
 
   /**
-   * The number of structural features of the '<em>String Concept</em>' class.
+   * The meta object id for the '{@link eagledata.core.dsl.datadesc.dataDsl.impl.AbstractDescriptionImpl <em>Abstract Description</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see eagledata.core.dsl.datadesc.dataDsl.impl.AbstractDescriptionImpl
+   * @see eagledata.core.dsl.datadesc.dataDsl.impl.DataDslPackageImpl#getAbstractDescription()
+   * @generated
+   */
+  int ABSTRACT_DESCRIPTION = 7;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int STRING_CONCEPT_FEATURE_COUNT = DATA_PACKABLE_DESCRIPTION_FEATURE_COUNT + 1;
+  int ABSTRACT_DESCRIPTION__NAME = SPECIFICATION_ELEMENT__NAME;
+
+  /**
+   * The feature id for the '<em><b>Fragments</b></em>' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ABSTRACT_DESCRIPTION__FRAGMENTS = SPECIFICATION_ELEMENT_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Nodes</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ABSTRACT_DESCRIPTION__NODES = SPECIFICATION_ELEMENT_FEATURE_COUNT + 1;
+
+  /**
+   * The number of structural features of the '<em>Abstract Description</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ABSTRACT_DESCRIPTION_FEATURE_COUNT = SPECIFICATION_ELEMENT_FEATURE_COUNT + 2;
 
   /**
    * The meta object id for the '{@link eagledata.core.dsl.datadesc.dataDsl.impl.SubstringConceptImpl <em>Substring Concept</em>}' class.
@@ -243,7 +317,7 @@ public interface DataDslPackage extends EPackage
    * @see eagledata.core.dsl.datadesc.dataDsl.impl.DataDslPackageImpl#getSubstringConcept()
    * @generated
    */
-  int SUBSTRING_CONCEPT = 6;
+  int SUBSTRING_CONCEPT = 8;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -271,7 +345,7 @@ public interface DataDslPackage extends EPackage
    * @see eagledata.core.dsl.datadesc.dataDsl.impl.DataDslPackageImpl#getSubstring()
    * @generated
    */
-  int SUBSTRING = 7;
+  int SUBSTRING = 9;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -326,7 +400,7 @@ public interface DataDslPackage extends EPackage
    * @see eagledata.core.dsl.datadesc.dataDsl.impl.DataDslPackageImpl#getCharacter()
    * @generated
    */
-  int CHARACTER = 8;
+  int CHARACTER = 10;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -365,14 +439,325 @@ public interface DataDslPackage extends EPackage
   int CHARACTER_FEATURE_COUNT = SUBSTRING_CONCEPT_FEATURE_COUNT + 2;
 
   /**
-   * The meta object id for the '{@link eagledata.core.dsl.datadesc.dataDsl.impl.DataSourceDescriptionImpl <em>Data Source Description</em>}' class.
+   * The meta object id for the '{@link eagledata.core.dsl.datadesc.dataDsl.impl.NodeImpl <em>Node</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see eagledata.core.dsl.datadesc.dataDsl.impl.DataSourceDescriptionImpl
-   * @see eagledata.core.dsl.datadesc.dataDsl.impl.DataDslPackageImpl#getDataSourceDescription()
+   * @see eagledata.core.dsl.datadesc.dataDsl.impl.NodeImpl
+   * @see eagledata.core.dsl.datadesc.dataDsl.impl.DataDslPackageImpl#getNode()
    * @generated
    */
-  int DATA_SOURCE_DESCRIPTION = 9;
+  int NODE = 11;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int NODE__NAME = 0;
+
+  /**
+   * The feature id for the '<em><b>Cardinality</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int NODE__CARDINALITY = 1;
+
+  /**
+   * The feature id for the '<em><b>Options</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int NODE__OPTIONS = 2;
+
+  /**
+   * The number of structural features of the '<em>Node</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int NODE_FEATURE_COUNT = 3;
+
+  /**
+   * The meta object id for the '{@link eagledata.core.dsl.datadesc.dataDsl.impl.CompositeNodeImpl <em>Composite Node</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see eagledata.core.dsl.datadesc.dataDsl.impl.CompositeNodeImpl
+   * @see eagledata.core.dsl.datadesc.dataDsl.impl.DataDslPackageImpl#getCompositeNode()
+   * @generated
+   */
+  int COMPOSITE_NODE = 12;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int COMPOSITE_NODE__NAME = NODE__NAME;
+
+  /**
+   * The feature id for the '<em><b>Cardinality</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int COMPOSITE_NODE__CARDINALITY = NODE__CARDINALITY;
+
+  /**
+   * The feature id for the '<em><b>Options</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int COMPOSITE_NODE__OPTIONS = NODE__OPTIONS;
+
+  /**
+   * The feature id for the '<em><b>Key</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int COMPOSITE_NODE__KEY = NODE_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Unique</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int COMPOSITE_NODE__UNIQUE = NODE_FEATURE_COUNT + 1;
+
+  /**
+   * The feature id for the '<em><b>Type</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int COMPOSITE_NODE__TYPE = NODE_FEATURE_COUNT + 2;
+
+  /**
+   * The number of structural features of the '<em>Composite Node</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int COMPOSITE_NODE_FEATURE_COUNT = NODE_FEATURE_COUNT + 3;
+
+  /**
+   * The meta object id for the '{@link eagledata.core.dsl.datadesc.dataDsl.impl.FragmentNodeImpl <em>Fragment Node</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see eagledata.core.dsl.datadesc.dataDsl.impl.FragmentNodeImpl
+   * @see eagledata.core.dsl.datadesc.dataDsl.impl.DataDslPackageImpl#getFragmentNode()
+   * @generated
+   */
+  int FRAGMENT_NODE = 13;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FRAGMENT_NODE__NAME = NODE__NAME;
+
+  /**
+   * The feature id for the '<em><b>Cardinality</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FRAGMENT_NODE__CARDINALITY = NODE__CARDINALITY;
+
+  /**
+   * The feature id for the '<em><b>Options</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FRAGMENT_NODE__OPTIONS = NODE__OPTIONS;
+
+  /**
+   * The feature id for the '<em><b>Type</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FRAGMENT_NODE__TYPE = NODE_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Fragment Node</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FRAGMENT_NODE_FEATURE_COUNT = NODE_FEATURE_COUNT + 1;
+
+  /**
+   * The meta object id for the '{@link eagledata.core.dsl.datadesc.dataDsl.impl.PrimitiveNodeImpl <em>Primitive Node</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see eagledata.core.dsl.datadesc.dataDsl.impl.PrimitiveNodeImpl
+   * @see eagledata.core.dsl.datadesc.dataDsl.impl.DataDslPackageImpl#getPrimitiveNode()
+   * @generated
+   */
+  int PRIMITIVE_NODE = 14;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PRIMITIVE_NODE__NAME = NODE__NAME;
+
+  /**
+   * The feature id for the '<em><b>Cardinality</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PRIMITIVE_NODE__CARDINALITY = NODE__CARDINALITY;
+
+  /**
+   * The feature id for the '<em><b>Options</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PRIMITIVE_NODE__OPTIONS = NODE__OPTIONS;
+
+  /**
+   * The feature id for the '<em><b>Key</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PRIMITIVE_NODE__KEY = NODE_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Unique</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PRIMITIVE_NODE__UNIQUE = NODE_FEATURE_COUNT + 1;
+
+  /**
+   * The feature id for the '<em><b>Type</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PRIMITIVE_NODE__TYPE = NODE_FEATURE_COUNT + 2;
+
+  /**
+   * The number of structural features of the '<em>Primitive Node</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PRIMITIVE_NODE_FEATURE_COUNT = NODE_FEATURE_COUNT + 3;
+
+  /**
+   * The meta object id for the '{@link eagledata.core.dsl.datadesc.dataDsl.impl.CardinalityImpl <em>Cardinality</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see eagledata.core.dsl.datadesc.dataDsl.impl.CardinalityImpl
+   * @see eagledata.core.dsl.datadesc.dataDsl.impl.DataDslPackageImpl#getCardinality()
+   * @generated
+   */
+  int CARDINALITY = 15;
+
+  /**
+   * The feature id for the '<em><b>Min</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CARDINALITY__MIN = 0;
+
+  /**
+   * The feature id for the '<em><b>Max</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CARDINALITY__MAX = 1;
+
+  /**
+   * The number of structural features of the '<em>Cardinality</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CARDINALITY_FEATURE_COUNT = 2;
+
+  /**
+   * The meta object id for the '{@link eagledata.core.dsl.datadesc.dataDsl.impl.DataDescriptionImpl <em>Data Description</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see eagledata.core.dsl.datadesc.dataDsl.impl.DataDescriptionImpl
+   * @see eagledata.core.dsl.datadesc.dataDsl.impl.DataDslPackageImpl#getDataDescription()
+   * @generated
+   */
+  int DATA_DESCRIPTION = 16;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DATA_DESCRIPTION__NAME = ABSTRACT_DESCRIPTION__NAME;
+
+  /**
+   * The feature id for the '<em><b>Fragments</b></em>' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DATA_DESCRIPTION__FRAGMENTS = ABSTRACT_DESCRIPTION__FRAGMENTS;
+
+  /**
+   * The feature id for the '<em><b>Nodes</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DATA_DESCRIPTION__NODES = ABSTRACT_DESCRIPTION__NODES;
 
   /**
    * The feature id for the '<em><b>Format</b></em>' attribute.
@@ -381,34 +766,7 @@ public interface DataDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int DATA_SOURCE_DESCRIPTION__FORMAT = DATA_MODEL_ELEMENT_FEATURE_COUNT + 0;
-
-  /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int DATA_SOURCE_DESCRIPTION__NAME = DATA_MODEL_ELEMENT_FEATURE_COUNT + 1;
-
-  /**
-   * The feature id for the '<em><b>Fragments</b></em>' reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int DATA_SOURCE_DESCRIPTION__FRAGMENTS = DATA_MODEL_ELEMENT_FEATURE_COUNT + 2;
-
-  /**
-   * The feature id for the '<em><b>Nodes</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int DATA_SOURCE_DESCRIPTION__NODES = DATA_MODEL_ELEMENT_FEATURE_COUNT + 3;
+  int DATA_DESCRIPTION__FORMAT = ABSTRACT_DESCRIPTION_FEATURE_COUNT + 0;
 
   /**
    * The feature id for the '<em><b>Options</b></em>' containment reference list.
@@ -417,26 +775,26 @@ public interface DataDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int DATA_SOURCE_DESCRIPTION__OPTIONS = DATA_MODEL_ELEMENT_FEATURE_COUNT + 4;
+  int DATA_DESCRIPTION__OPTIONS = ABSTRACT_DESCRIPTION_FEATURE_COUNT + 1;
 
   /**
-   * The number of structural features of the '<em>Data Source Description</em>' class.
+   * The number of structural features of the '<em>Data Description</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int DATA_SOURCE_DESCRIPTION_FEATURE_COUNT = DATA_MODEL_ELEMENT_FEATURE_COUNT + 5;
+  int DATA_DESCRIPTION_FEATURE_COUNT = ABSTRACT_DESCRIPTION_FEATURE_COUNT + 2;
 
   /**
-   * The meta object id for the '{@link eagledata.core.dsl.datadesc.dataDsl.impl.DataFragmentImpl <em>Data Fragment</em>}' class.
+   * The meta object id for the '{@link eagledata.core.dsl.datadesc.dataDsl.impl.FragmentImpl <em>Fragment</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see eagledata.core.dsl.datadesc.dataDsl.impl.DataFragmentImpl
-   * @see eagledata.core.dsl.datadesc.dataDsl.impl.DataDslPackageImpl#getDataFragment()
+   * @see eagledata.core.dsl.datadesc.dataDsl.impl.FragmentImpl
+   * @see eagledata.core.dsl.datadesc.dataDsl.impl.DataDslPackageImpl#getFragment()
    * @generated
    */
-  int DATA_FRAGMENT = 10;
+  int FRAGMENT = 17;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -445,7 +803,7 @@ public interface DataDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int DATA_FRAGMENT__NAME = DATA_PACKABLE_DESCRIPTION__NAME;
+  int FRAGMENT__NAME = ABSTRACT_DESCRIPTION__NAME;
 
   /**
    * The feature id for the '<em><b>Fragments</b></em>' reference list.
@@ -454,7 +812,7 @@ public interface DataDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int DATA_FRAGMENT__FRAGMENTS = DATA_PACKABLE_DESCRIPTION_FEATURE_COUNT + 0;
+  int FRAGMENT__FRAGMENTS = ABSTRACT_DESCRIPTION__FRAGMENTS;
 
   /**
    * The feature id for the '<em><b>Nodes</b></em>' containment reference list.
@@ -463,26 +821,26 @@ public interface DataDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int DATA_FRAGMENT__NODES = DATA_PACKABLE_DESCRIPTION_FEATURE_COUNT + 1;
+  int FRAGMENT__NODES = ABSTRACT_DESCRIPTION__NODES;
 
   /**
-   * The number of structural features of the '<em>Data Fragment</em>' class.
+   * The number of structural features of the '<em>Fragment</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int DATA_FRAGMENT_FEATURE_COUNT = DATA_PACKABLE_DESCRIPTION_FEATURE_COUNT + 2;
+  int FRAGMENT_FEATURE_COUNT = ABSTRACT_DESCRIPTION_FEATURE_COUNT + 0;
 
   /**
-   * The meta object id for the '{@link eagledata.core.dsl.datadesc.dataDsl.impl.TypeSpecificationImpl <em>Type Specification</em>}' class.
+   * The meta object id for the '{@link eagledata.core.dsl.datadesc.dataDsl.impl.DataTypeRefinementImpl <em>Data Type Refinement</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see eagledata.core.dsl.datadesc.dataDsl.impl.TypeSpecificationImpl
-   * @see eagledata.core.dsl.datadesc.dataDsl.impl.DataDslPackageImpl#getTypeSpecification()
+   * @see eagledata.core.dsl.datadesc.dataDsl.impl.DataTypeRefinementImpl
+   * @see eagledata.core.dsl.datadesc.dataDsl.impl.DataDslPackageImpl#getDataTypeRefinement()
    * @generated
    */
-  int TYPE_SPECIFICATION = 11;
+  int DATA_TYPE_REFINEMENT = 18;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -491,35 +849,7 @@ public interface DataDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int TYPE_SPECIFICATION__NAME = DATA_PACKABLE_DESCRIPTION__NAME;
-
-  /**
-   * The number of structural features of the '<em>Type Specification</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int TYPE_SPECIFICATION_FEATURE_COUNT = DATA_PACKABLE_DESCRIPTION_FEATURE_COUNT + 0;
-
-  /**
-   * The meta object id for the '{@link eagledata.core.dsl.datadesc.dataDsl.impl.DataTypeImpl <em>Data Type</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see eagledata.core.dsl.datadesc.dataDsl.impl.DataTypeImpl
-   * @see eagledata.core.dsl.datadesc.dataDsl.impl.DataDslPackageImpl#getDataType()
-   * @generated
-   */
-  int DATA_TYPE = 12;
-
-  /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int DATA_TYPE__NAME = TYPE_SPECIFICATION__NAME;
+  int DATA_TYPE_REFINEMENT__NAME = TYPE_SPECIFICATION__NAME;
 
   /**
    * The feature id for the '<em><b>Refine</b></em>' attribute.
@@ -528,7 +858,16 @@ public interface DataDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int DATA_TYPE__REFINE = TYPE_SPECIFICATION_FEATURE_COUNT + 0;
+  int DATA_TYPE_REFINEMENT__REFINE = TYPE_SPECIFICATION_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Subsequences</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DATA_TYPE_REFINEMENT__SUBSEQUENCES = TYPE_SPECIFICATION_FEATURE_COUNT + 1;
 
   /**
    * The feature id for the '<em><b>Options</b></em>' containment reference list.
@@ -537,16 +876,16 @@ public interface DataDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int DATA_TYPE__OPTIONS = TYPE_SPECIFICATION_FEATURE_COUNT + 1;
+  int DATA_TYPE_REFINEMENT__OPTIONS = TYPE_SPECIFICATION_FEATURE_COUNT + 2;
 
   /**
-   * The number of structural features of the '<em>Data Type</em>' class.
+   * The number of structural features of the '<em>Data Type Refinement</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int DATA_TYPE_FEATURE_COUNT = TYPE_SPECIFICATION_FEATURE_COUNT + 2;
+  int DATA_TYPE_REFINEMENT_FEATURE_COUNT = TYPE_SPECIFICATION_FEATURE_COUNT + 3;
 
   /**
    * The meta object id for the '{@link eagledata.core.dsl.datadesc.dataDsl.impl.EnumerationImpl <em>Enumeration</em>}' class.
@@ -556,7 +895,7 @@ public interface DataDslPackage extends EPackage
    * @see eagledata.core.dsl.datadesc.dataDsl.impl.DataDslPackageImpl#getEnumeration()
    * @generated
    */
-  int ENUMERATION = 13;
+  int ENUMERATION = 19;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -586,134 +925,6 @@ public interface DataDslPackage extends EPackage
   int ENUMERATION_FEATURE_COUNT = TYPE_SPECIFICATION_FEATURE_COUNT + 1;
 
   /**
-   * The meta object id for the '{@link eagledata.core.dsl.datadesc.dataDsl.impl.StructDataTypeImpl <em>Struct Data Type</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see eagledata.core.dsl.datadesc.dataDsl.impl.StructDataTypeImpl
-   * @see eagledata.core.dsl.datadesc.dataDsl.impl.DataDslPackageImpl#getStructDataType()
-   * @generated
-   */
-  int STRUCT_DATA_TYPE = 14;
-
-  /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int STRUCT_DATA_TYPE__NAME = TYPE_SPECIFICATION__NAME;
-
-  /**
-   * The feature id for the '<em><b>Subnodes</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int STRUCT_DATA_TYPE__SUBNODES = TYPE_SPECIFICATION_FEATURE_COUNT + 0;
-
-  /**
-   * The feature id for the '<em><b>Options</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int STRUCT_DATA_TYPE__OPTIONS = TYPE_SPECIFICATION_FEATURE_COUNT + 1;
-
-  /**
-   * The number of structural features of the '<em>Struct Data Type</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int STRUCT_DATA_TYPE_FEATURE_COUNT = TYPE_SPECIFICATION_FEATURE_COUNT + 2;
-
-  /**
-   * The meta object id for the '{@link eagledata.core.dsl.datadesc.dataDsl.impl.LeafNodeImpl <em>Leaf Node</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see eagledata.core.dsl.datadesc.dataDsl.impl.LeafNodeImpl
-   * @see eagledata.core.dsl.datadesc.dataDsl.impl.DataDslPackageImpl#getLeafNode()
-   * @generated
-   */
-  int LEAF_NODE = 15;
-
-  /**
-   * The feature id for the '<em><b>Key</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int LEAF_NODE__KEY = 0;
-
-  /**
-   * The feature id for the '<em><b>Unique</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int LEAF_NODE__UNIQUE = 1;
-
-  /**
-   * The feature id for the '<em><b>List</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int LEAF_NODE__LIST = 2;
-
-  /**
-   * The feature id for the '<em><b>Type</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int LEAF_NODE__TYPE = 3;
-
-  /**
-   * The feature id for the '<em><b>Type Call</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int LEAF_NODE__TYPE_CALL = 4;
-
-  /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int LEAF_NODE__NAME = 5;
-
-  /**
-   * The feature id for the '<em><b>Options</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int LEAF_NODE__OPTIONS = 6;
-
-  /**
-   * The number of structural features of the '<em>Leaf Node</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int LEAF_NODE_FEATURE_COUNT = 7;
-
-  /**
    * The meta object id for the '{@link eagledata.core.dsl.datadesc.dataDsl.impl.OptionImpl <em>Option</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -721,7 +932,7 @@ public interface DataDslPackage extends EPackage
    * @see eagledata.core.dsl.datadesc.dataDsl.impl.DataDslPackageImpl#getOption()
    * @generated
    */
-  int OPTION = 16;
+  int OPTION = 20;
 
   /**
    * The number of structural features of the '<em>Option</em>' class.
@@ -740,7 +951,7 @@ public interface DataDslPackage extends EPackage
    * @see eagledata.core.dsl.datadesc.dataDsl.impl.DataDslPackageImpl#getStringOption()
    * @generated
    */
-  int STRING_OPTION = 17;
+  int STRING_OPTION = 21;
 
   /**
    * The feature id for the '<em><b>Key</b></em>' attribute.
@@ -777,7 +988,7 @@ public interface DataDslPackage extends EPackage
    * @see eagledata.core.dsl.datadesc.dataDsl.impl.DataDslPackageImpl#getIntOption()
    * @generated
    */
-  int INT_OPTION = 18;
+  int INT_OPTION = 22;
 
   /**
    * The feature id for the '<em><b>Key</b></em>' attribute.
@@ -814,7 +1025,7 @@ public interface DataDslPackage extends EPackage
    * @see eagledata.core.dsl.datadesc.dataDsl.impl.DataDslPackageImpl#getDoubleOption()
    * @generated
    */
-  int DOUBLE_OPTION = 19;
+  int DOUBLE_OPTION = 23;
 
   /**
    * The feature id for the '<em><b>Key</b></em>' attribute.
@@ -851,7 +1062,7 @@ public interface DataDslPackage extends EPackage
    * @see eagledata.core.dsl.datadesc.dataDsl.impl.DataDslPackageImpl#getBooleanOption()
    * @generated
    */
-  int BOOLEAN_OPTION = 20;
+  int BOOLEAN_OPTION = 24;
 
   /**
    * The feature id for the '<em><b>Key</b></em>' attribute.
@@ -881,14 +1092,14 @@ public interface DataDslPackage extends EPackage
   int BOOLEAN_OPTION_FEATURE_COUNT = OPTION_FEATURE_COUNT + 2;
 
   /**
-   * The meta object id for the '{@link eagledata.core.dsl.datadesc.dataDsl.impl.SequenceOptionImpl <em>Sequence Option</em>}' class.
+   * The meta object id for the '{@link eagledata.core.dsl.datadesc.dataDsl.impl.ListQualifiedNameOptionImpl <em>List Qualified Name Option</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see eagledata.core.dsl.datadesc.dataDsl.impl.SequenceOptionImpl
-   * @see eagledata.core.dsl.datadesc.dataDsl.impl.DataDslPackageImpl#getSequenceOption()
+   * @see eagledata.core.dsl.datadesc.dataDsl.impl.ListQualifiedNameOptionImpl
+   * @see eagledata.core.dsl.datadesc.dataDsl.impl.DataDslPackageImpl#getListQualifiedNameOption()
    * @generated
    */
-  int SEQUENCE_OPTION = 21;
+  int LIST_QUALIFIED_NAME_OPTION = 25;
 
   /**
    * The feature id for the '<em><b>Key</b></em>' attribute.
@@ -897,25 +1108,25 @@ public interface DataDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int SEQUENCE_OPTION__KEY = OPTION_FEATURE_COUNT + 0;
+  int LIST_QUALIFIED_NAME_OPTION__KEY = OPTION_FEATURE_COUNT + 0;
 
   /**
-   * The feature id for the '<em><b>Value</b></em>' reference.
+   * The feature id for the '<em><b>Fragments</b></em>' reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int SEQUENCE_OPTION__VALUE = OPTION_FEATURE_COUNT + 1;
+  int LIST_QUALIFIED_NAME_OPTION__FRAGMENTS = OPTION_FEATURE_COUNT + 1;
 
   /**
-   * The number of structural features of the '<em>Sequence Option</em>' class.
+   * The number of structural features of the '<em>List Qualified Name Option</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int SEQUENCE_OPTION_FEATURE_COUNT = OPTION_FEATURE_COUNT + 2;
+  int LIST_QUALIFIED_NAME_OPTION_FEATURE_COUNT = OPTION_FEATURE_COUNT + 2;
 
   /**
    * The meta object id for the '{@link eagledata.core.dsl.datadesc.dataDsl.impl.DataOptionImpl <em>Data Option</em>}' class.
@@ -925,7 +1136,7 @@ public interface DataDslPackage extends EPackage
    * @see eagledata.core.dsl.datadesc.dataDsl.impl.DataDslPackageImpl#getDataOption()
    * @generated
    */
-  int DATA_OPTION = 22;
+  int DATA_OPTION = 26;
 
   /**
    * The feature id for the '<em><b>Key</b></em>' attribute.
@@ -962,7 +1173,7 @@ public interface DataDslPackage extends EPackage
    * @see eagledata.core.dsl.datadesc.dataDsl.impl.DataDslPackageImpl#getTypeCharacter()
    * @generated
    */
-  int TYPE_CHARACTER = 23;
+  int TYPE_CHARACTER = 27;
 
   /**
    * The meta object id for the '{@link eagledata.core.dsl.datadesc.dataDsl.TypeString <em>Type String</em>}' enum.
@@ -972,27 +1183,7 @@ public interface DataDslPackage extends EPackage
    * @see eagledata.core.dsl.datadesc.dataDsl.impl.DataDslPackageImpl#getTypeString()
    * @generated
    */
-  int TYPE_STRING = 24;
-
-  /**
-   * The meta object id for the '{@link eagledata.core.dsl.datadesc.dataDsl.Multiplicity <em>Multiplicity</em>}' enum.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see eagledata.core.dsl.datadesc.dataDsl.Multiplicity
-   * @see eagledata.core.dsl.datadesc.dataDsl.impl.DataDslPackageImpl#getMultiplicity()
-   * @generated
-   */
-  int MULTIPLICITY = 25;
-
-  /**
-   * The meta object id for the '{@link eagledata.core.dsl.datadesc.dataDsl.SequenceOptionKey <em>Sequence Option Key</em>}' enum.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see eagledata.core.dsl.datadesc.dataDsl.SequenceOptionKey
-   * @see eagledata.core.dsl.datadesc.dataDsl.impl.DataDslPackageImpl#getSequenceOptionKey()
-   * @generated
-   */
-  int SEQUENCE_OPTION_KEY = 26;
+  int TYPE_STRING = 28;
 
   /**
    * The meta object id for the '{@link eagledata.core.dsl.datadesc.dataDsl.BasicType <em>Basic Type</em>}' enum.
@@ -1002,7 +1193,7 @@ public interface DataDslPackage extends EPackage
    * @see eagledata.core.dsl.datadesc.dataDsl.impl.DataDslPackageImpl#getBasicType()
    * @generated
    */
-  int BASIC_TYPE = 27;
+  int BASIC_TYPE = 29;
 
   /**
    * The meta object id for the '{@link eagledata.core.dsl.datadesc.dataDsl.StringOptionKey <em>String Option Key</em>}' enum.
@@ -1012,7 +1203,7 @@ public interface DataDslPackage extends EPackage
    * @see eagledata.core.dsl.datadesc.dataDsl.impl.DataDslPackageImpl#getStringOptionKey()
    * @generated
    */
-  int STRING_OPTION_KEY = 28;
+  int STRING_OPTION_KEY = 30;
 
   /**
    * The meta object id for the '{@link eagledata.core.dsl.datadesc.dataDsl.IntOptionKey <em>Int Option Key</em>}' enum.
@@ -1022,7 +1213,7 @@ public interface DataDslPackage extends EPackage
    * @see eagledata.core.dsl.datadesc.dataDsl.impl.DataDslPackageImpl#getIntOptionKey()
    * @generated
    */
-  int INT_OPTION_KEY = 29;
+  int INT_OPTION_KEY = 31;
 
   /**
    * The meta object id for the '{@link eagledata.core.dsl.datadesc.dataDsl.DoubleOptionKey <em>Double Option Key</em>}' enum.
@@ -1032,7 +1223,7 @@ public interface DataDslPackage extends EPackage
    * @see eagledata.core.dsl.datadesc.dataDsl.impl.DataDslPackageImpl#getDoubleOptionKey()
    * @generated
    */
-  int DOUBLE_OPTION_KEY = 30;
+  int DOUBLE_OPTION_KEY = 32;
 
   /**
    * The meta object id for the '{@link eagledata.core.dsl.datadesc.dataDsl.BooleanOptionKey <em>Boolean Option Key</em>}' enum.
@@ -1042,27 +1233,17 @@ public interface DataDslPackage extends EPackage
    * @see eagledata.core.dsl.datadesc.dataDsl.impl.DataDslPackageImpl#getBooleanOptionKey()
    * @generated
    */
-  int BOOLEAN_OPTION_KEY = 31;
+  int BOOLEAN_OPTION_KEY = 33;
 
   /**
-   * The meta object id for the '{@link eagledata.core.dsl.datadesc.dataDsl.DataOptionKey <em>Data Option Key</em>}' enum.
+   * The meta object id for the '{@link eagledata.core.dsl.datadesc.dataDsl.ListQualifiedNameOptionKey <em>List Qualified Name Option Key</em>}' enum.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see eagledata.core.dsl.datadesc.dataDsl.DataOptionKey
-   * @see eagledata.core.dsl.datadesc.dataDsl.impl.DataDslPackageImpl#getDataOptionKey()
+   * @see eagledata.core.dsl.datadesc.dataDsl.ListQualifiedNameOptionKey
+   * @see eagledata.core.dsl.datadesc.dataDsl.impl.DataDslPackageImpl#getListQualifiedNameOptionKey()
    * @generated
    */
-  int DATA_OPTION_KEY = 32;
-
-  /**
-   * The meta object id for the '{@link eagledata.core.dsl.datadesc.dataDsl.Format <em>Format</em>}' enum.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see eagledata.core.dsl.datadesc.dataDsl.Format
-   * @see eagledata.core.dsl.datadesc.dataDsl.impl.DataDslPackageImpl#getFormat()
-   * @generated
-   */
-  int FORMAT = 33;
+  int LIST_QUALIFIED_NAME_OPTION_KEY = 34;
 
 
   /**
@@ -1076,15 +1257,15 @@ public interface DataDslPackage extends EPackage
   EClass getDataModel();
 
   /**
-   * Returns the meta object for the containment reference list '{@link eagledata.core.dsl.datadesc.dataDsl.DataModel#getDescriptions <em>Descriptions</em>}'.
+   * Returns the meta object for the containment reference list '{@link eagledata.core.dsl.datadesc.dataDsl.DataModel#getElements <em>Elements</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Descriptions</em>'.
-   * @see eagledata.core.dsl.datadesc.dataDsl.DataModel#getDescriptions()
+   * @return the meta object for the containment reference list '<em>Elements</em>'.
+   * @see eagledata.core.dsl.datadesc.dataDsl.DataModel#getElements()
    * @see #getDataModel()
    * @generated
    */
-  EReference getDataModel_Descriptions();
+  EReference getDataModel_Elements();
 
   /**
    * Returns the meta object for class '{@link eagledata.core.dsl.datadesc.dataDsl.Import <em>Import</em>}'.
@@ -1128,6 +1309,17 @@ public interface DataDslPackage extends EPackage
   EClass getPackage();
 
   /**
+   * Returns the meta object for the containment reference list '{@link eagledata.core.dsl.datadesc.dataDsl.Package#getTags <em>Tags</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Tags</em>'.
+   * @see eagledata.core.dsl.datadesc.dataDsl.Package#getTags()
+   * @see #getPackage()
+   * @generated
+   */
+  EReference getPackage_Tags();
+
+  /**
    * Returns the meta object for the attribute '{@link eagledata.core.dsl.datadesc.dataDsl.Package#getName <em>Name</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1150,46 +1342,88 @@ public interface DataDslPackage extends EPackage
   EReference getPackage_Elements();
 
   /**
-   * Returns the meta object for class '{@link eagledata.core.dsl.datadesc.dataDsl.DataPackableDescription <em>Data Packable Description</em>}'.
+   * Returns the meta object for class '{@link eagledata.core.dsl.datadesc.dataDsl.Tag <em>Tag</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Data Packable Description</em>'.
-   * @see eagledata.core.dsl.datadesc.dataDsl.DataPackableDescription
+   * @return the meta object for class '<em>Tag</em>'.
+   * @see eagledata.core.dsl.datadesc.dataDsl.Tag
    * @generated
    */
-  EClass getDataPackableDescription();
+  EClass getTag();
 
   /**
-   * Returns the meta object for the attribute '{@link eagledata.core.dsl.datadesc.dataDsl.DataPackableDescription#getName <em>Name</em>}'.
+   * Returns the meta object for the attribute '{@link eagledata.core.dsl.datadesc.dataDsl.Tag#getTag <em>Tag</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Tag</em>'.
+   * @see eagledata.core.dsl.datadesc.dataDsl.Tag#getTag()
+   * @see #getTag()
+   * @generated
+   */
+  EAttribute getTag_Tag();
+
+  /**
+   * Returns the meta object for class '{@link eagledata.core.dsl.datadesc.dataDsl.SpecificationElement <em>Specification Element</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Specification Element</em>'.
+   * @see eagledata.core.dsl.datadesc.dataDsl.SpecificationElement
+   * @generated
+   */
+  EClass getSpecificationElement();
+
+  /**
+   * Returns the meta object for the attribute '{@link eagledata.core.dsl.datadesc.dataDsl.SpecificationElement#getName <em>Name</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the attribute '<em>Name</em>'.
-   * @see eagledata.core.dsl.datadesc.dataDsl.DataPackableDescription#getName()
-   * @see #getDataPackableDescription()
+   * @see eagledata.core.dsl.datadesc.dataDsl.SpecificationElement#getName()
+   * @see #getSpecificationElement()
    * @generated
    */
-  EAttribute getDataPackableDescription_Name();
+  EAttribute getSpecificationElement_Name();
 
   /**
-   * Returns the meta object for class '{@link eagledata.core.dsl.datadesc.dataDsl.StringConcept <em>String Concept</em>}'.
+   * Returns the meta object for class '{@link eagledata.core.dsl.datadesc.dataDsl.TypeSpecification <em>Type Specification</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>String Concept</em>'.
-   * @see eagledata.core.dsl.datadesc.dataDsl.StringConcept
+   * @return the meta object for class '<em>Type Specification</em>'.
+   * @see eagledata.core.dsl.datadesc.dataDsl.TypeSpecification
    * @generated
    */
-  EClass getStringConcept();
+  EClass getTypeSpecification();
 
   /**
-   * Returns the meta object for the containment reference list '{@link eagledata.core.dsl.datadesc.dataDsl.StringConcept#getSubsequence <em>Subsequence</em>}'.
+   * Returns the meta object for class '{@link eagledata.core.dsl.datadesc.dataDsl.AbstractDescription <em>Abstract Description</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Subsequence</em>'.
-   * @see eagledata.core.dsl.datadesc.dataDsl.StringConcept#getSubsequence()
-   * @see #getStringConcept()
+   * @return the meta object for class '<em>Abstract Description</em>'.
+   * @see eagledata.core.dsl.datadesc.dataDsl.AbstractDescription
    * @generated
    */
-  EReference getStringConcept_Subsequence();
+  EClass getAbstractDescription();
+
+  /**
+   * Returns the meta object for the reference list '{@link eagledata.core.dsl.datadesc.dataDsl.AbstractDescription#getFragments <em>Fragments</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference list '<em>Fragments</em>'.
+   * @see eagledata.core.dsl.datadesc.dataDsl.AbstractDescription#getFragments()
+   * @see #getAbstractDescription()
+   * @generated
+   */
+  EReference getAbstractDescription_Fragments();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link eagledata.core.dsl.datadesc.dataDsl.AbstractDescription#getNodes <em>Nodes</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Nodes</em>'.
+   * @see eagledata.core.dsl.datadesc.dataDsl.AbstractDescription#getNodes()
+   * @see #getAbstractDescription()
+   * @generated
+   */
+  EReference getAbstractDescription_Nodes();
 
   /**
    * Returns the meta object for class '{@link eagledata.core.dsl.datadesc.dataDsl.SubstringConcept <em>Substring Concept</em>}'.
@@ -1288,143 +1522,271 @@ public interface DataDslPackage extends EPackage
   EAttribute getCharacter_Value();
 
   /**
-   * Returns the meta object for class '{@link eagledata.core.dsl.datadesc.dataDsl.DataSourceDescription <em>Data Source Description</em>}'.
+   * Returns the meta object for class '{@link eagledata.core.dsl.datadesc.dataDsl.Node <em>Node</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Data Source Description</em>'.
-   * @see eagledata.core.dsl.datadesc.dataDsl.DataSourceDescription
+   * @return the meta object for class '<em>Node</em>'.
+   * @see eagledata.core.dsl.datadesc.dataDsl.Node
    * @generated
    */
-  EClass getDataSourceDescription();
+  EClass getNode();
 
   /**
-   * Returns the meta object for the attribute '{@link eagledata.core.dsl.datadesc.dataDsl.DataSourceDescription#getFormat <em>Format</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Format</em>'.
-   * @see eagledata.core.dsl.datadesc.dataDsl.DataSourceDescription#getFormat()
-   * @see #getDataSourceDescription()
-   * @generated
-   */
-  EAttribute getDataSourceDescription_Format();
-
-  /**
-   * Returns the meta object for the attribute '{@link eagledata.core.dsl.datadesc.dataDsl.DataSourceDescription#getName <em>Name</em>}'.
+   * Returns the meta object for the attribute '{@link eagledata.core.dsl.datadesc.dataDsl.Node#getName <em>Name</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the attribute '<em>Name</em>'.
-   * @see eagledata.core.dsl.datadesc.dataDsl.DataSourceDescription#getName()
-   * @see #getDataSourceDescription()
+   * @see eagledata.core.dsl.datadesc.dataDsl.Node#getName()
+   * @see #getNode()
    * @generated
    */
-  EAttribute getDataSourceDescription_Name();
+  EAttribute getNode_Name();
 
   /**
-   * Returns the meta object for the reference list '{@link eagledata.core.dsl.datadesc.dataDsl.DataSourceDescription#getFragments <em>Fragments</em>}'.
+   * Returns the meta object for the containment reference '{@link eagledata.core.dsl.datadesc.dataDsl.Node#getCardinality <em>Cardinality</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the reference list '<em>Fragments</em>'.
-   * @see eagledata.core.dsl.datadesc.dataDsl.DataSourceDescription#getFragments()
-   * @see #getDataSourceDescription()
+   * @return the meta object for the containment reference '<em>Cardinality</em>'.
+   * @see eagledata.core.dsl.datadesc.dataDsl.Node#getCardinality()
+   * @see #getNode()
    * @generated
    */
-  EReference getDataSourceDescription_Fragments();
+  EReference getNode_Cardinality();
 
   /**
-   * Returns the meta object for the containment reference list '{@link eagledata.core.dsl.datadesc.dataDsl.DataSourceDescription#getNodes <em>Nodes</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Nodes</em>'.
-   * @see eagledata.core.dsl.datadesc.dataDsl.DataSourceDescription#getNodes()
-   * @see #getDataSourceDescription()
-   * @generated
-   */
-  EReference getDataSourceDescription_Nodes();
-
-  /**
-   * Returns the meta object for the containment reference list '{@link eagledata.core.dsl.datadesc.dataDsl.DataSourceDescription#getOptions <em>Options</em>}'.
+   * Returns the meta object for the containment reference list '{@link eagledata.core.dsl.datadesc.dataDsl.Node#getOptions <em>Options</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the containment reference list '<em>Options</em>'.
-   * @see eagledata.core.dsl.datadesc.dataDsl.DataSourceDescription#getOptions()
-   * @see #getDataSourceDescription()
+   * @see eagledata.core.dsl.datadesc.dataDsl.Node#getOptions()
+   * @see #getNode()
    * @generated
    */
-  EReference getDataSourceDescription_Options();
+  EReference getNode_Options();
 
   /**
-   * Returns the meta object for class '{@link eagledata.core.dsl.datadesc.dataDsl.DataFragment <em>Data Fragment</em>}'.
+   * Returns the meta object for class '{@link eagledata.core.dsl.datadesc.dataDsl.CompositeNode <em>Composite Node</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Data Fragment</em>'.
-   * @see eagledata.core.dsl.datadesc.dataDsl.DataFragment
+   * @return the meta object for class '<em>Composite Node</em>'.
+   * @see eagledata.core.dsl.datadesc.dataDsl.CompositeNode
    * @generated
    */
-  EClass getDataFragment();
+  EClass getCompositeNode();
 
   /**
-   * Returns the meta object for the reference list '{@link eagledata.core.dsl.datadesc.dataDsl.DataFragment#getFragments <em>Fragments</em>}'.
+   * Returns the meta object for the attribute '{@link eagledata.core.dsl.datadesc.dataDsl.CompositeNode#isKey <em>Key</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the reference list '<em>Fragments</em>'.
-   * @see eagledata.core.dsl.datadesc.dataDsl.DataFragment#getFragments()
-   * @see #getDataFragment()
+   * @return the meta object for the attribute '<em>Key</em>'.
+   * @see eagledata.core.dsl.datadesc.dataDsl.CompositeNode#isKey()
+   * @see #getCompositeNode()
    * @generated
    */
-  EReference getDataFragment_Fragments();
+  EAttribute getCompositeNode_Key();
 
   /**
-   * Returns the meta object for the containment reference list '{@link eagledata.core.dsl.datadesc.dataDsl.DataFragment#getNodes <em>Nodes</em>}'.
+   * Returns the meta object for the attribute '{@link eagledata.core.dsl.datadesc.dataDsl.CompositeNode#isUnique <em>Unique</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Nodes</em>'.
-   * @see eagledata.core.dsl.datadesc.dataDsl.DataFragment#getNodes()
-   * @see #getDataFragment()
+   * @return the meta object for the attribute '<em>Unique</em>'.
+   * @see eagledata.core.dsl.datadesc.dataDsl.CompositeNode#isUnique()
+   * @see #getCompositeNode()
    * @generated
    */
-  EReference getDataFragment_Nodes();
+  EAttribute getCompositeNode_Unique();
 
   /**
-   * Returns the meta object for class '{@link eagledata.core.dsl.datadesc.dataDsl.TypeSpecification <em>Type Specification</em>}'.
+   * Returns the meta object for the reference '{@link eagledata.core.dsl.datadesc.dataDsl.CompositeNode#getType <em>Type</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Type Specification</em>'.
-   * @see eagledata.core.dsl.datadesc.dataDsl.TypeSpecification
+   * @return the meta object for the reference '<em>Type</em>'.
+   * @see eagledata.core.dsl.datadesc.dataDsl.CompositeNode#getType()
+   * @see #getCompositeNode()
    * @generated
    */
-  EClass getTypeSpecification();
+  EReference getCompositeNode_Type();
 
   /**
-   * Returns the meta object for class '{@link eagledata.core.dsl.datadesc.dataDsl.DataType <em>Data Type</em>}'.
+   * Returns the meta object for class '{@link eagledata.core.dsl.datadesc.dataDsl.FragmentNode <em>Fragment Node</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Data Type</em>'.
-   * @see eagledata.core.dsl.datadesc.dataDsl.DataType
+   * @return the meta object for class '<em>Fragment Node</em>'.
+   * @see eagledata.core.dsl.datadesc.dataDsl.FragmentNode
    * @generated
    */
-  EClass getDataType();
+  EClass getFragmentNode();
 
   /**
-   * Returns the meta object for the attribute '{@link eagledata.core.dsl.datadesc.dataDsl.DataType#getRefine <em>Refine</em>}'.
+   * Returns the meta object for the reference '{@link eagledata.core.dsl.datadesc.dataDsl.FragmentNode#getType <em>Type</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Type</em>'.
+   * @see eagledata.core.dsl.datadesc.dataDsl.FragmentNode#getType()
+   * @see #getFragmentNode()
+   * @generated
+   */
+  EReference getFragmentNode_Type();
+
+  /**
+   * Returns the meta object for class '{@link eagledata.core.dsl.datadesc.dataDsl.PrimitiveNode <em>Primitive Node</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Primitive Node</em>'.
+   * @see eagledata.core.dsl.datadesc.dataDsl.PrimitiveNode
+   * @generated
+   */
+  EClass getPrimitiveNode();
+
+  /**
+   * Returns the meta object for the attribute '{@link eagledata.core.dsl.datadesc.dataDsl.PrimitiveNode#isKey <em>Key</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Key</em>'.
+   * @see eagledata.core.dsl.datadesc.dataDsl.PrimitiveNode#isKey()
+   * @see #getPrimitiveNode()
+   * @generated
+   */
+  EAttribute getPrimitiveNode_Key();
+
+  /**
+   * Returns the meta object for the attribute '{@link eagledata.core.dsl.datadesc.dataDsl.PrimitiveNode#isUnique <em>Unique</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Unique</em>'.
+   * @see eagledata.core.dsl.datadesc.dataDsl.PrimitiveNode#isUnique()
+   * @see #getPrimitiveNode()
+   * @generated
+   */
+  EAttribute getPrimitiveNode_Unique();
+
+  /**
+   * Returns the meta object for the attribute '{@link eagledata.core.dsl.datadesc.dataDsl.PrimitiveNode#getType <em>Type</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Type</em>'.
+   * @see eagledata.core.dsl.datadesc.dataDsl.PrimitiveNode#getType()
+   * @see #getPrimitiveNode()
+   * @generated
+   */
+  EAttribute getPrimitiveNode_Type();
+
+  /**
+   * Returns the meta object for class '{@link eagledata.core.dsl.datadesc.dataDsl.Cardinality <em>Cardinality</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Cardinality</em>'.
+   * @see eagledata.core.dsl.datadesc.dataDsl.Cardinality
+   * @generated
+   */
+  EClass getCardinality();
+
+  /**
+   * Returns the meta object for the attribute '{@link eagledata.core.dsl.datadesc.dataDsl.Cardinality#getMin <em>Min</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Min</em>'.
+   * @see eagledata.core.dsl.datadesc.dataDsl.Cardinality#getMin()
+   * @see #getCardinality()
+   * @generated
+   */
+  EAttribute getCardinality_Min();
+
+  /**
+   * Returns the meta object for the attribute '{@link eagledata.core.dsl.datadesc.dataDsl.Cardinality#getMax <em>Max</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Max</em>'.
+   * @see eagledata.core.dsl.datadesc.dataDsl.Cardinality#getMax()
+   * @see #getCardinality()
+   * @generated
+   */
+  EAttribute getCardinality_Max();
+
+  /**
+   * Returns the meta object for class '{@link eagledata.core.dsl.datadesc.dataDsl.DataDescription <em>Data Description</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Data Description</em>'.
+   * @see eagledata.core.dsl.datadesc.dataDsl.DataDescription
+   * @generated
+   */
+  EClass getDataDescription();
+
+  /**
+   * Returns the meta object for the attribute '{@link eagledata.core.dsl.datadesc.dataDsl.DataDescription#getFormat <em>Format</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Format</em>'.
+   * @see eagledata.core.dsl.datadesc.dataDsl.DataDescription#getFormat()
+   * @see #getDataDescription()
+   * @generated
+   */
+  EAttribute getDataDescription_Format();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link eagledata.core.dsl.datadesc.dataDsl.DataDescription#getOptions <em>Options</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Options</em>'.
+   * @see eagledata.core.dsl.datadesc.dataDsl.DataDescription#getOptions()
+   * @see #getDataDescription()
+   * @generated
+   */
+  EReference getDataDescription_Options();
+
+  /**
+   * Returns the meta object for class '{@link eagledata.core.dsl.datadesc.dataDsl.Fragment <em>Fragment</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Fragment</em>'.
+   * @see eagledata.core.dsl.datadesc.dataDsl.Fragment
+   * @generated
+   */
+  EClass getFragment();
+
+  /**
+   * Returns the meta object for class '{@link eagledata.core.dsl.datadesc.dataDsl.DataTypeRefinement <em>Data Type Refinement</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Data Type Refinement</em>'.
+   * @see eagledata.core.dsl.datadesc.dataDsl.DataTypeRefinement
+   * @generated
+   */
+  EClass getDataTypeRefinement();
+
+  /**
+   * Returns the meta object for the attribute '{@link eagledata.core.dsl.datadesc.dataDsl.DataTypeRefinement#getRefine <em>Refine</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the attribute '<em>Refine</em>'.
-   * @see eagledata.core.dsl.datadesc.dataDsl.DataType#getRefine()
-   * @see #getDataType()
+   * @see eagledata.core.dsl.datadesc.dataDsl.DataTypeRefinement#getRefine()
+   * @see #getDataTypeRefinement()
    * @generated
    */
-  EAttribute getDataType_Refine();
+  EAttribute getDataTypeRefinement_Refine();
 
   /**
-   * Returns the meta object for the containment reference list '{@link eagledata.core.dsl.datadesc.dataDsl.DataType#getOptions <em>Options</em>}'.
+   * Returns the meta object for the containment reference list '{@link eagledata.core.dsl.datadesc.dataDsl.DataTypeRefinement#getSubsequences <em>Subsequences</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Subsequences</em>'.
+   * @see eagledata.core.dsl.datadesc.dataDsl.DataTypeRefinement#getSubsequences()
+   * @see #getDataTypeRefinement()
+   * @generated
+   */
+  EReference getDataTypeRefinement_Subsequences();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link eagledata.core.dsl.datadesc.dataDsl.DataTypeRefinement#getOptions <em>Options</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the containment reference list '<em>Options</em>'.
-   * @see eagledata.core.dsl.datadesc.dataDsl.DataType#getOptions()
-   * @see #getDataType()
+   * @see eagledata.core.dsl.datadesc.dataDsl.DataTypeRefinement#getOptions()
+   * @see #getDataTypeRefinement()
    * @generated
    */
-  EReference getDataType_Options();
+  EReference getDataTypeRefinement_Options();
 
   /**
    * Returns the meta object for class '{@link eagledata.core.dsl.datadesc.dataDsl.Enumeration <em>Enumeration</em>}'.
@@ -1446,125 +1808,6 @@ public interface DataDslPackage extends EPackage
    * @generated
    */
   EAttribute getEnumeration_Values();
-
-  /**
-   * Returns the meta object for class '{@link eagledata.core.dsl.datadesc.dataDsl.StructDataType <em>Struct Data Type</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Struct Data Type</em>'.
-   * @see eagledata.core.dsl.datadesc.dataDsl.StructDataType
-   * @generated
-   */
-  EClass getStructDataType();
-
-  /**
-   * Returns the meta object for the containment reference list '{@link eagledata.core.dsl.datadesc.dataDsl.StructDataType#getSubnodes <em>Subnodes</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Subnodes</em>'.
-   * @see eagledata.core.dsl.datadesc.dataDsl.StructDataType#getSubnodes()
-   * @see #getStructDataType()
-   * @generated
-   */
-  EReference getStructDataType_Subnodes();
-
-  /**
-   * Returns the meta object for the containment reference list '{@link eagledata.core.dsl.datadesc.dataDsl.StructDataType#getOptions <em>Options</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Options</em>'.
-   * @see eagledata.core.dsl.datadesc.dataDsl.StructDataType#getOptions()
-   * @see #getStructDataType()
-   * @generated
-   */
-  EReference getStructDataType_Options();
-
-  /**
-   * Returns the meta object for class '{@link eagledata.core.dsl.datadesc.dataDsl.LeafNode <em>Leaf Node</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Leaf Node</em>'.
-   * @see eagledata.core.dsl.datadesc.dataDsl.LeafNode
-   * @generated
-   */
-  EClass getLeafNode();
-
-  /**
-   * Returns the meta object for the attribute '{@link eagledata.core.dsl.datadesc.dataDsl.LeafNode#isKey <em>Key</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Key</em>'.
-   * @see eagledata.core.dsl.datadesc.dataDsl.LeafNode#isKey()
-   * @see #getLeafNode()
-   * @generated
-   */
-  EAttribute getLeafNode_Key();
-
-  /**
-   * Returns the meta object for the attribute '{@link eagledata.core.dsl.datadesc.dataDsl.LeafNode#isUnique <em>Unique</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Unique</em>'.
-   * @see eagledata.core.dsl.datadesc.dataDsl.LeafNode#isUnique()
-   * @see #getLeafNode()
-   * @generated
-   */
-  EAttribute getLeafNode_Unique();
-
-  /**
-   * Returns the meta object for the attribute '{@link eagledata.core.dsl.datadesc.dataDsl.LeafNode#isList <em>List</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>List</em>'.
-   * @see eagledata.core.dsl.datadesc.dataDsl.LeafNode#isList()
-   * @see #getLeafNode()
-   * @generated
-   */
-  EAttribute getLeafNode_List();
-
-  /**
-   * Returns the meta object for the attribute '{@link eagledata.core.dsl.datadesc.dataDsl.LeafNode#getType <em>Type</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Type</em>'.
-   * @see eagledata.core.dsl.datadesc.dataDsl.LeafNode#getType()
-   * @see #getLeafNode()
-   * @generated
-   */
-  EAttribute getLeafNode_Type();
-
-  /**
-   * Returns the meta object for the reference '{@link eagledata.core.dsl.datadesc.dataDsl.LeafNode#getTypeCall <em>Type Call</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the reference '<em>Type Call</em>'.
-   * @see eagledata.core.dsl.datadesc.dataDsl.LeafNode#getTypeCall()
-   * @see #getLeafNode()
-   * @generated
-   */
-  EReference getLeafNode_TypeCall();
-
-  /**
-   * Returns the meta object for the attribute '{@link eagledata.core.dsl.datadesc.dataDsl.LeafNode#getName <em>Name</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Name</em>'.
-   * @see eagledata.core.dsl.datadesc.dataDsl.LeafNode#getName()
-   * @see #getLeafNode()
-   * @generated
-   */
-  EAttribute getLeafNode_Name();
-
-  /**
-   * Returns the meta object for the containment reference list '{@link eagledata.core.dsl.datadesc.dataDsl.LeafNode#getOptions <em>Options</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Options</em>'.
-   * @see eagledata.core.dsl.datadesc.dataDsl.LeafNode#getOptions()
-   * @see #getLeafNode()
-   * @generated
-   */
-  EReference getLeafNode_Options();
 
   /**
    * Returns the meta object for class '{@link eagledata.core.dsl.datadesc.dataDsl.Option <em>Option</em>}'.
@@ -1705,36 +1948,36 @@ public interface DataDslPackage extends EPackage
   EAttribute getBooleanOption_Value();
 
   /**
-   * Returns the meta object for class '{@link eagledata.core.dsl.datadesc.dataDsl.SequenceOption <em>Sequence Option</em>}'.
+   * Returns the meta object for class '{@link eagledata.core.dsl.datadesc.dataDsl.ListQualifiedNameOption <em>List Qualified Name Option</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Sequence Option</em>'.
-   * @see eagledata.core.dsl.datadesc.dataDsl.SequenceOption
+   * @return the meta object for class '<em>List Qualified Name Option</em>'.
+   * @see eagledata.core.dsl.datadesc.dataDsl.ListQualifiedNameOption
    * @generated
    */
-  EClass getSequenceOption();
+  EClass getListQualifiedNameOption();
 
   /**
-   * Returns the meta object for the attribute '{@link eagledata.core.dsl.datadesc.dataDsl.SequenceOption#getKey <em>Key</em>}'.
+   * Returns the meta object for the attribute '{@link eagledata.core.dsl.datadesc.dataDsl.ListQualifiedNameOption#getKey <em>Key</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the attribute '<em>Key</em>'.
-   * @see eagledata.core.dsl.datadesc.dataDsl.SequenceOption#getKey()
-   * @see #getSequenceOption()
+   * @see eagledata.core.dsl.datadesc.dataDsl.ListQualifiedNameOption#getKey()
+   * @see #getListQualifiedNameOption()
    * @generated
    */
-  EAttribute getSequenceOption_Key();
+  EAttribute getListQualifiedNameOption_Key();
 
   /**
-   * Returns the meta object for the reference '{@link eagledata.core.dsl.datadesc.dataDsl.SequenceOption#getValue <em>Value</em>}'.
+   * Returns the meta object for the reference list '{@link eagledata.core.dsl.datadesc.dataDsl.ListQualifiedNameOption#getFragments <em>Fragments</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the reference '<em>Value</em>'.
-   * @see eagledata.core.dsl.datadesc.dataDsl.SequenceOption#getValue()
-   * @see #getSequenceOption()
+   * @return the meta object for the reference list '<em>Fragments</em>'.
+   * @see eagledata.core.dsl.datadesc.dataDsl.ListQualifiedNameOption#getFragments()
+   * @see #getListQualifiedNameOption()
    * @generated
    */
-  EReference getSequenceOption_Value();
+  EReference getListQualifiedNameOption_Fragments();
 
   /**
    * Returns the meta object for class '{@link eagledata.core.dsl.datadesc.dataDsl.DataOption <em>Data Option</em>}'.
@@ -1789,26 +2032,6 @@ public interface DataDslPackage extends EPackage
   EEnum getTypeString();
 
   /**
-   * Returns the meta object for enum '{@link eagledata.core.dsl.datadesc.dataDsl.Multiplicity <em>Multiplicity</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for enum '<em>Multiplicity</em>'.
-   * @see eagledata.core.dsl.datadesc.dataDsl.Multiplicity
-   * @generated
-   */
-  EEnum getMultiplicity();
-
-  /**
-   * Returns the meta object for enum '{@link eagledata.core.dsl.datadesc.dataDsl.SequenceOptionKey <em>Sequence Option Key</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for enum '<em>Sequence Option Key</em>'.
-   * @see eagledata.core.dsl.datadesc.dataDsl.SequenceOptionKey
-   * @generated
-   */
-  EEnum getSequenceOptionKey();
-
-  /**
    * Returns the meta object for enum '{@link eagledata.core.dsl.datadesc.dataDsl.BasicType <em>Basic Type</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1859,24 +2082,14 @@ public interface DataDslPackage extends EPackage
   EEnum getBooleanOptionKey();
 
   /**
-   * Returns the meta object for enum '{@link eagledata.core.dsl.datadesc.dataDsl.DataOptionKey <em>Data Option Key</em>}'.
+   * Returns the meta object for enum '{@link eagledata.core.dsl.datadesc.dataDsl.ListQualifiedNameOptionKey <em>List Qualified Name Option Key</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for enum '<em>Data Option Key</em>'.
-   * @see eagledata.core.dsl.datadesc.dataDsl.DataOptionKey
+   * @return the meta object for enum '<em>List Qualified Name Option Key</em>'.
+   * @see eagledata.core.dsl.datadesc.dataDsl.ListQualifiedNameOptionKey
    * @generated
    */
-  EEnum getDataOptionKey();
-
-  /**
-   * Returns the meta object for enum '{@link eagledata.core.dsl.datadesc.dataDsl.Format <em>Format</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for enum '<em>Format</em>'.
-   * @see eagledata.core.dsl.datadesc.dataDsl.Format
-   * @generated
-   */
-  EEnum getFormat();
+  EEnum getListQualifiedNameOptionKey();
 
   /**
    * Returns the factory that creates the instances of the model.
@@ -1912,12 +2125,12 @@ public interface DataDslPackage extends EPackage
     EClass DATA_MODEL = eINSTANCE.getDataModel();
 
     /**
-     * The meta object literal for the '<em><b>Descriptions</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>Elements</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference DATA_MODEL__DESCRIPTIONS = eINSTANCE.getDataModel_Descriptions();
+    EReference DATA_MODEL__ELEMENTS = eINSTANCE.getDataModel_Elements();
 
     /**
      * The meta object literal for the '{@link eagledata.core.dsl.datadesc.dataDsl.impl.ImportImpl <em>Import</em>}' class.
@@ -1958,6 +2171,14 @@ public interface DataDslPackage extends EPackage
     EClass PACKAGE = eINSTANCE.getPackage();
 
     /**
+     * The meta object literal for the '<em><b>Tags</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference PACKAGE__TAGS = eINSTANCE.getPackage_Tags();
+
+    /**
      * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1974,14 +2195,32 @@ public interface DataDslPackage extends EPackage
     EReference PACKAGE__ELEMENTS = eINSTANCE.getPackage_Elements();
 
     /**
-     * The meta object literal for the '{@link eagledata.core.dsl.datadesc.dataDsl.impl.DataPackableDescriptionImpl <em>Data Packable Description</em>}' class.
+     * The meta object literal for the '{@link eagledata.core.dsl.datadesc.dataDsl.impl.TagImpl <em>Tag</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see eagledata.core.dsl.datadesc.dataDsl.impl.DataPackableDescriptionImpl
-     * @see eagledata.core.dsl.datadesc.dataDsl.impl.DataDslPackageImpl#getDataPackableDescription()
+     * @see eagledata.core.dsl.datadesc.dataDsl.impl.TagImpl
+     * @see eagledata.core.dsl.datadesc.dataDsl.impl.DataDslPackageImpl#getTag()
      * @generated
      */
-    EClass DATA_PACKABLE_DESCRIPTION = eINSTANCE.getDataPackableDescription();
+    EClass TAG = eINSTANCE.getTag();
+
+    /**
+     * The meta object literal for the '<em><b>Tag</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute TAG__TAG = eINSTANCE.getTag_Tag();
+
+    /**
+     * The meta object literal for the '{@link eagledata.core.dsl.datadesc.dataDsl.impl.SpecificationElementImpl <em>Specification Element</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see eagledata.core.dsl.datadesc.dataDsl.impl.SpecificationElementImpl
+     * @see eagledata.core.dsl.datadesc.dataDsl.impl.DataDslPackageImpl#getSpecificationElement()
+     * @generated
+     */
+    EClass SPECIFICATION_ELEMENT = eINSTANCE.getSpecificationElement();
 
     /**
      * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
@@ -1989,25 +2228,43 @@ public interface DataDslPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute DATA_PACKABLE_DESCRIPTION__NAME = eINSTANCE.getDataPackableDescription_Name();
+    EAttribute SPECIFICATION_ELEMENT__NAME = eINSTANCE.getSpecificationElement_Name();
 
     /**
-     * The meta object literal for the '{@link eagledata.core.dsl.datadesc.dataDsl.impl.StringConceptImpl <em>String Concept</em>}' class.
+     * The meta object literal for the '{@link eagledata.core.dsl.datadesc.dataDsl.impl.TypeSpecificationImpl <em>Type Specification</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see eagledata.core.dsl.datadesc.dataDsl.impl.StringConceptImpl
-     * @see eagledata.core.dsl.datadesc.dataDsl.impl.DataDslPackageImpl#getStringConcept()
+     * @see eagledata.core.dsl.datadesc.dataDsl.impl.TypeSpecificationImpl
+     * @see eagledata.core.dsl.datadesc.dataDsl.impl.DataDslPackageImpl#getTypeSpecification()
      * @generated
      */
-    EClass STRING_CONCEPT = eINSTANCE.getStringConcept();
+    EClass TYPE_SPECIFICATION = eINSTANCE.getTypeSpecification();
 
     /**
-     * The meta object literal for the '<em><b>Subsequence</b></em>' containment reference list feature.
+     * The meta object literal for the '{@link eagledata.core.dsl.datadesc.dataDsl.impl.AbstractDescriptionImpl <em>Abstract Description</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see eagledata.core.dsl.datadesc.dataDsl.impl.AbstractDescriptionImpl
+     * @see eagledata.core.dsl.datadesc.dataDsl.impl.DataDslPackageImpl#getAbstractDescription()
+     * @generated
+     */
+    EClass ABSTRACT_DESCRIPTION = eINSTANCE.getAbstractDescription();
+
+    /**
+     * The meta object literal for the '<em><b>Fragments</b></em>' reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference STRING_CONCEPT__SUBSEQUENCE = eINSTANCE.getStringConcept_Subsequence();
+    EReference ABSTRACT_DESCRIPTION__FRAGMENTS = eINSTANCE.getAbstractDescription_Fragments();
+
+    /**
+     * The meta object literal for the '<em><b>Nodes</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ABSTRACT_DESCRIPTION__NODES = eINSTANCE.getAbstractDescription_Nodes();
 
     /**
      * The meta object literal for the '{@link eagledata.core.dsl.datadesc.dataDsl.impl.SubstringConceptImpl <em>Substring Concept</em>}' class.
@@ -2088,22 +2345,14 @@ public interface DataDslPackage extends EPackage
     EAttribute CHARACTER__VALUE = eINSTANCE.getCharacter_Value();
 
     /**
-     * The meta object literal for the '{@link eagledata.core.dsl.datadesc.dataDsl.impl.DataSourceDescriptionImpl <em>Data Source Description</em>}' class.
+     * The meta object literal for the '{@link eagledata.core.dsl.datadesc.dataDsl.impl.NodeImpl <em>Node</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see eagledata.core.dsl.datadesc.dataDsl.impl.DataSourceDescriptionImpl
-     * @see eagledata.core.dsl.datadesc.dataDsl.impl.DataDslPackageImpl#getDataSourceDescription()
+     * @see eagledata.core.dsl.datadesc.dataDsl.impl.NodeImpl
+     * @see eagledata.core.dsl.datadesc.dataDsl.impl.DataDslPackageImpl#getNode()
      * @generated
      */
-    EClass DATA_SOURCE_DESCRIPTION = eINSTANCE.getDataSourceDescription();
-
-    /**
-     * The meta object literal for the '<em><b>Format</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute DATA_SOURCE_DESCRIPTION__FORMAT = eINSTANCE.getDataSourceDescription_Format();
+    EClass NODE = eINSTANCE.getNode();
 
     /**
      * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
@@ -2111,23 +2360,15 @@ public interface DataDslPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute DATA_SOURCE_DESCRIPTION__NAME = eINSTANCE.getDataSourceDescription_Name();
+    EAttribute NODE__NAME = eINSTANCE.getNode_Name();
 
     /**
-     * The meta object literal for the '<em><b>Fragments</b></em>' reference list feature.
+     * The meta object literal for the '<em><b>Cardinality</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference DATA_SOURCE_DESCRIPTION__FRAGMENTS = eINSTANCE.getDataSourceDescription_Fragments();
-
-    /**
-     * The meta object literal for the '<em><b>Nodes</b></em>' containment reference list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference DATA_SOURCE_DESCRIPTION__NODES = eINSTANCE.getDataSourceDescription_Nodes();
+    EReference NODE__CARDINALITY = eINSTANCE.getNode_Cardinality();
 
     /**
      * The meta object literal for the '<em><b>Options</b></em>' containment reference list feature.
@@ -2135,53 +2376,165 @@ public interface DataDslPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference DATA_SOURCE_DESCRIPTION__OPTIONS = eINSTANCE.getDataSourceDescription_Options();
+    EReference NODE__OPTIONS = eINSTANCE.getNode_Options();
 
     /**
-     * The meta object literal for the '{@link eagledata.core.dsl.datadesc.dataDsl.impl.DataFragmentImpl <em>Data Fragment</em>}' class.
+     * The meta object literal for the '{@link eagledata.core.dsl.datadesc.dataDsl.impl.CompositeNodeImpl <em>Composite Node</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see eagledata.core.dsl.datadesc.dataDsl.impl.DataFragmentImpl
-     * @see eagledata.core.dsl.datadesc.dataDsl.impl.DataDslPackageImpl#getDataFragment()
+     * @see eagledata.core.dsl.datadesc.dataDsl.impl.CompositeNodeImpl
+     * @see eagledata.core.dsl.datadesc.dataDsl.impl.DataDslPackageImpl#getCompositeNode()
      * @generated
      */
-    EClass DATA_FRAGMENT = eINSTANCE.getDataFragment();
+    EClass COMPOSITE_NODE = eINSTANCE.getCompositeNode();
 
     /**
-     * The meta object literal for the '<em><b>Fragments</b></em>' reference list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference DATA_FRAGMENT__FRAGMENTS = eINSTANCE.getDataFragment_Fragments();
-
-    /**
-     * The meta object literal for the '<em><b>Nodes</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>Key</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference DATA_FRAGMENT__NODES = eINSTANCE.getDataFragment_Nodes();
+    EAttribute COMPOSITE_NODE__KEY = eINSTANCE.getCompositeNode_Key();
 
     /**
-     * The meta object literal for the '{@link eagledata.core.dsl.datadesc.dataDsl.impl.TypeSpecificationImpl <em>Type Specification</em>}' class.
+     * The meta object literal for the '<em><b>Unique</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see eagledata.core.dsl.datadesc.dataDsl.impl.TypeSpecificationImpl
-     * @see eagledata.core.dsl.datadesc.dataDsl.impl.DataDslPackageImpl#getTypeSpecification()
      * @generated
      */
-    EClass TYPE_SPECIFICATION = eINSTANCE.getTypeSpecification();
+    EAttribute COMPOSITE_NODE__UNIQUE = eINSTANCE.getCompositeNode_Unique();
 
     /**
-     * The meta object literal for the '{@link eagledata.core.dsl.datadesc.dataDsl.impl.DataTypeImpl <em>Data Type</em>}' class.
+     * The meta object literal for the '<em><b>Type</b></em>' reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see eagledata.core.dsl.datadesc.dataDsl.impl.DataTypeImpl
-     * @see eagledata.core.dsl.datadesc.dataDsl.impl.DataDslPackageImpl#getDataType()
      * @generated
      */
-    EClass DATA_TYPE = eINSTANCE.getDataType();
+    EReference COMPOSITE_NODE__TYPE = eINSTANCE.getCompositeNode_Type();
+
+    /**
+     * The meta object literal for the '{@link eagledata.core.dsl.datadesc.dataDsl.impl.FragmentNodeImpl <em>Fragment Node</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see eagledata.core.dsl.datadesc.dataDsl.impl.FragmentNodeImpl
+     * @see eagledata.core.dsl.datadesc.dataDsl.impl.DataDslPackageImpl#getFragmentNode()
+     * @generated
+     */
+    EClass FRAGMENT_NODE = eINSTANCE.getFragmentNode();
+
+    /**
+     * The meta object literal for the '<em><b>Type</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference FRAGMENT_NODE__TYPE = eINSTANCE.getFragmentNode_Type();
+
+    /**
+     * The meta object literal for the '{@link eagledata.core.dsl.datadesc.dataDsl.impl.PrimitiveNodeImpl <em>Primitive Node</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see eagledata.core.dsl.datadesc.dataDsl.impl.PrimitiveNodeImpl
+     * @see eagledata.core.dsl.datadesc.dataDsl.impl.DataDslPackageImpl#getPrimitiveNode()
+     * @generated
+     */
+    EClass PRIMITIVE_NODE = eINSTANCE.getPrimitiveNode();
+
+    /**
+     * The meta object literal for the '<em><b>Key</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute PRIMITIVE_NODE__KEY = eINSTANCE.getPrimitiveNode_Key();
+
+    /**
+     * The meta object literal for the '<em><b>Unique</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute PRIMITIVE_NODE__UNIQUE = eINSTANCE.getPrimitiveNode_Unique();
+
+    /**
+     * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute PRIMITIVE_NODE__TYPE = eINSTANCE.getPrimitiveNode_Type();
+
+    /**
+     * The meta object literal for the '{@link eagledata.core.dsl.datadesc.dataDsl.impl.CardinalityImpl <em>Cardinality</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see eagledata.core.dsl.datadesc.dataDsl.impl.CardinalityImpl
+     * @see eagledata.core.dsl.datadesc.dataDsl.impl.DataDslPackageImpl#getCardinality()
+     * @generated
+     */
+    EClass CARDINALITY = eINSTANCE.getCardinality();
+
+    /**
+     * The meta object literal for the '<em><b>Min</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute CARDINALITY__MIN = eINSTANCE.getCardinality_Min();
+
+    /**
+     * The meta object literal for the '<em><b>Max</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute CARDINALITY__MAX = eINSTANCE.getCardinality_Max();
+
+    /**
+     * The meta object literal for the '{@link eagledata.core.dsl.datadesc.dataDsl.impl.DataDescriptionImpl <em>Data Description</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see eagledata.core.dsl.datadesc.dataDsl.impl.DataDescriptionImpl
+     * @see eagledata.core.dsl.datadesc.dataDsl.impl.DataDslPackageImpl#getDataDescription()
+     * @generated
+     */
+    EClass DATA_DESCRIPTION = eINSTANCE.getDataDescription();
+
+    /**
+     * The meta object literal for the '<em><b>Format</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute DATA_DESCRIPTION__FORMAT = eINSTANCE.getDataDescription_Format();
+
+    /**
+     * The meta object literal for the '<em><b>Options</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference DATA_DESCRIPTION__OPTIONS = eINSTANCE.getDataDescription_Options();
+
+    /**
+     * The meta object literal for the '{@link eagledata.core.dsl.datadesc.dataDsl.impl.FragmentImpl <em>Fragment</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see eagledata.core.dsl.datadesc.dataDsl.impl.FragmentImpl
+     * @see eagledata.core.dsl.datadesc.dataDsl.impl.DataDslPackageImpl#getFragment()
+     * @generated
+     */
+    EClass FRAGMENT = eINSTANCE.getFragment();
+
+    /**
+     * The meta object literal for the '{@link eagledata.core.dsl.datadesc.dataDsl.impl.DataTypeRefinementImpl <em>Data Type Refinement</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see eagledata.core.dsl.datadesc.dataDsl.impl.DataTypeRefinementImpl
+     * @see eagledata.core.dsl.datadesc.dataDsl.impl.DataDslPackageImpl#getDataTypeRefinement()
+     * @generated
+     */
+    EClass DATA_TYPE_REFINEMENT = eINSTANCE.getDataTypeRefinement();
 
     /**
      * The meta object literal for the '<em><b>Refine</b></em>' attribute feature.
@@ -2189,7 +2542,15 @@ public interface DataDslPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute DATA_TYPE__REFINE = eINSTANCE.getDataType_Refine();
+    EAttribute DATA_TYPE_REFINEMENT__REFINE = eINSTANCE.getDataTypeRefinement_Refine();
+
+    /**
+     * The meta object literal for the '<em><b>Subsequences</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference DATA_TYPE_REFINEMENT__SUBSEQUENCES = eINSTANCE.getDataTypeRefinement_Subsequences();
 
     /**
      * The meta object literal for the '<em><b>Options</b></em>' containment reference list feature.
@@ -2197,7 +2558,7 @@ public interface DataDslPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference DATA_TYPE__OPTIONS = eINSTANCE.getDataType_Options();
+    EReference DATA_TYPE_REFINEMENT__OPTIONS = eINSTANCE.getDataTypeRefinement_Options();
 
     /**
      * The meta object literal for the '{@link eagledata.core.dsl.datadesc.dataDsl.impl.EnumerationImpl <em>Enumeration</em>}' class.
@@ -2216,98 +2577,6 @@ public interface DataDslPackage extends EPackage
      * @generated
      */
     EAttribute ENUMERATION__VALUES = eINSTANCE.getEnumeration_Values();
-
-    /**
-     * The meta object literal for the '{@link eagledata.core.dsl.datadesc.dataDsl.impl.StructDataTypeImpl <em>Struct Data Type</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see eagledata.core.dsl.datadesc.dataDsl.impl.StructDataTypeImpl
-     * @see eagledata.core.dsl.datadesc.dataDsl.impl.DataDslPackageImpl#getStructDataType()
-     * @generated
-     */
-    EClass STRUCT_DATA_TYPE = eINSTANCE.getStructDataType();
-
-    /**
-     * The meta object literal for the '<em><b>Subnodes</b></em>' containment reference list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference STRUCT_DATA_TYPE__SUBNODES = eINSTANCE.getStructDataType_Subnodes();
-
-    /**
-     * The meta object literal for the '<em><b>Options</b></em>' containment reference list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference STRUCT_DATA_TYPE__OPTIONS = eINSTANCE.getStructDataType_Options();
-
-    /**
-     * The meta object literal for the '{@link eagledata.core.dsl.datadesc.dataDsl.impl.LeafNodeImpl <em>Leaf Node</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see eagledata.core.dsl.datadesc.dataDsl.impl.LeafNodeImpl
-     * @see eagledata.core.dsl.datadesc.dataDsl.impl.DataDslPackageImpl#getLeafNode()
-     * @generated
-     */
-    EClass LEAF_NODE = eINSTANCE.getLeafNode();
-
-    /**
-     * The meta object literal for the '<em><b>Key</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute LEAF_NODE__KEY = eINSTANCE.getLeafNode_Key();
-
-    /**
-     * The meta object literal for the '<em><b>Unique</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute LEAF_NODE__UNIQUE = eINSTANCE.getLeafNode_Unique();
-
-    /**
-     * The meta object literal for the '<em><b>List</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute LEAF_NODE__LIST = eINSTANCE.getLeafNode_List();
-
-    /**
-     * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute LEAF_NODE__TYPE = eINSTANCE.getLeafNode_Type();
-
-    /**
-     * The meta object literal for the '<em><b>Type Call</b></em>' reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference LEAF_NODE__TYPE_CALL = eINSTANCE.getLeafNode_TypeCall();
-
-    /**
-     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute LEAF_NODE__NAME = eINSTANCE.getLeafNode_Name();
-
-    /**
-     * The meta object literal for the '<em><b>Options</b></em>' containment reference list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference LEAF_NODE__OPTIONS = eINSTANCE.getLeafNode_Options();
 
     /**
      * The meta object literal for the '{@link eagledata.core.dsl.datadesc.dataDsl.impl.OptionImpl <em>Option</em>}' class.
@@ -2424,14 +2693,14 @@ public interface DataDslPackage extends EPackage
     EAttribute BOOLEAN_OPTION__VALUE = eINSTANCE.getBooleanOption_Value();
 
     /**
-     * The meta object literal for the '{@link eagledata.core.dsl.datadesc.dataDsl.impl.SequenceOptionImpl <em>Sequence Option</em>}' class.
+     * The meta object literal for the '{@link eagledata.core.dsl.datadesc.dataDsl.impl.ListQualifiedNameOptionImpl <em>List Qualified Name Option</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see eagledata.core.dsl.datadesc.dataDsl.impl.SequenceOptionImpl
-     * @see eagledata.core.dsl.datadesc.dataDsl.impl.DataDslPackageImpl#getSequenceOption()
+     * @see eagledata.core.dsl.datadesc.dataDsl.impl.ListQualifiedNameOptionImpl
+     * @see eagledata.core.dsl.datadesc.dataDsl.impl.DataDslPackageImpl#getListQualifiedNameOption()
      * @generated
      */
-    EClass SEQUENCE_OPTION = eINSTANCE.getSequenceOption();
+    EClass LIST_QUALIFIED_NAME_OPTION = eINSTANCE.getListQualifiedNameOption();
 
     /**
      * The meta object literal for the '<em><b>Key</b></em>' attribute feature.
@@ -2439,15 +2708,15 @@ public interface DataDslPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute SEQUENCE_OPTION__KEY = eINSTANCE.getSequenceOption_Key();
+    EAttribute LIST_QUALIFIED_NAME_OPTION__KEY = eINSTANCE.getListQualifiedNameOption_Key();
 
     /**
-     * The meta object literal for the '<em><b>Value</b></em>' reference feature.
+     * The meta object literal for the '<em><b>Fragments</b></em>' reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference SEQUENCE_OPTION__VALUE = eINSTANCE.getSequenceOption_Value();
+    EReference LIST_QUALIFIED_NAME_OPTION__FRAGMENTS = eINSTANCE.getListQualifiedNameOption_Fragments();
 
     /**
      * The meta object literal for the '{@link eagledata.core.dsl.datadesc.dataDsl.impl.DataOptionImpl <em>Data Option</em>}' class.
@@ -2494,26 +2763,6 @@ public interface DataDslPackage extends EPackage
      * @generated
      */
     EEnum TYPE_STRING = eINSTANCE.getTypeString();
-
-    /**
-     * The meta object literal for the '{@link eagledata.core.dsl.datadesc.dataDsl.Multiplicity <em>Multiplicity</em>}' enum.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see eagledata.core.dsl.datadesc.dataDsl.Multiplicity
-     * @see eagledata.core.dsl.datadesc.dataDsl.impl.DataDslPackageImpl#getMultiplicity()
-     * @generated
-     */
-    EEnum MULTIPLICITY = eINSTANCE.getMultiplicity();
-
-    /**
-     * The meta object literal for the '{@link eagledata.core.dsl.datadesc.dataDsl.SequenceOptionKey <em>Sequence Option Key</em>}' enum.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see eagledata.core.dsl.datadesc.dataDsl.SequenceOptionKey
-     * @see eagledata.core.dsl.datadesc.dataDsl.impl.DataDslPackageImpl#getSequenceOptionKey()
-     * @generated
-     */
-    EEnum SEQUENCE_OPTION_KEY = eINSTANCE.getSequenceOptionKey();
 
     /**
      * The meta object literal for the '{@link eagledata.core.dsl.datadesc.dataDsl.BasicType <em>Basic Type</em>}' enum.
@@ -2566,24 +2815,14 @@ public interface DataDslPackage extends EPackage
     EEnum BOOLEAN_OPTION_KEY = eINSTANCE.getBooleanOptionKey();
 
     /**
-     * The meta object literal for the '{@link eagledata.core.dsl.datadesc.dataDsl.DataOptionKey <em>Data Option Key</em>}' enum.
+     * The meta object literal for the '{@link eagledata.core.dsl.datadesc.dataDsl.ListQualifiedNameOptionKey <em>List Qualified Name Option Key</em>}' enum.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see eagledata.core.dsl.datadesc.dataDsl.DataOptionKey
-     * @see eagledata.core.dsl.datadesc.dataDsl.impl.DataDslPackageImpl#getDataOptionKey()
+     * @see eagledata.core.dsl.datadesc.dataDsl.ListQualifiedNameOptionKey
+     * @see eagledata.core.dsl.datadesc.dataDsl.impl.DataDslPackageImpl#getListQualifiedNameOptionKey()
      * @generated
      */
-    EEnum DATA_OPTION_KEY = eINSTANCE.getDataOptionKey();
-
-    /**
-     * The meta object literal for the '{@link eagledata.core.dsl.datadesc.dataDsl.Format <em>Format</em>}' enum.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see eagledata.core.dsl.datadesc.dataDsl.Format
-     * @see eagledata.core.dsl.datadesc.dataDsl.impl.DataDslPackageImpl#getFormat()
-     * @generated
-     */
-    EEnum FORMAT = eINSTANCE.getFormat();
+    EEnum LIST_QUALIFIED_NAME_OPTION_KEY = eINSTANCE.getListQualifiedNameOptionKey();
 
   }
 

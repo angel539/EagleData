@@ -21,16 +21,6 @@ import org.eclipse.emf.common.util.Enumerator;
 public enum StringOptionKey implements Enumerator
 {
   /**
-   * The '<em><b>Casesensitive</b></em>' literal object.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #CASESENSITIVE_VALUE
-   * @generated
-   * @ordered
-   */
-  CASESENSITIVE(0, "casesensitive", "casesensitive"),
-
-  /**
    * The '<em><b>Null</b></em>' literal object.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -38,7 +28,7 @@ public enum StringOptionKey implements Enumerator
    * @generated
    * @ordered
    */
-  NULL(1, "null", "null"),
+  NULL(0, "null", "null"),
 
   /**
    * The '<em><b>Separator</b></em>' literal object.
@@ -48,7 +38,7 @@ public enum StringOptionKey implements Enumerator
    * @generated
    * @ordered
    */
-  SEPARATOR(2, "separator", "separator"),
+  SEPARATOR(1, "separator", "separator"),
 
   /**
    * The '<em><b>Default</b></em>' literal object.
@@ -58,7 +48,7 @@ public enum StringOptionKey implements Enumerator
    * @generated
    * @ordered
    */
-  DEFAULT(3, "default", "default"),
+  DEFAULT(2, "default", "default"),
 
   /**
    * The '<em><b>Regex</b></em>' literal object.
@@ -68,7 +58,7 @@ public enum StringOptionKey implements Enumerator
    * @generated
    * @ordered
    */
-  REGEX(4, "regex", "regex"),
+  REGEX(3, "regex", "regex"),
 
   /**
    * The '<em><b>Flags</b></em>' literal object.
@@ -78,7 +68,7 @@ public enum StringOptionKey implements Enumerator
    * @generated
    * @ordered
    */
-  FLAGS(5, "flags", "flags"),
+  FLAGS(4, "flags", "flags"),
 
   /**
    * The '<em><b>Decimalchar</b></em>' literal object.
@@ -88,7 +78,7 @@ public enum StringOptionKey implements Enumerator
    * @generated
    * @ordered
    */
-  DECIMALCHAR(6, "decimalchar", "decimalchar"),
+  DECIMALCHAR(5, "decimalchar", "decimalchar"),
 
   /**
    * The '<em><b>Pattern</b></em>' literal object.
@@ -98,7 +88,7 @@ public enum StringOptionKey implements Enumerator
    * @generated
    * @ordered
    */
-  PATTERN(7, "pattern", "pattern"),
+  PATTERN(6, "pattern", "pattern"),
 
   /**
    * The '<em><b>Format</b></em>' literal object.
@@ -108,22 +98,7 @@ public enum StringOptionKey implements Enumerator
    * @generated
    * @ordered
    */
-  FORMAT(8, "format", "format");
-
-  /**
-   * The '<em><b>Casesensitive</b></em>' literal value.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of '<em><b>Casesensitive</b></em>' literal object isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @see #CASESENSITIVE
-   * @model name="casesensitive"
-   * @generated
-   * @ordered
-   */
-  public static final int CASESENSITIVE_VALUE = 0;
+  FORMAT(7, "format", "format");
 
   /**
    * The '<em><b>Null</b></em>' literal value.
@@ -138,7 +113,7 @@ public enum StringOptionKey implements Enumerator
    * @generated
    * @ordered
    */
-  public static final int NULL_VALUE = 1;
+  public static final int NULL_VALUE = 0;
 
   /**
    * The '<em><b>Separator</b></em>' literal value.
@@ -153,7 +128,7 @@ public enum StringOptionKey implements Enumerator
    * @generated
    * @ordered
    */
-  public static final int SEPARATOR_VALUE = 2;
+  public static final int SEPARATOR_VALUE = 1;
 
   /**
    * The '<em><b>Default</b></em>' literal value.
@@ -168,7 +143,7 @@ public enum StringOptionKey implements Enumerator
    * @generated
    * @ordered
    */
-  public static final int DEFAULT_VALUE = 3;
+  public static final int DEFAULT_VALUE = 2;
 
   /**
    * The '<em><b>Regex</b></em>' literal value.
@@ -183,7 +158,7 @@ public enum StringOptionKey implements Enumerator
    * @generated
    * @ordered
    */
-  public static final int REGEX_VALUE = 4;
+  public static final int REGEX_VALUE = 3;
 
   /**
    * The '<em><b>Flags</b></em>' literal value.
@@ -198,7 +173,7 @@ public enum StringOptionKey implements Enumerator
    * @generated
    * @ordered
    */
-  public static final int FLAGS_VALUE = 5;
+  public static final int FLAGS_VALUE = 4;
 
   /**
    * The '<em><b>Decimalchar</b></em>' literal value.
@@ -213,7 +188,7 @@ public enum StringOptionKey implements Enumerator
    * @generated
    * @ordered
    */
-  public static final int DECIMALCHAR_VALUE = 6;
+  public static final int DECIMALCHAR_VALUE = 5;
 
   /**
    * The '<em><b>Pattern</b></em>' literal value.
@@ -228,7 +203,7 @@ public enum StringOptionKey implements Enumerator
    * @generated
    * @ordered
    */
-  public static final int PATTERN_VALUE = 7;
+  public static final int PATTERN_VALUE = 6;
 
   /**
    * The '<em><b>Format</b></em>' literal value.
@@ -243,7 +218,7 @@ public enum StringOptionKey implements Enumerator
    * @generated
    * @ordered
    */
-  public static final int FORMAT_VALUE = 8;
+  public static final int FORMAT_VALUE = 7;
 
   /**
    * An array of all the '<em><b>String Option Key</b></em>' enumerators.
@@ -254,7 +229,6 @@ public enum StringOptionKey implements Enumerator
   private static final StringOptionKey[] VALUES_ARRAY =
     new StringOptionKey[]
     {
-      CASESENSITIVE,
       NULL,
       SEPARATOR,
       DEFAULT,
@@ -327,7 +301,6 @@ public enum StringOptionKey implements Enumerator
   {
     switch (value)
     {
-      case CASESENSITIVE_VALUE: return CASESENSITIVE;
       case NULL_VALUE: return NULL;
       case SEPARATOR_VALUE: return SEPARATOR;
       case DEFAULT_VALUE: return DEFAULT;

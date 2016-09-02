@@ -5,20 +5,24 @@ package eagledata.core.dsl.datadesc.validation
 
 import eagledata.core.dsl.datadesc.dataDsl.BasicType
 import eagledata.core.dsl.datadesc.dataDsl.DataDslPackage
-import eagledata.core.dsl.datadesc.dataDsl.DataSourceDescription
 import eagledata.core.dsl.datadesc.dataDsl.DoubleOption
 import eagledata.core.dsl.datadesc.dataDsl.IntOption
-import eagledata.core.dsl.datadesc.dataDsl.LeafNode
 import eagledata.core.dsl.datadesc.dataDsl.Option
 import eagledata.core.dsl.datadesc.dataDsl.StringOption
 import java.util.regex.Pattern
 import java.util.regex.PatternSyntaxException
 import org.eclipse.xtext.validation.Check
+import eagledata.core.dsl.datadesc.dataDsl.PrimitiveNode
+import eagledata.core.dsl.datadesc.dataDsl.SpecificationElement
+import eagledata.core.dsl.datadesc.dataDsl.DataTypeRefinement
 
 class DataDslValidator extends AbstractDataDslValidator {
 	public static val DATATYPE_OPTION_NAME = 'invalidOption'
 	public static val DATADESCRIPTION_OPTION_NAME = 'invalidDataOptions'
 	public static val SUBSEQUENCE_OPTION_NAME = 'invalidSubsequenceProperties'
+	public static val DATATYPE_SUBS = 'invalidRefineType'
+	public static val DEFINITIONS_NAMES = 'invalidDefinitionName'
+	
 
 	/*@Check
 	def checkDataTypeOptions(SubstringConcept subsequence) {
@@ -56,7 +60,13 @@ class DataDslValidator extends AbstractDataDslValidator {
 			}
 		}
 	}*/
+	@Check
+	def checkDataTypeString(DataTypeRefinement datatype){
+		if((!datatype.refine.literal.equals("String"))&&(datatype.subsequences.size > 0))
+			error('Datatypes not extending STRING can not have subsequences descriptions', DataDslPackage.Literals.DATA_TYPE_REFINEMENT__REFINE, DATATYPE_SUBS)
+	}
 
+	/*
 	@Check
 	def checkDataDescriptionsOptions(DataSourceDescription datadescription) {
 		if(datadescription.options != null){
@@ -68,7 +78,7 @@ class DataDslValidator extends AbstractDataDslValidator {
 						else{
 							if(option.key.literal.equals("format")){
 									if(!option.value.equals("Default") && !option.value.equals("Excel") && !option.value.equals("MySQL") && !option.value.equals("RFC4180") && !option.value.equals("TDF"))
-										error('CSV-FORMAT. Format MUST BE: Default, Excel, MySQL, RFC4180 or TDF', DataDslPackage.Literals.LEAF_NODE__NAME, DATATYPE_OPTION_NAME)
+										error('CSV-FORMAT. Format MUST BE: Default, Excel, MySQL, RFC4180 or TDF', DataDslPackage.Literals.LEAF_SPECIFICATION_ELEMENT__NAME, DATATYPE_OPTION_NAME)
 								} 
 						}
 					]
@@ -79,7 +89,7 @@ class DataDslValidator extends AbstractDataDslValidator {
 						else{
 							if(option.key.literal.equals("format")){
 									if(!option.value.equals("Default") && !option.value.equals("Excel") && !option.value.equals("MySQL") && !option.value.equals("RFC4180") && !option.value.equals("TDF"))
-										error('JSON-FORMAT. Format MUST BE: Default, Excel, MySQL, RFC4180 or TDF', DataDslPackage.Literals.LEAF_NODE__NAME, DATATYPE_OPTION_NAME)
+										error('JSON-FORMAT. Format MUST BE: Default, Excel, MySQL, RFC4180 or TDF', DataDslPackage.Literals.LEAF_SPECIFICATION_ELEMENT__NAME, DATATYPE_OPTION_NAME)
 								} 
 						}
 					]
@@ -90,115 +100,115 @@ class DataDslValidator extends AbstractDataDslValidator {
 						else{
 							if(option.key.literal.equals("squema")){
 									if(!option.value.equals("Default") && !option.value.equals("Excel") && !option.value.equals("MySQL") && !option.value.equals("RFC4180") && !option.value.equals("TDF"))
-										error('XML-FORMAT. Format MUST BE: Default, Excel, MySQL, RFC4180 or TDF', DataDslPackage.Literals.LEAF_NODE__NAME, DATATYPE_OPTION_NAME)
+										error('XML-FORMAT. Format MUST BE: Default, Excel, MySQL, RFC4180 or TDF', DataDslPackage.Literals.LEAF_SPECIFICATION_ELEMENT__NAME, DATATYPE_OPTION_NAME)
 								} 
 						}
 					]
 			}
 		}
 	}
-
+	*/
 	@Check
-	def checkDataTypeOptions(LeafNode leafNode) {
-		if(leafNode.type != null){
-			val BasicType datatype = leafNode.type
+	def checkDataTypeOptions(DataTypeRefinement leafNode) {
+		if(leafNode.refine != null){
+			val BasicType datatype = leafNode.refine
 			
 			switch datatype.literal{
-				case "int":
+				case "Int":
 					leafNode.options.forEach[
 				 	option | 
 				 			if(option instanceof StringOption){
 				 				if(!option.key.literal.equals("null") && !option.key.literal.equals("separator") && !option.key.literal.equals("default"))
-									error('Options are not valid for an INTEGER', DataDslPackage.Literals.LEAF_NODE__NAME, DATATYPE_OPTION_NAME) 
+									error('Options are not valid for an INTEGER', DataDslPackage.Literals.SPECIFICATION_ELEMENT__NAME, DATATYPE_OPTION_NAME) 
 				 			}
 				 			if(option instanceof IntOption){
 				 				if(!option.key.literal.equals("min") && !option.key.literal.equals("max") && !option.key.literal.equals("defaultvalue"))
-									error('Options are not valid for an INTEGER', DataDslPackage.Literals.LEAF_NODE__NAME, DATATYPE_OPTION_NAME) 
+									error('Options are not valid for an INTEGER', DataDslPackage.Literals.SPECIFICATION_ELEMENT__NAME, DATATYPE_OPTION_NAME) 
 				 			}
 				 			if(option instanceof DoubleOption){
 				 				if(!option.key.literal.equals("minDouble") && !option.key.literal.equals("maxDouble") && !option.key.literal.equals("defaultvalueDouble"))
-									error('Options are not valid for an INTEGER', DataDslPackage.Literals.LEAF_NODE__NAME, DATATYPE_OPTION_NAME) 
+									error('Options are not valid for an INTEGER', DataDslPackage.Literals.SPECIFICATION_ELEMENT__NAME, DATATYPE_OPTION_NAME) 
 				 			}	
 					]
-				case "real":{
+				case "Real":{
 					leafNode.options.forEach[
 				 	option | 
 				 			if(option instanceof StringOption){
 				 				if(!option.key.literal.equals("null") && !option.key.literal.equals("separator") && !option.key.literal.equals("default") && !option.key.literal.equals("decimalchar") && !option.key.literal.equals("groupchar") && !option.key.literal.equals("pattern"))
-									error('Options are not valid for an REAL', DataDslPackage.Literals.LEAF_NODE__NAME, DATATYPE_OPTION_NAME) 
+									error('Options are not valid for an REAL', DataDslPackage.Literals.SPECIFICATION_ELEMENT__NAME, DATATYPE_OPTION_NAME) 
 				 				else{
 									if(option.key.literal.equals("decimalchar")){
 										if(!option.value.equals(".") && !option.value.equals(",") && !option.value.equals("'"))
-											error('DECIMALCHAR. Option must be a ".", ",", "\'"', DataDslPackage.Literals.LEAF_NODE__NAME, DATATYPE_OPTION_NAME)
+											error('DECIMALCHAR. Option must be a ".", ",", "\'"', DataDslPackage.Literals.SPECIFICATION_ELEMENT__NAME, DATATYPE_OPTION_NAME)
 									} 
 									
 								}
 				 			}
 				 			if(option instanceof IntOption){
 				 				if(!option.key.literal.equals("min") && !option.key.literal.equals("max") && !option.key.literal.equals("defaultvalue"))
-									error('Options are not valid for an REAL', DataDslPackage.Literals.LEAF_NODE__NAME, DATATYPE_OPTION_NAME) 
+									error('Options are not valid for an REAL', DataDslPackage.Literals.SPECIFICATION_ELEMENT__NAME, DATATYPE_OPTION_NAME) 
 				 			}
 				 			
 				 			if(option instanceof DoubleOption){
 				 				if(!option.key.literal.equals("minDouble") && !option.key.literal.equals("maxDouble") && !option.key.literal.equals("defaultvalueDouble"))
-									error('Options are not valid for an REAL', DataDslPackage.Literals.LEAF_NODE__NAME, DATATYPE_OPTION_NAME) 
+									error('Options are not valid for an REAL', DataDslPackage.Literals.SPECIFICATION_ELEMENT__NAME, DATATYPE_OPTION_NAME) 
 				 			}	 
 					]
 					
 					//if(leafNode.options.filter(option | option.key.literal.equals("decimalchar")).size < 1)
-					//				warning('DECIMALCHAR. You should consider to specify a character for the decimal separator. "." will be consider by default', DataDslPackage.Literals.LEAF_NODE__NAME, DATATYPE_OPTION_NAME)
+					//				warning('DECIMALCHAR. You should consider to specify a character for the decimal separator. "." will be consider by default', DataDslPackage.Literals.LEAF_SPECIFICATION_ELEMENT__NAME, DATATYPE_OPTION_NAME)
 				}
-				case "boolean":
+				case "Boolean":
 				 	leafNode.options.forEach[
 				 	option | 
 				 				if(option instanceof StringOption){
 					 				if(!option.key.literal.equals("null") && !option.key.literal.equals("format"))
-										error('Options are not valid for an BOOLEAN', DataDslPackage.Literals.LEAF_NODE__NAME, DATATYPE_OPTION_NAME)
+										error('Options are not valid for an BOOLEAN', DataDslPackage.Literals.SPECIFICATION_ELEMENT__NAME, DATATYPE_OPTION_NAME)
 									else
 										if(!option.value.contains("|"))
-											warning('BOOLEAN. Implementation does not contain value for FALSE representation (must use | separator): TRUE | FALSE', DataDslPackage.Literals.LEAF_NODE__NAME, DATATYPE_OPTION_NAME) 
+											warning('BOOLEAN. Implementation does not contain value for FALSE representation (must use | separator): TRUE | FALSE', DataDslPackage.Literals.SPECIFICATION_ELEMENT__NAME, DATATYPE_OPTION_NAME) 
 				 				}				
 					]
-				case "date":{
+				case "Date":{
 					 	leafNode.options.forEach[
 					 	option | 
 					 			if(option instanceof StringOption){
 					 				if(!option.key.literal.equals("null") && !option.key.literal.equals("format") && !option.key.literal.equals("separator"))
-										error('Options are not valid for a DATE', DataDslPackage.Literals.LEAF_NODE__NAME, DATATYPE_OPTION_NAME)
+										error('Options are not valid for a DATE', DataDslPackage.Literals.SPECIFICATION_ELEMENT__NAME, DATATYPE_OPTION_NAME)
 									else{
 										if(option.key.literal.equals("format")){
 											option.value.toCharArray.forEach[
 												c | if(!(Character.compare(c, 'M')==0) && !(Character.compare(c, 'm')==0)
 													&& !(Character.compare(c, 'D')==0) && !(Character.compare(c, 'd')==0)
 													&& !(Character.compare(c, 'Y')==0) && !(Character.compare(c, 'y')==0))
-														error('FORMAT not correctly spell. MUST USE M/m for MONTHS, D/d for DAYS, Y/y for YEARS', DataDslPackage.Literals.LEAF_NODE__NAME, DATATYPE_OPTION_NAME)
+														error('FORMAT not correctly spell. MUST USE M/m for MONTHS, D/d for DAYS, Y/y for YEARS', DataDslPackage.Literals.SPECIFICATION_ELEMENT__NAME, DATATYPE_OPTION_NAME)
 											]
 											
 											var Integer mChar = option.value.toCharArray.filter(c | Character.compare(c, 'M')==0 || Character.compare(c, 'm')==0).size
 											if(mChar > 2)
-												 error('FORMAT not correctly spell. MONTHS must have less than 2 CHARS. 100th month does not exist (maybe in Pluto)', DataDslPackage.Literals.LEAF_NODE__NAME, DATATYPE_OPTION_NAME)
+												 error('FORMAT not correctly spell. MONTHS must have less than 2 CHARS. 100th month does not exist (maybe in Pluto)', DataDslPackage.Literals.SPECIFICATION_ELEMENT__NAME, DATATYPE_OPTION_NAME)
 											var Integer dChar = option.value.toCharArray.filter(c | Character.compare(c, 'D')==0 || Character.compare(c, 'd')==0).size
 											if(dChar > 2)
-												 error('FORMAT not correctly spell. DAYS must have less than 2 CHARS. 100th day does not exist (maybe in Pluto)', DataDslPackage.Literals.LEAF_NODE__NAME, DATATYPE_OPTION_NAME)
+												 error('FORMAT not correctly spell. DAYS must have less than 2 CHARS. 100th day does not exist (maybe in Pluto)', DataDslPackage.Literals.SPECIFICATION_ELEMENT__NAME, DATATYPE_OPTION_NAME)
 											var Integer yChar = option.value.toCharArray.filter(c | Character.compare(c, 'Y')==0 || Character.compare(c, 'y')==0).size
 											if(yChar > 4)
-												 error('FORMAT not correctly spell. YEARS must have less than 4 CHARS. WHOW, you get to the 10000th year! How it is? Cars can fly?', DataDslPackage.Literals.LEAF_NODE__NAME, DATATYPE_OPTION_NAME)
+												 error('FORMAT not correctly spell. YEARS must have less than 4 CHARS. WHOW, you get to the 10000th year! How it is? Cars can fly?', DataDslPackage.Literals.SPECIFICATION_ELEMENT__NAME, DATATYPE_OPTION_NAME)
 										}
 									}
 					 			}					 			
 						]
 						//if(leafNode.options.filter(option | option.key.literal.equals("separator")).size < 1)
-						//	warning('SEPARATOR not DEFINED. You should consider to specify a separator character', DataDslPackage.Literals.LEAF_NODE__NAME, DATATYPE_OPTION_NAME)
+						//	warning('SEPARATOR not DEFINED. You should consider to specify a separator character', DataDslPackage.Literals.LEAF_SPECIFICATION_ELEMENT__NAME, DATATYPE_OPTION_NAME)
 						//if(leafNode.options.filter(option | option.key.literal.equals("format")).size < 1)
-						//	warning('FORMAT not DEFINED. You should consider to specify a format string. MMddYYYY could be one', DataDslPackage.Literals.LEAF_NODE__NAME, DATATYPE_OPTION_NAME)
+						//	warning('FORMAT not DEFINED. You should consider to specify a format string. MMddYYYY could be one', DataDslPackage.Literals.LEAF_SPECIFICATION_ELEMENT__NAME, DATATYPE_OPTION_NAME)
 					}
-				case "time":
+				case "Time":
 				 	{
 					 	leafNode.options.forEach[
 					 	option | 
 					 				if(option instanceof StringOption){
 					 					if(!option.key.literal.equals("null") && !option.key.literal.equals("format") && !option.key.literal.equals("separator"))
-										error('Options are not valid for a TIME', DataDslPackage.Literals.LEAF_NODE__NAME, DATATYPE_OPTION_NAME)
+										error('Options are not valid for a TIME', DataDslPackage.Literals.SPECIFICATION_ELEMENT__NAME, DATATYPE_OPTION_NAME)
 										else{
 											if(option.key.literal.equals("format")){
 												//val String option_value = option.value
@@ -206,99 +216,99 @@ class DataDslValidator extends AbstractDataDslValidator {
 													c | if(!(Character.compare(c, 'H')==0) && !(Character.compare(c, 'h')==0)
 														&& !(Character.compare(c, 'M')==0) && !(Character.compare(c, 'm')==0)
 														&& !(Character.compare(c, 'S')==0) && !(Character.compare(c, 's')==0))
-															error('FORMAT not correctly spell. MUST USE H/h for HOURS, M/m for MINUTES, S/s for SECONDS', DataDslPackage.Literals.LEAF_NODE__NAME, DATATYPE_OPTION_NAME)
+															error('FORMAT not correctly spell. MUST USE H/h for HOURS, M/m for MINUTES, S/s for SECONDS', DataDslPackage.Literals.SPECIFICATION_ELEMENT__NAME, DATATYPE_OPTION_NAME)
 												]
 												
 												var Integer hChar = option.value.toCharArray.filter(c | Character.compare(c, 'H')==0 || Character.compare(c, 'h')==0).size
 												if(hChar > 2)
-													 error('FORMAT not correctly spell. HOURS must have less than 2 CHARS. See you at fifteen to 125, buddy', DataDslPackage.Literals.LEAF_NODE__NAME, DATATYPE_OPTION_NAME)
+													 error('FORMAT not correctly spell. HOURS must have less than 2 CHARS. See you at fifteen to 125, buddy', DataDslPackage.Literals.SPECIFICATION_ELEMENT__NAME, DATATYPE_OPTION_NAME)
 												var Integer mChar = option.value.toCharArray.filter(c | Character.compare(c, 'M')==0 || Character.compare(c, 'm')==0).size
 												if(mChar > 2)
-													 error('FORMAT not correctly spell. MINUTES must have less than 2 CHARS. 100 minutes is 1 hour and 40 minutes HMM', DataDslPackage.Literals.LEAF_NODE__NAME, DATATYPE_OPTION_NAME)
+													 error('FORMAT not correctly spell. MINUTES must have less than 2 CHARS. 100 minutes is 1 hour and 40 minutes HMM', DataDslPackage.Literals.SPECIFICATION_ELEMENT__NAME, DATATYPE_OPTION_NAME)
 												var Integer sChar = option.value.toCharArray.filter(c | Character.compare(c, 'S')==0 || Character.compare(c, 's')==0).size
 												if(sChar > 4)
-													 error('FORMAT not correctly spell. SECONDS must have less than 2 CHARS. 100 seconds is 1 minute and 40 seconds Mss', DataDslPackage.Literals.LEAF_NODE__NAME, DATATYPE_OPTION_NAME)
+													 error('FORMAT not correctly spell. SECONDS must have less than 2 CHARS. 100 seconds is 1 minute and 40 seconds Mss', DataDslPackage.Literals.SPECIFICATION_ELEMENT__NAME, DATATYPE_OPTION_NAME)
 											}
 										}
 					 				}
 					 				
 						]
 						//if(leafNode.options.filter(option | option.key.literal.equals("separator")).size < 1)
-						//	warning('SEPARATOR not DEFINED. You should consider to specify a separator character', DataDslPackage.Literals.LEAF_NODE__NAME, DATATYPE_OPTION_NAME)
+						//	warning('SEPARATOR not DEFINED. You should consider to specify a separator character', DataDslPackage.Literals.LEAF_SPECIFICATION_ELEMENT__NAME, DATATYPE_OPTION_NAME)
 						//if(leafNode.options.filter(option | option.key.literal.equals("format")).size < 1)
-						//	warning('FORMAT not DEFINED. You should consider to specify a format string. HHmmSS could be one', DataDslPackage.Literals.LEAF_NODE__NAME, DATATYPE_OPTION_NAME)
+						//	warning('FORMAT not DEFINED. You should consider to specify a format string. HHmmSS could be one', DataDslPackage.Literals.LEAF_SPECIFICATION_ELEMENT__NAME, DATATYPE_OPTION_NAME)
 					}
-				case "year":
+				case "Year":
 				 	leafNode.options.forEach[
 				 	option | 
 				 			if(option instanceof StringOption){
 					 			if(!option.key.literal.equals("null") && !option.key.literal.equals("format"))
-										error('Options are not valid for a YEAR', DataDslPackage.Literals.LEAF_NODE__NAME, DATATYPE_OPTION_NAME)
+										error('Options are not valid for a YEAR', DataDslPackage.Literals.SPECIFICATION_ELEMENT__NAME, DATATYPE_OPTION_NAME)
 								else{
 									if(option.key.literal.equals("format")){
 										option.value.toCharArray.forEach[
 											c | !(Character.compare(c, 'Y')==0) && !(Character.compare(c, 'y')==0)
-											error('FORMAT not correctly spell. MUST USE Y/y for YEARS', DataDslPackage.Literals.LEAF_NODE__NAME, DATATYPE_OPTION_NAME)
+											error('FORMAT not correctly spell. MUST USE Y/y for YEARS', DataDslPackage.Literals.SPECIFICATION_ELEMENT__NAME, DATATYPE_OPTION_NAME)
 										]
 												
 										var Integer yChar = option.value.toCharArray.filter(c | Character.compare(c, 'Y')==0 || Character.compare(c, 'y')==0).size
 										if(yChar > 4)
-											error('FORMAT not correctly spell. YEARS must have less than 4 CHARS. WHOW, you get to the 10000th year! How it is? Cars can fly?', DataDslPackage.Literals.LEAF_NODE__NAME, DATATYPE_OPTION_NAME)
+											error('FORMAT not correctly spell. YEARS must have less than 4 CHARS. WHOW, you get to the 10000th year! How it is? Cars can fly?', DataDslPackage.Literals.SPECIFICATION_ELEMENT__NAME, DATATYPE_OPTION_NAME)
 									}
 								}
 							}
 					]
-				case "month":
+				case "Month":
 				 	leafNode.options.forEach[
 				 	option | 
 				 			if(option instanceof StringOption){
 					 			if(!option.key.literal.equals("null") && !option.key.literal.equals("format"))
-										error('Options are not valid for a MONTH', DataDslPackage.Literals.LEAF_NODE__NAME, DATATYPE_OPTION_NAME)
+										error('Options are not valid for a MONTH', DataDslPackage.Literals.SPECIFICATION_ELEMENT__NAME, DATATYPE_OPTION_NAME)
 								else{
 									if(option.key.literal.equals("format")){
 										option.value.toCharArray.forEach[
 											c | !(Character.compare(c, 'M')==0) && !(Character.compare(c, 'm')==0)
-											error('FORMAT not correctly spell. MUST USE M/m for MONTHS', DataDslPackage.Literals.LEAF_NODE__NAME, DATATYPE_OPTION_NAME)
+											error('FORMAT not correctly spell. MUST USE M/m for MONTHS', DataDslPackage.Literals.SPECIFICATION_ELEMENT__NAME, DATATYPE_OPTION_NAME)
 										]
 										
 										var Integer mChar = option.value.toCharArray.filter(c | Character.compare(c, 'M')==0 || Character.compare(c, 'm')==0).size	
 										if(mChar > 2)
-											error('FORMAT not correctly spell. MONTHS must have less than 2 CHARS. 100th month does not exist (maybe in Pluto)', DataDslPackage.Literals.LEAF_NODE__NAME, DATATYPE_OPTION_NAME)
+											error('FORMAT not correctly spell. MONTHS must have less than 2 CHARS. 100th month does not exist (maybe in Pluto)', DataDslPackage.Literals.SPECIFICATION_ELEMENT__NAME, DATATYPE_OPTION_NAME)
 									}
 								}
 							}
 					]
-				case "day":
+				case "Day":
 				 	leafNode.options.forEach[
 				 	option | 
 				 			if(option instanceof StringOption){
 				 				if(!option.key.literal.equals("null") && !option.key.literal.equals("format"))
-									error('Options are not valid for a DAY', DataDslPackage.Literals.LEAF_NODE__NAME, DATATYPE_OPTION_NAME)
+									error('Options are not valid for a DAY', DataDslPackage.Literals.SPECIFICATION_ELEMENT__NAME, DATATYPE_OPTION_NAME)
 								else{
 									if(option.key.literal.equals("format")){
 										option.value.toCharArray.forEach[
 											c | !(Character.compare(c, 'D')==0) && !(Character.compare(c, 'd')==0)
-											error('FORMAT not correctly spell. MUST USE D/d for DAYS', DataDslPackage.Literals.LEAF_NODE__NAME, DATATYPE_OPTION_NAME)
+											error('FORMAT not correctly spell. MUST USE D/d for DAYS', DataDslPackage.Literals.SPECIFICATION_ELEMENT__NAME, DATATYPE_OPTION_NAME)
 										]
 										var Integer dChar = option.value.toCharArray.filter(c | Character.compare(c, 'D')==0 || Character.compare(c, 'd')==0).size
 										if(dChar > 2)
-											error('FORMAT not correctly spell. DAYS must have less than 2 CHARS. 100th day does not exist (maybe in Pluto)', DataDslPackage.Literals.LEAF_NODE__NAME, DATATYPE_OPTION_NAME)	
+											error('FORMAT not correctly spell. DAYS must have less than 2 CHARS. 100th day does not exist (maybe in Pluto)', DataDslPackage.Literals.SPECIFICATION_ELEMENT__NAME, DATATYPE_OPTION_NAME)	
 									}
 								}
 				 			}	
 					]
-				case "string":
+				case "String":
 				 	leafNode.options.forEach[
 				 	option |
 				 			if(option instanceof StringOption){
 					 			if(!option.key.literal.equals("null") && !option.key.literal.equals("regex") && !option.key.literal.equals("flags"))
-										error('Options are not valid for an STRING', DataDslPackage.Literals.LEAF_NODE__NAME, DATATYPE_OPTION_NAME)
+										error('Options are not valid for an STRING', DataDslPackage.Literals.SPECIFICATION_ELEMENT__NAME, DATATYPE_OPTION_NAME)
 								else{
 									if(option.key.literal.equals("regex")){
 										try{
 											Pattern.compile(option.value);
 										}catch(PatternSyntaxException exception){
-											error('STRING. REGEX is not valid. See (https://docs.oracle.com/javase/7/docs/api/java/util/regex/Pattern.html) for valid pattern', DataDslPackage.Literals.LEAF_NODE__NAME, DATATYPE_OPTION_NAME)
+											error('STRING. REGEX is not valid. See (https://docs.oracle.com/javase/7/docs/api/java/util/regex/Pattern.html) for valid pattern', DataDslPackage.Literals.SPECIFICATION_ELEMENT__NAME, DATATYPE_OPTION_NAME)
 										}
 									}
 									
@@ -313,39 +323,315 @@ class DataDslValidator extends AbstractDataDslValidator {
 										
 										//var Integer dChar = leafNode.options.filter(o | o instanceof StringOption && o.key.literal.equals("regex")==0).size
 										if(dChar < 1)
-											error('REGEX_FLAGS can not be called without REGEX option', DataDslPackage.Literals.LEAF_NODE__NAME, DATATYPE_OPTION_NAME)
+											error('REGEX_FLAGS can not be called without REGEX option', DataDslPackage.Literals.SPECIFICATION_ELEMENT__NAME, DATATYPE_OPTION_NAME)
 										
 										if(!option.value.equals("CASE_INSENSITIVE") && !option.value.equals("MULTILINE")
 												&& !option.value.equals("DOTALL") && !option.value.equals("UNICODE_CASE")
 												&& !option.value.equals("CANON_EQ") && !option.value.equals("UNIX_LINES")
 												&& !option.value.equals("LITERAL") && !option.value.equals("UNICODE_CHARACTERE_CLASS")
 												&& !option.value.equals("COMMENTS")){
-											error('STRING. REGEX_FLAGS is not valid. See (https://docs.oracle.com/javase/7/docs/api/java/util/regex/Pattern.html#compile(java.lang.String)) for help. It is hard but if Leo could win the Oscar you can do this.', DataDslPackage.Literals.LEAF_NODE__NAME, DATATYPE_OPTION_NAME)
+											error('STRING. REGEX_FLAGS is not valid. See (https://docs.oracle.com/javase/7/docs/api/java/util/regex/Pattern.html#compile(java.lang.String)) for help. It is hard but if Leo could win the Oscar you can do this.', DataDslPackage.Literals.SPECIFICATION_ELEMENT__NAME, DATATYPE_OPTION_NAME)
 										}
 									}
 								}
 							}
 					]
-				case "lat":
+				case "Lat":
 				 	leafNode.options.forEach[
 				 	option | 
 				 		if(option instanceof StringOption){	
 				 			if(!option.key.literal.equals("null"))
-									error('Options are not valid for an LAT', DataDslPackage.Literals.LEAF_NODE__NAME, DATATYPE_OPTION_NAME)
+									error('Options are not valid for an LAT', DataDslPackage.Literals.SPECIFICATION_ELEMENT__NAME, DATATYPE_OPTION_NAME)
 						}
 					]
-				case "long":
+				case "Long":
 				 	leafNode.options.forEach[
 				 	option | 
 				 		if(option instanceof StringOption){	
 				 			if(!option.key.literal.equals("null"))
-									error('Options are not valid for an LONG', DataDslPackage.Literals.LEAF_NODE__NAME, DATATYPE_OPTION_NAME)
+									error('Options are not valid for an LONG', DataDslPackage.Literals.SPECIFICATION_ELEMENT__NAME, DATATYPE_OPTION_NAME)
+						}
+					]
+				case "Url":
+				 	leafNode.options.forEach[
+				 	option | 
+				 		if(option instanceof StringOption){	
+				 			if(!option.key.literal.equals("null"))
+									error('Options are not valid for an URL', DataDslPackage.Literals.SPECIFICATION_ELEMENT__NAME, DATATYPE_OPTION_NAME)
 						}
 					]	 
 				default : 
-					error('Options are not valid for node. Type not correct', DataDslPackage.Literals.LEAF_NODE__NAME, DATATYPE_OPTION_NAME)
+					error('Options are not valid for node. Type not correct', DataDslPackage.Literals.SPECIFICATION_ELEMENT__NAME, DATATYPE_OPTION_NAME)
+			}
+		}
+	}
+
+
+
+
+	@Check
+	def checkDataTypeOptions(PrimitiveNode leafNode) {
+		if(leafNode.type != null){
+			val BasicType datatype = leafNode.type
+			
+			switch datatype.literal{
+				case "Int":
+					leafNode.options.forEach[
+				 	option | 
+				 			if(option instanceof StringOption){
+				 				if(!option.key.literal.equals("null") && !option.key.literal.equals("separator") && !option.key.literal.equals("default"))
+									error('Options are not valid for an INTEGER', DataDslPackage.Literals.NODE__NAME, DATATYPE_OPTION_NAME) 
+				 			}
+				 			if(option instanceof IntOption){
+				 				if(!option.key.literal.equals("min") && !option.key.literal.equals("max") && !option.key.literal.equals("defaultvalue"))
+									error('Options are not valid for an INTEGER', DataDslPackage.Literals.NODE__NAME, DATATYPE_OPTION_NAME) 
+				 			}
+				 			if(option instanceof DoubleOption){
+				 				if(!option.key.literal.equals("minDouble") && !option.key.literal.equals("maxDouble") && !option.key.literal.equals("defaultvalueDouble"))
+									error('Options are not valid for an INTEGER', DataDslPackage.Literals.NODE__NAME, DATATYPE_OPTION_NAME) 
+				 			}	
+					]
+				case "Real":{
+					leafNode.options.forEach[
+				 	option | 
+				 			if(option instanceof StringOption){
+				 				if(!option.key.literal.equals("null") && !option.key.literal.equals("separator") && !option.key.literal.equals("default") && !option.key.literal.equals("decimalchar") && !option.key.literal.equals("groupchar") && !option.key.literal.equals("pattern"))
+									error('Options are not valid for an REAL', DataDslPackage.Literals.NODE__NAME, DATATYPE_OPTION_NAME) 
+				 				else{
+									if(option.key.literal.equals("decimalchar")){
+										if(!option.value.equals(".") && !option.value.equals(",") && !option.value.equals("'"))
+											error('DECIMALCHAR. Option must be a ".", ",", "\'"', DataDslPackage.Literals.NODE__NAME, DATATYPE_OPTION_NAME)
+									} 
+									
+								}
+				 			}
+				 			if(option instanceof IntOption){
+				 				if(!option.key.literal.equals("min") && !option.key.literal.equals("max") && !option.key.literal.equals("defaultvalue"))
+									error('Options are not valid for an REAL', DataDslPackage.Literals.NODE__NAME, DATATYPE_OPTION_NAME) 
+				 			}
+				 			
+				 			if(option instanceof DoubleOption){
+				 				if(!option.key.literal.equals("minDouble") && !option.key.literal.equals("maxDouble") && !option.key.literal.equals("defaultvalueDouble"))
+									error('Options are not valid for an REAL', DataDslPackage.Literals.NODE__NAME, DATATYPE_OPTION_NAME) 
+				 			}	 
+					]
+					
+					//if(leafNode.options.filter(option | option.key.literal.equals("decimalchar")).size < 1)
+					//				warning('DECIMALCHAR. You should consider to specify a character for the decimal separator. "." will be consider by default', DataDslPackage.Literals.LEAF_SPECIFICATION_ELEMENT__NAME, DATATYPE_OPTION_NAME)
+				}
+				case "Boolean":
+				 	leafNode.options.forEach[
+				 	option | 
+				 				if(option instanceof StringOption){
+					 				if(!option.key.literal.equals("null") && !option.key.literal.equals("format"))
+										error('Options are not valid for an BOOLEAN', DataDslPackage.Literals.NODE__NAME, DATATYPE_OPTION_NAME)
+									else
+										if(!option.value.contains("|"))
+											warning('BOOLEAN. Implementation does not contain value for FALSE representation (must use | separator): TRUE | FALSE', DataDslPackage.Literals.NODE__NAME, DATATYPE_OPTION_NAME) 
+				 				}				
+					]
+				case "Date":{
+					 	leafNode.options.forEach[
+					 	option | 
+					 			if(option instanceof StringOption){
+					 				if(!option.key.literal.equals("null") && !option.key.literal.equals("format") && !option.key.literal.equals("separator"))
+										error('Options are not valid for a DATE', DataDslPackage.Literals.NODE__NAME, DATATYPE_OPTION_NAME)
+									else{
+										if(option.key.literal.equals("format")){
+											option.value.toCharArray.forEach[
+												c | if(!(Character.compare(c, 'M')==0) && !(Character.compare(c, 'm')==0)
+													&& !(Character.compare(c, 'D')==0) && !(Character.compare(c, 'd')==0)
+													&& !(Character.compare(c, 'Y')==0) && !(Character.compare(c, 'y')==0))
+														error('FORMAT not correctly spell. MUST USE M/m for MONTHS, D/d for DAYS, Y/y for YEARS', DataDslPackage.Literals.NODE__NAME, DATATYPE_OPTION_NAME)
+											]
+											
+											var Integer mChar = option.value.toCharArray.filter(c | Character.compare(c, 'M')==0 || Character.compare(c, 'm')==0).size
+											if(mChar > 2)
+												 error('FORMAT not correctly spell. MONTHS must have less than 2 CHARS. 100th month does not exist (maybe in Pluto)', DataDslPackage.Literals.NODE__NAME, DATATYPE_OPTION_NAME)
+											var Integer dChar = option.value.toCharArray.filter(c | Character.compare(c, 'D')==0 || Character.compare(c, 'd')==0).size
+											if(dChar > 2)
+												 error('FORMAT not correctly spell. DAYS must have less than 2 CHARS. 100th day does not exist (maybe in Pluto)', DataDslPackage.Literals.NODE__NAME, DATATYPE_OPTION_NAME)
+											var Integer yChar = option.value.toCharArray.filter(c | Character.compare(c, 'Y')==0 || Character.compare(c, 'y')==0).size
+											if(yChar > 4)
+												 error('FORMAT not correctly spell. YEARS must have less than 4 CHARS. WHOW, you get to the 10000th year! How it is? Cars can fly?', DataDslPackage.Literals.NODE__NAME, DATATYPE_OPTION_NAME)
+										}
+									}
+					 			}					 			
+						]
+						//if(leafNode.options.filter(option | option.key.literal.equals("separator")).size < 1)
+						//	warning('SEPARATOR not DEFINED. You should consider to specify a separator character', DataDslPackage.Literals.LEAF_SPECIFICATION_ELEMENT__NAME, DATATYPE_OPTION_NAME)
+						//if(leafNode.options.filter(option | option.key.literal.equals("format")).size < 1)
+						//	warning('FORMAT not DEFINED. You should consider to specify a format string. MMddYYYY could be one', DataDslPackage.Literals.LEAF_SPECIFICATION_ELEMENT__NAME, DATATYPE_OPTION_NAME)
+					}
+				case "Time":
+				 	{
+					 	leafNode.options.forEach[
+					 	option | 
+					 				if(option instanceof StringOption){
+					 					if(!option.key.literal.equals("null") && !option.key.literal.equals("format") && !option.key.literal.equals("separator"))
+										error('Options are not valid for a TIME', DataDslPackage.Literals.NODE__NAME, DATATYPE_OPTION_NAME)
+										else{
+											if(option.key.literal.equals("format")){
+												//val String option_value = option.value
+												option.value.toCharArray.forEach[
+													c | if(!(Character.compare(c, 'H')==0) && !(Character.compare(c, 'h')==0)
+														&& !(Character.compare(c, 'M')==0) && !(Character.compare(c, 'm')==0)
+														&& !(Character.compare(c, 'S')==0) && !(Character.compare(c, 's')==0))
+															error('FORMAT not correctly spell. MUST USE H/h for HOURS, M/m for MINUTES, S/s for SECONDS', DataDslPackage.Literals.NODE__NAME, DATATYPE_OPTION_NAME)
+												]
+												
+												var Integer hChar = option.value.toCharArray.filter(c | Character.compare(c, 'H')==0 || Character.compare(c, 'h')==0).size
+												if(hChar > 2)
+													 error('FORMAT not correctly spell. HOURS must have less than 2 CHARS. See you at fifteen to 125, buddy', DataDslPackage.Literals.NODE__NAME, DATATYPE_OPTION_NAME)
+												var Integer mChar = option.value.toCharArray.filter(c | Character.compare(c, 'M')==0 || Character.compare(c, 'm')==0).size
+												if(mChar > 2)
+													 error('FORMAT not correctly spell. MINUTES must have less than 2 CHARS. 100 minutes is 1 hour and 40 minutes HMM', DataDslPackage.Literals.NODE__NAME, DATATYPE_OPTION_NAME)
+												var Integer sChar = option.value.toCharArray.filter(c | Character.compare(c, 'S')==0 || Character.compare(c, 's')==0).size
+												if(sChar > 4)
+													 error('FORMAT not correctly spell. SECONDS must have less than 2 CHARS. 100 seconds is 1 minute and 40 seconds Mss', DataDslPackage.Literals.NODE__NAME, DATATYPE_OPTION_NAME)
+											}
+										}
+					 				}
+					 				
+						]
+						//if(leafNode.options.filter(option | option.key.literal.equals("separator")).size < 1)
+						//	warning('SEPARATOR not DEFINED. You should consider to specify a separator character', DataDslPackage.Literals.LEAF_SPECIFICATION_ELEMENT__NAME, DATATYPE_OPTION_NAME)
+						//if(leafNode.options.filter(option | option.key.literal.equals("format")).size < 1)
+						//	warning('FORMAT not DEFINED. You should consider to specify a format string. HHmmSS could be one', DataDslPackage.Literals.LEAF_SPECIFICATION_ELEMENT__NAME, DATATYPE_OPTION_NAME)
+					}
+				case "Year":
+				 	leafNode.options.forEach[
+				 	option | 
+				 			if(option instanceof StringOption){
+					 			if(!option.key.literal.equals("null") && !option.key.literal.equals("format"))
+										error('Options are not valid for a YEAR', DataDslPackage.Literals.NODE__NAME, DATATYPE_OPTION_NAME)
+								else{
+									if(option.key.literal.equals("format")){
+										option.value.toCharArray.forEach[
+											c | !(Character.compare(c, 'Y')==0) && !(Character.compare(c, 'y')==0)
+											error('FORMAT not correctly spell. MUST USE Y/y for YEARS', DataDslPackage.Literals.NODE__NAME, DATATYPE_OPTION_NAME)
+										]
+												
+										var Integer yChar = option.value.toCharArray.filter(c | Character.compare(c, 'Y')==0 || Character.compare(c, 'y')==0).size
+										if(yChar > 4)
+											error('FORMAT not correctly spell. YEARS must have less than 4 CHARS. WHOW, you get to the 10000th year! How it is? Cars can fly?', DataDslPackage.Literals.NODE__NAME, DATATYPE_OPTION_NAME)
+									}
+								}
+							}
+					]
+				case "Month":
+				 	leafNode.options.forEach[
+				 	option | 
+				 			if(option instanceof StringOption){
+					 			if(!option.key.literal.equals("null") && !option.key.literal.equals("format"))
+										error('Options are not valid for a MONTH', DataDslPackage.Literals.NODE__NAME, DATATYPE_OPTION_NAME)
+								else{
+									if(option.key.literal.equals("format")){
+										option.value.toCharArray.forEach[
+											c | !(Character.compare(c, 'M')==0) && !(Character.compare(c, 'm')==0)
+											error('FORMAT not correctly spell. MUST USE M/m for MONTHS', DataDslPackage.Literals.NODE__NAME, DATATYPE_OPTION_NAME)
+										]
+										
+										var Integer mChar = option.value.toCharArray.filter(c | Character.compare(c, 'M')==0 || Character.compare(c, 'm')==0).size	
+										if(mChar > 2)
+											error('FORMAT not correctly spell. MONTHS must have less than 2 CHARS. 100th month does not exist (maybe in Pluto)', DataDslPackage.Literals.NODE__NAME, DATATYPE_OPTION_NAME)
+									}
+								}
+							}
+					]
+				case "Day":
+				 	leafNode.options.forEach[
+				 	option | 
+				 			if(option instanceof StringOption){
+				 				if(!option.key.literal.equals("null") && !option.key.literal.equals("format"))
+									error('Options are not valid for a DAY', DataDslPackage.Literals.NODE__NAME, DATATYPE_OPTION_NAME)
+								else{
+									if(option.key.literal.equals("format")){
+										option.value.toCharArray.forEach[
+											c | !(Character.compare(c, 'D')==0) && !(Character.compare(c, 'd')==0)
+											error('FORMAT not correctly spell. MUST USE D/d for DAYS', DataDslPackage.Literals.NODE__NAME, DATATYPE_OPTION_NAME)
+										]
+										var Integer dChar = option.value.toCharArray.filter(c | Character.compare(c, 'D')==0 || Character.compare(c, 'd')==0).size
+										if(dChar > 2)
+											error('FORMAT not correctly spell. DAYS must have less than 2 CHARS. 100th day does not exist (maybe in Pluto)', DataDslPackage.Literals.NODE__NAME, DATATYPE_OPTION_NAME)	
+									}
+								}
+				 			}	
+					]
+				case "String":
+				 	leafNode.options.forEach[
+				 	option |
+				 			if(option instanceof StringOption){
+					 			if(!option.key.literal.equals("null") && !option.key.literal.equals("regex") && !option.key.literal.equals("flags"))
+										error('Options are not valid for an STRING', DataDslPackage.Literals.NODE__NAME, DATATYPE_OPTION_NAME)
+								else{
+									if(option.key.literal.equals("regex")){
+										try{
+											Pattern.compile(option.value);
+										}catch(PatternSyntaxException exception){
+											error('STRING. REGEX is not valid. See (https://docs.oracle.com/javase/7/docs/api/java/util/regex/Pattern.html) for valid pattern', DataDslPackage.Literals.NODE__NAME, DATATYPE_OPTION_NAME)
+										}
+									}
+									
+									if(option.key.literal.equals("flags")){
+										var Integer dChar
+										
+										for(Option o : leafNode.options){
+											if(o instanceof StringOption){
+												if(o.key.literal.equals("regex")==0) dChar++;
+											}
+										}
+										
+										//var Integer dChar = leafNode.options.filter(o | o instanceof StringOption && o.key.literal.equals("regex")==0).size
+										if(dChar < 1)
+											error('REGEX_FLAGS can not be called without REGEX option', DataDslPackage.Literals.NODE__NAME, DATATYPE_OPTION_NAME)
+										
+										if(!option.value.equals("CASE_INSENSITIVE") && !option.value.equals("MULTILINE")
+												&& !option.value.equals("DOTALL") && !option.value.equals("UNICODE_CASE")
+												&& !option.value.equals("CANON_EQ") && !option.value.equals("UNIX_LINES")
+												&& !option.value.equals("LITERAL") && !option.value.equals("UNICODE_CHARACTERE_CLASS")
+												&& !option.value.equals("COMMENTS")){
+											error('STRING. REGEX_FLAGS is not valid. See (https://docs.oracle.com/javase/7/docs/api/java/util/regex/Pattern.html#compile(java.lang.String)) for help. It is hard but if Leo could win the Oscar you can do this.', DataDslPackage.Literals.SPECIFICATION_ELEMENT__NAME, DATATYPE_OPTION_NAME)
+										}
+									}
+								}
+							}
+					]
+				case "Lat":
+				 	leafNode.options.forEach[
+				 	option | 
+				 		if(option instanceof StringOption){	
+				 			if(!option.key.literal.equals("null"))
+									error('Options are not valid for an LAT', DataDslPackage.Literals.NODE__NAME, DATATYPE_OPTION_NAME)
+						}
+					]
+				case "Long":
+				 	leafNode.options.forEach[
+				 	option | 
+				 		if(option instanceof StringOption){	
+				 			if(!option.key.literal.equals("null"))
+									error('Options are not valid for an LONG', DataDslPackage.Literals.NODE__NAME, DATATYPE_OPTION_NAME)
+						}
+					]
+				case "Url":
+				 	leafNode.options.forEach[
+				 	option | 
+				 		if(option instanceof StringOption){	
+				 			if(!option.key.literal.equals("null"))
+									error('Options are not valid for an URL', DataDslPackage.Literals.NODE__NAME, DATATYPE_OPTION_NAME)
+						}
+					]	 
+				default : 
+					error('Options are not valid for node. Type not correct', DataDslPackage.Literals.NODE__NAME, DATATYPE_OPTION_NAME)
 			}
 		}
 	}
 	
+	@Check
+	def namesUpperCase(SpecificationElement specificationElement){
+		if(!Character.isUpperCase(specificationElement.name.charAt(0)))
+			error('Definition names must start with UpperCase', DataDslPackage.Literals.SPECIFICATION_ELEMENT__NAME, DEFINITIONS_NAMES)
+			
+		//if(datatypesDescriptions.name.)
+	}
 }

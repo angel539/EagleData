@@ -5,22 +5,24 @@ package eagledata.core.dsl.datadesc.serializer;
 
 import com.google.inject.Inject;
 import eagledata.core.dsl.datadesc.dataDsl.BooleanOption;
+import eagledata.core.dsl.datadesc.dataDsl.Cardinality;
+import eagledata.core.dsl.datadesc.dataDsl.CompositeNode;
+import eagledata.core.dsl.datadesc.dataDsl.DataDescription;
 import eagledata.core.dsl.datadesc.dataDsl.DataDslPackage;
-import eagledata.core.dsl.datadesc.dataDsl.DataFragment;
 import eagledata.core.dsl.datadesc.dataDsl.DataModel;
 import eagledata.core.dsl.datadesc.dataDsl.DataOption;
-import eagledata.core.dsl.datadesc.dataDsl.DataSourceDescription;
-import eagledata.core.dsl.datadesc.dataDsl.DataType;
+import eagledata.core.dsl.datadesc.dataDsl.DataTypeRefinement;
 import eagledata.core.dsl.datadesc.dataDsl.DoubleOption;
 import eagledata.core.dsl.datadesc.dataDsl.Enumeration;
+import eagledata.core.dsl.datadesc.dataDsl.Fragment;
+import eagledata.core.dsl.datadesc.dataDsl.FragmentNode;
 import eagledata.core.dsl.datadesc.dataDsl.Import;
 import eagledata.core.dsl.datadesc.dataDsl.IntOption;
-import eagledata.core.dsl.datadesc.dataDsl.LeafNode;
-import eagledata.core.dsl.datadesc.dataDsl.SequenceOption;
-import eagledata.core.dsl.datadesc.dataDsl.StringConcept;
+import eagledata.core.dsl.datadesc.dataDsl.ListQualifiedNameOption;
+import eagledata.core.dsl.datadesc.dataDsl.PrimitiveNode;
 import eagledata.core.dsl.datadesc.dataDsl.StringOption;
-import eagledata.core.dsl.datadesc.dataDsl.StructDataType;
 import eagledata.core.dsl.datadesc.dataDsl.Substring;
+import eagledata.core.dsl.datadesc.dataDsl.Tag;
 import eagledata.core.dsl.datadesc.services.DataDslGrammarAccess;
 import java.util.Set;
 import org.eclipse.emf.ecore.EObject;
@@ -50,11 +52,17 @@ public class DataDslSemanticSequencer extends AbstractDelegatingSemanticSequence
 			case DataDslPackage.BOOLEAN_OPTION:
 				sequence_BooleanOption(context, (BooleanOption) semanticObject); 
 				return; 
+			case DataDslPackage.CARDINALITY:
+				sequence_Cardinality(context, (Cardinality) semanticObject); 
+				return; 
 			case DataDslPackage.CHARACTER:
 				sequence_Character(context, (eagledata.core.dsl.datadesc.dataDsl.Character) semanticObject); 
 				return; 
-			case DataDslPackage.DATA_FRAGMENT:
-				sequence_DataFragment(context, (DataFragment) semanticObject); 
+			case DataDslPackage.COMPOSITE_NODE:
+				sequence_CompositeNode(context, (CompositeNode) semanticObject); 
+				return; 
+			case DataDslPackage.DATA_DESCRIPTION:
+				sequence_DataDescription(context, (DataDescription) semanticObject); 
 				return; 
 			case DataDslPackage.DATA_MODEL:
 				sequence_DataModel(context, (DataModel) semanticObject); 
@@ -62,11 +70,8 @@ public class DataDslSemanticSequencer extends AbstractDelegatingSemanticSequence
 			case DataDslPackage.DATA_OPTION:
 				sequence_DataOption(context, (DataOption) semanticObject); 
 				return; 
-			case DataDslPackage.DATA_SOURCE_DESCRIPTION:
-				sequence_DataSourceDescription(context, (DataSourceDescription) semanticObject); 
-				return; 
-			case DataDslPackage.DATA_TYPE:
-				sequence_DataType(context, (DataType) semanticObject); 
+			case DataDslPackage.DATA_TYPE_REFINEMENT:
+				sequence_DataTypeRefinement(context, (DataTypeRefinement) semanticObject); 
 				return; 
 			case DataDslPackage.DOUBLE_OPTION:
 				sequence_DoubleOption(context, (DoubleOption) semanticObject); 
@@ -74,32 +79,35 @@ public class DataDslSemanticSequencer extends AbstractDelegatingSemanticSequence
 			case DataDslPackage.ENUMERATION:
 				sequence_Enumeration(context, (Enumeration) semanticObject); 
 				return; 
+			case DataDslPackage.FRAGMENT:
+				sequence_Fragment(context, (Fragment) semanticObject); 
+				return; 
+			case DataDslPackage.FRAGMENT_NODE:
+				sequence_FragmentNode(context, (FragmentNode) semanticObject); 
+				return; 
 			case DataDslPackage.IMPORT:
 				sequence_Import(context, (Import) semanticObject); 
 				return; 
 			case DataDslPackage.INT_OPTION:
 				sequence_IntOption(context, (IntOption) semanticObject); 
 				return; 
-			case DataDslPackage.LEAF_NODE:
-				sequence_LeafNode(context, (LeafNode) semanticObject); 
+			case DataDslPackage.LIST_QUALIFIED_NAME_OPTION:
+				sequence_ListQualifiedNameOption(context, (ListQualifiedNameOption) semanticObject); 
 				return; 
 			case DataDslPackage.PACKAGE:
-				sequence_PackageDeclaration(context, (eagledata.core.dsl.datadesc.dataDsl.Package) semanticObject); 
+				sequence_Package(context, (eagledata.core.dsl.datadesc.dataDsl.Package) semanticObject); 
 				return; 
-			case DataDslPackage.SEQUENCE_OPTION:
-				sequence_SequenceOption(context, (SequenceOption) semanticObject); 
-				return; 
-			case DataDslPackage.STRING_CONCEPT:
-				sequence_StringConcept(context, (StringConcept) semanticObject); 
+			case DataDslPackage.PRIMITIVE_NODE:
+				sequence_PrimitiveNode(context, (PrimitiveNode) semanticObject); 
 				return; 
 			case DataDslPackage.STRING_OPTION:
 				sequence_StringOption(context, (StringOption) semanticObject); 
 				return; 
-			case DataDslPackage.STRUCT_DATA_TYPE:
-				sequence_StructDataType(context, (StructDataType) semanticObject); 
-				return; 
 			case DataDslPackage.SUBSTRING:
 				sequence_Substring(context, (Substring) semanticObject); 
+				return; 
+			case DataDslPackage.TAG:
+				sequence_Tag(context, (Tag) semanticObject); 
 				return; 
 			}
 		if (errorAcceptor != null)
@@ -130,6 +138,18 @@ public class DataDslSemanticSequencer extends AbstractDelegatingSemanticSequence
 	
 	/**
 	 * Contexts:
+	 *     Cardinality returns Cardinality
+	 *
+	 * Constraint:
+	 *     (min=INT max=INT?)
+	 */
+	protected void sequence_Cardinality(ISerializationContext context, Cardinality semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     SubstringConcept returns Character
 	 *     Character returns Character
 	 *
@@ -143,14 +163,35 @@ public class DataDslSemanticSequencer extends AbstractDelegatingSemanticSequence
 	
 	/**
 	 * Contexts:
-	 *     DataModelElement returns DataFragment
-	 *     DataPackableDescription returns DataFragment
-	 *     DataFragment returns DataFragment
+	 *     Node returns CompositeNode
+	 *     CompositeNode returns CompositeNode
 	 *
 	 * Constraint:
-	 *     (name=ID (fragments+=[DataFragment|QualifiedName] fragments+=[DataFragment|QualifiedName]*)? (nodes+=LeafNode nodes+=LeafNode*)?)
+	 *     ((key?='key' | unique?='unique')? type=[TypeSpecification|QualifiedName] name=ID cardinality=Cardinality? (options+=Option options+=Option*)?)
 	 */
-	protected void sequence_DataFragment(ISerializationContext context, DataFragment semanticObject) {
+	protected void sequence_CompositeNode(ISerializationContext context, CompositeNode semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     DataModelElement returns DataDescription
+	 *     SpecificationElement returns DataDescription
+	 *     AbstractDescription returns DataDescription
+	 *     DataDescription returns DataDescription
+	 *
+	 * Constraint:
+	 *     (
+	 *         format=STRING 
+	 *         name=ID 
+	 *         (fragments+=[Fragment|QualifiedName] fragments+=[Fragment|QualifiedName]*)? 
+	 *         nodes+=Node 
+	 *         nodes+=Node* 
+	 *         (options+=DataOption options+=DataOption*)?
+	 *     )
+	 */
+	protected void sequence_DataDescription(ISerializationContext context, DataDescription semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -160,7 +201,7 @@ public class DataDslSemanticSequencer extends AbstractDelegatingSemanticSequence
 	 *     DataModel returns DataModel
 	 *
 	 * Constraint:
-	 *     (descriptions+=DataModelElement descriptions+=DataModelElement*)
+	 *     (elements+=DataModelElement elements+=DataModelElement*)
 	 */
 	protected void sequence_DataModel(ISerializationContext context, DataModel semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -172,7 +213,7 @@ public class DataDslSemanticSequencer extends AbstractDelegatingSemanticSequence
 	 *     DataOption returns DataOption
 	 *
 	 * Constraint:
-	 *     (key=DataOptionKey value=STRING)
+	 *     (key=STRING value=STRING)
 	 */
 	protected void sequence_DataOption(ISerializationContext context, DataOption semanticObject) {
 		if (errorAcceptor != null) {
@@ -182,7 +223,7 @@ public class DataDslSemanticSequencer extends AbstractDelegatingSemanticSequence
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DataDslPackage.Literals.DATA_OPTION__VALUE));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getDataOptionAccess().getKeyDataOptionKeyEnumRuleCall_0_0(), semanticObject.getKey());
+		feeder.accept(grammarAccess.getDataOptionAccess().getKeySTRINGTerminalRuleCall_0_0(), semanticObject.getKey());
 		feeder.accept(grammarAccess.getDataOptionAccess().getValueSTRINGTerminalRuleCall_2_0(), semanticObject.getValue());
 		feeder.finish();
 	}
@@ -190,34 +231,15 @@ public class DataDslSemanticSequencer extends AbstractDelegatingSemanticSequence
 	
 	/**
 	 * Contexts:
-	 *     DataModelElement returns DataSourceDescription
-	 *     DataSourceDescription returns DataSourceDescription
+	 *     DataModelElement returns DataTypeRefinement
+	 *     SpecificationElement returns DataTypeRefinement
+	 *     TypeSpecification returns DataTypeRefinement
+	 *     DataTypeRefinement returns DataTypeRefinement
 	 *
 	 * Constraint:
-	 *     (
-	 *         format=Format 
-	 *         name=ID 
-	 *         (fragments+=[DataFragment|QualifiedName] fragments+=[DataFragment|QualifiedName]*)? 
-	 *         (nodes+=LeafNode nodes+=LeafNode*)? 
-	 *         (options+=DataOption options+=DataOption*)?
-	 *     )
+	 *     (name=ID refine=BasicType (subsequences+=SubstringConcept subsequences+=SubstringConcept*)? (options+=Option options+=Option*)?)
 	 */
-	protected void sequence_DataSourceDescription(ISerializationContext context, DataSourceDescription semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     DataModelElement returns DataType
-	 *     DataPackableDescription returns DataType
-	 *     TypeSpecification returns DataType
-	 *     DataType returns DataType
-	 *
-	 * Constraint:
-	 *     (name=ID refine=BasicType (options+=Option options+=Option*)?)
-	 */
-	protected void sequence_DataType(ISerializationContext context, DataType semanticObject) {
+	protected void sequence_DataTypeRefinement(ISerializationContext context, DataTypeRefinement semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -247,7 +269,7 @@ public class DataDslSemanticSequencer extends AbstractDelegatingSemanticSequence
 	/**
 	 * Contexts:
 	 *     DataModelElement returns Enumeration
-	 *     DataPackableDescription returns Enumeration
+	 *     SpecificationElement returns Enumeration
 	 *     TypeSpecification returns Enumeration
 	 *     Enumeration returns Enumeration
 	 *
@@ -255,6 +277,34 @@ public class DataDslSemanticSequencer extends AbstractDelegatingSemanticSequence
 	 *     (name=ID values+=STRING values+=STRING*)
 	 */
 	protected void sequence_Enumeration(ISerializationContext context, Enumeration semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Node returns FragmentNode
+	 *     FragmentNode returns FragmentNode
+	 *
+	 * Constraint:
+	 *     (type=[Fragment|QualifiedName] name=ID cardinality=Cardinality? (options+=Option options+=Option*)?)
+	 */
+	protected void sequence_FragmentNode(ISerializationContext context, FragmentNode semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     DataModelElement returns Fragment
+	 *     SpecificationElement returns Fragment
+	 *     AbstractDescription returns Fragment
+	 *     Fragment returns Fragment
+	 *
+	 * Constraint:
+	 *     (name=ID (fragments+=[Fragment|QualifiedName] fragments+=[Fragment|QualifiedName]*)? nodes+=Node nodes+=Node*)
+	 */
+	protected void sequence_Fragment(ISerializationContext context, Fragment semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -302,12 +352,13 @@ public class DataDslSemanticSequencer extends AbstractDelegatingSemanticSequence
 	
 	/**
 	 * Contexts:
-	 *     LeafNode returns LeafNode
+	 *     Option returns ListQualifiedNameOption
+	 *     ListQualifiedNameOption returns ListQualifiedNameOption
 	 *
 	 * Constraint:
-	 *     ((key?='key' | unique?='unique' | list?='list')? (type=BasicType | typeCall=[TypeSpecification|ID]) name=ID (options+=Option options+=Option*)?)
+	 *     (key=ListQualifiedNameOptionKey fragments+=[Node|QualifiedName])
 	 */
-	protected void sequence_LeafNode(ISerializationContext context, LeafNode semanticObject) {
+	protected void sequence_ListQualifiedNameOption(ISerializationContext context, ListQualifiedNameOption semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -315,48 +366,25 @@ public class DataDslSemanticSequencer extends AbstractDelegatingSemanticSequence
 	/**
 	 * Contexts:
 	 *     DataModelElement returns Package
-	 *     PackageDeclaration returns Package
+	 *     Package returns Package
 	 *
 	 * Constraint:
-	 *     (name=QualifiedName elements+=DataPackableDescription elements+=DataPackableDescription*)
+	 *     ((tags+=Tag tags+=Tag*)? name=QualifiedName elements+=SpecificationElement elements+=SpecificationElement*)
 	 */
-	protected void sequence_PackageDeclaration(ISerializationContext context, eagledata.core.dsl.datadesc.dataDsl.Package semanticObject) {
+	protected void sequence_Package(ISerializationContext context, eagledata.core.dsl.datadesc.dataDsl.Package semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
 	/**
 	 * Contexts:
-	 *     Option returns SequenceOption
-	 *     SequenceOption returns SequenceOption
+	 *     Node returns PrimitiveNode
+	 *     PrimitiveNode returns PrimitiveNode
 	 *
 	 * Constraint:
-	 *     (key=SequenceOptionKey value=[StringConcept|QualifiedName])
+	 *     ((key?='key' | unique?='unique')? type=BasicType name=ID cardinality=Cardinality? (options+=Option options+=Option*)?)
 	 */
-	protected void sequence_SequenceOption(ISerializationContext context, SequenceOption semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, DataDslPackage.Literals.SEQUENCE_OPTION__KEY) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DataDslPackage.Literals.SEQUENCE_OPTION__KEY));
-			if (transientValues.isValueTransient(semanticObject, DataDslPackage.Literals.SEQUENCE_OPTION__VALUE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DataDslPackage.Literals.SEQUENCE_OPTION__VALUE));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getSequenceOptionAccess().getKeySequenceOptionKeyEnumRuleCall_0_0(), semanticObject.getKey());
-		feeder.accept(grammarAccess.getSequenceOptionAccess().getValueStringConceptQualifiedNameParserRuleCall_2_0_1(), semanticObject.getValue());
-		feeder.finish();
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     DataModelElement returns StringConcept
-	 *     DataPackableDescription returns StringConcept
-	 *     StringConcept returns StringConcept
-	 *
-	 * Constraint:
-	 *     (name=ID (subsequence+=SubstringConcept subsequence+=SubstringConcept*)?)
-	 */
-	protected void sequence_StringConcept(ISerializationContext context, StringConcept semanticObject) {
+	protected void sequence_PrimitiveNode(ISerializationContext context, PrimitiveNode semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -385,21 +413,6 @@ public class DataDslSemanticSequencer extends AbstractDelegatingSemanticSequence
 	
 	/**
 	 * Contexts:
-	 *     DataModelElement returns StructDataType
-	 *     DataPackableDescription returns StructDataType
-	 *     TypeSpecification returns StructDataType
-	 *     StructDataType returns StructDataType
-	 *
-	 * Constraint:
-	 *     (name=ID subnodes+=LeafNode subnodes+=LeafNode* (options+=Option options+=Option*)?)
-	 */
-	protected void sequence_StructDataType(ISerializationContext context, StructDataType semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
 	 *     SubstringConcept returns Substring
 	 *     Substring returns Substring
 	 *
@@ -422,6 +435,24 @@ public class DataDslSemanticSequencer extends AbstractDelegatingSemanticSequence
 		feeder.accept(grammarAccess.getSubstringAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
 		feeder.accept(grammarAccess.getSubstringAccess().getMinlengthINTTerminalRuleCall_3_0(), semanticObject.getMinlength());
 		feeder.accept(grammarAccess.getSubstringAccess().getMaxlengthINTTerminalRuleCall_5_0(), semanticObject.getMaxlength());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Tag returns Tag
+	 *
+	 * Constraint:
+	 *     tag=STRING
+	 */
+	protected void sequence_Tag(ISerializationContext context, Tag semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, DataDslPackage.Literals.TAG__TAG) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DataDslPackage.Literals.TAG__TAG));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getTagAccess().getTagSTRINGTerminalRuleCall_1_0(), semanticObject.getTag());
 		feeder.finish();
 	}
 	

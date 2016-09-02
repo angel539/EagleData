@@ -15,7 +15,7 @@ import org.eclipse.emf.ecore.EClass;
  *
  * @generated
  */
-public class TypeSpecificationImpl extends DataPackableDescriptionImpl implements TypeSpecification
+public class TypeSpecificationImpl extends SpecificationElementImpl implements TypeSpecification
 {
   /**
    * <!-- begin-user-doc -->

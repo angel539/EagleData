@@ -29,7 +29,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link eagledata.core.dsl.datadesc.dataDsl.impl.DataModelImpl#getDescriptions <em>Descriptions</em>}</li>
+ *   <li>{@link eagledata.core.dsl.datadesc.dataDsl.impl.DataModelImpl#getElements <em>Elements</em>}</li>
  * </ul>
  *
  * @generated
@@ -37,14 +37,14 @@ import org.eclipse.emf.ecore.util.InternalEList;
 public class DataModelImpl extends MinimalEObjectImpl.Container implements DataModel
 {
   /**
-   * The cached value of the '{@link #getDescriptions() <em>Descriptions</em>}' containment reference list.
+   * The cached value of the '{@link #getElements() <em>Elements</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getDescriptions()
+   * @see #getElements()
    * @generated
    * @ordered
    */
-  protected EList<DataModelElement> descriptions;
+  protected EList<DataModelElement> elements;
 
   /**
    * <!-- begin-user-doc -->
@@ -72,13 +72,13 @@ public class DataModelImpl extends MinimalEObjectImpl.Container implements DataM
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<DataModelElement> getDescriptions()
+  public EList<DataModelElement> getElements()
   {
-    if (descriptions == null)
+    if (elements == null)
     {
-      descriptions = new EObjectContainmentEList<DataModelElement>(DataModelElement.class, this, DataDslPackage.DATA_MODEL__DESCRIPTIONS);
+      elements = new EObjectContainmentEList<DataModelElement>(DataModelElement.class, this, DataDslPackage.DATA_MODEL__ELEMENTS);
     }
-    return descriptions;
+    return elements;
   }
 
   /**
@@ -91,8 +91,8 @@ public class DataModelImpl extends MinimalEObjectImpl.Container implements DataM
   {
     switch (featureID)
     {
-      case DataDslPackage.DATA_MODEL__DESCRIPTIONS:
-        return ((InternalEList<?>)getDescriptions()).basicRemove(otherEnd, msgs);
+      case DataDslPackage.DATA_MODEL__ELEMENTS:
+        return ((InternalEList<?>)getElements()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -107,8 +107,8 @@ public class DataModelImpl extends MinimalEObjectImpl.Container implements DataM
   {
     switch (featureID)
     {
-      case DataDslPackage.DATA_MODEL__DESCRIPTIONS:
-        return getDescriptions();
+      case DataDslPackage.DATA_MODEL__ELEMENTS:
+        return getElements();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -124,9 +124,9 @@ public class DataModelImpl extends MinimalEObjectImpl.Container implements DataM
   {
     switch (featureID)
     {
-      case DataDslPackage.DATA_MODEL__DESCRIPTIONS:
-        getDescriptions().clear();
-        getDescriptions().addAll((Collection<? extends DataModelElement>)newValue);
+      case DataDslPackage.DATA_MODEL__ELEMENTS:
+        getElements().clear();
+        getElements().addAll((Collection<? extends DataModelElement>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -142,8 +142,8 @@ public class DataModelImpl extends MinimalEObjectImpl.Container implements DataM
   {
     switch (featureID)
     {
-      case DataDslPackage.DATA_MODEL__DESCRIPTIONS:
-        getDescriptions().clear();
+      case DataDslPackage.DATA_MODEL__ELEMENTS:
+        getElements().clear();
         return;
     }
     super.eUnset(featureID);
@@ -159,8 +159,8 @@ public class DataModelImpl extends MinimalEObjectImpl.Container implements DataM
   {
     switch (featureID)
     {
-      case DataDslPackage.DATA_MODEL__DESCRIPTIONS:
-        return descriptions != null && !descriptions.isEmpty();
+      case DataDslPackage.DATA_MODEL__ELEMENTS:
+        return elements != null && !elements.isEmpty();
     }
     return super.eIsSet(featureID);
   }

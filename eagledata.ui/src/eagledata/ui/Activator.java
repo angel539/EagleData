@@ -1,28 +1,32 @@
 package eagledata.ui;
 
-import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.IOException;
-import java.io.InputStream;
 import java.net.URL;
+import java.util.Map;
 
 import org.eclipse.core.runtime.FileLocator;
 import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.core.runtime.Platform;
+import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.emf.ecore.util.Diagnostician;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.eclipse.xtext.ISetup;
+import org.eclipse.xtext.resource.SaveOptions;
 import org.eclipse.xtext.resource.XtextResource;
 import org.eclipse.xtext.resource.XtextResourceSet;
 import org.osgi.framework.Bundle;
 import org.osgi.framework.BundleContext;
 
+import com.google.inject.Guice;
 import com.google.inject.Injector;
-import com.jesusjlopezf.utils.resources.FileUtils;
+
+import eagledata.core.dsl.rule.RuleDslRuntimeModule;
 
 /**
  * The activator class controls the plug-in life cycle
@@ -36,6 +40,12 @@ public class Activator extends AbstractUIPlugin {
 	public static final String EDITOR_EXTENSIONS_ID = "eagledata.ui.drop";
 	// The shared instance
 	private static Activator plugin;
+	
+	//Usar el standalone setup solo funciona en aplicaciones fuera de eclipse. De ahi que se llame Standalone.
+	//private static RuleDslStandaloneSetup ruleDslStandaloneSetup = new RuleDslStandaloneSetup();
+	//private static Injector injector = ruleDslStandaloneSetup.createInjectorAndDoEMFRegistration();
+	private static Injector injector = Guice.createInjector(new RuleDslRuntimeModule());
+	private static XtextResourceSet resourceSet = injector.getInstance(XtextResourceSet.class);
 	
 	/**
 	 * The constructor
@@ -88,14 +98,33 @@ public class Activator extends AbstractUIPlugin {
 		return null;
 	}
 	
-	public static EObject loadXtextFile(File file, ISetup standaloneSetup, String extension) throws IOException{
-		String textShell = FileUtils.readFile(file.getAbsolutePath().toString());		
-		Injector injector = standaloneSetup.createInjectorAndDoEMFRegistration();
-		XtextResourceSet resourceSet = injector.getInstance(XtextResourceSet.class);
+	public static EObject loadXtextFile(File file, ISetup standaloneSetup, String extension) throws IOException{	
 		resourceSet.addLoadOption(XtextResource.OPTION_RESOLVE_ALL, Boolean.TRUE);
-		Resource resource = resourceSet.createResource(URI.createURI("dummy:/example." + extension));
-		InputStream in = new ByteArrayInputStream(textShell.getBytes());
-		resource.load(in, resourceSet.getLoadOptions());
+		
+		Resource resource = resourceSet.getResource(URI.createFileURI(file.getPath()), true);
 		return resource.getContents().get(0);
+	}
+	
+	public static void saveXtextFile(EObject model, URI xtextUri) throws IOException{
+		Diagnostic diagnostic = Diagnostician.INSTANCE.validate(model);
+		int severity = diagnostic.getSeverity();
+		
+		if(severity ==  Diagnostic.OK){
+			Resource resource = resourceSet.createResource(xtextUri);
+			resource.getContents().add(model);
+			
+			try {			    
+				Map<Object, Object> options = SaveOptions.newBuilder().format().getOptions().toOptionsMap();
+				resource.save(options);
+			} catch (IOException e) {}
+		}
+	}
+	
+	public static XtextResourceSet getResourceSet() {
+		return resourceSet;
+	}
+
+	public static void setResourceSet(XtextResourceSet resourceSet) {
+		Activator.resourceSet = resourceSet;
 	}
 }

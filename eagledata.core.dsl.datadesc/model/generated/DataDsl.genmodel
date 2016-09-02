@@ -16,24 +16,11 @@
       <genEnumLiterals ecoreEnumLiteral="DataDsl.ecore#//TypeString/uppercase"/>
       <genEnumLiterals ecoreEnumLiteral="DataDsl.ecore#//TypeString/numbers"/>
     </genEnums>
-    <genEnums typeSafeEnumCompatible="false" ecoreEnum="DataDsl.ecore#//Multiplicity">
-      <genEnumLiterals ecoreEnumLiteral="DataDsl.ecore#//Multiplicity/casesensitive"/>
-      <genEnumLiterals ecoreEnumLiteral="DataDsl.ecore#//Multiplicity/null"/>
-      <genEnumLiterals ecoreEnumLiteral="DataDsl.ecore#//Multiplicity/separator"/>
-      <genEnumLiterals ecoreEnumLiteral="DataDsl.ecore#//Multiplicity/default"/>
-      <genEnumLiterals ecoreEnumLiteral="DataDsl.ecore#//Multiplicity/regex"/>
-      <genEnumLiterals ecoreEnumLiteral="DataDsl.ecore#//Multiplicity/flags"/>
-      <genEnumLiterals ecoreEnumLiteral="DataDsl.ecore#//Multiplicity/decimalchar"/>
-      <genEnumLiterals ecoreEnumLiteral="DataDsl.ecore#//Multiplicity/pattern"/>
-      <genEnumLiterals ecoreEnumLiteral="DataDsl.ecore#//Multiplicity/format"/>
-    </genEnums>
-    <genEnums typeSafeEnumCompatible="false" ecoreEnum="DataDsl.ecore#//SequenceOptionKey">
-      <genEnumLiterals ecoreEnumLiteral="DataDsl.ecore#//SequenceOptionKey/regex_form"/>
-    </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="DataDsl.ecore#//BasicType">
       <genEnumLiterals ecoreEnumLiteral="DataDsl.ecore#//BasicType/string"/>
       <genEnumLiterals ecoreEnumLiteral="DataDsl.ecore#//BasicType/url"/>
       <genEnumLiterals ecoreEnumLiteral="DataDsl.ecore#//BasicType/int"/>
+      <genEnumLiterals ecoreEnumLiteral="DataDsl.ecore#//BasicType/longInt"/>
       <genEnumLiterals ecoreEnumLiteral="DataDsl.ecore#//BasicType/real"/>
       <genEnumLiterals ecoreEnumLiteral="DataDsl.ecore#//BasicType/date"/>
       <genEnumLiterals ecoreEnumLiteral="DataDsl.ecore#//BasicType/time"/>
@@ -43,9 +30,16 @@
       <genEnumLiterals ecoreEnumLiteral="DataDsl.ecore#//BasicType/boolean"/>
       <genEnumLiterals ecoreEnumLiteral="DataDsl.ecore#//BasicType/lat"/>
       <genEnumLiterals ecoreEnumLiteral="DataDsl.ecore#//BasicType/long"/>
+      <genEnumLiterals ecoreEnumLiteral="DataDsl.ecore#//BasicType/percent"/>
+      <genEnumLiterals ecoreEnumLiteral="DataDsl.ecore#//BasicType/email"/>
+      <genEnumLiterals ecoreEnumLiteral="DataDsl.ecore#//BasicType/currency"/>
+      <genEnumLiterals ecoreEnumLiteral="DataDsl.ecore#//BasicType/creditcard"/>
+      <genEnumLiterals ecoreEnumLiteral="DataDsl.ecore#//BasicType/IBAN"/>
+      <genEnumLiterals ecoreEnumLiteral="DataDsl.ecore#//BasicType/ISBN"/>
+      <genEnumLiterals ecoreEnumLiteral="DataDsl.ecore#//BasicType/ISSN"/>
+      <genEnumLiterals ecoreEnumLiteral="DataDsl.ecore#//BasicType/inet"/>
     </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="DataDsl.ecore#//StringOptionKey">
-      <genEnumLiterals ecoreEnumLiteral="DataDsl.ecore#//StringOptionKey/casesensitive"/>
       <genEnumLiterals ecoreEnumLiteral="DataDsl.ecore#//StringOptionKey/null"/>
       <genEnumLiterals ecoreEnumLiteral="DataDsl.ecore#//StringOptionKey/separator"/>
       <genEnumLiterals ecoreEnumLiteral="DataDsl.ecore#//StringOptionKey/default"/>
@@ -69,34 +63,33 @@
     </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="DataDsl.ecore#//BooleanOptionKey">
       <genEnumLiterals ecoreEnumLiteral="DataDsl.ecore#//BooleanOptionKey/nullable"/>
+      <genEnumLiterals ecoreEnumLiteral="DataDsl.ecore#//BooleanOptionKey/casesensitive"/>
     </genEnums>
-    <genEnums typeSafeEnumCompatible="false" ecoreEnum="DataDsl.ecore#//DataOptionKey">
-      <genEnumLiterals ecoreEnumLiteral="DataDsl.ecore#//DataOptionKey/format"/>
-      <genEnumLiterals ecoreEnumLiteral="DataDsl.ecore#//DataOptionKey/separator"/>
-      <genEnumLiterals ecoreEnumLiteral="DataDsl.ecore#//DataOptionKey/header"/>
-      <genEnumLiterals ecoreEnumLiteral="DataDsl.ecore#//DataOptionKey/squema"/>
-    </genEnums>
-    <genEnums typeSafeEnumCompatible="false" ecoreEnum="DataDsl.ecore#//Format">
-      <genEnumLiterals ecoreEnumLiteral="DataDsl.ecore#//Format/CSV"/>
-      <genEnumLiterals ecoreEnumLiteral="DataDsl.ecore#//Format/JSON"/>
-      <genEnumLiterals ecoreEnumLiteral="DataDsl.ecore#//Format/XML"/>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="DataDsl.ecore#//ListQualifiedNameOptionKey">
+      <genEnumLiterals ecoreEnumLiteral="DataDsl.ecore#//ListQualifiedNameOptionKey/order"/>
     </genEnums>
     <genClasses ecoreClass="DataDsl.ecore#//DataModel">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference DataDsl.ecore#//DataModel/descriptions"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference DataDsl.ecore#//DataModel/elements"/>
     </genClasses>
     <genClasses ecoreClass="DataDsl.ecore#//Import">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DataDsl.ecore#//Import/importedNamespace"/>
     </genClasses>
     <genClasses ecoreClass="DataDsl.ecore#//DataModelElement"/>
     <genClasses ecoreClass="DataDsl.ecore#//Package">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference DataDsl.ecore#//Package/tags"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DataDsl.ecore#//Package/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference DataDsl.ecore#//Package/elements"/>
     </genClasses>
-    <genClasses ecoreClass="DataDsl.ecore#//DataPackableDescription">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DataDsl.ecore#//DataPackableDescription/name"/>
+    <genClasses ecoreClass="DataDsl.ecore#//Tag">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DataDsl.ecore#//Tag/tag"/>
     </genClasses>
-    <genClasses ecoreClass="DataDsl.ecore#//StringConcept">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference DataDsl.ecore#//StringConcept/subsequence"/>
+    <genClasses ecoreClass="DataDsl.ecore#//SpecificationElement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DataDsl.ecore#//SpecificationElement/name"/>
+    </genClasses>
+    <genClasses ecoreClass="DataDsl.ecore#//TypeSpecification"/>
+    <genClasses ecoreClass="DataDsl.ecore#//AbstractDescription">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference DataDsl.ecore#//AbstractDescription/fragments"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference DataDsl.ecore#//AbstractDescription/nodes"/>
     </genClasses>
     <genClasses ecoreClass="DataDsl.ecore#//SubstringConcept">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DataDsl.ecore#//SubstringConcept/name"/>
@@ -110,37 +103,40 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DataDsl.ecore#//Character/typeCharacter"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DataDsl.ecore#//Character/value"/>
     </genClasses>
-    <genClasses ecoreClass="DataDsl.ecore#//DataSourceDescription">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DataDsl.ecore#//DataSourceDescription/format"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DataDsl.ecore#//DataSourceDescription/name"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference DataDsl.ecore#//DataSourceDescription/fragments"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference DataDsl.ecore#//DataSourceDescription/nodes"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference DataDsl.ecore#//DataSourceDescription/options"/>
+    <genClasses ecoreClass="DataDsl.ecore#//Node">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DataDsl.ecore#//Node/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference DataDsl.ecore#//Node/cardinality"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference DataDsl.ecore#//Node/options"/>
     </genClasses>
-    <genClasses ecoreClass="DataDsl.ecore#//DataFragment">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference DataDsl.ecore#//DataFragment/fragments"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference DataDsl.ecore#//DataFragment/nodes"/>
+    <genClasses ecoreClass="DataDsl.ecore#//CompositeNode">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DataDsl.ecore#//CompositeNode/key"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DataDsl.ecore#//CompositeNode/unique"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference DataDsl.ecore#//CompositeNode/type"/>
     </genClasses>
-    <genClasses ecoreClass="DataDsl.ecore#//TypeSpecification"/>
-    <genClasses ecoreClass="DataDsl.ecore#//DataType">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DataDsl.ecore#//DataType/refine"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference DataDsl.ecore#//DataType/options"/>
+    <genClasses ecoreClass="DataDsl.ecore#//FragmentNode">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference DataDsl.ecore#//FragmentNode/type"/>
+    </genClasses>
+    <genClasses ecoreClass="DataDsl.ecore#//PrimitiveNode">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DataDsl.ecore#//PrimitiveNode/key"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DataDsl.ecore#//PrimitiveNode/unique"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DataDsl.ecore#//PrimitiveNode/type"/>
+    </genClasses>
+    <genClasses ecoreClass="DataDsl.ecore#//Cardinality">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DataDsl.ecore#//Cardinality/min"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DataDsl.ecore#//Cardinality/max"/>
+    </genClasses>
+    <genClasses ecoreClass="DataDsl.ecore#//DataDescription">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DataDsl.ecore#//DataDescription/format"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference DataDsl.ecore#//DataDescription/options"/>
+    </genClasses>
+    <genClasses ecoreClass="DataDsl.ecore#//Fragment"/>
+    <genClasses ecoreClass="DataDsl.ecore#//DataTypeRefinement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DataDsl.ecore#//DataTypeRefinement/refine"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference DataDsl.ecore#//DataTypeRefinement/subsequences"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference DataDsl.ecore#//DataTypeRefinement/options"/>
     </genClasses>
     <genClasses ecoreClass="DataDsl.ecore#//Enumeration">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DataDsl.ecore#//Enumeration/values"/>
-    </genClasses>
-    <genClasses ecoreClass="DataDsl.ecore#//StructDataType">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference DataDsl.ecore#//StructDataType/subnodes"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference DataDsl.ecore#//StructDataType/options"/>
-    </genClasses>
-    <genClasses ecoreClass="DataDsl.ecore#//LeafNode">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DataDsl.ecore#//LeafNode/key"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DataDsl.ecore#//LeafNode/unique"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DataDsl.ecore#//LeafNode/list"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DataDsl.ecore#//LeafNode/type"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference DataDsl.ecore#//LeafNode/typeCall"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DataDsl.ecore#//LeafNode/name"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference DataDsl.ecore#//LeafNode/options"/>
     </genClasses>
     <genClasses ecoreClass="DataDsl.ecore#//Option"/>
     <genClasses ecoreClass="DataDsl.ecore#//StringOption">
@@ -159,9 +155,9 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DataDsl.ecore#//BooleanOption/key"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DataDsl.ecore#//BooleanOption/value"/>
     </genClasses>
-    <genClasses ecoreClass="DataDsl.ecore#//SequenceOption">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DataDsl.ecore#//SequenceOption/key"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference DataDsl.ecore#//SequenceOption/value"/>
+    <genClasses ecoreClass="DataDsl.ecore#//ListQualifiedNameOption">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DataDsl.ecore#//ListQualifiedNameOption/key"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference DataDsl.ecore#//ListQualifiedNameOption/fragments"/>
     </genClasses>
     <genClasses ecoreClass="DataDsl.ecore#//DataOption">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DataDsl.ecore#//DataOption/key"/>

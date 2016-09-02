@@ -3,18 +3,12 @@ package eagledata.ui.http;
 import java.io.BufferedReader;
 import java.io.DataOutputStream;
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.io.OutputStream;
-import java.io.OutputStreamWriter;
-import java.io.Reader;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
-import java.net.URLEncoder;
 import java.nio.charset.Charset;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import org.json.JSONArray;
@@ -22,11 +16,9 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import eagledata.core.dsl.datadesc.dataDsl.BooleanOption;
-import eagledata.core.dsl.datadesc.dataDsl.DataFragment;
-import eagledata.core.dsl.datadesc.dataDsl.DataType;
+import eagledata.core.dsl.datadesc.dataDsl.DataTypeRefinement;
+import eagledata.core.dsl.datadesc.dataDsl.Enumeration;
 import eagledata.core.dsl.datadesc.dataDsl.IntOption;
-import eagledata.core.dsl.datadesc.dataDsl.LeafNode;
-import eagledata.core.dsl.datadesc.dataDsl.Node;
 import eagledata.core.dsl.datadesc.dataDsl.Option;
 import eagledata.core.dsl.datadesc.dataDsl.StringOption;
 
@@ -77,7 +69,7 @@ public class JsonDatatypes {
 	  }
 	 */
 	
-	public static JSONObject datatype2json(DataType datatype){
+	public static JSONObject datatype2json(DataTypeRefinement datatype){
 		JSONObject newObject = new JSONObject();
 		String name = datatype.getName();
 	    newObject.put("name", name);
@@ -123,9 +115,48 @@ public class JsonDatatypes {
 	    return newObject;
 	}
 	
+	public static JSONObject enumeration2json(Enumeration enumeration){
+		JSONObject newObject = new JSONObject();
+		String name = enumeration.getName();
+	    newObject.put("name", name);
+	    
+	    String content = enumeration.toString();
+	    newObject.put("content", content);
+	    
+	    //String extension = enumeration.getRefine().getLiteral();
+	    //newObject.put("extend", extension);
+	    
+	    /*JSONArray newContentKeys = new JSONArray(); 
+	    List<Option> options = enumeration.getOptions();
+	    for(Option option : options){
+	    	JSONObject newContentNode = new JSONObject();
+	    	
+	    	if(option instanceof StringOption){
+	    		newContentNode.put("name", ((StringOption) option).getKey().getLiteral());
+		    	newContentNode.put("type", ((StringOption) option).getValue());
+	    	}
+	    	
+	    	if(option instanceof IntOption){
+	    		newContentNode.put("name", ((IntOption) option).getKey().getLiteral());
+		    	newContentNode.put("type", ((IntOption) option).getValue());
+	    	}
+	    	
+	    	if(option instanceof BooleanOption){
+	    		newContentNode.put("name", ((BooleanOption) option).getKey().getLiteral());
+		    	newContentNode.put("type", ((BooleanOption) option).getValue());
+	    	}
+	    	
+	    	newContentKeys.put(newContentNode);
+	    }*/
+	    
+	    //newObject.put("contentKeys", newContentKeys);
+	    
+	    return newObject;
+	}
+	
+	
 	public static List<JSONObject> getDatatypes(){
 		List<JSONObject> datatypes = new ArrayList<JSONObject>();
-		
 		String jsonString = getList(URL);
 		try {  
 			JSONObject json = new JSONObject(jsonString);
@@ -136,8 +167,6 @@ public class JsonDatatypes {
 		    	datatypes.add(object);
 		    	
 		    }
-		    
-		    //post(newObject);
 		} catch (JSONException e) {
 			e.printStackTrace();
 		}

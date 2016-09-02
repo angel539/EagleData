@@ -3,27 +3,31 @@
  */
 package eagledata.core.dsl.datadesc.dataDsl.util;
 
+import eagledata.core.dsl.datadesc.dataDsl.AbstractDescription;
 import eagledata.core.dsl.datadesc.dataDsl.BooleanOption;
+import eagledata.core.dsl.datadesc.dataDsl.Cardinality;
+import eagledata.core.dsl.datadesc.dataDsl.CompositeNode;
+import eagledata.core.dsl.datadesc.dataDsl.DataDescription;
 import eagledata.core.dsl.datadesc.dataDsl.DataDslPackage;
-import eagledata.core.dsl.datadesc.dataDsl.DataFragment;
 import eagledata.core.dsl.datadesc.dataDsl.DataModel;
 import eagledata.core.dsl.datadesc.dataDsl.DataModelElement;
 import eagledata.core.dsl.datadesc.dataDsl.DataOption;
-import eagledata.core.dsl.datadesc.dataDsl.DataPackableDescription;
-import eagledata.core.dsl.datadesc.dataDsl.DataSourceDescription;
-import eagledata.core.dsl.datadesc.dataDsl.DataType;
+import eagledata.core.dsl.datadesc.dataDsl.DataTypeRefinement;
 import eagledata.core.dsl.datadesc.dataDsl.DoubleOption;
 import eagledata.core.dsl.datadesc.dataDsl.Enumeration;
+import eagledata.core.dsl.datadesc.dataDsl.Fragment;
+import eagledata.core.dsl.datadesc.dataDsl.FragmentNode;
 import eagledata.core.dsl.datadesc.dataDsl.Import;
 import eagledata.core.dsl.datadesc.dataDsl.IntOption;
-import eagledata.core.dsl.datadesc.dataDsl.LeafNode;
+import eagledata.core.dsl.datadesc.dataDsl.ListQualifiedNameOption;
+import eagledata.core.dsl.datadesc.dataDsl.Node;
 import eagledata.core.dsl.datadesc.dataDsl.Option;
-import eagledata.core.dsl.datadesc.dataDsl.SequenceOption;
-import eagledata.core.dsl.datadesc.dataDsl.StringConcept;
+import eagledata.core.dsl.datadesc.dataDsl.PrimitiveNode;
+import eagledata.core.dsl.datadesc.dataDsl.SpecificationElement;
 import eagledata.core.dsl.datadesc.dataDsl.StringOption;
-import eagledata.core.dsl.datadesc.dataDsl.StructDataType;
 import eagledata.core.dsl.datadesc.dataDsl.Substring;
 import eagledata.core.dsl.datadesc.dataDsl.SubstringConcept;
+import eagledata.core.dsl.datadesc.dataDsl.Tag;
 import eagledata.core.dsl.datadesc.dataDsl.TypeSpecification;
 
 import org.eclipse.emf.ecore.EObject;
@@ -124,20 +128,36 @@ public class DataDslSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case DataDslPackage.DATA_PACKABLE_DESCRIPTION:
+      case DataDslPackage.TAG:
       {
-        DataPackableDescription dataPackableDescription = (DataPackableDescription)theEObject;
-        T result = caseDataPackableDescription(dataPackableDescription);
-        if (result == null) result = caseDataModelElement(dataPackableDescription);
+        Tag tag = (Tag)theEObject;
+        T result = caseTag(tag);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case DataDslPackage.STRING_CONCEPT:
+      case DataDslPackage.SPECIFICATION_ELEMENT:
       {
-        StringConcept stringConcept = (StringConcept)theEObject;
-        T result = caseStringConcept(stringConcept);
-        if (result == null) result = caseDataPackableDescription(stringConcept);
-        if (result == null) result = caseDataModelElement(stringConcept);
+        SpecificationElement specificationElement = (SpecificationElement)theEObject;
+        T result = caseSpecificationElement(specificationElement);
+        if (result == null) result = caseDataModelElement(specificationElement);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case DataDslPackage.TYPE_SPECIFICATION:
+      {
+        TypeSpecification typeSpecification = (TypeSpecification)theEObject;
+        T result = caseTypeSpecification(typeSpecification);
+        if (result == null) result = caseSpecificationElement(typeSpecification);
+        if (result == null) result = caseDataModelElement(typeSpecification);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case DataDslPackage.ABSTRACT_DESCRIPTION:
+      {
+        AbstractDescription abstractDescription = (AbstractDescription)theEObject;
+        T result = caseAbstractDescription(abstractDescription);
+        if (result == null) result = caseSpecificationElement(abstractDescription);
+        if (result == null) result = caseDataModelElement(abstractDescription);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -164,39 +184,71 @@ public class DataDslSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case DataDslPackage.DATA_SOURCE_DESCRIPTION:
+      case DataDslPackage.NODE:
       {
-        DataSourceDescription dataSourceDescription = (DataSourceDescription)theEObject;
-        T result = caseDataSourceDescription(dataSourceDescription);
-        if (result == null) result = caseDataModelElement(dataSourceDescription);
+        Node node = (Node)theEObject;
+        T result = caseNode(node);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case DataDslPackage.DATA_FRAGMENT:
+      case DataDslPackage.COMPOSITE_NODE:
       {
-        DataFragment dataFragment = (DataFragment)theEObject;
-        T result = caseDataFragment(dataFragment);
-        if (result == null) result = caseDataPackableDescription(dataFragment);
-        if (result == null) result = caseDataModelElement(dataFragment);
+        CompositeNode compositeNode = (CompositeNode)theEObject;
+        T result = caseCompositeNode(compositeNode);
+        if (result == null) result = caseNode(compositeNode);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case DataDslPackage.TYPE_SPECIFICATION:
+      case DataDslPackage.FRAGMENT_NODE:
       {
-        TypeSpecification typeSpecification = (TypeSpecification)theEObject;
-        T result = caseTypeSpecification(typeSpecification);
-        if (result == null) result = caseDataPackableDescription(typeSpecification);
-        if (result == null) result = caseDataModelElement(typeSpecification);
+        FragmentNode fragmentNode = (FragmentNode)theEObject;
+        T result = caseFragmentNode(fragmentNode);
+        if (result == null) result = caseNode(fragmentNode);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case DataDslPackage.DATA_TYPE:
+      case DataDslPackage.PRIMITIVE_NODE:
       {
-        DataType dataType = (DataType)theEObject;
-        T result = caseDataType(dataType);
-        if (result == null) result = caseTypeSpecification(dataType);
-        if (result == null) result = caseDataPackableDescription(dataType);
-        if (result == null) result = caseDataModelElement(dataType);
+        PrimitiveNode primitiveNode = (PrimitiveNode)theEObject;
+        T result = casePrimitiveNode(primitiveNode);
+        if (result == null) result = caseNode(primitiveNode);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case DataDslPackage.CARDINALITY:
+      {
+        Cardinality cardinality = (Cardinality)theEObject;
+        T result = caseCardinality(cardinality);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case DataDslPackage.DATA_DESCRIPTION:
+      {
+        DataDescription dataDescription = (DataDescription)theEObject;
+        T result = caseDataDescription(dataDescription);
+        if (result == null) result = caseAbstractDescription(dataDescription);
+        if (result == null) result = caseSpecificationElement(dataDescription);
+        if (result == null) result = caseDataModelElement(dataDescription);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case DataDslPackage.FRAGMENT:
+      {
+        Fragment fragment = (Fragment)theEObject;
+        T result = caseFragment(fragment);
+        if (result == null) result = caseAbstractDescription(fragment);
+        if (result == null) result = caseSpecificationElement(fragment);
+        if (result == null) result = caseDataModelElement(fragment);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case DataDslPackage.DATA_TYPE_REFINEMENT:
+      {
+        DataTypeRefinement dataTypeRefinement = (DataTypeRefinement)theEObject;
+        T result = caseDataTypeRefinement(dataTypeRefinement);
+        if (result == null) result = caseTypeSpecification(dataTypeRefinement);
+        if (result == null) result = caseSpecificationElement(dataTypeRefinement);
+        if (result == null) result = caseDataModelElement(dataTypeRefinement);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -205,25 +257,8 @@ public class DataDslSwitch<T> extends Switch<T>
         Enumeration enumeration = (Enumeration)theEObject;
         T result = caseEnumeration(enumeration);
         if (result == null) result = caseTypeSpecification(enumeration);
-        if (result == null) result = caseDataPackableDescription(enumeration);
+        if (result == null) result = caseSpecificationElement(enumeration);
         if (result == null) result = caseDataModelElement(enumeration);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case DataDslPackage.STRUCT_DATA_TYPE:
-      {
-        StructDataType structDataType = (StructDataType)theEObject;
-        T result = caseStructDataType(structDataType);
-        if (result == null) result = caseTypeSpecification(structDataType);
-        if (result == null) result = caseDataPackableDescription(structDataType);
-        if (result == null) result = caseDataModelElement(structDataType);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case DataDslPackage.LEAF_NODE:
-      {
-        LeafNode leafNode = (LeafNode)theEObject;
-        T result = caseLeafNode(leafNode);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -266,11 +301,11 @@ public class DataDslSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case DataDslPackage.SEQUENCE_OPTION:
+      case DataDslPackage.LIST_QUALIFIED_NAME_OPTION:
       {
-        SequenceOption sequenceOption = (SequenceOption)theEObject;
-        T result = caseSequenceOption(sequenceOption);
-        if (result == null) result = caseOption(sequenceOption);
+        ListQualifiedNameOption listQualifiedNameOption = (ListQualifiedNameOption)theEObject;
+        T result = caseListQualifiedNameOption(listQualifiedNameOption);
+        if (result == null) result = caseOption(listQualifiedNameOption);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -350,33 +385,65 @@ public class DataDslSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Data Packable Description</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Tag</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Data Packable Description</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Tag</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseDataPackableDescription(DataPackableDescription object)
+  public T caseTag(Tag object)
   {
     return null;
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>String Concept</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Specification Element</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>String Concept</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Specification Element</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseStringConcept(StringConcept object)
+  public T caseSpecificationElement(SpecificationElement object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Type Specification</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Type Specification</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseTypeSpecification(TypeSpecification object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Abstract Description</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Abstract Description</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseAbstractDescription(AbstractDescription object)
   {
     return null;
   }
@@ -430,65 +497,129 @@ public class DataDslSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Data Source Description</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Node</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Data Source Description</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Node</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseDataSourceDescription(DataSourceDescription object)
+  public T caseNode(Node object)
   {
     return null;
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Data Fragment</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Composite Node</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Data Fragment</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Composite Node</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseDataFragment(DataFragment object)
+  public T caseCompositeNode(CompositeNode object)
   {
     return null;
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Type Specification</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Fragment Node</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Type Specification</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Fragment Node</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseTypeSpecification(TypeSpecification object)
+  public T caseFragmentNode(FragmentNode object)
   {
     return null;
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Data Type</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Primitive Node</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Data Type</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Primitive Node</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseDataType(DataType object)
+  public T casePrimitiveNode(PrimitiveNode object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Cardinality</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Cardinality</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseCardinality(Cardinality object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Data Description</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Data Description</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseDataDescription(DataDescription object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Fragment</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Fragment</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseFragment(Fragment object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Data Type Refinement</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Data Type Refinement</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseDataTypeRefinement(DataTypeRefinement object)
   {
     return null;
   }
@@ -505,38 +636,6 @@ public class DataDslSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseEnumeration(Enumeration object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Struct Data Type</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Struct Data Type</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseStructDataType(StructDataType object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Leaf Node</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Leaf Node</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseLeafNode(LeafNode object)
   {
     return null;
   }
@@ -622,17 +721,17 @@ public class DataDslSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Sequence Option</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>List Qualified Name Option</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Sequence Option</em>'.
+   * @return the result of interpreting the object as an instance of '<em>List Qualified Name Option</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseSequenceOption(SequenceOption object)
+  public T caseListQualifiedNameOption(ListQualifiedNameOption object)
   {
     return null;
   }

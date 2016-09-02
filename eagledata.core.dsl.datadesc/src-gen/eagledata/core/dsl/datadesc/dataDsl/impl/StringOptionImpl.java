@@ -37,7 +37,7 @@ public class StringOptionImpl extends OptionImpl implements StringOption
    * @generated
    * @ordered
    */
-  protected static final StringOptionKey KEY_EDEFAULT = StringOptionKey.CASESENSITIVE;
+  protected static final StringOptionKey KEY_EDEFAULT = StringOptionKey.NULL;
 
   /**
    * The cached value of the '{@link #getKey() <em>Key</em>}' attribute.

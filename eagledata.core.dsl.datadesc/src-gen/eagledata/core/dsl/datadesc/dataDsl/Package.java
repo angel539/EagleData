@@ -14,6 +14,7 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * </p>
  * <ul>
+ *   <li>{@link eagledata.core.dsl.datadesc.dataDsl.Package#getTags <em>Tags</em>}</li>
  *   <li>{@link eagledata.core.dsl.datadesc.dataDsl.Package#getName <em>Name</em>}</li>
  *   <li>{@link eagledata.core.dsl.datadesc.dataDsl.Package#getElements <em>Elements</em>}</li>
  * </ul>
@@ -24,6 +25,22 @@ import org.eclipse.emf.common.util.EList;
  */
 public interface Package extends DataModelElement
 {
+  /**
+   * Returns the value of the '<em><b>Tags</b></em>' containment reference list.
+   * The list contents are of type {@link eagledata.core.dsl.datadesc.dataDsl.Tag}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Tags</em>' containment reference list isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Tags</em>' containment reference list.
+   * @see eagledata.core.dsl.datadesc.dataDsl.DataDslPackage#getPackage_Tags()
+   * @model containment="true"
+   * @generated
+   */
+  EList<Tag> getTags();
+
   /**
    * Returns the value of the '<em><b>Name</b></em>' attribute.
    * <!-- begin-user-doc -->
@@ -52,7 +69,7 @@ public interface Package extends DataModelElement
 
   /**
    * Returns the value of the '<em><b>Elements</b></em>' containment reference list.
-   * The list contents are of type {@link eagledata.core.dsl.datadesc.dataDsl.DataPackableDescription}.
+   * The list contents are of type {@link eagledata.core.dsl.datadesc.dataDsl.SpecificationElement}.
    * <!-- begin-user-doc -->
    * <p>
    * If the meaning of the '<em>Elements</em>' containment reference list isn't clear,
@@ -64,6 +81,6 @@ public interface Package extends DataModelElement
    * @model containment="true"
    * @generated
    */
-  EList<DataPackableDescription> getElements();
+  EList<SpecificationElement> getElements();
 
 } // Package

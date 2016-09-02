@@ -20,8 +20,9 @@ import org.eclipse.ui.part.FileEditorInput;
 import org.json.JSONObject;
 
 import eagledata.core.dsl.datadesc.DataDslStandaloneSetup;
-import eagledata.core.dsl.datadesc.dataDsl.DataFragment;
-import eagledata.core.dsl.datadesc.dataDsl.DataPackableDescription;
+import eagledata.core.dsl.datadesc.dataDsl.Fragment;
+import eagledata.core.dsl.datadesc.dataDsl.SpecificationElement;
+import eagledata.core.dsl.datadesc.dataDsl.Package;
 import eagledata.ui.Activator;
 import eagledata.ui.http.JsonFragment;
 
@@ -30,8 +31,6 @@ public class SaveFragmentsHandler extends AbstractHandler {
 
 	@Override
 	public Object execute(ExecutionEvent event) throws ExecutionException {
-		//ISelection selection = HandlerUtil.getActiveWorkbenchWindow(event).getActivePage().getSelection();
-		
 		IWorkbench workbench = PlatformUI.getWorkbench();
 		IWorkbenchWindow window = workbench == null ? null : workbench.getActiveWorkbenchWindow();
 		IWorkbenchPage activePage = window == null ? null : window.getActivePage();
@@ -49,23 +48,23 @@ public class SaveFragmentsHandler extends AbstractHandler {
 					TreeIterator<EObject> iterator = allXtextContents.eAllContents();
 			    	while(iterator.hasNext()) {
 			    		EObject element = iterator.next();
-			    		if(element instanceof eagledata.core.dsl.datadesc.dataDsl.Package){
-			    			List<DataPackableDescription> packableElements = ((eagledata.core.dsl.datadesc.dataDsl.Package) element).getElements();
-			    			for(DataPackableDescription packableElement : packableElements){
-			    				if(element instanceof DataFragment){
-					    			DataFragment fragment = (DataFragment) element;
-					    			JSONObject fragmentJsonObject = JsonFragment.fragment2json(fragment);
-					    			
-					    			
-					    			//if(JsonFragment.post(fragmentJsonObject)){
-					    				//showMessage("se ha subido");
-					    			//}else{
-					    				//showMessage("no se ha subido");
-					    			//}
+			    		
+			    		if(element instanceof Package){
+			    			List<SpecificationElement> packableElements = ((Package) element).getElements();
+			    			
+			    			for(SpecificationElement packableElement : packableElements){
+			    				if(packableElement instanceof Fragment){
+					    			Fragment fragment = (Fragment) packableElement;	
+					    			JSONObject fragmentJsonObject = JsonFragment.fragment2json(fragment, ((Package) element).getTags());
+					    			if(JsonFragment.post(fragmentJsonObject)){
+					    				showMessage("The fragment " + fragment.getName() + " has been uploaded");
+					    			}
+					    			else{
+					    				showMessage("The fragment " + fragment.getName() + " was already in the server");
+					    			}
 					    		}	
 			    			}
 			    		}
-			    		
 			    	}
 		    	} catch (IOException e) {
 					e.printStackTrace();
