@@ -3,6 +3,8 @@
  */
 package eagledata.core.dsl.rule.ruleDsl;
 
+import eagledata.core.dsl.pattern.streamingDsl.Import;
+
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EObject;
@@ -16,6 +18,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
+ *   <li>{@link eagledata.core.dsl.rule.ruleDsl.RuleModel#getImports <em>Imports</em>}</li>
  *   <li>{@link eagledata.core.dsl.rule.ruleDsl.RuleModel#getElements <em>Elements</em>}</li>
  * </ul>
  *
@@ -26,8 +29,24 @@ import org.eclipse.emf.ecore.EObject;
 public interface RuleModel extends EObject
 {
   /**
+   * Returns the value of the '<em><b>Imports</b></em>' containment reference list.
+   * The list contents are of type {@link eagledata.core.dsl.pattern.streamingDsl.Import}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Imports</em>' containment reference list isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Imports</em>' containment reference list.
+   * @see eagledata.core.dsl.rule.ruleDsl.RuleDslPackage#getRuleModel_Imports()
+   * @model containment="true"
+   * @generated
+   */
+  EList<Import> getImports();
+
+  /**
    * Returns the value of the '<em><b>Elements</b></em>' containment reference list.
-   * The list contents are of type {@link eagledata.core.dsl.rule.ruleDsl.RuleElement}.
+   * The list contents are of type {@link eagledata.core.dsl.rule.ruleDsl.Rule}.
    * <!-- begin-user-doc -->
    * <p>
    * If the meaning of the '<em>Elements</em>' containment reference list isn't clear,
@@ -39,6 +58,6 @@ public interface RuleModel extends EObject
    * @model containment="true"
    * @generated
    */
-  EList<RuleElement> getElements();
+  EList<Rule> getElements();
 
 } // RuleModel

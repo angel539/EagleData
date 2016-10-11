@@ -5,10 +5,9 @@ package eagledata.core.dsl.rule.ruleDsl.impl;
 
 import eagledata.core.dsl.pattern.streamingDsl.Phrase;
 
-import eagledata.core.dsl.rule.ruleDsl.Query;
+import eagledata.core.dsl.rule.ruleDsl.Action;
 import eagledata.core.dsl.rule.ruleDsl.Rule;
 import eagledata.core.dsl.rule.ruleDsl.RuleDslPackage;
-import eagledata.core.dsl.rule.ruleDsl.When;
 
 import java.util.Collection;
 
@@ -21,6 +20,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
@@ -33,15 +33,35 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link eagledata.core.dsl.rule.ruleDsl.impl.RuleImpl#getName <em>Name</em>}</li>
  *   <li>{@link eagledata.core.dsl.rule.ruleDsl.impl.RuleImpl#getEvent <em>Event</em>}</li>
- *   <li>{@link eagledata.core.dsl.rule.ruleDsl.impl.RuleImpl#getCondition <em>Condition</em>}</li>
  *   <li>{@link eagledata.core.dsl.rule.ruleDsl.impl.RuleImpl#getActions <em>Actions</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class RuleImpl extends RuleElementImpl implements Rule
+public class RuleImpl extends MinimalEObjectImpl.Container implements Rule
 {
+  /**
+   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getName()
+   * @generated
+   * @ordered
+   */
+  protected static final String NAME_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getName()
+   * @generated
+   * @ordered
+   */
+  protected String name = NAME_EDEFAULT;
+
   /**
    * The cached value of the '{@link #getEvent() <em>Event</em>}' reference.
    * <!-- begin-user-doc -->
@@ -53,16 +73,6 @@ public class RuleImpl extends RuleElementImpl implements Rule
   protected Phrase event;
 
   /**
-   * The cached value of the '{@link #getCondition() <em>Condition</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getCondition()
-   * @generated
-   * @ordered
-   */
-  protected When condition;
-
-  /**
    * The cached value of the '{@link #getActions() <em>Actions</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -70,7 +80,7 @@ public class RuleImpl extends RuleElementImpl implements Rule
    * @generated
    * @ordered
    */
-  protected EList<Query> actions;
+  protected EList<Action> actions;
 
   /**
    * <!-- begin-user-doc -->
@@ -91,6 +101,29 @@ public class RuleImpl extends RuleElementImpl implements Rule
   protected EClass eStaticClass()
   {
     return RuleDslPackage.Literals.RULE;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String getName()
+  {
+    return name;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setName(String newName)
+  {
+    String oldName = name;
+    name = newName;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, RuleDslPackage.RULE__NAME, oldName, name));
   }
 
   /**
@@ -141,59 +174,11 @@ public class RuleImpl extends RuleElementImpl implements Rule
    * <!-- end-user-doc -->
    * @generated
    */
-  public When getCondition()
-  {
-    return condition;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NotificationChain basicSetCondition(When newCondition, NotificationChain msgs)
-  {
-    When oldCondition = condition;
-    condition = newCondition;
-    if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, RuleDslPackage.RULE__CONDITION, oldCondition, newCondition);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setCondition(When newCondition)
-  {
-    if (newCondition != condition)
-    {
-      NotificationChain msgs = null;
-      if (condition != null)
-        msgs = ((InternalEObject)condition).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - RuleDslPackage.RULE__CONDITION, null, msgs);
-      if (newCondition != null)
-        msgs = ((InternalEObject)newCondition).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - RuleDslPackage.RULE__CONDITION, null, msgs);
-      msgs = basicSetCondition(newCondition, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, RuleDslPackage.RULE__CONDITION, newCondition, newCondition));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EList<Query> getActions()
+  public EList<Action> getActions()
   {
     if (actions == null)
     {
-      actions = new EObjectContainmentEList<Query>(Query.class, this, RuleDslPackage.RULE__ACTIONS);
+      actions = new EObjectContainmentEList<Action>(Action.class, this, RuleDslPackage.RULE__ACTIONS);
     }
     return actions;
   }
@@ -208,8 +193,6 @@ public class RuleImpl extends RuleElementImpl implements Rule
   {
     switch (featureID)
     {
-      case RuleDslPackage.RULE__CONDITION:
-        return basicSetCondition(null, msgs);
       case RuleDslPackage.RULE__ACTIONS:
         return ((InternalEList<?>)getActions()).basicRemove(otherEnd, msgs);
     }
@@ -226,11 +209,11 @@ public class RuleImpl extends RuleElementImpl implements Rule
   {
     switch (featureID)
     {
+      case RuleDslPackage.RULE__NAME:
+        return getName();
       case RuleDslPackage.RULE__EVENT:
         if (resolve) return getEvent();
         return basicGetEvent();
-      case RuleDslPackage.RULE__CONDITION:
-        return getCondition();
       case RuleDslPackage.RULE__ACTIONS:
         return getActions();
     }
@@ -248,15 +231,15 @@ public class RuleImpl extends RuleElementImpl implements Rule
   {
     switch (featureID)
     {
+      case RuleDslPackage.RULE__NAME:
+        setName((String)newValue);
+        return;
       case RuleDslPackage.RULE__EVENT:
         setEvent((Phrase)newValue);
         return;
-      case RuleDslPackage.RULE__CONDITION:
-        setCondition((When)newValue);
-        return;
       case RuleDslPackage.RULE__ACTIONS:
         getActions().clear();
-        getActions().addAll((Collection<? extends Query>)newValue);
+        getActions().addAll((Collection<? extends Action>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -272,11 +255,11 @@ public class RuleImpl extends RuleElementImpl implements Rule
   {
     switch (featureID)
     {
+      case RuleDslPackage.RULE__NAME:
+        setName(NAME_EDEFAULT);
+        return;
       case RuleDslPackage.RULE__EVENT:
         setEvent((Phrase)null);
-        return;
-      case RuleDslPackage.RULE__CONDITION:
-        setCondition((When)null);
         return;
       case RuleDslPackage.RULE__ACTIONS:
         getActions().clear();
@@ -295,14 +278,31 @@ public class RuleImpl extends RuleElementImpl implements Rule
   {
     switch (featureID)
     {
+      case RuleDslPackage.RULE__NAME:
+        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case RuleDslPackage.RULE__EVENT:
         return event != null;
-      case RuleDslPackage.RULE__CONDITION:
-        return condition != null;
       case RuleDslPackage.RULE__ACTIONS:
         return actions != null && !actions.isEmpty();
     }
     return super.eIsSet(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String toString()
+  {
+    if (eIsProxy()) return super.toString();
+
+    StringBuffer result = new StringBuffer(super.toString());
+    result.append(" (name: ");
+    result.append(name);
+    result.append(')');
+    return result.toString();
   }
 
 } //RuleImpl

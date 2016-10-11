@@ -3,6 +3,8 @@
  */
 package eagledata.core.dsl.rule.ruleDsl;
 
+import eagledata.core.dsl.datadesc.dataDsl.PrimitiveNode;
+
 import eagledata.core.dsl.pattern.streamingDsl.Concept;
 
 import org.eclipse.emf.ecore.EObject;
@@ -18,8 +20,8 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link eagledata.core.dsl.rule.ruleDsl.Where#getLeft <em>Left</em>}</li>
  *   <li>{@link eagledata.core.dsl.rule.ruleDsl.Where#getLogicalOperator <em>Logical Operator</em>}</li>
- *   <li>{@link eagledata.core.dsl.rule.ruleDsl.Where#getRightVariable <em>Right Variable</em>}</li>
  *   <li>{@link eagledata.core.dsl.rule.ruleDsl.Where#getRight <em>Right</em>}</li>
+ *   <li>{@link eagledata.core.dsl.rule.ruleDsl.Where#getRightStreaming <em>Right Streaming</em>}</li>
  * </ul>
  *
  * @see eagledata.core.dsl.rule.ruleDsl.RuleDslPackage#getWhere()
@@ -37,12 +39,12 @@ public interface Where extends EObject
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Left</em>' reference.
-   * @see #setLeft(Concept)
+   * @see #setLeft(PrimitiveNode)
    * @see eagledata.core.dsl.rule.ruleDsl.RuleDslPackage#getWhere_Left()
    * @model
    * @generated
    */
-  Concept getLeft();
+  PrimitiveNode getLeft();
 
   /**
    * Sets the value of the '{@link eagledata.core.dsl.rule.ruleDsl.Where#getLeft <em>Left</em>}' reference.
@@ -52,7 +54,7 @@ public interface Where extends EObject
    * @see #getLeft()
    * @generated
    */
-  void setLeft(Concept value);
+  void setLeft(PrimitiveNode value);
 
   /**
    * Returns the value of the '<em><b>Logical Operator</b></em>' attribute.
@@ -81,55 +83,55 @@ public interface Where extends EObject
   void setLogicalOperator(String value);
 
   /**
-   * Returns the value of the '<em><b>Right Variable</b></em>' reference.
+   * Returns the value of the '<em><b>Right</b></em>' reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Right Variable</em>' reference isn't clear,
+   * If the meaning of the '<em>Right</em>' reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Right Variable</em>' reference.
-   * @see #setRightVariable(Concept)
-   * @see eagledata.core.dsl.rule.ruleDsl.RuleDslPackage#getWhere_RightVariable()
-   * @model
-   * @generated
-   */
-  Concept getRightVariable();
-
-  /**
-   * Sets the value of the '{@link eagledata.core.dsl.rule.ruleDsl.Where#getRightVariable <em>Right Variable</em>}' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Right Variable</em>' reference.
-   * @see #getRightVariable()
-   * @generated
-   */
-  void setRightVariable(Concept value);
-
-  /**
-   * Returns the value of the '<em><b>Right</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Right</em>' attribute isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Right</em>' attribute.
-   * @see #setRight(int)
+   * @return the value of the '<em>Right</em>' reference.
+   * @see #setRight(PrimitiveNode)
    * @see eagledata.core.dsl.rule.ruleDsl.RuleDslPackage#getWhere_Right()
    * @model
    * @generated
    */
-  int getRight();
+  PrimitiveNode getRight();
 
   /**
-   * Sets the value of the '{@link eagledata.core.dsl.rule.ruleDsl.Where#getRight <em>Right</em>}' attribute.
+   * Sets the value of the '{@link eagledata.core.dsl.rule.ruleDsl.Where#getRight <em>Right</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Right</em>' attribute.
+   * @param value the new value of the '<em>Right</em>' reference.
    * @see #getRight()
    * @generated
    */
-  void setRight(int value);
+  void setRight(PrimitiveNode value);
+
+  /**
+   * Returns the value of the '<em><b>Right Streaming</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Right Streaming</em>' reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Right Streaming</em>' reference.
+   * @see #setRightStreaming(Concept)
+   * @see eagledata.core.dsl.rule.ruleDsl.RuleDslPackage#getWhere_RightStreaming()
+   * @model
+   * @generated
+   */
+  Concept getRightStreaming();
+
+  /**
+   * Sets the value of the '{@link eagledata.core.dsl.rule.ruleDsl.Where#getRightStreaming <em>Right Streaming</em>}' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Right Streaming</em>' reference.
+   * @see #getRightStreaming()
+   * @generated
+   */
+  void setRightStreaming(Concept value);
 
 } // Where

@@ -3,18 +3,25 @@
  */
 package eagledata.core.dsl.rule.ruleDsl.impl;
 
+import eagledata.core.dsl.rule.ruleDsl.Message;
 import eagledata.core.dsl.rule.ruleDsl.Query;
 import eagledata.core.dsl.rule.ruleDsl.RuleDslPackage;
 import eagledata.core.dsl.rule.ruleDsl.Select;
-import eagledata.core.dsl.rule.ruleDsl.Where;
+
+import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+
+import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -25,12 +32,12 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * </p>
  * <ul>
  *   <li>{@link eagledata.core.dsl.rule.ruleDsl.impl.QueryImpl#getSelect <em>Select</em>}</li>
- *   <li>{@link eagledata.core.dsl.rule.ruleDsl.impl.QueryImpl#getWhere <em>Where</em>}</li>
+ *   <li>{@link eagledata.core.dsl.rule.ruleDsl.impl.QueryImpl#getThen <em>Then</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class QueryImpl extends RuleElementImpl implements Query
+public class QueryImpl extends ActionImpl implements Query
 {
   /**
    * The cached value of the '{@link #getSelect() <em>Select</em>}' containment reference.
@@ -43,14 +50,14 @@ public class QueryImpl extends RuleElementImpl implements Query
   protected Select select;
 
   /**
-   * The cached value of the '{@link #getWhere() <em>Where</em>}' containment reference.
+   * The cached value of the '{@link #getThen() <em>Then</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getWhere()
+   * @see #getThen()
    * @generated
    * @ordered
    */
-  protected Where where;
+  protected EList<Message> then;
 
   /**
    * <!-- begin-user-doc -->
@@ -126,47 +133,13 @@ public class QueryImpl extends RuleElementImpl implements Query
    * <!-- end-user-doc -->
    * @generated
    */
-  public Where getWhere()
+  public EList<Message> getThen()
   {
-    return where;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NotificationChain basicSetWhere(Where newWhere, NotificationChain msgs)
-  {
-    Where oldWhere = where;
-    where = newWhere;
-    if (eNotificationRequired())
+    if (then == null)
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, RuleDslPackage.QUERY__WHERE, oldWhere, newWhere);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
+      then = new EObjectContainmentEList<Message>(Message.class, this, RuleDslPackage.QUERY__THEN);
     }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setWhere(Where newWhere)
-  {
-    if (newWhere != where)
-    {
-      NotificationChain msgs = null;
-      if (where != null)
-        msgs = ((InternalEObject)where).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - RuleDslPackage.QUERY__WHERE, null, msgs);
-      if (newWhere != null)
-        msgs = ((InternalEObject)newWhere).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - RuleDslPackage.QUERY__WHERE, null, msgs);
-      msgs = basicSetWhere(newWhere, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, RuleDslPackage.QUERY__WHERE, newWhere, newWhere));
+    return then;
   }
 
   /**
@@ -181,8 +154,8 @@ public class QueryImpl extends RuleElementImpl implements Query
     {
       case RuleDslPackage.QUERY__SELECT:
         return basicSetSelect(null, msgs);
-      case RuleDslPackage.QUERY__WHERE:
-        return basicSetWhere(null, msgs);
+      case RuleDslPackage.QUERY__THEN:
+        return ((InternalEList<?>)getThen()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -199,8 +172,8 @@ public class QueryImpl extends RuleElementImpl implements Query
     {
       case RuleDslPackage.QUERY__SELECT:
         return getSelect();
-      case RuleDslPackage.QUERY__WHERE:
-        return getWhere();
+      case RuleDslPackage.QUERY__THEN:
+        return getThen();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -210,6 +183,7 @@ public class QueryImpl extends RuleElementImpl implements Query
    * <!-- end-user-doc -->
    * @generated
    */
+  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
@@ -218,8 +192,9 @@ public class QueryImpl extends RuleElementImpl implements Query
       case RuleDslPackage.QUERY__SELECT:
         setSelect((Select)newValue);
         return;
-      case RuleDslPackage.QUERY__WHERE:
-        setWhere((Where)newValue);
+      case RuleDslPackage.QUERY__THEN:
+        getThen().clear();
+        getThen().addAll((Collection<? extends Message>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -238,8 +213,8 @@ public class QueryImpl extends RuleElementImpl implements Query
       case RuleDslPackage.QUERY__SELECT:
         setSelect((Select)null);
         return;
-      case RuleDslPackage.QUERY__WHERE:
-        setWhere((Where)null);
+      case RuleDslPackage.QUERY__THEN:
+        getThen().clear();
         return;
     }
     super.eUnset(featureID);
@@ -257,8 +232,8 @@ public class QueryImpl extends RuleElementImpl implements Query
     {
       case RuleDslPackage.QUERY__SELECT:
         return select != null;
-      case RuleDslPackage.QUERY__WHERE:
-        return where != null;
+      case RuleDslPackage.QUERY__THEN:
+        return then != null && !then.isEmpty();
     }
     return super.eIsSet(featureID);
   }

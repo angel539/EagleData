@@ -18,7 +18,7 @@ import eagledata.core.dsl.pattern.streamingDsl.Region;
 import eagledata.core.dsl.pattern.streamingDsl.SourceOption;
 import eagledata.core.dsl.pattern.streamingDsl.StreamingDslPackage;
 import eagledata.core.dsl.pattern.streamingDsl.StreamingModel;
-import eagledata.core.dsl.pattern.streamingDsl.Term;
+import eagledata.core.dsl.pattern.streamingDsl.TermKey;
 import eagledata.core.dsl.pattern.streamingDsl.TermList;
 import eagledata.core.dsl.pattern.streamingDsl.UTM;
 import java.util.Set;
@@ -82,8 +82,8 @@ public class PatternDslSemanticSequencer extends AbstractDelegatingSemanticSeque
 			case StreamingDslPackage.STREAMING_MODEL:
 				sequence_StreamingModel(context, (StreamingModel) semanticObject); 
 				return; 
-			case StreamingDslPackage.TERM:
-				sequence_Term(context, (Term) semanticObject); 
+			case StreamingDslPackage.TERM_KEY:
+				sequence_TermKey(context, (TermKey) semanticObject); 
 				return; 
 			case StreamingDslPackage.TERM_LIST:
 				sequence_TermList(context, (TermList) semanticObject); 
@@ -336,6 +336,30 @@ public class PatternDslSemanticSequencer extends AbstractDelegatingSemanticSeque
 	
 	/**
 	 * Contexts:
+	 *     StreamingDescription returns TermKey
+	 *     PatternMatcherElement returns TermKey
+	 *     Concept returns TermKey
+	 *     TermKey returns TermKey
+	 *
+	 * Constraint:
+	 *     (type=BasicType name=ID)
+	 */
+	protected void sequence_TermKey(ISerializationContext context, TermKey semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, StreamingDslPackage.Literals.TERM_KEY__TYPE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, StreamingDslPackage.Literals.TERM_KEY__TYPE));
+			if (transientValues.isValueTransient(semanticObject, StreamingDslPackage.Literals.PATTERN_MATCHER_ELEMENT__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, StreamingDslPackage.Literals.PATTERN_MATCHER_ELEMENT__NAME));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getTermKeyAccess().getTypeBasicTypeEnumRuleCall_0_0(), semanticObject.getType());
+		feeder.accept(grammarAccess.getTermKeyAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     StreamingDescription returns TermList
 	 *     PatternMatcherElement returns TermList
 	 *     Concept returns TermList
@@ -346,27 +370,6 @@ public class PatternDslSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 */
 	protected void sequence_TermList(ISerializationContext context, TermList semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     StreamingDescription returns Term
-	 *     PatternMatcherElement returns Term
-	 *     Concept returns Term
-	 *     Term returns Term
-	 *
-	 * Constraint:
-	 *     name=ID
-	 */
-	protected void sequence_Term(ISerializationContext context, Term semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, StreamingDslPackage.Literals.PATTERN_MATCHER_ELEMENT__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, StreamingDslPackage.Literals.PATTERN_MATCHER_ELEMENT__NAME));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getTermAccess().getNameIDTerminalRuleCall_0(), semanticObject.getName());
-		feeder.finish();
 	}
 	
 	

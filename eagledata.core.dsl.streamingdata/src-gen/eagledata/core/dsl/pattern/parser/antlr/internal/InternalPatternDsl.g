@@ -829,11 +829,11 @@ ruleConcept returns [EObject current=null]
 		}
 		    |
 		{
-			newCompositeNode(grammarAccess.getConceptAccess().getTermParserRuleCall_1());
+			newCompositeNode(grammarAccess.getConceptAccess().getTermKeyParserRuleCall_1());
 		}
-		this_Term_1=ruleTerm
+		this_TermKey_1=ruleTermKey
 		{
-			$current = $this_Term_1.current;
+			$current = $this_TermKey_1.current;
 			afterParserOrEnumRuleCall();
 		}
 	)
@@ -955,15 +955,15 @@ ruleTermList returns [EObject current=null]
 	)
 ;
 
-// Entry rule entryRuleTerm
-entryRuleTerm returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getTermRule()); }
-	iv_ruleTerm=ruleTerm
-	{ $current=$iv_ruleTerm.current; }
+// Entry rule entryRuleTermKey
+entryRuleTermKey returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getTermKeyRule()); }
+	iv_ruleTermKey=ruleTermKey
+	{ $current=$iv_ruleTermKey.current; }
 	EOF;
 
-// Rule Term
-ruleTerm returns [EObject current=null]
+// Rule TermKey
+ruleTermKey returns [EObject current=null]
 @init {
 	enterRule();
 }
@@ -972,20 +972,41 @@ ruleTerm returns [EObject current=null]
 }:
 	(
 		(
-			lv_name_0_0=RULE_ID
-			{
-				newLeafNode(lv_name_0_0, grammarAccess.getTermAccess().getNameIDTerminalRuleCall_0());
-			}
-			{
-				if ($current==null) {
-					$current = createModelElement(grammarAccess.getTermRule());
+			(
+				{
+					newCompositeNode(grammarAccess.getTermKeyAccess().getTypeBasicTypeEnumRuleCall_0_0());
 				}
-				setWithLastConsumed(
-					$current,
-					"name",
-					lv_name_0_0,
-					"org.eclipse.xtext.common.Terminals.ID");
-			}
+				lv_type_0_0=ruleBasicType
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getTermKeyRule());
+					}
+					set(
+						$current,
+						"type",
+						lv_type_0_0,
+						"eagledata.core.dsl.pattern.PatternDsl.BasicType");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		(
+			(
+				lv_name_1_0=RULE_ID
+				{
+					newLeafNode(lv_name_1_0, grammarAccess.getTermKeyAccess().getNameIDTerminalRuleCall_1_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getTermKeyRule());
+					}
+					setWithLastConsumed(
+						$current,
+						"name",
+						lv_name_1_0,
+						"org.eclipse.xtext.common.Terminals.ID");
+				}
+			)
 		)
 	)
 ;
@@ -1042,20 +1063,16 @@ rulePhrase returns [EObject current=null]
 				}
 			)
 		)?
-		otherlv_3='='
+		otherlv_3='{'
 		{
-			newLeafNode(otherlv_3, grammarAccess.getPhraseAccess().getEqualsSignKeyword_3());
-		}
-		otherlv_4='('
-		{
-			newLeafNode(otherlv_4, grammarAccess.getPhraseAccess().getLeftParenthesisKeyword_4());
+			newLeafNode(otherlv_3, grammarAccess.getPhraseAccess().getLeftCurlyBracketKeyword_3());
 		}
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getPhraseAccess().getConceptsConceptParserRuleCall_5_0());
+					newCompositeNode(grammarAccess.getPhraseAccess().getConceptsConceptParserRuleCall_4_0());
 				}
-				lv_concepts_5_0=ruleConcept
+				lv_concepts_4_0=ruleConcept
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getPhraseRule());
@@ -1063,23 +1080,23 @@ rulePhrase returns [EObject current=null]
 					add(
 						$current,
 						"concepts",
-						lv_concepts_5_0,
+						lv_concepts_4_0,
 						"eagledata.core.dsl.pattern.PatternDsl.Concept");
 					afterParserOrEnumRuleCall();
 				}
 			)
 		)
 		(
-			otherlv_6=','
+			otherlv_5=','
 			{
-				newLeafNode(otherlv_6, grammarAccess.getPhraseAccess().getCommaKeyword_6_0());
+				newLeafNode(otherlv_5, grammarAccess.getPhraseAccess().getCommaKeyword_5_0());
 			}
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getPhraseAccess().getConceptsConceptParserRuleCall_6_1_0());
+						newCompositeNode(grammarAccess.getPhraseAccess().getConceptsConceptParserRuleCall_5_1_0());
 					}
-					lv_concepts_7_0=ruleConcept
+					lv_concepts_6_0=ruleConcept
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getPhraseRule());
@@ -1087,28 +1104,28 @@ rulePhrase returns [EObject current=null]
 						add(
 							$current,
 							"concepts",
-							lv_concepts_7_0,
+							lv_concepts_6_0,
 							"eagledata.core.dsl.pattern.PatternDsl.Concept");
 						afterParserOrEnumRuleCall();
 					}
 				)
 			)
 		)*
-		otherlv_8=')'
+		otherlv_7='}'
 		{
-			newLeafNode(otherlv_8, grammarAccess.getPhraseAccess().getRightParenthesisKeyword_7());
+			newLeafNode(otherlv_7, grammarAccess.getPhraseAccess().getRightCurlyBracketKeyword_6());
 		}
 		(
-			otherlv_9='{'
+			otherlv_8='('
 			{
-				newLeafNode(otherlv_9, grammarAccess.getPhraseAccess().getLeftCurlyBracketKeyword_8_0());
+				newLeafNode(otherlv_8, grammarAccess.getPhraseAccess().getLeftParenthesisKeyword_7_0());
 			}
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getPhraseAccess().getOptionsOptionParserRuleCall_8_1_0());
+						newCompositeNode(grammarAccess.getPhraseAccess().getOptionsOptionParserRuleCall_7_1_0());
 					}
-					lv_options_10_0=ruleOption
+					lv_options_9_0=ruleOption
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getPhraseRule());
@@ -1116,23 +1133,23 @@ rulePhrase returns [EObject current=null]
 						add(
 							$current,
 							"options",
-							lv_options_10_0,
+							lv_options_9_0,
 							"eagledata.core.dsl.pattern.PatternDsl.Option");
 						afterParserOrEnumRuleCall();
 					}
 				)
 			)
 			(
-				otherlv_11=','
+				otherlv_10=','
 				{
-					newLeafNode(otherlv_11, grammarAccess.getPhraseAccess().getCommaKeyword_8_2_0());
+					newLeafNode(otherlv_10, grammarAccess.getPhraseAccess().getCommaKeyword_7_2_0());
 				}
 				(
 					(
 						{
-							newCompositeNode(grammarAccess.getPhraseAccess().getOptionsOptionParserRuleCall_8_2_1_0());
+							newCompositeNode(grammarAccess.getPhraseAccess().getOptionsOptionParserRuleCall_7_2_1_0());
 						}
-						lv_options_12_0=ruleOption
+						lv_options_11_0=ruleOption
 						{
 							if ($current==null) {
 								$current = createModelElementForParent(grammarAccess.getPhraseRule());
@@ -1140,16 +1157,16 @@ rulePhrase returns [EObject current=null]
 							add(
 								$current,
 								"options",
-								lv_options_12_0,
+								lv_options_11_0,
 								"eagledata.core.dsl.pattern.PatternDsl.Option");
 							afterParserOrEnumRuleCall();
 						}
 					)
 				)
 			)*
-			otherlv_13='}'
+			otherlv_12=')'
 			{
-				newLeafNode(otherlv_13, grammarAccess.getPhraseAccess().getRightCurlyBracketKeyword_8_3());
+				newLeafNode(otherlv_12, grammarAccess.getPhraseAccess().getRightParenthesisKeyword_7_3());
 			}
 		)?
 	)
@@ -1514,6 +1531,185 @@ ruleIntOption returns [EObject current=null]
 						"org.eclipse.xtext.common.Terminals.INT");
 				}
 			)
+		)
+	)
+;
+
+// Rule BasicType
+ruleBasicType returns [Enumerator current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			enumLiteral_0='String'
+			{
+				$current = grammarAccess.getBasicTypeAccess().getStringEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_0, grammarAccess.getBasicTypeAccess().getStringEnumLiteralDeclaration_0());
+			}
+		)
+		    |
+		(
+			enumLiteral_1='Url'
+			{
+				$current = grammarAccess.getBasicTypeAccess().getUrlEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_1, grammarAccess.getBasicTypeAccess().getUrlEnumLiteralDeclaration_1());
+			}
+		)
+		    |
+		(
+			enumLiteral_2='Int'
+			{
+				$current = grammarAccess.getBasicTypeAccess().getIntEnumLiteralDeclaration_2().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_2, grammarAccess.getBasicTypeAccess().getIntEnumLiteralDeclaration_2());
+			}
+		)
+		    |
+		(
+			enumLiteral_3='LongInt'
+			{
+				$current = grammarAccess.getBasicTypeAccess().getLongIntEnumLiteralDeclaration_3().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_3, grammarAccess.getBasicTypeAccess().getLongIntEnumLiteralDeclaration_3());
+			}
+		)
+		    |
+		(
+			enumLiteral_4='Real'
+			{
+				$current = grammarAccess.getBasicTypeAccess().getRealEnumLiteralDeclaration_4().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_4, grammarAccess.getBasicTypeAccess().getRealEnumLiteralDeclaration_4());
+			}
+		)
+		    |
+		(
+			enumLiteral_5='Date'
+			{
+				$current = grammarAccess.getBasicTypeAccess().getDateEnumLiteralDeclaration_5().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_5, grammarAccess.getBasicTypeAccess().getDateEnumLiteralDeclaration_5());
+			}
+		)
+		    |
+		(
+			enumLiteral_6='Time'
+			{
+				$current = grammarAccess.getBasicTypeAccess().getTimeEnumLiteralDeclaration_6().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_6, grammarAccess.getBasicTypeAccess().getTimeEnumLiteralDeclaration_6());
+			}
+		)
+		    |
+		(
+			enumLiteral_7='Year'
+			{
+				$current = grammarAccess.getBasicTypeAccess().getYearEnumLiteralDeclaration_7().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_7, grammarAccess.getBasicTypeAccess().getYearEnumLiteralDeclaration_7());
+			}
+		)
+		    |
+		(
+			enumLiteral_8='Month'
+			{
+				$current = grammarAccess.getBasicTypeAccess().getMonthEnumLiteralDeclaration_8().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_8, grammarAccess.getBasicTypeAccess().getMonthEnumLiteralDeclaration_8());
+			}
+		)
+		    |
+		(
+			enumLiteral_9='Day'
+			{
+				$current = grammarAccess.getBasicTypeAccess().getDayEnumLiteralDeclaration_9().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_9, grammarAccess.getBasicTypeAccess().getDayEnumLiteralDeclaration_9());
+			}
+		)
+		    |
+		(
+			enumLiteral_10='Boolean'
+			{
+				$current = grammarAccess.getBasicTypeAccess().getBooleanEnumLiteralDeclaration_10().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_10, grammarAccess.getBasicTypeAccess().getBooleanEnumLiteralDeclaration_10());
+			}
+		)
+		    |
+		(
+			enumLiteral_11='Lat'
+			{
+				$current = grammarAccess.getBasicTypeAccess().getLatEnumLiteralDeclaration_11().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_11, grammarAccess.getBasicTypeAccess().getLatEnumLiteralDeclaration_11());
+			}
+		)
+		    |
+		(
+			enumLiteral_12='Long'
+			{
+				$current = grammarAccess.getBasicTypeAccess().getLongEnumLiteralDeclaration_12().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_12, grammarAccess.getBasicTypeAccess().getLongEnumLiteralDeclaration_12());
+			}
+		)
+		    |
+		(
+			enumLiteral_13='Percent'
+			{
+				$current = grammarAccess.getBasicTypeAccess().getPercentEnumLiteralDeclaration_13().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_13, grammarAccess.getBasicTypeAccess().getPercentEnumLiteralDeclaration_13());
+			}
+		)
+		    |
+		(
+			enumLiteral_14='Email'
+			{
+				$current = grammarAccess.getBasicTypeAccess().getEmailEnumLiteralDeclaration_14().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_14, grammarAccess.getBasicTypeAccess().getEmailEnumLiteralDeclaration_14());
+			}
+		)
+		    |
+		(
+			enumLiteral_15='Currency'
+			{
+				$current = grammarAccess.getBasicTypeAccess().getCurrencyEnumLiteralDeclaration_15().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_15, grammarAccess.getBasicTypeAccess().getCurrencyEnumLiteralDeclaration_15());
+			}
+		)
+		    |
+		(
+			enumLiteral_16='CreditCard'
+			{
+				$current = grammarAccess.getBasicTypeAccess().getCreditcardEnumLiteralDeclaration_16().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_16, grammarAccess.getBasicTypeAccess().getCreditcardEnumLiteralDeclaration_16());
+			}
+		)
+		    |
+		(
+			enumLiteral_17='IBAN'
+			{
+				$current = grammarAccess.getBasicTypeAccess().getIBANEnumLiteralDeclaration_17().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_17, grammarAccess.getBasicTypeAccess().getIBANEnumLiteralDeclaration_17());
+			}
+		)
+		    |
+		(
+			enumLiteral_18='ISBN'
+			{
+				$current = grammarAccess.getBasicTypeAccess().getISBNEnumLiteralDeclaration_18().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_18, grammarAccess.getBasicTypeAccess().getISBNEnumLiteralDeclaration_18());
+			}
+		)
+		    |
+		(
+			enumLiteral_19='ISSN'
+			{
+				$current = grammarAccess.getBasicTypeAccess().getISSNEnumLiteralDeclaration_19().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_19, grammarAccess.getBasicTypeAccess().getISSNEnumLiteralDeclaration_19());
+			}
+		)
+		    |
+		(
+			enumLiteral_20='Inet'
+			{
+				$current = grammarAccess.getBasicTypeAccess().getInetEnumLiteralDeclaration_20().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_20, grammarAccess.getBasicTypeAccess().getInetEnumLiteralDeclaration_20());
+			}
 		)
 	)
 ;

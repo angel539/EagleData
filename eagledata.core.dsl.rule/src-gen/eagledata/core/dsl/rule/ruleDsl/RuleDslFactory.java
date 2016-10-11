@@ -51,6 +51,15 @@ public interface RuleDslFactory extends EFactory
   Rule createRule();
 
   /**
+   * Returns a new object of class '<em>Action</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Action</em>'.
+   * @generated
+   */
+  Action createAction();
+
+  /**
    * Returns a new object of class '<em>Query</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -58,6 +67,15 @@ public interface RuleDslFactory extends EFactory
    * @generated
    */
   Query createQuery();
+
+  /**
+   * Returns a new object of class '<em>Adding Select</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Adding Select</em>'.
+   * @generated
+   */
+  AddingSelect createAddingSelect();
 
   /**
    * Returns a new object of class '<em>Select</em>'.
@@ -76,24 +94,6 @@ public interface RuleDslFactory extends EFactory
    * @generated
    */
   SetSelect createSetSelect();
-
-  /**
-   * Returns a new object of class '<em>Selection</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Selection</em>'.
-   * @generated
-   */
-  Selection createSelection();
-
-  /**
-   * Returns a new object of class '<em>Adding Select</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Adding Select</em>'.
-   * @generated
-   */
-  AddingSelect createAddingSelect();
 
   /**
    * Returns a new object of class '<em>Where</em>'.
@@ -166,6 +166,69 @@ public interface RuleDslFactory extends EFactory
    * @generated
    */
   ComplexOperand createComplexOperand();
+
+  /**
+   * Returns a new object of class '<em>Message</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Message</em>'.
+   * @generated
+   */
+  Message createMessage();
+
+  /**
+   * Returns a new object of class '<em>Message String</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Message String</em>'.
+   * @generated
+   */
+  MessageString createMessageString();
+
+  /**
+   * Returns a new object of class '<em>Select Message String</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Select Message String</em>'.
+   * @generated
+   */
+  SelectMessageString createSelectMessageString();
+
+  /**
+   * Returns a new object of class '<em>Text Message String</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Text Message String</em>'.
+   * @generated
+   */
+  TextMessageString createTextMessageString();
+
+  /**
+   * Returns a new object of class '<em>Receiver</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Receiver</em>'.
+   * @generated
+   */
+  Receiver createReceiver();
+
+  /**
+   * Returns a new object of class '<em>Receiver List</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Receiver List</em>'.
+   * @generated
+   */
+  ReceiverList createReceiverList();
+
+  /**
+   * Returns a new object of class '<em>Distribution List</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Distribution List</em>'.
+   * @generated
+   */
+  DistributionList createDistributionList();
 
   /**
    * Returns the package supported by this factory.

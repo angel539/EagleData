@@ -3,18 +3,11 @@
  */
 package eagledata.core.dsl.datadesc.web;
 
-import com.google.inject.Provider;
 import eagledata.core.dsl.datadesc.web.AbstractDataDslWebModule;
-import java.util.concurrent.ExecutorService;
-import org.eclipse.xtend.lib.annotations.FinalFieldsConstructor;
 
 /**
  * Use this class to register additional components to be used within the web application.
  */
-@FinalFieldsConstructor
-@SuppressWarnings("all")
+/* @FinalFieldsConstructor */@SuppressWarnings("all")
 public class DataDslWebModule extends AbstractDataDslWebModule {
-  public DataDslWebModule(final Provider<ExecutorService> executorServiceProvider) {
-    super(executorServiceProvider);
-  }
 }

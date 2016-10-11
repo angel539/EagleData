@@ -79,7 +79,7 @@ public class StreamingDslFactoryImpl extends EFactoryImpl implements StreamingDs
       case StreamingDslPackage.PATTERN_MATCHER_ELEMENT: return createPatternMatcherElement();
       case StreamingDslPackage.CONCEPT: return createConcept();
       case StreamingDslPackage.TERM_LIST: return createTermList();
-      case StreamingDslPackage.TERM: return createTerm();
+      case StreamingDslPackage.TERM_KEY: return createTermKey();
       case StreamingDslPackage.PHRASE: return createPhrase();
       case StreamingDslPackage.OPTION: return createOption();
       case StreamingDslPackage.GEO_OPTION: return createGeoOption();
@@ -102,6 +102,8 @@ public class StreamingDslFactoryImpl extends EFactoryImpl implements StreamingDs
   {
     switch (eDataType.getClassifierID())
     {
+      case StreamingDslPackage.BASIC_TYPE:
+        return createBasicTypeFromString(eDataType, initialValue);
       case StreamingDslPackage.GEO_OPTION_KEY:
         return createGeoOptionKeyFromString(eDataType, initialValue);
       case StreamingDslPackage.SOURCE_OPTION_KEY:
@@ -139,6 +141,8 @@ public class StreamingDslFactoryImpl extends EFactoryImpl implements StreamingDs
   {
     switch (eDataType.getClassifierID())
     {
+      case StreamingDslPackage.BASIC_TYPE:
+        return convertBasicTypeToString(eDataType, instanceValue);
       case StreamingDslPackage.GEO_OPTION_KEY:
         return convertGeoOptionKeyToString(eDataType, instanceValue);
       case StreamingDslPackage.SOURCE_OPTION_KEY:
@@ -314,10 +318,10 @@ public class StreamingDslFactoryImpl extends EFactoryImpl implements StreamingDs
    * <!-- end-user-doc -->
    * @generated
    */
-  public Term createTerm()
+  public TermKey createTermKey()
   {
-    TermImpl term = new TermImpl();
-    return term;
+    TermKeyImpl termKey = new TermKeyImpl();
+    return termKey;
   }
 
   /**
@@ -395,6 +399,28 @@ public class StreamingDslFactoryImpl extends EFactoryImpl implements StreamingDs
   {
     IntOptionImpl intOption = new IntOptionImpl();
     return intOption;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public BasicType createBasicTypeFromString(EDataType eDataType, String initialValue)
+  {
+    BasicType result = BasicType.get(initialValue);
+    if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+    return result;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String convertBasicTypeToString(EDataType eDataType, Object instanceValue)
+  {
+    return instanceValue == null ? null : instanceValue.toString();
   }
 
   /**

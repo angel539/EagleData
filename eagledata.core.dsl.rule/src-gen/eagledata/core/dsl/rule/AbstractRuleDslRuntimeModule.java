@@ -6,6 +6,7 @@ package eagledata.core.dsl.rule;
 import com.google.inject.Binder;
 import com.google.inject.Provider;
 import com.google.inject.name.Names;
+import eagledata.core.dsl.rule.formatting.RuleDslFormatter;
 import eagledata.core.dsl.rule.generator.RuleDslGenerator;
 import eagledata.core.dsl.rule.parser.antlr.RuleDslAntlrTokenFileProvider;
 import eagledata.core.dsl.rule.parser.antlr.RuleDslParser;
@@ -18,6 +19,9 @@ import eagledata.core.dsl.rule.validation.RuleDslValidator;
 import java.util.Properties;
 import org.eclipse.xtext.Constants;
 import org.eclipse.xtext.IGrammarAccess;
+import org.eclipse.xtext.common.services.Ecore2XtextTerminalConverters;
+import org.eclipse.xtext.conversion.IValueConverterService;
+import org.eclipse.xtext.formatting.IFormatter;
 import org.eclipse.xtext.generator.IGenerator2;
 import org.eclipse.xtext.naming.DefaultDeclarativeQualifiedNameProvider;
 import org.eclipse.xtext.naming.IQualifiedNameProvider;
@@ -189,6 +193,16 @@ public abstract class AbstractRuleDslRuntimeModule extends DefaultRuntimeModule 
 	// contributed by org.eclipse.xtext.xtext.generator.generator.GeneratorFragment2
 	public Class<? extends IGenerator2> bindIGenerator2() {
 		return RuleDslGenerator.class;
+	}
+	
+	// contributed by org.eclipse.xtext.xtext.generator.ecore2xtext.Ecore2XtextValueConverterServiceFragment2
+	public Class<? extends IValueConverterService> bindIValueConverterService() {
+		return Ecore2XtextTerminalConverters.class;
+	}
+	
+	// contributed by org.eclipse.xtext.generator.formatting.FormatterFragment
+	public Class<? extends IFormatter> bindIFormatter() {
+		return RuleDslFormatter.class;
 	}
 	
 }

@@ -91,9 +91,19 @@ public class RuleDslAdapterFactory extends AdapterFactoryImpl
         return createRuleAdapter();
       }
       @Override
+      public Adapter caseAction(Action object)
+      {
+        return createActionAdapter();
+      }
+      @Override
       public Adapter caseQuery(Query object)
       {
         return createQueryAdapter();
+      }
+      @Override
+      public Adapter caseAddingSelect(AddingSelect object)
+      {
+        return createAddingSelectAdapter();
       }
       @Override
       public Adapter caseSelect(Select object)
@@ -104,16 +114,6 @@ public class RuleDslAdapterFactory extends AdapterFactoryImpl
       public Adapter caseSetSelect(SetSelect object)
       {
         return createSetSelectAdapter();
-      }
-      @Override
-      public Adapter caseSelection(Selection object)
-      {
-        return createSelectionAdapter();
-      }
-      @Override
-      public Adapter caseAddingSelect(AddingSelect object)
-      {
-        return createAddingSelectAdapter();
       }
       @Override
       public Adapter caseWhere(Where object)
@@ -154,6 +154,41 @@ public class RuleDslAdapterFactory extends AdapterFactoryImpl
       public Adapter caseComplexOperand(ComplexOperand object)
       {
         return createComplexOperandAdapter();
+      }
+      @Override
+      public Adapter caseMessage(Message object)
+      {
+        return createMessageAdapter();
+      }
+      @Override
+      public Adapter caseMessageString(MessageString object)
+      {
+        return createMessageStringAdapter();
+      }
+      @Override
+      public Adapter caseSelectMessageString(SelectMessageString object)
+      {
+        return createSelectMessageStringAdapter();
+      }
+      @Override
+      public Adapter caseTextMessageString(TextMessageString object)
+      {
+        return createTextMessageStringAdapter();
+      }
+      @Override
+      public Adapter caseReceiver(Receiver object)
+      {
+        return createReceiverAdapter();
+      }
+      @Override
+      public Adapter caseReceiverList(ReceiverList object)
+      {
+        return createReceiverListAdapter();
+      }
+      @Override
+      public Adapter caseDistributionList(DistributionList object)
+      {
+        return createDistributionListAdapter();
       }
       @Override
       public Adapter defaultCase(EObject object)
@@ -223,6 +258,21 @@ public class RuleDslAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
+   * Creates a new adapter for an object of class '{@link eagledata.core.dsl.rule.ruleDsl.Action <em>Action</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see eagledata.core.dsl.rule.ruleDsl.Action
+   * @generated
+   */
+  public Adapter createActionAdapter()
+  {
+    return null;
+  }
+
+  /**
    * Creates a new adapter for an object of class '{@link eagledata.core.dsl.rule.ruleDsl.Query <em>Query</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -233,6 +283,21 @@ public class RuleDslAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createQueryAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link eagledata.core.dsl.rule.ruleDsl.AddingSelect <em>Adding Select</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see eagledata.core.dsl.rule.ruleDsl.AddingSelect
+   * @generated
+   */
+  public Adapter createAddingSelectAdapter()
   {
     return null;
   }
@@ -263,36 +328,6 @@ public class RuleDslAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createSetSelectAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link eagledata.core.dsl.rule.ruleDsl.Selection <em>Selection</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see eagledata.core.dsl.rule.ruleDsl.Selection
-   * @generated
-   */
-  public Adapter createSelectionAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link eagledata.core.dsl.rule.ruleDsl.AddingSelect <em>Adding Select</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see eagledata.core.dsl.rule.ruleDsl.AddingSelect
-   * @generated
-   */
-  public Adapter createAddingSelectAdapter()
   {
     return null;
   }
@@ -413,6 +448,111 @@ public class RuleDslAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createComplexOperandAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link eagledata.core.dsl.rule.ruleDsl.Message <em>Message</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see eagledata.core.dsl.rule.ruleDsl.Message
+   * @generated
+   */
+  public Adapter createMessageAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link eagledata.core.dsl.rule.ruleDsl.MessageString <em>Message String</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see eagledata.core.dsl.rule.ruleDsl.MessageString
+   * @generated
+   */
+  public Adapter createMessageStringAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link eagledata.core.dsl.rule.ruleDsl.SelectMessageString <em>Select Message String</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see eagledata.core.dsl.rule.ruleDsl.SelectMessageString
+   * @generated
+   */
+  public Adapter createSelectMessageStringAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link eagledata.core.dsl.rule.ruleDsl.TextMessageString <em>Text Message String</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see eagledata.core.dsl.rule.ruleDsl.TextMessageString
+   * @generated
+   */
+  public Adapter createTextMessageStringAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link eagledata.core.dsl.rule.ruleDsl.Receiver <em>Receiver</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see eagledata.core.dsl.rule.ruleDsl.Receiver
+   * @generated
+   */
+  public Adapter createReceiverAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link eagledata.core.dsl.rule.ruleDsl.ReceiverList <em>Receiver List</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see eagledata.core.dsl.rule.ruleDsl.ReceiverList
+   * @generated
+   */
+  public Adapter createReceiverListAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link eagledata.core.dsl.rule.ruleDsl.DistributionList <em>Distribution List</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see eagledata.core.dsl.rule.ruleDsl.DistributionList
+   * @generated
+   */
+  public Adapter createDistributionListAdapter()
   {
     return null;
   }

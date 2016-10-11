@@ -504,14 +504,14 @@ public interface StreamingDslPackage extends EPackage
   int TERM_LIST_FEATURE_COUNT = CONCEPT_FEATURE_COUNT + 2;
 
   /**
-   * The meta object id for the '{@link eagledata.core.dsl.pattern.streamingDsl.impl.TermImpl <em>Term</em>}' class.
+   * The meta object id for the '{@link eagledata.core.dsl.pattern.streamingDsl.impl.TermKeyImpl <em>Term Key</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see eagledata.core.dsl.pattern.streamingDsl.impl.TermImpl
-   * @see eagledata.core.dsl.pattern.streamingDsl.impl.StreamingDslPackageImpl#getTerm()
+   * @see eagledata.core.dsl.pattern.streamingDsl.impl.TermKeyImpl
+   * @see eagledata.core.dsl.pattern.streamingDsl.impl.StreamingDslPackageImpl#getTermKey()
    * @generated
    */
-  int TERM = 13;
+  int TERM_KEY = 13;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -520,16 +520,25 @@ public interface StreamingDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int TERM__NAME = CONCEPT__NAME;
+  int TERM_KEY__NAME = CONCEPT__NAME;
 
   /**
-   * The number of structural features of the '<em>Term</em>' class.
+   * The feature id for the '<em><b>Type</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int TERM_FEATURE_COUNT = CONCEPT_FEATURE_COUNT + 0;
+  int TERM_KEY__TYPE = CONCEPT_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Term Key</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TERM_KEY_FEATURE_COUNT = CONCEPT_FEATURE_COUNT + 1;
 
   /**
    * The meta object id for the '{@link eagledata.core.dsl.pattern.streamingDsl.impl.PhraseImpl <em>Phrase</em>}' class.
@@ -791,6 +800,16 @@ public interface StreamingDslPackage extends EPackage
   int INT_OPTION_FEATURE_COUNT = OPTION_FEATURE_COUNT + 2;
 
   /**
+   * The meta object id for the '{@link eagledata.core.dsl.pattern.streamingDsl.BasicType <em>Basic Type</em>}' enum.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see eagledata.core.dsl.pattern.streamingDsl.BasicType
+   * @see eagledata.core.dsl.pattern.streamingDsl.impl.StreamingDslPackageImpl#getBasicType()
+   * @generated
+   */
+  int BASIC_TYPE = 21;
+
+  /**
    * The meta object id for the '{@link eagledata.core.dsl.pattern.streamingDsl.GeoOptionKey <em>Geo Option Key</em>}' enum.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -798,7 +817,7 @@ public interface StreamingDslPackage extends EPackage
    * @see eagledata.core.dsl.pattern.streamingDsl.impl.StreamingDslPackageImpl#getGeoOptionKey()
    * @generated
    */
-  int GEO_OPTION_KEY = 21;
+  int GEO_OPTION_KEY = 22;
 
   /**
    * The meta object id for the '{@link eagledata.core.dsl.pattern.streamingDsl.SourceOptionKey <em>Source Option Key</em>}' enum.
@@ -808,7 +827,7 @@ public interface StreamingDslPackage extends EPackage
    * @see eagledata.core.dsl.pattern.streamingDsl.impl.StreamingDslPackageImpl#getSourceOptionKey()
    * @generated
    */
-  int SOURCE_OPTION_KEY = 22;
+  int SOURCE_OPTION_KEY = 23;
 
   /**
    * The meta object id for the '{@link eagledata.core.dsl.pattern.streamingDsl.LanguageOptionKey <em>Language Option Key</em>}' enum.
@@ -818,7 +837,7 @@ public interface StreamingDslPackage extends EPackage
    * @see eagledata.core.dsl.pattern.streamingDsl.impl.StreamingDslPackageImpl#getLanguageOptionKey()
    * @generated
    */
-  int LANGUAGE_OPTION_KEY = 23;
+  int LANGUAGE_OPTION_KEY = 24;
 
   /**
    * The meta object id for the '{@link eagledata.core.dsl.pattern.streamingDsl.IntOptionKey <em>Int Option Key</em>}' enum.
@@ -828,7 +847,7 @@ public interface StreamingDslPackage extends EPackage
    * @see eagledata.core.dsl.pattern.streamingDsl.impl.StreamingDslPackageImpl#getIntOptionKey()
    * @generated
    */
-  int INT_OPTION_KEY = 24;
+  int INT_OPTION_KEY = 25;
 
   /**
    * The meta object id for the '{@link eagledata.core.dsl.pattern.streamingDsl.BooleanOptionKey <em>Boolean Option Key</em>}' enum.
@@ -838,7 +857,7 @@ public interface StreamingDslPackage extends EPackage
    * @see eagledata.core.dsl.pattern.streamingDsl.impl.StreamingDslPackageImpl#getBooleanOptionKey()
    * @generated
    */
-  int BOOLEAN_OPTION_KEY = 25;
+  int BOOLEAN_OPTION_KEY = 26;
 
   /**
    * The meta object id for the '{@link eagledata.core.dsl.pattern.streamingDsl.UserOptionKey <em>User Option Key</em>}' enum.
@@ -848,7 +867,7 @@ public interface StreamingDslPackage extends EPackage
    * @see eagledata.core.dsl.pattern.streamingDsl.impl.StreamingDslPackageImpl#getUserOptionKey()
    * @generated
    */
-  int USER_OPTION_KEY = 26;
+  int USER_OPTION_KEY = 27;
 
   /**
    * The meta object id for the '{@link eagledata.core.dsl.pattern.streamingDsl.WordListProperty <em>Word List Property</em>}' enum.
@@ -858,7 +877,7 @@ public interface StreamingDslPackage extends EPackage
    * @see eagledata.core.dsl.pattern.streamingDsl.impl.StreamingDslPackageImpl#getWordListProperty()
    * @generated
    */
-  int WORD_LIST_PROPERTY = 27;
+  int WORD_LIST_PROPERTY = 28;
 
   /**
    * The meta object id for the '{@link eagledata.core.dsl.pattern.streamingDsl.Attached <em>Attached</em>}' enum.
@@ -868,7 +887,7 @@ public interface StreamingDslPackage extends EPackage
    * @see eagledata.core.dsl.pattern.streamingDsl.impl.StreamingDslPackageImpl#getAttached()
    * @generated
    */
-  int ATTACHED = 28;
+  int ATTACHED = 29;
 
   /**
    * The meta object id for the '{@link eagledata.core.dsl.pattern.streamingDsl.Source <em>Source</em>}' enum.
@@ -878,7 +897,7 @@ public interface StreamingDslPackage extends EPackage
    * @see eagledata.core.dsl.pattern.streamingDsl.impl.StreamingDslPackageImpl#getSource()
    * @generated
    */
-  int SOURCE = 29;
+  int SOURCE = 30;
 
   /**
    * The meta object id for the '{@link eagledata.core.dsl.pattern.streamingDsl.DistanceMesurement <em>Distance Mesurement</em>}' enum.
@@ -888,7 +907,7 @@ public interface StreamingDslPackage extends EPackage
    * @see eagledata.core.dsl.pattern.streamingDsl.impl.StreamingDslPackageImpl#getDistanceMesurement()
    * @generated
    */
-  int DISTANCE_MESUREMENT = 30;
+  int DISTANCE_MESUREMENT = 31;
 
   /**
    * The meta object id for the '{@link eagledata.core.dsl.pattern.streamingDsl.Language <em>Language</em>}' enum.
@@ -898,7 +917,7 @@ public interface StreamingDslPackage extends EPackage
    * @see eagledata.core.dsl.pattern.streamingDsl.impl.StreamingDslPackageImpl#getLanguage()
    * @generated
    */
-  int LANGUAGE = 31;
+  int LANGUAGE = 32;
 
 
   /**
@@ -1230,14 +1249,25 @@ public interface StreamingDslPackage extends EPackage
   EAttribute getTermList_Terms();
 
   /**
-   * Returns the meta object for class '{@link eagledata.core.dsl.pattern.streamingDsl.Term <em>Term</em>}'.
+   * Returns the meta object for class '{@link eagledata.core.dsl.pattern.streamingDsl.TermKey <em>Term Key</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Term</em>'.
-   * @see eagledata.core.dsl.pattern.streamingDsl.Term
+   * @return the meta object for class '<em>Term Key</em>'.
+   * @see eagledata.core.dsl.pattern.streamingDsl.TermKey
    * @generated
    */
-  EClass getTerm();
+  EClass getTermKey();
+
+  /**
+   * Returns the meta object for the attribute '{@link eagledata.core.dsl.pattern.streamingDsl.TermKey#getType <em>Type</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Type</em>'.
+   * @see eagledata.core.dsl.pattern.streamingDsl.TermKey#getType()
+   * @see #getTermKey()
+   * @generated
+   */
+  EAttribute getTermKey_Type();
 
   /**
    * Returns the meta object for class '{@link eagledata.core.dsl.pattern.streamingDsl.Phrase <em>Phrase</em>}'.
@@ -1451,6 +1481,16 @@ public interface StreamingDslPackage extends EPackage
    * @generated
    */
   EAttribute getIntOption_Value();
+
+  /**
+   * Returns the meta object for enum '{@link eagledata.core.dsl.pattern.streamingDsl.BasicType <em>Basic Type</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for enum '<em>Basic Type</em>'.
+   * @see eagledata.core.dsl.pattern.streamingDsl.BasicType
+   * @generated
+   */
+  EEnum getBasicType();
 
   /**
    * Returns the meta object for enum '{@link eagledata.core.dsl.pattern.streamingDsl.GeoOptionKey <em>Geo Option Key</em>}'.
@@ -1860,14 +1900,22 @@ public interface StreamingDslPackage extends EPackage
     EAttribute TERM_LIST__TERMS = eINSTANCE.getTermList_Terms();
 
     /**
-     * The meta object literal for the '{@link eagledata.core.dsl.pattern.streamingDsl.impl.TermImpl <em>Term</em>}' class.
+     * The meta object literal for the '{@link eagledata.core.dsl.pattern.streamingDsl.impl.TermKeyImpl <em>Term Key</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see eagledata.core.dsl.pattern.streamingDsl.impl.TermImpl
-     * @see eagledata.core.dsl.pattern.streamingDsl.impl.StreamingDslPackageImpl#getTerm()
+     * @see eagledata.core.dsl.pattern.streamingDsl.impl.TermKeyImpl
+     * @see eagledata.core.dsl.pattern.streamingDsl.impl.StreamingDslPackageImpl#getTermKey()
      * @generated
      */
-    EClass TERM = eINSTANCE.getTerm();
+    EClass TERM_KEY = eINSTANCE.getTermKey();
+
+    /**
+     * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute TERM_KEY__TYPE = eINSTANCE.getTermKey_Type();
 
     /**
      * The meta object literal for the '{@link eagledata.core.dsl.pattern.streamingDsl.impl.PhraseImpl <em>Phrase</em>}' class.
@@ -2042,6 +2090,16 @@ public interface StreamingDslPackage extends EPackage
      * @generated
      */
     EAttribute INT_OPTION__VALUE = eINSTANCE.getIntOption_Value();
+
+    /**
+     * The meta object literal for the '{@link eagledata.core.dsl.pattern.streamingDsl.BasicType <em>Basic Type</em>}' enum.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see eagledata.core.dsl.pattern.streamingDsl.BasicType
+     * @see eagledata.core.dsl.pattern.streamingDsl.impl.StreamingDslPackageImpl#getBasicType()
+     * @generated
+     */
+    EEnum BASIC_TYPE = eINSTANCE.getBasicType();
 
     /**
      * The meta object literal for the '{@link eagledata.core.dsl.pattern.streamingDsl.GeoOptionKey <em>Geo Option Key</em>}' enum.

@@ -3,8 +3,10 @@
  */
 package eagledata.core.dsl.rule.ruleDsl.impl;
 
+import eagledata.core.dsl.pattern.streamingDsl.Import;
+
+import eagledata.core.dsl.rule.ruleDsl.Rule;
 import eagledata.core.dsl.rule.ruleDsl.RuleDslPackage;
-import eagledata.core.dsl.rule.ruleDsl.RuleElement;
 import eagledata.core.dsl.rule.ruleDsl.RuleModel;
 
 import java.util.Collection;
@@ -29,6 +31,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link eagledata.core.dsl.rule.ruleDsl.impl.RuleModelImpl#getImports <em>Imports</em>}</li>
  *   <li>{@link eagledata.core.dsl.rule.ruleDsl.impl.RuleModelImpl#getElements <em>Elements</em>}</li>
  * </ul>
  *
@@ -37,6 +40,16 @@ import org.eclipse.emf.ecore.util.InternalEList;
 public class RuleModelImpl extends MinimalEObjectImpl.Container implements RuleModel
 {
   /**
+   * The cached value of the '{@link #getImports() <em>Imports</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getImports()
+   * @generated
+   * @ordered
+   */
+  protected EList<Import> imports;
+
+  /**
    * The cached value of the '{@link #getElements() <em>Elements</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -44,7 +57,7 @@ public class RuleModelImpl extends MinimalEObjectImpl.Container implements RuleM
    * @generated
    * @ordered
    */
-  protected EList<RuleElement> elements;
+  protected EList<Rule> elements;
 
   /**
    * <!-- begin-user-doc -->
@@ -72,11 +85,25 @@ public class RuleModelImpl extends MinimalEObjectImpl.Container implements RuleM
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<RuleElement> getElements()
+  public EList<Import> getImports()
+  {
+    if (imports == null)
+    {
+      imports = new EObjectContainmentEList<Import>(Import.class, this, RuleDslPackage.RULE_MODEL__IMPORTS);
+    }
+    return imports;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EList<Rule> getElements()
   {
     if (elements == null)
     {
-      elements = new EObjectContainmentEList<RuleElement>(RuleElement.class, this, RuleDslPackage.RULE_MODEL__ELEMENTS);
+      elements = new EObjectContainmentEList<Rule>(Rule.class, this, RuleDslPackage.RULE_MODEL__ELEMENTS);
     }
     return elements;
   }
@@ -91,6 +118,8 @@ public class RuleModelImpl extends MinimalEObjectImpl.Container implements RuleM
   {
     switch (featureID)
     {
+      case RuleDslPackage.RULE_MODEL__IMPORTS:
+        return ((InternalEList<?>)getImports()).basicRemove(otherEnd, msgs);
       case RuleDslPackage.RULE_MODEL__ELEMENTS:
         return ((InternalEList<?>)getElements()).basicRemove(otherEnd, msgs);
     }
@@ -107,6 +136,8 @@ public class RuleModelImpl extends MinimalEObjectImpl.Container implements RuleM
   {
     switch (featureID)
     {
+      case RuleDslPackage.RULE_MODEL__IMPORTS:
+        return getImports();
       case RuleDslPackage.RULE_MODEL__ELEMENTS:
         return getElements();
     }
@@ -124,9 +155,13 @@ public class RuleModelImpl extends MinimalEObjectImpl.Container implements RuleM
   {
     switch (featureID)
     {
+      case RuleDslPackage.RULE_MODEL__IMPORTS:
+        getImports().clear();
+        getImports().addAll((Collection<? extends Import>)newValue);
+        return;
       case RuleDslPackage.RULE_MODEL__ELEMENTS:
         getElements().clear();
-        getElements().addAll((Collection<? extends RuleElement>)newValue);
+        getElements().addAll((Collection<? extends Rule>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -142,6 +177,9 @@ public class RuleModelImpl extends MinimalEObjectImpl.Container implements RuleM
   {
     switch (featureID)
     {
+      case RuleDslPackage.RULE_MODEL__IMPORTS:
+        getImports().clear();
+        return;
       case RuleDslPackage.RULE_MODEL__ELEMENTS:
         getElements().clear();
         return;
@@ -159,6 +197,8 @@ public class RuleModelImpl extends MinimalEObjectImpl.Container implements RuleM
   {
     switch (featureID)
     {
+      case RuleDslPackage.RULE_MODEL__IMPORTS:
+        return imports != null && !imports.isEmpty();
       case RuleDslPackage.RULE_MODEL__ELEMENTS:
         return elements != null && !elements.isEmpty();
     }

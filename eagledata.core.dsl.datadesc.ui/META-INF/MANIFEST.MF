@@ -18,7 +18,11 @@ Require-Bundle: eagledata.core.dsl.datadesc,
  org.eclipse.xtend.lib;resolution:=optional,
  org.eclipse.xtext.xbase.lib,
  org.eclipse.xtext.generator,
- org.eclipse.emf.common
+ org.eclipse.emf.common,
+ org.eclipse.xtext.common.types.ui,
+ org.eclipse.xtext.xbase.ui,
+ org.eclipse.jdt.debug.ui,
+ org.eclipse.osgi
 Import-Package: com.google.inject,
  org.apache.log4j
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
@@ -26,6 +30,4 @@ Export-Package: eagledata.core.dsl.datadesc.ui.internal,
  eagledata.core.dsl.datadesc.ui.quickfix,
  eagledata.core.dsl.datadesc.ui.contentassist
 Bundle-Activator: eagledata.core.dsl.datadesc.ui.internal.DatadescActivator
-Bundle-ClassPath: icons/,
- .,
- lib/json-20160212.jar
+Bundle-ClassPath: icons/,.,lib/json-20160212.jar

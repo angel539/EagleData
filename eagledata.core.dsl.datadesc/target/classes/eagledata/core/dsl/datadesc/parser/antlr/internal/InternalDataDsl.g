@@ -1319,9 +1319,9 @@ ruleCardinality returns [EObject current=null]
 	(
 		(
 			(
-				lv_min_0_0=RULE_INT
+				lv_min_0_0=RULE_CARDINALITY_SYMBOLS
 				{
-					newLeafNode(lv_min_0_0, grammarAccess.getCardinalityAccess().getMinINTTerminalRuleCall_0_0());
+					newLeafNode(lv_min_0_0, grammarAccess.getCardinalityAccess().getMinCARDINALITY_SYMBOLSTerminalRuleCall_0_0());
 				}
 				{
 					if ($current==null) {
@@ -1331,7 +1331,7 @@ ruleCardinality returns [EObject current=null]
 						$current,
 						"min",
 						lv_min_0_0,
-						"org.eclipse.xtext.common.Terminals.INT");
+						"eagledata.core.dsl.datadesc.DataDsl.CARDINALITY_SYMBOLS");
 				}
 			)
 		)
@@ -1342,9 +1342,9 @@ ruleCardinality returns [EObject current=null]
 			}
 			(
 				(
-					lv_max_2_0=RULE_INT
+					lv_max_2_0=RULE_CARDINALITY_SYMBOLS
 					{
-						newLeafNode(lv_max_2_0, grammarAccess.getCardinalityAccess().getMaxINTTerminalRuleCall_1_1_0());
+						newLeafNode(lv_max_2_0, grammarAccess.getCardinalityAccess().getMaxCARDINALITY_SYMBOLSTerminalRuleCall_1_1_0());
 					}
 					{
 						if ($current==null) {
@@ -1354,7 +1354,7 @@ ruleCardinality returns [EObject current=null]
 							$current,
 							"max",
 							lv_max_2_0,
-							"org.eclipse.xtext.common.Terminals.INT");
+							"eagledata.core.dsl.datadesc.DataDsl.CARDINALITY_SYMBOLS");
 					}
 				)
 			)
@@ -1468,55 +1468,57 @@ ruleDataDescription returns [EObject current=null]
 		}
 		(
 			(
-				{
-					newCompositeNode(grammarAccess.getDataDescriptionAccess().getNodesNodeParserRuleCall_5_0());
-				}
-				lv_nodes_8_0=ruleNode
-				{
-					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getDataDescriptionRule());
+				(
+					{
+						newCompositeNode(grammarAccess.getDataDescriptionAccess().getNodesNodeParserRuleCall_5_0_0());
 					}
-					add(
-						$current,
-						"nodes",
-						lv_nodes_8_0,
-						"eagledata.core.dsl.datadesc.DataDsl.Node");
-					afterParserOrEnumRuleCall();
-				}
+					lv_nodes_8_0=ruleNode
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getDataDescriptionRule());
+						}
+						add(
+							$current,
+							"nodes",
+							lv_nodes_8_0,
+							"eagledata.core.dsl.datadesc.DataDsl.Node");
+						afterParserOrEnumRuleCall();
+					}
+				)
 			)
-		)
-		(
 			(
-				{
-					newCompositeNode(grammarAccess.getDataDescriptionAccess().getNodesNodeParserRuleCall_6_0());
-				}
-				lv_nodes_9_0=ruleNode
-				{
-					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getDataDescriptionRule());
+				(
+					{
+						newCompositeNode(grammarAccess.getDataDescriptionAccess().getNodesNodeParserRuleCall_5_1_0());
 					}
-					add(
-						$current,
-						"nodes",
-						lv_nodes_9_0,
-						"eagledata.core.dsl.datadesc.DataDsl.Node");
-					afterParserOrEnumRuleCall();
-				}
-			)
-		)*
+					lv_nodes_9_0=ruleNode
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getDataDescriptionRule());
+						}
+						add(
+							$current,
+							"nodes",
+							lv_nodes_9_0,
+							"eagledata.core.dsl.datadesc.DataDsl.Node");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)*
+		)?
 		otherlv_10='}'
 		{
-			newLeafNode(otherlv_10, grammarAccess.getDataDescriptionAccess().getRightCurlyBracketKeyword_7());
+			newLeafNode(otherlv_10, grammarAccess.getDataDescriptionAccess().getRightCurlyBracketKeyword_6());
 		}
 		(
 			otherlv_11='('
 			{
-				newLeafNode(otherlv_11, grammarAccess.getDataDescriptionAccess().getLeftParenthesisKeyword_8_0());
+				newLeafNode(otherlv_11, grammarAccess.getDataDescriptionAccess().getLeftParenthesisKeyword_7_0());
 			}
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getDataDescriptionAccess().getOptionsDataOptionParserRuleCall_8_1_0());
+						newCompositeNode(grammarAccess.getDataDescriptionAccess().getOptionsDataOptionParserRuleCall_7_1_0());
 					}
 					lv_options_12_0=ruleDataOption
 					{
@@ -1535,12 +1537,12 @@ ruleDataDescription returns [EObject current=null]
 			(
 				otherlv_13=','
 				{
-					newLeafNode(otherlv_13, grammarAccess.getDataDescriptionAccess().getCommaKeyword_8_2_0());
+					newLeafNode(otherlv_13, grammarAccess.getDataDescriptionAccess().getCommaKeyword_7_2_0());
 				}
 				(
 					(
 						{
-							newCompositeNode(grammarAccess.getDataDescriptionAccess().getOptionsDataOptionParserRuleCall_8_2_1_0());
+							newCompositeNode(grammarAccess.getDataDescriptionAccess().getOptionsDataOptionParserRuleCall_7_2_1_0());
 						}
 						lv_options_14_0=ruleDataOption
 						{
@@ -1559,7 +1561,7 @@ ruleDataDescription returns [EObject current=null]
 			)*
 			otherlv_15=')'
 			{
-				newLeafNode(otherlv_15, grammarAccess.getDataDescriptionAccess().getRightParenthesisKeyword_8_3());
+				newLeafNode(otherlv_15, grammarAccess.getDataDescriptionAccess().getRightParenthesisKeyword_7_3());
 			}
 		)?
 	)
@@ -2830,6 +2832,10 @@ ruleListQualifiedNameOptionKey returns [Enumerator current=null]
 ;
 
 RULE_BOOLEAN : ('true'|'false');
+
+RULE_CARDINALITY_SYMBOLS : ('0'|'1'|'2'|'-1');
+
+RULE_NEGINT : '-' RULE_INT;
 
 RULE_DOUBLE : '-'? RULE_INT '.' RULE_INT;
 

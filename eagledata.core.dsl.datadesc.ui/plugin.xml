@@ -52,15 +52,6 @@
 				</and>
 			</activeWhen>
 		</handler>
-  <handler
-        class="eagledata.core.dsl.datadesc.ui.DataDslExecutableExtensionFactory:eagledata.core.dsl.datadesc.ui.handlers.SaveFragmentsHandler"
-        commandId="eagledata.core.dsl.datadesc.DataDsl.savefragments">
-     <activeWhen>
-        <reference
-              definitionId="eagledata.core.dsl.datadesc.DataDsl.Editor.opened">
-        </reference>
-     </activeWhen>
-  </handler>
 	</extension>
 	<extension point="org.eclipse.core.expressions.definitions">
 		<definition id="eagledata.core.dsl.datadesc.DataDsl.Editor.opened">
@@ -457,15 +448,6 @@
        <command
              commandId="eagledata.core.dsl.datadesc.DataDsl.validate"
              icon="icons/validate.png"
-             style="push">
-       </command>
-    </menuContribution>
-    <menuContribution
-          allPopups="false"
-          locationURI="popup:#TextEditorContext?after=group.edit">
-       <command
-             commandId="eagledata.core.dsl.datadesc.DataDsl.savefragments"
-             icon="icons/save.png"
              style="push">
        </command>
     </menuContribution>

@@ -3,6 +3,7 @@
  */
 package eagledata.core.dsl.rule.ruleDsl;
 
+import org.eclipse.emf.common.util.EList;
 
 /**
  * <!-- begin-user-doc -->
@@ -14,14 +15,14 @@ package eagledata.core.dsl.rule.ruleDsl;
  * </p>
  * <ul>
  *   <li>{@link eagledata.core.dsl.rule.ruleDsl.Query#getSelect <em>Select</em>}</li>
- *   <li>{@link eagledata.core.dsl.rule.ruleDsl.Query#getWhere <em>Where</em>}</li>
+ *   <li>{@link eagledata.core.dsl.rule.ruleDsl.Query#getThen <em>Then</em>}</li>
  * </ul>
  *
  * @see eagledata.core.dsl.rule.ruleDsl.RuleDslPackage#getQuery()
  * @model
  * @generated
  */
-public interface Query extends RuleElement
+public interface Query extends Action
 {
   /**
    * Returns the value of the '<em><b>Select</b></em>' containment reference.
@@ -50,29 +51,19 @@ public interface Query extends RuleElement
   void setSelect(Select value);
 
   /**
-   * Returns the value of the '<em><b>Where</b></em>' containment reference.
+   * Returns the value of the '<em><b>Then</b></em>' containment reference list.
+   * The list contents are of type {@link eagledata.core.dsl.rule.ruleDsl.Message}.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Where</em>' containment reference isn't clear,
+   * If the meaning of the '<em>Then</em>' containment reference list isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Where</em>' containment reference.
-   * @see #setWhere(Where)
-   * @see eagledata.core.dsl.rule.ruleDsl.RuleDslPackage#getQuery_Where()
+   * @return the value of the '<em>Then</em>' containment reference list.
+   * @see eagledata.core.dsl.rule.ruleDsl.RuleDslPackage#getQuery_Then()
    * @model containment="true"
    * @generated
    */
-  Where getWhere();
-
-  /**
-   * Sets the value of the '{@link eagledata.core.dsl.rule.ruleDsl.Query#getWhere <em>Where</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Where</em>' containment reference.
-   * @see #getWhere()
-   * @generated
-   */
-  void setWhere(Where value);
+  EList<Message> getThen();
 
 } // Query

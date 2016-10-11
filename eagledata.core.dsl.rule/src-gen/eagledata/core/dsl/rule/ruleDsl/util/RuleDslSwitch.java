@@ -91,7 +91,14 @@ public class RuleDslSwitch<T> extends Switch<T>
       {
         Rule rule = (Rule)theEObject;
         T result = caseRule(rule);
-        if (result == null) result = caseRuleElement(rule);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case RuleDslPackage.ACTION:
+      {
+        Action action = (Action)theEObject;
+        T result = caseAction(action);
+        if (result == null) result = caseRuleElement(action);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -99,7 +106,16 @@ public class RuleDslSwitch<T> extends Switch<T>
       {
         Query query = (Query)theEObject;
         T result = caseQuery(query);
+        if (result == null) result = caseAction(query);
         if (result == null) result = caseRuleElement(query);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case RuleDslPackage.ADDING_SELECT:
+      {
+        AddingSelect addingSelect = (AddingSelect)theEObject;
+        T result = caseAddingSelect(addingSelect);
+        if (result == null) result = caseSelect(addingSelect);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -115,21 +131,6 @@ public class RuleDslSwitch<T> extends Switch<T>
         SetSelect setSelect = (SetSelect)theEObject;
         T result = caseSetSelect(setSelect);
         if (result == null) result = caseSelect(setSelect);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case RuleDslPackage.SELECTION:
-      {
-        Selection selection = (Selection)theEObject;
-        T result = caseSelection(selection);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case RuleDslPackage.ADDING_SELECT:
-      {
-        AddingSelect addingSelect = (AddingSelect)theEObject;
-        T result = caseAddingSelect(addingSelect);
-        if (result == null) result = caseSelect(addingSelect);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -195,6 +196,61 @@ public class RuleDslSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case RuleDslPackage.MESSAGE:
+      {
+        Message message = (Message)theEObject;
+        T result = caseMessage(message);
+        if (result == null) result = caseAction(message);
+        if (result == null) result = caseRuleElement(message);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case RuleDslPackage.MESSAGE_STRING:
+      {
+        MessageString messageString = (MessageString)theEObject;
+        T result = caseMessageString(messageString);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case RuleDslPackage.SELECT_MESSAGE_STRING:
+      {
+        SelectMessageString selectMessageString = (SelectMessageString)theEObject;
+        T result = caseSelectMessageString(selectMessageString);
+        if (result == null) result = caseMessageString(selectMessageString);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case RuleDslPackage.TEXT_MESSAGE_STRING:
+      {
+        TextMessageString textMessageString = (TextMessageString)theEObject;
+        T result = caseTextMessageString(textMessageString);
+        if (result == null) result = caseMessageString(textMessageString);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case RuleDslPackage.RECEIVER:
+      {
+        Receiver receiver = (Receiver)theEObject;
+        T result = caseReceiver(receiver);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case RuleDslPackage.RECEIVER_LIST:
+      {
+        ReceiverList receiverList = (ReceiverList)theEObject;
+        T result = caseReceiverList(receiverList);
+        if (result == null) result = caseReceiver(receiverList);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case RuleDslPackage.DISTRIBUTION_LIST:
+      {
+        DistributionList distributionList = (DistributionList)theEObject;
+        T result = caseDistributionList(distributionList);
+        if (result == null) result = caseReceiver(distributionList);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       default: return defaultCase(theEObject);
     }
   }
@@ -248,6 +304,22 @@ public class RuleDslSwitch<T> extends Switch<T>
   }
 
   /**
+   * Returns the result of interpreting the object as an instance of '<em>Action</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Action</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseAction(Action object)
+  {
+    return null;
+  }
+
+  /**
    * Returns the result of interpreting the object as an instance of '<em>Query</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -259,6 +331,22 @@ public class RuleDslSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseQuery(Query object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Adding Select</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Adding Select</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseAddingSelect(AddingSelect object)
   {
     return null;
   }
@@ -291,38 +379,6 @@ public class RuleDslSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseSetSelect(SetSelect object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Selection</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Selection</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseSelection(Selection object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Adding Select</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Adding Select</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseAddingSelect(AddingSelect object)
   {
     return null;
   }
@@ -451,6 +507,118 @@ public class RuleDslSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseComplexOperand(ComplexOperand object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Message</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Message</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseMessage(Message object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Message String</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Message String</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseMessageString(MessageString object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Select Message String</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Select Message String</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseSelectMessageString(SelectMessageString object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Text Message String</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Text Message String</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseTextMessageString(TextMessageString object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Receiver</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Receiver</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseReceiver(Receiver object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Receiver List</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Receiver List</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseReceiverList(ReceiverList object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Distribution List</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Distribution List</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseDistributionList(DistributionList object)
   {
     return null;
   }

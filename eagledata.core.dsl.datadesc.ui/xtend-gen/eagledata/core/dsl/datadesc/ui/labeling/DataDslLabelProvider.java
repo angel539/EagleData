@@ -4,8 +4,13 @@
 package eagledata.core.dsl.datadesc.ui.labeling;
 
 import com.google.inject.Inject;
-import eagledata.core.dsl.datadesc.dataDsl.DataFragment;
+import eagledata.core.dsl.datadesc.dataDsl.DataTypeRefinement;
+import eagledata.core.dsl.datadesc.dataDsl.Enumeration;
+import eagledata.core.dsl.datadesc.dataDsl.Fragment;
+import eagledata.core.dsl.datadesc.dataDsl.SpecificationElement;
+import eagledata.core.dsl.datadesc.ui.internal.DatadescActivator;
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
+import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.xtext.ui.label.DefaultEObjectLabelProvider;
 
 /**
@@ -20,11 +25,19 @@ public class DataDslLabelProvider extends DefaultEObjectLabelProvider {
     super(delegate);
   }
   
-  public String text(final DataFragment ele) {
+  public String text(final SpecificationElement ele) {
     return ele.getName();
   }
   
-  public Object image(final DataFragment ele) {
-    return null;
+  public ImageDescriptor image(final Fragment ele) {
+    return DatadescActivator.getImageDescriptor("icons/fragment-icon.png");
+  }
+  
+  public ImageDescriptor image(final DataTypeRefinement ele) {
+    return DatadescActivator.getImageDescriptor("icons/type-icon.png");
+  }
+  
+  public ImageDescriptor image(final Enumeration ele) {
+    return DatadescActivator.getImageDescriptor("icons/enumeration-icon.png");
   }
 }

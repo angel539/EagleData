@@ -3,6 +3,9 @@
  */
 package eagledata.core.dsl.rule.ruleDsl;
 
+import eagledata.core.dsl.datadesc.dataDsl.DataDescription;
+import eagledata.core.dsl.datadesc.dataDsl.PrimitiveNode;
+
 import org.eclipse.emf.common.util.EList;
 
 /**
@@ -14,9 +17,9 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link eagledata.core.dsl.rule.ruleDsl.SetSelect#getSelection <em>Selection</em>}</li>
- *   <li>{@link eagledata.core.dsl.rule.ruleDsl.SetSelect#getOperator <em>Operator</em>}</li>
- *   <li>{@link eagledata.core.dsl.rule.ruleDsl.SetSelect#getSelect <em>Select</em>}</li>
+ *   <li>{@link eagledata.core.dsl.rule.ruleDsl.SetSelect#getSelector <em>Selector</em>}</li>
+ *   <li>{@link eagledata.core.dsl.rule.ruleDsl.SetSelect#getFrom <em>From</em>}</li>
+ *   <li>{@link eagledata.core.dsl.rule.ruleDsl.SetSelect#getWhere <em>Where</em>}</li>
  * </ul>
  *
  * @see eagledata.core.dsl.rule.ruleDsl.RuleDslPackage#getSetSelect()
@@ -26,71 +29,51 @@ import org.eclipse.emf.common.util.EList;
 public interface SetSelect extends Select
 {
   /**
-   * Returns the value of the '<em><b>Selection</b></em>' containment reference list.
-   * The list contents are of type {@link eagledata.core.dsl.rule.ruleDsl.Selection}.
+   * Returns the value of the '<em><b>Selector</b></em>' reference list.
+   * The list contents are of type {@link eagledata.core.dsl.datadesc.dataDsl.PrimitiveNode}.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Selection</em>' containment reference list isn't clear,
+   * If the meaning of the '<em>Selector</em>' reference list isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Selection</em>' containment reference list.
-   * @see eagledata.core.dsl.rule.ruleDsl.RuleDslPackage#getSetSelect_Selection()
-   * @model containment="true"
-   * @generated
-   */
-  EList<Selection> getSelection();
-
-  /**
-   * Returns the value of the '<em><b>Operator</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Operator</em>' attribute isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Operator</em>' attribute.
-   * @see #setOperator(String)
-   * @see eagledata.core.dsl.rule.ruleDsl.RuleDslPackage#getSetSelect_Operator()
+   * @return the value of the '<em>Selector</em>' reference list.
+   * @see eagledata.core.dsl.rule.ruleDsl.RuleDslPackage#getSetSelect_Selector()
    * @model
    * @generated
    */
-  String getOperator();
+  EList<PrimitiveNode> getSelector();
 
   /**
-   * Sets the value of the '{@link eagledata.core.dsl.rule.ruleDsl.SetSelect#getOperator <em>Operator</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Operator</em>' attribute.
-   * @see #getOperator()
-   * @generated
-   */
-  void setOperator(String value);
-
-  /**
-   * Returns the value of the '<em><b>Select</b></em>' containment reference.
+   * Returns the value of the '<em><b>From</b></em>' reference list.
+   * The list contents are of type {@link eagledata.core.dsl.datadesc.dataDsl.DataDescription}.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Select</em>' containment reference isn't clear,
+   * If the meaning of the '<em>From</em>' reference list isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Select</em>' containment reference.
-   * @see #setSelect(SetSelect)
-   * @see eagledata.core.dsl.rule.ruleDsl.RuleDslPackage#getSetSelect_Select()
+   * @return the value of the '<em>From</em>' reference list.
+   * @see eagledata.core.dsl.rule.ruleDsl.RuleDslPackage#getSetSelect_From()
+   * @model
+   * @generated
+   */
+  EList<DataDescription> getFrom();
+
+  /**
+   * Returns the value of the '<em><b>Where</b></em>' containment reference list.
+   * The list contents are of type {@link eagledata.core.dsl.rule.ruleDsl.Where}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Where</em>' containment reference list isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Where</em>' containment reference list.
+   * @see eagledata.core.dsl.rule.ruleDsl.RuleDslPackage#getSetSelect_Where()
    * @model containment="true"
    * @generated
    */
-  SetSelect getSelect();
-
-  /**
-   * Sets the value of the '{@link eagledata.core.dsl.rule.ruleDsl.SetSelect#getSelect <em>Select</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Select</em>' containment reference.
-   * @see #getSelect()
-   * @generated
-   */
-  void setSelect(SetSelect value);
+  EList<Where> getWhere();
 
 } // SetSelect

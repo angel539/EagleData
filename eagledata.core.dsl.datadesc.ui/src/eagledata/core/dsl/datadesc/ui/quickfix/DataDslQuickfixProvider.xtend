@@ -11,13 +11,13 @@ import org.eclipse.xtext.ui.editor.quickfix.IssueResolutionAcceptor
 import org.eclipse.xtext.ui.editor.model.edit.ISemanticModification
 import org.eclipse.emf.ecore.EObject
 import org.eclipse.xtext.ui.editor.model.edit.IModificationContext
-import eagledata.core.dsl.datadesc.dataDsl.LeafNode
 import eagledata.core.dsl.datadesc.dataDsl.Option
 import eagledata.core.dsl.datadesc.dataDsl.BasicType
 import org.eclipse.emf.common.util.EList
 import java.util.ArrayList
 import java.util.List
 import eagledata.core.dsl.datadesc.dataDsl.StringOption
+import eagledata.core.dsl.datadesc.dataDsl.PrimitiveNode
 
 /**
  * Custom quickfixes.
@@ -33,8 +33,8 @@ class DataDslQuickfixProvider extends DefaultQuickfixProvider {
 
 class SemanticModification implements ISemanticModification {
 	override apply(EObject element, IModificationContext context) throws Exception {
-		if (element instanceof LeafNode) {
-			val node = element as LeafNode
+		if (element instanceof PrimitiveNode) {
+			val node = element as PrimitiveNode
 			
 			if(node.type != null){
 				val BasicType datatype = node.type

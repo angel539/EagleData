@@ -5,8 +5,8 @@ package eagledata.core.dsl.datadesc.ui.quickfix;
 
 import com.google.common.base.Objects;
 import eagledata.core.dsl.datadesc.dataDsl.BasicType;
-import eagledata.core.dsl.datadesc.dataDsl.LeafNode;
 import eagledata.core.dsl.datadesc.dataDsl.Option;
+import eagledata.core.dsl.datadesc.dataDsl.PrimitiveNode;
 import eagledata.core.dsl.datadesc.dataDsl.StringOption;
 import eagledata.core.dsl.datadesc.dataDsl.StringOptionKey;
 import java.util.ArrayList;
@@ -20,8 +20,8 @@ import org.eclipse.xtext.ui.editor.model.edit.ISemanticModification;
 public class SemanticModification implements ISemanticModification {
   @Override
   public void apply(final EObject element, final IModificationContext context) throws Exception {
-    if ((element instanceof LeafNode)) {
-      final LeafNode node = ((LeafNode) element);
+    if ((element instanceof PrimitiveNode)) {
+      final PrimitiveNode node = ((PrimitiveNode) element);
       BasicType _type = node.getType();
       boolean _notEquals = (!Objects.equal(_type, null));
       if (_notEquals) {

@@ -4,10 +4,11 @@
 package eagledata.core.dsl.datadesc.formatting2;
 
 import com.google.inject.Inject;
-import eagledata.core.dsl.datadesc.dataDsl.DataDescription;
+import eagledata.core.dsl.datadesc.dataDsl.AbstractDescription;
 import eagledata.core.dsl.datadesc.dataDsl.DataModel;
 import eagledata.core.dsl.datadesc.dataDsl.DataModelElement;
 import eagledata.core.dsl.datadesc.dataDsl.Enumeration;
+import eagledata.core.dsl.datadesc.dataDsl.Node;
 import eagledata.core.dsl.datadesc.dataDsl.SpecificationElement;
 import eagledata.core.dsl.datadesc.dataDsl.Tag;
 import eagledata.core.dsl.datadesc.services.DataDslGrammarAccess;
@@ -17,6 +18,8 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.xtext.formatting2.AbstractFormatter2;
 import org.eclipse.xtext.formatting2.IFormattableDocument;
 import org.eclipse.xtext.formatting2.IHiddenRegionFormatter;
+import org.eclipse.xtext.formatting2.regionaccess.ISemanticRegion;
+import org.eclipse.xtext.formatting2.regionaccess.ISemanticRegionsFinder;
 import org.eclipse.xtext.resource.XtextResource;
 import org.eclipse.xtext.xbase.lib.Extension;
 import org.eclipse.xtext.xbase.lib.Procedures.Procedure1;
@@ -45,11 +48,31 @@ public class DataDslFormatter extends AbstractFormatter2 {
     }
   }
   
-  protected void _format(final DataDescription description, @Extension final IFormattableDocument document) {
+  protected void _format(final AbstractDescription description, @Extension final IFormattableDocument document) {
     final Procedure1<IHiddenRegionFormatter> _function = (IHiddenRegionFormatter it) -> {
       it.indent();
     };
-    document.<DataDescription>interior(description, _function);
+    document.<AbstractDescription>interior(description, _function);
+    ISemanticRegionsFinder _regionFor = this.textRegionExtensions.regionFor(description);
+    ISemanticRegion _keyword = _regionFor.keyword("{");
+    final Procedure1<IHiddenRegionFormatter> _function_1 = (IHiddenRegionFormatter it) -> {
+      it.oneSpace();
+    };
+    ISemanticRegion _prepend = document.prepend(_keyword, _function_1);
+    final Procedure1<IHiddenRegionFormatter> _function_2 = (IHiddenRegionFormatter it) -> {
+      it.newLine();
+    };
+    document.append(_prepend, _function_2);
+    EList<Node> _nodes = description.getNodes();
+    for (final Node node : _nodes) {
+      document.<Node>format(node);
+    }
+    ISemanticRegionsFinder _regionFor_1 = this.textRegionExtensions.regionFor(description);
+    ISemanticRegion _keyword_1 = _regionFor_1.keyword("}");
+    final Procedure1<IHiddenRegionFormatter> _function_3 = (IHiddenRegionFormatter it) -> {
+      it.newLine();
+    };
+    document.prepend(_keyword_1, _function_3);
   }
   
   protected void _format(final Enumeration enumeration, @Extension final IFormattableDocument document) {
@@ -59,34 +82,44 @@ public class DataDslFormatter extends AbstractFormatter2 {
     document.<Enumeration>append(enumeration, _function);
   }
   
-  public void format(final Object description, final IFormattableDocument document) {
-    if (description instanceof DataDescription) {
-      _format((DataDescription)description, document);
+  protected void _format(final Node node, @Extension final IFormattableDocument document) {
+    final Procedure1<IHiddenRegionFormatter> _function = (IHiddenRegionFormatter it) -> {
+      it.newLine();
+    };
+    document.<Node>append(node, _function);
+  }
+  
+  public void format(final Object enumeration, final IFormattableDocument document) {
+    if (enumeration instanceof Enumeration) {
+      _format((Enumeration)enumeration, document);
       return;
-    } else if (description instanceof Enumeration) {
-      _format((Enumeration)description, document);
+    } else if (enumeration instanceof AbstractDescription) {
+      _format((AbstractDescription)enumeration, document);
       return;
-    } else if (description instanceof XtextResource) {
-      _format((XtextResource)description, document);
+    } else if (enumeration instanceof XtextResource) {
+      _format((XtextResource)enumeration, document);
       return;
-    } else if (description instanceof eagledata.core.dsl.datadesc.dataDsl.Package) {
-      _format((eagledata.core.dsl.datadesc.dataDsl.Package)description, document);
+    } else if (enumeration instanceof eagledata.core.dsl.datadesc.dataDsl.Package) {
+      _format((eagledata.core.dsl.datadesc.dataDsl.Package)enumeration, document);
       return;
-    } else if (description instanceof DataModel) {
-      _format((DataModel)description, document);
+    } else if (enumeration instanceof DataModel) {
+      _format((DataModel)enumeration, document);
       return;
-    } else if (description instanceof EObject) {
-      _format((EObject)description, document);
+    } else if (enumeration instanceof Node) {
+      _format((Node)enumeration, document);
       return;
-    } else if (description == null) {
+    } else if (enumeration instanceof EObject) {
+      _format((EObject)enumeration, document);
+      return;
+    } else if (enumeration == null) {
       _format((Void)null, document);
       return;
-    } else if (description != null) {
-      _format(description, document);
+    } else if (enumeration != null) {
+      _format(enumeration, document);
       return;
     } else {
       throw new IllegalArgumentException("Unhandled parameter types: " +
-        Arrays.<Object>asList(description, document).toString());
+        Arrays.<Object>asList(enumeration, document).toString());
     }
   }
 }

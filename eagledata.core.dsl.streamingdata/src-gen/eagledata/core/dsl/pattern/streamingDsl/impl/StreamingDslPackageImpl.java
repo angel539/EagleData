@@ -4,6 +4,7 @@
 package eagledata.core.dsl.pattern.streamingDsl.impl;
 
 import eagledata.core.dsl.pattern.streamingDsl.Attached;
+import eagledata.core.dsl.pattern.streamingDsl.BasicType;
 import eagledata.core.dsl.pattern.streamingDsl.BooleanOption;
 import eagledata.core.dsl.pattern.streamingDsl.BooleanOptionKey;
 import eagledata.core.dsl.pattern.streamingDsl.Concept;
@@ -32,7 +33,7 @@ import eagledata.core.dsl.pattern.streamingDsl.StreamingDslFactory;
 import eagledata.core.dsl.pattern.streamingDsl.StreamingDslPackage;
 import eagledata.core.dsl.pattern.streamingDsl.StreamingModel;
 import eagledata.core.dsl.pattern.streamingDsl.StremingDescription;
-import eagledata.core.dsl.pattern.streamingDsl.Term;
+import eagledata.core.dsl.pattern.streamingDsl.TermKey;
 import eagledata.core.dsl.pattern.streamingDsl.TermList;
 import eagledata.core.dsl.pattern.streamingDsl.UserOptionKey;
 import eagledata.core.dsl.pattern.streamingDsl.WordListProperty;
@@ -149,7 +150,7 @@ public class StreamingDslPackageImpl extends EPackageImpl implements StreamingDs
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass termEClass = null;
+  private EClass termKeyEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -199,6 +200,13 @@ public class StreamingDslPackageImpl extends EPackageImpl implements StreamingDs
    * @generated
    */
   private EClass intOptionEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EEnum basicTypeEEnum = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -655,9 +663,19 @@ public class StreamingDslPackageImpl extends EPackageImpl implements StreamingDs
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getTerm()
+  public EClass getTermKey()
   {
-    return termEClass;
+    return termKeyEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getTermKey_Type()
+  {
+    return (EAttribute)termKeyEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -865,6 +883,16 @@ public class StreamingDslPackageImpl extends EPackageImpl implements StreamingDs
    * <!-- end-user-doc -->
    * @generated
    */
+  public EEnum getBasicType()
+  {
+    return basicTypeEEnum;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EEnum getGeoOptionKey()
   {
     return geoOptionKeyEEnum;
@@ -1044,7 +1072,8 @@ public class StreamingDslPackageImpl extends EPackageImpl implements StreamingDs
     createEAttribute(termListEClass, TERM_LIST__PROPERTY);
     createEAttribute(termListEClass, TERM_LIST__TERMS);
 
-    termEClass = createEClass(TERM);
+    termKeyEClass = createEClass(TERM_KEY);
+    createEAttribute(termKeyEClass, TERM_KEY__TYPE);
 
     phraseEClass = createEClass(PHRASE);
     createEAttribute(phraseEClass, PHRASE__ORDERED);
@@ -1074,6 +1103,7 @@ public class StreamingDslPackageImpl extends EPackageImpl implements StreamingDs
     createEAttribute(intOptionEClass, INT_OPTION__VALUE);
 
     // Create enums
+    basicTypeEEnum = createEEnum(BASIC_TYPE);
     geoOptionKeyEEnum = createEEnum(GEO_OPTION_KEY);
     sourceOptionKeyEEnum = createEEnum(SOURCE_OPTION_KEY);
     languageOptionKeyEEnum = createEEnum(LANGUAGE_OPTION_KEY);
@@ -1125,7 +1155,7 @@ public class StreamingDslPackageImpl extends EPackageImpl implements StreamingDs
     patternMatcherElementEClass.getESuperTypes().add(this.getStremingDescription());
     conceptEClass.getESuperTypes().add(this.getPatternMatcherElement());
     termListEClass.getESuperTypes().add(this.getConcept());
-    termEClass.getESuperTypes().add(this.getConcept());
+    termKeyEClass.getESuperTypes().add(this.getConcept());
     phraseEClass.getESuperTypes().add(this.getPatternMatcherElement());
     geoOptionEClass.getESuperTypes().add(this.getOption());
     sourceOptionEClass.getESuperTypes().add(this.getOption());
@@ -1178,7 +1208,8 @@ public class StreamingDslPackageImpl extends EPackageImpl implements StreamingDs
     initEAttribute(getTermList_Property(), this.getWordListProperty(), "property", null, 0, 1, TermList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getTermList_Terms(), ecorePackage.getEString(), "terms", null, 0, -1, TermList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(termEClass, Term.class, "Term", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEClass(termKeyEClass, TermKey.class, "TermKey", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getTermKey_Type(), this.getBasicType(), "type", null, 0, 1, TermKey.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(phraseEClass, Phrase.class, "Phrase", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getPhrase_Ordered(), ecorePackage.getEBoolean(), "ordered", null, 0, 1, Phrase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1208,6 +1239,29 @@ public class StreamingDslPackageImpl extends EPackageImpl implements StreamingDs
     initEAttribute(getIntOption_Value(), ecorePackage.getEInt(), "value", null, 0, 1, IntOption.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     // Initialize enums and add enum literals
+    initEEnum(basicTypeEEnum, BasicType.class, "BasicType");
+    addEEnumLiteral(basicTypeEEnum, BasicType.STRING);
+    addEEnumLiteral(basicTypeEEnum, BasicType.URL);
+    addEEnumLiteral(basicTypeEEnum, BasicType.INT);
+    addEEnumLiteral(basicTypeEEnum, BasicType.LONG_INT);
+    addEEnumLiteral(basicTypeEEnum, BasicType.REAL);
+    addEEnumLiteral(basicTypeEEnum, BasicType.DATE);
+    addEEnumLiteral(basicTypeEEnum, BasicType.TIME);
+    addEEnumLiteral(basicTypeEEnum, BasicType.YEAR);
+    addEEnumLiteral(basicTypeEEnum, BasicType.MONTH);
+    addEEnumLiteral(basicTypeEEnum, BasicType.DAY);
+    addEEnumLiteral(basicTypeEEnum, BasicType.BOOLEAN);
+    addEEnumLiteral(basicTypeEEnum, BasicType.LAT);
+    addEEnumLiteral(basicTypeEEnum, BasicType.LONG);
+    addEEnumLiteral(basicTypeEEnum, BasicType.PERCENT);
+    addEEnumLiteral(basicTypeEEnum, BasicType.EMAIL);
+    addEEnumLiteral(basicTypeEEnum, BasicType.CURRENCY);
+    addEEnumLiteral(basicTypeEEnum, BasicType.CREDITCARD);
+    addEEnumLiteral(basicTypeEEnum, BasicType.IBAN);
+    addEEnumLiteral(basicTypeEEnum, BasicType.ISBN);
+    addEEnumLiteral(basicTypeEEnum, BasicType.ISSN);
+    addEEnumLiteral(basicTypeEEnum, BasicType.INET);
+
     initEEnum(geoOptionKeyEEnum, GeoOptionKey.class, "GeoOptionKey");
     addEEnumLiteral(geoOptionKeyEEnum, GeoOptionKey.IN);
 

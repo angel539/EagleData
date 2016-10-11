@@ -9,12 +9,20 @@ import com.google.inject.Injector;
 import com.google.inject.Module;
 import eagledata.core.dsl.datadesc.DataDslRuntimeModule;
 import eagledata.core.dsl.datadesc.ui.DataDslUiModule;
+
+import java.net.URL;
 import java.util.Collections;
 import java.util.Map;
 import org.apache.log4j.Logger;
+import org.eclipse.core.runtime.FileLocator;
+import org.eclipse.core.runtime.IPath;
+import org.eclipse.core.runtime.Path;
+import org.eclipse.core.runtime.Platform;
+import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.eclipse.xtext.ui.shared.SharedStateModule;
 import org.eclipse.xtext.util.Modules2;
+import org.osgi.framework.Bundle;
 import org.osgi.framework.BundleContext;
 
 /**
@@ -88,6 +96,24 @@ public class DatadescActivator extends AbstractUIPlugin {
 	
 	protected Module getSharedStateModule() {
 		return new SharedStateModule();
+	}
+	
+	public static ImageDescriptor getImageDescriptor(String path) {
+		return imageDescriptorFromPlugin(EAGLEDATA_CORE_DSL_DATADESC_DATADSL, path);
+	}
+	
+	public static ImageDescriptor getImageDescriptor(String pluginID, String path){
+		if(pluginID != null && path != null){
+			Bundle bundle = Platform.getBundle(pluginID);
+			if(bundle == null) return null;
+			
+			IPath ipath  = new Path(path);
+			URL url = FileLocator.find(bundle, ipath, null);
+			ImageDescriptor descriptor = ImageDescriptor.createFromURL(url);
+			return descriptor;
+		}
+		
+		return null;
 	}
 	
 }

@@ -33,12 +33,12 @@ public interface Cardinality extends EObject
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Min</em>' attribute.
-   * @see #setMin(int)
+   * @see #setMin(String)
    * @see eagledata.core.dsl.datadesc.dataDsl.DataDslPackage#getCardinality_Min()
    * @model
    * @generated
    */
-  int getMin();
+  String getMin();
 
   /**
    * Sets the value of the '{@link eagledata.core.dsl.datadesc.dataDsl.Cardinality#getMin <em>Min</em>}' attribute.
@@ -48,7 +48,7 @@ public interface Cardinality extends EObject
    * @see #getMin()
    * @generated
    */
-  void setMin(int value);
+  void setMin(String value);
 
   /**
    * Returns the value of the '<em><b>Max</b></em>' attribute.
@@ -59,12 +59,12 @@ public interface Cardinality extends EObject
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Max</em>' attribute.
-   * @see #setMax(int)
+   * @see #setMax(String)
    * @see eagledata.core.dsl.datadesc.dataDsl.DataDslPackage#getCardinality_Max()
    * @model
    * @generated
    */
-  int getMax();
+  String getMax();
 
   /**
    * Sets the value of the '{@link eagledata.core.dsl.datadesc.dataDsl.Cardinality#getMax <em>Max</em>}' attribute.
@@ -74,6 +74,6 @@ public interface Cardinality extends EObject
    * @see #getMax()
    * @generated
    */
-  void setMax(int value);
+  void setMax(String value);
 
 } // Cardinality

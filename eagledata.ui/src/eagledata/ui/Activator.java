@@ -41,11 +41,14 @@ public class Activator extends AbstractUIPlugin {
 	// The shared instance
 	private static Activator plugin;
 	
-	//Usar el standalone setup solo funciona en aplicaciones fuera de eclipse. De ahi que se llame Standalone.
+	//Usar el standalone setup solo funciona en aplicaciones 
+	//fuera de eclipse. De ahi que se llame Standalone.
 	//private static RuleDslStandaloneSetup ruleDslStandaloneSetup = new RuleDslStandaloneSetup();
 	//private static Injector injector = ruleDslStandaloneSetup.createInjectorAndDoEMFRegistration();
-	private static Injector injector = Guice.createInjector(new RuleDslRuntimeModule());
-	private static XtextResourceSet resourceSet = injector.getInstance(XtextResourceSet.class);
+	private static Injector injector = 
+			Guice.createInjector(new RuleDslRuntimeModule());
+	private static XtextResourceSet resourceSet = 
+			injector.getInstance(XtextResourceSet.class);
 	
 	/**
 	 * The constructor

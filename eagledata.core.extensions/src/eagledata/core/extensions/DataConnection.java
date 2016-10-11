@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.json.JSONObject;
+import streamingresources.StreamingResourceSet;
 
 public class DataConnection{
 	private String id = null;
@@ -18,6 +19,57 @@ public class DataConnection{
 	private boolean withUrls = false;
 	
 	private boolean fromAndroid = false;
+	
+	private StreamingResourceSet resourceSet = null;
+	
+	public double getLatitude() {
+		return latitude;
+	}
+
+	public void setLatitude(double latitude) {
+		this.latitude = latitude;
+	}
+
+	public double getLongitude() {
+		return longitude;
+	}
+
+	public void setLongitude(double longitude) {
+		this.longitude = longitude;
+	}
+
+	public double getSw_latitude() {
+		return sw_latitude;
+	}
+
+	public void setSw_latitude(double sw_latitude) {
+		this.sw_latitude = sw_latitude;
+	}
+
+	public double getSw_longitude() {
+		return sw_longitude;
+	}
+
+	public void setSw_longitude(double sw_longitude) {
+		this.sw_longitude = sw_longitude;
+	}
+
+	public double getNe_latitude() {
+		return ne_latitude;
+	}
+
+	public void setNe_latitude(double ne_latitude) {
+		this.ne_latitude = ne_latitude;
+	}
+
+	public double getNe_longitude() {
+		return ne_longitude;
+	}
+
+	public void setNe_longitude(double ne_longitude) {
+		this.ne_longitude = ne_longitude;
+	}
+
 	private boolean fromIOs = false;
 	private boolean fromWeb = false;
 	private boolean fromAll = false;
@@ -27,13 +79,13 @@ public class DataConnection{
 	
 	private List<String> termsToSearch;
 	
-	private double latitude;
-	private double longitude;
+	private double latitude = 0;
+	private double longitude = 0;
 	
-	private double sw_latitude;
-	private double sw_longitude;
-	private double ne_latitude;
-	private double ne_longitude;
+	private double sw_latitude = 0;
+	private double sw_longitude = 0;
+	private double ne_latitude = 0;
+	private double ne_longitude = 0;
 	
 	public boolean isWithLinks() {
 		return withLinks;
@@ -108,32 +160,12 @@ public class DataConnection{
 	}
 
 	public static final String OBJECT_LIST = "objects";
-	/*private static void createInstance() {
-	   	 if (INSTANCE == null) {
-	   		 synchronized(DataConnection.class) {
-	   			 if (INSTANCE == null) {
-	   				 INSTANCE = new DataConnection();
-	   			 }
-	   		 }
-	     }
-	}
 
-  public static DataConnection getInstance() {
-      if (INSTANCE == null){
-      	createInstance();
-      }
-      return INSTANCE;
-  }
-  
-  	public Object clone() throws CloneNotSupportedException {
-  		throw new CloneNotSupportedException(); 
-  	}*/
-
-	public String getPatternId() {
+	public String getId() {
 		return id;
 	}
 
-	public void setPatternId(String id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 
@@ -148,7 +180,7 @@ public class DataConnection{
 	public void addObject(JSONObject object){
 		if(objects == null) objects = new ArrayList<JSONObject>();
 		objects.add(object);
-		
+
 		notifyListeners(this, OBJECT_LIST, null, object);
 	}
 	
@@ -180,5 +212,13 @@ public class DataConnection{
 		this.sw_longitude = sw_long;
 		this.ne_latitude = ne_lat;
 		this.ne_longitude = ne_long;
+	}
+
+	public StreamingResourceSet getResourceSet() {
+		return resourceSet;
+	}
+
+	public void setResourceSet(StreamingResourceSet resourceSet) {
+		this.resourceSet = resourceSet;
 	}
 }

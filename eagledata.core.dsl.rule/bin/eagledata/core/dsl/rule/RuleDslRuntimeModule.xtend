@@ -8,4 +8,5 @@ package eagledata.core.dsl.rule
  * Use this class to register components to be used at runtime / without the Equinox extension registry.
  */
 class RuleDslRuntimeModule extends AbstractRuleDslRuntimeModule {
+	
 }

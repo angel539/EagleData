@@ -1,12 +1,8 @@
 package eagledata.ui.wizards.newimporter;
 
-import java.io.File;
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-
 import org.apache.commons.io.FilenameUtils;
 import org.eclipse.core.resources.IContainer;
 import org.eclipse.core.resources.IFolder;
@@ -18,13 +14,8 @@ import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.core.runtime.Status;
-import org.eclipse.emf.common.util.BasicDiagnostic;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.EValidator;
-import org.eclipse.emf.ecore.resource.Resource;
-import org.eclipse.emf.ecore.util.Diagnostician;
-import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.operation.IRunnableWithProgress;
 import org.eclipse.jface.viewers.ISelection;
@@ -35,18 +26,8 @@ import org.eclipse.ui.IImportWizard;
 import org.eclipse.ui.IWorkbench;
 
 import com.google.common.io.Files;
-import com.google.inject.Guice;
-import com.google.inject.Injector;
-import com.jesusjlopezf.utils.eclipse.emf.EMFUtils;
-import com.jesusjlopezf.utils.eclipse.xtext.XtextUtils;
-
-import eagledata.core.dsl.datadesc.DataDslRuntimeModule;
-import eagledata.core.dsl.datadesc.DataDslStandaloneSetup;
 import eagledata.core.dsl.datadesc.dataDsl.BasicType;
-import eagledata.core.dsl.datadesc.dataDsl.DataDslPackage;
 import eagledata.core.dsl.datadesc.dataDsl.Enumeration;
-import eagledata.core.dsl.datadesc.validation.DataDslValidator;
-import eagledata.core.dsl.rule.RuleDslRuntimeModule;
 import eagledata.core.extensions.DataAssistant;
 import eagledata.core.extensions.DataAssistantConnectionFactory;
 import eagledata.core.extensions.IDataAssistant;
@@ -54,9 +35,6 @@ import eagledata.ui.Activator;
 import resources.DataResource;
 import resources.ResourcesFactory;
 import resources.Row;
-
-import org.eclipse.xtext.resource.XtextResourceSet;
-import org.eclipse.xtext.serializer.impl.Serializer;
 
 public class FileImportWizard extends Wizard implements IImportWizard {
 	private NewFileImportWizardPage newFileImportPage;

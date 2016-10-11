@@ -3,13 +3,15 @@
  */
 package eagledata.core.dsl.rule.ruleDsl.impl;
 
+import eagledata.core.dsl.datadesc.dataDsl.DataDescription;
+import eagledata.core.dsl.datadesc.dataDsl.PrimitiveNode;
+
 import eagledata.core.dsl.rule.ruleDsl.RuleDslPackage;
-import eagledata.core.dsl.rule.ruleDsl.Selection;
 import eagledata.core.dsl.rule.ruleDsl.SetSelect;
+import eagledata.core.dsl.rule.ruleDsl.Where;
 
 import java.util.Collection;
 
-import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
@@ -17,9 +19,8 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
@@ -30,9 +31,9 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link eagledata.core.dsl.rule.ruleDsl.impl.SetSelectImpl#getSelection <em>Selection</em>}</li>
- *   <li>{@link eagledata.core.dsl.rule.ruleDsl.impl.SetSelectImpl#getOperator <em>Operator</em>}</li>
- *   <li>{@link eagledata.core.dsl.rule.ruleDsl.impl.SetSelectImpl#getSelect <em>Select</em>}</li>
+ *   <li>{@link eagledata.core.dsl.rule.ruleDsl.impl.SetSelectImpl#getSelector <em>Selector</em>}</li>
+ *   <li>{@link eagledata.core.dsl.rule.ruleDsl.impl.SetSelectImpl#getFrom <em>From</em>}</li>
+ *   <li>{@link eagledata.core.dsl.rule.ruleDsl.impl.SetSelectImpl#getWhere <em>Where</em>}</li>
  * </ul>
  *
  * @generated
@@ -40,44 +41,34 @@ import org.eclipse.emf.ecore.util.InternalEList;
 public class SetSelectImpl extends SelectImpl implements SetSelect
 {
   /**
-   * The cached value of the '{@link #getSelection() <em>Selection</em>}' containment reference list.
+   * The cached value of the '{@link #getSelector() <em>Selector</em>}' reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getSelection()
+   * @see #getSelector()
    * @generated
    * @ordered
    */
-  protected EList<Selection> selection;
+  protected EList<PrimitiveNode> selector;
 
   /**
-   * The default value of the '{@link #getOperator() <em>Operator</em>}' attribute.
+   * The cached value of the '{@link #getFrom() <em>From</em>}' reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getOperator()
+   * @see #getFrom()
    * @generated
    * @ordered
    */
-  protected static final String OPERATOR_EDEFAULT = null;
+  protected EList<DataDescription> from;
 
   /**
-   * The cached value of the '{@link #getOperator() <em>Operator</em>}' attribute.
+   * The cached value of the '{@link #getWhere() <em>Where</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getOperator()
+   * @see #getWhere()
    * @generated
    * @ordered
    */
-  protected String operator = OPERATOR_EDEFAULT;
-
-  /**
-   * The cached value of the '{@link #getSelect() <em>Select</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getSelect()
-   * @generated
-   * @ordered
-   */
-  protected SetSelect select;
+  protected EList<Where> where;
 
   /**
    * <!-- begin-user-doc -->
@@ -105,13 +96,13 @@ public class SetSelectImpl extends SelectImpl implements SetSelect
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<Selection> getSelection()
+  public EList<PrimitiveNode> getSelector()
   {
-    if (selection == null)
+    if (selector == null)
     {
-      selection = new EObjectContainmentEList<Selection>(Selection.class, this, RuleDslPackage.SET_SELECT__SELECTION);
+      selector = new EObjectResolvingEList<PrimitiveNode>(PrimitiveNode.class, this, RuleDslPackage.SET_SELECT__SELECTOR);
     }
-    return selection;
+    return selector;
   }
 
   /**
@@ -119,49 +110,13 @@ public class SetSelectImpl extends SelectImpl implements SetSelect
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getOperator()
+  public EList<DataDescription> getFrom()
   {
-    return operator;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setOperator(String newOperator)
-  {
-    String oldOperator = operator;
-    operator = newOperator;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, RuleDslPackage.SET_SELECT__OPERATOR, oldOperator, operator));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public SetSelect getSelect()
-  {
-    return select;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NotificationChain basicSetSelect(SetSelect newSelect, NotificationChain msgs)
-  {
-    SetSelect oldSelect = select;
-    select = newSelect;
-    if (eNotificationRequired())
+    if (from == null)
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, RuleDslPackage.SET_SELECT__SELECT, oldSelect, newSelect);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
+      from = new EObjectResolvingEList<DataDescription>(DataDescription.class, this, RuleDslPackage.SET_SELECT__FROM);
     }
-    return msgs;
+    return from;
   }
 
   /**
@@ -169,20 +124,13 @@ public class SetSelectImpl extends SelectImpl implements SetSelect
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setSelect(SetSelect newSelect)
+  public EList<Where> getWhere()
   {
-    if (newSelect != select)
+    if (where == null)
     {
-      NotificationChain msgs = null;
-      if (select != null)
-        msgs = ((InternalEObject)select).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - RuleDslPackage.SET_SELECT__SELECT, null, msgs);
-      if (newSelect != null)
-        msgs = ((InternalEObject)newSelect).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - RuleDslPackage.SET_SELECT__SELECT, null, msgs);
-      msgs = basicSetSelect(newSelect, msgs);
-      if (msgs != null) msgs.dispatch();
+      where = new EObjectContainmentEList<Where>(Where.class, this, RuleDslPackage.SET_SELECT__WHERE);
     }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, RuleDslPackage.SET_SELECT__SELECT, newSelect, newSelect));
+    return where;
   }
 
   /**
@@ -195,10 +143,8 @@ public class SetSelectImpl extends SelectImpl implements SetSelect
   {
     switch (featureID)
     {
-      case RuleDslPackage.SET_SELECT__SELECTION:
-        return ((InternalEList<?>)getSelection()).basicRemove(otherEnd, msgs);
-      case RuleDslPackage.SET_SELECT__SELECT:
-        return basicSetSelect(null, msgs);
+      case RuleDslPackage.SET_SELECT__WHERE:
+        return ((InternalEList<?>)getWhere()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -213,12 +159,12 @@ public class SetSelectImpl extends SelectImpl implements SetSelect
   {
     switch (featureID)
     {
-      case RuleDslPackage.SET_SELECT__SELECTION:
-        return getSelection();
-      case RuleDslPackage.SET_SELECT__OPERATOR:
-        return getOperator();
-      case RuleDslPackage.SET_SELECT__SELECT:
-        return getSelect();
+      case RuleDslPackage.SET_SELECT__SELECTOR:
+        return getSelector();
+      case RuleDslPackage.SET_SELECT__FROM:
+        return getFrom();
+      case RuleDslPackage.SET_SELECT__WHERE:
+        return getWhere();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -234,15 +180,17 @@ public class SetSelectImpl extends SelectImpl implements SetSelect
   {
     switch (featureID)
     {
-      case RuleDslPackage.SET_SELECT__SELECTION:
-        getSelection().clear();
-        getSelection().addAll((Collection<? extends Selection>)newValue);
+      case RuleDslPackage.SET_SELECT__SELECTOR:
+        getSelector().clear();
+        getSelector().addAll((Collection<? extends PrimitiveNode>)newValue);
         return;
-      case RuleDslPackage.SET_SELECT__OPERATOR:
-        setOperator((String)newValue);
+      case RuleDslPackage.SET_SELECT__FROM:
+        getFrom().clear();
+        getFrom().addAll((Collection<? extends DataDescription>)newValue);
         return;
-      case RuleDslPackage.SET_SELECT__SELECT:
-        setSelect((SetSelect)newValue);
+      case RuleDslPackage.SET_SELECT__WHERE:
+        getWhere().clear();
+        getWhere().addAll((Collection<? extends Where>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -258,14 +206,14 @@ public class SetSelectImpl extends SelectImpl implements SetSelect
   {
     switch (featureID)
     {
-      case RuleDslPackage.SET_SELECT__SELECTION:
-        getSelection().clear();
+      case RuleDslPackage.SET_SELECT__SELECTOR:
+        getSelector().clear();
         return;
-      case RuleDslPackage.SET_SELECT__OPERATOR:
-        setOperator(OPERATOR_EDEFAULT);
+      case RuleDslPackage.SET_SELECT__FROM:
+        getFrom().clear();
         return;
-      case RuleDslPackage.SET_SELECT__SELECT:
-        setSelect((SetSelect)null);
+      case RuleDslPackage.SET_SELECT__WHERE:
+        getWhere().clear();
         return;
     }
     super.eUnset(featureID);
@@ -281,31 +229,14 @@ public class SetSelectImpl extends SelectImpl implements SetSelect
   {
     switch (featureID)
     {
-      case RuleDslPackage.SET_SELECT__SELECTION:
-        return selection != null && !selection.isEmpty();
-      case RuleDslPackage.SET_SELECT__OPERATOR:
-        return OPERATOR_EDEFAULT == null ? operator != null : !OPERATOR_EDEFAULT.equals(operator);
-      case RuleDslPackage.SET_SELECT__SELECT:
-        return select != null;
+      case RuleDslPackage.SET_SELECT__SELECTOR:
+        return selector != null && !selector.isEmpty();
+      case RuleDslPackage.SET_SELECT__FROM:
+        return from != null && !from.isEmpty();
+      case RuleDslPackage.SET_SELECT__WHERE:
+        return where != null && !where.isEmpty();
     }
     return super.eIsSet(featureID);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public String toString()
-  {
-    if (eIsProxy()) return super.toString();
-
-    StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (operator: ");
-    result.append(operator);
-    result.append(')');
-    return result.toString();
   }
 
 } //SetSelectImpl

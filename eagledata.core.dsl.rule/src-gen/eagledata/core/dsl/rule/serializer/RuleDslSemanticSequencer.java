@@ -4,17 +4,23 @@
 package eagledata.core.dsl.rule.serializer;
 
 import com.google.inject.Inject;
+import eagledata.core.dsl.pattern.streamingDsl.Import;
+import eagledata.core.dsl.pattern.streamingDsl.StreamingDslPackage;
 import eagledata.core.dsl.rule.ruleDsl.AddingSelect;
 import eagledata.core.dsl.rule.ruleDsl.ComplexOperand;
+import eagledata.core.dsl.rule.ruleDsl.DistributionList;
 import eagledata.core.dsl.rule.ruleDsl.Expression;
+import eagledata.core.dsl.rule.ruleDsl.Message;
 import eagledata.core.dsl.rule.ruleDsl.Numeral;
 import eagledata.core.dsl.rule.ruleDsl.Query;
 import eagledata.core.dsl.rule.ruleDsl.QueryOperand;
+import eagledata.core.dsl.rule.ruleDsl.ReceiverList;
 import eagledata.core.dsl.rule.ruleDsl.Rule;
 import eagledata.core.dsl.rule.ruleDsl.RuleDslPackage;
 import eagledata.core.dsl.rule.ruleDsl.RuleModel;
-import eagledata.core.dsl.rule.ruleDsl.Selection;
+import eagledata.core.dsl.rule.ruleDsl.SelectMessageString;
 import eagledata.core.dsl.rule.ruleDsl.SetSelect;
+import eagledata.core.dsl.rule.ruleDsl.TextMessageString;
 import eagledata.core.dsl.rule.ruleDsl.When;
 import eagledata.core.dsl.rule.ruleDsl.Where;
 import eagledata.core.dsl.rule.services.RuleDslGrammarAccess;
@@ -49,6 +55,9 @@ public class RuleDslSemanticSequencer extends AbstractDelegatingSemanticSequence
 			case RuleDslPackage.COMPLEX_OPERAND:
 				sequence_ComplexOperand(context, (ComplexOperand) semanticObject); 
 				return; 
+			case RuleDslPackage.DISTRIBUTION_LIST:
+				sequence_DistributionList(context, (DistributionList) semanticObject); 
+				return; 
 			case RuleDslPackage.EXPRESSION:
 				if (rule == grammarAccess.getComplexExpressionRule()) {
 					sequence_ComplexExpression(context, (Expression) semanticObject); 
@@ -63,6 +72,9 @@ public class RuleDslSemanticSequencer extends AbstractDelegatingSemanticSequence
 					return; 
 				}
 				else break;
+			case RuleDslPackage.MESSAGE:
+				sequence_Message(context, (Message) semanticObject); 
+				return; 
 			case RuleDslPackage.NUMERAL:
 				sequence_Numeral(context, (Numeral) semanticObject); 
 				return; 
@@ -72,17 +84,23 @@ public class RuleDslSemanticSequencer extends AbstractDelegatingSemanticSequence
 			case RuleDslPackage.QUERY_OPERAND:
 				sequence_QueryOperand(context, (QueryOperand) semanticObject); 
 				return; 
+			case RuleDslPackage.RECEIVER_LIST:
+				sequence_ReceiverList(context, (ReceiverList) semanticObject); 
+				return; 
 			case RuleDslPackage.RULE:
 				sequence_Rule(context, (Rule) semanticObject); 
 				return; 
 			case RuleDslPackage.RULE_MODEL:
 				sequence_RuleModel(context, (RuleModel) semanticObject); 
 				return; 
-			case RuleDslPackage.SELECTION:
-				sequence_Selection(context, (Selection) semanticObject); 
+			case RuleDslPackage.SELECT_MESSAGE_STRING:
+				sequence_SelectMessageString(context, (SelectMessageString) semanticObject); 
 				return; 
 			case RuleDslPackage.SET_SELECT:
 				sequence_SetSelect(context, (SetSelect) semanticObject); 
+				return; 
+			case RuleDslPackage.TEXT_MESSAGE_STRING:
+				sequence_TextMessageString(context, (TextMessageString) semanticObject); 
 				return; 
 			case RuleDslPackage.WHEN:
 				sequence_When(context, (When) semanticObject); 
@@ -91,14 +109,20 @@ public class RuleDslSemanticSequencer extends AbstractDelegatingSemanticSequence
 				sequence_Where(context, (Where) semanticObject); 
 				return; 
 			}
+		else if (epackage == StreamingDslPackage.eINSTANCE)
+			switch (semanticObject.eClass().getClassifierID()) {
+			case StreamingDslPackage.IMPORT:
+				sequence_Import(context, (Import) semanticObject); 
+				return; 
+			}
 		if (errorAcceptor != null)
 			errorAcceptor.accept(diagnosticProvider.createInvalidContextOrTypeDiagnostic(semanticObject, context));
 	}
 	
 	/**
 	 * Contexts:
-	 *     Select returns AddingSelect
 	 *     AddingSelect returns AddingSelect
+	 *     Select returns AddingSelect
 	 *
 	 * Constraint:
 	 *     (operation=SELECTOPERATOR (element=[Concept|ID] | all?='*')?)
@@ -151,6 +175,51 @@ public class RuleDslSemanticSequencer extends AbstractDelegatingSemanticSequence
 		feeder.accept(grammarAccess.getComplexOperandAccess().getOperatorOPERATORTerminalRuleCall_0_0(), semanticObject.getOperator());
 		feeder.accept(grammarAccess.getComplexOperandAccess().getExpressionExpressionParserRuleCall_1_0(), semanticObject.getExpression());
 		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Receiver returns DistributionList
+	 *     DistributionList returns DistributionList
+	 *
+	 * Constraint:
+	 *     file+=STRING
+	 */
+	protected void sequence_DistributionList(ISerializationContext context, DistributionList semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Import returns Import
+	 *
+	 * Constraint:
+	 *     importedNamespace=QualifiedNameWithWildcard
+	 */
+	protected void sequence_Import(ISerializationContext context, Import semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, StreamingDslPackage.Literals.IMPORT__IMPORTED_NAMESPACE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, StreamingDslPackage.Literals.IMPORT__IMPORTED_NAMESPACE));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getImportAccess().getImportedNamespaceQualifiedNameWithWildcardParserRuleCall_1_0(), semanticObject.getImportedNamespace());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     RuleElement returns Message
+	 *     Action returns Message
+	 *     Message returns Message
+	 *
+	 * Constraint:
+	 *     (name=ID message+=MessageString message+=MessageString* recipient=Receiver?)
+	 */
+	protected void sequence_Message(ISerializationContext context, Message semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
@@ -215,12 +284,26 @@ public class RuleDslSemanticSequencer extends AbstractDelegatingSemanticSequence
 	/**
 	 * Contexts:
 	 *     RuleElement returns Query
+	 *     Action returns Query
 	 *     Query returns Query
 	 *
 	 * Constraint:
-	 *     (name=ID select=Select where=Where?)
+	 *     (name=ID select=Select then+=Message then+=Message*)
 	 */
 	protected void sequence_Query(ISerializationContext context, Query semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Receiver returns ReceiverList
+	 *     ReceiverList returns ReceiverList
+	 *
+	 * Constraint:
+	 *     (receiver+=STRING receiver+=STRING*)
+	 */
+	protected void sequence_ReceiverList(ISerializationContext context, ReceiverList semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -230,7 +313,7 @@ public class RuleDslSemanticSequencer extends AbstractDelegatingSemanticSequence
 	 *     RuleModel returns RuleModel
 	 *
 	 * Constraint:
-	 *     (elements+=RuleElement elements+=RuleElement*)
+	 *     ((imports+=Import imports+=Import* (elements+=Rule elements+=Rule*)) | (elements+=Rule elements+=Rule*))?
 	 */
 	protected void sequence_RuleModel(ISerializationContext context, RuleModel semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -239,11 +322,10 @@ public class RuleDslSemanticSequencer extends AbstractDelegatingSemanticSequence
 	
 	/**
 	 * Contexts:
-	 *     RuleElement returns Rule
 	 *     Rule returns Rule
 	 *
 	 * Constraint:
-	 *     (name=ID event=[Phrase|ID] condition=When? actions+=Query actions+=Query*)
+	 *     (name=ID event=[Phrase|ID] actions+=Action actions+=Action*)
 	 */
 	protected void sequence_Rule(ISerializationContext context, Rule semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -252,12 +334,13 @@ public class RuleDslSemanticSequencer extends AbstractDelegatingSemanticSequence
 	
 	/**
 	 * Contexts:
-	 *     Selection returns Selection
+	 *     MessageString returns SelectMessageString
+	 *     SelectMessageString returns SelectMessageString
 	 *
 	 * Constraint:
-	 *     (selector=[Concept|ID]? root+=[Concept|ID] root+=[Concept|ID]*)
+	 *     (response+=[PrimitiveNode|QualifiedName] response+=[PrimitiveNode|QualifiedName]*)
 	 */
-	protected void sequence_Selection(ISerializationContext context, Selection semanticObject) {
+	protected void sequence_SelectMessageString(ISerializationContext context, SelectMessageString semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -268,10 +351,35 @@ public class RuleDslSemanticSequencer extends AbstractDelegatingSemanticSequence
 	 *     SetSelect returns SetSelect
 	 *
 	 * Constraint:
-	 *     (((selection+=Selection selection+=Selection*) | all?='*')? (operator=SETOPERATOR select=SetSelect)?)
+	 *     (
+	 *         selector+=[PrimitiveNode|QualifiedName] 
+	 *         selector+=[PrimitiveNode|QualifiedName]* 
+	 *         from+=[DataDescription|QualifiedName] 
+	 *         from+=[DataDescription|QualifiedName]* 
+	 *         (where+=Where where+=Where*)?
+	 *     )
 	 */
 	protected void sequence_SetSelect(ISerializationContext context, SetSelect semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     MessageString returns TextMessageString
+	 *     TextMessageString returns TextMessageString
+	 *
+	 * Constraint:
+	 *     text=STRING
+	 */
+	protected void sequence_TextMessageString(ISerializationContext context, TextMessageString semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, RuleDslPackage.Literals.TEXT_MESSAGE_STRING__TEXT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, RuleDslPackage.Literals.TEXT_MESSAGE_STRING__TEXT));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getTextMessageStringAccess().getTextSTRINGTerminalRuleCall_0(), semanticObject.getText());
+		feeder.finish();
 	}
 	
 	
@@ -304,7 +412,11 @@ public class RuleDslSemanticSequencer extends AbstractDelegatingSemanticSequence
 	 *     Where returns Where
 	 *
 	 * Constraint:
-	 *     (left=[Concept|ID] logicalOperator=LOGICALOPERATOR (rightVariable=[Concept|ID] | right=INT))
+	 *     (
+	 *         left=[PrimitiveNode|QualifiedName] 
+	 *         logicalOperator=LOGICALOPERATOR 
+	 *         (right=[PrimitiveNode|QualifiedName] | rightStreaming=[Concept|QualifiedName])
+	 *     )
 	 */
 	protected void sequence_Where(ISerializationContext context, Where semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

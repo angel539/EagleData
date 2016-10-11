@@ -16,6 +16,7 @@ import eagledata.core.dsl.pattern.streamingDsl.Concept;
  * <ul>
  *   <li>{@link eagledata.core.dsl.rule.ruleDsl.AddingSelect#getOperation <em>Operation</em>}</li>
  *   <li>{@link eagledata.core.dsl.rule.ruleDsl.AddingSelect#getElement <em>Element</em>}</li>
+ *   <li>{@link eagledata.core.dsl.rule.ruleDsl.AddingSelect#isAll <em>All</em>}</li>
  * </ul>
  *
  * @see eagledata.core.dsl.rule.ruleDsl.RuleDslPackage#getAddingSelect()
@@ -75,5 +76,31 @@ public interface AddingSelect extends Select
    * @generated
    */
   void setElement(Concept value);
+
+  /**
+   * Returns the value of the '<em><b>All</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>All</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>All</em>' attribute.
+   * @see #setAll(boolean)
+   * @see eagledata.core.dsl.rule.ruleDsl.RuleDslPackage#getAddingSelect_All()
+   * @model
+   * @generated
+   */
+  boolean isAll();
+
+  /**
+   * Sets the value of the '{@link eagledata.core.dsl.rule.ruleDsl.AddingSelect#isAll <em>All</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>All</em>' attribute.
+   * @see #isAll()
+   * @generated
+   */
+  void setAll(boolean value);
 
 } // AddingSelect

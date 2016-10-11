@@ -1,83 +1,86 @@
-grammar eagledata.core.dsl.rule.RuleDsl with org.eclipse.xtext.common.Terminals
+grammar eagledata.core.dsl.rule.RuleDsl with  org.eclipse.xtext.common.Terminals
 
 generate ruleDsl "http://www.core.eagledata/dsl/rule/RuleDsl" as rule
 import "http://www.core.eagledata/dsl/streamingdata/StreamingDsl" as streaming
+import "http://www.core.eagledata/dsl/datadesc/DataDsl" as data
 
 RuleModel returns rule::RuleModel:
-	(elements+=RuleElement (elements+=RuleElement)*)? 
+	(imports += Import (imports += Import)*)?
+	(elements+=Rule (elements+=Rule)*)? 
 ;
 
-//=======================================
-//Tipos de sentencias que se pueden hacer
+Import returns streaming::Import:
+    'import' importedNamespace = QualifiedNameWithWildcard;
+    
+QualifiedNameWithWildcard:
+    QualifiedName '.*'?;
+    
+QualifiedName:
+    ID ('.' ID)*;
 
 RuleElement returns rule::RuleElement:
-	Query | Rule
+	Action
 ;
 
 Rule returns rule::Rule:
-	'rule' name=ID '=' '('
-		'on' event = [streaming::Phrase|ID] //event
-		('{'(condition=When)?'}')?
-		'do'  (actions+=Query ("," actions+=Query)*)
-	')'
+	name=ID '{'
+		'on' event = [streaming::Phrase|ID]
+		'do' '{' (actions+=Action (actions+=Action)*)
+		'}'
+	'}'
 ;	
 
-//=========================================
-//Sentencia 1: Queries
+Action returns rule::Action:
+	Query | Message
+;
 
 Query returns rule::Query:
-	select=Select ('{'where=Where'}')? 'as' name=ID
+	name=ID ':' select=Select 'then' '{'(then += Message (then += Message)*)'}'
 ;
+	
+AddingSelect returns rule::AddingSelect:
+	operation=SELECTOPERATOR ((element=[streaming::Concept|ID])? | (all?='*'))
+;	
 	
 Select returns rule::Select:
 	AddingSelect | SetSelect
 ;
 
 SetSelect returns rule::SetSelect:
-	{rule::SetSelect}
-	'select' ((selection+=Selection ( "," selection+=Selection)*)?|(all?='*'))
-	(operator=SETOPERATOR select=SetSelect)?
-	//(operator=SetOperatorPatternSelect)?
+	'select' 
+		(selector += [data::PrimitiveNode | QualifiedName] (',' selector += [data::PrimitiveNode | QualifiedName])*) 
+		'from' (from += [data::DataDescription | QualifiedName] (',' from += [data::DataDescription | QualifiedName])*)
+		('where' (where += Where ('and' where += Where)*))?
+	//'select' (selection+=Selection ( "," selection+=Selection)*)?
+	//'select' (selection += [data::PrimitiveNode | ID] (',' selection += [data::PrimitiveNode | ID])*)
+	//(operator=SETOPERATOR select=SetSelect)?
 ;
 
-		/*SetOperatorPatternSelect returns rule::SetOperator:
-			UnionPatternSelect | IntersectPatternSelect | ExceptPatternSelect;
-		
-		UnionPatternSelect returns rule::Union:
-			'union' select=SetSelect;
-		
-		IntersectPatternSelect returns rule::Intersect:
-			'intersect' select=SetSelect;
-		
-		ExceptPatternSelect returns rule::Except:
-			'except' select=SetSelect;*/
+/*SetOperatorPatternSelect returns rule::SetOperator:
+	UnionPatternSelect | IntersectPatternSelect | ExceptPatternSelect;
 
-Selection returns rule::Selection:
-	(selector=[streaming::Concept | ID] '.')? (root+=[streaming::Concept | ID] ('.'root+=[streaming::Concept | ID])*)
-;
+UnionPatternSelect returns rule::Union:
+	'union' select=SetSelect;
 
-AddingSelect returns rule::AddingSelect:
-	operation=SELECTOPERATOR ((element=[streaming::Concept|ID])?|(all?='*'))
-;
+IntersectPatternSelect returns rule::Intersect:
+	'intersect' select=SetSelect;
+
+ExceptPatternSelect returns rule::Except:
+	'except' select=SetSelect;*/
+
+//Selection returns rule::Selection:
+	//(selector=[streaming::Concept | ID] '.')? (root+=[streaming::Concept | ID] ('.'root+=[streaming::Concept | ID])*)
+	//(selector=[streaming::Concept | ID] '.')? (root+=[streaming::Concept | ID] ('.'root+=[streaming::Concept | ID])*)
+//;
+
+
 
 /*enum OperationAddingSelect returns rule::OperationAddingSelect:
 	count = 'count' //| min = 'min' | max = 'max' | add = 'add' | avg = 'avg'
 ;*/
 		
 Where returns rule::Where:
-	'where' left=[streaming::Concept|ID] logicalOperator=LOGICALOPERATOR (rightVariable=[streaming::Concept|ID]|right=INT);
-
-/*
-Recipient returns Recipient:	
-	QueryResponseRecipient | ConcreteRecipient;
-
-QueryResponseRecipient returns QueryResponseRecipient:
-	query=[TwitterQuery|EString]
-;
-
-ConcreteRecipient returns ConcreteRecipient:
-	'@' user=EString;
-*/
+	left=[data::PrimitiveNode|QualifiedName] logicalOperator=LOGICALOPERATOR (right=[data::PrimitiveNode|QualifiedName] | '{'rightStreaming=[streaming::Concept|QualifiedName]'}');
 
 //===========================================================================================
 //When --> Expressions
@@ -152,9 +155,43 @@ EInt returns ecore::EInt:
 	
 EFloat returns ecore::EFloat:
 	'-'? INT? '.' INT (('E'|'e') '-'? INT)?;*/
-	
+
+Message returns rule::Message:
+	name=ID ':' 'compose' (message += MessageString ('+' message += MessageString)*) ('to' recipient = Receiver)?
+;
+
+MessageString returns rule::MessageString:
+	TextMessageString | SelectMessageString// | OperationMessageString
+;	
+
+SelectMessageString returns rule::SelectMessageString:
+	'{'(response += [data::PrimitiveNode | QualifiedName] (',' response += [data::PrimitiveNode | QualifiedName])*)'}'
+;
+
+//OperationMessageString returns rule::OperationMessageString:
+//    '['body=XBlockExpression']'
+//;
+
+TextMessageString returns rule::TextMessageString:
+	text=STRING
+;
+
+Receiver returns rule::Receiver:
+	ReceiverList | DistributionList
+;
+
+ReceiverList returns rule::ReceiverList:
+	'{'(receiver += STRING (',' receiver += STRING)*)'}'
+;
+
+DistributionList returns rule::DistributionList:
+	'@'(file += STRING)
+;
+
 terminal OPERATOR : '+' | '-' | '*' | 'DIV';
 terminal LOGICALOPERATOR : '>' | '<' | '>=' | '<=' | '=';
+terminal CONDITIONALOPERATOR : 'AND' | 'OR';
+
 /*enum OperationAddingSelect returns rule::OperationAddingSelect:
 	count = 'count' //| min = 'min' | max = 'max' | add = 'add' | avg = 'avg'
 ;*/

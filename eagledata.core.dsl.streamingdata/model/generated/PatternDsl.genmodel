@@ -6,6 +6,29 @@
     complianceLevel="6.0" copyrightFields="false" runtimeVersion="2.11">
   <genPackages prefix="StreamingDsl" basePackage="eagledata.core.dsl.pattern" disposableProviderFactory="true"
       fileExtensions="streamd" ecorePackage="PatternDsl.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="PatternDsl.ecore#//BasicType">
+      <genEnumLiterals ecoreEnumLiteral="PatternDsl.ecore#//BasicType/string"/>
+      <genEnumLiterals ecoreEnumLiteral="PatternDsl.ecore#//BasicType/url"/>
+      <genEnumLiterals ecoreEnumLiteral="PatternDsl.ecore#//BasicType/int"/>
+      <genEnumLiterals ecoreEnumLiteral="PatternDsl.ecore#//BasicType/longInt"/>
+      <genEnumLiterals ecoreEnumLiteral="PatternDsl.ecore#//BasicType/real"/>
+      <genEnumLiterals ecoreEnumLiteral="PatternDsl.ecore#//BasicType/date"/>
+      <genEnumLiterals ecoreEnumLiteral="PatternDsl.ecore#//BasicType/time"/>
+      <genEnumLiterals ecoreEnumLiteral="PatternDsl.ecore#//BasicType/year"/>
+      <genEnumLiterals ecoreEnumLiteral="PatternDsl.ecore#//BasicType/month"/>
+      <genEnumLiterals ecoreEnumLiteral="PatternDsl.ecore#//BasicType/day"/>
+      <genEnumLiterals ecoreEnumLiteral="PatternDsl.ecore#//BasicType/boolean"/>
+      <genEnumLiterals ecoreEnumLiteral="PatternDsl.ecore#//BasicType/lat"/>
+      <genEnumLiterals ecoreEnumLiteral="PatternDsl.ecore#//BasicType/long"/>
+      <genEnumLiterals ecoreEnumLiteral="PatternDsl.ecore#//BasicType/percent"/>
+      <genEnumLiterals ecoreEnumLiteral="PatternDsl.ecore#//BasicType/email"/>
+      <genEnumLiterals ecoreEnumLiteral="PatternDsl.ecore#//BasicType/currency"/>
+      <genEnumLiterals ecoreEnumLiteral="PatternDsl.ecore#//BasicType/creditcard"/>
+      <genEnumLiterals ecoreEnumLiteral="PatternDsl.ecore#//BasicType/IBAN"/>
+      <genEnumLiterals ecoreEnumLiteral="PatternDsl.ecore#//BasicType/ISBN"/>
+      <genEnumLiterals ecoreEnumLiteral="PatternDsl.ecore#//BasicType/ISSN"/>
+      <genEnumLiterals ecoreEnumLiteral="PatternDsl.ecore#//BasicType/inet"/>
+    </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="PatternDsl.ecore#//GeoOptionKey">
       <genEnumLiterals ecoreEnumLiteral="PatternDsl.ecore#//GeoOptionKey/in"/>
     </genEnums>
@@ -95,7 +118,9 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PatternDsl.ecore#//TermList/property"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PatternDsl.ecore#//TermList/terms"/>
     </genClasses>
-    <genClasses ecoreClass="PatternDsl.ecore#//Term"/>
+    <genClasses ecoreClass="PatternDsl.ecore#//TermKey">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PatternDsl.ecore#//TermKey/type"/>
+    </genClasses>
     <genClasses ecoreClass="PatternDsl.ecore#//Phrase">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PatternDsl.ecore#//Phrase/ordered"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference PatternDsl.ecore#//Phrase/concepts"/>

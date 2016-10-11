@@ -301,7 +301,7 @@ class DataDslValidator extends AbstractDataDslValidator {
 				 	leafNode.options.forEach[
 				 	option |
 				 			if(option instanceof StringOption){
-					 			if(!option.key.literal.equals("null") && !option.key.literal.equals("regex") && !option.key.literal.equals("flags"))
+					 			if(!option.key.literal.equals("null") && !option.key.literal.equals("regex") && !option.key.literal.equals("flags") && !option.key.literal.equals("separator"))
 										error('Options are not valid for an STRING', DataDslPackage.Literals.SPECIFICATION_ELEMENT__NAME, DATATYPE_OPTION_NAME)
 								else{
 									if(option.key.literal.equals("regex")){

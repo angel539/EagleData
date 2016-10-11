@@ -376,13 +376,11 @@ public class PatternDslGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//Region streaming::Region:
 		//	'region' name=ID '=' '{'
-		//	//('contains' '(' contains+=[streaming::GeographicalElement|ID] ( "," contains+=[streaming::GeographicalElement|ID])* ')' )?
 		//	southWestBoundary=Point ':' northEastBoundary=Point
 		//	'}'
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'region' name=ID '=' '{' //('contains' '(' contains+=[streaming::GeographicalElement|ID] ( "," contains+=[streaming::GeographicalElement|ID])* ')' )?
-		//southWestBoundary=Point ':' northEastBoundary=Point '}'
+		//'region' name=ID '=' '{' southWestBoundary=Point ':' northEastBoundary=Point '}'
 		public Group getGroup() { return cGroup; }
 		
 		//'region'
@@ -400,7 +398,6 @@ public class PatternDslGrammarAccess extends AbstractGrammarElementFinder {
 		//'{'
 		public Keyword getLeftCurlyBracketKeyword_3() { return cLeftCurlyBracketKeyword_3; }
 		
-		////('contains' '(' contains+=[streaming::GeographicalElement|ID] ( "," contains+=[streaming::GeographicalElement|ID])* ')' )?
 		//southWestBoundary=Point
 		public Assignment getSouthWestBoundaryAssignment_4() { return cSouthWestBoundaryAssignment_4; }
 		
@@ -442,20 +439,20 @@ public class PatternDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "eagledata.core.dsl.pattern.PatternDsl.Concept");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
 		private final RuleCall cTermListParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
-		private final RuleCall cTermParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		private final RuleCall cTermKeyParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
 		
 		//Concept streaming::Concept:
-		//	TermList | Term
+		//	TermList | TermKey
 		@Override public ParserRule getRule() { return rule; }
 		
-		//TermList | Term
+		//TermList | TermKey
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
 		//TermList
 		public RuleCall getTermListParserRuleCall_0() { return cTermListParserRuleCall_0; }
 		
-		//Term
-		public RuleCall getTermParserRuleCall_1() { return cTermParserRuleCall_1; }
+		//TermKey
+		public RuleCall getTermKeyParserRuleCall_1() { return cTermKeyParserRuleCall_1; }
 	}
 	public class TermListElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "eagledata.core.dsl.pattern.PatternDsl.TermList");
@@ -528,20 +525,32 @@ public class PatternDslGrammarAccess extends AbstractGrammarElementFinder {
 		//')'
 		public Keyword getRightParenthesisKeyword_4_3() { return cRightParenthesisKeyword_4_3; }
 	}
-	public class TermElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "eagledata.core.dsl.pattern.PatternDsl.Term");
-		private final Assignment cNameAssignment = (Assignment)rule.eContents().get(1);
-		private final RuleCall cNameIDTerminalRuleCall_0 = (RuleCall)cNameAssignment.eContents().get(0);
+	public class TermKeyElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "eagledata.core.dsl.pattern.PatternDsl.TermKey");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Assignment cTypeAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final RuleCall cTypeBasicTypeEnumRuleCall_0_0 = (RuleCall)cTypeAssignment_0.eContents().get(0);
+		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
 		
-		//Term streaming::Term:
-		//	name=ID
+		//TermKey streaming::TermKey:
+		//	type=BasicType name=ID
 		@Override public ParserRule getRule() { return rule; }
 		
+		//type=BasicType name=ID
+		public Group getGroup() { return cGroup; }
+		
+		//type=BasicType
+		public Assignment getTypeAssignment_0() { return cTypeAssignment_0; }
+		
+		//BasicType
+		public RuleCall getTypeBasicTypeEnumRuleCall_0_0() { return cTypeBasicTypeEnumRuleCall_0_0; }
+		
 		//name=ID
-		public Assignment getNameAssignment() { return cNameAssignment; }
+		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
 		
 		//ID
-		public RuleCall getNameIDTerminalRuleCall_0() { return cNameIDTerminalRuleCall_0; }
+		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
 	}
 	public class PhraseElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "eagledata.core.dsl.pattern.PatternDsl.Phrase");
@@ -551,33 +560,32 @@ public class PatternDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
 		private final Assignment cOrderedAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final Keyword cOrderedOrderedKeyword_2_0 = (Keyword)cOrderedAssignment_2.eContents().get(0);
-		private final Keyword cEqualsSignKeyword_3 = (Keyword)cGroup.eContents().get(3);
-		private final Keyword cLeftParenthesisKeyword_4 = (Keyword)cGroup.eContents().get(4);
-		private final Assignment cConceptsAssignment_5 = (Assignment)cGroup.eContents().get(5);
-		private final RuleCall cConceptsConceptParserRuleCall_5_0 = (RuleCall)cConceptsAssignment_5.eContents().get(0);
-		private final Group cGroup_6 = (Group)cGroup.eContents().get(6);
-		private final Keyword cCommaKeyword_6_0 = (Keyword)cGroup_6.eContents().get(0);
-		private final Assignment cConceptsAssignment_6_1 = (Assignment)cGroup_6.eContents().get(1);
-		private final RuleCall cConceptsConceptParserRuleCall_6_1_0 = (RuleCall)cConceptsAssignment_6_1.eContents().get(0);
-		private final Keyword cRightParenthesisKeyword_7 = (Keyword)cGroup.eContents().get(7);
-		private final Group cGroup_8 = (Group)cGroup.eContents().get(8);
-		private final Keyword cLeftCurlyBracketKeyword_8_0 = (Keyword)cGroup_8.eContents().get(0);
-		private final Assignment cOptionsAssignment_8_1 = (Assignment)cGroup_8.eContents().get(1);
-		private final RuleCall cOptionsOptionParserRuleCall_8_1_0 = (RuleCall)cOptionsAssignment_8_1.eContents().get(0);
-		private final Group cGroup_8_2 = (Group)cGroup_8.eContents().get(2);
-		private final Keyword cCommaKeyword_8_2_0 = (Keyword)cGroup_8_2.eContents().get(0);
-		private final Assignment cOptionsAssignment_8_2_1 = (Assignment)cGroup_8_2.eContents().get(1);
-		private final RuleCall cOptionsOptionParserRuleCall_8_2_1_0 = (RuleCall)cOptionsAssignment_8_2_1.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_8_3 = (Keyword)cGroup_8.eContents().get(3);
+		private final Keyword cLeftCurlyBracketKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Assignment cConceptsAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cConceptsConceptParserRuleCall_4_0 = (RuleCall)cConceptsAssignment_4.eContents().get(0);
+		private final Group cGroup_5 = (Group)cGroup.eContents().get(5);
+		private final Keyword cCommaKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
+		private final Assignment cConceptsAssignment_5_1 = (Assignment)cGroup_5.eContents().get(1);
+		private final RuleCall cConceptsConceptParserRuleCall_5_1_0 = (RuleCall)cConceptsAssignment_5_1.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_6 = (Keyword)cGroup.eContents().get(6);
+		private final Group cGroup_7 = (Group)cGroup.eContents().get(7);
+		private final Keyword cLeftParenthesisKeyword_7_0 = (Keyword)cGroup_7.eContents().get(0);
+		private final Assignment cOptionsAssignment_7_1 = (Assignment)cGroup_7.eContents().get(1);
+		private final RuleCall cOptionsOptionParserRuleCall_7_1_0 = (RuleCall)cOptionsAssignment_7_1.eContents().get(0);
+		private final Group cGroup_7_2 = (Group)cGroup_7.eContents().get(2);
+		private final Keyword cCommaKeyword_7_2_0 = (Keyword)cGroup_7_2.eContents().get(0);
+		private final Assignment cOptionsAssignment_7_2_1 = (Assignment)cGroup_7_2.eContents().get(1);
+		private final RuleCall cOptionsOptionParserRuleCall_7_2_1_0 = (RuleCall)cOptionsAssignment_7_2_1.eContents().get(0);
+		private final Keyword cRightParenthesisKeyword_7_3 = (Keyword)cGroup_7.eContents().get(3);
 		
 		//Phrase streaming::Phrase:
-		//	'phrase' name=ID ordered?='ordered'? '=' '('
+		//	'phrase' name=ID ordered?='ordered'? '{'
 		//	concepts+=Concept ("," concepts+=Concept)*
-		//	')' ('{' options+=Option ("," options+=Option)* '}')?
+		//	'}' ('(' options+=Option ("," options+=Option)* ')')?
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'phrase' name=ID ordered?='ordered'? '=' '(' concepts+=Concept ("," concepts+=Concept)* ')' ('{' options+=Option (","
-		//options+=Option)* '}')?
+		//'phrase' name=ID ordered?='ordered'? '{' concepts+=Concept ("," concepts+=Concept)* '}' ('(' options+=Option (","
+		//options+=Option)* ')')?
 		public Group getGroup() { return cGroup; }
 		
 		//'phrase'
@@ -595,59 +603,56 @@ public class PatternDslGrammarAccess extends AbstractGrammarElementFinder {
 		//'ordered'
 		public Keyword getOrderedOrderedKeyword_2_0() { return cOrderedOrderedKeyword_2_0; }
 		
-		//'='
-		public Keyword getEqualsSignKeyword_3() { return cEqualsSignKeyword_3; }
-		
-		//'('
-		public Keyword getLeftParenthesisKeyword_4() { return cLeftParenthesisKeyword_4; }
+		//'{'
+		public Keyword getLeftCurlyBracketKeyword_3() { return cLeftCurlyBracketKeyword_3; }
 		
 		//concepts+=Concept
-		public Assignment getConceptsAssignment_5() { return cConceptsAssignment_5; }
+		public Assignment getConceptsAssignment_4() { return cConceptsAssignment_4; }
 		
 		//Concept
-		public RuleCall getConceptsConceptParserRuleCall_5_0() { return cConceptsConceptParserRuleCall_5_0; }
+		public RuleCall getConceptsConceptParserRuleCall_4_0() { return cConceptsConceptParserRuleCall_4_0; }
 		
 		//("," concepts+=Concept)*
-		public Group getGroup_6() { return cGroup_6; }
+		public Group getGroup_5() { return cGroup_5; }
 		
 		//","
-		public Keyword getCommaKeyword_6_0() { return cCommaKeyword_6_0; }
+		public Keyword getCommaKeyword_5_0() { return cCommaKeyword_5_0; }
 		
 		//concepts+=Concept
-		public Assignment getConceptsAssignment_6_1() { return cConceptsAssignment_6_1; }
+		public Assignment getConceptsAssignment_5_1() { return cConceptsAssignment_5_1; }
 		
 		//Concept
-		public RuleCall getConceptsConceptParserRuleCall_6_1_0() { return cConceptsConceptParserRuleCall_6_1_0; }
-		
-		//')'
-		public Keyword getRightParenthesisKeyword_7() { return cRightParenthesisKeyword_7; }
-		
-		//('{' options+=Option ("," options+=Option)* '}')?
-		public Group getGroup_8() { return cGroup_8; }
-		
-		//'{'
-		public Keyword getLeftCurlyBracketKeyword_8_0() { return cLeftCurlyBracketKeyword_8_0; }
-		
-		//options+=Option
-		public Assignment getOptionsAssignment_8_1() { return cOptionsAssignment_8_1; }
-		
-		//Option
-		public RuleCall getOptionsOptionParserRuleCall_8_1_0() { return cOptionsOptionParserRuleCall_8_1_0; }
-		
-		//("," options+=Option)*
-		public Group getGroup_8_2() { return cGroup_8_2; }
-		
-		//","
-		public Keyword getCommaKeyword_8_2_0() { return cCommaKeyword_8_2_0; }
-		
-		//options+=Option
-		public Assignment getOptionsAssignment_8_2_1() { return cOptionsAssignment_8_2_1; }
-		
-		//Option
-		public RuleCall getOptionsOptionParserRuleCall_8_2_1_0() { return cOptionsOptionParserRuleCall_8_2_1_0; }
+		public RuleCall getConceptsConceptParserRuleCall_5_1_0() { return cConceptsConceptParserRuleCall_5_1_0; }
 		
 		//'}'
-		public Keyword getRightCurlyBracketKeyword_8_3() { return cRightCurlyBracketKeyword_8_3; }
+		public Keyword getRightCurlyBracketKeyword_6() { return cRightCurlyBracketKeyword_6; }
+		
+		//('(' options+=Option ("," options+=Option)* ')')?
+		public Group getGroup_7() { return cGroup_7; }
+		
+		//'('
+		public Keyword getLeftParenthesisKeyword_7_0() { return cLeftParenthesisKeyword_7_0; }
+		
+		//options+=Option
+		public Assignment getOptionsAssignment_7_1() { return cOptionsAssignment_7_1; }
+		
+		//Option
+		public RuleCall getOptionsOptionParserRuleCall_7_1_0() { return cOptionsOptionParserRuleCall_7_1_0; }
+		
+		//("," options+=Option)*
+		public Group getGroup_7_2() { return cGroup_7_2; }
+		
+		//","
+		public Keyword getCommaKeyword_7_2_0() { return cCommaKeyword_7_2_0; }
+		
+		//options+=Option
+		public Assignment getOptionsAssignment_7_2_1() { return cOptionsAssignment_7_2_1; }
+		
+		//Option
+		public RuleCall getOptionsOptionParserRuleCall_7_2_1_0() { return cOptionsOptionParserRuleCall_7_2_1_0; }
+		
+		//')'
+		public Keyword getRightParenthesisKeyword_7_3() { return cRightParenthesisKeyword_7_3; }
 	}
 	public class OptionElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "eagledata.core.dsl.pattern.PatternDsl.Option");
@@ -840,6 +845,189 @@ public class PatternDslGrammarAccess extends AbstractGrammarElementFinder {
 		public RuleCall getValueINTTerminalRuleCall_2_0() { return cValueINTTerminalRuleCall_2_0; }
 	}
 	
+	public class BasicTypeElements extends AbstractEnumRuleElementFinder {
+		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "eagledata.core.dsl.pattern.PatternDsl.BasicType");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final EnumLiteralDeclaration cStringEnumLiteralDeclaration_0 = (EnumLiteralDeclaration)cAlternatives.eContents().get(0);
+		private final Keyword cStringStringKeyword_0_0 = (Keyword)cStringEnumLiteralDeclaration_0.eContents().get(0);
+		private final EnumLiteralDeclaration cUrlEnumLiteralDeclaration_1 = (EnumLiteralDeclaration)cAlternatives.eContents().get(1);
+		private final Keyword cUrlUrlKeyword_1_0 = (Keyword)cUrlEnumLiteralDeclaration_1.eContents().get(0);
+		private final EnumLiteralDeclaration cIntEnumLiteralDeclaration_2 = (EnumLiteralDeclaration)cAlternatives.eContents().get(2);
+		private final Keyword cIntIntKeyword_2_0 = (Keyword)cIntEnumLiteralDeclaration_2.eContents().get(0);
+		private final EnumLiteralDeclaration cLongIntEnumLiteralDeclaration_3 = (EnumLiteralDeclaration)cAlternatives.eContents().get(3);
+		private final Keyword cLongIntLongIntKeyword_3_0 = (Keyword)cLongIntEnumLiteralDeclaration_3.eContents().get(0);
+		private final EnumLiteralDeclaration cRealEnumLiteralDeclaration_4 = (EnumLiteralDeclaration)cAlternatives.eContents().get(4);
+		private final Keyword cRealRealKeyword_4_0 = (Keyword)cRealEnumLiteralDeclaration_4.eContents().get(0);
+		private final EnumLiteralDeclaration cDateEnumLiteralDeclaration_5 = (EnumLiteralDeclaration)cAlternatives.eContents().get(5);
+		private final Keyword cDateDateKeyword_5_0 = (Keyword)cDateEnumLiteralDeclaration_5.eContents().get(0);
+		private final EnumLiteralDeclaration cTimeEnumLiteralDeclaration_6 = (EnumLiteralDeclaration)cAlternatives.eContents().get(6);
+		private final Keyword cTimeTimeKeyword_6_0 = (Keyword)cTimeEnumLiteralDeclaration_6.eContents().get(0);
+		private final EnumLiteralDeclaration cYearEnumLiteralDeclaration_7 = (EnumLiteralDeclaration)cAlternatives.eContents().get(7);
+		private final Keyword cYearYearKeyword_7_0 = (Keyword)cYearEnumLiteralDeclaration_7.eContents().get(0);
+		private final EnumLiteralDeclaration cMonthEnumLiteralDeclaration_8 = (EnumLiteralDeclaration)cAlternatives.eContents().get(8);
+		private final Keyword cMonthMonthKeyword_8_0 = (Keyword)cMonthEnumLiteralDeclaration_8.eContents().get(0);
+		private final EnumLiteralDeclaration cDayEnumLiteralDeclaration_9 = (EnumLiteralDeclaration)cAlternatives.eContents().get(9);
+		private final Keyword cDayDayKeyword_9_0 = (Keyword)cDayEnumLiteralDeclaration_9.eContents().get(0);
+		private final EnumLiteralDeclaration cBooleanEnumLiteralDeclaration_10 = (EnumLiteralDeclaration)cAlternatives.eContents().get(10);
+		private final Keyword cBooleanBooleanKeyword_10_0 = (Keyword)cBooleanEnumLiteralDeclaration_10.eContents().get(0);
+		private final EnumLiteralDeclaration cLatEnumLiteralDeclaration_11 = (EnumLiteralDeclaration)cAlternatives.eContents().get(11);
+		private final Keyword cLatLatKeyword_11_0 = (Keyword)cLatEnumLiteralDeclaration_11.eContents().get(0);
+		private final EnumLiteralDeclaration cLongEnumLiteralDeclaration_12 = (EnumLiteralDeclaration)cAlternatives.eContents().get(12);
+		private final Keyword cLongLongKeyword_12_0 = (Keyword)cLongEnumLiteralDeclaration_12.eContents().get(0);
+		private final EnumLiteralDeclaration cPercentEnumLiteralDeclaration_13 = (EnumLiteralDeclaration)cAlternatives.eContents().get(13);
+		private final Keyword cPercentPercentKeyword_13_0 = (Keyword)cPercentEnumLiteralDeclaration_13.eContents().get(0);
+		private final EnumLiteralDeclaration cEmailEnumLiteralDeclaration_14 = (EnumLiteralDeclaration)cAlternatives.eContents().get(14);
+		private final Keyword cEmailEmailKeyword_14_0 = (Keyword)cEmailEnumLiteralDeclaration_14.eContents().get(0);
+		private final EnumLiteralDeclaration cCurrencyEnumLiteralDeclaration_15 = (EnumLiteralDeclaration)cAlternatives.eContents().get(15);
+		private final Keyword cCurrencyCurrencyKeyword_15_0 = (Keyword)cCurrencyEnumLiteralDeclaration_15.eContents().get(0);
+		private final EnumLiteralDeclaration cCreditcardEnumLiteralDeclaration_16 = (EnumLiteralDeclaration)cAlternatives.eContents().get(16);
+		private final Keyword cCreditcardCreditCardKeyword_16_0 = (Keyword)cCreditcardEnumLiteralDeclaration_16.eContents().get(0);
+		private final EnumLiteralDeclaration cIBANEnumLiteralDeclaration_17 = (EnumLiteralDeclaration)cAlternatives.eContents().get(17);
+		private final Keyword cIBANIBANKeyword_17_0 = (Keyword)cIBANEnumLiteralDeclaration_17.eContents().get(0);
+		private final EnumLiteralDeclaration cISBNEnumLiteralDeclaration_18 = (EnumLiteralDeclaration)cAlternatives.eContents().get(18);
+		private final Keyword cISBNISBNKeyword_18_0 = (Keyword)cISBNEnumLiteralDeclaration_18.eContents().get(0);
+		private final EnumLiteralDeclaration cISSNEnumLiteralDeclaration_19 = (EnumLiteralDeclaration)cAlternatives.eContents().get(19);
+		private final Keyword cISSNISSNKeyword_19_0 = (Keyword)cISSNEnumLiteralDeclaration_19.eContents().get(0);
+		private final EnumLiteralDeclaration cInetEnumLiteralDeclaration_20 = (EnumLiteralDeclaration)cAlternatives.eContents().get(20);
+		private final Keyword cInetInetKeyword_20_0 = (Keyword)cInetEnumLiteralDeclaration_20.eContents().get(0);
+		
+		//enum BasicType returns streaming::BasicType:
+		//	string='String' | url='Url' | int='Int' | longInt='LongInt' | real='Real' | date='Date' | time='Time' | year='Year' |
+		//	month='Month' | day='Day' | boolean='Boolean' | lat='Lat' | long='Long' | percent='Percent' | email='Email' |
+		//	currency='Currency' | creditcard='CreditCard' | IBAN | ISBN | ISSN | inet='Inet';
+		public EnumRule getRule() { return rule; }
+		
+		//string='String' | url='Url' | int='Int' | longInt='LongInt' | real='Real' | date='Date' | time='Time' | year='Year' |
+		//month='Month' | day='Day' | boolean='Boolean' | lat='Lat' | long='Long' | percent='Percent' | email='Email' |
+		//currency='Currency' | creditcard='CreditCard' | IBAN | ISBN | ISSN | inet='Inet'
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//string='String'
+		public EnumLiteralDeclaration getStringEnumLiteralDeclaration_0() { return cStringEnumLiteralDeclaration_0; }
+		
+		//'String'
+		public Keyword getStringStringKeyword_0_0() { return cStringStringKeyword_0_0; }
+		
+		//url='Url'
+		public EnumLiteralDeclaration getUrlEnumLiteralDeclaration_1() { return cUrlEnumLiteralDeclaration_1; }
+		
+		//'Url'
+		public Keyword getUrlUrlKeyword_1_0() { return cUrlUrlKeyword_1_0; }
+		
+		//int='Int'
+		public EnumLiteralDeclaration getIntEnumLiteralDeclaration_2() { return cIntEnumLiteralDeclaration_2; }
+		
+		//'Int'
+		public Keyword getIntIntKeyword_2_0() { return cIntIntKeyword_2_0; }
+		
+		//longInt='LongInt'
+		public EnumLiteralDeclaration getLongIntEnumLiteralDeclaration_3() { return cLongIntEnumLiteralDeclaration_3; }
+		
+		//'LongInt'
+		public Keyword getLongIntLongIntKeyword_3_0() { return cLongIntLongIntKeyword_3_0; }
+		
+		//real='Real'
+		public EnumLiteralDeclaration getRealEnumLiteralDeclaration_4() { return cRealEnumLiteralDeclaration_4; }
+		
+		//'Real'
+		public Keyword getRealRealKeyword_4_0() { return cRealRealKeyword_4_0; }
+		
+		//date='Date'
+		public EnumLiteralDeclaration getDateEnumLiteralDeclaration_5() { return cDateEnumLiteralDeclaration_5; }
+		
+		//'Date'
+		public Keyword getDateDateKeyword_5_0() { return cDateDateKeyword_5_0; }
+		
+		//time='Time'
+		public EnumLiteralDeclaration getTimeEnumLiteralDeclaration_6() { return cTimeEnumLiteralDeclaration_6; }
+		
+		//'Time'
+		public Keyword getTimeTimeKeyword_6_0() { return cTimeTimeKeyword_6_0; }
+		
+		//year='Year'
+		public EnumLiteralDeclaration getYearEnumLiteralDeclaration_7() { return cYearEnumLiteralDeclaration_7; }
+		
+		//'Year'
+		public Keyword getYearYearKeyword_7_0() { return cYearYearKeyword_7_0; }
+		
+		//month='Month'
+		public EnumLiteralDeclaration getMonthEnumLiteralDeclaration_8() { return cMonthEnumLiteralDeclaration_8; }
+		
+		//'Month'
+		public Keyword getMonthMonthKeyword_8_0() { return cMonthMonthKeyword_8_0; }
+		
+		//day='Day'
+		public EnumLiteralDeclaration getDayEnumLiteralDeclaration_9() { return cDayEnumLiteralDeclaration_9; }
+		
+		//'Day'
+		public Keyword getDayDayKeyword_9_0() { return cDayDayKeyword_9_0; }
+		
+		//boolean='Boolean'
+		public EnumLiteralDeclaration getBooleanEnumLiteralDeclaration_10() { return cBooleanEnumLiteralDeclaration_10; }
+		
+		//'Boolean'
+		public Keyword getBooleanBooleanKeyword_10_0() { return cBooleanBooleanKeyword_10_0; }
+		
+		//lat='Lat'
+		public EnumLiteralDeclaration getLatEnumLiteralDeclaration_11() { return cLatEnumLiteralDeclaration_11; }
+		
+		//'Lat'
+		public Keyword getLatLatKeyword_11_0() { return cLatLatKeyword_11_0; }
+		
+		//long='Long'
+		public EnumLiteralDeclaration getLongEnumLiteralDeclaration_12() { return cLongEnumLiteralDeclaration_12; }
+		
+		//'Long'
+		public Keyword getLongLongKeyword_12_0() { return cLongLongKeyword_12_0; }
+		
+		//percent='Percent'
+		public EnumLiteralDeclaration getPercentEnumLiteralDeclaration_13() { return cPercentEnumLiteralDeclaration_13; }
+		
+		//'Percent'
+		public Keyword getPercentPercentKeyword_13_0() { return cPercentPercentKeyword_13_0; }
+		
+		//email='Email'
+		public EnumLiteralDeclaration getEmailEnumLiteralDeclaration_14() { return cEmailEnumLiteralDeclaration_14; }
+		
+		//'Email'
+		public Keyword getEmailEmailKeyword_14_0() { return cEmailEmailKeyword_14_0; }
+		
+		//currency='Currency'
+		public EnumLiteralDeclaration getCurrencyEnumLiteralDeclaration_15() { return cCurrencyEnumLiteralDeclaration_15; }
+		
+		//'Currency'
+		public Keyword getCurrencyCurrencyKeyword_15_0() { return cCurrencyCurrencyKeyword_15_0; }
+		
+		//creditcard='CreditCard'
+		public EnumLiteralDeclaration getCreditcardEnumLiteralDeclaration_16() { return cCreditcardEnumLiteralDeclaration_16; }
+		
+		//'CreditCard'
+		public Keyword getCreditcardCreditCardKeyword_16_0() { return cCreditcardCreditCardKeyword_16_0; }
+		
+		//IBAN
+		public EnumLiteralDeclaration getIBANEnumLiteralDeclaration_17() { return cIBANEnumLiteralDeclaration_17; }
+		
+		//'IBAN'
+		public Keyword getIBANIBANKeyword_17_0() { return cIBANIBANKeyword_17_0; }
+		
+		//ISBN
+		public EnumLiteralDeclaration getISBNEnumLiteralDeclaration_18() { return cISBNEnumLiteralDeclaration_18; }
+		
+		//'ISBN'
+		public Keyword getISBNISBNKeyword_18_0() { return cISBNISBNKeyword_18_0; }
+		
+		//ISSN
+		public EnumLiteralDeclaration getISSNEnumLiteralDeclaration_19() { return cISSNEnumLiteralDeclaration_19; }
+		
+		//'ISSN'
+		public Keyword getISSNISSNKeyword_19_0() { return cISSNISSNKeyword_19_0; }
+		
+		//inet='Inet'
+		public EnumLiteralDeclaration getInetEnumLiteralDeclaration_20() { return cInetEnumLiteralDeclaration_20; }
+		
+		//'Inet'
+		public Keyword getInetInetKeyword_20_0() { return cInetInetKeyword_20_0; }
+	}
 	public class GeoOptionKeyElements extends AbstractEnumRuleElementFinder {
 		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "eagledata.core.dsl.pattern.PatternDsl.GeoOptionKey");
 		private final EnumLiteralDeclaration cInEnumLiteralDeclaration = (EnumLiteralDeclaration)rule.eContents().get(1);
@@ -1174,8 +1362,9 @@ public class PatternDslGrammarAccess extends AbstractGrammarElementFinder {
 	private final PatternMatcherElementElements pPatternMatcherElement;
 	private final ConceptElements pConcept;
 	private final TermListElements pTermList;
-	private final TermElements pTerm;
+	private final TermKeyElements pTermKey;
 	private final PhraseElements pPhrase;
+	private final BasicTypeElements eBasicType;
 	private final OptionElements pOption;
 	private final GeoOptionElements pGeoOption;
 	private final SourceOptionElements pSourceOption;
@@ -1220,8 +1409,9 @@ public class PatternDslGrammarAccess extends AbstractGrammarElementFinder {
 		this.pPatternMatcherElement = new PatternMatcherElementElements();
 		this.pConcept = new ConceptElements();
 		this.pTermList = new TermListElements();
-		this.pTerm = new TermElements();
+		this.pTermKey = new TermKeyElements();
 		this.pPhrase = new PhraseElements();
+		this.eBasicType = new BasicTypeElements();
 		this.pOption = new OptionElements();
 		this.pGeoOption = new GeoOptionElements();
 		this.pSourceOption = new SourceOptionElements();
@@ -1382,7 +1572,6 @@ public class PatternDslGrammarAccess extends AbstractGrammarElementFinder {
 	
 	//Region streaming::Region:
 	//	'region' name=ID '=' '{'
-	//	//('contains' '(' contains+=[streaming::GeographicalElement|ID] ( "," contains+=[streaming::GeographicalElement|ID])* ')' )?
 	//	southWestBoundary=Point ':' northEastBoundary=Point
 	//	'}'
 	public RegionElements getRegionAccess() {
@@ -1404,7 +1593,7 @@ public class PatternDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Concept streaming::Concept:
-	//	TermList | Term
+	//	TermList | TermKey
 	public ConceptElements getConceptAccess() {
 		return pConcept;
 	}
@@ -1423,26 +1612,38 @@ public class PatternDslGrammarAccess extends AbstractGrammarElementFinder {
 		return getTermListAccess().getRule();
 	}
 	
-	//Term streaming::Term:
-	//	name=ID
-	public TermElements getTermAccess() {
-		return pTerm;
+	//TermKey streaming::TermKey:
+	//	type=BasicType name=ID
+	public TermKeyElements getTermKeyAccess() {
+		return pTermKey;
 	}
 	
-	public ParserRule getTermRule() {
-		return getTermAccess().getRule();
+	public ParserRule getTermKeyRule() {
+		return getTermKeyAccess().getRule();
 	}
 	
 	//Phrase streaming::Phrase:
-	//	'phrase' name=ID ordered?='ordered'? '=' '('
+	//	'phrase' name=ID ordered?='ordered'? '{'
 	//	concepts+=Concept ("," concepts+=Concept)*
-	//	')' ('{' options+=Option ("," options+=Option)* '}')?
+	//	'}' ('(' options+=Option ("," options+=Option)* ')')?
 	public PhraseElements getPhraseAccess() {
 		return pPhrase;
 	}
 	
 	public ParserRule getPhraseRule() {
 		return getPhraseAccess().getRule();
+	}
+	
+	//enum BasicType returns streaming::BasicType:
+	//	string='String' | url='Url' | int='Int' | longInt='LongInt' | real='Real' | date='Date' | time='Time' | year='Year' |
+	//	month='Month' | day='Day' | boolean='Boolean' | lat='Lat' | long='Long' | percent='Percent' | email='Email' |
+	//	currency='Currency' | creditcard='CreditCard' | IBAN | ISBN | ISSN | inet='Inet';
+	public BasicTypeElements getBasicTypeAccess() {
+		return eBasicType;
+	}
+	
+	public EnumRule getBasicTypeRule() {
+		return getBasicTypeAccess().getRule();
 	}
 	
 	//Option streaming::Option:
@@ -1641,7 +1842,8 @@ public class PatternDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//terminal STRING:
-	//	'"' ('\\' . | !('\\' | '"'))* '"' | "'" ('\\' . | !('\\' | "'"))* "'";
+	//	'"' ('\\' . | !('\\' | '"'))* '"' |
+	//	"'" ('\\' . | !('\\' | "'"))* "'";
 	public TerminalRule getSTRINGRule() {
 		return gaTerminals.getSTRINGRule();
 	}

@@ -85,12 +85,12 @@ PrimitiveNode returns data::PrimitiveNode:
 ;
 
 Cardinality returns data::Cardinality:
-	min=INT (',' max=INT)?
+	min=CARDINALITY_SYMBOLS (',' max=CARDINALITY_SYMBOLS)?
 ;
 
 DataDescription returns data::DataDescription:
 	'description' format=STRING name=ID (':' fragments+=[data::Fragment | QualifiedName] (',' fragments+=[data::Fragment | QualifiedName])*)? '{'
-		nodes += Node (nodes += Node)*
+		(nodes += Node (nodes += Node)*)?
 	'}' ('(' options+=DataOption ("," options+=DataOption)* ')')?
 ;
 
@@ -177,4 +177,6 @@ DataOption returns data::DataOption:
 //terminal MODIFICATION_MARK : 'RENAME' | 'RETYPE';
 //terminal UNIQUENESS : 'key' | 'unique';
 terminal BOOLEAN : "true" | "false";
+terminal CARDINALITY_SYMBOLS : "0" | "1" | "2" | "-1";
+terminal NEGINT : "-"INT;
 terminal DOUBLE returns ecore::EDouble: "-"?INT'.'INT;

@@ -49,13 +49,38 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="terms" unique="false" upperBound="-1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Term" eSuperTypes="#//Concept"/>
+  <eClassifiers xsi:type="ecore:EClass" name="TermKey" eSuperTypes="#//Concept">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//BasicType"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Phrase" eSuperTypes="#//PatternMatcherElement">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="ordered" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="concepts" upperBound="-1"
         eType="#//Concept" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="options" upperBound="-1"
         eType="#//Option" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="BasicType">
+    <eLiterals name="string" literal="String"/>
+    <eLiterals name="url" value="1" literal="Url"/>
+    <eLiterals name="int" value="2" literal="Int"/>
+    <eLiterals name="longInt" value="3" literal="LongInt"/>
+    <eLiterals name="real" value="4" literal="Real"/>
+    <eLiterals name="date" value="5" literal="Date"/>
+    <eLiterals name="time" value="6" literal="Time"/>
+    <eLiterals name="year" value="7" literal="Year"/>
+    <eLiterals name="month" value="8" literal="Month"/>
+    <eLiterals name="day" value="9" literal="Day"/>
+    <eLiterals name="boolean" value="10" literal="Boolean"/>
+    <eLiterals name="lat" value="11" literal="Lat"/>
+    <eLiterals name="long" value="12" literal="Long"/>
+    <eLiterals name="percent" value="13" literal="Percent"/>
+    <eLiterals name="email" value="14" literal="Email"/>
+    <eLiterals name="currency" value="15" literal="Currency"/>
+    <eLiterals name="creditcard" value="16" literal="CreditCard"/>
+    <eLiterals name="IBAN" value="17" literal="IBAN"/>
+    <eLiterals name="ISBN" value="18" literal="ISBN"/>
+    <eLiterals name="ISSN" value="19" literal="ISSN"/>
+    <eLiterals name="inet" value="20" literal="Inet"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Option"/>
   <eClassifiers xsi:type="ecore:EClass" name="GeoOption" eSuperTypes="#//Option">

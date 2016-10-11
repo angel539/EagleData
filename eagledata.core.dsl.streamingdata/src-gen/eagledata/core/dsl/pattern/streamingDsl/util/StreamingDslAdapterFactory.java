@@ -141,9 +141,9 @@ public class StreamingDslAdapterFactory extends AdapterFactoryImpl
         return createTermListAdapter();
       }
       @Override
-      public Adapter caseTerm(Term object)
+      public Adapter caseTermKey(TermKey object)
       {
-        return createTermAdapter();
+        return createTermKeyAdapter();
       }
       @Override
       public Adapter casePhrase(Phrase object)
@@ -398,16 +398,16 @@ public class StreamingDslAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link eagledata.core.dsl.pattern.streamingDsl.Term <em>Term</em>}'.
+   * Creates a new adapter for an object of class '{@link eagledata.core.dsl.pattern.streamingDsl.TermKey <em>Term Key</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see eagledata.core.dsl.pattern.streamingDsl.Term
+   * @see eagledata.core.dsl.pattern.streamingDsl.TermKey
    * @generated
    */
-  public Adapter createTermAdapter()
+  public Adapter createTermKeyAdapter()
   {
     return null;
   }

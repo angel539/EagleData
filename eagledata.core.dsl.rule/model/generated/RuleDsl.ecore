@@ -3,49 +3,47 @@
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="ruleDsl" nsURI="http://www.core.eagledata/dsl/rule/RuleDsl"
     nsPrefix="ruleDsl">
   <eClassifiers xsi:type="ecore:EClass" name="RuleModel">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="imports" upperBound="-1"
+        eType="ecore:EClass platform:/resource/eagledata.core.dsl.streamingdata/model/generated/PatternDsl.ecore#//Import"
+        containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="elements" upperBound="-1"
-        eType="#//RuleElement" containment="true"/>
+        eType="#//Rule" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="RuleElement">
+  <eClassifiers xsi:type="ecore:EClass" name="RuleElement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Rule">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="event" eType="ecore:EClass platform:/resource/eagledata.core.dsl.streamingdata/model/generated/PatternDsl.ecore#//Phrase"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="actions" upperBound="-1"
+        eType="#//Action" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Action" eSuperTypes="#//RuleElement">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Rule" eSuperTypes="#//RuleElement">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="event" eType="ecore:EClass platform:/resource/eagledata.core.dsl.streamingdata/model/generated/PatternDsl.ecore#//Phrase"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="condition" eType="#//When"
-        containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="actions" upperBound="-1"
-        eType="#//Query" containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Query" eSuperTypes="#//RuleElement">
+  <eClassifiers xsi:type="ecore:EClass" name="Query" eSuperTypes="#//Action">
     <eStructuralFeatures xsi:type="ecore:EReference" name="select" eType="#//Select"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="where" eType="#//Where"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="then" upperBound="-1" eType="#//Message"
         containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Select">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="all" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="SetSelect" eSuperTypes="#//Select">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="selection" upperBound="-1"
-        eType="#//Selection" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="operator" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="select" eType="#//SetSelect"
-        containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Selection">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="selector" eType="ecore:EClass platform:/resource/eagledata.core.dsl.streamingdata/model/generated/PatternDsl.ecore#//Concept"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="root" unique="false" upperBound="-1"
-        eType="ecore:EClass platform:/resource/eagledata.core.dsl.streamingdata/model/generated/PatternDsl.ecore#//Concept"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="AddingSelect" eSuperTypes="#//Select">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="operation" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="element" eType="ecore:EClass platform:/resource/eagledata.core.dsl.streamingdata/model/generated/PatternDsl.ecore#//Concept"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="all" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Select"/>
+  <eClassifiers xsi:type="ecore:EClass" name="SetSelect" eSuperTypes="#//Select">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="selector" unique="false"
+        upperBound="-1" eType="ecore:EClass platform:/resource/eagledata.core.dsl.datadesc/model/generated/DataDsl.ecore#//PrimitiveNode"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="from" unique="false" upperBound="-1"
+        eType="ecore:EClass platform:/resource/eagledata.core.dsl.datadesc/model/generated/DataDsl.ecore#//DataDescription"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="where" upperBound="-1"
+        eType="#//Where" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Where">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="left" eType="ecore:EClass platform:/resource/eagledata.core.dsl.streamingdata/model/generated/PatternDsl.ecore#//Concept"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="left" eType="ecore:EClass platform:/resource/eagledata.core.dsl.datadesc/model/generated/DataDsl.ecore#//PrimitiveNode"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="logicalOperator" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="rightVariable" eType="ecore:EClass platform:/resource/eagledata.core.dsl.streamingdata/model/generated/PatternDsl.ecore#//Concept"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="right" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="right" eType="ecore:EClass platform:/resource/eagledata.core.dsl.datadesc/model/generated/DataDsl.ecore#//PrimitiveNode"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="rightStreaming" eType="ecore:EClass platform:/resource/eagledata.core.dsl.streamingdata/model/generated/PatternDsl.ecore#//Concept"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="When">
     <eStructuralFeatures xsi:type="ecore:EReference" name="left" eType="#//Expression"
@@ -72,5 +70,28 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="operator" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="expression" eType="#//Expression"
         containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Message" eSuperTypes="#//Action">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="message" upperBound="-1"
+        eType="#//MessageString" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="recipient" eType="#//Receiver"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="MessageString"/>
+  <eClassifiers xsi:type="ecore:EClass" name="SelectMessageString" eSuperTypes="#//MessageString">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="response" unique="false"
+        upperBound="-1" eType="ecore:EClass platform:/resource/eagledata.core.dsl.datadesc/model/generated/DataDsl.ecore#//PrimitiveNode"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TextMessageString" eSuperTypes="#//MessageString">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="text" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Receiver"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ReceiverList" eSuperTypes="#//Receiver">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="receiver" unique="false"
+        upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DistributionList" eSuperTypes="#//Receiver">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="file" unique="false" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
 </ecore:EPackage>

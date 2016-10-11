@@ -141,7 +141,7 @@ public class DataDslSemanticSequencer extends AbstractDelegatingSemanticSequence
 	 *     Cardinality returns Cardinality
 	 *
 	 * Constraint:
-	 *     (min=INT max=INT?)
+	 *     (min=CARDINALITY_SYMBOLS max=CARDINALITY_SYMBOLS?)
 	 */
 	protected void sequence_Cardinality(ISerializationContext context, Cardinality semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -186,8 +186,7 @@ public class DataDslSemanticSequencer extends AbstractDelegatingSemanticSequence
 	 *         format=STRING 
 	 *         name=ID 
 	 *         (fragments+=[Fragment|QualifiedName] fragments+=[Fragment|QualifiedName]*)? 
-	 *         nodes+=Node 
-	 *         nodes+=Node* 
+	 *         (nodes+=Node nodes+=Node*)? 
 	 *         (options+=DataOption options+=DataOption*)?
 	 *     )
 	 */

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="eagledata.core.extensions.assistant">
+      <dataassistant
+            class="eagledata.core.csv.CsvDataAssistant"
+            extensions="csv, CSV"
+            id="eagledata.core.csv.assistant"
+            name="CSV">
+         <option
+               key="delimiter"
+               values=";:,:\t ">
+         </option>
+         <option
+               key="header"
+               values="true:false">
+         </option>
+         <option
+               key="format"
+               values="DEFAULT:EXCEL:MYSQL:RFC4180:TDF">
+         </option>
+      </dataassistant>
+   </extension>
+
+</plugin>

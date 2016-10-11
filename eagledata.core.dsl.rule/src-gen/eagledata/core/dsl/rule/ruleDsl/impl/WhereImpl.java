@@ -3,6 +3,8 @@
  */
 package eagledata.core.dsl.rule.ruleDsl.impl;
 
+import eagledata.core.dsl.datadesc.dataDsl.PrimitiveNode;
+
 import eagledata.core.dsl.pattern.streamingDsl.Concept;
 
 import eagledata.core.dsl.rule.ruleDsl.RuleDslPackage;
@@ -26,8 +28,8 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <ul>
  *   <li>{@link eagledata.core.dsl.rule.ruleDsl.impl.WhereImpl#getLeft <em>Left</em>}</li>
  *   <li>{@link eagledata.core.dsl.rule.ruleDsl.impl.WhereImpl#getLogicalOperator <em>Logical Operator</em>}</li>
- *   <li>{@link eagledata.core.dsl.rule.ruleDsl.impl.WhereImpl#getRightVariable <em>Right Variable</em>}</li>
  *   <li>{@link eagledata.core.dsl.rule.ruleDsl.impl.WhereImpl#getRight <em>Right</em>}</li>
+ *   <li>{@link eagledata.core.dsl.rule.ruleDsl.impl.WhereImpl#getRightStreaming <em>Right Streaming</em>}</li>
  * </ul>
  *
  * @generated
@@ -42,7 +44,7 @@ public class WhereImpl extends MinimalEObjectImpl.Container implements Where
    * @generated
    * @ordered
    */
-  protected Concept left;
+  protected PrimitiveNode left;
 
   /**
    * The default value of the '{@link #getLogicalOperator() <em>Logical Operator</em>}' attribute.
@@ -65,34 +67,24 @@ public class WhereImpl extends MinimalEObjectImpl.Container implements Where
   protected String logicalOperator = LOGICAL_OPERATOR_EDEFAULT;
 
   /**
-   * The cached value of the '{@link #getRightVariable() <em>Right Variable</em>}' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getRightVariable()
-   * @generated
-   * @ordered
-   */
-  protected Concept rightVariable;
-
-  /**
-   * The default value of the '{@link #getRight() <em>Right</em>}' attribute.
+   * The cached value of the '{@link #getRight() <em>Right</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getRight()
    * @generated
    * @ordered
    */
-  protected static final int RIGHT_EDEFAULT = 0;
+  protected PrimitiveNode right;
 
   /**
-   * The cached value of the '{@link #getRight() <em>Right</em>}' attribute.
+   * The cached value of the '{@link #getRightStreaming() <em>Right Streaming</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getRight()
+   * @see #getRightStreaming()
    * @generated
    * @ordered
    */
-  protected int right = RIGHT_EDEFAULT;
+  protected Concept rightStreaming;
 
   /**
    * <!-- begin-user-doc -->
@@ -120,12 +112,12 @@ public class WhereImpl extends MinimalEObjectImpl.Container implements Where
    * <!-- end-user-doc -->
    * @generated
    */
-  public Concept getLeft()
+  public PrimitiveNode getLeft()
   {
     if (left != null && left.eIsProxy())
     {
       InternalEObject oldLeft = (InternalEObject)left;
-      left = (Concept)eResolveProxy(oldLeft);
+      left = (PrimitiveNode)eResolveProxy(oldLeft);
       if (left != oldLeft)
       {
         if (eNotificationRequired())
@@ -140,7 +132,7 @@ public class WhereImpl extends MinimalEObjectImpl.Container implements Where
    * <!-- end-user-doc -->
    * @generated
    */
-  public Concept basicGetLeft()
+  public PrimitiveNode basicGetLeft()
   {
     return left;
   }
@@ -150,9 +142,9 @@ public class WhereImpl extends MinimalEObjectImpl.Container implements Where
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setLeft(Concept newLeft)
+  public void setLeft(PrimitiveNode newLeft)
   {
-    Concept oldLeft = left;
+    PrimitiveNode oldLeft = left;
     left = newLeft;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, RuleDslPackage.WHERE__LEFT, oldLeft, left));
@@ -186,19 +178,19 @@ public class WhereImpl extends MinimalEObjectImpl.Container implements Where
    * <!-- end-user-doc -->
    * @generated
    */
-  public Concept getRightVariable()
+  public PrimitiveNode getRight()
   {
-    if (rightVariable != null && rightVariable.eIsProxy())
+    if (right != null && right.eIsProxy())
     {
-      InternalEObject oldRightVariable = (InternalEObject)rightVariable;
-      rightVariable = (Concept)eResolveProxy(oldRightVariable);
-      if (rightVariable != oldRightVariable)
+      InternalEObject oldRight = (InternalEObject)right;
+      right = (PrimitiveNode)eResolveProxy(oldRight);
+      if (right != oldRight)
       {
         if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, RuleDslPackage.WHERE__RIGHT_VARIABLE, oldRightVariable, rightVariable));
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, RuleDslPackage.WHERE__RIGHT, oldRight, right));
       }
     }
-    return rightVariable;
+    return right;
   }
 
   /**
@@ -206,30 +198,7 @@ public class WhereImpl extends MinimalEObjectImpl.Container implements Where
    * <!-- end-user-doc -->
    * @generated
    */
-  public Concept basicGetRightVariable()
-  {
-    return rightVariable;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setRightVariable(Concept newRightVariable)
-  {
-    Concept oldRightVariable = rightVariable;
-    rightVariable = newRightVariable;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, RuleDslPackage.WHERE__RIGHT_VARIABLE, oldRightVariable, rightVariable));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public int getRight()
+  public PrimitiveNode basicGetRight()
   {
     return right;
   }
@@ -239,12 +208,55 @@ public class WhereImpl extends MinimalEObjectImpl.Container implements Where
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setRight(int newRight)
+  public void setRight(PrimitiveNode newRight)
   {
-    int oldRight = right;
+    PrimitiveNode oldRight = right;
     right = newRight;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, RuleDslPackage.WHERE__RIGHT, oldRight, right));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Concept getRightStreaming()
+  {
+    if (rightStreaming != null && rightStreaming.eIsProxy())
+    {
+      InternalEObject oldRightStreaming = (InternalEObject)rightStreaming;
+      rightStreaming = (Concept)eResolveProxy(oldRightStreaming);
+      if (rightStreaming != oldRightStreaming)
+      {
+        if (eNotificationRequired())
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, RuleDslPackage.WHERE__RIGHT_STREAMING, oldRightStreaming, rightStreaming));
+      }
+    }
+    return rightStreaming;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Concept basicGetRightStreaming()
+  {
+    return rightStreaming;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setRightStreaming(Concept newRightStreaming)
+  {
+    Concept oldRightStreaming = rightStreaming;
+    rightStreaming = newRightStreaming;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, RuleDslPackage.WHERE__RIGHT_STREAMING, oldRightStreaming, rightStreaming));
   }
 
   /**
@@ -262,11 +274,12 @@ public class WhereImpl extends MinimalEObjectImpl.Container implements Where
         return basicGetLeft();
       case RuleDslPackage.WHERE__LOGICAL_OPERATOR:
         return getLogicalOperator();
-      case RuleDslPackage.WHERE__RIGHT_VARIABLE:
-        if (resolve) return getRightVariable();
-        return basicGetRightVariable();
       case RuleDslPackage.WHERE__RIGHT:
-        return getRight();
+        if (resolve) return getRight();
+        return basicGetRight();
+      case RuleDslPackage.WHERE__RIGHT_STREAMING:
+        if (resolve) return getRightStreaming();
+        return basicGetRightStreaming();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -282,16 +295,16 @@ public class WhereImpl extends MinimalEObjectImpl.Container implements Where
     switch (featureID)
     {
       case RuleDslPackage.WHERE__LEFT:
-        setLeft((Concept)newValue);
+        setLeft((PrimitiveNode)newValue);
         return;
       case RuleDslPackage.WHERE__LOGICAL_OPERATOR:
         setLogicalOperator((String)newValue);
         return;
-      case RuleDslPackage.WHERE__RIGHT_VARIABLE:
-        setRightVariable((Concept)newValue);
-        return;
       case RuleDslPackage.WHERE__RIGHT:
-        setRight((Integer)newValue);
+        setRight((PrimitiveNode)newValue);
+        return;
+      case RuleDslPackage.WHERE__RIGHT_STREAMING:
+        setRightStreaming((Concept)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -308,16 +321,16 @@ public class WhereImpl extends MinimalEObjectImpl.Container implements Where
     switch (featureID)
     {
       case RuleDslPackage.WHERE__LEFT:
-        setLeft((Concept)null);
+        setLeft((PrimitiveNode)null);
         return;
       case RuleDslPackage.WHERE__LOGICAL_OPERATOR:
         setLogicalOperator(LOGICAL_OPERATOR_EDEFAULT);
         return;
-      case RuleDslPackage.WHERE__RIGHT_VARIABLE:
-        setRightVariable((Concept)null);
-        return;
       case RuleDslPackage.WHERE__RIGHT:
-        setRight(RIGHT_EDEFAULT);
+        setRight((PrimitiveNode)null);
+        return;
+      case RuleDslPackage.WHERE__RIGHT_STREAMING:
+        setRightStreaming((Concept)null);
         return;
     }
     super.eUnset(featureID);
@@ -337,10 +350,10 @@ public class WhereImpl extends MinimalEObjectImpl.Container implements Where
         return left != null;
       case RuleDslPackage.WHERE__LOGICAL_OPERATOR:
         return LOGICAL_OPERATOR_EDEFAULT == null ? logicalOperator != null : !LOGICAL_OPERATOR_EDEFAULT.equals(logicalOperator);
-      case RuleDslPackage.WHERE__RIGHT_VARIABLE:
-        return rightVariable != null;
       case RuleDslPackage.WHERE__RIGHT:
-        return right != RIGHT_EDEFAULT;
+        return right != null;
+      case RuleDslPackage.WHERE__RIGHT_STREAMING:
+        return rightStreaming != null;
     }
     return super.eIsSet(featureID);
   }
@@ -358,8 +371,6 @@ public class WhereImpl extends MinimalEObjectImpl.Container implements Where
     StringBuffer result = new StringBuffer(super.toString());
     result.append(" (logicalOperator: ");
     result.append(logicalOperator);
-    result.append(", right: ");
-    result.append(right);
     result.append(')');
     return result.toString();
   }

@@ -12,6 +12,7 @@ import eagledata.core.dsl.datadesc.dataDsl.DataDescription;
 import eagledata.core.dsl.datadesc.dataDsl.DataDslFactory;
 import eagledata.core.dsl.datadesc.dataDsl.Enumeration;
 import eagledata.core.dsl.datadesc.dataDsl.PrimitiveNode;
+import eagledata.core.dsl.datadesc.dataDsl.TypeSpecification;
 
 public class DataDslModelUtils {
 	public static DataDescription createDescription(String name, String format){
@@ -39,5 +40,16 @@ public class DataDslModelUtils {
 		primitiveNode.setCardinality(cardinality);
 		
 		return primitiveNode;
+	}
+	
+	public static CompositeNode createCompositeNode(String name, boolean key, boolean unique, TypeSpecification type, Cardinality cardinality){
+		CompositeNode compositeNode = DataDslFactory.eINSTANCE.createCompositeNode();	
+		compositeNode.setName(name);
+		compositeNode.setKey(key);
+		compositeNode.setUnique(unique);
+		compositeNode.setType(type);
+		compositeNode.setCardinality(cardinality);
+		
+		return compositeNode;
 	}
 }

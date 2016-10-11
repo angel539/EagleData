@@ -10,12 +10,6 @@ import org.eclipse.emf.ecore.EObject;
  * A representation of the model object '<em><b>Select</b></em>'.
  * <!-- end-user-doc -->
  *
- * <p>
- * The following features are supported:
- * </p>
- * <ul>
- *   <li>{@link eagledata.core.dsl.rule.ruleDsl.Select#isAll <em>All</em>}</li>
- * </ul>
  *
  * @see eagledata.core.dsl.rule.ruleDsl.RuleDslPackage#getSelect()
  * @model
@@ -23,30 +17,4 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface Select extends EObject
 {
-  /**
-   * Returns the value of the '<em><b>All</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>All</em>' attribute isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>All</em>' attribute.
-   * @see #setAll(boolean)
-   * @see eagledata.core.dsl.rule.ruleDsl.RuleDslPackage#getSelect_All()
-   * @model
-   * @generated
-   */
-  boolean isAll();
-
-  /**
-   * Sets the value of the '{@link eagledata.core.dsl.rule.ruleDsl.Select#isAll <em>All</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>All</em>' attribute.
-   * @see #isAll()
-   * @generated
-   */
-  void setAll(boolean value);
-
 } // Select

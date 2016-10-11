@@ -11,9 +11,10 @@ import eagledata.core.dsl.datadesc.dataDsl.Tag
 import eagledata.core.dsl.datadesc.services.DataDslGrammarAccess
 import org.eclipse.xtext.formatting2.AbstractFormatter2
 import org.eclipse.xtext.formatting2.IFormattableDocument
+import eagledata.core.dsl.datadesc.dataDsl.DataDslPackage
+import eagledata.core.dsl.datadesc.dataDsl.Node
 
 class DataDslFormatter extends AbstractFormatter2 {
-	
 	@Inject extension DataDslGrammarAccess
 
 	def dispatch void format(DataModel dataModel, extension IFormattableDocument document) {
@@ -33,13 +34,23 @@ class DataDslFormatter extends AbstractFormatter2 {
 		}
 	}
 	
-	def dispatch void format(eagledata.core.dsl.datadesc.dataDsl.DataDescription description, extension IFormattableDocument document){
+	def dispatch void format(eagledata.core.dsl.datadesc.dataDsl.AbstractDescription description, extension IFormattableDocument document){
+		//description.append[newLine]
 		description.interior[indent]
+		//description.regionFor.feature(DataDslPackage.Literals.SPECIFICATION_ELEMENT__NAME).prepend[oneSpace] // tab
+		description.regionFor.keyword("{").prepend[oneSpace].append[newLine]
+		//description.regionFor.keyword("{").prepend[newLine]
+		for(Node node : description.nodes) node.format
+		description.regionFor.keyword("}").prepend[newLine]
+		
 	}
-	
 	
 	def dispatch void format(eagledata.core.dsl.datadesc.dataDsl.Enumeration enumeration, extension IFormattableDocument document){
 		enumeration.append[newLine]
+	}
+	
+	def dispatch void format(eagledata.core.dsl.datadesc.dataDsl.Node node, extension IFormattableDocument document){
+		node.append[newLine]
 	}
 	// TODO: implement for CompositeNode, FragmentNode, PrimitiveNode, DataDescription, Fragment, DataTypeRefinement
 }

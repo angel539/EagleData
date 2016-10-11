@@ -6,7 +6,6 @@ package eagledata.core.dsl.rule.services;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
 import java.util.List;
-import org.eclipse.xtext.Action;
 import org.eclipse.xtext.Alternatives;
 import org.eclipse.xtext.Assignment;
 import org.eclipse.xtext.CrossReference;
@@ -27,157 +26,231 @@ public class RuleDslGrammarAccess extends AbstractGrammarElementFinder {
 	public class RuleModelElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "eagledata.core.dsl.rule.RuleDsl.RuleModel");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Assignment cElementsAssignment_0 = (Assignment)cGroup.eContents().get(0);
-		private final RuleCall cElementsRuleElementParserRuleCall_0_0 = (RuleCall)cElementsAssignment_0.eContents().get(0);
-		private final Assignment cElementsAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cElementsRuleElementParserRuleCall_1_0 = (RuleCall)cElementsAssignment_1.eContents().get(0);
+		private final Group cGroup_0 = (Group)cGroup.eContents().get(0);
+		private final Assignment cImportsAssignment_0_0 = (Assignment)cGroup_0.eContents().get(0);
+		private final RuleCall cImportsImportParserRuleCall_0_0_0 = (RuleCall)cImportsAssignment_0_0.eContents().get(0);
+		private final Assignment cImportsAssignment_0_1 = (Assignment)cGroup_0.eContents().get(1);
+		private final RuleCall cImportsImportParserRuleCall_0_1_0 = (RuleCall)cImportsAssignment_0_1.eContents().get(0);
+		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
+		private final Assignment cElementsAssignment_1_0 = (Assignment)cGroup_1.eContents().get(0);
+		private final RuleCall cElementsRuleParserRuleCall_1_0_0 = (RuleCall)cElementsAssignment_1_0.eContents().get(0);
+		private final Assignment cElementsAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
+		private final RuleCall cElementsRuleParserRuleCall_1_1_0 = (RuleCall)cElementsAssignment_1_1.eContents().get(0);
 		
 		//RuleModel rule::RuleModel:
-		//	(elements+=RuleElement elements+=RuleElement*)?
+		//	(imports+=Import imports+=Import*)? (elements+=Rule elements+=Rule*)?
 		@Override public ParserRule getRule() { return rule; }
 		
-		//(elements+=RuleElement elements+=RuleElement*)?
+		//(imports+=Import imports+=Import*)? (elements+=Rule elements+=Rule*)?
 		public Group getGroup() { return cGroup; }
 		
-		//elements+=RuleElement
-		public Assignment getElementsAssignment_0() { return cElementsAssignment_0; }
+		//(imports+=Import imports+=Import*)?
+		public Group getGroup_0() { return cGroup_0; }
 		
-		//RuleElement
-		public RuleCall getElementsRuleElementParserRuleCall_0_0() { return cElementsRuleElementParserRuleCall_0_0; }
+		//imports+=Import
+		public Assignment getImportsAssignment_0_0() { return cImportsAssignment_0_0; }
 		
-		//elements+=RuleElement*
-		public Assignment getElementsAssignment_1() { return cElementsAssignment_1; }
+		//Import
+		public RuleCall getImportsImportParserRuleCall_0_0_0() { return cImportsImportParserRuleCall_0_0_0; }
 		
-		//RuleElement
-		public RuleCall getElementsRuleElementParserRuleCall_1_0() { return cElementsRuleElementParserRuleCall_1_0; }
+		//imports+=Import*
+		public Assignment getImportsAssignment_0_1() { return cImportsAssignment_0_1; }
+		
+		//Import
+		public RuleCall getImportsImportParserRuleCall_0_1_0() { return cImportsImportParserRuleCall_0_1_0; }
+		
+		//(elements+=Rule elements+=Rule*)?
+		public Group getGroup_1() { return cGroup_1; }
+		
+		//elements+=Rule
+		public Assignment getElementsAssignment_1_0() { return cElementsAssignment_1_0; }
+		
+		//Rule
+		public RuleCall getElementsRuleParserRuleCall_1_0_0() { return cElementsRuleParserRuleCall_1_0_0; }
+		
+		//elements+=Rule*
+		public Assignment getElementsAssignment_1_1() { return cElementsAssignment_1_1; }
+		
+		//Rule
+		public RuleCall getElementsRuleParserRuleCall_1_1_0() { return cElementsRuleParserRuleCall_1_1_0; }
+	}
+	public class ImportElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "eagledata.core.dsl.rule.RuleDsl.Import");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cImportKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cImportedNamespaceAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cImportedNamespaceQualifiedNameWithWildcardParserRuleCall_1_0 = (RuleCall)cImportedNamespaceAssignment_1.eContents().get(0);
+		
+		//Import streaming::Import:
+		//	'import' importedNamespace=QualifiedNameWithWildcard
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'import' importedNamespace=QualifiedNameWithWildcard
+		public Group getGroup() { return cGroup; }
+		
+		//'import'
+		public Keyword getImportKeyword_0() { return cImportKeyword_0; }
+		
+		//importedNamespace=QualifiedNameWithWildcard
+		public Assignment getImportedNamespaceAssignment_1() { return cImportedNamespaceAssignment_1; }
+		
+		//QualifiedNameWithWildcard
+		public RuleCall getImportedNamespaceQualifiedNameWithWildcardParserRuleCall_1_0() { return cImportedNamespaceQualifiedNameWithWildcardParserRuleCall_1_0; }
+	}
+	public class QualifiedNameWithWildcardElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "eagledata.core.dsl.rule.RuleDsl.QualifiedNameWithWildcard");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final RuleCall cQualifiedNameParserRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
+		private final Keyword cFullStopAsteriskKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		
+		//QualifiedNameWithWildcard:
+		//	QualifiedName '.*'?;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//QualifiedName '.*'?
+		public Group getGroup() { return cGroup; }
+		
+		//QualifiedName
+		public RuleCall getQualifiedNameParserRuleCall_0() { return cQualifiedNameParserRuleCall_0; }
+		
+		//'.*'?
+		public Keyword getFullStopAsteriskKeyword_1() { return cFullStopAsteriskKeyword_1; }
+	}
+	public class QualifiedNameElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "eagledata.core.dsl.rule.RuleDsl.QualifiedName");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final RuleCall cIDTerminalRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
+		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
+		private final Keyword cFullStopKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
+		private final RuleCall cIDTerminalRuleCall_1_1 = (RuleCall)cGroup_1.eContents().get(1);
+		
+		//QualifiedName:
+		//	ID ('.' ID)*;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//ID ('.' ID)*
+		public Group getGroup() { return cGroup; }
+		
+		//ID
+		public RuleCall getIDTerminalRuleCall_0() { return cIDTerminalRuleCall_0; }
+		
+		//('.' ID)*
+		public Group getGroup_1() { return cGroup_1; }
+		
+		//'.'
+		public Keyword getFullStopKeyword_1_0() { return cFullStopKeyword_1_0; }
+		
+		//ID
+		public RuleCall getIDTerminalRuleCall_1_1() { return cIDTerminalRuleCall_1_1; }
 	}
 	public class RuleElementElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "eagledata.core.dsl.rule.RuleDsl.RuleElement");
-		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final RuleCall cQueryParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
-		private final RuleCall cRuleParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		private final RuleCall cActionParserRuleCall = (RuleCall)rule.eContents().get(1);
 		
-		////=======================================
-		////Tipos de sentencias que se pueden hacer
 		//RuleElement rule::RuleElement:
-		//	Query | Rule
+		//	Action
 		@Override public ParserRule getRule() { return rule; }
 		
-		//Query | Rule
+		//Action
+		public RuleCall getActionParserRuleCall() { return cActionParserRuleCall; }
+	}
+	public class RuleElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "eagledata.core.dsl.rule.RuleDsl.Rule");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Assignment cNameAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final RuleCall cNameIDTerminalRuleCall_0_0 = (RuleCall)cNameAssignment_0.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Keyword cOnKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cEventAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final CrossReference cEventPhraseCrossReference_3_0 = (CrossReference)cEventAssignment_3.eContents().get(0);
+		private final RuleCall cEventPhraseIDTerminalRuleCall_3_0_1 = (RuleCall)cEventPhraseCrossReference_3_0.eContents().get(1);
+		private final Keyword cDoKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		private final Keyword cLeftCurlyBracketKeyword_5 = (Keyword)cGroup.eContents().get(5);
+		private final Group cGroup_6 = (Group)cGroup.eContents().get(6);
+		private final Assignment cActionsAssignment_6_0 = (Assignment)cGroup_6.eContents().get(0);
+		private final RuleCall cActionsActionParserRuleCall_6_0_0 = (RuleCall)cActionsAssignment_6_0.eContents().get(0);
+		private final Assignment cActionsAssignment_6_1 = (Assignment)cGroup_6.eContents().get(1);
+		private final RuleCall cActionsActionParserRuleCall_6_1_0 = (RuleCall)cActionsAssignment_6_1.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_7 = (Keyword)cGroup.eContents().get(7);
+		private final Keyword cRightCurlyBracketKeyword_8 = (Keyword)cGroup.eContents().get(8);
+		
+		//Rule rule::Rule:
+		//	name=ID '{'
+		//	'on' event=[streaming::Phrase]
+		//	'do' '{' (actions+=Action actions+=Action*)
+		//	'}'
+		//	'}'
+		@Override public ParserRule getRule() { return rule; }
+		
+		//name=ID '{' 'on' event=[streaming::Phrase] 'do' '{' (actions+=Action actions+=Action*) '}' '}'
+		public Group getGroup() { return cGroup; }
+		
+		//name=ID
+		public Assignment getNameAssignment_0() { return cNameAssignment_0; }
+		
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_0_0() { return cNameIDTerminalRuleCall_0_0; }
+		
+		//'{'
+		public Keyword getLeftCurlyBracketKeyword_1() { return cLeftCurlyBracketKeyword_1; }
+		
+		//'on'
+		public Keyword getOnKeyword_2() { return cOnKeyword_2; }
+		
+		//event=[streaming::Phrase]
+		public Assignment getEventAssignment_3() { return cEventAssignment_3; }
+		
+		//[streaming::Phrase]
+		public CrossReference getEventPhraseCrossReference_3_0() { return cEventPhraseCrossReference_3_0; }
+		
+		//ID
+		public RuleCall getEventPhraseIDTerminalRuleCall_3_0_1() { return cEventPhraseIDTerminalRuleCall_3_0_1; }
+		
+		//'do'
+		public Keyword getDoKeyword_4() { return cDoKeyword_4; }
+		
+		//'{'
+		public Keyword getLeftCurlyBracketKeyword_5() { return cLeftCurlyBracketKeyword_5; }
+		
+		//(actions+=Action actions+=Action*)
+		public Group getGroup_6() { return cGroup_6; }
+		
+		//actions+=Action
+		public Assignment getActionsAssignment_6_0() { return cActionsAssignment_6_0; }
+		
+		//Action
+		public RuleCall getActionsActionParserRuleCall_6_0_0() { return cActionsActionParserRuleCall_6_0_0; }
+		
+		//actions+=Action*
+		public Assignment getActionsAssignment_6_1() { return cActionsAssignment_6_1; }
+		
+		//Action
+		public RuleCall getActionsActionParserRuleCall_6_1_0() { return cActionsActionParserRuleCall_6_1_0; }
+		
+		//'}'
+		public Keyword getRightCurlyBracketKeyword_7() { return cRightCurlyBracketKeyword_7; }
+		
+		//'}'
+		public Keyword getRightCurlyBracketKeyword_8() { return cRightCurlyBracketKeyword_8; }
+	}
+	public class ActionElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "eagledata.core.dsl.rule.RuleDsl.Action");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final RuleCall cQueryParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cMessageParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		
+		//Action rule::Action:
+		//	Query | Message
+		@Override public ParserRule getRule() { return rule; }
+		
+		//Query | Message
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
 		//Query
 		public RuleCall getQueryParserRuleCall_0() { return cQueryParserRuleCall_0; }
 		
-		//Rule
-		public RuleCall getRuleParserRuleCall_1() { return cRuleParserRuleCall_1; }
-	}
-	public class RuleElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "eagledata.core.dsl.rule.RuleDsl.Rule");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cRuleKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
-		private final Keyword cEqualsSignKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Keyword cLeftParenthesisKeyword_3 = (Keyword)cGroup.eContents().get(3);
-		private final Keyword cOnKeyword_4 = (Keyword)cGroup.eContents().get(4);
-		private final Assignment cEventAssignment_5 = (Assignment)cGroup.eContents().get(5);
-		private final CrossReference cEventPhraseCrossReference_5_0 = (CrossReference)cEventAssignment_5.eContents().get(0);
-		private final RuleCall cEventPhraseIDTerminalRuleCall_5_0_1 = (RuleCall)cEventPhraseCrossReference_5_0.eContents().get(1);
-		private final Group cGroup_6 = (Group)cGroup.eContents().get(6);
-		private final Keyword cLeftCurlyBracketKeyword_6_0 = (Keyword)cGroup_6.eContents().get(0);
-		private final Assignment cConditionAssignment_6_1 = (Assignment)cGroup_6.eContents().get(1);
-		private final RuleCall cConditionWhenParserRuleCall_6_1_0 = (RuleCall)cConditionAssignment_6_1.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_6_2 = (Keyword)cGroup_6.eContents().get(2);
-		private final Keyword cDoKeyword_7 = (Keyword)cGroup.eContents().get(7);
-		private final Group cGroup_8 = (Group)cGroup.eContents().get(8);
-		private final Assignment cActionsAssignment_8_0 = (Assignment)cGroup_8.eContents().get(0);
-		private final RuleCall cActionsQueryParserRuleCall_8_0_0 = (RuleCall)cActionsAssignment_8_0.eContents().get(0);
-		private final Group cGroup_8_1 = (Group)cGroup_8.eContents().get(1);
-		private final Keyword cCommaKeyword_8_1_0 = (Keyword)cGroup_8_1.eContents().get(0);
-		private final Assignment cActionsAssignment_8_1_1 = (Assignment)cGroup_8_1.eContents().get(1);
-		private final RuleCall cActionsQueryParserRuleCall_8_1_1_0 = (RuleCall)cActionsAssignment_8_1_1.eContents().get(0);
-		private final Keyword cRightParenthesisKeyword_9 = (Keyword)cGroup.eContents().get(9);
-		
-		//Rule rule::Rule:
-		//	'rule' name=ID '=' '('
-		//	'on' event=[streaming::Phrase] ('{' condition=When? '}')?
-		//	'do' (actions+=Query ("," actions+=Query)*)
-		//	')'
-		@Override public ParserRule getRule() { return rule; }
-		
-		//'rule' name=ID '=' '(' 'on' event=[streaming::Phrase] ('{' condition=When? '}')? 'do' (actions+=Query (","
-		//actions+=Query)*) ')'
-		public Group getGroup() { return cGroup; }
-		
-		//'rule'
-		public Keyword getRuleKeyword_0() { return cRuleKeyword_0; }
-		
-		//name=ID
-		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
-		
-		//ID
-		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
-		
-		//'='
-		public Keyword getEqualsSignKeyword_2() { return cEqualsSignKeyword_2; }
-		
-		//'('
-		public Keyword getLeftParenthesisKeyword_3() { return cLeftParenthesisKeyword_3; }
-		
-		//'on'
-		public Keyword getOnKeyword_4() { return cOnKeyword_4; }
-		
-		//event=[streaming::Phrase]
-		public Assignment getEventAssignment_5() { return cEventAssignment_5; }
-		
-		//[streaming::Phrase]
-		public CrossReference getEventPhraseCrossReference_5_0() { return cEventPhraseCrossReference_5_0; }
-		
-		//ID
-		public RuleCall getEventPhraseIDTerminalRuleCall_5_0_1() { return cEventPhraseIDTerminalRuleCall_5_0_1; }
-		
-		//('{' condition=When? '}')?
-		public Group getGroup_6() { return cGroup_6; }
-		
-		//'{'
-		public Keyword getLeftCurlyBracketKeyword_6_0() { return cLeftCurlyBracketKeyword_6_0; }
-		
-		//condition=When?
-		public Assignment getConditionAssignment_6_1() { return cConditionAssignment_6_1; }
-		
-		//When
-		public RuleCall getConditionWhenParserRuleCall_6_1_0() { return cConditionWhenParserRuleCall_6_1_0; }
-		
-		//'}'
-		public Keyword getRightCurlyBracketKeyword_6_2() { return cRightCurlyBracketKeyword_6_2; }
-		
-		//'do'
-		public Keyword getDoKeyword_7() { return cDoKeyword_7; }
-		
-		//(actions+=Query ("," actions+=Query)*)
-		public Group getGroup_8() { return cGroup_8; }
-		
-		//actions+=Query
-		public Assignment getActionsAssignment_8_0() { return cActionsAssignment_8_0; }
-		
-		//Query
-		public RuleCall getActionsQueryParserRuleCall_8_0_0() { return cActionsQueryParserRuleCall_8_0_0; }
-		
-		//("," actions+=Query)*
-		public Group getGroup_8_1() { return cGroup_8_1; }
-		
-		//","
-		public Keyword getCommaKeyword_8_1_0() { return cCommaKeyword_8_1_0; }
-		
-		//actions+=Query
-		public Assignment getActionsAssignment_8_1_1() { return cActionsAssignment_8_1_1; }
-		
-		//Query
-		public RuleCall getActionsQueryParserRuleCall_8_1_1_0() { return cActionsQueryParserRuleCall_8_1_1_0; }
-		
-		//')'
-		public Keyword getRightParenthesisKeyword_9() { return cRightParenthesisKeyword_9; }
+		//Message
+		public RuleCall getMessageParserRuleCall_1() { return cMessageParserRuleCall_1; }
 	}
 	public class QueryElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "eagledata.core.dsl.rule.RuleDsl.Query");
@@ -187,19 +260,20 @@ public class RuleDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cColonKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Assignment cSelectAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final RuleCall cSelectSelectParserRuleCall_2_0 = (RuleCall)cSelectAssignment_2.eContents().get(0);
-		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
-		private final Keyword cLeftCurlyBracketKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
-		private final Assignment cWhereAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
-		private final RuleCall cWhereWhereParserRuleCall_3_1_0 = (RuleCall)cWhereAssignment_3_1.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_3_2 = (Keyword)cGroup_3.eContents().get(2);
+		private final Keyword cThenKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Keyword cLeftCurlyBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		private final Group cGroup_5 = (Group)cGroup.eContents().get(5);
+		private final Assignment cThenAssignment_5_0 = (Assignment)cGroup_5.eContents().get(0);
+		private final RuleCall cThenMessageParserRuleCall_5_0_0 = (RuleCall)cThenAssignment_5_0.eContents().get(0);
+		private final Assignment cThenAssignment_5_1 = (Assignment)cGroup_5.eContents().get(1);
+		private final RuleCall cThenMessageParserRuleCall_5_1_0 = (RuleCall)cThenAssignment_5_1.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_6 = (Keyword)cGroup.eContents().get(6);
 		
-		////=========================================
-		////Sentencia 1: Queries
 		//Query rule::Query:
-		//	name=ID ':' select=Select ('{' where=Where '}')?
+		//	name=ID ':' select=Select 'then' '{' (then+=Message then+=Message*) '}'
 		@Override public ParserRule getRule() { return rule; }
 		
-		//name=ID ':' select=Select ('{' where=Where '}')?
+		//name=ID ':' select=Select 'then' '{' (then+=Message then+=Message*) '}'
 		public Group getGroup() { return cGroup; }
 		
 		//name=ID
@@ -217,197 +291,29 @@ public class RuleDslGrammarAccess extends AbstractGrammarElementFinder {
 		//Select
 		public RuleCall getSelectSelectParserRuleCall_2_0() { return cSelectSelectParserRuleCall_2_0; }
 		
-		//('{' where=Where '}')?
-		public Group getGroup_3() { return cGroup_3; }
+		//'then'
+		public Keyword getThenKeyword_3() { return cThenKeyword_3; }
 		
 		//'{'
-		public Keyword getLeftCurlyBracketKeyword_3_0() { return cLeftCurlyBracketKeyword_3_0; }
+		public Keyword getLeftCurlyBracketKeyword_4() { return cLeftCurlyBracketKeyword_4; }
 		
-		//where=Where
-		public Assignment getWhereAssignment_3_1() { return cWhereAssignment_3_1; }
+		//(then+=Message then+=Message*)
+		public Group getGroup_5() { return cGroup_5; }
 		
-		//Where
-		public RuleCall getWhereWhereParserRuleCall_3_1_0() { return cWhereWhereParserRuleCall_3_1_0; }
+		//then+=Message
+		public Assignment getThenAssignment_5_0() { return cThenAssignment_5_0; }
+		
+		//Message
+		public RuleCall getThenMessageParserRuleCall_5_0_0() { return cThenMessageParserRuleCall_5_0_0; }
+		
+		//then+=Message*
+		public Assignment getThenAssignment_5_1() { return cThenAssignment_5_1; }
+		
+		//Message
+		public RuleCall getThenMessageParserRuleCall_5_1_0() { return cThenMessageParserRuleCall_5_1_0; }
 		
 		//'}'
-		public Keyword getRightCurlyBracketKeyword_3_2() { return cRightCurlyBracketKeyword_3_2; }
-	}
-	public class SelectElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "eagledata.core.dsl.rule.RuleDsl.Select");
-		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final RuleCall cAddingSelectParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
-		private final RuleCall cSetSelectParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
-		
-		//Select rule::Select:
-		//	AddingSelect | SetSelect
-		@Override public ParserRule getRule() { return rule; }
-		
-		//AddingSelect | SetSelect
-		public Alternatives getAlternatives() { return cAlternatives; }
-		
-		//AddingSelect
-		public RuleCall getAddingSelectParserRuleCall_0() { return cAddingSelectParserRuleCall_0; }
-		
-		//SetSelect
-		public RuleCall getSetSelectParserRuleCall_1() { return cSetSelectParserRuleCall_1; }
-	}
-	public class SetSelectElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "eagledata.core.dsl.rule.RuleDsl.SetSelect");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Action cSetSelectAction_0 = (Action)cGroup.eContents().get(0);
-		private final Keyword cSelectKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Alternatives cAlternatives_2 = (Alternatives)cGroup.eContents().get(2);
-		private final Group cGroup_2_0 = (Group)cAlternatives_2.eContents().get(0);
-		private final Assignment cSelectionAssignment_2_0_0 = (Assignment)cGroup_2_0.eContents().get(0);
-		private final RuleCall cSelectionSelectionParserRuleCall_2_0_0_0 = (RuleCall)cSelectionAssignment_2_0_0.eContents().get(0);
-		private final Group cGroup_2_0_1 = (Group)cGroup_2_0.eContents().get(1);
-		private final Keyword cCommaKeyword_2_0_1_0 = (Keyword)cGroup_2_0_1.eContents().get(0);
-		private final Assignment cSelectionAssignment_2_0_1_1 = (Assignment)cGroup_2_0_1.eContents().get(1);
-		private final RuleCall cSelectionSelectionParserRuleCall_2_0_1_1_0 = (RuleCall)cSelectionAssignment_2_0_1_1.eContents().get(0);
-		private final Assignment cAllAssignment_2_1 = (Assignment)cAlternatives_2.eContents().get(1);
-		private final Keyword cAllAsteriskKeyword_2_1_0 = (Keyword)cAllAssignment_2_1.eContents().get(0);
-		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
-		private final Assignment cOperatorAssignment_3_0 = (Assignment)cGroup_3.eContents().get(0);
-		private final RuleCall cOperatorSETOPERATORTerminalRuleCall_3_0_0 = (RuleCall)cOperatorAssignment_3_0.eContents().get(0);
-		private final Assignment cSelectAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
-		private final RuleCall cSelectSetSelectParserRuleCall_3_1_0 = (RuleCall)cSelectAssignment_3_1.eContents().get(0);
-		
-		//SetSelect rule::SetSelect:
-		//	{rule::SetSelect}
-		//	'select' ((selection+=Selection ("," selection+=Selection)*)? | all?='*') (operator=SETOPERATOR select=SetSelect)?
-		@Override public ParserRule getRule() { return rule; }
-		
-		//{rule::SetSelect} 'select' ((selection+=Selection ("," selection+=Selection)*)? | all?='*') (operator=SETOPERATOR
-		//select=SetSelect)?
-		public Group getGroup() { return cGroup; }
-		
-		//{rule::SetSelect}
-		public Action getSetSelectAction_0() { return cSetSelectAction_0; }
-		
-		//'select'
-		public Keyword getSelectKeyword_1() { return cSelectKeyword_1; }
-		
-		//((selection+=Selection ("," selection+=Selection)*)? | all?='*')
-		public Alternatives getAlternatives_2() { return cAlternatives_2; }
-		
-		//(selection+=Selection ("," selection+=Selection)*)?
-		public Group getGroup_2_0() { return cGroup_2_0; }
-		
-		//selection+=Selection
-		public Assignment getSelectionAssignment_2_0_0() { return cSelectionAssignment_2_0_0; }
-		
-		//Selection
-		public RuleCall getSelectionSelectionParserRuleCall_2_0_0_0() { return cSelectionSelectionParserRuleCall_2_0_0_0; }
-		
-		//("," selection+=Selection)*
-		public Group getGroup_2_0_1() { return cGroup_2_0_1; }
-		
-		//","
-		public Keyword getCommaKeyword_2_0_1_0() { return cCommaKeyword_2_0_1_0; }
-		
-		//selection+=Selection
-		public Assignment getSelectionAssignment_2_0_1_1() { return cSelectionAssignment_2_0_1_1; }
-		
-		//Selection
-		public RuleCall getSelectionSelectionParserRuleCall_2_0_1_1_0() { return cSelectionSelectionParserRuleCall_2_0_1_1_0; }
-		
-		//all?='*'
-		public Assignment getAllAssignment_2_1() { return cAllAssignment_2_1; }
-		
-		//'*'
-		public Keyword getAllAsteriskKeyword_2_1_0() { return cAllAsteriskKeyword_2_1_0; }
-		
-		//(operator=SETOPERATOR select=SetSelect)?
-		public Group getGroup_3() { return cGroup_3; }
-		
-		//operator=SETOPERATOR
-		public Assignment getOperatorAssignment_3_0() { return cOperatorAssignment_3_0; }
-		
-		//SETOPERATOR
-		public RuleCall getOperatorSETOPERATORTerminalRuleCall_3_0_0() { return cOperatorSETOPERATORTerminalRuleCall_3_0_0; }
-		
-		//select=SetSelect
-		public Assignment getSelectAssignment_3_1() { return cSelectAssignment_3_1; }
-		
-		//SetSelect
-		public RuleCall getSelectSetSelectParserRuleCall_3_1_0() { return cSelectSetSelectParserRuleCall_3_1_0; }
-	}
-	public class SelectionElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "eagledata.core.dsl.rule.RuleDsl.Selection");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Group cGroup_0 = (Group)cGroup.eContents().get(0);
-		private final Assignment cSelectorAssignment_0_0 = (Assignment)cGroup_0.eContents().get(0);
-		private final CrossReference cSelectorConceptCrossReference_0_0_0 = (CrossReference)cSelectorAssignment_0_0.eContents().get(0);
-		private final RuleCall cSelectorConceptIDTerminalRuleCall_0_0_0_1 = (RuleCall)cSelectorConceptCrossReference_0_0_0.eContents().get(1);
-		private final Keyword cFullStopKeyword_0_1 = (Keyword)cGroup_0.eContents().get(1);
-		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
-		private final Assignment cRootAssignment_1_0 = (Assignment)cGroup_1.eContents().get(0);
-		private final CrossReference cRootConceptCrossReference_1_0_0 = (CrossReference)cRootAssignment_1_0.eContents().get(0);
-		private final RuleCall cRootConceptIDTerminalRuleCall_1_0_0_1 = (RuleCall)cRootConceptCrossReference_1_0_0.eContents().get(1);
-		private final Group cGroup_1_1 = (Group)cGroup_1.eContents().get(1);
-		private final Keyword cFullStopKeyword_1_1_0 = (Keyword)cGroup_1_1.eContents().get(0);
-		private final Assignment cRootAssignment_1_1_1 = (Assignment)cGroup_1_1.eContents().get(1);
-		private final CrossReference cRootConceptCrossReference_1_1_1_0 = (CrossReference)cRootAssignment_1_1_1.eContents().get(0);
-		private final RuleCall cRootConceptIDTerminalRuleCall_1_1_1_0_1 = (RuleCall)cRootConceptCrossReference_1_1_1_0.eContents().get(1);
-		
-		/// *SetOperatorPatternSelect returns rule::SetOperator:
-		//			UnionPatternSelect | IntersectPatternSelect | ExceptPatternSelect;
-		//		
-		//		UnionPatternSelect returns rule::Union:
-		//			'union' select=SetSelect;
-		//		
-		//		IntersectPatternSelect returns rule::Intersect:
-		//			'intersect' select=SetSelect;
-		//		
-		//		ExceptPatternSelect returns rule::Except:
-		//			'except' select=SetSelect;* / Selection rule::Selection:
-		//	(selector=[streaming::Concept] '.')? (root+=[streaming::Concept] ('.' root+=[streaming::Concept])*)
-		@Override public ParserRule getRule() { return rule; }
-		
-		//(selector=[streaming::Concept] '.')? (root+=[streaming::Concept] ('.' root+=[streaming::Concept])*)
-		public Group getGroup() { return cGroup; }
-		
-		//(selector=[streaming::Concept] '.')?
-		public Group getGroup_0() { return cGroup_0; }
-		
-		//selector=[streaming::Concept]
-		public Assignment getSelectorAssignment_0_0() { return cSelectorAssignment_0_0; }
-		
-		//[streaming::Concept]
-		public CrossReference getSelectorConceptCrossReference_0_0_0() { return cSelectorConceptCrossReference_0_0_0; }
-		
-		//ID
-		public RuleCall getSelectorConceptIDTerminalRuleCall_0_0_0_1() { return cSelectorConceptIDTerminalRuleCall_0_0_0_1; }
-		
-		//'.'
-		public Keyword getFullStopKeyword_0_1() { return cFullStopKeyword_0_1; }
-		
-		//(root+=[streaming::Concept] ('.' root+=[streaming::Concept])*)
-		public Group getGroup_1() { return cGroup_1; }
-		
-		//root+=[streaming::Concept]
-		public Assignment getRootAssignment_1_0() { return cRootAssignment_1_0; }
-		
-		//[streaming::Concept]
-		public CrossReference getRootConceptCrossReference_1_0_0() { return cRootConceptCrossReference_1_0_0; }
-		
-		//ID
-		public RuleCall getRootConceptIDTerminalRuleCall_1_0_0_1() { return cRootConceptIDTerminalRuleCall_1_0_0_1; }
-		
-		//('.' root+=[streaming::Concept])*
-		public Group getGroup_1_1() { return cGroup_1_1; }
-		
-		//'.'
-		public Keyword getFullStopKeyword_1_1_0() { return cFullStopKeyword_1_1_0; }
-		
-		//root+=[streaming::Concept]
-		public Assignment getRootAssignment_1_1_1() { return cRootAssignment_1_1_1; }
-		
-		//[streaming::Concept]
-		public CrossReference getRootConceptCrossReference_1_1_1_0() { return cRootConceptCrossReference_1_1_1_0; }
-		
-		//ID
-		public RuleCall getRootConceptIDTerminalRuleCall_1_1_1_0_1() { return cRootConceptIDTerminalRuleCall_1_1_1_0_1; }
+		public Keyword getRightCurlyBracketKeyword_6() { return cRightCurlyBracketKeyword_6; }
 	}
 	public class AddingSelectElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "eagledata.core.dsl.rule.RuleDsl.AddingSelect");
@@ -452,66 +358,244 @@ public class RuleDslGrammarAccess extends AbstractGrammarElementFinder {
 		//'*'
 		public Keyword getAllAsteriskKeyword_1_1_0() { return cAllAsteriskKeyword_1_1_0; }
 	}
+	public class SelectElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "eagledata.core.dsl.rule.RuleDsl.Select");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final RuleCall cAddingSelectParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cSetSelectParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		
+		//Select rule::Select:
+		//	AddingSelect | SetSelect
+		@Override public ParserRule getRule() { return rule; }
+		
+		//AddingSelect | SetSelect
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//AddingSelect
+		public RuleCall getAddingSelectParserRuleCall_0() { return cAddingSelectParserRuleCall_0; }
+		
+		//SetSelect
+		public RuleCall getSetSelectParserRuleCall_1() { return cSetSelectParserRuleCall_1; }
+	}
+	public class SetSelectElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "eagledata.core.dsl.rule.RuleDsl.SetSelect");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cSelectKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
+		private final Assignment cSelectorAssignment_1_0 = (Assignment)cGroup_1.eContents().get(0);
+		private final CrossReference cSelectorPrimitiveNodeCrossReference_1_0_0 = (CrossReference)cSelectorAssignment_1_0.eContents().get(0);
+		private final RuleCall cSelectorPrimitiveNodeQualifiedNameParserRuleCall_1_0_0_1 = (RuleCall)cSelectorPrimitiveNodeCrossReference_1_0_0.eContents().get(1);
+		private final Group cGroup_1_1 = (Group)cGroup_1.eContents().get(1);
+		private final Keyword cCommaKeyword_1_1_0 = (Keyword)cGroup_1_1.eContents().get(0);
+		private final Assignment cSelectorAssignment_1_1_1 = (Assignment)cGroup_1_1.eContents().get(1);
+		private final CrossReference cSelectorPrimitiveNodeCrossReference_1_1_1_0 = (CrossReference)cSelectorAssignment_1_1_1.eContents().get(0);
+		private final RuleCall cSelectorPrimitiveNodeQualifiedNameParserRuleCall_1_1_1_0_1 = (RuleCall)cSelectorPrimitiveNodeCrossReference_1_1_1_0.eContents().get(1);
+		private final Keyword cFromKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
+		private final Assignment cFromAssignment_3_0 = (Assignment)cGroup_3.eContents().get(0);
+		private final CrossReference cFromDataDescriptionCrossReference_3_0_0 = (CrossReference)cFromAssignment_3_0.eContents().get(0);
+		private final RuleCall cFromDataDescriptionQualifiedNameParserRuleCall_3_0_0_1 = (RuleCall)cFromDataDescriptionCrossReference_3_0_0.eContents().get(1);
+		private final Group cGroup_3_1 = (Group)cGroup_3.eContents().get(1);
+		private final Keyword cCommaKeyword_3_1_0 = (Keyword)cGroup_3_1.eContents().get(0);
+		private final Assignment cFromAssignment_3_1_1 = (Assignment)cGroup_3_1.eContents().get(1);
+		private final CrossReference cFromDataDescriptionCrossReference_3_1_1_0 = (CrossReference)cFromAssignment_3_1_1.eContents().get(0);
+		private final RuleCall cFromDataDescriptionQualifiedNameParserRuleCall_3_1_1_0_1 = (RuleCall)cFromDataDescriptionCrossReference_3_1_1_0.eContents().get(1);
+		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
+		private final Keyword cWhereKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
+		private final Group cGroup_4_1 = (Group)cGroup_4.eContents().get(1);
+		private final Assignment cWhereAssignment_4_1_0 = (Assignment)cGroup_4_1.eContents().get(0);
+		private final RuleCall cWhereWhereParserRuleCall_4_1_0_0 = (RuleCall)cWhereAssignment_4_1_0.eContents().get(0);
+		private final Group cGroup_4_1_1 = (Group)cGroup_4_1.eContents().get(1);
+		private final Keyword cANDKeyword_4_1_1_0 = (Keyword)cGroup_4_1_1.eContents().get(0);
+		private final Assignment cWhereAssignment_4_1_1_1 = (Assignment)cGroup_4_1_1.eContents().get(1);
+		private final RuleCall cWhereWhereParserRuleCall_4_1_1_1_0 = (RuleCall)cWhereAssignment_4_1_1_1.eContents().get(0);
+		
+		//SetSelect rule::SetSelect:
+		//	'select' (selector+=[data::PrimitiveNode|QualifiedName] (',' selector+=[data::PrimitiveNode|QualifiedName])*)
+		//	'from' (from+=[data::DataDescription|QualifiedName] (',' from+=[data::DataDescription|QualifiedName])*) ('where'
+		//	(where+=Where ('AND' where+=Where)*))?
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'select' (selector+=[data::PrimitiveNode|QualifiedName] (',' selector+=[data::PrimitiveNode|QualifiedName])*) 'from'
+		//(from+=[data::DataDescription|QualifiedName] (',' from+=[data::DataDescription|QualifiedName])*) ('where' (where+=Where
+		//('AND' where+=Where)*))?
+		public Group getGroup() { return cGroup; }
+		
+		//'select'
+		public Keyword getSelectKeyword_0() { return cSelectKeyword_0; }
+		
+		//(selector+=[data::PrimitiveNode|QualifiedName] (',' selector+=[data::PrimitiveNode|QualifiedName])*)
+		public Group getGroup_1() { return cGroup_1; }
+		
+		//selector+=[data::PrimitiveNode|QualifiedName]
+		public Assignment getSelectorAssignment_1_0() { return cSelectorAssignment_1_0; }
+		
+		//[data::PrimitiveNode|QualifiedName]
+		public CrossReference getSelectorPrimitiveNodeCrossReference_1_0_0() { return cSelectorPrimitiveNodeCrossReference_1_0_0; }
+		
+		//QualifiedName
+		public RuleCall getSelectorPrimitiveNodeQualifiedNameParserRuleCall_1_0_0_1() { return cSelectorPrimitiveNodeQualifiedNameParserRuleCall_1_0_0_1; }
+		
+		//(',' selector+=[data::PrimitiveNode|QualifiedName])*
+		public Group getGroup_1_1() { return cGroup_1_1; }
+		
+		//','
+		public Keyword getCommaKeyword_1_1_0() { return cCommaKeyword_1_1_0; }
+		
+		//selector+=[data::PrimitiveNode|QualifiedName]
+		public Assignment getSelectorAssignment_1_1_1() { return cSelectorAssignment_1_1_1; }
+		
+		//[data::PrimitiveNode|QualifiedName]
+		public CrossReference getSelectorPrimitiveNodeCrossReference_1_1_1_0() { return cSelectorPrimitiveNodeCrossReference_1_1_1_0; }
+		
+		//QualifiedName
+		public RuleCall getSelectorPrimitiveNodeQualifiedNameParserRuleCall_1_1_1_0_1() { return cSelectorPrimitiveNodeQualifiedNameParserRuleCall_1_1_1_0_1; }
+		
+		//'from'
+		public Keyword getFromKeyword_2() { return cFromKeyword_2; }
+		
+		//(from+=[data::DataDescription|QualifiedName] (',' from+=[data::DataDescription|QualifiedName])*)
+		public Group getGroup_3() { return cGroup_3; }
+		
+		//from+=[data::DataDescription|QualifiedName]
+		public Assignment getFromAssignment_3_0() { return cFromAssignment_3_0; }
+		
+		//[data::DataDescription|QualifiedName]
+		public CrossReference getFromDataDescriptionCrossReference_3_0_0() { return cFromDataDescriptionCrossReference_3_0_0; }
+		
+		//QualifiedName
+		public RuleCall getFromDataDescriptionQualifiedNameParserRuleCall_3_0_0_1() { return cFromDataDescriptionQualifiedNameParserRuleCall_3_0_0_1; }
+		
+		//(',' from+=[data::DataDescription|QualifiedName])*
+		public Group getGroup_3_1() { return cGroup_3_1; }
+		
+		//','
+		public Keyword getCommaKeyword_3_1_0() { return cCommaKeyword_3_1_0; }
+		
+		//from+=[data::DataDescription|QualifiedName]
+		public Assignment getFromAssignment_3_1_1() { return cFromAssignment_3_1_1; }
+		
+		//[data::DataDescription|QualifiedName]
+		public CrossReference getFromDataDescriptionCrossReference_3_1_1_0() { return cFromDataDescriptionCrossReference_3_1_1_0; }
+		
+		//QualifiedName
+		public RuleCall getFromDataDescriptionQualifiedNameParserRuleCall_3_1_1_0_1() { return cFromDataDescriptionQualifiedNameParserRuleCall_3_1_1_0_1; }
+		
+		//('where' (where+=Where ('AND' where+=Where)*))?
+		public Group getGroup_4() { return cGroup_4; }
+		
+		//'where'
+		public Keyword getWhereKeyword_4_0() { return cWhereKeyword_4_0; }
+		
+		//(where+=Where ('AND' where+=Where)*)
+		public Group getGroup_4_1() { return cGroup_4_1; }
+		
+		//where+=Where
+		public Assignment getWhereAssignment_4_1_0() { return cWhereAssignment_4_1_0; }
+		
+		//Where
+		public RuleCall getWhereWhereParserRuleCall_4_1_0_0() { return cWhereWhereParserRuleCall_4_1_0_0; }
+		
+		//('AND' where+=Where)*
+		public Group getGroup_4_1_1() { return cGroup_4_1_1; }
+		
+		//'AND'
+		public Keyword getANDKeyword_4_1_1_0() { return cANDKeyword_4_1_1_0; }
+		
+		//where+=Where
+		public Assignment getWhereAssignment_4_1_1_1() { return cWhereAssignment_4_1_1_1; }
+		
+		//Where
+		public RuleCall getWhereWhereParserRuleCall_4_1_1_1_0() { return cWhereWhereParserRuleCall_4_1_1_1_0; }
+	}
 	public class WhereElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "eagledata.core.dsl.rule.RuleDsl.Where");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cWhereKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Assignment cLeftAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final CrossReference cLeftConceptCrossReference_1_0 = (CrossReference)cLeftAssignment_1.eContents().get(0);
-		private final RuleCall cLeftConceptIDTerminalRuleCall_1_0_1 = (RuleCall)cLeftConceptCrossReference_1_0.eContents().get(1);
-		private final Assignment cLogicalOperatorAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cLogicalOperatorLOGICALOPERATORTerminalRuleCall_2_0 = (RuleCall)cLogicalOperatorAssignment_2.eContents().get(0);
-		private final Alternatives cAlternatives_3 = (Alternatives)cGroup.eContents().get(3);
-		private final Assignment cRightVariableAssignment_3_0 = (Assignment)cAlternatives_3.eContents().get(0);
-		private final CrossReference cRightVariableConceptCrossReference_3_0_0 = (CrossReference)cRightVariableAssignment_3_0.eContents().get(0);
-		private final RuleCall cRightVariableConceptIDTerminalRuleCall_3_0_0_1 = (RuleCall)cRightVariableConceptCrossReference_3_0_0.eContents().get(1);
-		private final Assignment cRightAssignment_3_1 = (Assignment)cAlternatives_3.eContents().get(1);
-		private final RuleCall cRightINTTerminalRuleCall_3_1_0 = (RuleCall)cRightAssignment_3_1.eContents().get(0);
+		private final Assignment cLeftAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final CrossReference cLeftPrimitiveNodeCrossReference_0_0 = (CrossReference)cLeftAssignment_0.eContents().get(0);
+		private final RuleCall cLeftPrimitiveNodeQualifiedNameParserRuleCall_0_0_1 = (RuleCall)cLeftPrimitiveNodeCrossReference_0_0.eContents().get(1);
+		private final Assignment cLogicalOperatorAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cLogicalOperatorLOGICALOPERATORTerminalRuleCall_1_0 = (RuleCall)cLogicalOperatorAssignment_1.eContents().get(0);
+		private final Alternatives cAlternatives_2 = (Alternatives)cGroup.eContents().get(2);
+		private final Assignment cRightAssignment_2_0 = (Assignment)cAlternatives_2.eContents().get(0);
+		private final CrossReference cRightPrimitiveNodeCrossReference_2_0_0 = (CrossReference)cRightAssignment_2_0.eContents().get(0);
+		private final RuleCall cRightPrimitiveNodeQualifiedNameParserRuleCall_2_0_0_1 = (RuleCall)cRightPrimitiveNodeCrossReference_2_0_0.eContents().get(1);
+		private final Group cGroup_2_1 = (Group)cAlternatives_2.eContents().get(1);
+		private final Keyword cLeftCurlyBracketKeyword_2_1_0 = (Keyword)cGroup_2_1.eContents().get(0);
+		private final Assignment cRightStreamingAssignment_2_1_1 = (Assignment)cGroup_2_1.eContents().get(1);
+		private final CrossReference cRightStreamingConceptCrossReference_2_1_1_0 = (CrossReference)cRightStreamingAssignment_2_1_1.eContents().get(0);
+		private final RuleCall cRightStreamingConceptQualifiedNameParserRuleCall_2_1_1_0_1 = (RuleCall)cRightStreamingConceptCrossReference_2_1_1_0.eContents().get(1);
+		private final Keyword cRightCurlyBracketKeyword_2_1_2 = (Keyword)cGroup_2_1.eContents().get(2);
 		
+		/// *SetOperatorPatternSelect returns rule::SetOperator:
+		//	UnionPatternSelect | IntersectPatternSelect | ExceptPatternSelect;
+		//
+		//UnionPatternSelect returns rule::Union:
+		//	'union' select=SetSelect;
+		//
+		//IntersectPatternSelect returns rule::Intersect:
+		//	'intersect' select=SetSelect;
+		//
+		//ExceptPatternSelect returns rule::Except:
+		//	'except' select=SetSelect;* / //Selection returns rule::Selection:
+		////(selector=[streaming::Concept | ID] '.')? (root+=[streaming::Concept | ID] ('.'root+=[streaming::Concept | ID])*)
+		////(selector=[streaming::Concept | ID] '.')? (root+=[streaming::Concept | ID] ('.'root+=[streaming::Concept | ID])*)
+		////;
 		/// *enum OperationAddingSelect returns rule::OperationAddingSelect:
 		//	count = 'count' //| min = 'min' | max = 'max' | add = 'add' | avg = 'avg'
 		//;* / Where rule::Where:
-		//	'where' left=[streaming::Concept] logicalOperator=LOGICALOPERATOR (rightVariable=[streaming::Concept] | right=INT)
+		//	left=[data::PrimitiveNode|QualifiedName] logicalOperator=LOGICALOPERATOR (right=[data::PrimitiveNode|QualifiedName] |
+		//	'{' rightStreaming=[streaming::Concept|QualifiedName] '}')
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'where' left=[streaming::Concept] logicalOperator=LOGICALOPERATOR (rightVariable=[streaming::Concept] | right=INT)
+		//left=[data::PrimitiveNode|QualifiedName] logicalOperator=LOGICALOPERATOR (right=[data::PrimitiveNode|QualifiedName] |
+		//'{' rightStreaming=[streaming::Concept|QualifiedName] '}')
 		public Group getGroup() { return cGroup; }
 		
-		//'where'
-		public Keyword getWhereKeyword_0() { return cWhereKeyword_0; }
+		//left=[data::PrimitiveNode|QualifiedName]
+		public Assignment getLeftAssignment_0() { return cLeftAssignment_0; }
 		
-		//left=[streaming::Concept]
-		public Assignment getLeftAssignment_1() { return cLeftAssignment_1; }
+		//[data::PrimitiveNode|QualifiedName]
+		public CrossReference getLeftPrimitiveNodeCrossReference_0_0() { return cLeftPrimitiveNodeCrossReference_0_0; }
 		
-		//[streaming::Concept]
-		public CrossReference getLeftConceptCrossReference_1_0() { return cLeftConceptCrossReference_1_0; }
-		
-		//ID
-		public RuleCall getLeftConceptIDTerminalRuleCall_1_0_1() { return cLeftConceptIDTerminalRuleCall_1_0_1; }
+		//QualifiedName
+		public RuleCall getLeftPrimitiveNodeQualifiedNameParserRuleCall_0_0_1() { return cLeftPrimitiveNodeQualifiedNameParserRuleCall_0_0_1; }
 		
 		//logicalOperator=LOGICALOPERATOR
-		public Assignment getLogicalOperatorAssignment_2() { return cLogicalOperatorAssignment_2; }
+		public Assignment getLogicalOperatorAssignment_1() { return cLogicalOperatorAssignment_1; }
 		
 		//LOGICALOPERATOR
-		public RuleCall getLogicalOperatorLOGICALOPERATORTerminalRuleCall_2_0() { return cLogicalOperatorLOGICALOPERATORTerminalRuleCall_2_0; }
+		public RuleCall getLogicalOperatorLOGICALOPERATORTerminalRuleCall_1_0() { return cLogicalOperatorLOGICALOPERATORTerminalRuleCall_1_0; }
 		
-		//(rightVariable=[streaming::Concept] | right=INT)
-		public Alternatives getAlternatives_3() { return cAlternatives_3; }
+		//(right=[data::PrimitiveNode|QualifiedName] | '{' rightStreaming=[streaming::Concept|QualifiedName] '}')
+		public Alternatives getAlternatives_2() { return cAlternatives_2; }
 		
-		//rightVariable=[streaming::Concept]
-		public Assignment getRightVariableAssignment_3_0() { return cRightVariableAssignment_3_0; }
+		//right=[data::PrimitiveNode|QualifiedName]
+		public Assignment getRightAssignment_2_0() { return cRightAssignment_2_0; }
 		
-		//[streaming::Concept]
-		public CrossReference getRightVariableConceptCrossReference_3_0_0() { return cRightVariableConceptCrossReference_3_0_0; }
+		//[data::PrimitiveNode|QualifiedName]
+		public CrossReference getRightPrimitiveNodeCrossReference_2_0_0() { return cRightPrimitiveNodeCrossReference_2_0_0; }
 		
-		//ID
-		public RuleCall getRightVariableConceptIDTerminalRuleCall_3_0_0_1() { return cRightVariableConceptIDTerminalRuleCall_3_0_0_1; }
+		//QualifiedName
+		public RuleCall getRightPrimitiveNodeQualifiedNameParserRuleCall_2_0_0_1() { return cRightPrimitiveNodeQualifiedNameParserRuleCall_2_0_0_1; }
 		
-		//right=INT
-		public Assignment getRightAssignment_3_1() { return cRightAssignment_3_1; }
+		//'{' rightStreaming=[streaming::Concept|QualifiedName] '}'
+		public Group getGroup_2_1() { return cGroup_2_1; }
 		
-		//INT
-		public RuleCall getRightINTTerminalRuleCall_3_1_0() { return cRightINTTerminalRuleCall_3_1_0; }
+		//'{'
+		public Keyword getLeftCurlyBracketKeyword_2_1_0() { return cLeftCurlyBracketKeyword_2_1_0; }
+		
+		//rightStreaming=[streaming::Concept|QualifiedName]
+		public Assignment getRightStreamingAssignment_2_1_1() { return cRightStreamingAssignment_2_1_1; }
+		
+		//[streaming::Concept|QualifiedName]
+		public CrossReference getRightStreamingConceptCrossReference_2_1_1_0() { return cRightStreamingConceptCrossReference_2_1_1_0; }
+		
+		//QualifiedName
+		public RuleCall getRightStreamingConceptQualifiedNameParserRuleCall_2_1_1_0_1() { return cRightStreamingConceptQualifiedNameParserRuleCall_2_1_1_0_1; }
+		
+		//'}'
+		public Keyword getRightCurlyBracketKeyword_2_1_2() { return cRightCurlyBracketKeyword_2_1_2; }
 	}
 	public class WhenElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "eagledata.core.dsl.rule.RuleDsl.When");
@@ -524,17 +608,7 @@ public class RuleDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cRightAssignment_3 = (Assignment)cGroup.eContents().get(3);
 		private final RuleCall cRightExpressionParserRuleCall_3_0 = (RuleCall)cRightAssignment_3.eContents().get(0);
 		
-		/// *
-		//Recipient returns Recipient:	
-		//	QueryResponseRecipient | ConcreteRecipient;
-		//
-		//QueryResponseRecipient returns QueryResponseRecipient:
-		//	query=[TwitterQuery|EString]
-		//;
-		//
-		//ConcreteRecipient returns ConcreteRecipient:
-		//	'@' user=EString;
-		// * / //===========================================================================================
+		////===========================================================================================
 		////When --> Expressions
 		//When rule::When:
 		//	'when' left=Expression logicalOperator=LOGICALOPERATOR right=Expression
@@ -744,16 +818,307 @@ public class RuleDslGrammarAccess extends AbstractGrammarElementFinder {
 		//Expression
 		public RuleCall getExpressionExpressionParserRuleCall_1_0() { return cExpressionExpressionParserRuleCall_1_0; }
 	}
+	public class MessageElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "eagledata.core.dsl.rule.RuleDsl.Message");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Assignment cNameAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final RuleCall cNameIDTerminalRuleCall_0_0 = (RuleCall)cNameAssignment_0.eContents().get(0);
+		private final Keyword cColonKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Keyword cComposeKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
+		private final Assignment cMessageAssignment_3_0 = (Assignment)cGroup_3.eContents().get(0);
+		private final RuleCall cMessageMessageStringParserRuleCall_3_0_0 = (RuleCall)cMessageAssignment_3_0.eContents().get(0);
+		private final Group cGroup_3_1 = (Group)cGroup_3.eContents().get(1);
+		private final Keyword cPlusSignKeyword_3_1_0 = (Keyword)cGroup_3_1.eContents().get(0);
+		private final Assignment cMessageAssignment_3_1_1 = (Assignment)cGroup_3_1.eContents().get(1);
+		private final RuleCall cMessageMessageStringParserRuleCall_3_1_1_0 = (RuleCall)cMessageAssignment_3_1_1.eContents().get(0);
+		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
+		private final Keyword cToKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
+		private final Assignment cRecipientAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
+		private final RuleCall cRecipientReceiverParserRuleCall_4_1_0 = (RuleCall)cRecipientAssignment_4_1.eContents().get(0);
+		
+		/// *ArithmeticalOperator returns rule::ArithmeticalOperator:
+		//	Addition | Subtraction | Multiplication | Division;
+		//
+		//
+		//Addition returns rule::Addition: '+';
+		//
+		//Subtraction returns rule::Subtraction: '-';
+		//
+		//Multiplication returns rule::Multiplication: '*';
+		//
+		//Division returns rule::Division: '/';* / / *LogicalOperator returns rule::LogicalOperator:
+		//	MoreThan | LessThan | MoreEqual | LessEqual | Equal;
+		//
+		//MoreThan returns expression::MoreThan:
+		//	{expression::MoreThan} '>' ;
+		//	
+		//LessThan returns expression::LessThan:
+		//	{expression::LessThan} '<' ;
+		//
+		//MoreEqual returns expression::MoreEqual:
+		//	{expression::MoreEqual} '>=' ;
+		//	
+		//LessEqual returns expression::LessEqual:
+		//	{expression::LessEqual} '<=' ;
+		//	
+		//Equal returns expression::Equal:
+		//	{expression::Equal} '=' ;* / / *EString returns ecore::EString:
+		//	STRING | ID;
+		//
+		//EBoolean returns ecore::EBoolean:
+		//	'true' | 'false';
+		//	
+		//EInt returns ecore::EInt:
+		//	'-'? INT;
+		//	
+		//EFloat returns ecore::EFloat:
+		//	'-'? INT? '.' INT (('E'|'e') '-'? INT)?;* / Message rule::Message:
+		//	name=ID ':' 'compose' (message+=MessageString ('+' message+=MessageString)*) ('to' recipient=Receiver)?
+		@Override public ParserRule getRule() { return rule; }
+		
+		//name=ID ':' 'compose' (message+=MessageString ('+' message+=MessageString)*) ('to' recipient=Receiver)?
+		public Group getGroup() { return cGroup; }
+		
+		//name=ID
+		public Assignment getNameAssignment_0() { return cNameAssignment_0; }
+		
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_0_0() { return cNameIDTerminalRuleCall_0_0; }
+		
+		//':'
+		public Keyword getColonKeyword_1() { return cColonKeyword_1; }
+		
+		//'compose'
+		public Keyword getComposeKeyword_2() { return cComposeKeyword_2; }
+		
+		//(message+=MessageString ('+' message+=MessageString)*)
+		public Group getGroup_3() { return cGroup_3; }
+		
+		//message+=MessageString
+		public Assignment getMessageAssignment_3_0() { return cMessageAssignment_3_0; }
+		
+		//MessageString
+		public RuleCall getMessageMessageStringParserRuleCall_3_0_0() { return cMessageMessageStringParserRuleCall_3_0_0; }
+		
+		//('+' message+=MessageString)*
+		public Group getGroup_3_1() { return cGroup_3_1; }
+		
+		//'+'
+		public Keyword getPlusSignKeyword_3_1_0() { return cPlusSignKeyword_3_1_0; }
+		
+		//message+=MessageString
+		public Assignment getMessageAssignment_3_1_1() { return cMessageAssignment_3_1_1; }
+		
+		//MessageString
+		public RuleCall getMessageMessageStringParserRuleCall_3_1_1_0() { return cMessageMessageStringParserRuleCall_3_1_1_0; }
+		
+		//('to' recipient=Receiver)?
+		public Group getGroup_4() { return cGroup_4; }
+		
+		//'to'
+		public Keyword getToKeyword_4_0() { return cToKeyword_4_0; }
+		
+		//recipient=Receiver
+		public Assignment getRecipientAssignment_4_1() { return cRecipientAssignment_4_1; }
+		
+		//Receiver
+		public RuleCall getRecipientReceiverParserRuleCall_4_1_0() { return cRecipientReceiverParserRuleCall_4_1_0; }
+	}
+	public class MessageStringElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "eagledata.core.dsl.rule.RuleDsl.MessageString");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final RuleCall cTextMessageStringParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cSelectMessageStringParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		
+		//MessageString rule::MessageString:
+		//	TextMessageString | SelectMessageString
+		@Override public ParserRule getRule() { return rule; }
+		
+		//TextMessageString | SelectMessageString
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//TextMessageString
+		public RuleCall getTextMessageStringParserRuleCall_0() { return cTextMessageStringParserRuleCall_0; }
+		
+		//SelectMessageString
+		public RuleCall getSelectMessageStringParserRuleCall_1() { return cSelectMessageStringParserRuleCall_1; }
+	}
+	public class SelectMessageStringElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "eagledata.core.dsl.rule.RuleDsl.SelectMessageString");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cLeftCurlyBracketKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
+		private final Assignment cResponseAssignment_1_0 = (Assignment)cGroup_1.eContents().get(0);
+		private final CrossReference cResponsePrimitiveNodeCrossReference_1_0_0 = (CrossReference)cResponseAssignment_1_0.eContents().get(0);
+		private final RuleCall cResponsePrimitiveNodeQualifiedNameParserRuleCall_1_0_0_1 = (RuleCall)cResponsePrimitiveNodeCrossReference_1_0_0.eContents().get(1);
+		private final Group cGroup_1_1 = (Group)cGroup_1.eContents().get(1);
+		private final Keyword cCommaKeyword_1_1_0 = (Keyword)cGroup_1_1.eContents().get(0);
+		private final Assignment cResponseAssignment_1_1_1 = (Assignment)cGroup_1_1.eContents().get(1);
+		private final CrossReference cResponsePrimitiveNodeCrossReference_1_1_1_0 = (CrossReference)cResponseAssignment_1_1_1.eContents().get(0);
+		private final RuleCall cResponsePrimitiveNodeQualifiedNameParserRuleCall_1_1_1_0_1 = (RuleCall)cResponsePrimitiveNodeCrossReference_1_1_1_0.eContents().get(1);
+		private final Keyword cRightCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		
+		//SelectMessageString rule::SelectMessageString:
+		//	'{' (response+=[data::PrimitiveNode|QualifiedName] (',' response+=[data::PrimitiveNode|QualifiedName])*) '}'
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'{' (response+=[data::PrimitiveNode|QualifiedName] (',' response+=[data::PrimitiveNode|QualifiedName])*) '}'
+		public Group getGroup() { return cGroup; }
+		
+		//'{'
+		public Keyword getLeftCurlyBracketKeyword_0() { return cLeftCurlyBracketKeyword_0; }
+		
+		//(response+=[data::PrimitiveNode|QualifiedName] (',' response+=[data::PrimitiveNode|QualifiedName])*)
+		public Group getGroup_1() { return cGroup_1; }
+		
+		//response+=[data::PrimitiveNode|QualifiedName]
+		public Assignment getResponseAssignment_1_0() { return cResponseAssignment_1_0; }
+		
+		//[data::PrimitiveNode|QualifiedName]
+		public CrossReference getResponsePrimitiveNodeCrossReference_1_0_0() { return cResponsePrimitiveNodeCrossReference_1_0_0; }
+		
+		//QualifiedName
+		public RuleCall getResponsePrimitiveNodeQualifiedNameParserRuleCall_1_0_0_1() { return cResponsePrimitiveNodeQualifiedNameParserRuleCall_1_0_0_1; }
+		
+		//(',' response+=[data::PrimitiveNode|QualifiedName])*
+		public Group getGroup_1_1() { return cGroup_1_1; }
+		
+		//','
+		public Keyword getCommaKeyword_1_1_0() { return cCommaKeyword_1_1_0; }
+		
+		//response+=[data::PrimitiveNode|QualifiedName]
+		public Assignment getResponseAssignment_1_1_1() { return cResponseAssignment_1_1_1; }
+		
+		//[data::PrimitiveNode|QualifiedName]
+		public CrossReference getResponsePrimitiveNodeCrossReference_1_1_1_0() { return cResponsePrimitiveNodeCrossReference_1_1_1_0; }
+		
+		//QualifiedName
+		public RuleCall getResponsePrimitiveNodeQualifiedNameParserRuleCall_1_1_1_0_1() { return cResponsePrimitiveNodeQualifiedNameParserRuleCall_1_1_1_0_1; }
+		
+		//'}'
+		public Keyword getRightCurlyBracketKeyword_2() { return cRightCurlyBracketKeyword_2; }
+	}
+	public class TextMessageStringElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "eagledata.core.dsl.rule.RuleDsl.TextMessageString");
+		private final Assignment cTextAssignment = (Assignment)rule.eContents().get(1);
+		private final RuleCall cTextSTRINGTerminalRuleCall_0 = (RuleCall)cTextAssignment.eContents().get(0);
+		
+		////OperationMessageString returns rule::OperationMessageString:
+		////    '['body=XBlockExpression']'
+		////;
+		//TextMessageString rule::TextMessageString:
+		//	text=STRING
+		@Override public ParserRule getRule() { return rule; }
+		
+		//text=STRING
+		public Assignment getTextAssignment() { return cTextAssignment; }
+		
+		//STRING
+		public RuleCall getTextSTRINGTerminalRuleCall_0() { return cTextSTRINGTerminalRuleCall_0; }
+	}
+	public class ReceiverElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "eagledata.core.dsl.rule.RuleDsl.Receiver");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final RuleCall cReceiverListParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cDistributionListParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		
+		//Receiver rule::Receiver:
+		//	ReceiverList | DistributionList
+		@Override public ParserRule getRule() { return rule; }
+		
+		//ReceiverList | DistributionList
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//ReceiverList
+		public RuleCall getReceiverListParserRuleCall_0() { return cReceiverListParserRuleCall_0; }
+		
+		//DistributionList
+		public RuleCall getDistributionListParserRuleCall_1() { return cDistributionListParserRuleCall_1; }
+	}
+	public class ReceiverListElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "eagledata.core.dsl.rule.RuleDsl.ReceiverList");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cLeftCurlyBracketKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
+		private final Assignment cReceiverAssignment_1_0 = (Assignment)cGroup_1.eContents().get(0);
+		private final RuleCall cReceiverSTRINGTerminalRuleCall_1_0_0 = (RuleCall)cReceiverAssignment_1_0.eContents().get(0);
+		private final Group cGroup_1_1 = (Group)cGroup_1.eContents().get(1);
+		private final Keyword cCommaKeyword_1_1_0 = (Keyword)cGroup_1_1.eContents().get(0);
+		private final Assignment cReceiverAssignment_1_1_1 = (Assignment)cGroup_1_1.eContents().get(1);
+		private final RuleCall cReceiverSTRINGTerminalRuleCall_1_1_1_0 = (RuleCall)cReceiverAssignment_1_1_1.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		
+		//ReceiverList rule::ReceiverList:
+		//	'{' (receiver+=STRING (',' receiver+=STRING)*) '}'
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'{' (receiver+=STRING (',' receiver+=STRING)*) '}'
+		public Group getGroup() { return cGroup; }
+		
+		//'{'
+		public Keyword getLeftCurlyBracketKeyword_0() { return cLeftCurlyBracketKeyword_0; }
+		
+		//(receiver+=STRING (',' receiver+=STRING)*)
+		public Group getGroup_1() { return cGroup_1; }
+		
+		//receiver+=STRING
+		public Assignment getReceiverAssignment_1_0() { return cReceiverAssignment_1_0; }
+		
+		//STRING
+		public RuleCall getReceiverSTRINGTerminalRuleCall_1_0_0() { return cReceiverSTRINGTerminalRuleCall_1_0_0; }
+		
+		//(',' receiver+=STRING)*
+		public Group getGroup_1_1() { return cGroup_1_1; }
+		
+		//','
+		public Keyword getCommaKeyword_1_1_0() { return cCommaKeyword_1_1_0; }
+		
+		//receiver+=STRING
+		public Assignment getReceiverAssignment_1_1_1() { return cReceiverAssignment_1_1_1; }
+		
+		//STRING
+		public RuleCall getReceiverSTRINGTerminalRuleCall_1_1_1_0() { return cReceiverSTRINGTerminalRuleCall_1_1_1_0; }
+		
+		//'}'
+		public Keyword getRightCurlyBracketKeyword_2() { return cRightCurlyBracketKeyword_2; }
+	}
+	public class DistributionListElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "eagledata.core.dsl.rule.RuleDsl.DistributionList");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cCommercialAtKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cFileAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cFileSTRINGTerminalRuleCall_1_0 = (RuleCall)cFileAssignment_1.eContents().get(0);
+		
+		//DistributionList rule::DistributionList:
+		//	'@' file+=STRING
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'@' file+=STRING
+		public Group getGroup() { return cGroup; }
+		
+		//'@'
+		public Keyword getCommercialAtKeyword_0() { return cCommercialAtKeyword_0; }
+		
+		//file+=STRING
+		public Assignment getFileAssignment_1() { return cFileAssignment_1; }
+		
+		//STRING
+		public RuleCall getFileSTRINGTerminalRuleCall_1_0() { return cFileSTRINGTerminalRuleCall_1_0; }
+	}
 	
 	
 	private final RuleModelElements pRuleModel;
+	private final ImportElements pImport;
+	private final QualifiedNameWithWildcardElements pQualifiedNameWithWildcard;
+	private final QualifiedNameElements pQualifiedName;
 	private final RuleElementElements pRuleElement;
 	private final RuleElements pRule;
+	private final ActionElements pAction;
 	private final QueryElements pQuery;
+	private final AddingSelectElements pAddingSelect;
 	private final SelectElements pSelect;
 	private final SetSelectElements pSetSelect;
-	private final SelectionElements pSelection;
-	private final AddingSelectElements pAddingSelect;
 	private final WhereElements pWhere;
 	private final WhenElements pWhen;
 	private final ExpressionElements pExpression;
@@ -764,8 +1129,16 @@ public class RuleDslGrammarAccess extends AbstractGrammarElementFinder {
 	private final NumeralElements pNumeral;
 	private final QueryOperandElements pQueryOperand;
 	private final ComplexOperandElements pComplexOperand;
+	private final MessageElements pMessage;
+	private final MessageStringElements pMessageString;
+	private final SelectMessageStringElements pSelectMessageString;
+	private final TextMessageStringElements pTextMessageString;
+	private final ReceiverElements pReceiver;
+	private final ReceiverListElements pReceiverList;
+	private final DistributionListElements pDistributionList;
 	private final TerminalRule tOPERATOR;
 	private final TerminalRule tLOGICALOPERATOR;
+	private final TerminalRule tCONDITIONALOPERATOR;
 	private final TerminalRule tSELECTOPERATOR;
 	private final TerminalRule tDOUBLE;
 	private final TerminalRule tSETOPERATOR;
@@ -780,13 +1153,16 @@ public class RuleDslGrammarAccess extends AbstractGrammarElementFinder {
 		this.grammar = internalFindGrammar(grammarProvider);
 		this.gaTerminals = gaTerminals;
 		this.pRuleModel = new RuleModelElements();
+		this.pImport = new ImportElements();
+		this.pQualifiedNameWithWildcard = new QualifiedNameWithWildcardElements();
+		this.pQualifiedName = new QualifiedNameElements();
 		this.pRuleElement = new RuleElementElements();
 		this.pRule = new RuleElements();
+		this.pAction = new ActionElements();
 		this.pQuery = new QueryElements();
+		this.pAddingSelect = new AddingSelectElements();
 		this.pSelect = new SelectElements();
 		this.pSetSelect = new SetSelectElements();
-		this.pSelection = new SelectionElements();
-		this.pAddingSelect = new AddingSelectElements();
 		this.pWhere = new WhereElements();
 		this.pWhen = new WhenElements();
 		this.pExpression = new ExpressionElements();
@@ -797,8 +1173,16 @@ public class RuleDslGrammarAccess extends AbstractGrammarElementFinder {
 		this.pNumeral = new NumeralElements();
 		this.pQueryOperand = new QueryOperandElements();
 		this.pComplexOperand = new ComplexOperandElements();
+		this.pMessage = new MessageElements();
+		this.pMessageString = new MessageStringElements();
+		this.pSelectMessageString = new SelectMessageStringElements();
+		this.pTextMessageString = new TextMessageStringElements();
+		this.pReceiver = new ReceiverElements();
+		this.pReceiverList = new ReceiverListElements();
+		this.pDistributionList = new DistributionListElements();
 		this.tOPERATOR = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "eagledata.core.dsl.rule.RuleDsl.OPERATOR");
 		this.tLOGICALOPERATOR = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "eagledata.core.dsl.rule.RuleDsl.LOGICALOPERATOR");
+		this.tCONDITIONALOPERATOR = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "eagledata.core.dsl.rule.RuleDsl.CONDITIONALOPERATOR");
 		this.tSELECTOPERATOR = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "eagledata.core.dsl.rule.RuleDsl.SELECTOPERATOR");
 		this.tDOUBLE = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "eagledata.core.dsl.rule.RuleDsl.DOUBLE");
 		this.tSETOPERATOR = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "eagledata.core.dsl.rule.RuleDsl.SETOPERATOR");
@@ -832,7 +1216,7 @@ public class RuleDslGrammarAccess extends AbstractGrammarElementFinder {
 
 	
 	//RuleModel rule::RuleModel:
-	//	(elements+=RuleElement elements+=RuleElement*)?
+	//	(imports+=Import imports+=Import*)? (elements+=Rule elements+=Rule*)?
 	public RuleModelElements getRuleModelAccess() {
 		return pRuleModel;
 	}
@@ -841,10 +1225,38 @@ public class RuleDslGrammarAccess extends AbstractGrammarElementFinder {
 		return getRuleModelAccess().getRule();
 	}
 	
-	////=======================================
-	////Tipos de sentencias que se pueden hacer
+	//Import streaming::Import:
+	//	'import' importedNamespace=QualifiedNameWithWildcard
+	public ImportElements getImportAccess() {
+		return pImport;
+	}
+	
+	public ParserRule getImportRule() {
+		return getImportAccess().getRule();
+	}
+	
+	//QualifiedNameWithWildcard:
+	//	QualifiedName '.*'?;
+	public QualifiedNameWithWildcardElements getQualifiedNameWithWildcardAccess() {
+		return pQualifiedNameWithWildcard;
+	}
+	
+	public ParserRule getQualifiedNameWithWildcardRule() {
+		return getQualifiedNameWithWildcardAccess().getRule();
+	}
+	
+	//QualifiedName:
+	//	ID ('.' ID)*;
+	public QualifiedNameElements getQualifiedNameAccess() {
+		return pQualifiedName;
+	}
+	
+	public ParserRule getQualifiedNameRule() {
+		return getQualifiedNameAccess().getRule();
+	}
+	
 	//RuleElement rule::RuleElement:
-	//	Query | Rule
+	//	Action
 	public RuleElementElements getRuleElementAccess() {
 		return pRuleElement;
 	}
@@ -854,10 +1266,11 @@ public class RuleDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Rule rule::Rule:
-	//	'rule' name=ID '=' '('
-	//	'on' event=[streaming::Phrase] ('{' condition=When? '}')?
-	//	'do' (actions+=Query ("," actions+=Query)*)
-	//	')'
+	//	name=ID '{'
+	//	'on' event=[streaming::Phrase]
+	//	'do' '{' (actions+=Action actions+=Action*)
+	//	'}'
+	//	'}'
 	public RuleElements getRuleAccess() {
 		return pRule;
 	}
@@ -866,16 +1279,34 @@ public class RuleDslGrammarAccess extends AbstractGrammarElementFinder {
 		return getRuleAccess().getRule();
 	}
 	
-	////=========================================
-	////Sentencia 1: Queries
+	//Action rule::Action:
+	//	Query | Message
+	public ActionElements getActionAccess() {
+		return pAction;
+	}
+	
+	public ParserRule getActionRule() {
+		return getActionAccess().getRule();
+	}
+	
 	//Query rule::Query:
-	//	name=ID ':' select=Select ('{' where=Where '}')?
+	//	name=ID ':' select=Select 'then' '{' (then+=Message then+=Message*) '}'
 	public QueryElements getQueryAccess() {
 		return pQuery;
 	}
 	
 	public ParserRule getQueryRule() {
 		return getQueryAccess().getRule();
+	}
+	
+	//AddingSelect rule::AddingSelect:
+	//	operation=SELECTOPERATOR (element=[streaming::Concept]? | all?='*')
+	public AddingSelectElements getAddingSelectAccess() {
+		return pAddingSelect;
+	}
+	
+	public ParserRule getAddingSelectRule() {
+		return getAddingSelectAccess().getRule();
 	}
 	
 	//Select rule::Select:
@@ -889,8 +1320,9 @@ public class RuleDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//SetSelect rule::SetSelect:
-	//	{rule::SetSelect}
-	//	'select' ((selection+=Selection ("," selection+=Selection)*)? | all?='*') (operator=SETOPERATOR select=SetSelect)?
+	//	'select' (selector+=[data::PrimitiveNode|QualifiedName] (',' selector+=[data::PrimitiveNode|QualifiedName])*)
+	//	'from' (from+=[data::DataDescription|QualifiedName] (',' from+=[data::DataDescription|QualifiedName])*) ('where'
+	//	(where+=Where ('AND' where+=Where)*))?
 	public SetSelectElements getSetSelectAccess() {
 		return pSetSelect;
 	}
@@ -900,39 +1332,24 @@ public class RuleDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	/// *SetOperatorPatternSelect returns rule::SetOperator:
-	//			UnionPatternSelect | IntersectPatternSelect | ExceptPatternSelect;
-	//		
-	//		UnionPatternSelect returns rule::Union:
-	//			'union' select=SetSelect;
-	//		
-	//		IntersectPatternSelect returns rule::Intersect:
-	//			'intersect' select=SetSelect;
-	//		
-	//		ExceptPatternSelect returns rule::Except:
-	//			'except' select=SetSelect;* / Selection rule::Selection:
-	//	(selector=[streaming::Concept] '.')? (root+=[streaming::Concept] ('.' root+=[streaming::Concept])*)
-	public SelectionElements getSelectionAccess() {
-		return pSelection;
-	}
-	
-	public ParserRule getSelectionRule() {
-		return getSelectionAccess().getRule();
-	}
-	
-	//AddingSelect rule::AddingSelect:
-	//	operation=SELECTOPERATOR (element=[streaming::Concept]? | all?='*')
-	public AddingSelectElements getAddingSelectAccess() {
-		return pAddingSelect;
-	}
-	
-	public ParserRule getAddingSelectRule() {
-		return getAddingSelectAccess().getRule();
-	}
-	
+	//	UnionPatternSelect | IntersectPatternSelect | ExceptPatternSelect;
+	//
+	//UnionPatternSelect returns rule::Union:
+	//	'union' select=SetSelect;
+	//
+	//IntersectPatternSelect returns rule::Intersect:
+	//	'intersect' select=SetSelect;
+	//
+	//ExceptPatternSelect returns rule::Except:
+	//	'except' select=SetSelect;* / //Selection returns rule::Selection:
+	////(selector=[streaming::Concept | ID] '.')? (root+=[streaming::Concept | ID] ('.'root+=[streaming::Concept | ID])*)
+	////(selector=[streaming::Concept | ID] '.')? (root+=[streaming::Concept | ID] ('.'root+=[streaming::Concept | ID])*)
+	////;
 	/// *enum OperationAddingSelect returns rule::OperationAddingSelect:
 	//	count = 'count' //| min = 'min' | max = 'max' | add = 'add' | avg = 'avg'
 	//;* / Where rule::Where:
-	//	'where' left=[streaming::Concept] logicalOperator=LOGICALOPERATOR (rightVariable=[streaming::Concept] | right=INT)
+	//	left=[data::PrimitiveNode|QualifiedName] logicalOperator=LOGICALOPERATOR (right=[data::PrimitiveNode|QualifiedName] |
+	//	'{' rightStreaming=[streaming::Concept|QualifiedName] '}')
 	public WhereElements getWhereAccess() {
 		return pWhere;
 	}
@@ -941,17 +1358,7 @@ public class RuleDslGrammarAccess extends AbstractGrammarElementFinder {
 		return getWhereAccess().getRule();
 	}
 	
-	/// *
-	//Recipient returns Recipient:	
-	//	QueryResponseRecipient | ConcreteRecipient;
-	//
-	//QueryResponseRecipient returns QueryResponseRecipient:
-	//	query=[TwitterQuery|EString]
-	//;
-	//
-	//ConcreteRecipient returns ConcreteRecipient:
-	//	'@' user=EString;
-	// * / //===========================================================================================
+	////===========================================================================================
 	////When --> Expressions
 	//When rule::When:
 	//	'when' left=Expression logicalOperator=LOGICALOPERATOR right=Expression
@@ -1043,6 +1450,115 @@ public class RuleDslGrammarAccess extends AbstractGrammarElementFinder {
 		return getComplexOperandAccess().getRule();
 	}
 	
+	/// *ArithmeticalOperator returns rule::ArithmeticalOperator:
+	//	Addition | Subtraction | Multiplication | Division;
+	//
+	//
+	//Addition returns rule::Addition: '+';
+	//
+	//Subtraction returns rule::Subtraction: '-';
+	//
+	//Multiplication returns rule::Multiplication: '*';
+	//
+	//Division returns rule::Division: '/';* / / *LogicalOperator returns rule::LogicalOperator:
+	//	MoreThan | LessThan | MoreEqual | LessEqual | Equal;
+	//
+	//MoreThan returns expression::MoreThan:
+	//	{expression::MoreThan} '>' ;
+	//	
+	//LessThan returns expression::LessThan:
+	//	{expression::LessThan} '<' ;
+	//
+	//MoreEqual returns expression::MoreEqual:
+	//	{expression::MoreEqual} '>=' ;
+	//	
+	//LessEqual returns expression::LessEqual:
+	//	{expression::LessEqual} '<=' ;
+	//	
+	//Equal returns expression::Equal:
+	//	{expression::Equal} '=' ;* / / *EString returns ecore::EString:
+	//	STRING | ID;
+	//
+	//EBoolean returns ecore::EBoolean:
+	//	'true' | 'false';
+	//	
+	//EInt returns ecore::EInt:
+	//	'-'? INT;
+	//	
+	//EFloat returns ecore::EFloat:
+	//	'-'? INT? '.' INT (('E'|'e') '-'? INT)?;* / Message rule::Message:
+	//	name=ID ':' 'compose' (message+=MessageString ('+' message+=MessageString)*) ('to' recipient=Receiver)?
+	public MessageElements getMessageAccess() {
+		return pMessage;
+	}
+	
+	public ParserRule getMessageRule() {
+		return getMessageAccess().getRule();
+	}
+	
+	//MessageString rule::MessageString:
+	//	TextMessageString | SelectMessageString
+	public MessageStringElements getMessageStringAccess() {
+		return pMessageString;
+	}
+	
+	public ParserRule getMessageStringRule() {
+		return getMessageStringAccess().getRule();
+	}
+	
+	//SelectMessageString rule::SelectMessageString:
+	//	'{' (response+=[data::PrimitiveNode|QualifiedName] (',' response+=[data::PrimitiveNode|QualifiedName])*) '}'
+	public SelectMessageStringElements getSelectMessageStringAccess() {
+		return pSelectMessageString;
+	}
+	
+	public ParserRule getSelectMessageStringRule() {
+		return getSelectMessageStringAccess().getRule();
+	}
+	
+	////OperationMessageString returns rule::OperationMessageString:
+	////    '['body=XBlockExpression']'
+	////;
+	//TextMessageString rule::TextMessageString:
+	//	text=STRING
+	public TextMessageStringElements getTextMessageStringAccess() {
+		return pTextMessageString;
+	}
+	
+	public ParserRule getTextMessageStringRule() {
+		return getTextMessageStringAccess().getRule();
+	}
+	
+	//Receiver rule::Receiver:
+	//	ReceiverList | DistributionList
+	public ReceiverElements getReceiverAccess() {
+		return pReceiver;
+	}
+	
+	public ParserRule getReceiverRule() {
+		return getReceiverAccess().getRule();
+	}
+	
+	//ReceiverList rule::ReceiverList:
+	//	'{' (receiver+=STRING (',' receiver+=STRING)*) '}'
+	public ReceiverListElements getReceiverListAccess() {
+		return pReceiverList;
+	}
+	
+	public ParserRule getReceiverListRule() {
+		return getReceiverListAccess().getRule();
+	}
+	
+	//DistributionList rule::DistributionList:
+	//	'@' file+=STRING
+	public DistributionListElements getDistributionListAccess() {
+		return pDistributionList;
+	}
+	
+	public ParserRule getDistributionListRule() {
+		return getDistributionListAccess().getRule();
+	}
+	
 	//terminal OPERATOR:
 	//	'+' | '-' | '*' | 'DIV';
 	public TerminalRule getOPERATORRule() {
@@ -1053,6 +1569,12 @@ public class RuleDslGrammarAccess extends AbstractGrammarElementFinder {
 	//	'>' | '<' | '>=' | '<=' | '=';
 	public TerminalRule getLOGICALOPERATORRule() {
 		return tLOGICALOPERATOR;
+	}
+	
+	//terminal CONDITIONALOPERATOR:
+	//	'AND' | 'OR';
+	public TerminalRule getCONDITIONALOPERATORRule() {
+		return tCONDITIONALOPERATOR;
 	}
 	
 	//terminal SELECTOPERATOR:
@@ -1086,7 +1608,8 @@ public class RuleDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//terminal STRING:
-	//	'"' ('\\' . | !('\\' | '"'))* '"' | "'" ('\\' . | !('\\' | "'"))* "'";
+	//	'"' ('\\' . | !('\\' | '"'))* '"' |
+	//	"'" ('\\' . | !('\\' | "'"))* "'";
 	public TerminalRule getSTRINGRule() {
 		return gaTerminals.getSTRINGRule();
 	}

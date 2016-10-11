@@ -68,11 +68,11 @@ public class RuleDslFactoryImpl extends EFactoryImpl implements RuleDslFactory
       case RuleDslPackage.RULE_MODEL: return createRuleModel();
       case RuleDslPackage.RULE_ELEMENT: return createRuleElement();
       case RuleDslPackage.RULE: return createRule();
+      case RuleDslPackage.ACTION: return createAction();
       case RuleDslPackage.QUERY: return createQuery();
+      case RuleDslPackage.ADDING_SELECT: return createAddingSelect();
       case RuleDslPackage.SELECT: return createSelect();
       case RuleDslPackage.SET_SELECT: return createSetSelect();
-      case RuleDslPackage.SELECTION: return createSelection();
-      case RuleDslPackage.ADDING_SELECT: return createAddingSelect();
       case RuleDslPackage.WHERE: return createWhere();
       case RuleDslPackage.WHEN: return createWhen();
       case RuleDslPackage.EXPRESSION: return createExpression();
@@ -81,6 +81,13 @@ public class RuleDslFactoryImpl extends EFactoryImpl implements RuleDslFactory
       case RuleDslPackage.NUMERAL: return createNumeral();
       case RuleDslPackage.QUERY_OPERAND: return createQueryOperand();
       case RuleDslPackage.COMPLEX_OPERAND: return createComplexOperand();
+      case RuleDslPackage.MESSAGE: return createMessage();
+      case RuleDslPackage.MESSAGE_STRING: return createMessageString();
+      case RuleDslPackage.SELECT_MESSAGE_STRING: return createSelectMessageString();
+      case RuleDslPackage.TEXT_MESSAGE_STRING: return createTextMessageString();
+      case RuleDslPackage.RECEIVER: return createReceiver();
+      case RuleDslPackage.RECEIVER_LIST: return createReceiverList();
+      case RuleDslPackage.DISTRIBUTION_LIST: return createDistributionList();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -124,10 +131,32 @@ public class RuleDslFactoryImpl extends EFactoryImpl implements RuleDslFactory
    * <!-- end-user-doc -->
    * @generated
    */
+  public Action createAction()
+  {
+    ActionImpl action = new ActionImpl();
+    return action;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public Query createQuery()
   {
     QueryImpl query = new QueryImpl();
     return query;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public AddingSelect createAddingSelect()
+  {
+    AddingSelectImpl addingSelect = new AddingSelectImpl();
+    return addingSelect;
   }
 
   /**
@@ -150,28 +179,6 @@ public class RuleDslFactoryImpl extends EFactoryImpl implements RuleDslFactory
   {
     SetSelectImpl setSelect = new SetSelectImpl();
     return setSelect;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Selection createSelection()
-  {
-    SelectionImpl selection = new SelectionImpl();
-    return selection;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public AddingSelect createAddingSelect()
-  {
-    AddingSelectImpl addingSelect = new AddingSelectImpl();
-    return addingSelect;
   }
 
   /**
@@ -260,6 +267,83 @@ public class RuleDslFactoryImpl extends EFactoryImpl implements RuleDslFactory
   {
     ComplexOperandImpl complexOperand = new ComplexOperandImpl();
     return complexOperand;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Message createMessage()
+  {
+    MessageImpl message = new MessageImpl();
+    return message;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public MessageString createMessageString()
+  {
+    MessageStringImpl messageString = new MessageStringImpl();
+    return messageString;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public SelectMessageString createSelectMessageString()
+  {
+    SelectMessageStringImpl selectMessageString = new SelectMessageStringImpl();
+    return selectMessageString;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public TextMessageString createTextMessageString()
+  {
+    TextMessageStringImpl textMessageString = new TextMessageStringImpl();
+    return textMessageString;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Receiver createReceiver()
+  {
+    ReceiverImpl receiver = new ReceiverImpl();
+    return receiver;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ReceiverList createReceiverList()
+  {
+    ReceiverListImpl receiverList = new ReceiverListImpl();
+    return receiverList;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public DistributionList createDistributionList()
+  {
+    DistributionListImpl distributionList = new DistributionListImpl();
+    return distributionList;
   }
 
   /**

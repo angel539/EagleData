@@ -37,7 +37,7 @@ public class CardinalityImpl extends MinimalEObjectImpl.Container implements Car
    * @generated
    * @ordered
    */
-  protected static final int MIN_EDEFAULT = 0;
+  protected static final String MIN_EDEFAULT = null;
 
   /**
    * The cached value of the '{@link #getMin() <em>Min</em>}' attribute.
@@ -47,7 +47,7 @@ public class CardinalityImpl extends MinimalEObjectImpl.Container implements Car
    * @generated
    * @ordered
    */
-  protected int min = MIN_EDEFAULT;
+  protected String min = MIN_EDEFAULT;
 
   /**
    * The default value of the '{@link #getMax() <em>Max</em>}' attribute.
@@ -57,7 +57,7 @@ public class CardinalityImpl extends MinimalEObjectImpl.Container implements Car
    * @generated
    * @ordered
    */
-  protected static final int MAX_EDEFAULT = 0;
+  protected static final String MAX_EDEFAULT = null;
 
   /**
    * The cached value of the '{@link #getMax() <em>Max</em>}' attribute.
@@ -67,7 +67,7 @@ public class CardinalityImpl extends MinimalEObjectImpl.Container implements Car
    * @generated
    * @ordered
    */
-  protected int max = MAX_EDEFAULT;
+  protected String max = MAX_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -95,7 +95,7 @@ public class CardinalityImpl extends MinimalEObjectImpl.Container implements Car
    * <!-- end-user-doc -->
    * @generated
    */
-  public int getMin()
+  public String getMin()
   {
     return min;
   }
@@ -105,9 +105,9 @@ public class CardinalityImpl extends MinimalEObjectImpl.Container implements Car
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setMin(int newMin)
+  public void setMin(String newMin)
   {
-    int oldMin = min;
+    String oldMin = min;
     min = newMin;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, DataDslPackage.CARDINALITY__MIN, oldMin, min));
@@ -118,7 +118,7 @@ public class CardinalityImpl extends MinimalEObjectImpl.Container implements Car
    * <!-- end-user-doc -->
    * @generated
    */
-  public int getMax()
+  public String getMax()
   {
     return max;
   }
@@ -128,9 +128,9 @@ public class CardinalityImpl extends MinimalEObjectImpl.Container implements Car
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setMax(int newMax)
+  public void setMax(String newMax)
   {
-    int oldMax = max;
+    String oldMax = max;
     max = newMax;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, DataDslPackage.CARDINALITY__MAX, oldMax, max));
@@ -165,10 +165,10 @@ public class CardinalityImpl extends MinimalEObjectImpl.Container implements Car
     switch (featureID)
     {
       case DataDslPackage.CARDINALITY__MIN:
-        setMin((Integer)newValue);
+        setMin((String)newValue);
         return;
       case DataDslPackage.CARDINALITY__MAX:
-        setMax((Integer)newValue);
+        setMax((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -205,9 +205,9 @@ public class CardinalityImpl extends MinimalEObjectImpl.Container implements Car
     switch (featureID)
     {
       case DataDslPackage.CARDINALITY__MIN:
-        return min != MIN_EDEFAULT;
+        return MIN_EDEFAULT == null ? min != null : !MIN_EDEFAULT.equals(min);
       case DataDslPackage.CARDINALITY__MAX:
-        return max != MAX_EDEFAULT;
+        return MAX_EDEFAULT == null ? max != null : !MAX_EDEFAULT.equals(max);
     }
     return super.eIsSet(featureID);
   }

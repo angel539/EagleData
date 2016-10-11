@@ -68,13 +68,22 @@ public interface RuleDslPackage extends EPackage
   int RULE_MODEL = 0;
 
   /**
+   * The feature id for the '<em><b>Imports</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RULE_MODEL__IMPORTS = 0;
+
+  /**
    * The feature id for the '<em><b>Elements</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int RULE_MODEL__ELEMENTS = 0;
+  int RULE_MODEL__ELEMENTS = 1;
 
   /**
    * The number of structural features of the '<em>Rule Model</em>' class.
@@ -83,7 +92,7 @@ public interface RuleDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int RULE_MODEL_FEATURE_COUNT = 1;
+  int RULE_MODEL_FEATURE_COUNT = 2;
 
   /**
    * The meta object id for the '{@link eagledata.core.dsl.rule.ruleDsl.impl.RuleElementImpl <em>Rule Element</em>}' class.
@@ -96,22 +105,13 @@ public interface RuleDslPackage extends EPackage
   int RULE_ELEMENT = 1;
 
   /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int RULE_ELEMENT__NAME = 0;
-
-  /**
    * The number of structural features of the '<em>Rule Element</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int RULE_ELEMENT_FEATURE_COUNT = 1;
+  int RULE_ELEMENT_FEATURE_COUNT = 0;
 
   /**
    * The meta object id for the '{@link eagledata.core.dsl.rule.ruleDsl.impl.RuleImpl <em>Rule</em>}' class.
@@ -130,7 +130,7 @@ public interface RuleDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int RULE__NAME = RULE_ELEMENT__NAME;
+  int RULE__NAME = 0;
 
   /**
    * The feature id for the '<em><b>Event</b></em>' reference.
@@ -139,16 +139,7 @@ public interface RuleDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int RULE__EVENT = RULE_ELEMENT_FEATURE_COUNT + 0;
-
-  /**
-   * The feature id for the '<em><b>Condition</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int RULE__CONDITION = RULE_ELEMENT_FEATURE_COUNT + 1;
+  int RULE__EVENT = 1;
 
   /**
    * The feature id for the '<em><b>Actions</b></em>' containment reference list.
@@ -157,7 +148,7 @@ public interface RuleDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int RULE__ACTIONS = RULE_ELEMENT_FEATURE_COUNT + 2;
+  int RULE__ACTIONS = 2;
 
   /**
    * The number of structural features of the '<em>Rule</em>' class.
@@ -166,7 +157,35 @@ public interface RuleDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int RULE_FEATURE_COUNT = RULE_ELEMENT_FEATURE_COUNT + 3;
+  int RULE_FEATURE_COUNT = 3;
+
+  /**
+   * The meta object id for the '{@link eagledata.core.dsl.rule.ruleDsl.impl.ActionImpl <em>Action</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see eagledata.core.dsl.rule.ruleDsl.impl.ActionImpl
+   * @see eagledata.core.dsl.rule.ruleDsl.impl.RuleDslPackageImpl#getAction()
+   * @generated
+   */
+  int ACTION = 3;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ACTION__NAME = RULE_ELEMENT_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Action</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ACTION_FEATURE_COUNT = RULE_ELEMENT_FEATURE_COUNT + 1;
 
   /**
    * The meta object id for the '{@link eagledata.core.dsl.rule.ruleDsl.impl.QueryImpl <em>Query</em>}' class.
@@ -176,7 +195,7 @@ public interface RuleDslPackage extends EPackage
    * @see eagledata.core.dsl.rule.ruleDsl.impl.RuleDslPackageImpl#getQuery()
    * @generated
    */
-  int QUERY = 3;
+  int QUERY = 4;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -185,7 +204,7 @@ public interface RuleDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int QUERY__NAME = RULE_ELEMENT__NAME;
+  int QUERY__NAME = ACTION__NAME;
 
   /**
    * The feature id for the '<em><b>Select</b></em>' containment reference.
@@ -194,16 +213,16 @@ public interface RuleDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int QUERY__SELECT = RULE_ELEMENT_FEATURE_COUNT + 0;
+  int QUERY__SELECT = ACTION_FEATURE_COUNT + 0;
 
   /**
-   * The feature id for the '<em><b>Where</b></em>' containment reference.
+   * The feature id for the '<em><b>Then</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int QUERY__WHERE = RULE_ELEMENT_FEATURE_COUNT + 1;
+  int QUERY__THEN = ACTION_FEATURE_COUNT + 1;
 
   /**
    * The number of structural features of the '<em>Query</em>' class.
@@ -212,7 +231,7 @@ public interface RuleDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int QUERY_FEATURE_COUNT = RULE_ELEMENT_FEATURE_COUNT + 2;
+  int QUERY_FEATURE_COUNT = ACTION_FEATURE_COUNT + 2;
 
   /**
    * The meta object id for the '{@link eagledata.core.dsl.rule.ruleDsl.impl.SelectImpl <em>Select</em>}' class.
@@ -222,16 +241,7 @@ public interface RuleDslPackage extends EPackage
    * @see eagledata.core.dsl.rule.ruleDsl.impl.RuleDslPackageImpl#getSelect()
    * @generated
    */
-  int SELECT = 4;
-
-  /**
-   * The feature id for the '<em><b>All</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int SELECT__ALL = 0;
+  int SELECT = 6;
 
   /**
    * The number of structural features of the '<em>Select</em>' class.
@@ -240,99 +250,7 @@ public interface RuleDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int SELECT_FEATURE_COUNT = 1;
-
-  /**
-   * The meta object id for the '{@link eagledata.core.dsl.rule.ruleDsl.impl.SetSelectImpl <em>Set Select</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see eagledata.core.dsl.rule.ruleDsl.impl.SetSelectImpl
-   * @see eagledata.core.dsl.rule.ruleDsl.impl.RuleDslPackageImpl#getSetSelect()
-   * @generated
-   */
-  int SET_SELECT = 5;
-
-  /**
-   * The feature id for the '<em><b>All</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int SET_SELECT__ALL = SELECT__ALL;
-
-  /**
-   * The feature id for the '<em><b>Selection</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int SET_SELECT__SELECTION = SELECT_FEATURE_COUNT + 0;
-
-  /**
-   * The feature id for the '<em><b>Operator</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int SET_SELECT__OPERATOR = SELECT_FEATURE_COUNT + 1;
-
-  /**
-   * The feature id for the '<em><b>Select</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int SET_SELECT__SELECT = SELECT_FEATURE_COUNT + 2;
-
-  /**
-   * The number of structural features of the '<em>Set Select</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int SET_SELECT_FEATURE_COUNT = SELECT_FEATURE_COUNT + 3;
-
-  /**
-   * The meta object id for the '{@link eagledata.core.dsl.rule.ruleDsl.impl.SelectionImpl <em>Selection</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see eagledata.core.dsl.rule.ruleDsl.impl.SelectionImpl
-   * @see eagledata.core.dsl.rule.ruleDsl.impl.RuleDslPackageImpl#getSelection()
-   * @generated
-   */
-  int SELECTION = 6;
-
-  /**
-   * The feature id for the '<em><b>Selector</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int SELECTION__SELECTOR = 0;
-
-  /**
-   * The feature id for the '<em><b>Root</b></em>' reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int SELECTION__ROOT = 1;
-
-  /**
-   * The number of structural features of the '<em>Selection</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int SELECTION_FEATURE_COUNT = 2;
+  int SELECT_FEATURE_COUNT = 0;
 
   /**
    * The meta object id for the '{@link eagledata.core.dsl.rule.ruleDsl.impl.AddingSelectImpl <em>Adding Select</em>}' class.
@@ -342,16 +260,7 @@ public interface RuleDslPackage extends EPackage
    * @see eagledata.core.dsl.rule.ruleDsl.impl.RuleDslPackageImpl#getAddingSelect()
    * @generated
    */
-  int ADDING_SELECT = 7;
-
-  /**
-   * The feature id for the '<em><b>All</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ADDING_SELECT__ALL = SELECT__ALL;
+  int ADDING_SELECT = 5;
 
   /**
    * The feature id for the '<em><b>Operation</b></em>' attribute.
@@ -372,13 +281,68 @@ public interface RuleDslPackage extends EPackage
   int ADDING_SELECT__ELEMENT = SELECT_FEATURE_COUNT + 1;
 
   /**
+   * The feature id for the '<em><b>All</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ADDING_SELECT__ALL = SELECT_FEATURE_COUNT + 2;
+
+  /**
    * The number of structural features of the '<em>Adding Select</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ADDING_SELECT_FEATURE_COUNT = SELECT_FEATURE_COUNT + 2;
+  int ADDING_SELECT_FEATURE_COUNT = SELECT_FEATURE_COUNT + 3;
+
+  /**
+   * The meta object id for the '{@link eagledata.core.dsl.rule.ruleDsl.impl.SetSelectImpl <em>Set Select</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see eagledata.core.dsl.rule.ruleDsl.impl.SetSelectImpl
+   * @see eagledata.core.dsl.rule.ruleDsl.impl.RuleDslPackageImpl#getSetSelect()
+   * @generated
+   */
+  int SET_SELECT = 7;
+
+  /**
+   * The feature id for the '<em><b>Selector</b></em>' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SET_SELECT__SELECTOR = SELECT_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>From</b></em>' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SET_SELECT__FROM = SELECT_FEATURE_COUNT + 1;
+
+  /**
+   * The feature id for the '<em><b>Where</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SET_SELECT__WHERE = SELECT_FEATURE_COUNT + 2;
+
+  /**
+   * The number of structural features of the '<em>Set Select</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SET_SELECT_FEATURE_COUNT = SELECT_FEATURE_COUNT + 3;
 
   /**
    * The meta object id for the '{@link eagledata.core.dsl.rule.ruleDsl.impl.WhereImpl <em>Where</em>}' class.
@@ -409,22 +373,22 @@ public interface RuleDslPackage extends EPackage
   int WHERE__LOGICAL_OPERATOR = 1;
 
   /**
-   * The feature id for the '<em><b>Right Variable</b></em>' reference.
+   * The feature id for the '<em><b>Right</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int WHERE__RIGHT_VARIABLE = 2;
+  int WHERE__RIGHT = 2;
 
   /**
-   * The feature id for the '<em><b>Right</b></em>' attribute.
+   * The feature id for the '<em><b>Right Streaming</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int WHERE__RIGHT = 3;
+  int WHERE__RIGHT_STREAMING = 3;
 
   /**
    * The number of structural features of the '<em>Where</em>' class.
@@ -649,6 +613,202 @@ public interface RuleDslPackage extends EPackage
    */
   int COMPLEX_OPERAND_FEATURE_COUNT = OPERAND_FEATURE_COUNT + 2;
 
+  /**
+   * The meta object id for the '{@link eagledata.core.dsl.rule.ruleDsl.impl.MessageImpl <em>Message</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see eagledata.core.dsl.rule.ruleDsl.impl.MessageImpl
+   * @see eagledata.core.dsl.rule.ruleDsl.impl.RuleDslPackageImpl#getMessage()
+   * @generated
+   */
+  int MESSAGE = 16;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MESSAGE__NAME = ACTION__NAME;
+
+  /**
+   * The feature id for the '<em><b>Message</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MESSAGE__MESSAGE = ACTION_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Recipient</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MESSAGE__RECIPIENT = ACTION_FEATURE_COUNT + 1;
+
+  /**
+   * The number of structural features of the '<em>Message</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MESSAGE_FEATURE_COUNT = ACTION_FEATURE_COUNT + 2;
+
+  /**
+   * The meta object id for the '{@link eagledata.core.dsl.rule.ruleDsl.impl.MessageStringImpl <em>Message String</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see eagledata.core.dsl.rule.ruleDsl.impl.MessageStringImpl
+   * @see eagledata.core.dsl.rule.ruleDsl.impl.RuleDslPackageImpl#getMessageString()
+   * @generated
+   */
+  int MESSAGE_STRING = 17;
+
+  /**
+   * The number of structural features of the '<em>Message String</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MESSAGE_STRING_FEATURE_COUNT = 0;
+
+  /**
+   * The meta object id for the '{@link eagledata.core.dsl.rule.ruleDsl.impl.SelectMessageStringImpl <em>Select Message String</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see eagledata.core.dsl.rule.ruleDsl.impl.SelectMessageStringImpl
+   * @see eagledata.core.dsl.rule.ruleDsl.impl.RuleDslPackageImpl#getSelectMessageString()
+   * @generated
+   */
+  int SELECT_MESSAGE_STRING = 18;
+
+  /**
+   * The feature id for the '<em><b>Response</b></em>' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SELECT_MESSAGE_STRING__RESPONSE = MESSAGE_STRING_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Select Message String</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SELECT_MESSAGE_STRING_FEATURE_COUNT = MESSAGE_STRING_FEATURE_COUNT + 1;
+
+  /**
+   * The meta object id for the '{@link eagledata.core.dsl.rule.ruleDsl.impl.TextMessageStringImpl <em>Text Message String</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see eagledata.core.dsl.rule.ruleDsl.impl.TextMessageStringImpl
+   * @see eagledata.core.dsl.rule.ruleDsl.impl.RuleDslPackageImpl#getTextMessageString()
+   * @generated
+   */
+  int TEXT_MESSAGE_STRING = 19;
+
+  /**
+   * The feature id for the '<em><b>Text</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TEXT_MESSAGE_STRING__TEXT = MESSAGE_STRING_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Text Message String</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TEXT_MESSAGE_STRING_FEATURE_COUNT = MESSAGE_STRING_FEATURE_COUNT + 1;
+
+  /**
+   * The meta object id for the '{@link eagledata.core.dsl.rule.ruleDsl.impl.ReceiverImpl <em>Receiver</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see eagledata.core.dsl.rule.ruleDsl.impl.ReceiverImpl
+   * @see eagledata.core.dsl.rule.ruleDsl.impl.RuleDslPackageImpl#getReceiver()
+   * @generated
+   */
+  int RECEIVER = 20;
+
+  /**
+   * The number of structural features of the '<em>Receiver</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RECEIVER_FEATURE_COUNT = 0;
+
+  /**
+   * The meta object id for the '{@link eagledata.core.dsl.rule.ruleDsl.impl.ReceiverListImpl <em>Receiver List</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see eagledata.core.dsl.rule.ruleDsl.impl.ReceiverListImpl
+   * @see eagledata.core.dsl.rule.ruleDsl.impl.RuleDslPackageImpl#getReceiverList()
+   * @generated
+   */
+  int RECEIVER_LIST = 21;
+
+  /**
+   * The feature id for the '<em><b>Receiver</b></em>' attribute list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RECEIVER_LIST__RECEIVER = RECEIVER_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Receiver List</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RECEIVER_LIST_FEATURE_COUNT = RECEIVER_FEATURE_COUNT + 1;
+
+  /**
+   * The meta object id for the '{@link eagledata.core.dsl.rule.ruleDsl.impl.DistributionListImpl <em>Distribution List</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see eagledata.core.dsl.rule.ruleDsl.impl.DistributionListImpl
+   * @see eagledata.core.dsl.rule.ruleDsl.impl.RuleDslPackageImpl#getDistributionList()
+   * @generated
+   */
+  int DISTRIBUTION_LIST = 22;
+
+  /**
+   * The feature id for the '<em><b>File</b></em>' attribute list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DISTRIBUTION_LIST__FILE = RECEIVER_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Distribution List</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DISTRIBUTION_LIST_FEATURE_COUNT = RECEIVER_FEATURE_COUNT + 1;
+
 
   /**
    * Returns the meta object for class '{@link eagledata.core.dsl.rule.ruleDsl.RuleModel <em>Rule Model</em>}'.
@@ -659,6 +819,17 @@ public interface RuleDslPackage extends EPackage
    * @generated
    */
   EClass getRuleModel();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link eagledata.core.dsl.rule.ruleDsl.RuleModel#getImports <em>Imports</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Imports</em>'.
+   * @see eagledata.core.dsl.rule.ruleDsl.RuleModel#getImports()
+   * @see #getRuleModel()
+   * @generated
+   */
+  EReference getRuleModel_Imports();
 
   /**
    * Returns the meta object for the containment reference list '{@link eagledata.core.dsl.rule.ruleDsl.RuleModel#getElements <em>Elements</em>}'.
@@ -682,17 +853,6 @@ public interface RuleDslPackage extends EPackage
   EClass getRuleElement();
 
   /**
-   * Returns the meta object for the attribute '{@link eagledata.core.dsl.rule.ruleDsl.RuleElement#getName <em>Name</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Name</em>'.
-   * @see eagledata.core.dsl.rule.ruleDsl.RuleElement#getName()
-   * @see #getRuleElement()
-   * @generated
-   */
-  EAttribute getRuleElement_Name();
-
-  /**
    * Returns the meta object for class '{@link eagledata.core.dsl.rule.ruleDsl.Rule <em>Rule</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -701,6 +861,17 @@ public interface RuleDslPackage extends EPackage
    * @generated
    */
   EClass getRule();
+
+  /**
+   * Returns the meta object for the attribute '{@link eagledata.core.dsl.rule.ruleDsl.Rule#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see eagledata.core.dsl.rule.ruleDsl.Rule#getName()
+   * @see #getRule()
+   * @generated
+   */
+  EAttribute getRule_Name();
 
   /**
    * Returns the meta object for the reference '{@link eagledata.core.dsl.rule.ruleDsl.Rule#getEvent <em>Event</em>}'.
@@ -714,17 +885,6 @@ public interface RuleDslPackage extends EPackage
   EReference getRule_Event();
 
   /**
-   * Returns the meta object for the containment reference '{@link eagledata.core.dsl.rule.ruleDsl.Rule#getCondition <em>Condition</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Condition</em>'.
-   * @see eagledata.core.dsl.rule.ruleDsl.Rule#getCondition()
-   * @see #getRule()
-   * @generated
-   */
-  EReference getRule_Condition();
-
-  /**
    * Returns the meta object for the containment reference list '{@link eagledata.core.dsl.rule.ruleDsl.Rule#getActions <em>Actions</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -734,6 +894,27 @@ public interface RuleDslPackage extends EPackage
    * @generated
    */
   EReference getRule_Actions();
+
+  /**
+   * Returns the meta object for class '{@link eagledata.core.dsl.rule.ruleDsl.Action <em>Action</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Action</em>'.
+   * @see eagledata.core.dsl.rule.ruleDsl.Action
+   * @generated
+   */
+  EClass getAction();
+
+  /**
+   * Returns the meta object for the attribute '{@link eagledata.core.dsl.rule.ruleDsl.Action#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see eagledata.core.dsl.rule.ruleDsl.Action#getName()
+   * @see #getAction()
+   * @generated
+   */
+  EAttribute getAction_Name();
 
   /**
    * Returns the meta object for class '{@link eagledata.core.dsl.rule.ruleDsl.Query <em>Query</em>}'.
@@ -757,111 +938,15 @@ public interface RuleDslPackage extends EPackage
   EReference getQuery_Select();
 
   /**
-   * Returns the meta object for the containment reference '{@link eagledata.core.dsl.rule.ruleDsl.Query#getWhere <em>Where</em>}'.
+   * Returns the meta object for the containment reference list '{@link eagledata.core.dsl.rule.ruleDsl.Query#getThen <em>Then</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Where</em>'.
-   * @see eagledata.core.dsl.rule.ruleDsl.Query#getWhere()
+   * @return the meta object for the containment reference list '<em>Then</em>'.
+   * @see eagledata.core.dsl.rule.ruleDsl.Query#getThen()
    * @see #getQuery()
    * @generated
    */
-  EReference getQuery_Where();
-
-  /**
-   * Returns the meta object for class '{@link eagledata.core.dsl.rule.ruleDsl.Select <em>Select</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Select</em>'.
-   * @see eagledata.core.dsl.rule.ruleDsl.Select
-   * @generated
-   */
-  EClass getSelect();
-
-  /**
-   * Returns the meta object for the attribute '{@link eagledata.core.dsl.rule.ruleDsl.Select#isAll <em>All</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>All</em>'.
-   * @see eagledata.core.dsl.rule.ruleDsl.Select#isAll()
-   * @see #getSelect()
-   * @generated
-   */
-  EAttribute getSelect_All();
-
-  /**
-   * Returns the meta object for class '{@link eagledata.core.dsl.rule.ruleDsl.SetSelect <em>Set Select</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Set Select</em>'.
-   * @see eagledata.core.dsl.rule.ruleDsl.SetSelect
-   * @generated
-   */
-  EClass getSetSelect();
-
-  /**
-   * Returns the meta object for the containment reference list '{@link eagledata.core.dsl.rule.ruleDsl.SetSelect#getSelection <em>Selection</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Selection</em>'.
-   * @see eagledata.core.dsl.rule.ruleDsl.SetSelect#getSelection()
-   * @see #getSetSelect()
-   * @generated
-   */
-  EReference getSetSelect_Selection();
-
-  /**
-   * Returns the meta object for the attribute '{@link eagledata.core.dsl.rule.ruleDsl.SetSelect#getOperator <em>Operator</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Operator</em>'.
-   * @see eagledata.core.dsl.rule.ruleDsl.SetSelect#getOperator()
-   * @see #getSetSelect()
-   * @generated
-   */
-  EAttribute getSetSelect_Operator();
-
-  /**
-   * Returns the meta object for the containment reference '{@link eagledata.core.dsl.rule.ruleDsl.SetSelect#getSelect <em>Select</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Select</em>'.
-   * @see eagledata.core.dsl.rule.ruleDsl.SetSelect#getSelect()
-   * @see #getSetSelect()
-   * @generated
-   */
-  EReference getSetSelect_Select();
-
-  /**
-   * Returns the meta object for class '{@link eagledata.core.dsl.rule.ruleDsl.Selection <em>Selection</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Selection</em>'.
-   * @see eagledata.core.dsl.rule.ruleDsl.Selection
-   * @generated
-   */
-  EClass getSelection();
-
-  /**
-   * Returns the meta object for the reference '{@link eagledata.core.dsl.rule.ruleDsl.Selection#getSelector <em>Selector</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the reference '<em>Selector</em>'.
-   * @see eagledata.core.dsl.rule.ruleDsl.Selection#getSelector()
-   * @see #getSelection()
-   * @generated
-   */
-  EReference getSelection_Selector();
-
-  /**
-   * Returns the meta object for the reference list '{@link eagledata.core.dsl.rule.ruleDsl.Selection#getRoot <em>Root</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the reference list '<em>Root</em>'.
-   * @see eagledata.core.dsl.rule.ruleDsl.Selection#getRoot()
-   * @see #getSelection()
-   * @generated
-   */
-  EReference getSelection_Root();
+  EReference getQuery_Then();
 
   /**
    * Returns the meta object for class '{@link eagledata.core.dsl.rule.ruleDsl.AddingSelect <em>Adding Select</em>}'.
@@ -896,6 +981,70 @@ public interface RuleDslPackage extends EPackage
   EReference getAddingSelect_Element();
 
   /**
+   * Returns the meta object for the attribute '{@link eagledata.core.dsl.rule.ruleDsl.AddingSelect#isAll <em>All</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>All</em>'.
+   * @see eagledata.core.dsl.rule.ruleDsl.AddingSelect#isAll()
+   * @see #getAddingSelect()
+   * @generated
+   */
+  EAttribute getAddingSelect_All();
+
+  /**
+   * Returns the meta object for class '{@link eagledata.core.dsl.rule.ruleDsl.Select <em>Select</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Select</em>'.
+   * @see eagledata.core.dsl.rule.ruleDsl.Select
+   * @generated
+   */
+  EClass getSelect();
+
+  /**
+   * Returns the meta object for class '{@link eagledata.core.dsl.rule.ruleDsl.SetSelect <em>Set Select</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Set Select</em>'.
+   * @see eagledata.core.dsl.rule.ruleDsl.SetSelect
+   * @generated
+   */
+  EClass getSetSelect();
+
+  /**
+   * Returns the meta object for the reference list '{@link eagledata.core.dsl.rule.ruleDsl.SetSelect#getSelector <em>Selector</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference list '<em>Selector</em>'.
+   * @see eagledata.core.dsl.rule.ruleDsl.SetSelect#getSelector()
+   * @see #getSetSelect()
+   * @generated
+   */
+  EReference getSetSelect_Selector();
+
+  /**
+   * Returns the meta object for the reference list '{@link eagledata.core.dsl.rule.ruleDsl.SetSelect#getFrom <em>From</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference list '<em>From</em>'.
+   * @see eagledata.core.dsl.rule.ruleDsl.SetSelect#getFrom()
+   * @see #getSetSelect()
+   * @generated
+   */
+  EReference getSetSelect_From();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link eagledata.core.dsl.rule.ruleDsl.SetSelect#getWhere <em>Where</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Where</em>'.
+   * @see eagledata.core.dsl.rule.ruleDsl.SetSelect#getWhere()
+   * @see #getSetSelect()
+   * @generated
+   */
+  EReference getSetSelect_Where();
+
+  /**
    * Returns the meta object for class '{@link eagledata.core.dsl.rule.ruleDsl.Where <em>Where</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -928,26 +1077,26 @@ public interface RuleDslPackage extends EPackage
   EAttribute getWhere_LogicalOperator();
 
   /**
-   * Returns the meta object for the reference '{@link eagledata.core.dsl.rule.ruleDsl.Where#getRightVariable <em>Right Variable</em>}'.
+   * Returns the meta object for the reference '{@link eagledata.core.dsl.rule.ruleDsl.Where#getRight <em>Right</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the reference '<em>Right Variable</em>'.
-   * @see eagledata.core.dsl.rule.ruleDsl.Where#getRightVariable()
-   * @see #getWhere()
-   * @generated
-   */
-  EReference getWhere_RightVariable();
-
-  /**
-   * Returns the meta object for the attribute '{@link eagledata.core.dsl.rule.ruleDsl.Where#getRight <em>Right</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Right</em>'.
+   * @return the meta object for the reference '<em>Right</em>'.
    * @see eagledata.core.dsl.rule.ruleDsl.Where#getRight()
    * @see #getWhere()
    * @generated
    */
-  EAttribute getWhere_Right();
+  EReference getWhere_Right();
+
+  /**
+   * Returns the meta object for the reference '{@link eagledata.core.dsl.rule.ruleDsl.Where#getRightStreaming <em>Right Streaming</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Right Streaming</em>'.
+   * @see eagledata.core.dsl.rule.ruleDsl.Where#getRightStreaming()
+   * @see #getWhere()
+   * @generated
+   */
+  EReference getWhere_RightStreaming();
 
   /**
    * Returns the meta object for class '{@link eagledata.core.dsl.rule.ruleDsl.When <em>When</em>}'.
@@ -1119,6 +1268,142 @@ public interface RuleDslPackage extends EPackage
   EReference getComplexOperand_Expression();
 
   /**
+   * Returns the meta object for class '{@link eagledata.core.dsl.rule.ruleDsl.Message <em>Message</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Message</em>'.
+   * @see eagledata.core.dsl.rule.ruleDsl.Message
+   * @generated
+   */
+  EClass getMessage();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link eagledata.core.dsl.rule.ruleDsl.Message#getMessage <em>Message</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Message</em>'.
+   * @see eagledata.core.dsl.rule.ruleDsl.Message#getMessage()
+   * @see #getMessage()
+   * @generated
+   */
+  EReference getMessage_Message();
+
+  /**
+   * Returns the meta object for the containment reference '{@link eagledata.core.dsl.rule.ruleDsl.Message#getRecipient <em>Recipient</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Recipient</em>'.
+   * @see eagledata.core.dsl.rule.ruleDsl.Message#getRecipient()
+   * @see #getMessage()
+   * @generated
+   */
+  EReference getMessage_Recipient();
+
+  /**
+   * Returns the meta object for class '{@link eagledata.core.dsl.rule.ruleDsl.MessageString <em>Message String</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Message String</em>'.
+   * @see eagledata.core.dsl.rule.ruleDsl.MessageString
+   * @generated
+   */
+  EClass getMessageString();
+
+  /**
+   * Returns the meta object for class '{@link eagledata.core.dsl.rule.ruleDsl.SelectMessageString <em>Select Message String</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Select Message String</em>'.
+   * @see eagledata.core.dsl.rule.ruleDsl.SelectMessageString
+   * @generated
+   */
+  EClass getSelectMessageString();
+
+  /**
+   * Returns the meta object for the reference list '{@link eagledata.core.dsl.rule.ruleDsl.SelectMessageString#getResponse <em>Response</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference list '<em>Response</em>'.
+   * @see eagledata.core.dsl.rule.ruleDsl.SelectMessageString#getResponse()
+   * @see #getSelectMessageString()
+   * @generated
+   */
+  EReference getSelectMessageString_Response();
+
+  /**
+   * Returns the meta object for class '{@link eagledata.core.dsl.rule.ruleDsl.TextMessageString <em>Text Message String</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Text Message String</em>'.
+   * @see eagledata.core.dsl.rule.ruleDsl.TextMessageString
+   * @generated
+   */
+  EClass getTextMessageString();
+
+  /**
+   * Returns the meta object for the attribute '{@link eagledata.core.dsl.rule.ruleDsl.TextMessageString#getText <em>Text</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Text</em>'.
+   * @see eagledata.core.dsl.rule.ruleDsl.TextMessageString#getText()
+   * @see #getTextMessageString()
+   * @generated
+   */
+  EAttribute getTextMessageString_Text();
+
+  /**
+   * Returns the meta object for class '{@link eagledata.core.dsl.rule.ruleDsl.Receiver <em>Receiver</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Receiver</em>'.
+   * @see eagledata.core.dsl.rule.ruleDsl.Receiver
+   * @generated
+   */
+  EClass getReceiver();
+
+  /**
+   * Returns the meta object for class '{@link eagledata.core.dsl.rule.ruleDsl.ReceiverList <em>Receiver List</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Receiver List</em>'.
+   * @see eagledata.core.dsl.rule.ruleDsl.ReceiverList
+   * @generated
+   */
+  EClass getReceiverList();
+
+  /**
+   * Returns the meta object for the attribute list '{@link eagledata.core.dsl.rule.ruleDsl.ReceiverList#getReceiver <em>Receiver</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute list '<em>Receiver</em>'.
+   * @see eagledata.core.dsl.rule.ruleDsl.ReceiverList#getReceiver()
+   * @see #getReceiverList()
+   * @generated
+   */
+  EAttribute getReceiverList_Receiver();
+
+  /**
+   * Returns the meta object for class '{@link eagledata.core.dsl.rule.ruleDsl.DistributionList <em>Distribution List</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Distribution List</em>'.
+   * @see eagledata.core.dsl.rule.ruleDsl.DistributionList
+   * @generated
+   */
+  EClass getDistributionList();
+
+  /**
+   * Returns the meta object for the attribute list '{@link eagledata.core.dsl.rule.ruleDsl.DistributionList#getFile <em>File</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute list '<em>File</em>'.
+   * @see eagledata.core.dsl.rule.ruleDsl.DistributionList#getFile()
+   * @see #getDistributionList()
+   * @generated
+   */
+  EAttribute getDistributionList_File();
+
+  /**
    * Returns the factory that creates the instances of the model.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1152,6 +1437,14 @@ public interface RuleDslPackage extends EPackage
     EClass RULE_MODEL = eINSTANCE.getRuleModel();
 
     /**
+     * The meta object literal for the '<em><b>Imports</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference RULE_MODEL__IMPORTS = eINSTANCE.getRuleModel_Imports();
+
+    /**
      * The meta object literal for the '<em><b>Elements</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1170,14 +1463,6 @@ public interface RuleDslPackage extends EPackage
     EClass RULE_ELEMENT = eINSTANCE.getRuleElement();
 
     /**
-     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute RULE_ELEMENT__NAME = eINSTANCE.getRuleElement_Name();
-
-    /**
      * The meta object literal for the '{@link eagledata.core.dsl.rule.ruleDsl.impl.RuleImpl <em>Rule</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1188,6 +1473,14 @@ public interface RuleDslPackage extends EPackage
     EClass RULE = eINSTANCE.getRule();
 
     /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute RULE__NAME = eINSTANCE.getRule_Name();
+
+    /**
      * The meta object literal for the '<em><b>Event</b></em>' reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1196,20 +1489,30 @@ public interface RuleDslPackage extends EPackage
     EReference RULE__EVENT = eINSTANCE.getRule_Event();
 
     /**
-     * The meta object literal for the '<em><b>Condition</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference RULE__CONDITION = eINSTANCE.getRule_Condition();
-
-    /**
      * The meta object literal for the '<em><b>Actions</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
     EReference RULE__ACTIONS = eINSTANCE.getRule_Actions();
+
+    /**
+     * The meta object literal for the '{@link eagledata.core.dsl.rule.ruleDsl.impl.ActionImpl <em>Action</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see eagledata.core.dsl.rule.ruleDsl.impl.ActionImpl
+     * @see eagledata.core.dsl.rule.ruleDsl.impl.RuleDslPackageImpl#getAction()
+     * @generated
+     */
+    EClass ACTION = eINSTANCE.getAction();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute ACTION__NAME = eINSTANCE.getAction_Name();
 
     /**
      * The meta object literal for the '{@link eagledata.core.dsl.rule.ruleDsl.impl.QueryImpl <em>Query</em>}' class.
@@ -1230,90 +1533,12 @@ public interface RuleDslPackage extends EPackage
     EReference QUERY__SELECT = eINSTANCE.getQuery_Select();
 
     /**
-     * The meta object literal for the '<em><b>Where</b></em>' containment reference feature.
+     * The meta object literal for the '<em><b>Then</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference QUERY__WHERE = eINSTANCE.getQuery_Where();
-
-    /**
-     * The meta object literal for the '{@link eagledata.core.dsl.rule.ruleDsl.impl.SelectImpl <em>Select</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see eagledata.core.dsl.rule.ruleDsl.impl.SelectImpl
-     * @see eagledata.core.dsl.rule.ruleDsl.impl.RuleDslPackageImpl#getSelect()
-     * @generated
-     */
-    EClass SELECT = eINSTANCE.getSelect();
-
-    /**
-     * The meta object literal for the '<em><b>All</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute SELECT__ALL = eINSTANCE.getSelect_All();
-
-    /**
-     * The meta object literal for the '{@link eagledata.core.dsl.rule.ruleDsl.impl.SetSelectImpl <em>Set Select</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see eagledata.core.dsl.rule.ruleDsl.impl.SetSelectImpl
-     * @see eagledata.core.dsl.rule.ruleDsl.impl.RuleDslPackageImpl#getSetSelect()
-     * @generated
-     */
-    EClass SET_SELECT = eINSTANCE.getSetSelect();
-
-    /**
-     * The meta object literal for the '<em><b>Selection</b></em>' containment reference list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference SET_SELECT__SELECTION = eINSTANCE.getSetSelect_Selection();
-
-    /**
-     * The meta object literal for the '<em><b>Operator</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute SET_SELECT__OPERATOR = eINSTANCE.getSetSelect_Operator();
-
-    /**
-     * The meta object literal for the '<em><b>Select</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference SET_SELECT__SELECT = eINSTANCE.getSetSelect_Select();
-
-    /**
-     * The meta object literal for the '{@link eagledata.core.dsl.rule.ruleDsl.impl.SelectionImpl <em>Selection</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see eagledata.core.dsl.rule.ruleDsl.impl.SelectionImpl
-     * @see eagledata.core.dsl.rule.ruleDsl.impl.RuleDslPackageImpl#getSelection()
-     * @generated
-     */
-    EClass SELECTION = eINSTANCE.getSelection();
-
-    /**
-     * The meta object literal for the '<em><b>Selector</b></em>' reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference SELECTION__SELECTOR = eINSTANCE.getSelection_Selector();
-
-    /**
-     * The meta object literal for the '<em><b>Root</b></em>' reference list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference SELECTION__ROOT = eINSTANCE.getSelection_Root();
+    EReference QUERY__THEN = eINSTANCE.getQuery_Then();
 
     /**
      * The meta object literal for the '{@link eagledata.core.dsl.rule.ruleDsl.impl.AddingSelectImpl <em>Adding Select</em>}' class.
@@ -1342,6 +1567,58 @@ public interface RuleDslPackage extends EPackage
     EReference ADDING_SELECT__ELEMENT = eINSTANCE.getAddingSelect_Element();
 
     /**
+     * The meta object literal for the '<em><b>All</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute ADDING_SELECT__ALL = eINSTANCE.getAddingSelect_All();
+
+    /**
+     * The meta object literal for the '{@link eagledata.core.dsl.rule.ruleDsl.impl.SelectImpl <em>Select</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see eagledata.core.dsl.rule.ruleDsl.impl.SelectImpl
+     * @see eagledata.core.dsl.rule.ruleDsl.impl.RuleDslPackageImpl#getSelect()
+     * @generated
+     */
+    EClass SELECT = eINSTANCE.getSelect();
+
+    /**
+     * The meta object literal for the '{@link eagledata.core.dsl.rule.ruleDsl.impl.SetSelectImpl <em>Set Select</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see eagledata.core.dsl.rule.ruleDsl.impl.SetSelectImpl
+     * @see eagledata.core.dsl.rule.ruleDsl.impl.RuleDslPackageImpl#getSetSelect()
+     * @generated
+     */
+    EClass SET_SELECT = eINSTANCE.getSetSelect();
+
+    /**
+     * The meta object literal for the '<em><b>Selector</b></em>' reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference SET_SELECT__SELECTOR = eINSTANCE.getSetSelect_Selector();
+
+    /**
+     * The meta object literal for the '<em><b>From</b></em>' reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference SET_SELECT__FROM = eINSTANCE.getSetSelect_From();
+
+    /**
+     * The meta object literal for the '<em><b>Where</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference SET_SELECT__WHERE = eINSTANCE.getSetSelect_Where();
+
+    /**
      * The meta object literal for the '{@link eagledata.core.dsl.rule.ruleDsl.impl.WhereImpl <em>Where</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1368,20 +1645,20 @@ public interface RuleDslPackage extends EPackage
     EAttribute WHERE__LOGICAL_OPERATOR = eINSTANCE.getWhere_LogicalOperator();
 
     /**
-     * The meta object literal for the '<em><b>Right Variable</b></em>' reference feature.
+     * The meta object literal for the '<em><b>Right</b></em>' reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference WHERE__RIGHT_VARIABLE = eINSTANCE.getWhere_RightVariable();
+    EReference WHERE__RIGHT = eINSTANCE.getWhere_Right();
 
     /**
-     * The meta object literal for the '<em><b>Right</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Right Streaming</b></em>' reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute WHERE__RIGHT = eINSTANCE.getWhere_Right();
+    EReference WHERE__RIGHT_STREAMING = eINSTANCE.getWhere_RightStreaming();
 
     /**
      * The meta object literal for the '{@link eagledata.core.dsl.rule.ruleDsl.impl.WhenImpl <em>When</em>}' class.
@@ -1524,6 +1801,124 @@ public interface RuleDslPackage extends EPackage
      * @generated
      */
     EReference COMPLEX_OPERAND__EXPRESSION = eINSTANCE.getComplexOperand_Expression();
+
+    /**
+     * The meta object literal for the '{@link eagledata.core.dsl.rule.ruleDsl.impl.MessageImpl <em>Message</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see eagledata.core.dsl.rule.ruleDsl.impl.MessageImpl
+     * @see eagledata.core.dsl.rule.ruleDsl.impl.RuleDslPackageImpl#getMessage()
+     * @generated
+     */
+    EClass MESSAGE = eINSTANCE.getMessage();
+
+    /**
+     * The meta object literal for the '<em><b>Message</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference MESSAGE__MESSAGE = eINSTANCE.getMessage_Message();
+
+    /**
+     * The meta object literal for the '<em><b>Recipient</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference MESSAGE__RECIPIENT = eINSTANCE.getMessage_Recipient();
+
+    /**
+     * The meta object literal for the '{@link eagledata.core.dsl.rule.ruleDsl.impl.MessageStringImpl <em>Message String</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see eagledata.core.dsl.rule.ruleDsl.impl.MessageStringImpl
+     * @see eagledata.core.dsl.rule.ruleDsl.impl.RuleDslPackageImpl#getMessageString()
+     * @generated
+     */
+    EClass MESSAGE_STRING = eINSTANCE.getMessageString();
+
+    /**
+     * The meta object literal for the '{@link eagledata.core.dsl.rule.ruleDsl.impl.SelectMessageStringImpl <em>Select Message String</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see eagledata.core.dsl.rule.ruleDsl.impl.SelectMessageStringImpl
+     * @see eagledata.core.dsl.rule.ruleDsl.impl.RuleDslPackageImpl#getSelectMessageString()
+     * @generated
+     */
+    EClass SELECT_MESSAGE_STRING = eINSTANCE.getSelectMessageString();
+
+    /**
+     * The meta object literal for the '<em><b>Response</b></em>' reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference SELECT_MESSAGE_STRING__RESPONSE = eINSTANCE.getSelectMessageString_Response();
+
+    /**
+     * The meta object literal for the '{@link eagledata.core.dsl.rule.ruleDsl.impl.TextMessageStringImpl <em>Text Message String</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see eagledata.core.dsl.rule.ruleDsl.impl.TextMessageStringImpl
+     * @see eagledata.core.dsl.rule.ruleDsl.impl.RuleDslPackageImpl#getTextMessageString()
+     * @generated
+     */
+    EClass TEXT_MESSAGE_STRING = eINSTANCE.getTextMessageString();
+
+    /**
+     * The meta object literal for the '<em><b>Text</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute TEXT_MESSAGE_STRING__TEXT = eINSTANCE.getTextMessageString_Text();
+
+    /**
+     * The meta object literal for the '{@link eagledata.core.dsl.rule.ruleDsl.impl.ReceiverImpl <em>Receiver</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see eagledata.core.dsl.rule.ruleDsl.impl.ReceiverImpl
+     * @see eagledata.core.dsl.rule.ruleDsl.impl.RuleDslPackageImpl#getReceiver()
+     * @generated
+     */
+    EClass RECEIVER = eINSTANCE.getReceiver();
+
+    /**
+     * The meta object literal for the '{@link eagledata.core.dsl.rule.ruleDsl.impl.ReceiverListImpl <em>Receiver List</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see eagledata.core.dsl.rule.ruleDsl.impl.ReceiverListImpl
+     * @see eagledata.core.dsl.rule.ruleDsl.impl.RuleDslPackageImpl#getReceiverList()
+     * @generated
+     */
+    EClass RECEIVER_LIST = eINSTANCE.getReceiverList();
+
+    /**
+     * The meta object literal for the '<em><b>Receiver</b></em>' attribute list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute RECEIVER_LIST__RECEIVER = eINSTANCE.getReceiverList_Receiver();
+
+    /**
+     * The meta object literal for the '{@link eagledata.core.dsl.rule.ruleDsl.impl.DistributionListImpl <em>Distribution List</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see eagledata.core.dsl.rule.ruleDsl.impl.DistributionListImpl
+     * @see eagledata.core.dsl.rule.ruleDsl.impl.RuleDslPackageImpl#getDistributionList()
+     * @generated
+     */
+    EClass DISTRIBUTION_LIST = eINSTANCE.getDistributionList();
+
+    /**
+     * The meta object literal for the '<em><b>File</b></em>' attribute list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute DISTRIBUTION_LIST__FILE = eINSTANCE.getDistributionList_File();
 
   }
 

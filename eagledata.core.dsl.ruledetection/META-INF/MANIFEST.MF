@@ -1,0 +1,31 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: eagledata.core.dsl.ruledetection
+Bundle-Vendor: My Company
+Bundle-Version: 1.0.0.qualifier
+Bundle-SymbolicName: eagledata.core.dsl.ruledetection; singleton:=true
+Bundle-ActivationPolicy: lazy
+Require-Bundle: org.eclipse.xtext,
+ org.eclipse.xtext.xbase,
+ org.eclipse.equinox.common;bundle-version="3.5.0",
+ eagledata.core.dsl.datadesc;bundle-version="1.0.0",
+ eagledata.core.dsl.streamingdata;bundle-version="1.0.0",
+ org.eclipse.emf.ecore,
+ org.eclipse.xtext.xbase.lib,
+ org.antlr.runtime,
+ org.eclipse.xtext.util,
+ org.eclipse.xtend.lib,
+ org.eclipse.emf.common
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Export-Package: eagledata.core.dsl.ruledetection.serializer,
+ eagledata.core.dsl.ruledetection.services,
+ eagledata.core.dsl.ruledetection.ruleDetectionDsl.util,
+ eagledata.core.dsl.ruledetection.generator,
+ eagledata.core.dsl.ruledetection.scoping,
+ eagledata.core.dsl.ruledetection.ruleDetectionDsl.impl,
+ eagledata.core.dsl.ruledetection.ruleDetectionDsl,
+ eagledata.core.dsl.ruledetection.parser.antlr,
+ eagledata.core.dsl.ruledetection.validation,
+ eagledata.core.dsl.ruledetection.parser.antlr.internal,
+ eagledata.core.dsl.ruledetection
+Import-Package: org.apache.log4j

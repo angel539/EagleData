@@ -25,6 +25,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <ul>
  *   <li>{@link eagledata.core.dsl.rule.ruleDsl.impl.AddingSelectImpl#getOperation <em>Operation</em>}</li>
  *   <li>{@link eagledata.core.dsl.rule.ruleDsl.impl.AddingSelectImpl#getElement <em>Element</em>}</li>
+ *   <li>{@link eagledata.core.dsl.rule.ruleDsl.impl.AddingSelectImpl#isAll <em>All</em>}</li>
  * </ul>
  *
  * @generated
@@ -60,6 +61,26 @@ public class AddingSelectImpl extends SelectImpl implements AddingSelect
    * @ordered
    */
   protected Concept element;
+
+  /**
+   * The default value of the '{@link #isAll() <em>All</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #isAll()
+   * @generated
+   * @ordered
+   */
+  protected static final boolean ALL_EDEFAULT = false;
+
+  /**
+   * The cached value of the '{@link #isAll() <em>All</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #isAll()
+   * @generated
+   * @ordered
+   */
+  protected boolean all = ALL_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -153,6 +174,29 @@ public class AddingSelectImpl extends SelectImpl implements AddingSelect
    * <!-- end-user-doc -->
    * @generated
    */
+  public boolean isAll()
+  {
+    return all;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setAll(boolean newAll)
+  {
+    boolean oldAll = all;
+    all = newAll;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, RuleDslPackage.ADDING_SELECT__ALL, oldAll, all));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   @Override
   public Object eGet(int featureID, boolean resolve, boolean coreType)
   {
@@ -163,6 +207,8 @@ public class AddingSelectImpl extends SelectImpl implements AddingSelect
       case RuleDslPackage.ADDING_SELECT__ELEMENT:
         if (resolve) return getElement();
         return basicGetElement();
+      case RuleDslPackage.ADDING_SELECT__ALL:
+        return isAll();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -182,6 +228,9 @@ public class AddingSelectImpl extends SelectImpl implements AddingSelect
         return;
       case RuleDslPackage.ADDING_SELECT__ELEMENT:
         setElement((Concept)newValue);
+        return;
+      case RuleDslPackage.ADDING_SELECT__ALL:
+        setAll((Boolean)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -203,6 +252,9 @@ public class AddingSelectImpl extends SelectImpl implements AddingSelect
       case RuleDslPackage.ADDING_SELECT__ELEMENT:
         setElement((Concept)null);
         return;
+      case RuleDslPackage.ADDING_SELECT__ALL:
+        setAll(ALL_EDEFAULT);
+        return;
     }
     super.eUnset(featureID);
   }
@@ -221,6 +273,8 @@ public class AddingSelectImpl extends SelectImpl implements AddingSelect
         return OPERATION_EDEFAULT == null ? operation != null : !OPERATION_EDEFAULT.equals(operation);
       case RuleDslPackage.ADDING_SELECT__ELEMENT:
         return element != null;
+      case RuleDslPackage.ADDING_SELECT__ALL:
+        return all != ALL_EDEFAULT;
     }
     return super.eIsSet(featureID);
   }
@@ -238,6 +292,8 @@ public class AddingSelectImpl extends SelectImpl implements AddingSelect
     StringBuffer result = new StringBuffer(super.toString());
     result.append(" (operation: ");
     result.append(operation);
+    result.append(", all: ");
+    result.append(all);
     result.append(')');
     return result.toString();
   }

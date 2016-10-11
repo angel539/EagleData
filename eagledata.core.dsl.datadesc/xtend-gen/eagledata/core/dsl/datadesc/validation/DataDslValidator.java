@@ -954,35 +954,45 @@ public class DataDslValidator extends AbstractDataDslValidator {
             if ((option instanceof StringOption)) {
               boolean _and = false;
               boolean _and_1 = false;
+              boolean _and_2 = false;
               StringOptionKey _key = ((StringOption)option).getKey();
               String _literal_1 = _key.getLiteral();
               boolean _equals = _literal_1.equals("null");
               boolean _not = (!_equals);
               if (!_not) {
-                _and_1 = false;
+                _and_2 = false;
               } else {
                 StringOptionKey _key_1 = ((StringOption)option).getKey();
                 String _literal_2 = _key_1.getLiteral();
                 boolean _equals_1 = _literal_2.equals("regex");
                 boolean _not_1 = (!_equals_1);
-                _and_1 = _not_1;
+                _and_2 = _not_1;
               }
-              if (!_and_1) {
-                _and = false;
+              if (!_and_2) {
+                _and_1 = false;
               } else {
                 StringOptionKey _key_2 = ((StringOption)option).getKey();
                 String _literal_3 = _key_2.getLiteral();
                 boolean _equals_2 = _literal_3.equals("flags");
                 boolean _not_2 = (!_equals_2);
-                _and = _not_2;
+                _and_1 = _not_2;
+              }
+              if (!_and_1) {
+                _and = false;
+              } else {
+                StringOptionKey _key_3 = ((StringOption)option).getKey();
+                String _literal_4 = _key_3.getLiteral();
+                boolean _equals_3 = _literal_4.equals("separator");
+                boolean _not_3 = (!_equals_3);
+                _and = _not_3;
               }
               if (_and) {
                 this.error("Options are not valid for an STRING", DataDslPackage.Literals.SPECIFICATION_ELEMENT__NAME, DataDslValidator.DATATYPE_OPTION_NAME);
               } else {
-                StringOptionKey _key_3 = ((StringOption)option).getKey();
-                String _literal_4 = _key_3.getLiteral();
-                boolean _equals_3 = _literal_4.equals("regex");
-                if (_equals_3) {
+                StringOptionKey _key_4 = ((StringOption)option).getKey();
+                String _literal_5 = _key_4.getLiteral();
+                boolean _equals_4 = _literal_5.equals("regex");
+                if (_equals_4) {
                   try {
                     String _value = ((StringOption)option).getValue();
                     Pattern.compile(_value);
@@ -995,19 +1005,19 @@ public class DataDslValidator extends AbstractDataDslValidator {
                     }
                   }
                 }
-                StringOptionKey _key_4 = ((StringOption)option).getKey();
-                String _literal_5 = _key_4.getLiteral();
-                boolean _equals_4 = _literal_5.equals("flags");
-                if (_equals_4) {
+                StringOptionKey _key_5 = ((StringOption)option).getKey();
+                String _literal_6 = _key_5.getLiteral();
+                boolean _equals_5 = _literal_6.equals("flags");
+                if (_equals_5) {
                   Integer dChar = null;
                   EList<Option> _options_9 = leafNode.getOptions();
                   for (final Option o : _options_9) {
                     if ((o instanceof StringOption)) {
-                      StringOptionKey _key_5 = ((StringOption)o).getKey();
-                      String _literal_6 = _key_5.getLiteral();
-                      boolean _equals_5 = _literal_6.equals("regex");
-                      boolean _equals_6 = Objects.equal(Boolean.valueOf(_equals_5), Integer.valueOf(0));
-                      if (_equals_6) {
+                      StringOptionKey _key_6 = ((StringOption)o).getKey();
+                      String _literal_7 = _key_6.getLiteral();
+                      boolean _equals_6 = _literal_7.equals("regex");
+                      boolean _equals_7 = Objects.equal(Boolean.valueOf(_equals_6), Integer.valueOf(0));
+                      if (_equals_7) {
                         dChar++;
                       }
                     }
@@ -1015,7 +1025,6 @@ public class DataDslValidator extends AbstractDataDslValidator {
                   if (((dChar).intValue() < 1)) {
                     this.error("REGEX_FLAGS can not be called without REGEX option", DataDslPackage.Literals.SPECIFICATION_ELEMENT__NAME, DataDslValidator.DATATYPE_OPTION_NAME);
                   }
-                  boolean _and_2 = false;
                   boolean _and_3 = false;
                   boolean _and_4 = false;
                   boolean _and_5 = false;
@@ -1023,74 +1032,75 @@ public class DataDslValidator extends AbstractDataDslValidator {
                   boolean _and_7 = false;
                   boolean _and_8 = false;
                   boolean _and_9 = false;
+                  boolean _and_10 = false;
                   String _value_1 = ((StringOption)option).getValue();
-                  boolean _equals_7 = _value_1.equals("CASE_INSENSITIVE");
-                  boolean _not_3 = (!_equals_7);
-                  if (!_not_3) {
-                    _and_9 = false;
+                  boolean _equals_8 = _value_1.equals("CASE_INSENSITIVE");
+                  boolean _not_4 = (!_equals_8);
+                  if (!_not_4) {
+                    _and_10 = false;
                   } else {
                     String _value_2 = ((StringOption)option).getValue();
-                    boolean _equals_8 = _value_2.equals("MULTILINE");
-                    boolean _not_4 = (!_equals_8);
-                    _and_9 = _not_4;
+                    boolean _equals_9 = _value_2.equals("MULTILINE");
+                    boolean _not_5 = (!_equals_9);
+                    _and_10 = _not_5;
+                  }
+                  if (!_and_10) {
+                    _and_9 = false;
+                  } else {
+                    String _value_3 = ((StringOption)option).getValue();
+                    boolean _equals_10 = _value_3.equals("DOTALL");
+                    boolean _not_6 = (!_equals_10);
+                    _and_9 = _not_6;
                   }
                   if (!_and_9) {
                     _and_8 = false;
                   } else {
-                    String _value_3 = ((StringOption)option).getValue();
-                    boolean _equals_9 = _value_3.equals("DOTALL");
-                    boolean _not_5 = (!_equals_9);
-                    _and_8 = _not_5;
+                    String _value_4 = ((StringOption)option).getValue();
+                    boolean _equals_11 = _value_4.equals("UNICODE_CASE");
+                    boolean _not_7 = (!_equals_11);
+                    _and_8 = _not_7;
                   }
                   if (!_and_8) {
                     _and_7 = false;
                   } else {
-                    String _value_4 = ((StringOption)option).getValue();
-                    boolean _equals_10 = _value_4.equals("UNICODE_CASE");
-                    boolean _not_6 = (!_equals_10);
-                    _and_7 = _not_6;
+                    String _value_5 = ((StringOption)option).getValue();
+                    boolean _equals_12 = _value_5.equals("CANON_EQ");
+                    boolean _not_8 = (!_equals_12);
+                    _and_7 = _not_8;
                   }
                   if (!_and_7) {
                     _and_6 = false;
                   } else {
-                    String _value_5 = ((StringOption)option).getValue();
-                    boolean _equals_11 = _value_5.equals("CANON_EQ");
-                    boolean _not_7 = (!_equals_11);
-                    _and_6 = _not_7;
+                    String _value_6 = ((StringOption)option).getValue();
+                    boolean _equals_13 = _value_6.equals("UNIX_LINES");
+                    boolean _not_9 = (!_equals_13);
+                    _and_6 = _not_9;
                   }
                   if (!_and_6) {
                     _and_5 = false;
                   } else {
-                    String _value_6 = ((StringOption)option).getValue();
-                    boolean _equals_12 = _value_6.equals("UNIX_LINES");
-                    boolean _not_8 = (!_equals_12);
-                    _and_5 = _not_8;
+                    String _value_7 = ((StringOption)option).getValue();
+                    boolean _equals_14 = _value_7.equals("LITERAL");
+                    boolean _not_10 = (!_equals_14);
+                    _and_5 = _not_10;
                   }
                   if (!_and_5) {
                     _and_4 = false;
                   } else {
-                    String _value_7 = ((StringOption)option).getValue();
-                    boolean _equals_13 = _value_7.equals("LITERAL");
-                    boolean _not_9 = (!_equals_13);
-                    _and_4 = _not_9;
+                    String _value_8 = ((StringOption)option).getValue();
+                    boolean _equals_15 = _value_8.equals("UNICODE_CHARACTERE_CLASS");
+                    boolean _not_11 = (!_equals_15);
+                    _and_4 = _not_11;
                   }
                   if (!_and_4) {
                     _and_3 = false;
                   } else {
-                    String _value_8 = ((StringOption)option).getValue();
-                    boolean _equals_14 = _value_8.equals("UNICODE_CHARACTERE_CLASS");
-                    boolean _not_10 = (!_equals_14);
-                    _and_3 = _not_10;
-                  }
-                  if (!_and_3) {
-                    _and_2 = false;
-                  } else {
                     String _value_9 = ((StringOption)option).getValue();
-                    boolean _equals_15 = _value_9.equals("COMMENTS");
-                    boolean _not_11 = (!_equals_15);
-                    _and_2 = _not_11;
+                    boolean _equals_16 = _value_9.equals("COMMENTS");
+                    boolean _not_12 = (!_equals_16);
+                    _and_3 = _not_12;
                   }
-                  if (_and_2) {
+                  if (_and_3) {
                     this.error("STRING. REGEX_FLAGS is not valid. See (https://docs.oracle.com/javase/7/docs/api/java/util/regex/Pattern.html#compile(java.lang.String)) for help. It is hard but if Leo could win the Oscar you can do this.", DataDslPackage.Literals.SPECIFICATION_ELEMENT__NAME, DataDslValidator.DATATYPE_OPTION_NAME);
                   }
                 }

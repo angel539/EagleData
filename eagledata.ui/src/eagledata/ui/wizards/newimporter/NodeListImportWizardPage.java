@@ -1,10 +1,8 @@
 package eagledata.ui.wizards.newimporter;
 
-import java.lang.reflect.ParameterizedType;
 import java.util.List;
 
 import org.apache.commons.lang3.StringUtils;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.jface.wizard.WizardPage;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.custom.CCombo;
@@ -173,6 +171,9 @@ public class NodeListImportWizardPage extends WizardPage {
 				name = "NodeName" + i;
 			}
 			
+			boolean key = items[i].getChecked();
+			boolean unique = items[i].getChecked();
+			
 			switch(items[i].getText(3)){
 				case "Enumeration":
 					Object values = items[i].getData("enum_values");
@@ -183,12 +184,12 @@ public class NodeListImportWizardPage extends WizardPage {
 					}
 					
 					Enumeration enumeration = DataDslModelUtils.createEnumeration(name, parsedValues);
+					CompositeNode compositeNode = DataDslModelUtils.createCompositeNode(name, key, unique, enumeration, null);
+					dataDescription.getNodes().add(compositeNode);
 					dataModel.getElements().add(enumeration);
 				break;
 				
 				default:
-					boolean key = items[i].getChecked();
-					boolean unique = items[i].getChecked();
 					String type = items[i].getText(3);
 					
 					PrimitiveNode primitiveNode = DataDslModelUtils.createPrimitiveNode(name, key, unique, type, null);

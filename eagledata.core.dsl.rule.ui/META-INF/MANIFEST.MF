@@ -17,7 +17,11 @@ Require-Bundle: eagledata.core.dsl.rule,
  org.eclipse.xtext.builder,
  org.eclipse.xtend.lib;resolution:=optional,
  org.eclipse.xtext.xbase.lib,
- eagledata.core.dsl.streamingdata.ui;bundle-version="1.0.0"
+ eagledata.core.dsl.streamingdata.ui;bundle-version="1.0.0",
+ org.eclipse.xtext.common.types.ui,
+ org.eclipse.xtext.xbase.ui,
+ org.eclipse.jdt.debug.ui,
+ eagledata.core.dsl.datadesc.ui
 Import-Package: org.apache.log4j
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Export-Package: eagledata.core.dsl.rule.ui.internal,

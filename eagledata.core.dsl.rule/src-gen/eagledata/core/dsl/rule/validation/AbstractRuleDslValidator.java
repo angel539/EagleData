@@ -17,6 +17,7 @@ public abstract class AbstractRuleDslValidator extends AbstractDeclarativeValida
 	protected List<EPackage> getEPackages() {
 	    List<EPackage> result = new ArrayList<EPackage>();
 	    result.add(eagledata.core.dsl.rule.ruleDsl.RuleDslPackage.eINSTANCE);
+	    result.add(EPackage.Registry.INSTANCE.getEPackage("http://www.core.eagledata/dsl/streamingdata/StreamingDsl"));
 		return result;
 	}
 	

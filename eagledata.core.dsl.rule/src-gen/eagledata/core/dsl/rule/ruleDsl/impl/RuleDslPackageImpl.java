@@ -3,24 +3,33 @@
  */
 package eagledata.core.dsl.rule.ruleDsl.impl;
 
+import eagledata.core.dsl.datadesc.dataDsl.DataDslPackage;
+
 import eagledata.core.dsl.pattern.streamingDsl.StreamingDslPackage;
 
+import eagledata.core.dsl.rule.ruleDsl.Action;
 import eagledata.core.dsl.rule.ruleDsl.AddingSelect;
 import eagledata.core.dsl.rule.ruleDsl.ComplexOperand;
+import eagledata.core.dsl.rule.ruleDsl.DistributionList;
 import eagledata.core.dsl.rule.ruleDsl.Expression;
+import eagledata.core.dsl.rule.ruleDsl.Message;
+import eagledata.core.dsl.rule.ruleDsl.MessageString;
 import eagledata.core.dsl.rule.ruleDsl.Numeral;
 import eagledata.core.dsl.rule.ruleDsl.Operand;
 import eagledata.core.dsl.rule.ruleDsl.PlainOperand;
 import eagledata.core.dsl.rule.ruleDsl.Query;
 import eagledata.core.dsl.rule.ruleDsl.QueryOperand;
+import eagledata.core.dsl.rule.ruleDsl.Receiver;
+import eagledata.core.dsl.rule.ruleDsl.ReceiverList;
 import eagledata.core.dsl.rule.ruleDsl.Rule;
 import eagledata.core.dsl.rule.ruleDsl.RuleDslFactory;
 import eagledata.core.dsl.rule.ruleDsl.RuleDslPackage;
 import eagledata.core.dsl.rule.ruleDsl.RuleElement;
 import eagledata.core.dsl.rule.ruleDsl.RuleModel;
 import eagledata.core.dsl.rule.ruleDsl.Select;
-import eagledata.core.dsl.rule.ruleDsl.Selection;
+import eagledata.core.dsl.rule.ruleDsl.SelectMessageString;
 import eagledata.core.dsl.rule.ruleDsl.SetSelect;
+import eagledata.core.dsl.rule.ruleDsl.TextMessageString;
 import eagledata.core.dsl.rule.ruleDsl.When;
 import eagledata.core.dsl.rule.ruleDsl.Where;
 
@@ -65,7 +74,21 @@ public class RuleDslPackageImpl extends EPackageImpl implements RuleDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  private EClass actionEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   private EClass queryEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass addingSelectEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -80,20 +103,6 @@ public class RuleDslPackageImpl extends EPackageImpl implements RuleDslPackage
    * @generated
    */
   private EClass setSelectEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass selectionEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass addingSelectEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -152,6 +161,55 @@ public class RuleDslPackageImpl extends EPackageImpl implements RuleDslPackage
   private EClass complexOperandEClass = null;
 
   /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass messageEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass messageStringEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass selectMessageStringEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass textMessageStringEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass receiverEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass receiverListEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass distributionListEClass = null;
+
+  /**
    * Creates an instance of the model <b>Package</b>, registered with
    * {@link org.eclipse.emf.ecore.EPackage.Registry EPackage.Registry} by the package
    * package URI value.
@@ -200,6 +258,7 @@ public class RuleDslPackageImpl extends EPackageImpl implements RuleDslPackage
     isInited = true;
 
     // Initialize simple dependencies
+    DataDslPackage.eINSTANCE.eClass();
     StreamingDslPackage.eINSTANCE.eClass();
 
     // Create package meta-data objects
@@ -232,9 +291,19 @@ public class RuleDslPackageImpl extends EPackageImpl implements RuleDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getRuleModel_Elements()
+  public EReference getRuleModel_Imports()
   {
     return (EReference)ruleModelEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getRuleModel_Elements()
+  {
+    return (EReference)ruleModelEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -252,16 +321,6 @@ public class RuleDslPackageImpl extends EPackageImpl implements RuleDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getRuleElement_Name()
-  {
-    return (EAttribute)ruleElementEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EClass getRule()
   {
     return ruleEClass;
@@ -272,9 +331,9 @@ public class RuleDslPackageImpl extends EPackageImpl implements RuleDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getRule_Event()
+  public EAttribute getRule_Name()
   {
-    return (EReference)ruleEClass.getEStructuralFeatures().get(0);
+    return (EAttribute)ruleEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -282,7 +341,7 @@ public class RuleDslPackageImpl extends EPackageImpl implements RuleDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getRule_Condition()
+  public EReference getRule_Event()
   {
     return (EReference)ruleEClass.getEStructuralFeatures().get(1);
   }
@@ -295,6 +354,26 @@ public class RuleDslPackageImpl extends EPackageImpl implements RuleDslPackage
   public EReference getRule_Actions()
   {
     return (EReference)ruleEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getAction()
+  {
+    return actionEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getAction_Name()
+  {
+    return (EAttribute)actionEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -322,99 +401,9 @@ public class RuleDslPackageImpl extends EPackageImpl implements RuleDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getQuery_Where()
+  public EReference getQuery_Then()
   {
     return (EReference)queryEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EClass getSelect()
-  {
-    return selectEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getSelect_All()
-  {
-    return (EAttribute)selectEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EClass getSetSelect()
-  {
-    return setSelectEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getSetSelect_Selection()
-  {
-    return (EReference)setSelectEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getSetSelect_Operator()
-  {
-    return (EAttribute)setSelectEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getSetSelect_Select()
-  {
-    return (EReference)setSelectEClass.getEStructuralFeatures().get(2);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EClass getSelection()
-  {
-    return selectionEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getSelection_Selector()
-  {
-    return (EReference)selectionEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getSelection_Root()
-  {
-    return (EReference)selectionEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -452,6 +441,66 @@ public class RuleDslPackageImpl extends EPackageImpl implements RuleDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EAttribute getAddingSelect_All()
+  {
+    return (EAttribute)addingSelectEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getSelect()
+  {
+    return selectEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getSetSelect()
+  {
+    return setSelectEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getSetSelect_Selector()
+  {
+    return (EReference)setSelectEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getSetSelect_From()
+  {
+    return (EReference)setSelectEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getSetSelect_Where()
+  {
+    return (EReference)setSelectEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getWhere()
   {
     return whereEClass;
@@ -482,7 +531,7 @@ public class RuleDslPackageImpl extends EPackageImpl implements RuleDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getWhere_RightVariable()
+  public EReference getWhere_Right()
   {
     return (EReference)whereEClass.getEStructuralFeatures().get(2);
   }
@@ -492,9 +541,9 @@ public class RuleDslPackageImpl extends EPackageImpl implements RuleDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getWhere_Right()
+  public EReference getWhere_RightStreaming()
   {
-    return (EAttribute)whereEClass.getEStructuralFeatures().get(3);
+    return (EReference)whereEClass.getEStructuralFeatures().get(3);
   }
 
   /**
@@ -662,6 +711,136 @@ public class RuleDslPackageImpl extends EPackageImpl implements RuleDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EClass getMessage()
+  {
+    return messageEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getMessage_Message()
+  {
+    return (EReference)messageEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getMessage_Recipient()
+  {
+    return (EReference)messageEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getMessageString()
+  {
+    return messageStringEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getSelectMessageString()
+  {
+    return selectMessageStringEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getSelectMessageString_Response()
+  {
+    return (EReference)selectMessageStringEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getTextMessageString()
+  {
+    return textMessageStringEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getTextMessageString_Text()
+  {
+    return (EAttribute)textMessageStringEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getReceiver()
+  {
+    return receiverEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getReceiverList()
+  {
+    return receiverListEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getReceiverList_Receiver()
+  {
+    return (EAttribute)receiverListEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getDistributionList()
+  {
+    return distributionListEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getDistributionList_File()
+  {
+    return (EAttribute)distributionListEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public RuleDslFactory getRuleDslFactory()
   {
     return (RuleDslFactory)getEFactoryInstance();
@@ -688,41 +867,40 @@ public class RuleDslPackageImpl extends EPackageImpl implements RuleDslPackage
 
     // Create classes and their features
     ruleModelEClass = createEClass(RULE_MODEL);
+    createEReference(ruleModelEClass, RULE_MODEL__IMPORTS);
     createEReference(ruleModelEClass, RULE_MODEL__ELEMENTS);
 
     ruleElementEClass = createEClass(RULE_ELEMENT);
-    createEAttribute(ruleElementEClass, RULE_ELEMENT__NAME);
 
     ruleEClass = createEClass(RULE);
+    createEAttribute(ruleEClass, RULE__NAME);
     createEReference(ruleEClass, RULE__EVENT);
-    createEReference(ruleEClass, RULE__CONDITION);
     createEReference(ruleEClass, RULE__ACTIONS);
+
+    actionEClass = createEClass(ACTION);
+    createEAttribute(actionEClass, ACTION__NAME);
 
     queryEClass = createEClass(QUERY);
     createEReference(queryEClass, QUERY__SELECT);
-    createEReference(queryEClass, QUERY__WHERE);
-
-    selectEClass = createEClass(SELECT);
-    createEAttribute(selectEClass, SELECT__ALL);
-
-    setSelectEClass = createEClass(SET_SELECT);
-    createEReference(setSelectEClass, SET_SELECT__SELECTION);
-    createEAttribute(setSelectEClass, SET_SELECT__OPERATOR);
-    createEReference(setSelectEClass, SET_SELECT__SELECT);
-
-    selectionEClass = createEClass(SELECTION);
-    createEReference(selectionEClass, SELECTION__SELECTOR);
-    createEReference(selectionEClass, SELECTION__ROOT);
+    createEReference(queryEClass, QUERY__THEN);
 
     addingSelectEClass = createEClass(ADDING_SELECT);
     createEAttribute(addingSelectEClass, ADDING_SELECT__OPERATION);
     createEReference(addingSelectEClass, ADDING_SELECT__ELEMENT);
+    createEAttribute(addingSelectEClass, ADDING_SELECT__ALL);
+
+    selectEClass = createEClass(SELECT);
+
+    setSelectEClass = createEClass(SET_SELECT);
+    createEReference(setSelectEClass, SET_SELECT__SELECTOR);
+    createEReference(setSelectEClass, SET_SELECT__FROM);
+    createEReference(setSelectEClass, SET_SELECT__WHERE);
 
     whereEClass = createEClass(WHERE);
     createEReference(whereEClass, WHERE__LEFT);
     createEAttribute(whereEClass, WHERE__LOGICAL_OPERATOR);
-    createEReference(whereEClass, WHERE__RIGHT_VARIABLE);
-    createEAttribute(whereEClass, WHERE__RIGHT);
+    createEReference(whereEClass, WHERE__RIGHT);
+    createEReference(whereEClass, WHERE__RIGHT_STREAMING);
 
     whenEClass = createEClass(WHEN);
     createEReference(whenEClass, WHEN__LEFT);
@@ -746,6 +924,26 @@ public class RuleDslPackageImpl extends EPackageImpl implements RuleDslPackage
     complexOperandEClass = createEClass(COMPLEX_OPERAND);
     createEAttribute(complexOperandEClass, COMPLEX_OPERAND__OPERATOR);
     createEReference(complexOperandEClass, COMPLEX_OPERAND__EXPRESSION);
+
+    messageEClass = createEClass(MESSAGE);
+    createEReference(messageEClass, MESSAGE__MESSAGE);
+    createEReference(messageEClass, MESSAGE__RECIPIENT);
+
+    messageStringEClass = createEClass(MESSAGE_STRING);
+
+    selectMessageStringEClass = createEClass(SELECT_MESSAGE_STRING);
+    createEReference(selectMessageStringEClass, SELECT_MESSAGE_STRING__RESPONSE);
+
+    textMessageStringEClass = createEClass(TEXT_MESSAGE_STRING);
+    createEAttribute(textMessageStringEClass, TEXT_MESSAGE_STRING__TEXT);
+
+    receiverEClass = createEClass(RECEIVER);
+
+    receiverListEClass = createEClass(RECEIVER_LIST);
+    createEAttribute(receiverListEClass, RECEIVER_LIST__RECEIVER);
+
+    distributionListEClass = createEClass(DISTRIBUTION_LIST);
+    createEAttribute(distributionListEClass, DISTRIBUTION_LIST__FILE);
   }
 
   /**
@@ -774,58 +972,63 @@ public class RuleDslPackageImpl extends EPackageImpl implements RuleDslPackage
 
     // Obtain other dependent packages
     StreamingDslPackage theStreamingDslPackage = (StreamingDslPackage)EPackage.Registry.INSTANCE.getEPackage(StreamingDslPackage.eNS_URI);
+    DataDslPackage theDataDslPackage = (DataDslPackage)EPackage.Registry.INSTANCE.getEPackage(DataDslPackage.eNS_URI);
 
     // Create type parameters
 
     // Set bounds for type parameters
 
     // Add supertypes to classes
-    ruleEClass.getESuperTypes().add(this.getRuleElement());
-    queryEClass.getESuperTypes().add(this.getRuleElement());
-    setSelectEClass.getESuperTypes().add(this.getSelect());
+    actionEClass.getESuperTypes().add(this.getRuleElement());
+    queryEClass.getESuperTypes().add(this.getAction());
     addingSelectEClass.getESuperTypes().add(this.getSelect());
+    setSelectEClass.getESuperTypes().add(this.getSelect());
     plainOperandEClass.getESuperTypes().add(this.getOperand());
     numeralEClass.getESuperTypes().add(this.getPlainOperand());
     queryOperandEClass.getESuperTypes().add(this.getPlainOperand());
     complexOperandEClass.getESuperTypes().add(this.getOperand());
+    messageEClass.getESuperTypes().add(this.getAction());
+    selectMessageStringEClass.getESuperTypes().add(this.getMessageString());
+    textMessageStringEClass.getESuperTypes().add(this.getMessageString());
+    receiverListEClass.getESuperTypes().add(this.getReceiver());
+    distributionListEClass.getESuperTypes().add(this.getReceiver());
 
     // Initialize classes and features; add operations and parameters
     initEClass(ruleModelEClass, RuleModel.class, "RuleModel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getRuleModel_Elements(), this.getRuleElement(), null, "elements", null, 0, -1, RuleModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getRuleModel_Imports(), theStreamingDslPackage.getImport(), null, "imports", null, 0, -1, RuleModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getRuleModel_Elements(), this.getRule(), null, "elements", null, 0, -1, RuleModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(ruleElementEClass, RuleElement.class, "RuleElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getRuleElement_Name(), ecorePackage.getEString(), "name", null, 0, 1, RuleElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(ruleEClass, Rule.class, "Rule", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getRule_Name(), ecorePackage.getEString(), "name", null, 0, 1, Rule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getRule_Event(), theStreamingDslPackage.getPhrase(), null, "event", null, 0, 1, Rule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getRule_Condition(), this.getWhen(), null, "condition", null, 0, 1, Rule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getRule_Actions(), this.getQuery(), null, "actions", null, 0, -1, Rule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getRule_Actions(), this.getAction(), null, "actions", null, 0, -1, Rule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(actionEClass, Action.class, "Action", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getAction_Name(), ecorePackage.getEString(), "name", null, 0, 1, Action.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(queryEClass, Query.class, "Query", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getQuery_Select(), this.getSelect(), null, "select", null, 0, 1, Query.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getQuery_Where(), this.getWhere(), null, "where", null, 0, 1, Query.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(selectEClass, Select.class, "Select", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getSelect_All(), ecorePackage.getEBoolean(), "all", null, 0, 1, Select.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(setSelectEClass, SetSelect.class, "SetSelect", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getSetSelect_Selection(), this.getSelection(), null, "selection", null, 0, -1, SetSelect.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getSetSelect_Operator(), ecorePackage.getEString(), "operator", null, 0, 1, SetSelect.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getSetSelect_Select(), this.getSetSelect(), null, "select", null, 0, 1, SetSelect.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(selectionEClass, Selection.class, "Selection", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getSelection_Selector(), theStreamingDslPackage.getConcept(), null, "selector", null, 0, 1, Selection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getSelection_Root(), theStreamingDslPackage.getConcept(), null, "root", null, 0, -1, Selection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getQuery_Then(), this.getMessage(), null, "then", null, 0, -1, Query.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(addingSelectEClass, AddingSelect.class, "AddingSelect", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getAddingSelect_Operation(), ecorePackage.getEString(), "operation", null, 0, 1, AddingSelect.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getAddingSelect_Element(), theStreamingDslPackage.getConcept(), null, "element", null, 0, 1, AddingSelect.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getAddingSelect_All(), ecorePackage.getEBoolean(), "all", null, 0, 1, AddingSelect.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(selectEClass, Select.class, "Select", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(setSelectEClass, SetSelect.class, "SetSelect", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getSetSelect_Selector(), theDataDslPackage.getPrimitiveNode(), null, "selector", null, 0, -1, SetSelect.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getSetSelect_From(), theDataDslPackage.getDataDescription(), null, "from", null, 0, -1, SetSelect.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getSetSelect_Where(), this.getWhere(), null, "where", null, 0, -1, SetSelect.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(whereEClass, Where.class, "Where", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getWhere_Left(), theStreamingDslPackage.getConcept(), null, "left", null, 0, 1, Where.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getWhere_Left(), theDataDslPackage.getPrimitiveNode(), null, "left", null, 0, 1, Where.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getWhere_LogicalOperator(), ecorePackage.getEString(), "logicalOperator", null, 0, 1, Where.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getWhere_RightVariable(), theStreamingDslPackage.getConcept(), null, "rightVariable", null, 0, 1, Where.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getWhere_Right(), ecorePackage.getEInt(), "right", null, 0, 1, Where.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getWhere_Right(), theDataDslPackage.getPrimitiveNode(), null, "right", null, 0, 1, Where.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getWhere_RightStreaming(), theStreamingDslPackage.getConcept(), null, "rightStreaming", null, 0, 1, Where.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(whenEClass, When.class, "When", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getWhen_Left(), this.getExpression(), null, "left", null, 0, 1, When.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -849,6 +1052,26 @@ public class RuleDslPackageImpl extends EPackageImpl implements RuleDslPackage
     initEClass(complexOperandEClass, ComplexOperand.class, "ComplexOperand", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getComplexOperand_Operator(), ecorePackage.getEString(), "operator", null, 0, 1, ComplexOperand.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getComplexOperand_Expression(), this.getExpression(), null, "expression", null, 0, 1, ComplexOperand.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(messageEClass, Message.class, "Message", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getMessage_Message(), this.getMessageString(), null, "message", null, 0, -1, Message.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getMessage_Recipient(), this.getReceiver(), null, "recipient", null, 0, 1, Message.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(messageStringEClass, MessageString.class, "MessageString", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(selectMessageStringEClass, SelectMessageString.class, "SelectMessageString", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getSelectMessageString_Response(), theDataDslPackage.getPrimitiveNode(), null, "response", null, 0, -1, SelectMessageString.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(textMessageStringEClass, TextMessageString.class, "TextMessageString", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getTextMessageString_Text(), ecorePackage.getEString(), "text", null, 0, 1, TextMessageString.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(receiverEClass, Receiver.class, "Receiver", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(receiverListEClass, ReceiverList.class, "ReceiverList", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getReceiverList_Receiver(), ecorePackage.getEString(), "receiver", null, 0, -1, ReceiverList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(distributionListEClass, DistributionList.class, "DistributionList", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getDistributionList_File(), ecorePackage.getEString(), "file", null, 0, -1, DistributionList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     // Create resource
     createResource(eNS_URI);

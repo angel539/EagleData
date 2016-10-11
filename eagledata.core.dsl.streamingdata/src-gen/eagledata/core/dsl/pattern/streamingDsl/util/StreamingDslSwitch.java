@@ -178,13 +178,13 @@ public class StreamingDslSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case StreamingDslPackage.TERM:
+      case StreamingDslPackage.TERM_KEY:
       {
-        Term term = (Term)theEObject;
-        T result = caseTerm(term);
-        if (result == null) result = caseConcept(term);
-        if (result == null) result = casePatternMatcherElement(term);
-        if (result == null) result = caseStremingDescription(term);
+        TermKey termKey = (TermKey)theEObject;
+        T result = caseTermKey(termKey);
+        if (result == null) result = caseConcept(termKey);
+        if (result == null) result = casePatternMatcherElement(termKey);
+        if (result == null) result = caseStremingDescription(termKey);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -457,17 +457,17 @@ public class StreamingDslSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Term</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Term Key</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Term</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Term Key</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseTerm(Term object)
+  public T caseTermKey(TermKey object)
   {
     return null;
   }

@@ -141,13 +141,13 @@ public interface StreamingDslFactory extends EFactory
   TermList createTermList();
 
   /**
-   * Returns a new object of class '<em>Term</em>'.
+   * Returns a new object of class '<em>Term Key</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Term</em>'.
+   * @return a new object of class '<em>Term Key</em>'.
    * @generated
    */
-  Term createTerm();
+  TermKey createTermKey();
 
   /**
    * Returns a new object of class '<em>Phrase</em>'.

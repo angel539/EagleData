@@ -3,22 +3,36 @@
  */
 package eagledata.core.dsl.pattern.web;
 
+import com.google.inject.Guice;
 import com.google.inject.Injector;
+import com.google.inject.Module;
 import com.google.inject.Provider;
+import com.google.inject.util.Modules;
+import eagledata.core.dsl.pattern.PatternDslRuntimeModule;
+import eagledata.core.dsl.pattern.PatternDslStandaloneSetup;
+import eagledata.core.dsl.pattern.web.PatternDslWebModule;
 import java.util.concurrent.ExecutorService;
+import org.eclipse.xtend.lib.annotations.FinalFieldsConstructor;
 
 /**
  * Initialization support for running Xtext languages in web applications.
  */
-/* @FinalFieldsConstructor */@SuppressWarnings("all")
-public class PatternDslWebSetup /* implements PatternDslStandaloneSetup  */{
+@FinalFieldsConstructor
+@SuppressWarnings("all")
+public class PatternDslWebSetup extends PatternDslStandaloneSetup {
   private final Provider<ExecutorService> executorServiceProvider;
   
   @Override
   public Injector createInjector() {
-    throw new Error("Unresolved compilation problems:"
-      + "\nPatternDslRuntimeModule cannot be resolved."
-      + "\nInvalid number of arguments. The constructor PatternDslWebModule() is not applicable for the arguments (Provider<ExecutorService>)"
-      + "\nType mismatch: cannot convert from PatternDslWebModule to Iterable<? extends Module>");
+    final PatternDslRuntimeModule runtimeModule = new PatternDslRuntimeModule();
+    final PatternDslWebModule webModule = new PatternDslWebModule(this.executorServiceProvider);
+    Modules.OverriddenModuleBuilder _override = Modules.override(runtimeModule);
+    Module _with = _override.with(webModule);
+    return Guice.createInjector(_with);
+  }
+  
+  public PatternDslWebSetup(final Provider<ExecutorService> executorServiceProvider) {
+    super();
+    this.executorServiceProvider = executorServiceProvider;
   }
 }

@@ -4,7 +4,6 @@ generate streamingDsl "http://www.core.eagledata/dsl/streamingdata/StreamingDsl"
 import "http://www.eclipse.org/xtext/common/JavaVMTypes" as jvmTypes
 import "http://www.eclipse.org/emf/2002/Ecore" as ecore
 
-
 StreamingModel returns streaming::StreamingModel:
 	descriptions+=StreamingDescription (descriptions+=StreamingDescription)*
 ;
@@ -48,32 +47,35 @@ UTM returns streaming::UTM:
 
  Region returns streaming::Region:
 	'region' name=ID '=' '{'
-		//('contains' '(' contains+=[streaming::GeographicalElement|ID] ( "," contains+=[streaming::GeographicalElement|ID])* ')' )?
 		southWestBoundary = Point ':' northEastBoundary = Point
-	'}'//('{' semanticField+=STRING ("," semanticField+=STRING)* '}')?
+	'}'
 ;
 
 PatternMatcherElement returns streaming::PatternMatcherElement:
 	Phrase | Concept;
 
 Concept returns streaming::Concept:
-	TermList | Term;
+	TermList | TermKey;
 	
 TermList returns streaming::TermList:
 	'list' (property=WordListProperty)? name=ID '=' ('(' terms+=STRING ( "," terms+=STRING)* ')')?;
 
-Term returns streaming::Term:
-	name=ID
+TermKey returns streaming::TermKey:
+	type=BasicType name=ID
 ;
 
 Phrase returns streaming::Phrase:
-	 'phrase' name=ID (ordered?='ordered')? '=' '(' 
+	 'phrase' name=ID (ordered?='ordered')? '{' 
 	 	(concepts+=Concept) ( "," concepts+=Concept)*
-	 ')'
-	 ('{' options += Option ( "," options+=Option)* '}')?
+	 '}'
+	 ('(' options += Option ( "," options+=Option)* ')')?
 	 //('in' inAGeo=[streaming::GeographicalElement|QualifiedName])?
 	 //('about' aboutAGeo=[streaming::GeographicalElement|QualifiedName])?
 	 //('with' withA+=Attached (',' withA+=Attached)*)?
+;
+
+enum BasicType returns streaming::BasicType:
+	string = 'String' | url = 'Url' | int = 'Int' | longInt = 'LongInt' | real = 'Real' | date = 'Date' | time = 'Time' | year = 'Year' | month = 'Month' | day = 'Day' | boolean = 'Boolean' | lat = 'Lat' | long = 'Long' | percent = 'Percent' | email = 'Email' | currency = 'Currency' | creditcard = 'CreditCard' | IBAN = 'IBAN' | ISBN = 'ISBN' | ISSN = 'ISSN' | inet = 'Inet'
 ;
 
 Option returns streaming::Option:
