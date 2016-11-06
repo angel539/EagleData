@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension-point id="eagledata.core.extensions.streaming" name="StreamingData" schema="schema/eagledata.core.extensions.streaming.exsd"/>
+   <extension-point id="eagledata.core.extensions.assistant" name="DataAssistant" schema="schema/eagledata.core.extensions.assistant.exsd"/>
+
+
+   <extension
+         point="org.eclipse.ui.preferencePages">
+      <page
+            class="eagledata.core.extensions.preferences.page.StreamingConnectionPreferencePage"
+            id="eagledata.core.extensions.preferences.page.streamingconnections"
+            name="Streaming Connections">
+      </page>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated Resources -->
+      <package
+            uri="http://www.core.eagledata/resources/Resources"
+            class="resources.ResourcesPackage"
+            genModel="model/Resources.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated StreamingResources -->
+      <package
+            uri="http://www.core.eagledata/streamingresources/StreamingResources"
+            class="streamingresources.StreamingresourcesPackage"
+            genModel="model/StreamingResources.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated DataResourceSet -->
+      <package
+            uri="http://www.core.eagledata/resourceset/DataResourceSet"
+            class="resourceset.ResourcesetPackage"
+            genModel="model/DataResourceSet.genmodel"/>
+   </extension>
+
+</plugin>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="eagledata.core.extensions.assistant">
+      <dataassistant
+            class="eagledata.core.json.JSONAssistant"
+            extensions="json"
+            id="eagledata.core.json.assistant"
+            name="JSON">
+         <option
+               key="eagledata.core.json.option1">
+         </option>
+      </dataassistant>
+   </extension>
+
+</plugin>

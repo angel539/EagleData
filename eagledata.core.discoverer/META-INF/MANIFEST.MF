@@ -1,0 +1,17 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Discoverer
+Bundle-SymbolicName: eagledata.core.discoverer
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: eagledata.core.discoverer.Activator
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ eagledata.core.dsl.datadesc,
+ org.eclipse.emf.common
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Bundle-ActivationPolicy: lazy
+Bundle-ClassPath: lib/commons-lang3-3.4.jar,
+ .,
+ lib/commons-collections4-4.1.jar,
+ lib/commons-validator-1.5.1.jar
+Export-Package: eagledata.core.discoverer

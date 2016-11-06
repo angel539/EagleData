@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="windows-1252"?>
+<?eclipse version="3.0"?>
+<plugin>
+   <extension
+         point="org.eclipse.emf.ecore.generated_package">
+      <package
+            class="eagledata.core.dsl.rule.ruleDsl.RuleDslPackage"
+            genModel="model/generated/RuleDsl.genmodel"
+            uri="http://www.core.eagledata/dsl/rule/RuleDsl">
+      </package>
+   </extension>
+</plugin>

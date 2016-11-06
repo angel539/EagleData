@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="streamingDsl" nsURI="http://www.core.eagledata/dsl/streamingdata/StreamingDsl"
+    nsPrefix="streamingDsl">
+  <eClassifiers xsi:type="ecore:EClass" name="StreamingModel">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="descriptions" upperBound="-1"
+        eType="#//StremingDescription" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="StremingDescription"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Import" eSuperTypes="#//StremingDescription">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="importedNamespace" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="GeographicalElement" eSuperTypes="#//StremingDescription">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Place" eSuperTypes="#//GeographicalElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="point" eType="#//Point"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Point">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="radius" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="mesurement" eType="#//DistanceMesurement"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="coordinates" eType="#//Coordinate"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Coordinate"/>
+  <eClassifiers xsi:type="ecore:EClass" name="LatitudeLongitude" eSuperTypes="#//Coordinate">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="lat" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="long" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="UTM" eSuperTypes="#//Coordinate">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="e" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="n" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="z" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Hemi" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Region" eSuperTypes="#//GeographicalElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="southWestBoundary" eType="#//Point"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="northEastBoundary" eType="#//Point"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PatternMatcherElement" eSuperTypes="#//StremingDescription">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Concept" eSuperTypes="#//PatternMatcherElement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="TermList" eSuperTypes="#//Concept">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="property" eType="#//WordListProperty"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="terms" unique="false" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Term" eSuperTypes="#//Concept"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Phrase" eSuperTypes="#//PatternMatcherElement">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ordered" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="concepts" upperBound="-1"
+        eType="#//Concept" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="options" upperBound="-1"
+        eType="#//Option" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Option"/>
+  <eClassifiers xsi:type="ecore:EClass" name="GeoOption" eSuperTypes="#//Option">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" eType="#//GeoOptionKey"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="value" eType="#//GeographicalElement"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SourceOption" eSuperTypes="#//Option">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" eType="#//SourceOptionKey"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="#//Source"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="LanguageOption" eSuperTypes="#//Option">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" eType="#//LanguageOptionKey"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="#//Language"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BooleanOption" eSuperTypes="#//Option">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" eType="#//BooleanOptionKey"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="IntOption" eSuperTypes="#//Option">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" eType="#//IntOptionKey"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="GeoOptionKey">
+    <eLiterals name="in" literal="in"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="SourceOptionKey">
+    <eLiterals name="source" literal="source"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="LanguageOptionKey">
+    <eLiterals name="lang" literal="language"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="IntOptionKey">
+    <eLiterals name="lang" literal="minretweet"/>
+    <eLiterals name="source" value="1" literal="minfavorite"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="BooleanOptionKey">
+    <eLiterals name="inreplyto" literal="inreplyto"/>
+    <eLiterals name="retweet" value="1" literal="retweet"/>
+    <eLiterals name="favorite" value="2" literal="favorite"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="UserOptionKey">
+    <eLiterals name="inreplyto" literal="inreplyto"/>
+    <eLiterals name="retweet" value="1" literal="retweet"/>
+    <eLiterals name="favorite" value="2" literal="favorite"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="WordListProperty">
+    <eLiterals name="all" literal="all"/>
+    <eLiterals name="any" value="1" literal="any"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="Attached">
+    <eLiterals name="links" literal="links"/>
+    <eLiterals name="videos" value="1" literal="videos"/>
+    <eLiterals name="imgs" value="2" literal="imgs"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="Source">
+    <eLiterals name="android" literal="android"/>
+    <eLiterals name="ios" value="1" literal="ios"/>
+    <eLiterals name="web" value="2" literal="web"/>
+    <eLiterals name="all" value="3" literal="all"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="DistanceMesurement">
+    <eLiterals name="kms" literal="kms"/>
+    <eLiterals name="miles" value="1" literal="miles"/>
+    <eLiterals name="mts" value="2" literal="mts"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="Language">
+    <eLiterals name="en" literal="english"/>
+    <eLiterals name="es" value="1" literal="spanish"/>
+    <eLiterals name="zh" value="2" literal="chinese"/>
+  </eClassifiers>
+</ecore:EPackage>

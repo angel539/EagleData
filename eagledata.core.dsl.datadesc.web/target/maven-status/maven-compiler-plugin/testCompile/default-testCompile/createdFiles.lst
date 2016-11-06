@@ -1,0 +1,4 @@
+eagledata\core\dsl\datadesc\web\DataDslWebModule.class
+eagledata\core\dsl\datadesc\web\DataDslWebSetup.class
+eagledata\core\dsl\datadesc\web\ServerLauncher.class
+eagledata\core\dsl\datadesc\web\DataDslServlet.class

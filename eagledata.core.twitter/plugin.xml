@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="eagledata.core.extensions.assistant">
+      <streamingconnection
+            class="eagledata.core.twitter.connection.TwitterDataConnection"
+            id="eagledata.core.twitter.connection.TwitterDataConnection"
+            name="Twitter">
+      </streamingconnection>
+   </extension>
+
+</plugin>

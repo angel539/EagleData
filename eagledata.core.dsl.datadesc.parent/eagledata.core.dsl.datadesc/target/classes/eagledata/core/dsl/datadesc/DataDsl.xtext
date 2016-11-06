@@ -1,0 +1,220 @@
+grammar eagledata.core.dsl.datadesc.DataDsl with org.eclipse.xtext.common.Terminals
+
+generate dataDsl "http://www.core.eagledata/dsl/datadesc/DataDsl" as data
+
+DataModel returns data::DataModel:
+	descriptions+=DataDescription ("," descriptions+=DataDescription)*
+;
+
+DataDescription returns data::DataDescription:
+	TypeSpecification | DataSource | DataFragment
+;
+
+DataSource returns data::DataSource:
+	'description' format=FORMAT name=ID (':' fragments+=[data::DataFragment | ID] (',' fragments+=[data::DataFragment | ID])*)? '{'
+		(nodes+=Node ("," nodes+=Node)*)?
+	'}' ('{' options+=Option ("," options+=Option)* '}')?
+;
+
+DataFragment returns data::DataFragment:
+	'fragment' name=ID (':' fragments+=[data::DataFragment | ID] (',' fragments+=[data::DataFragment | ID])*)? '{'
+		(nodes += Node ( "," nodes += Node)*)?
+	'}'
+;
+
+TypeSpecification returns data::TypeSpecification:
+	DataType | Enumeration
+;
+
+DataType returns data::DataType:
+	'datatype' name=ID ':' refine=BasicType ('{'options+=Option ( "," options+=Option)* '}')?
+;
+
+Enumeration returns data::Enumeration:
+	'enumeration' name=ID "{"values+=STRING (','values += STRING)*"}"
+;
+
+Node returns data::Node:
+	LeafNode | CompositeNode
+;
+
+CompositeNode returns data::CompositeNode:
+	(environment?=">")? name=ID (representedAs=STRING)? (':' extends+=[data::CompositeNode | ID] (',' extends+=[data::CompositeNode | ID])*)? '{'
+		(subnodes+=Node ( "," subnodes+=Node)*)
+	'}'
+	//((deletationmark = DELETATION_MARK) | (modificationmark = MODIFICATION_MARK modificated=[data::DataType | ID]))? 
+	('{' options += Option ( "," options+=Option)* '}')?
+;
+
+LeafNode returns data::LeafNode:
+	(uniqueness=UNIQUENESS)? (type=BasicType | typeCall=[data::TypeSpecification | ID]) (keyword?="#")?name=ID (representedAs=STRING)? ('{' options += Option ( "," options+=Option)* '}')?
+;
+
+Reference returns data::Reference:
+	"ref:"referenceType=[data::CompositeNode | ID] // ('['min=INT ',' (max=INT)?']')?
+;
+
+Option returns data::Option:
+	key=OptionKey '=' value=STRING|INT
+;
+
+enum BasicType returns data::BasicType:
+	string = 'string' | int = 'int' | real = 'real' | date = 'date' | time = 'time' | year = 'year' | month = 'month' | day = 'day' | boolean = 'boolean' | lat = 'lat' | long = 'long'
+;
+
+enum OptionKey returns data::OptionKey:
+	minLength = 'minLength' | maxLength = 'maxLength' | casesensitive = 'casesensitive' | min = 'min' | max = 'max' | null = 'null' | nullable = "nullable" | separator = 'separator' | default = 'default' | regex = 'regex' | flags = 'flags' | decimalchar = 'decimalchar' | pattern = 'pattern' | format = 'format'
+;
+
+terminal DELETATION_MARK : 'REMOVE';
+terminal MODIFICATION_MARK : 'RENAME' | 'RETYPE';
+terminal FORMAT : 'CSV' | 'JSON' | 'XML';
+terminal UNIQUENESS : 'KEY' | 'UNIQUE';
+
+/*
+DataModel returns DataModel:
+	{DataModel}
+	('importURI' '{' importURI+=EString ( "," importURI+=EString)* '}' )?
+	('descriptions' '{' descriptions+=DataDescription ( "," descriptions+=DataDescription)* '}' )?;
+
+DataDescription returns DataDescription:
+	DataSource | DataFragment;
+
+Node returns Node:
+	CompositeNode | LeafNode;
+
+NodeDeprecation returns NodeDeprecation:
+	Remove | Retype | Rename;
+
+TypeSpecification returns general::TypeSpecification:
+	DataType | Reference;
+
+
+NamedElement returns general::NamedElement:
+	Table;
+
+EString returns ecore::EString:
+	STRING | ID;
+
+Option returns general::Option:
+	'Option'
+	'{'
+		'key' key=EString
+		('values' '{' values+=EString ( "," values+=EString)* '}' )?
+	'}';
+
+DataSource returns DataSource:
+	'DataSource'
+	name=EString
+	'{'
+		('link' '{' link+=EString ( "," link+=EString)* '}' )?
+		('fragments' '(' fragments+=[DataFragment|EString] ( "," fragments+=[DataFragment|EString])* ')' )?
+		('options' '{' options+=Option ( "," options+=Option)* '}' )?
+		('nodes' '{' nodes+=Node ( "," nodes+=Node)* '}' )?
+		'format' format=FormatSpecification
+	'}';
+
+DataFragment returns DataFragment:
+	{DataFragment}
+	'DataFragment'
+	name=EString
+	'{'
+		('options' '{' options+=Option ( "," options+=Option)* '}' )?
+		('nodes' '{' nodes+=Node ( "," nodes+=Node)* '}' )?
+	'}';
+
+CompositeNode returns CompositeNode:
+	{CompositeNode}
+	(environment?='environment')?
+	'CompositeNode'
+	name=EString
+	'{'
+		('representedAs' representedAs=EString)?
+		('extends' '(' extends+=[CompositeNode|EString] ( "," extends+=[CompositeNode|EString])* ')' )?
+		('options' '{' options+=Option ( "," options+=Option)* '}' )?
+		('subnodes' '{' subnodes+=Node ( "," subnodes+=Node)* '}' )?
+		('deprecations' '{' deprecations+=NodeDeprecation ( "," deprecations+=NodeDeprecation)* '}' )?
+	'}';
+
+LeafNode returns LeafNode:
+	{LeafNode}
+	(key?='key')?
+	(unique?='unique')?
+	(keyword?='keyword')?
+	'LeafNode'
+	name=EString
+	'{'
+		('representedAs' representedAs=EString)?
+		('options' '{' options+=Option ( "," options+=Option)* '}' )?
+		('type' type=TypeSpecification)?
+	'}';
+
+EBoolean returns ecore::EBoolean:
+	'true' | 'false';
+
+Remove returns Remove:
+	'Remove'
+	'{'
+		'deprecated' deprecated=[LeafNode|EString]
+	'}';
+
+Retype returns Retype:
+	'Retype'
+	'{'
+		'deprecated' deprecated=[LeafNode|EString]
+		'newType' newType=TypeSpecification
+	'}';
+
+Rename returns Rename:
+	'Rename'
+	'{'
+		('newRepresentedAs' newRepresentedAs=EString)?
+		'deprecated' deprecated=[LeafNode|EString]
+	'}';
+
+EInt returns ecore::EInt:
+	'-'? INT;
+
+DataType returns general::DataType:
+	{general::DataType}
+	'DataType'
+	'{'
+		('max' max=EInt)?
+		('min' min=EInt)?
+		('specialType' specialType=EString)?
+		('type' type=TypeKind)?
+	'}';
+
+Reference returns general::Reference:
+	'Reference'
+	'{'
+		('max' max=EInt)?
+		('min' min=EInt)?
+		'referenceType' referenceType=[general::NamedElement|EString]
+	'}';
+
+enum TypeKind returns general::TypeKind:
+				string = 'string' | numeral = 'numeral' | date = 'date' | time = 'time' | year = 'year' | month = 'month' | day = 'day' | boolean = 'boolean' | place = 'place' | latitude = 'latitude' | longitude = 'longitude' | UTMe = 'UTMe' | UTMn = 'UTMn' | UTMz = 'UTMz' | UTMHemi = 'UTMHemi' | name = 'name' | familyname = 'familyname' | personalID = 'personalID' | price = 'price' | coin = 'coin';
+
+Table returns general::Table:
+	{general::Table}
+	(exportable?='exportable')?
+	'Table'
+	name=EString
+	'{'
+		('id' id=EString)?
+		('description' description=EString)?
+		('options' '{' options+=Option ( "," options+=Option)* '}' )?
+	'}';
+
+FormatSpecification returns general::FormatSpecification:
+	{general::FormatSpecification}
+	'FormatSpecification'
+	specialFormat=EString
+	'{'
+		('format' format=FormatKind)?
+	'}';
+
+enum FormatKind returns general::FormatKind:
+				CSV = 'CSV' | ODS = 'ODS' | GML = 'GML' | KML = 'KML' | JSON = 'JSON' | RDF = 'RDF' | RSS = 'RSS' | SHP = 'SHP' | WHS = 'WHS' | XML = 'XML' | HTML = 'HTML' | PDF = 'PDF' | XLS = 'XLS' | GoogleSheets = 'GoogleSheets';
+*/

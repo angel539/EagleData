@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="dataDsl" nsURI="http://www.core.eagledata/dsl/datadesc/DataDsl"
+    nsPrefix="dataDsl">
+  <eClassifiers xsi:type="ecore:EClass" name="DataModel">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="elements" upperBound="-1"
+        eType="#//DataModelElement" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Import" eSuperTypes="#//DataModelElement">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="importedNamespace" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DataModelElement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Package" eSuperTypes="#//DataModelElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="tags" upperBound="-1" eType="#//Tag"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="elements" upperBound="-1"
+        eType="#//SpecificationElement" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Tag">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="tag" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SpecificationElement" eSuperTypes="#//DataModelElement">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TypeSpecification" eSuperTypes="#//SpecificationElement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="AbstractDescription" eSuperTypes="#//SpecificationElement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="SubstringConcept">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Substring" eSuperTypes="#//SubstringConcept">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="typeString" eType="#//TypeString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="minlength" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="maxlength" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Character" eSuperTypes="#//SubstringConcept">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="typeCharacter" eType="#//TypeCharacter"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="TypeCharacter">
+    <eLiterals name="char" literal="char"/>
+    <eLiterals name="digit" value="1" literal="digit"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="TypeString">
+    <eLiterals name="anycase" literal="anycase_string"/>
+    <eLiterals name="lowercase" value="1" literal="lowercase_string"/>
+    <eLiterals name="uppercase" value="2" literal="uppercase_string"/>
+    <eLiterals name="numbers" value="3" literal="digits"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Node">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="cardinality" eType="#//Cardinality"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="options" upperBound="-1"
+        eType="#//Option" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CompositeNode" eSuperTypes="#//Node">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="unique" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="#//TypeSpecification"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="FragmentNode" eSuperTypes="#//Node">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="#//Fragment"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PrimitiveNode" eSuperTypes="#//Node">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="unique" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//BasicType"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Cardinality">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="min" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="max" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DataDescription" eSuperTypes="#//AbstractDescription">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="format" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="fragments" unique="false"
+        upperBound="-1" eType="#//Fragment"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="nodes" upperBound="-1"
+        eType="#//Node" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="options" upperBound="-1"
+        eType="#//Option" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Fragment" eSuperTypes="#//AbstractDescription">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="fragments" unique="false"
+        upperBound="-1" eType="#//Fragment"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="nodes" upperBound="-1"
+        eType="#//Node" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Feed" eSuperTypes="#//AbstractDescription">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="description" eType="#//DataDescription"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="paths" unique="false" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DataTypeRefinement" eSuperTypes="#//TypeSpecification">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="refine" eType="#//BasicType"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="subsequences" upperBound="-1"
+        eType="#//SubstringConcept" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="options" upperBound="-1"
+        eType="#//Option" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Enumeration" eSuperTypes="#//TypeSpecification">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="values" unique="false"
+        upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Option"/>
+  <eClassifiers xsi:type="ecore:EClass" name="StringOption" eSuperTypes="#//Option">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" eType="#//StringOptionKey"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="IntOption" eSuperTypes="#//Option">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" eType="#//IntOptionKey"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DoubleOption" eSuperTypes="#//Option">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" eType="#//DoubleOptionKey"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BooleanOption" eSuperTypes="#//Option">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" eType="#//BooleanOptionKey"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ListQualifiedNameOption" eSuperTypes="#//Option">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" eType="#//ListQualifiedNameOptionKey"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="fragments" unique="false"
+        upperBound="-1" eType="#//Node"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="BasicType">
+    <eLiterals name="string" literal="String"/>
+    <eLiterals name="url" value="1" literal="Url"/>
+    <eLiterals name="int" value="2" literal="Int"/>
+    <eLiterals name="longInt" value="3" literal="LongInt"/>
+    <eLiterals name="real" value="4" literal="Real"/>
+    <eLiterals name="date" value="5" literal="Date"/>
+    <eLiterals name="time" value="6" literal="Time"/>
+    <eLiterals name="year" value="7" literal="Year"/>
+    <eLiterals name="month" value="8" literal="Month"/>
+    <eLiterals name="day" value="9" literal="Day"/>
+    <eLiterals name="boolean" value="10" literal="Boolean"/>
+    <eLiterals name="lat" value="11" literal="Lat"/>
+    <eLiterals name="long" value="12" literal="Long"/>
+    <eLiterals name="percent" value="13" literal="Percent"/>
+    <eLiterals name="email" value="14" literal="Email"/>
+    <eLiterals name="currency" value="15" literal="Currency"/>
+    <eLiterals name="creditcard" value="16" literal="CreditCard"/>
+    <eLiterals name="IBAN" value="17" literal="IBAN"/>
+    <eLiterals name="ISBN" value="18" literal="ISBN"/>
+    <eLiterals name="ISSN" value="19" literal="ISSN"/>
+    <eLiterals name="inet" value="20" literal="Inet"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="StringOptionKey">
+    <eLiterals name="null" literal="null"/>
+    <eLiterals name="separator" value="1" literal="separator"/>
+    <eLiterals name="default" value="2" literal="default"/>
+    <eLiterals name="regex" value="3" literal="regex"/>
+    <eLiterals name="flags" value="4" literal="flags"/>
+    <eLiterals name="decimalchar" value="5" literal="decimalchar"/>
+    <eLiterals name="pattern" value="6" literal="pattern"/>
+    <eLiterals name="format" value="7" literal="format"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="IntOptionKey">
+    <eLiterals name="minLength" literal="minLength"/>
+    <eLiterals name="maxLength" value="1" literal="maxLength"/>
+    <eLiterals name="min" value="2" literal="min"/>
+    <eLiterals name="max" value="3" literal="max"/>
+    <eLiterals name="default" value="4" literal="defaultvalue"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="DoubleOptionKey">
+    <eLiterals name="min" literal="minDouble"/>
+    <eLiterals name="max" value="1" literal="maxDouble"/>
+    <eLiterals name="default" value="2" literal="defaultvalueDouble"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="BooleanOptionKey">
+    <eLiterals name="nullable" literal="nullable"/>
+    <eLiterals name="casesensitive" value="1" literal="casesensitive"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="ListQualifiedNameOptionKey">
+    <eLiterals name="order" literal="order"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DataOption">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+</ecore:EPackage>
