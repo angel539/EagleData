@@ -1,18 +1,18 @@
 <!doctype html>
 <html>
 <head>
-    <meta charset="utf-8">
+     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="description" content="EagleData: Engineering applications over social and open data through domain-specific languages">
+	<meta name="description" content="EagleData: Engineering applications over social and open data through domain-specific languages with EagleData">
     <title>EagleData</title>
     <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
-	 <link rel="stylesheet" href="css/code.css">
+	<link rel="stylesheet" href="css/code.css">
 	<!--[if lte IE 8]>
         <link rel="stylesheet" href="css/layouts/email-old-ie.css">
     <![endif]-->
     <!--[if gt IE 8]><!-->
-        <link rel="stylesheet" href="css/layouts/email.css">
+        <link rel="stylesheet" href="css/email.css">
     <!--<![endif]-->
 </head>
 
@@ -98,7 +98,7 @@
             <div class="email-content-header pure-g">
 					<div class="pure-g">
 						<div class="pure-u-1-5">
-			                <img class="email-avatar" alt="Logo" width="150" src="images/logo.png">
+			                <img class="email-avatar-profile" alt="Logo" width="150" src="images/logo.png">
 			            </div>
 						
 						<div class="pure-u-4-5" >
@@ -126,10 +126,7 @@
 	            	<p>Our goal is to facilitate the construction of applications using open data and social networks as communication platform. For this purpose, we propose a family of domain-specific languages directed to automate the different tasks involved, like describing the structure and semantics of the heterogeneous data sets, the patterns to be sought in social network messages, the information to be extracted from static and dynamic data and the messages (over social networks) that the system needs to produce. We have built an extensible working prototype, which allows adding new open data formats and support for different social networks.</p>
                     
                     <p>DataDSL is a textual DSL that allows describing the semantics of data in heterogeneous formats. DataDSL is integrated inside EagleData, an Eclipse plugin for working with social networks streming data.</p>
-	            </div>
-
-                
-            
+	            </div>            
             
 			<div class="email-content-header pure-g">
                 <div id="demos" class="pure-u-1-2">
@@ -147,282 +144,6 @@
 					Your browser does not support the video tag.
 				</video>
             </div>
-			
-			
-			
-			<!--<div id = "code" class="email-content-header pure-g">
-                <div class="pure-u-1-2">
-					<h2 class="email-content-title">Syntax and examples</h2>
-                </div>
-
-                <div class="email-content-controls pure-u-1-2">
-					<a class="secondary-button pure-button" href="https://eagledata.herokuapp.com/" target="_blank">Syntax Playground</a>
-					<a class="secondary-button pure-button" href="">Move to top</a>
-                </div>
-            </div>
-			
-			<div class="email-content-body pure-u-md-1-2">
-				<div>
-					<h3 class="email-content-title">Parsing Cells / Describing nodes with values</h3>
-					<dl>
-						<dt>Uniqueness Quality:
-						<dd>[<code><b>key</b></code> | <code><b>unique</b></code>]
-					</dl>
-					<dl>
-						<dt>Type:
-						<dd>[<code><b>string</b></code> | <code><b>integer</b></code> | <code><b>real</b></code> | <code><b>date</b></code> | <code><b>time</b></code> | <code><b>year</b></code> | <code><b>month</b></code> | <code><b>day</b></code> | <code><b>boolean</b></code> | <code><b>lat</b></code> | <code><b>long</b></code>]
-					</dl>
-					<dl>
-						<dt>Name:
-						<dd>An unique identificator.
-					</dl>
-					<dl>
-						<dt>Name use in the representation:
-						<dd>Must use if representation have a specific name for the list of values, if not descriptions will be taken in order.
-					</dl>
-					<dl>
-						<dt>Options: {key = value, ...}
-						<dd>The list of options by type is presented below
-					</dl>
-					<dl>
-						<dt><code><b>datatype</b></code> extension definition
-						<dd>Personalized datatypes with predefined options can be saved with an identificator. Then it can be used as a basic type to describe a column. 
-					</dl>
-					<dl>
-						<dt><code><b>enumeration</b></code>
-						<dd>If column must fit one value contained in a series of elements
-					</dl>
-				</div>
-				<div>
-				<table class="pure-table">
-					 <thead>
-						<tr>
-							<th>TYPE</th>
-							<th>OPTIONS</th>
-							<th>EXAMPLES</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr class="pure-table-odd">
-							<td><code><b>integer</b></code></td>
-							<td>
-								<dl style="list-style-type:none;">
-									<dt>null
-									<dt>separator
-									<dt>default
-								</dl>
-							</td>
-							<td>
-								<dl style="list-style-type:none">
-									<dt><code>{null = "99"}</code>
-									<dt><code>{separator = " "}</code>
-									<dd><font color="green">This involves a value "1 5 7" will be processed as a list [1, 5, 7]</font>
-									<dt><code>{default = "3"}</code>
-									<dd><font color="green">Empty values will be processed as a "3" by default</font>
-								</dl>
-							</td>
-						</tr>
-						<tr>
-							<td><code><b>string</b></code></td>
-							<td>
-								<dl style="list-style-type:none;">
-									<dt>null
-									<dt>regex
-									<dt>regex_flags
-								</dl>
-							</td>
-							<td>
-								<dl style="list-style-type:none">
-									<dt><code>{null = "NIL-"}</code>
-									<dt><code>{regex = "\\d{3}([,\\s])?\\d{3}([,\\s])?\\d{3}"}</code>
-									<dd><font color="green">Acording to the Regular expression admited by java.util.regex. Example given for a phone number</font>
-									<dd style="font-family:arial;"><font color="red" size="2">[error] STRING. regex is not valid"</font>
-									<dt><code>{regex_flags = "CASE_INSENSITIVE"}</code>
-									<dd><font color="green">Acording to the Regular expression flags admited by java.util.regex.</font>
-									<dd style="font-family:arial;"><font color="red" size="2">[error] regex_flags can not be called without regex option"</font>
-									<dd style="font-family:arial;"><font color="red" size="2">[error] STRING. regex_flags is not valid"</font>
-								</dl>
-							</td>
-						</tr>
-						<tr class="pure-table-odd">
-							<td><code><b>real</b></code></td>
-							<td>
-								<dl style="list-style-type:none;">
-									<dt>null
-									<dt>separator
-									<dt>default
-									<dt>decimalchar
-									<dt>pattern
-								</dl>
-							</td>
-							<td>
-								<dl style="list-style-type:none">
-									<dt><code>{null = "nil"}</code>
-									<dt><code>{separator = " "}</code>
-									<dd><font color="green">This involves a value "1 5.1 7.0" will be processed as a list [1, 5.1, 7.0]</font>
-									<dt><code>{default = "3"}</code>
-									<dd><font color="green">Empty values will be processed as a "3" by default</font>
-									<dt><code>{decimalchar = "."}</code>
-									<dd><font color="green">7.0 will be OK but 7,0 will be not valid</font>
-									<dd style="font-family:arial;"><font color="orange" size="2">[warning] decimalchar. You should consider to specify a character for the decimal separator."</font>
-									<dd style="font-family:arial;"><font color="red" size="2">[error] decimalchar. Option must be a ".", ",", "\'"</font>
-									<dt><code>{pattern = "^\d+(\.\d+)?%"}</code>
-									<dd><font color="green">"6%", "7.5%" and "1.80%" are valid, if the value is not valid will be process as a STRING </font>
-								</dl>
-							</td>
-						</tr>
-						<tr>
-							<td><code><b>date</b></code></td>
-							<td>
-								<dl style="list-style-type:none;">
-									<dt>null
-									<dt>format
-									<dt>separator
-								</dl>
-							</td>
-							<td>
-								<dl style="list-style-type:none">
-									<dt><code>{null = "-1"}</code>
-									<dt><code>{format = "YYYYMMDD"}</code>
-									<dd><font color="green">Description for a 20160530 date</font>
-									<dd style="font-family:arial;"><font color="orange" size="2">[warning] format not DEFINED. You should consider to specify a format string. MMddYYYY could be one"</font>
-									<dd style="font-family:arial;"><font color="red" size="2">[error] format not correctly spell. MUST USE M/m for MONTHS, D/d for DAYS, Y/y for YEARS"</font>
-									<dt><code>{separator = "/"}</code>
-									<dd><font color="green">Together with format, it describes a date with the value similar to 2016/05/30</font>
-									<dd style="font-family:arial;"><font color="orange" size="2">[warning] separator not DEFINED. You should consider to specify a separator character"</font>
-								</dl>
-							</td>
-						</tr>
-						<tr class="pure-table-odd">
-							<td><code><b>time</b></code></td>
-							<td>
-								<dl style="list-style-type:none;">
-									<dt>null
-									<dt>format
-									<dt>separator
-								</dl>
-							</td>
-							<td>
-								<dl style="list-style-type:none">
-									<dt><code>{null = "-1"}</code>
-									<dt><code>{format = "HHmmSS"}</code>
-									<dd><font color="green">Description for a 113118 date</font>
-									<dd style="font-family:arial;"><font color="orange" size="2">[warning] format not DEFINED. You should consider to specify a format string. HHmmSS could be one"</font>
-									<dd style="font-family:arial;"><font color="red" size="2">[error] format not correctly spell. MUST USE H/h for HOURS, M/m for MINUTES, S/s for SECONDS"</font>
-									<dt><code>{separator = ":"}</code>
-									<dd><font color="green">Together with format, it describes a time with the value similar to 11:31:18</font>
-									<dd style="font-family:arial;"><font color="orange" size="2">[warning] separator not DEFINED. You should consider to specify a separator character"</font>
-								</dl>
-							</td>
-						</tr>
-						<tr>
-							<td><code><b>year</b></code></td>
-							<td>
-								<dl style="list-style-type:none;">
-									<dt>null
-									<dt>format
-								</dl>
-							</td>
-							<td>
-								<dl style="list-style-type:none">
-									<dt><code>{null = "-1"}</code>
-									<dt><code>{format = "YY"}</code>
-									<dd><font color="green">85 will be a correct value, but 1985 will not</font>
-									<dd style="font-family:arial;"><font color="red" size="2">[error] format not correctly spell. MUST USE Y/y for YEARS"</font>
-									<dd style="font-family:arial;"><font color="red" size="2">[error] format not correctly spell. YEARS must have less than 4 CHARS"</font>
-								</dl>
-							</td>
-						</tr>
-						<tr class="pure-table-odd">
-							<td><code><b>month</b></code></td>
-							<td>
-								<dl style="list-style-type:none;">
-									<dt>null
-									<dt>format
-								</dl>
-							</td>
-							<td>
-								<dl style="list-style-type:none">
-									<dt><code>{null = "-1"}</code>
-									<dt><code>{format = "mm"}</code>
-									<dd><font color="green">09 will be a correct value, but 9 will not</font>
-									<dd style="font-family:arial;"><font color="red" size="2">[error] format not correctly spell. MUST USE M/m for MONTHS"</font>
-									<dd style="font-family:arial;"><font color="red" size="2">[error] format not correctly spell. MONTHS must have less than 2 CHARS"</font>
-								</dl>
-							</td>
-						</tr>
-						<tr>
-							<td><code><b>day</b></code></td>
-							<td>
-								<dl style="list-style-type:none;">
-									<dt>null
-									<dt>format
-								</dl>
-							</td>
-							<td>
-								<dl style="list-style-type:none">
-									<dt><code>{null = "-1"}</code>
-									<dt><code>{format = "dd"}</code>
-									<dd><font color="green">05 will be a correct value, but 5 will not</font>
-									<dd style="font-family:arial;"><font color="red" size="2">[error] format not correctly spell. MUST USE D/d for DAYS"</font>
-									<dd style="font-family:arial;"><font color="red" size="2">[error] format not correctly spell. DAYS must have less than 2 CHARS"</font>
-								</dl>
-							</td>
-						</tr>
-						<tr class="pure-table-odd">
-							<td><code><b>boolean</b></code></td>
-							<td>
-								<dl style="list-style-type:none;">
-									<dt>null
-									<dt>format
-								</dl>
-							</td>
-							<td>
-								<dl style="list-style-type:none">
-									<dt><code>{null = "nil"}</code>
-									<dt><code>{format = "1 | 0"}</code>
-									<dd><font color="green">It gives an specific value for true | false. </font>
-									<dd style="font-family:arial;"><font color="orange" size="2">[warning] BOOLEAN. Implementation does not contain value for FALSE representation (must use | separator): TRUE | FALSE"</font>
-								</dl>
-							</td>
-						</tr>
-						<tr>
-							<td><code><b>lat</b></code></td>
-							<td>
-								<dl style="list-style-type:none;">
-									<dt>null
-								</dl>
-							</td>
-							<td>
-								<dl style="list-style-type:none">
-									<dt><code>{null = "nil"}</code>
-								</dl>
-							</td>
-						</tr>
-						<tr class="pure-table-odd">
-							<td><code><b>long</b></code></td>
-							<td>
-								<dl style="list-style-type:none;">
-									<dt>null
-								</dl>
-							</td>
-							<td>
-								<dl style="list-style-type:none">
-									<dt><code>{null = "nil"}</code>
-								</dl>
-							</td>
-						</tr>
-					</tbody>
-			</table>
-			</div>
-			<div>
-				<h3 class="email-content-title">References</h3>
-				<p><a href="https://www.w3.org/TR/tabular-data-model/">Model for Tabular Data and Metadata on the Web</a></p>
-				<p><a href="https://docs.oracle.com/javase/7/docs/api/java/util/regex/pattern.html">java.util.regex.pattern</a></p>
-			</div>
-            </div>
-        </div>-->
-		
 		
 		<div id = "example" class="email-content-header pure-g">
                 <div class="pure-u-1-2">
