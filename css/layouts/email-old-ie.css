@@ -9,7 +9,7 @@ body {
 
 a {
     text-decoration: none;
-    color: #70AD47;
+    color: #00B050;
 }
 
 /*
@@ -27,7 +27,7 @@ a {
 
 .primary-button {
     color: #fff;
-    background: #70AD47;
+    background: #00B050;
     margin: 1em 0;
 }
 
@@ -181,7 +181,7 @@ a {
 }
 
 .email-item-unread {
-    border-left: 6px solid #70AD47;
+    border-left: 6px solid #00B050;
 }
 
 /* Email Content Styles */
