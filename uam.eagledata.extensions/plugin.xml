@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension-point id="eagledata.core.extensions.dataconnection" name="eagledata.core.extensions.dataconnection" schema="schema/eagledata.core.extensions.dataconnection.exsd"/>
+   <extension-point id="eagledata.core.extensions.actions" name="eagledata.core.extensions.actions" schema="schema/eagledata.core.extensions.actions.exsd"/>
+</plugin>

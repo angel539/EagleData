@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated ecarules -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="ecarules.presentation.EcarulesModelWizardID"
+            name="%_UI_EcarulesModelWizard_label"
+            class="ecarules.presentation.EcarulesModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/EcarulesModelFile.gif">
+         <description>%_UI_EcarulesModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated ecarules -->
+      <editor
+            id="ecarules.presentation.EcarulesEditorID"
+            name="%_UI_EcarulesEditor_label"
+            icon="icons/full/obj16/EcarulesModelFile.gif"
+            extensions="ecarules"
+            class="ecarules.presentation.EcarulesEditor"
+            contributorClass="ecarules.presentation.EcarulesActionBarContributor">
+      </editor>
+   </extension>
+
+</plugin>

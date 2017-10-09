@@ -1,0 +1,17 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Telegram
+Bundle-SymbolicName: uam.eagledata.dataconnection.telegram;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: uam.eagledata.dataconnection.telegram.Activator
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ uam.eagledata.core;bundle-version="1.0.0",
+ uam.eagledata.extensions;bundle-version="1.0.0"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Bundle-ActivationPolicy: lazy
+Bundle-ClassPath: lib/telegrambots-3.3-jar-with-dependencies.jar,
+ lib/telegrambots-abilities-3.3-jar-with-dependencies.jar,
+ lib/telegrambots-meta-3.3-jar-with-dependencies.jar,
+ lib/telegrambotsextensions-3.3-jar-with-dependencies.jar,
+ .

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            allPopups="false"
+            locationURI="menu:org.eclipse.ui.main.menu">
+         <menu
+               id="eagleDataMenu"
+               label="EagleData">
+            <command
+                  commandId="uam.eagledata.ui.menu.execute"
+                  icon="icons/Console-16.png"
+                  label="Execute"
+                  style="push">
+            </command>
+         </menu>
+      </menuContribution>
+   </extension>
+   <extension
+         point="org.eclipse.ui.commands">
+      <category
+            id="uam.eagledata.ui.menu"
+            name="EagleData">
+      </category>
+      <command
+            categoryId="uam.eagledata.ui.menu"
+            defaultHandler="uam.eagledata.ui.menu.handler.ExecuteHandler"
+            id="uam.eagledata.ui.menu.execute"
+            name="Execute">
+      </command>
+   </extension>
+</plugin>

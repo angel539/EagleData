@@ -1,0 +1,1537 @@
+/**
+ */
+package ecarules;
+
+import org.eclipse.emf.ecore.EAttribute;
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EEnum;
+import org.eclipse.emf.ecore.EOperation;
+import org.eclipse.emf.ecore.EPackage;
+import org.eclipse.emf.ecore.EReference;
+
+/**
+ * <!-- begin-user-doc -->
+ * The <b>Package</b> for the model.
+ * It contains accessors for the meta objects to represent
+ * <ul>
+ *   <li>each class,</li>
+ *   <li>each feature of each class,</li>
+ *   <li>each operation of each class,</li>
+ *   <li>each enum,</li>
+ *   <li>and each data type</li>
+ * </ul>
+ * <!-- end-user-doc -->
+ * @see ecarules.EcarulesFactory
+ * @model kind="package"
+ * @generated
+ */
+public interface EcarulesPackage extends EPackage {
+	/**
+	 * The package name.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	String eNAME = "ecarules";
+
+	/**
+	 * The package namespace URI.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	String eNS_URI = "http://www.core.eagledata/ECARules";
+
+	/**
+	 * The package namespace name.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	String eNS_PREFIX = "ecarules";
+
+	/**
+	 * The singleton instance of the package.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	EcarulesPackage eINSTANCE = ecarules.impl.EcarulesPackageImpl.init();
+
+	/**
+	 * The meta object id for the '{@link ecarules.impl.EventSetManagerImpl <em>Event Set Manager</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ecarules.impl.EventSetManagerImpl
+	 * @see ecarules.impl.EcarulesPackageImpl#getEventSetManager()
+	 * @generated
+	 */
+	int EVENT_SET_MANAGER = 0;
+
+	/**
+	 * The feature id for the '<em><b>Events</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EVENT_SET_MANAGER__EVENTS = 0;
+
+	/**
+	 * The feature id for the '<em><b>Dataconnections</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EVENT_SET_MANAGER__DATACONNECTIONS = 1;
+
+	/**
+	 * The feature id for the '<em><b>Actions</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EVENT_SET_MANAGER__ACTIONS = 2;
+
+	/**
+	 * The number of structural features of the '<em>Event Set Manager</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EVENT_SET_MANAGER_FEATURE_COUNT = 3;
+
+	/**
+	 * The number of operations of the '<em>Event Set Manager</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EVENT_SET_MANAGER_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link ecarules.impl.NamedElementImpl <em>Named Element</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ecarules.impl.NamedElementImpl
+	 * @see ecarules.impl.EcarulesPackageImpl#getNamedElement()
+	 * @generated
+	 */
+	int NAMED_ELEMENT = 6;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NAMED_ELEMENT__NAME = 0;
+
+	/**
+	 * The feature id for the '<em><b>Descriptions</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NAMED_ELEMENT__DESCRIPTIONS = 1;
+
+	/**
+	 * The feature id for the '<em><b>Descriptor</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NAMED_ELEMENT__DESCRIPTOR = 2;
+
+	/**
+	 * The feature id for the '<em><b>Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NAMED_ELEMENT__VALUE = 3;
+
+	/**
+	 * The number of structural features of the '<em>Named Element</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NAMED_ELEMENT_FEATURE_COUNT = 4;
+
+	/**
+	 * The number of operations of the '<em>Named Element</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NAMED_ELEMENT_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link ecarules.impl.EventImpl <em>Event</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ecarules.impl.EventImpl
+	 * @see ecarules.impl.EcarulesPackageImpl#getEvent()
+	 * @generated
+	 */
+	int EVENT = 1;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EVENT__NAME = NAMED_ELEMENT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Descriptions</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EVENT__DESCRIPTIONS = NAMED_ELEMENT__DESCRIPTIONS;
+
+	/**
+	 * The feature id for the '<em><b>Descriptor</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EVENT__DESCRIPTOR = NAMED_ELEMENT__DESCRIPTOR;
+
+	/**
+	 * The feature id for the '<em><b>Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EVENT__VALUE = NAMED_ELEMENT__VALUE;
+
+	/**
+	 * The feature id for the '<em><b>When</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EVENT__WHEN = NAMED_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Triggers</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EVENT__TRIGGERS = NAMED_ELEMENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Event</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EVENT_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of operations of the '<em>Event</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EVENT_OPERATION_COUNT = NAMED_ELEMENT_OPERATION_COUNT + 0;
+
+
+	/**
+	 * The meta object id for the '{@link ecarules.impl.PatternEventImpl <em>Pattern Event</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ecarules.impl.PatternEventImpl
+	 * @see ecarules.impl.EcarulesPackageImpl#getPatternEvent()
+	 * @generated
+	 */
+	int PATTERN_EVENT = 2;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PATTERN_EVENT__NAME = EVENT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Descriptions</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PATTERN_EVENT__DESCRIPTIONS = EVENT__DESCRIPTIONS;
+
+	/**
+	 * The feature id for the '<em><b>Descriptor</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PATTERN_EVENT__DESCRIPTOR = EVENT__DESCRIPTOR;
+
+	/**
+	 * The feature id for the '<em><b>Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PATTERN_EVENT__VALUE = EVENT__VALUE;
+
+	/**
+	 * The feature id for the '<em><b>When</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PATTERN_EVENT__WHEN = EVENT__WHEN;
+
+	/**
+	 * The feature id for the '<em><b>Triggers</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PATTERN_EVENT__TRIGGERS = EVENT__TRIGGERS;
+
+	/**
+	 * The feature id for the '<em><b>Concepts</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PATTERN_EVENT__CONCEPTS = EVENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Pattern Event</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PATTERN_EVENT_FEATURE_COUNT = EVENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Pattern Event</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PATTERN_EVENT_OPERATION_COUNT = EVENT_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link ecarules.impl.ConceptImpl <em>Concept</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ecarules.impl.ConceptImpl
+	 * @see ecarules.impl.EcarulesPackageImpl#getConcept()
+	 * @generated
+	 */
+	int CONCEPT = 3;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONCEPT__NAME = 0;
+
+	/**
+	 * The feature id for the '<em><b>Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONCEPT__TYPE = 1;
+
+	/**
+	 * The number of structural features of the '<em>Concept</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONCEPT_FEATURE_COUNT = 2;
+
+	/**
+	 * The number of operations of the '<em>Concept</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONCEPT_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link ecarules.impl.KeyConceptImpl <em>Key Concept</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ecarules.impl.KeyConceptImpl
+	 * @see ecarules.impl.EcarulesPackageImpl#getKeyConcept()
+	 * @generated
+	 */
+	int KEY_CONCEPT = 4;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int KEY_CONCEPT__NAME = CONCEPT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int KEY_CONCEPT__TYPE = CONCEPT__TYPE;
+
+	/**
+	 * The number of structural features of the '<em>Key Concept</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int KEY_CONCEPT_FEATURE_COUNT = CONCEPT_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Key Concept</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int KEY_CONCEPT_OPERATION_COUNT = CONCEPT_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link ecarules.impl.RegexConceptImpl <em>Regex Concept</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ecarules.impl.RegexConceptImpl
+	 * @see ecarules.impl.EcarulesPackageImpl#getRegexConcept()
+	 * @generated
+	 */
+	int REGEX_CONCEPT = 5;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REGEX_CONCEPT__NAME = CONCEPT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REGEX_CONCEPT__TYPE = CONCEPT__TYPE;
+
+	/**
+	 * The feature id for the '<em><b>Regex</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REGEX_CONCEPT__REGEX = CONCEPT_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Regex Concept</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REGEX_CONCEPT_FEATURE_COUNT = CONCEPT_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Regex Concept</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REGEX_CONCEPT_OPERATION_COUNT = CONCEPT_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link ecarules.impl.DataConnectionImpl <em>Data Connection</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ecarules.impl.DataConnectionImpl
+	 * @see ecarules.impl.EcarulesPackageImpl#getDataConnection()
+	 * @generated
+	 */
+	int DATA_CONNECTION = 7;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_CONNECTION__ID = 0;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_CONNECTION__NAME = 1;
+
+	/**
+	 * The number of structural features of the '<em>Data Connection</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_CONNECTION_FEATURE_COUNT = 2;
+
+	/**
+	 * The operation id for the '<em>Connect</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_CONNECTION___CONNECT = 0;
+
+	/**
+	 * The operation id for the '<em>Matches</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_CONNECTION___MATCHES__EVENT = 1;
+
+	/**
+	 * The number of operations of the '<em>Data Connection</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_CONNECTION_OPERATION_COUNT = 2;
+
+	/**
+	 * The meta object id for the '{@link ecarules.impl.ConditionImpl <em>Condition</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ecarules.impl.ConditionImpl
+	 * @see ecarules.impl.EcarulesPackageImpl#getCondition()
+	 * @generated
+	 */
+	int CONDITION = 8;
+
+	/**
+	 * The number of structural features of the '<em>Condition</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONDITION_FEATURE_COUNT = 0;
+
+	/**
+	 * The number of operations of the '<em>Condition</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONDITION_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link ecarules.impl.BinaryExpressionImpl <em>Binary Expression</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ecarules.impl.BinaryExpressionImpl
+	 * @see ecarules.impl.EcarulesPackageImpl#getBinaryExpression()
+	 * @generated
+	 */
+	int BINARY_EXPRESSION = 9;
+
+	/**
+	 * The feature id for the '<em><b>Left</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BINARY_EXPRESSION__LEFT = CONDITION_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Right</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BINARY_EXPRESSION__RIGHT = CONDITION_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Binary Expression</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BINARY_EXPRESSION_FEATURE_COUNT = CONDITION_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of operations of the '<em>Binary Expression</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BINARY_EXPRESSION_OPERATION_COUNT = CONDITION_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link ecarules.impl.BooleanExpressionImpl <em>Boolean Expression</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ecarules.impl.BooleanExpressionImpl
+	 * @see ecarules.impl.EcarulesPackageImpl#getBooleanExpression()
+	 * @generated
+	 */
+	int BOOLEAN_EXPRESSION = 10;
+
+	/**
+	 * The feature id for the '<em><b>Expression</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOLEAN_EXPRESSION__EXPRESSION = CONDITION_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Boolean Expression</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOLEAN_EXPRESSION_FEATURE_COUNT = CONDITION_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Boolean Expression</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOLEAN_EXPRESSION_OPERATION_COUNT = CONDITION_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link ecarules.impl.LiteralImpl <em>Literal</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ecarules.impl.LiteralImpl
+	 * @see ecarules.impl.EcarulesPackageImpl#getLiteral()
+	 * @generated
+	 */
+	int LITERAL = 11;
+
+	/**
+	 * The feature id for the '<em><b>Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LITERAL__VALUE = 0;
+
+	/**
+	 * The number of structural features of the '<em>Literal</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LITERAL_FEATURE_COUNT = 1;
+
+	/**
+	 * The number of operations of the '<em>Literal</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LITERAL_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link ecarules.impl.ActionImpl <em>Action</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ecarules.impl.ActionImpl
+	 * @see ecarules.impl.EcarulesPackageImpl#getAction()
+	 * @generated
+	 */
+	int ACTION = 12;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTION__NAME = 0;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTION__ID = 1;
+
+	/**
+	 * The number of structural features of the '<em>Action</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTION_FEATURE_COUNT = 2;
+
+	/**
+	 * The operation id for the '<em>Execute</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTION___EXECUTE__ELIST = 0;
+
+	/**
+	 * The number of operations of the '<em>Action</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTION_OPERATION_COUNT = 1;
+
+	/**
+	 * The meta object id for the '{@link ecarules.Type <em>Type</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ecarules.Type
+	 * @see ecarules.impl.EcarulesPackageImpl#getType()
+	 * @generated
+	 */
+	int TYPE = 13;
+
+
+	/**
+	 * Returns the meta object for class '{@link ecarules.EventSetManager <em>Event Set Manager</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Event Set Manager</em>'.
+	 * @see ecarules.EventSetManager
+	 * @generated
+	 */
+	EClass getEventSetManager();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link ecarules.EventSetManager#getEvents <em>Events</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Events</em>'.
+	 * @see ecarules.EventSetManager#getEvents()
+	 * @see #getEventSetManager()
+	 * @generated
+	 */
+	EReference getEventSetManager_Events();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link ecarules.EventSetManager#getDataconnections <em>Dataconnections</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Dataconnections</em>'.
+	 * @see ecarules.EventSetManager#getDataconnections()
+	 * @see #getEventSetManager()
+	 * @generated
+	 */
+	EReference getEventSetManager_Dataconnections();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link ecarules.EventSetManager#getActions <em>Actions</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Actions</em>'.
+	 * @see ecarules.EventSetManager#getActions()
+	 * @see #getEventSetManager()
+	 * @generated
+	 */
+	EReference getEventSetManager_Actions();
+
+	/**
+	 * Returns the meta object for class '{@link ecarules.Event <em>Event</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Event</em>'.
+	 * @see ecarules.Event
+	 * @generated
+	 */
+	EClass getEvent();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link ecarules.Event#getWhen <em>When</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>When</em>'.
+	 * @see ecarules.Event#getWhen()
+	 * @see #getEvent()
+	 * @generated
+	 */
+	EReference getEvent_When();
+
+	/**
+	 * Returns the meta object for the attribute list '{@link ecarules.Event#getTriggers <em>Triggers</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute list '<em>Triggers</em>'.
+	 * @see ecarules.Event#getTriggers()
+	 * @see #getEvent()
+	 * @generated
+	 */
+	EAttribute getEvent_Triggers();
+
+	/**
+	 * Returns the meta object for class '{@link ecarules.PatternEvent <em>Pattern Event</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Pattern Event</em>'.
+	 * @see ecarules.PatternEvent
+	 * @generated
+	 */
+	EClass getPatternEvent();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link ecarules.PatternEvent#getConcepts <em>Concepts</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Concepts</em>'.
+	 * @see ecarules.PatternEvent#getConcepts()
+	 * @see #getPatternEvent()
+	 * @generated
+	 */
+	EReference getPatternEvent_Concepts();
+
+	/**
+	 * Returns the meta object for class '{@link ecarules.Concept <em>Concept</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Concept</em>'.
+	 * @see ecarules.Concept
+	 * @generated
+	 */
+	EClass getConcept();
+
+	/**
+	 * Returns the meta object for the attribute '{@link ecarules.Concept#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see ecarules.Concept#getName()
+	 * @see #getConcept()
+	 * @generated
+	 */
+	EAttribute getConcept_Name();
+
+	/**
+	 * Returns the meta object for the attribute '{@link ecarules.Concept#getType <em>Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Type</em>'.
+	 * @see ecarules.Concept#getType()
+	 * @see #getConcept()
+	 * @generated
+	 */
+	EAttribute getConcept_Type();
+
+	/**
+	 * Returns the meta object for class '{@link ecarules.KeyConcept <em>Key Concept</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Key Concept</em>'.
+	 * @see ecarules.KeyConcept
+	 * @generated
+	 */
+	EClass getKeyConcept();
+
+	/**
+	 * Returns the meta object for class '{@link ecarules.RegexConcept <em>Regex Concept</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Regex Concept</em>'.
+	 * @see ecarules.RegexConcept
+	 * @generated
+	 */
+	EClass getRegexConcept();
+
+	/**
+	 * Returns the meta object for the attribute '{@link ecarules.RegexConcept#getRegex <em>Regex</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Regex</em>'.
+	 * @see ecarules.RegexConcept#getRegex()
+	 * @see #getRegexConcept()
+	 * @generated
+	 */
+	EAttribute getRegexConcept_Regex();
+
+	/**
+	 * Returns the meta object for class '{@link ecarules.NamedElement <em>Named Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Named Element</em>'.
+	 * @see ecarules.NamedElement
+	 * @generated
+	 */
+	EClass getNamedElement();
+
+	/**
+	 * Returns the meta object for the attribute '{@link ecarules.NamedElement#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see ecarules.NamedElement#getName()
+	 * @see #getNamedElement()
+	 * @generated
+	 */
+	EAttribute getNamedElement_Name();
+
+	/**
+	 * Returns the meta object for the reference list '{@link ecarules.NamedElement#getDescriptions <em>Descriptions</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Descriptions</em>'.
+	 * @see ecarules.NamedElement#getDescriptions()
+	 * @see #getNamedElement()
+	 * @generated
+	 */
+	EReference getNamedElement_Descriptions();
+
+	/**
+	 * Returns the meta object for the reference '{@link ecarules.NamedElement#getDescriptor <em>Descriptor</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Descriptor</em>'.
+	 * @see ecarules.NamedElement#getDescriptor()
+	 * @see #getNamedElement()
+	 * @generated
+	 */
+	EReference getNamedElement_Descriptor();
+
+	/**
+	 * Returns the meta object for the attribute '{@link ecarules.NamedElement#getValue <em>Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Value</em>'.
+	 * @see ecarules.NamedElement#getValue()
+	 * @see #getNamedElement()
+	 * @generated
+	 */
+	EAttribute getNamedElement_Value();
+
+	/**
+	 * Returns the meta object for class '{@link ecarules.DataConnection <em>Data Connection</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Data Connection</em>'.
+	 * @see ecarules.DataConnection
+	 * @generated
+	 */
+	EClass getDataConnection();
+
+	/**
+	 * Returns the meta object for the attribute '{@link ecarules.DataConnection#getId <em>Id</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Id</em>'.
+	 * @see ecarules.DataConnection#getId()
+	 * @see #getDataConnection()
+	 * @generated
+	 */
+	EAttribute getDataConnection_Id();
+
+	/**
+	 * Returns the meta object for the attribute '{@link ecarules.DataConnection#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see ecarules.DataConnection#getName()
+	 * @see #getDataConnection()
+	 * @generated
+	 */
+	EAttribute getDataConnection_Name();
+
+	/**
+	 * Returns the meta object for the '{@link ecarules.DataConnection#connect() <em>Connect</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Connect</em>' operation.
+	 * @see ecarules.DataConnection#connect()
+	 * @generated
+	 */
+	EOperation getDataConnection__Connect();
+
+	/**
+	 * Returns the meta object for the '{@link ecarules.DataConnection#matches(ecarules.Event) <em>Matches</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Matches</em>' operation.
+	 * @see ecarules.DataConnection#matches(ecarules.Event)
+	 * @generated
+	 */
+	EOperation getDataConnection__Matches__Event();
+
+	/**
+	 * Returns the meta object for class '{@link ecarules.Condition <em>Condition</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Condition</em>'.
+	 * @see ecarules.Condition
+	 * @generated
+	 */
+	EClass getCondition();
+
+	/**
+	 * Returns the meta object for class '{@link ecarules.BinaryExpression <em>Binary Expression</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Binary Expression</em>'.
+	 * @see ecarules.BinaryExpression
+	 * @generated
+	 */
+	EClass getBinaryExpression();
+
+	/**
+	 * Returns the meta object for the reference '{@link ecarules.BinaryExpression#getLeft <em>Left</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Left</em>'.
+	 * @see ecarules.BinaryExpression#getLeft()
+	 * @see #getBinaryExpression()
+	 * @generated
+	 */
+	EReference getBinaryExpression_Left();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link ecarules.BinaryExpression#getRight <em>Right</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Right</em>'.
+	 * @see ecarules.BinaryExpression#getRight()
+	 * @see #getBinaryExpression()
+	 * @generated
+	 */
+	EReference getBinaryExpression_Right();
+
+	/**
+	 * Returns the meta object for class '{@link ecarules.BooleanExpression <em>Boolean Expression</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Boolean Expression</em>'.
+	 * @see ecarules.BooleanExpression
+	 * @generated
+	 */
+	EClass getBooleanExpression();
+
+	/**
+	 * Returns the meta object for the attribute '{@link ecarules.BooleanExpression#getExpression <em>Expression</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Expression</em>'.
+	 * @see ecarules.BooleanExpression#getExpression()
+	 * @see #getBooleanExpression()
+	 * @generated
+	 */
+	EAttribute getBooleanExpression_Expression();
+
+	/**
+	 * Returns the meta object for class '{@link ecarules.Literal <em>Literal</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Literal</em>'.
+	 * @see ecarules.Literal
+	 * @generated
+	 */
+	EClass getLiteral();
+
+	/**
+	 * Returns the meta object for the attribute '{@link ecarules.Literal#getValue <em>Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Value</em>'.
+	 * @see ecarules.Literal#getValue()
+	 * @see #getLiteral()
+	 * @generated
+	 */
+	EAttribute getLiteral_Value();
+
+	/**
+	 * Returns the meta object for class '{@link ecarules.Action <em>Action</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Action</em>'.
+	 * @see ecarules.Action
+	 * @generated
+	 */
+	EClass getAction();
+
+	/**
+	 * Returns the meta object for the attribute '{@link ecarules.Action#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see ecarules.Action#getName()
+	 * @see #getAction()
+	 * @generated
+	 */
+	EAttribute getAction_Name();
+
+	/**
+	 * Returns the meta object for the attribute '{@link ecarules.Action#getId <em>Id</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Id</em>'.
+	 * @see ecarules.Action#getId()
+	 * @see #getAction()
+	 * @generated
+	 */
+	EAttribute getAction_Id();
+
+	/**
+	 * Returns the meta object for the '{@link ecarules.Action#execute(org.eclipse.emf.common.util.EList) <em>Execute</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Execute</em>' operation.
+	 * @see ecarules.Action#execute(org.eclipse.emf.common.util.EList)
+	 * @generated
+	 */
+	EOperation getAction__Execute__EList();
+
+	/**
+	 * Returns the meta object for enum '{@link ecarules.Type <em>Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Type</em>'.
+	 * @see ecarules.Type
+	 * @generated
+	 */
+	EEnum getType();
+
+	/**
+	 * Returns the factory that creates the instances of the model.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the factory that creates the instances of the model.
+	 * @generated
+	 */
+	EcarulesFactory getEcarulesFactory();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * Defines literals for the meta objects that represent
+	 * <ul>
+	 *   <li>each class,</li>
+	 *   <li>each feature of each class,</li>
+	 *   <li>each operation of each class,</li>
+	 *   <li>each enum,</li>
+	 *   <li>and each data type</li>
+	 * </ul>
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	interface Literals {
+		/**
+		 * The meta object literal for the '{@link ecarules.impl.EventSetManagerImpl <em>Event Set Manager</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see ecarules.impl.EventSetManagerImpl
+		 * @see ecarules.impl.EcarulesPackageImpl#getEventSetManager()
+		 * @generated
+		 */
+		EClass EVENT_SET_MANAGER = eINSTANCE.getEventSetManager();
+
+		/**
+		 * The meta object literal for the '<em><b>Events</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference EVENT_SET_MANAGER__EVENTS = eINSTANCE.getEventSetManager_Events();
+
+		/**
+		 * The meta object literal for the '<em><b>Dataconnections</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference EVENT_SET_MANAGER__DATACONNECTIONS = eINSTANCE.getEventSetManager_Dataconnections();
+
+		/**
+		 * The meta object literal for the '<em><b>Actions</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference EVENT_SET_MANAGER__ACTIONS = eINSTANCE.getEventSetManager_Actions();
+
+		/**
+		 * The meta object literal for the '{@link ecarules.impl.EventImpl <em>Event</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see ecarules.impl.EventImpl
+		 * @see ecarules.impl.EcarulesPackageImpl#getEvent()
+		 * @generated
+		 */
+		EClass EVENT = eINSTANCE.getEvent();
+
+		/**
+		 * The meta object literal for the '<em><b>When</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference EVENT__WHEN = eINSTANCE.getEvent_When();
+
+		/**
+		 * The meta object literal for the '<em><b>Triggers</b></em>' attribute list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute EVENT__TRIGGERS = eINSTANCE.getEvent_Triggers();
+
+		/**
+		 * The meta object literal for the '{@link ecarules.impl.PatternEventImpl <em>Pattern Event</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see ecarules.impl.PatternEventImpl
+		 * @see ecarules.impl.EcarulesPackageImpl#getPatternEvent()
+		 * @generated
+		 */
+		EClass PATTERN_EVENT = eINSTANCE.getPatternEvent();
+
+		/**
+		 * The meta object literal for the '<em><b>Concepts</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PATTERN_EVENT__CONCEPTS = eINSTANCE.getPatternEvent_Concepts();
+
+		/**
+		 * The meta object literal for the '{@link ecarules.impl.ConceptImpl <em>Concept</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see ecarules.impl.ConceptImpl
+		 * @see ecarules.impl.EcarulesPackageImpl#getConcept()
+		 * @generated
+		 */
+		EClass CONCEPT = eINSTANCE.getConcept();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CONCEPT__NAME = eINSTANCE.getConcept_Name();
+
+		/**
+		 * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CONCEPT__TYPE = eINSTANCE.getConcept_Type();
+
+		/**
+		 * The meta object literal for the '{@link ecarules.impl.KeyConceptImpl <em>Key Concept</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see ecarules.impl.KeyConceptImpl
+		 * @see ecarules.impl.EcarulesPackageImpl#getKeyConcept()
+		 * @generated
+		 */
+		EClass KEY_CONCEPT = eINSTANCE.getKeyConcept();
+
+		/**
+		 * The meta object literal for the '{@link ecarules.impl.RegexConceptImpl <em>Regex Concept</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see ecarules.impl.RegexConceptImpl
+		 * @see ecarules.impl.EcarulesPackageImpl#getRegexConcept()
+		 * @generated
+		 */
+		EClass REGEX_CONCEPT = eINSTANCE.getRegexConcept();
+
+		/**
+		 * The meta object literal for the '<em><b>Regex</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute REGEX_CONCEPT__REGEX = eINSTANCE.getRegexConcept_Regex();
+
+		/**
+		 * The meta object literal for the '{@link ecarules.impl.NamedElementImpl <em>Named Element</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see ecarules.impl.NamedElementImpl
+		 * @see ecarules.impl.EcarulesPackageImpl#getNamedElement()
+		 * @generated
+		 */
+		EClass NAMED_ELEMENT = eINSTANCE.getNamedElement();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute NAMED_ELEMENT__NAME = eINSTANCE.getNamedElement_Name();
+
+		/**
+		 * The meta object literal for the '<em><b>Descriptions</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference NAMED_ELEMENT__DESCRIPTIONS = eINSTANCE.getNamedElement_Descriptions();
+
+		/**
+		 * The meta object literal for the '<em><b>Descriptor</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference NAMED_ELEMENT__DESCRIPTOR = eINSTANCE.getNamedElement_Descriptor();
+
+		/**
+		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute NAMED_ELEMENT__VALUE = eINSTANCE.getNamedElement_Value();
+
+		/**
+		 * The meta object literal for the '{@link ecarules.impl.DataConnectionImpl <em>Data Connection</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see ecarules.impl.DataConnectionImpl
+		 * @see ecarules.impl.EcarulesPackageImpl#getDataConnection()
+		 * @generated
+		 */
+		EClass DATA_CONNECTION = eINSTANCE.getDataConnection();
+
+		/**
+		 * The meta object literal for the '<em><b>Id</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute DATA_CONNECTION__ID = eINSTANCE.getDataConnection_Id();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute DATA_CONNECTION__NAME = eINSTANCE.getDataConnection_Name();
+
+		/**
+		 * The meta object literal for the '<em><b>Connect</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation DATA_CONNECTION___CONNECT = eINSTANCE.getDataConnection__Connect();
+
+		/**
+		 * The meta object literal for the '<em><b>Matches</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation DATA_CONNECTION___MATCHES__EVENT = eINSTANCE.getDataConnection__Matches__Event();
+
+		/**
+		 * The meta object literal for the '{@link ecarules.impl.ConditionImpl <em>Condition</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see ecarules.impl.ConditionImpl
+		 * @see ecarules.impl.EcarulesPackageImpl#getCondition()
+		 * @generated
+		 */
+		EClass CONDITION = eINSTANCE.getCondition();
+
+		/**
+		 * The meta object literal for the '{@link ecarules.impl.BinaryExpressionImpl <em>Binary Expression</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see ecarules.impl.BinaryExpressionImpl
+		 * @see ecarules.impl.EcarulesPackageImpl#getBinaryExpression()
+		 * @generated
+		 */
+		EClass BINARY_EXPRESSION = eINSTANCE.getBinaryExpression();
+
+		/**
+		 * The meta object literal for the '<em><b>Left</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference BINARY_EXPRESSION__LEFT = eINSTANCE.getBinaryExpression_Left();
+
+		/**
+		 * The meta object literal for the '<em><b>Right</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference BINARY_EXPRESSION__RIGHT = eINSTANCE.getBinaryExpression_Right();
+
+		/**
+		 * The meta object literal for the '{@link ecarules.impl.BooleanExpressionImpl <em>Boolean Expression</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see ecarules.impl.BooleanExpressionImpl
+		 * @see ecarules.impl.EcarulesPackageImpl#getBooleanExpression()
+		 * @generated
+		 */
+		EClass BOOLEAN_EXPRESSION = eINSTANCE.getBooleanExpression();
+
+		/**
+		 * The meta object literal for the '<em><b>Expression</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute BOOLEAN_EXPRESSION__EXPRESSION = eINSTANCE.getBooleanExpression_Expression();
+
+		/**
+		 * The meta object literal for the '{@link ecarules.impl.LiteralImpl <em>Literal</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see ecarules.impl.LiteralImpl
+		 * @see ecarules.impl.EcarulesPackageImpl#getLiteral()
+		 * @generated
+		 */
+		EClass LITERAL = eINSTANCE.getLiteral();
+
+		/**
+		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute LITERAL__VALUE = eINSTANCE.getLiteral_Value();
+
+		/**
+		 * The meta object literal for the '{@link ecarules.impl.ActionImpl <em>Action</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see ecarules.impl.ActionImpl
+		 * @see ecarules.impl.EcarulesPackageImpl#getAction()
+		 * @generated
+		 */
+		EClass ACTION = eINSTANCE.getAction();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ACTION__NAME = eINSTANCE.getAction_Name();
+
+		/**
+		 * The meta object literal for the '<em><b>Id</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ACTION__ID = eINSTANCE.getAction_Id();
+
+		/**
+		 * The meta object literal for the '<em><b>Execute</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation ACTION___EXECUTE__ELIST = eINSTANCE.getAction__Execute__EList();
+
+		/**
+		 * The meta object literal for the '{@link ecarules.Type <em>Type</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see ecarules.Type
+		 * @see ecarules.impl.EcarulesPackageImpl#getType()
+		 * @generated
+		 */
+		EEnum TYPE = eINSTANCE.getType();
+
+	}
+
+} //EcarulesPackage

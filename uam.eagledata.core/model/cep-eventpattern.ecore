@@ -1,0 +1,682 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="eventpattern" nsURI="www.uca.es/modeling/cep/eventpattern" nsPrefix="eventpattern">
+  <eClassifiers xsi:type="ecore:EClass" name="CEPEventPattern">
+    <eAnnotations source="gmf.diagram">
+      <details key="model.extension" value="pattern"/>
+      <details key="diagram.extension" value="pattern_diagram"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="patternName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="patternDescription" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="domainName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="patternCreationDate" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="patternDeployed" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="links" upperBound="-1"
+        eType="#//Link" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="eventPatternElements" upperBound="-1"
+        eType="#//EventPatternElement" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="complexEvent" eType="#//ComplexEvent"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="actions" upperBound="-1"
+        eType="#//Action" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Link">
+    <eAnnotations source="gmf.link">
+      <details key="label" value="order"/>
+      <details key="source" value="operand"/>
+      <details key="target" value="operator"/>
+      <details key="source.constraint" value="self &lt;> oppositeEnd &#xD;&#xA;&#x9;and ( &#xD;&#xA;&#x9;   (self.oclIsKindOf(ComplexEvent) and oppositeEnd.oclIsKindOf(Action))&#xD;&#xA;&#x9;   or ((self.oclIsKindOf(Value) or self.oclIsKindOf(EventProperty) or &#xD;&#xA;&#x9;        self.oclIsKindOf(AggregationOperator) or self.oclIsKindOf(ArithmeticOperator)) &#xD;&#xA;&#x9;        and oppositeEnd.oclIsKindOf(ComplexEventProperty)) &#xD;&#xA;&#x9;   or (self.oclIsKindOf(PatternOperand) and oppositeEnd.oclIsKindOf(PatternOperator))&#xD;&#xA;&#x9;   or ((self.oclIsTypeOf(EventProperty) or self.oclIsTypeOf(Value)) &#xD;&#xA;&#x9;      and (oppositeEnd.oclIsKindOf(LogicalOperator) or oppositeEnd.oclIsKindOf(ComparisonOperator) &#xD;&#xA;&#x9;         or oppositeEnd.oclIsKindOf(ArithmeticOperator))) &#xD;&#xA;&#x9;   or (self.oclIsKindOf(ComparisonOperator) and oppositeEnd.oclIsKindOf(LogicalOperator))        &#xD;&#xA;&#x9;   or (self.oclIsKindOf(ArithmeticOperator) and (oppositeEnd.oclIsKindOf(ArithmeticOperator) &#xD;&#xA;&#x9;      or oppositeEnd.oclIsKindOf(ComparisonOperator)))  &#xD;&#xA;&#x9;   or ((self.oclIsTypeOf(EventProperty) or self.oclIsKindOf(ArithmeticOperator)) &#xD;&#xA;&#x9;      and oppositeEnd.oclIsKindOf(AggregationOperator)) &#xD;&#xA;&#x9;   or (self.oclIsKindOf(AggregationOperator) and oppositeEnd.oclIsKindOf(ArithmeticOperator))   &#xD;&#xA;&#x9;   or (self.oclIsKindOf(ComparisonOperator) and oppositeEnd.oclIsTypeOf(While))&#xD;&#xA;&#x9;   or (self.oclIsTypeOf(EventProperty) and oppositeEnd.oclIsTypeOf(EveryDistinct))&#xD;&#xA;&#x9;   or (self.oclIsKindOf(Event) and oppositeEnd.oclIsKindOf(ComplexEvent)) &#xD;&#xA;&#x9;)"/>
+      <details key="target.constraint" value="self &lt;> oppositeEnd"/>
+      <details key="source.decoration" value="none"/>
+      <details key="target.decoration" value="arrow"/>
+      <details key="color" value="110,110,110"/>
+      <details key="tool.name" value="Link"/>
+      <details key="tool.description" value="Add a link"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="order" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="operand" eType="#//Operand"
+        eOpposite="#//Operand/outboundLink"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="operator" eType="#//Operator"
+        eOpposite="#//Operator/inboundLink"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Operator" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="inboundLink" upperBound="-1"
+        eType="#//Link" eOpposite="#//Link/operator"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="UnaryOperator" abstract="true" eSuperTypes="#//Operator"/>
+  <eClassifiers xsi:type="ecore:EClass" name="BinaryOperator" abstract="true" eSuperTypes="#//Operator"/>
+  <eClassifiers xsi:type="ecore:EClass" name="NaryOperator" abstract="true" eSuperTypes="#//Operator"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Operand" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="outboundLink" upperBound="-1"
+        eType="#//Link" eOpposite="#//Link/operand"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="EventPatternElement" abstract="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ComplexEvent" eSuperTypes="#//Operand #//Operator">
+    <eAnnotations source="gmf.node">
+      <details key="figure" value="rectangle"/>
+      <details key="label" value="typeName"/>
+      <details key="border.color" value="110,110,110"/>
+      <details key="label.view.pattern" value="New Complex Event: {0}"/>
+      <details key="label.readOnly" value="true"/>
+      <details key="tool.name" value="New Complex Event"/>
+      <details key="tool.description" value="Add a new complex event"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="typeName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="imagePath" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="complexEventProperties"
+        upperBound="-1" eType="#//ComplexEventProperty" containment="true">
+      <eAnnotations source="gmf.compartment">
+        <details key="layout" value="list"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ComplexEventProperty" eSuperTypes="#//UnaryOperator">
+    <eAnnotations source="gmf.node">
+      <details key="figure" value="rectangle"/>
+      <details key="label" value="name"/>
+      <details key="border.color" value="110,110,110"/>
+      <details key="tool.name" value="New Complex Event Property"/>
+      <details key="tool.description" value="Add a new complex event property"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        defaultValueLiteral=" "/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="imagePath" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Action" abstract="true" eSuperTypes="#//UnaryOperator"/>
+  <eClassifiers xsi:type="ecore:EClass" name="DataWindow" abstract="true" eSuperTypes="#//EventPatternElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="eventPatternConditions"
+        upperBound="-1" eType="#//EventPatternCondition" containment="true">
+      <eAnnotations source="gmf.compartment"/>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SlidingEventInterval" eSuperTypes="#//DataWindow">
+    <eAnnotations source="gmf.node">
+      <details key="figure" value="rectangle"/>
+      <details key="border.style" value="dash"/>
+      <details key="label" value="size"/>
+      <details key="border.color" value="110,110,110"/>
+      <details key="color" value="230,230,250"/>
+      <details key="label.view.pattern" value="Sliding Event Interval: {0}"/>
+      <details key="label.edit.pattern" value="{0, number}"/>
+      <details key="tool.name" value="Sliding Event Interval"/>
+      <details key="tool.description" value="Add a sliding event interval window"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="size" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BatchingEventInterval" eSuperTypes="#//DataWindow">
+    <eAnnotations source="gmf.node">
+      <details key="figure" value="rectangle"/>
+      <details key="border.style" value="dash"/>
+      <details key="label" value="size"/>
+      <details key="border.color" value="110,110,110"/>
+      <details key="color" value="230,230,250"/>
+      <details key="label.view.pattern" value="Batching Event Interval: {0}"/>
+      <details key="label.edit.pattern" value="{0, number}"/>
+      <details key="tool.name" value="Batching Event Interval"/>
+      <details key="tool.description" value="Add a batching event interval window"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="size" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SlidingTimeInterval" eSuperTypes="#//DataWindow">
+    <eAnnotations source="gmf.node">
+      <details key="figure" value="rectangle"/>
+      <details key="border.style" value="dash"/>
+      <details key="border.color" value="110,110,110"/>
+      <details key="color" value="230,230,250"/>
+      <details key="label" value="years, months, weeks, days, hours, minutes, seconds, milliseconds"/>
+      <details key="label.parser" value="MessageFormatParser"/>
+      <details key="label.readOnly" value="true"/>
+      <details key="label.view.pattern" value="Sliding Time Interval: {0,choice,0#|0&lt;{0,number}y }{1,choice,0#|0&lt;{1,number}m }{2,choice,0#|0&lt;{2,number}w }{3,choice,0#|0&lt;{3,number}d }{4,choice,0#|0&lt;{4,number}h }{5,choice,0#|0&lt;{5,number}min }{6,choice,0#|0&lt;{6,number}s }{7,choice,0#|0&lt;{7,number}ms}"/>
+      <details key="tool.name" value="Sliding Time Interval"/>
+      <details key="tool.description" value="Add a sliding time interval window"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="years" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="months" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="weeks" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="days" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="hours" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="minutes" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="seconds" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="milliseconds" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BatchingTimeInterval" eSuperTypes="#//DataWindow">
+    <eAnnotations source="gmf.node">
+      <details key="figure" value="rectangle"/>
+      <details key="border.style" value="dash"/>
+      <details key="border.color" value="110,110,110"/>
+      <details key="color" value="230,230,250"/>
+      <details key="label" value="years, months, weeks, days, hours, minutes, seconds, milliseconds"/>
+      <details key="label.parser" value="MessageFormatParser"/>
+      <details key="label.readOnly" value="true"/>
+      <details key="label.view.pattern" value="Batching Time Interval: {0,choice,0#|0&lt;{0,number}y }{1,choice,0#|0&lt;{1,number}m }{2,choice,0#|0&lt;{2,number}w }{3,choice,0#|0&lt;{3,number}d }{4,choice,0#|0&lt;{4,number}h }{5,choice,0#|0&lt;{5,number}min }{6,choice,0#|0&lt;{6,number}s }{7,choice,0#|0&lt;{7,number}ms}"/>
+      <details key="tool.name" value="Batching Time Interval"/>
+      <details key="tool.description" value="Add a batching time interval window"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="years" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="months" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="weeks" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="days" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="hours" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="minutes" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="seconds" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="milliseconds" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="EventPatternCondition" abstract="true"
+      eSuperTypes="#//EventPatternElement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="AggregationOperator" abstract="true"
+      eSuperTypes="#//UnaryOperator #//Operand #//EventPatternCondition"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ConditionOperator" abstract="true" eSuperTypes="#//Operator #//ConditionOperand #//EventPatternCondition #//WithinTimerElement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ConditionOperand" abstract="true" eSuperTypes="#//Operand #//EventPatternCondition #//WithinTimerElement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="PatternOperator" abstract="true" eSuperTypes="#//Operator #//PatternOperand #//EventPatternCondition #//WithinTimerElement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="PatternOperand" abstract="true" eSuperTypes="#//Operand #//EventPatternCondition"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ArithmeticOperator" abstract="true"
+      eSuperTypes="#//BinaryOperator #//ConditionOperator"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ComparisonOperator" abstract="true"
+      eSuperTypes="#//BinaryOperator #//ConditionOperator"/>
+  <eClassifiers xsi:type="ecore:EClass" name="LogicalOperator" abstract="true" eSuperTypes="#//ConditionOperator #//PatternOperator"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Every" eSuperTypes="#//UnaryOperator #//PatternOperator">
+    <eAnnotations source="gmf.node">
+      <details key="figure" value="svg"/>
+      <details key="svg.uri" value="platform:/plugin/es.uca.modeling.cep.eventpattern.figures/svg/Every.svg"/>
+      <details key="size" value="30,30"/>
+      <details key="label.placement" value="none"/>
+      <details key="resizable" value="false"/>
+      <details key="margin" value="0"/>
+      <details key="tool.name" value="Every"/>
+      <details key="tool.description" value="Add an every operator"/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="EveryDistinct" eSuperTypes="#//NaryOperator #//PatternOperator">
+    <eAnnotations source="gmf.node">
+      <details key="figure" value="svg"/>
+      <details key="svg.uri" value="platform:/plugin/es.uca.modeling.cep.eventpattern.figures/svg/EveryDistinct.svg"/>
+      <details key="size" value="30,30"/>
+      <details key="label.placement" value="none"/>
+      <details key="resizable" value="false"/>
+      <details key="margin" value="0"/>
+      <details key="tool.name" value="Every Distinct"/>
+      <details key="tool.description" value="Add an every-distinct operator"/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Repeat" eSuperTypes="#//UnaryOperator #//PatternOperator">
+    <eAnnotations source="gmf.node">
+      <details key="figure" value="ellipse"/>
+      <details key="label" value="count"/>
+      <details key="label.view.pattern" value="{0}"/>
+      <details key="label.edit.pattern" value="{0, number}"/>
+      <details key="border.color" value="38,110,159"/>
+      <details key="border.width" value="3"/>
+      <details key="label.icon" value="false"/>
+      <details key="color" value="255,255,255"/>
+      <details key="size" value="30,30"/>
+      <details key="resizable" value="false"/>
+      <details key="tool.name" value="Repeat"/>
+      <details key="tool.description" value="Add a repeat operator"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="count" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Until" eSuperTypes="#//BinaryOperator #//PatternOperator">
+    <eAnnotations source="gmf.node">
+      <details key="figure" value="svg"/>
+      <details key="svg.uri" value="platform:/plugin/es.uca.modeling.cep.eventpattern.figures/svg/Until.svg"/>
+      <details key="size" value="30,30"/>
+      <details key="label.placement" value="none"/>
+      <details key="resizable" value="false"/>
+      <details key="margin" value="0"/>
+      <details key="tool.name" value="Until"/>
+      <details key="tool.description" value="Add an until operator"/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Range" eSuperTypes="#//UnaryOperator #//PatternOperator">
+    <eAnnotations source="gmf.node">
+      <details key="figure" value="ellipse"/>
+      <details key="label" value="lowEndpoint, highEndpoint"/>
+      <details key="color" value="255,255,255"/>
+      <details key="border.color" value="38,110,159"/>
+      <details key="border.width" value="3"/>
+      <details key="label.icon" value="false"/>
+      <details key="size" value="30,30"/>
+      <details key="label.view.pattern" value="[{0, number}:{1, number}]"/>
+      <details key="label.edit.pattern" value="{0}:{1}"/>
+      <details key="resizable" value="false"/>
+      <details key="tool.name" value="Range"/>
+      <details key="tool.description" value="Add a range operator"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="lowEndpoint" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="highEndpoint" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="FollowedBy" eSuperTypes="#//NaryOperator #//PatternOperator">
+    <eAnnotations source="gmf.node">
+      <details key="figure" value="svg"/>
+      <details key="svg.uri" value="platform:/plugin/es.uca.modeling.cep.eventpattern.figures/svg/FollowedBy.svg"/>
+      <details key="size" value="30,30"/>
+      <details key="label.placement" value="none"/>
+      <details key="resizable" value="false"/>
+      <details key="margin" value="0"/>
+      <details key="tool.name" value="Followed By"/>
+      <details key="tool.description" value="Add a followed-by operator"/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="While" eSuperTypes="#//BinaryOperator #//PatternOperator">
+    <eAnnotations source="gmf.node">
+      <details key="figure" value="svg"/>
+      <details key="svg.uri" value="platform:/plugin/es.uca.modeling.cep.eventpattern.figures/svg/While.svg"/>
+      <details key="size" value="30,30"/>
+      <details key="label.placement" value="none"/>
+      <details key="resizable" value="false"/>
+      <details key="margin" value="0"/>
+      <details key="tool.name" value="While"/>
+      <details key="tool.description" value="Add a while operator"/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="And" eSuperTypes="#//NaryOperator #//LogicalOperator">
+    <eAnnotations source="gmf.node">
+      <details key="figure" value="svg"/>
+      <details key="svg.uri" value="platform:/plugin/es.uca.modeling.cep.eventpattern.figures/svg/And.svg"/>
+      <details key="size" value="30,30"/>
+      <details key="label.placement" value="none"/>
+      <details key="resizable" value="false"/>
+      <details key="margin" value="0"/>
+      <details key="tool.name" value="And"/>
+      <details key="tool.description" value="Add an and operator"/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Or" eSuperTypes="#//NaryOperator #//LogicalOperator">
+    <eAnnotations source="gmf.node">
+      <details key="figure" value="svg"/>
+      <details key="svg.uri" value="platform:/plugin/es.uca.modeling.cep.eventpattern.figures/svg/Or.svg"/>
+      <details key="size" value="30,30"/>
+      <details key="label.placement" value="none"/>
+      <details key="resizable" value="false"/>
+      <details key="margin" value="0"/>
+      <details key="tool.name" value="Or"/>
+      <details key="tool.description" value="Add an or operator"/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Not" eSuperTypes="#//UnaryOperator #//LogicalOperator">
+    <eAnnotations source="gmf.node">
+      <details key="figure" value="svg"/>
+      <details key="svg.uri" value="platform:/plugin/es.uca.modeling.cep.eventpattern.figures/svg/Not.svg"/>
+      <details key="size" value="30,30"/>
+      <details key="label.placement" value="none"/>
+      <details key="resizable" value="false"/>
+      <details key="margin" value="0"/>
+      <details key="tool.name" value="Not"/>
+      <details key="tool.description" value="Add a not operator"/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Addition" eSuperTypes="#//ArithmeticOperator">
+    <eAnnotations source="gmf.node">
+      <details key="figure" value="svg"/>
+      <details key="svg.uri" value="platform:/plugin/es.uca.modeling.cep.eventpattern.figures/svg/Addition.svg"/>
+      <details key="size" value="30,30"/>
+      <details key="label.placement" value="none"/>
+      <details key="resizable" value="false"/>
+      <details key="margin" value="0"/>
+      <details key="tool.name" value="Addition"/>
+      <details key="tool.description" value="Add an addition operator"/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Subtraction" eSuperTypes="#//ArithmeticOperator">
+    <eAnnotations source="gmf.node">
+      <details key="figure" value="svg"/>
+      <details key="svg.uri" value="platform:/plugin/es.uca.modeling.cep.eventpattern.figures/svg/Subtraction.svg"/>
+      <details key="size" value="30,30"/>
+      <details key="label.placement" value="none"/>
+      <details key="resizable" value="false"/>
+      <details key="margin" value="0"/>
+      <details key="tool.name" value="Subtraction"/>
+      <details key="tool.description" value="Add a subtraction operator"/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Multiplication" eSuperTypes="#//ArithmeticOperator">
+    <eAnnotations source="gmf.node">
+      <details key="figure" value="svg"/>
+      <details key="svg.uri" value="platform:/plugin/es.uca.modeling.cep.eventpattern.figures/svg/Multiplication.svg"/>
+      <details key="size" value="30,30"/>
+      <details key="label.placement" value="none"/>
+      <details key="resizable" value="false"/>
+      <details key="margin" value="0"/>
+      <details key="tool.name" value="Multiplication"/>
+      <details key="tool.description" value="Add a multiplication operator"/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Division" eSuperTypes="#//ArithmeticOperator">
+    <eAnnotations source="gmf.node">
+      <details key="figure" value="svg"/>
+      <details key="svg.uri" value="platform:/plugin/es.uca.modeling.cep.eventpattern.figures/svg/Division.svg"/>
+      <details key="size" value="30,30"/>
+      <details key="label.placement" value="none"/>
+      <details key="resizable" value="false"/>
+      <details key="margin" value="0"/>
+      <details key="tool.name" value="Division"/>
+      <details key="tool.description" value="Add a division operator"/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Modulus" eSuperTypes="#//ArithmeticOperator">
+    <eAnnotations source="gmf.node">
+      <details key="figure" value="svg"/>
+      <details key="svg.uri" value="platform:/plugin/es.uca.modeling.cep.eventpattern.figures/svg/Modulus.svg"/>
+      <details key="size" value="30,30"/>
+      <details key="label.placement" value="none"/>
+      <details key="resizable" value="false"/>
+      <details key="margin" value="0"/>
+      <details key="tool.name" value="Modulus"/>
+      <details key="tool.description" value="Add a modulus operator"/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Equal" eSuperTypes="#//ComparisonOperator">
+    <eAnnotations source="gmf.node">
+      <details key="figure" value="svg"/>
+      <details key="svg.uri" value="platform:/plugin/es.uca.modeling.cep.eventpattern.figures/svg/Equal.svg"/>
+      <details key="size" value="30,30"/>
+      <details key="label.placement" value="none"/>
+      <details key="resizable" value="false"/>
+      <details key="margin" value="0"/>
+      <details key="tool.name" value="Equal"/>
+      <details key="tool.description" value="Add an equal operator"/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="NotEqual" eSuperTypes="#//ComparisonOperator">
+    <eAnnotations source="gmf.node">
+      <details key="figure" value="svg"/>
+      <details key="svg.uri" value="platform:/plugin/es.uca.modeling.cep.eventpattern.figures/svg/NotEqual.svg"/>
+      <details key="size" value="30,30"/>
+      <details key="label.placement" value="none"/>
+      <details key="resizable" value="false"/>
+      <details key="margin" value="0"/>
+      <details key="tool.name" value="Not Equal"/>
+      <details key="tool.description" value="Add a not-equal operator"/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="LessThan" eSuperTypes="#//ComparisonOperator">
+    <eAnnotations source="gmf.node">
+      <details key="figure" value="svg"/>
+      <details key="svg.uri" value="platform:/plugin/es.uca.modeling.cep.eventpattern.figures/svg/LessThan.svg"/>
+      <details key="size" value="30,30"/>
+      <details key="label.placement" value="none"/>
+      <details key="resizable" value="false"/>
+      <details key="margin" value="0"/>
+      <details key="tool.name" value="Less Than"/>
+      <details key="tool.description" value="Add a less-than operator"/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="GreaterThan" eSuperTypes="#//ComparisonOperator">
+    <eAnnotations source="gmf.node">
+      <details key="figure" value="svg"/>
+      <details key="svg.uri" value="platform:/plugin/es.uca.modeling.cep.eventpattern.figures/svg/GreaterThan.svg"/>
+      <details key="size" value="30,30"/>
+      <details key="label.placement" value="none"/>
+      <details key="resizable" value="false"/>
+      <details key="margin" value="0"/>
+      <details key="tool.name" value="Greater Than"/>
+      <details key="tool.description" value="Add a greater-than operator"/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="LessEqual" eSuperTypes="#//ComparisonOperator">
+    <eAnnotations source="gmf.node">
+      <details key="figure" value="svg"/>
+      <details key="svg.uri" value="platform:/plugin/es.uca.modeling.cep.eventpattern.figures/svg/LessEqual.svg"/>
+      <details key="size" value="30,30"/>
+      <details key="label.placement" value="none"/>
+      <details key="resizable" value="false"/>
+      <details key="margin" value="0"/>
+      <details key="tool.name" value="Less Equal"/>
+      <details key="tool.description" value="Add a less-than-or-equal-to operator"/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="GreaterEqual" eSuperTypes="#//ComparisonOperator">
+    <eAnnotations source="gmf.node">
+      <details key="figure" value="svg"/>
+      <details key="svg.uri" value="platform:/plugin/es.uca.modeling.cep.eventpattern.figures/svg/GreaterEqual.svg"/>
+      <details key="size" value="30,30"/>
+      <details key="label.placement" value="none"/>
+      <details key="resizable" value="false"/>
+      <details key="margin" value="0"/>
+      <details key="tool.name" value="Greater Equal"/>
+      <details key="tool.description" value="Add a greater-than-or-equal-to operator"/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Max" eSuperTypes="#//AggregationOperator">
+    <eAnnotations source="gmf.node">
+      <details key="figure" value="svg"/>
+      <details key="svg.uri" value="platform:/plugin/es.uca.modeling.cep.eventpattern.figures/svg/Max.svg"/>
+      <details key="size" value="30,30"/>
+      <details key="label.placement" value="none"/>
+      <details key="resizable" value="false"/>
+      <details key="margin" value="0"/>
+      <details key="tool.name" value="Max"/>
+      <details key="tool.description" value="Add a max operator"/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Min" eSuperTypes="#//AggregationOperator">
+    <eAnnotations source="gmf.node">
+      <details key="figure" value="svg"/>
+      <details key="svg.uri" value="platform:/plugin/es.uca.modeling.cep.eventpattern.figures/svg/Min.svg"/>
+      <details key="size" value="30,30"/>
+      <details key="label.placement" value="none"/>
+      <details key="resizable" value="false"/>
+      <details key="margin" value="0"/>
+      <details key="tool.name" value="Min"/>
+      <details key="tool.description" value="Add a min operator"/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Avg" eSuperTypes="#//AggregationOperator">
+    <eAnnotations source="gmf.node">
+      <details key="figure" value="svg"/>
+      <details key="svg.uri" value="platform:/plugin/es.uca.modeling.cep.eventpattern.figures/svg/Avg.svg"/>
+      <details key="size" value="30,30"/>
+      <details key="label.placement" value="none"/>
+      <details key="resizable" value="false"/>
+      <details key="margin" value="0"/>
+      <details key="tool.name" value="Avg"/>
+      <details key="tool.description" value="Add an avg operator"/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Count" eSuperTypes="#//AggregationOperator">
+    <eAnnotations source="gmf.node">
+      <details key="figure" value="svg"/>
+      <details key="svg.uri" value="platform:/plugin/es.uca.modeling.cep.eventpattern.figures/svg/Count.svg"/>
+      <details key="size" value="30,30"/>
+      <details key="label.placement" value="none"/>
+      <details key="resizable" value="false"/>
+      <details key="margin" value="0"/>
+      <details key="tool.name" value="Count"/>
+      <details key="tool.description" value="Add a count operator"/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Sum" eSuperTypes="#//AggregationOperator">
+    <eAnnotations source="gmf.node">
+      <details key="figure" value="svg"/>
+      <details key="svg.uri" value="platform:/plugin/es.uca.modeling.cep.eventpattern.figures/svg/Sum.svg"/>
+      <details key="size" value="30,30"/>
+      <details key="label.placement" value="none"/>
+      <details key="resizable" value="false"/>
+      <details key="margin" value="0"/>
+      <details key="tool.name" value="Sum"/>
+      <details key="tool.description" value="Add a sum operator"/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="WithinTimer" eSuperTypes="#//PatternOperand">
+    <eAnnotations source="gmf.node">
+      <details key="figure" value="rounded"/>
+      <details key="color" value="255,248,220"/>
+      <details key="border.color" value="110,110,110"/>
+      <details key="label" value="years, months, weeks, days, hours, minutes, seconds, milliseconds"/>
+      <details key="label.parser" value="MessageFormatParser"/>
+      <details key="label.readOnly" value="true"/>
+      <details key="label.view.pattern" value="Within Timer: {0,choice,0#|0&lt;{0,number}y }{1,choice,0#|0&lt;{1,number}m }{2,choice,0#|0&lt;{2,number}w }{3,choice,0#|0&lt;{3,number}d }{4,choice,0#|0&lt;{4,number}h }{5,choice,0#|0&lt;{5,number}min }{6,choice,0#|0&lt;{6,number}s }{7,choice,0#|0&lt;{7,number}ms}"/>
+      <details key="tool.name" value="Within Timer"/>
+      <details key="tool.description" value="Add a within timer"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="years" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="months" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="weeks" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="days" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="hours" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="minutes" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="seconds" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="milliseconds" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="withinTimerElements" upperBound="-1"
+        eType="#//WithinTimerElement" containment="true">
+      <eAnnotations source="gmf.compartment"/>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="WithinTimerElement" abstract="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="TimeInterval" eSuperTypes="#//PatternOperand">
+    <eAnnotations source="gmf.node">
+      <details key="figure" value="svg"/>
+      <details key="svg.uri" value="platform:/plugin/es.uca.modeling.cep.eventpattern.figures/svg/TimeInterval.svg"/>
+      <details key="size" value="30,30"/>
+      <details key="resizable" value="false"/>
+      <details key="margin" value="0"/>
+      <details key="label.placement" value="external"/>
+      <details key="label.icon" value="false"/>
+      <details key="label" value="years, months, weeks, days, hours, minutes, seconds, milliseconds"/>
+      <details key="label.parser" value="MessageFormatParser"/>
+      <details key="label.readOnly" value="true"/>
+      <details key="label.view.pattern" value=" {0,choice,0#|0&lt;{0,number}y }{1,choice,0#|0&lt;{1,number}m }{2,choice,0#|0&lt;{2,number}w }{3,choice,0#|0&lt;{3,number}d }{4,choice,0#|0&lt;{4,number}h }{5,choice,0#|0&lt;{5,number}min }{6,choice,0#|0&lt;{6,number}s }{7,choice,0#|0&lt;{7,number}ms} "/>
+      <details key="tool.name" value="Time Interval"/>
+      <details key="tool.description" value="Add a time interval"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="years" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="months" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="weeks" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="days" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="hours" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="minutes" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="seconds" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="milliseconds" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TimeSchedule" eSuperTypes="#//PatternOperand">
+    <eAnnotations source="gmf.node">
+      <details key="figure" value="svg"/>
+      <details key="svg.uri" value="platform:/plugin/es.uca.modeling.cep.eventpattern.figures/svg/TimeSchedule.svg"/>
+      <details key="size" value="30,30"/>
+      <details key="resizable" value="false"/>
+      <details key="margin" value="0"/>
+      <details key="label.placement" value="external"/>
+      <details key="label.icon" value="false"/>
+      <details key="label" value="dayOfWeek, dayOfMonth, month, hour, minute, second"/>
+      <details key="label.parser" value="MessageFormatParser"/>
+      <details key="label.readOnly" value="true"/>
+      <details key="label.view.pattern" value=" {0,choice,-1#|0#Sun, |1#Mon, |2#Tue, |3#Wed, |4#Thu, |5#Fri, |6#Sat, }{1,choice,-1#|0&lt;{1,number} }{2,choice,-1#|1#Jan |2#Feb |3#Mar |4#Apr |5#May |6#Jun |7#Jul |8#Aug |9#Sep |10#Oct |11#Nov |12#Dec }{3,choice,-1# hh:|-1&lt; {3,number}:}{4,choice,-1#mm:|-1&lt;{4,number}:}{5,choice,-1#ss|-1&lt;{5,number}} "/>
+      <details key="tool.name" value="Time Schedule"/>
+      <details key="tool.description" value="Add a time schedule"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="dayOfWeek" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
+        defaultValueLiteral="-1"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="dayOfMonth" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
+        defaultValueLiteral="-1"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="month" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
+        defaultValueLiteral="-1"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="hour" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
+        defaultValueLiteral="-1"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="minute" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
+        defaultValueLiteral="-1"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="second" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
+        defaultValueLiteral="-1"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Event" eSuperTypes="#//PatternOperand #//WithinTimerElement">
+    <eAnnotations source="gmf.node">
+      <details key="figure" value="rectangle"/>
+      <details key="label" value="typeName"/>
+      <details key="border.color" value="110,110,110"/>
+      <details key="tool.name" value="Event"/>
+      <details key="tool.description" value="Add an event"/>
+      <details key="resizable" value="false"/>
+      <details key="label.readOnly" value="true"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="typeName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="imagePath" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="eventProperties" upperBound="-1"
+        eType="#//EventProperty" containment="true" eOpposite="#//EventProperty/referencedEvent">
+      <eAnnotations source="gmf.compartment">
+        <details key="layout" value="list"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="EventProperty" eSuperTypes="#//ConditionOperand">
+    <eAnnotations source="gmf.node">
+      <details key="figure" value="rectangle"/>
+      <details key="label" value="name"/>
+      <details key="border.color" value="110,110,110"/>
+      <details key="tool.name" value="Event Property"/>
+      <details key="tool.description" value="Add an event property"/>
+      <details key="resizable" value="false"/>
+      <details key="label.readOnly" value="true"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//PropertyTypeValue"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="imagePath" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="referencedEvent" eType="#//Event"
+        eOpposite="#//Event/eventProperties"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="eventProperties" upperBound="-1"
+        eType="#//EventProperty" containment="true" eOpposite="#//EventProperty/referencedEventProperty">
+      <eAnnotations source="gmf.compartment">
+        <details key="layout" value="list"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="referencedEventProperty"
+        eType="#//EventProperty" eOpposite="#//EventProperty/eventProperties"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="PropertyTypeValue">
+    <eLiterals name="Unknown"/>
+    <eLiterals name="Boolean" value="1"/>
+    <eLiterals name="Integer" value="2"/>
+    <eLiterals name="Long" value="3"/>
+    <eLiterals name="Double" value="4"/>
+    <eLiterals name="Float" value="5"/>
+    <eLiterals name="String" value="6"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Value" eSuperTypes="#//ConditionOperand">
+    <eAnnotations source="gmf.node">
+      <details key="figure" value="rounded"/>
+      <details key="label" value="value"/>
+      <details key="label.text" value=""/>
+      <details key="label.icon" value="false"/>
+      <details key="margin" value="0"/>
+      <details key="border.color" value="110,110,110"/>
+      <details key="border.width" value="3"/>
+      <details key="size" value="30,30"/>
+      <details key="tool.name" value="Value"/>
+      <details key="tool.description" value="Add a value"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        defaultValueLiteral=" "/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//PropertyTypeValue"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Email" eSuperTypes="#//Action">
+    <eAnnotations source="gmf.node">
+      <details key="figure" value="svg"/>
+      <details key="svg.uri" value="platform:/plugin/es.uca.modeling.cep.eventpattern.figures/svg/Email.svg"/>
+      <details key="size" value="30,30"/>
+      <details key="label.placement" value="none"/>
+      <details key="resizable" value="false"/>
+      <details key="margin" value="0"/>
+      <details key="tool.name" value="Email"/>
+      <details key="tool.description" value="Add an email action"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="to" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="cc" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="from" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="subject" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="host" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="port" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
+        defaultValueLiteral="25"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="user" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="password" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Twitter" eSuperTypes="#//Action">
+    <eAnnotations source="gmf.node">
+      <details key="figure" value="svg"/>
+      <details key="svg.uri" value="platform:/plugin/es.uca.modeling.cep.eventpattern.figures/svg/Twitter.svg"/>
+      <details key="size" value="30,30"/>
+      <details key="label.placement" value="none"/>
+      <details key="resizable" value="false"/>
+      <details key="margin" value="0"/>
+      <details key="tool.name" value="Twitter"/>
+      <details key="tool.description" value="Add a twitter action"/>
+    </eAnnotations>
+  </eClassifiers>
+</ecore:EPackage>

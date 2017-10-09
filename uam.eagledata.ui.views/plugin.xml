@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.views">
+      <category
+            id="eagledata.ui.views"
+            name="EagleData">
+      </category>
+      <view
+            category="eagledata.ui.views"
+            class="uam.eagledata.ui.views.eventset.EventSetViewPart"
+            icon="icons/bolt.png"
+            id="uam.eagledata.ui.views.EventSetView"
+            name="EventSet"
+            restorable="true">
+      </view>
+   </extension>
+
+</plugin>

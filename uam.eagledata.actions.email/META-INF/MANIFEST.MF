@@ -1,0 +1,15 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Email
+Bundle-SymbolicName: uam.eagledata.actions.email;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: uam.eagledata.actions.email.Activator
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ uam.eagledata.core;bundle-version="1.0.0",
+ uam.eagledata.extensions;bundle-version="1.0.0",
+ org.eclipse.net4j.util
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Bundle-ActivationPolicy: lazy
+Bundle-ClassPath: lib/javax.mail.jar,
+ .
