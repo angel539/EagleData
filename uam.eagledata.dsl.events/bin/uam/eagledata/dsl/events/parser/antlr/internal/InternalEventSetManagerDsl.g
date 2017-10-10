@@ -133,80 +133,105 @@ ruleEvent returns [EObject current=null]
 @after {
 	leaveRule();
 }:
-	{
-		newCompositeNode(grammarAccess.getEventAccess().getPatternEventParserRuleCall());
-	}
-	this_PatternEvent_0=rulePatternEvent
-	{
-		$current = $this_PatternEvent_0.current;
-		afterParserOrEnumRuleCall();
-	}
-;
-
-// Entry rule entryRulePatternEvent
-entryRulePatternEvent returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getPatternEventRule()); }
-	iv_rulePatternEvent=rulePatternEvent
-	{ $current=$iv_rulePatternEvent.current; }
-	EOF;
-
-// Rule PatternEvent
-rulePatternEvent returns [EObject current=null]
-@init {
-	enterRule();
-}
-@after {
-	leaveRule();
-}:
 	(
 		(
 			{
 				$current = forceCreateModelElement(
-					grammarAccess.getPatternEventAccess().getPatternEventAction_0(),
+					grammarAccess.getEventAccess().getEventAction_0(),
 					$current);
 			}
 		)
-		otherlv_1='pattern'
+		(
+			otherlv_1='connection'
+			{
+				newLeafNode(otherlv_1, grammarAccess.getEventAccess().getConnectionKeyword_1_0());
+			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getEventAccess().getDataconnectionEStringParserRuleCall_1_1_0());
+					}
+					lv_dataconnection_2_0=ruleEString
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getEventRule());
+						}
+						add(
+							$current,
+							"dataconnection",
+							lv_dataconnection_2_0,
+							"uam.eagledata.dsl.events.EventSetManagerDsl.EString");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+			(
+				otherlv_3='and'
+				{
+					newLeafNode(otherlv_3, grammarAccess.getEventAccess().getAndKeyword_1_2_0());
+				}
+				(
+					(
+						{
+							newCompositeNode(grammarAccess.getEventAccess().getDataconnectionEStringParserRuleCall_1_2_1_0());
+						}
+						lv_dataconnection_4_0=ruleEString
+						{
+							if ($current==null) {
+								$current = createModelElementForParent(grammarAccess.getEventRule());
+							}
+							add(
+								$current,
+								"dataconnection",
+								lv_dataconnection_4_0,
+								"uam.eagledata.dsl.events.EventSetManagerDsl.EString");
+							afterParserOrEnumRuleCall();
+						}
+					)
+				)
+			)*
+		)?
+		otherlv_5='pattern'
 		{
-			newLeafNode(otherlv_1, grammarAccess.getPatternEventAccess().getPatternKeyword_1());
+			newLeafNode(otherlv_5, grammarAccess.getEventAccess().getPatternKeyword_2());
 		}
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getPatternEventAccess().getNameEStringParserRuleCall_2_0());
+					newCompositeNode(grammarAccess.getEventAccess().getNameEStringParserRuleCall_3_0());
 				}
-				lv_name_2_0=ruleEString
+				lv_name_6_0=ruleEString
 				{
 					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getPatternEventRule());
+						$current = createModelElementForParent(grammarAccess.getEventRule());
 					}
 					set(
 						$current,
 						"name",
-						lv_name_2_0,
+						lv_name_6_0,
 						"uam.eagledata.dsl.events.EventSetManagerDsl.EString");
 					afterParserOrEnumRuleCall();
 				}
 			)
 		)
-		otherlv_3='{'
+		otherlv_7='{'
 		{
-			newLeafNode(otherlv_3, grammarAccess.getPatternEventAccess().getLeftCurlyBracketKeyword_3());
+			newLeafNode(otherlv_7, grammarAccess.getEventAccess().getLeftCurlyBracketKeyword_4());
 		}
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getPatternEventAccess().getConceptsConceptParserRuleCall_4_0());
+					newCompositeNode(grammarAccess.getEventAccess().getConceptsConceptParserRuleCall_5_0());
 				}
-				lv_concepts_4_0=ruleConcept
+				lv_concepts_8_0=ruleConcept
 				{
 					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getPatternEventRule());
+						$current = createModelElementForParent(grammarAccess.getEventRule());
 					}
 					add(
 						$current,
 						"concepts",
-						lv_concepts_4_0,
+						lv_concepts_8_0,
 						"uam.eagledata.dsl.events.EventSetManagerDsl.Concept");
 					afterParserOrEnumRuleCall();
 				}
@@ -215,45 +240,45 @@ rulePatternEvent returns [EObject current=null]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getPatternEventAccess().getConceptsConceptParserRuleCall_5_0());
+					newCompositeNode(grammarAccess.getEventAccess().getConceptsConceptParserRuleCall_6_0());
 				}
-				lv_concepts_5_0=ruleConcept
+				lv_concepts_9_0=ruleConcept
 				{
 					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getPatternEventRule());
+						$current = createModelElementForParent(grammarAccess.getEventRule());
 					}
 					add(
 						$current,
 						"concepts",
-						lv_concepts_5_0,
+						lv_concepts_9_0,
 						"uam.eagledata.dsl.events.EventSetManagerDsl.Concept");
 					afterParserOrEnumRuleCall();
 				}
 			)
 		)*
-		otherlv_6='}'
+		otherlv_10='}'
 		{
-			newLeafNode(otherlv_6, grammarAccess.getPatternEventAccess().getRightCurlyBracketKeyword_6());
+			newLeafNode(otherlv_10, grammarAccess.getEventAccess().getRightCurlyBracketKeyword_7());
 		}
 		(
-			otherlv_7='if'
+			otherlv_11='if'
 			{
-				newLeafNode(otherlv_7, grammarAccess.getPatternEventAccess().getIfKeyword_7_0());
+				newLeafNode(otherlv_11, grammarAccess.getEventAccess().getIfKeyword_8_0());
 			}
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getPatternEventAccess().getWhenConditionParserRuleCall_7_1_0());
+						newCompositeNode(grammarAccess.getEventAccess().getWhenConditionParserRuleCall_8_1_0());
 					}
-					lv_when_8_0=ruleCondition
+					lv_when_12_0=ruleCondition
 					{
 						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getPatternEventRule());
+							$current = createModelElementForParent(grammarAccess.getEventRule());
 						}
 						set(
 							$current,
 							"when",
-							lv_when_8_0,
+							lv_when_12_0,
 							"uam.eagledata.dsl.events.EventSetManagerDsl.Condition");
 						afterParserOrEnumRuleCall();
 					}
@@ -261,25 +286,25 @@ rulePatternEvent returns [EObject current=null]
 			)
 		)?
 		(
-			otherlv_9='then'
+			otherlv_13='then'
 			{
-				newLeafNode(otherlv_9, grammarAccess.getPatternEventAccess().getThenKeyword_8_0());
+				newLeafNode(otherlv_13, grammarAccess.getEventAccess().getThenKeyword_9_0());
 			}
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getPatternEventAccess().getTriggersEStringParserRuleCall_8_1_0());
+						newCompositeNode(grammarAccess.getEventAccess().getTriggersActionParserRuleCall_9_1_0());
 					}
-					lv_triggers_10_0=ruleEString
+					lv_triggers_14_0=ruleAction
 					{
 						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getPatternEventRule());
+							$current = createModelElementForParent(grammarAccess.getEventRule());
 						}
 						add(
 							$current,
 							"triggers",
-							lv_triggers_10_0,
-							"uam.eagledata.dsl.events.EventSetManagerDsl.EString");
+							lv_triggers_14_0,
+							"uam.eagledata.dsl.events.EventSetManagerDsl.Action");
 						afterParserOrEnumRuleCall();
 					}
 				)
@@ -287,18 +312,18 @@ rulePatternEvent returns [EObject current=null]
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getPatternEventAccess().getTriggersEStringParserRuleCall_8_2_0());
+						newCompositeNode(grammarAccess.getEventAccess().getTriggersActionParserRuleCall_9_2_0());
 					}
-					lv_triggers_11_0=ruleEString
+					lv_triggers_15_0=ruleAction
 					{
 						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getPatternEventRule());
+							$current = createModelElementForParent(grammarAccess.getEventRule());
 						}
 						add(
 							$current,
 							"triggers",
-							lv_triggers_11_0,
-							"uam.eagledata.dsl.events.EventSetManagerDsl.EString");
+							lv_triggers_15_0,
+							"uam.eagledata.dsl.events.EventSetManagerDsl.Action");
 						afterParserOrEnumRuleCall();
 					}
 				)
@@ -375,9 +400,9 @@ ruleBinaryExpression returns [EObject current=null]
 				}
 			)
 		)
-		otherlv_1=' = '
+		otherlv_1='='
 		{
-			newLeafNode(otherlv_1, grammarAccess.getBinaryExpressionAccess().getSpaceEqualsSignSpaceKeyword_1());
+			newLeafNode(otherlv_1, grammarAccess.getBinaryExpressionAccess().getEqualsSignKeyword_1());
 		}
 		(
 			(
@@ -651,6 +676,271 @@ ruleRegexConcept returns [EObject current=null]
 						$current,
 						"regex",
 						lv_regex_4_0,
+						"uam.eagledata.dsl.events.EventSetManagerDsl.EString");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+	)
+;
+
+// Entry rule entryRuleAction
+entryRuleAction returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getActionRule()); }
+	iv_ruleAction=ruleAction
+	{ $current=$iv_ruleAction.current; }
+	EOF;
+
+// Rule Action
+ruleAction returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			{
+				$current = forceCreateModelElement(
+					grammarAccess.getActionAccess().getActionAction_0(),
+					$current);
+			}
+		)
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getActionAccess().getCallsEStringParserRuleCall_1_0());
+				}
+				lv_calls_1_0=ruleEString
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getActionRule());
+					}
+					set(
+						$current,
+						"calls",
+						lv_calls_1_0,
+						"uam.eagledata.dsl.events.EventSetManagerDsl.EString");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		(
+			otherlv_2='('
+			{
+				newLeafNode(otherlv_2, grammarAccess.getActionAccess().getLeftParenthesisKeyword_2_0());
+			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getActionAccess().getParamsActionParamParserRuleCall_2_1_0());
+					}
+					lv_params_3_0=ruleActionParam
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getActionRule());
+						}
+						add(
+							$current,
+							"params",
+							lv_params_3_0,
+							"uam.eagledata.dsl.events.EventSetManagerDsl.ActionParam");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+			(
+				otherlv_4=','
+				{
+					newLeafNode(otherlv_4, grammarAccess.getActionAccess().getCommaKeyword_2_2_0());
+				}
+				(
+					(
+						{
+							newCompositeNode(grammarAccess.getActionAccess().getParamsActionParamParserRuleCall_2_2_1_0());
+						}
+						lv_params_5_0=ruleActionParam
+						{
+							if ($current==null) {
+								$current = createModelElementForParent(grammarAccess.getActionRule());
+							}
+							add(
+								$current,
+								"params",
+								lv_params_5_0,
+								"uam.eagledata.dsl.events.EventSetManagerDsl.ActionParam");
+							afterParserOrEnumRuleCall();
+						}
+					)
+				)
+			)*
+			otherlv_6=')'
+			{
+				newLeafNode(otherlv_6, grammarAccess.getActionAccess().getRightParenthesisKeyword_2_3());
+			}
+		)?
+	)
+;
+
+// Entry rule entryRuleActionParam
+entryRuleActionParam returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getActionParamRule()); }
+	iv_ruleActionParam=ruleActionParam
+	{ $current=$iv_ruleActionParam.current; }
+	EOF;
+
+// Rule ActionParam
+ruleActionParam returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		{
+			newCompositeNode(grammarAccess.getActionParamAccess().getConceptParamParserRuleCall_0());
+		}
+		this_ConceptParam_0=ruleConceptParam
+		{
+			$current = $this_ConceptParam_0.current;
+			afterParserOrEnumRuleCall();
+		}
+		    |
+		{
+			newCompositeNode(grammarAccess.getActionParamAccess().getStringParamParserRuleCall_1());
+		}
+		this_StringParam_1=ruleStringParam
+		{
+			$current = $this_StringParam_1.current;
+			afterParserOrEnumRuleCall();
+		}
+	)
+;
+
+// Entry rule entryRuleConceptParam
+entryRuleConceptParam returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getConceptParamRule()); }
+	iv_ruleConceptParam=ruleConceptParam
+	{ $current=$iv_ruleConceptParam.current; }
+	EOF;
+
+// Rule ConceptParam
+ruleConceptParam returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			{
+				$current = forceCreateModelElement(
+					grammarAccess.getConceptParamAccess().getConceptParamAction_0(),
+					$current);
+			}
+		)
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getConceptParamAccess().getKeyEStringParserRuleCall_1_0());
+				}
+				lv_key_1_0=ruleEString
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getConceptParamRule());
+					}
+					set(
+						$current,
+						"key",
+						lv_key_1_0,
+						"uam.eagledata.dsl.events.EventSetManagerDsl.EString");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		otherlv_2='<='
+		{
+			newLeafNode(otherlv_2, grammarAccess.getConceptParamAccess().getLessThanSignEqualsSignKeyword_2());
+		}
+		(
+			(
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getConceptParamRule());
+					}
+				}
+				otherlv_3=RULE_ID
+				{
+					newLeafNode(otherlv_3, grammarAccess.getConceptParamAccess().getValueConceptCrossReference_3_0());
+				}
+			)
+		)
+	)
+;
+
+// Entry rule entryRuleStringParam
+entryRuleStringParam returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getStringParamRule()); }
+	iv_ruleStringParam=ruleStringParam
+	{ $current=$iv_ruleStringParam.current; }
+	EOF;
+
+// Rule StringParam
+ruleStringParam returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			{
+				$current = forceCreateModelElement(
+					grammarAccess.getStringParamAccess().getStringParamAction_0(),
+					$current);
+			}
+		)
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getStringParamAccess().getKeyEStringParserRuleCall_1_0());
+				}
+				lv_key_1_0=ruleEString
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getStringParamRule());
+					}
+					set(
+						$current,
+						"key",
+						lv_key_1_0,
+						"uam.eagledata.dsl.events.EventSetManagerDsl.EString");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		otherlv_2='='
+		{
+			newLeafNode(otherlv_2, grammarAccess.getStringParamAccess().getEqualsSignKeyword_2());
+		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getStringParamAccess().getValueEStringParserRuleCall_3_0());
+				}
+				lv_value_3_0=ruleEString
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getStringParamRule());
+					}
+					set(
+						$current,
+						"value",
+						lv_value_3_0,
 						"uam.eagledata.dsl.events.EventSetManagerDsl.EString");
 					afterParserOrEnumRuleCall();
 				}

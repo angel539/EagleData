@@ -14,8 +14,10 @@ import org.osgi.framework.Bundle;
 import org.osgi.framework.FrameworkUtil;
 
 import ecarules.Action;
+import ecarules.ActionExecutableExtension;
 import ecarules.Event;
 import ecarules.EventSetManager;
+import ecarules.ExtendedActionExecutableExtension;
 import ecarules.PatternEvent;
 import uam.eagledata.extensions.EventSetControlManager;
 
@@ -29,11 +31,17 @@ public class ExecuteHandler extends AbstractHandler {
 		for(Event e : eventSetManager.getEvents()){
 			if (e instanceof PatternEvent) {
 				PatternEvent patternE = (PatternEvent) e;
-				for(String trigger : patternE.getTriggers()){
-					Action actionBundle = callActionExtension(trigger);
+				
+				for(Action trigger : patternE.getTriggers()){
+					
+					
+					ActionExecutableExtension actionBundle = callActionExecutableExtension(trigger.getCalls());
+					
 					if(actionBundle != null){
-						actionBundle.execute(null);
-					}else{
+						System.out.println("hola holita hola");
+						actionBundle.execute(trigger.getParams());
+					}
+					else{
 						System.out.println("ES NULO...");
 					}
 				}
@@ -43,7 +51,7 @@ public class ExecuteHandler extends AbstractHandler {
 		return Status.OK_STATUS;
 	}
 	
-	private Action callActionExtension(String nameAction){
+	private ActionExecutableExtension callActionExecutableExtension(String nameAction){
 		IExtensionRegistry registry = Platform.getExtensionRegistry();
 		IConfigurationElement[] extensions = registry.getConfigurationElementsFor(ACTION_EXTENSIONS_ID);
 		
@@ -64,8 +72,8 @@ public class ExecuteHandler extends AbstractHandler {
             	Object o;
 				try {
 					o = extension.createExecutableExtension("class");
-					if (o instanceof Action) {
-						Action action = (Action) o;
+					if (o instanceof ExtendedActionExecutableExtension) {
+						ExtendedActionExecutableExtension action = (ExtendedActionExecutableExtension) o;
 	                    return action;
 	                }
 				} catch (CoreException e) {
@@ -76,6 +84,4 @@ public class ExecuteHandler extends AbstractHandler {
 		
 		return null;
 	}
-	
-	
 }

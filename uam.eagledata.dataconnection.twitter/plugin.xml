@@ -5,6 +5,7 @@
          point="eagledata.core.extensions.dataconnection">
       <connection
             class="uam.eagledata.dataconnection.twitter.TwitterDataConnection"
+            icon16="icons/twitter.png"
             id="eagledata.dataconnection.twitter"
             name="TwitterConnection">
       </connection>

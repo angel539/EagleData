@@ -23,7 +23,6 @@ import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
-import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
  * This is the item provider adapter for a {@link ecarules.Action} object.
@@ -60,51 +59,51 @@ public class ActionItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addNamePropertyDescriptor(object);
-			addIdPropertyDescriptor(object);
+			addParamsPropertyDescriptor(object);
+			addCallsPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Name feature.
+	 * This adds a property descriptor for the Params feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addNamePropertyDescriptor(Object object) {
+	protected void addParamsPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Action_name_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Action_name_feature", "_UI_Action_type"),
-				 EcarulesPackage.Literals.ACTION__NAME,
+				 getString("_UI_Action_params_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Action_params_feature", "_UI_Action_type"),
+				 EcarulesPackage.Literals.ACTION__PARAMS,
 				 true,
 				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 true,
+				 null,
 				 null,
 				 null));
 	}
 
 	/**
-	 * This adds a property descriptor for the Id feature.
+	 * This adds a property descriptor for the Calls feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addIdPropertyDescriptor(Object object) {
+	protected void addCallsPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Action_id_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Action_id_feature", "_UI_Action_type"),
-				 EcarulesPackage.Literals.ACTION__ID,
+				 getString("_UI_Action_calls_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Action_calls_feature", "_UI_Action_type"),
+				 EcarulesPackage.Literals.ACTION__CALLS,
 				 true,
 				 false,
-				 false,
+				 true,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -129,7 +128,7 @@ public class ActionItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((Action)object).getName();
+		String label = ((Action)object).getCalls();
 		return label == null || label.length() == 0 ?
 			getString("_UI_Action_type") :
 			getString("_UI_Action_type") + " " + label;
@@ -146,13 +145,6 @@ public class ActionItemProvider
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
-
-		switch (notification.getFeatureID(Action.class)) {
-			case EcarulesPackage.ACTION__NAME:
-			case EcarulesPackage.ACTION__ID:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-				return;
-		}
 		super.notifyChanged(notification);
 	}
 

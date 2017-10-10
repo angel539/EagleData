@@ -37,24 +37,33 @@ public class EventSetManagerDslParser extends AbstractContentAssistParser {
 				{
 					put(grammarAccess.getConditionAccess().getAlternatives(), "rule__Condition__Alternatives");
 					put(grammarAccess.getConceptAccess().getAlternatives(), "rule__Concept__Alternatives");
+					put(grammarAccess.getActionParamAccess().getAlternatives(), "rule__ActionParam__Alternatives");
 					put(grammarAccess.getEStringAccess().getAlternatives(), "rule__EString__Alternatives");
 					put(grammarAccess.getTypeAccess().getAlternatives(), "rule__Type__Alternatives");
 					put(grammarAccess.getEventSetManagerAccess().getGroup(), "rule__EventSetManager__Group__0");
-					put(grammarAccess.getPatternEventAccess().getGroup(), "rule__PatternEvent__Group__0");
-					put(grammarAccess.getPatternEventAccess().getGroup_7(), "rule__PatternEvent__Group_7__0");
-					put(grammarAccess.getPatternEventAccess().getGroup_8(), "rule__PatternEvent__Group_8__0");
+					put(grammarAccess.getEventAccess().getGroup(), "rule__Event__Group__0");
+					put(grammarAccess.getEventAccess().getGroup_1(), "rule__Event__Group_1__0");
+					put(grammarAccess.getEventAccess().getGroup_1_2(), "rule__Event__Group_1_2__0");
+					put(grammarAccess.getEventAccess().getGroup_8(), "rule__Event__Group_8__0");
+					put(grammarAccess.getEventAccess().getGroup_9(), "rule__Event__Group_9__0");
 					put(grammarAccess.getBinaryExpressionAccess().getGroup(), "rule__BinaryExpression__Group__0");
 					put(grammarAccess.getKeyConceptAccess().getGroup(), "rule__KeyConcept__Group__0");
 					put(grammarAccess.getRegexConceptAccess().getGroup(), "rule__RegexConcept__Group__0");
 					put(grammarAccess.getActionAccess().getGroup(), "rule__Action__Group__0");
+					put(grammarAccess.getActionAccess().getGroup_2(), "rule__Action__Group_2__0");
+					put(grammarAccess.getActionAccess().getGroup_2_2(), "rule__Action__Group_2_2__0");
+					put(grammarAccess.getConceptParamAccess().getGroup(), "rule__ConceptParam__Group__0");
+					put(grammarAccess.getStringParamAccess().getGroup(), "rule__StringParam__Group__0");
 					put(grammarAccess.getEventSetManagerAccess().getEventsAssignment_0(), "rule__EventSetManager__EventsAssignment_0");
 					put(grammarAccess.getEventSetManagerAccess().getEventsAssignment_1(), "rule__EventSetManager__EventsAssignment_1");
-					put(grammarAccess.getPatternEventAccess().getNameAssignment_2(), "rule__PatternEvent__NameAssignment_2");
-					put(grammarAccess.getPatternEventAccess().getConceptsAssignment_4(), "rule__PatternEvent__ConceptsAssignment_4");
-					put(grammarAccess.getPatternEventAccess().getConceptsAssignment_5(), "rule__PatternEvent__ConceptsAssignment_5");
-					put(grammarAccess.getPatternEventAccess().getWhenAssignment_7_1(), "rule__PatternEvent__WhenAssignment_7_1");
-					put(grammarAccess.getPatternEventAccess().getTriggersAssignment_8_1(), "rule__PatternEvent__TriggersAssignment_8_1");
-					put(grammarAccess.getPatternEventAccess().getTriggersAssignment_8_2(), "rule__PatternEvent__TriggersAssignment_8_2");
+					put(grammarAccess.getEventAccess().getDataconnectionAssignment_1_1(), "rule__Event__DataconnectionAssignment_1_1");
+					put(grammarAccess.getEventAccess().getDataconnectionAssignment_1_2_1(), "rule__Event__DataconnectionAssignment_1_2_1");
+					put(grammarAccess.getEventAccess().getNameAssignment_3(), "rule__Event__NameAssignment_3");
+					put(grammarAccess.getEventAccess().getConceptsAssignment_5(), "rule__Event__ConceptsAssignment_5");
+					put(grammarAccess.getEventAccess().getConceptsAssignment_6(), "rule__Event__ConceptsAssignment_6");
+					put(grammarAccess.getEventAccess().getWhenAssignment_8_1(), "rule__Event__WhenAssignment_8_1");
+					put(grammarAccess.getEventAccess().getTriggersAssignment_9_1(), "rule__Event__TriggersAssignment_9_1");
+					put(grammarAccess.getEventAccess().getTriggersAssignment_9_2(), "rule__Event__TriggersAssignment_9_2");
 					put(grammarAccess.getBinaryExpressionAccess().getLeftAssignment_0(), "rule__BinaryExpression__LeftAssignment_0");
 					put(grammarAccess.getBinaryExpressionAccess().getRightAssignment_2(), "rule__BinaryExpression__RightAssignment_2");
 					put(grammarAccess.getLiteralAccess().getValueAssignment(), "rule__Literal__ValueAssignment");
@@ -64,7 +73,13 @@ public class EventSetManagerDslParser extends AbstractContentAssistParser {
 					put(grammarAccess.getRegexConceptAccess().getTypeAssignment_1(), "rule__RegexConcept__TypeAssignment_1");
 					put(grammarAccess.getRegexConceptAccess().getNameAssignment_2(), "rule__RegexConcept__NameAssignment_2");
 					put(grammarAccess.getRegexConceptAccess().getRegexAssignment_4(), "rule__RegexConcept__RegexAssignment_4");
-					put(grammarAccess.getActionAccess().getNameAssignment_1(), "rule__Action__NameAssignment_1");
+					put(grammarAccess.getActionAccess().getCallsAssignment_1(), "rule__Action__CallsAssignment_1");
+					put(grammarAccess.getActionAccess().getParamsAssignment_2_1(), "rule__Action__ParamsAssignment_2_1");
+					put(grammarAccess.getActionAccess().getParamsAssignment_2_2_1(), "rule__Action__ParamsAssignment_2_2_1");
+					put(grammarAccess.getConceptParamAccess().getKeyAssignment_1(), "rule__ConceptParam__KeyAssignment_1");
+					put(grammarAccess.getConceptParamAccess().getValueAssignment_3(), "rule__ConceptParam__ValueAssignment_3");
+					put(grammarAccess.getStringParamAccess().getKeyAssignment_1(), "rule__StringParam__KeyAssignment_1");
+					put(grammarAccess.getStringParamAccess().getValueAssignment_3(), "rule__StringParam__ValueAssignment_3");
 				}
 			};
 		}

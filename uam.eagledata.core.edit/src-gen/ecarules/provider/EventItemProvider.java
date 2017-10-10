@@ -48,6 +48,7 @@ public class EventItemProvider
 			super.getPropertyDescriptors(object);
 
 			addTriggersPropertyDescriptor(object);
+			addDataconnectionPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -69,6 +70,28 @@ public class EventItemProvider
 				 true,
 				 false,
 				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Dataconnection feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addDataconnectionPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Event_dataconnection_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Event_dataconnection_feature", "_UI_Event_type"),
+				 EcarulesPackage.Literals.EVENT__DATACONNECTION,
+				 true,
+				 false,
+				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -87,6 +110,7 @@ public class EventItemProvider
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(EcarulesPackage.Literals.EVENT__WHEN);
+			childrenFeatures.add(EcarulesPackage.Literals.EVENT__CONCEPTS);
 		}
 		return childrenFeatures;
 	}
@@ -142,7 +166,11 @@ public class EventItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Event.class)) {
+			case EcarulesPackage.EVENT__DATACONNECTION:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
 			case EcarulesPackage.EVENT__WHEN:
+			case EcarulesPackage.EVENT__CONCEPTS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -169,6 +197,16 @@ public class EventItemProvider
 			(createChildParameter
 				(EcarulesPackage.Literals.EVENT__WHEN,
 				 EcarulesFactory.eINSTANCE.createBooleanExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(EcarulesPackage.Literals.EVENT__CONCEPTS,
+				 EcarulesFactory.eINSTANCE.createKeyConcept()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(EcarulesPackage.Literals.EVENT__CONCEPTS,
+				 EcarulesFactory.eINSTANCE.createRegexConcept()));
 	}
 
 }

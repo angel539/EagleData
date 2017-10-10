@@ -58,13 +58,16 @@ public class EcarulesFactoryImpl extends EFactoryImpl implements EcarulesFactory
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
 			case EcarulesPackage.EVENT_SET_MANAGER: return (EObject)createEventSetManager();
-			case EcarulesPackage.PATTERN_EVENT: return (EObject)createPatternEvent();
+			case EcarulesPackage.EVENT: return (EObject)createEvent();
 			case EcarulesPackage.KEY_CONCEPT: return (EObject)createKeyConcept();
 			case EcarulesPackage.REGEX_CONCEPT: return (EObject)createRegexConcept();
 			case EcarulesPackage.DATA_CONNECTION: return (EObject)createDataConnection();
 			case EcarulesPackage.BINARY_EXPRESSION: return (EObject)createBinaryExpression();
 			case EcarulesPackage.BOOLEAN_EXPRESSION: return (EObject)createBooleanExpression();
 			case EcarulesPackage.LITERAL: return (EObject)createLiteral();
+			case EcarulesPackage.ACTION_EXECUTABLE_EXTENSION: return (EObject)createActionExecutableExtension();
+			case EcarulesPackage.CONCEPT_PARAM: return (EObject)createConceptParam();
+			case EcarulesPackage.STRING_PARAM: return (EObject)createStringParam();
 			case EcarulesPackage.ACTION: return (EObject)createAction();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
@@ -116,9 +119,9 @@ public class EcarulesFactoryImpl extends EFactoryImpl implements EcarulesFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public PatternEvent createPatternEvent() {
-		PatternEventImpl patternEvent = new PatternEventImpl();
-		return patternEvent;
+	public Event createEvent() {
+		EventImpl event = new EventImpl();
+		return event;
 	}
 
 	/**
@@ -179,6 +182,36 @@ public class EcarulesFactoryImpl extends EFactoryImpl implements EcarulesFactory
 	public Literal createLiteral() {
 		LiteralImpl literal = new LiteralImpl();
 		return literal;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ActionExecutableExtension createActionExecutableExtension() {
+		ActionExecutableExtensionImpl actionExecutableExtension = new ActionExecutableExtensionImpl();
+		return actionExecutableExtension;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ConceptParam createConceptParam() {
+		ConceptParamImpl conceptParam = new ConceptParamImpl();
+		return conceptParam;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public StringParam createStringParam() {
+		StringParamImpl stringParam = new StringParamImpl();
+		return stringParam;
 	}
 
 	/**

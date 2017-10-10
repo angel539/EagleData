@@ -2,7 +2,7 @@
  */
 package ecarules.impl;
 
-import ecarules.Action;
+import ecarules.ActionExecutableExtension;
 import ecarules.DataConnection;
 import ecarules.EcarulesPackage;
 import ecarules.Event;
@@ -85,8 +85,8 @@ public class EventSetManagerImpl extends DefaultPersistentEObject implements Eve
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
-	public EList<Action> getActions() {
-		return (EList<Action>)eGet(EcarulesPackage.Literals.EVENT_SET_MANAGER__ACTIONS, true);
+	public EList<ActionExecutableExtension> getActions() {
+		return (EList<ActionExecutableExtension>)eGet(EcarulesPackage.Literals.EVENT_SET_MANAGER__ACTIONS, true);
 	}
 
 } //EventSetManagerImpl

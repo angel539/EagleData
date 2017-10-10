@@ -8,16 +8,13 @@ EventSetManager returns events::EventSetManager:
 	events+=Event (events+=Event)*;
 
 Event returns events::Event:
-	PatternEvent
-;
-
-PatternEvent returns events::PatternEvent:
-	{events::PatternEvent}
+	{events::Event}
+	('connection' dataconnection+=EString ('and' dataconnection+=EString)*)?
 	'pattern' name=EString '{'
 		concepts += Concept (concepts += Concept)*
 	'}'
 	('if' when = Condition)?
-	('then' triggers += EString (triggers += EString)*)
+	('then' triggers += Action (triggers += Action)*)
 ;
 
 Condition returns events::Condition:
@@ -25,7 +22,7 @@ Condition returns events::Condition:
 ;
 
 BinaryExpression returns events::BinaryExpression:
-	left = [events::Concept|EString] ' = ' right = Literal
+	left = [events::Concept|EString] '=' right = Literal
 ;
 
 Literal returns events::Literal:
@@ -54,7 +51,21 @@ RegexConcept returns events::RegexConcept:
 
 Action returns events::Action:
 	{events::Action}
-	name=EString
+	calls = EString ('(' params += ActionParam (',' params += ActionParam)* ')')?
+;
+
+ActionParam returns events::ActionParam:
+	ConceptParam | StringParam
+;
+
+ConceptParam returns events::ConceptParam:
+	{events::ConceptParam}
+	key=EString '<=' value=[events::Concept]
+;
+
+StringParam returns events::StringParam:
+	{events::StringParam}
+	key=EString '=' value=EString
 ;
 
 EString returns ecore::EString:

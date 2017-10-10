@@ -32,7 +32,7 @@ public class EcarulesTests extends TestSuite {
 	public static Test suite() {
 		TestSuite suite = new EcarulesTests("ecarules Tests");
 		suite.addTestSuite(DataConnectionTest.class);
-		suite.addTestSuite(ActionTest.class);
+		suite.addTestSuite(ActionExecutableExtensionTest.class);
 		return suite;
 	}
 

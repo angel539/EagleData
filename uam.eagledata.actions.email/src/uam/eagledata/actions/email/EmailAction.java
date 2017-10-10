@@ -5,12 +5,12 @@ import javax.mail.Session;
 
 import org.eclipse.emf.common.util.EList;
 
-import ecarules.Concept;
-import ecarules.impl.ExtensibleActionImpl;
+import ecarules.ActionParam;
+import ecarules.impl.ExtendedActionExecutableExtensionImpl;
 
-public class EmailAction extends ExtensibleActionImpl {
+public class EmailAction extends ExtendedActionExecutableExtensionImpl {
 	@Override
-	public boolean execute(EList<Concept> inputs) {
+	public boolean execute(EList<ActionParam> inputs) {
 		System.out.println("SimpleEmail Start");
 		
 	    String smtpHostServer = "smtp.gmail.com";

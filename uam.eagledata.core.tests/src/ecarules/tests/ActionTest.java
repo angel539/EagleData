@@ -13,12 +13,6 @@ import junit.textui.TestRunner;
  * <!-- begin-user-doc -->
  * A test case for the model object '<em><b>Action</b></em>'.
  * <!-- end-user-doc -->
- * <p>
- * The following operations are tested:
- * <ul>
- *   <li>{@link ecarules.Action#execute(org.eclipse.emf.common.util.EList) <em>Execute</em>}</li>
- * </ul>
- * </p>
  * @generated
  */
 public class ActionTest extends TestCase {
@@ -90,19 +84,6 @@ public class ActionTest extends TestCase {
 	@Override
 	protected void tearDown() throws Exception {
 		setFixture(null);
-	}
-
-	/**
-	 * Tests the '{@link ecarules.Action#execute(org.eclipse.emf.common.util.EList) <em>Execute</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see ecarules.Action#execute(org.eclipse.emf.common.util.EList)
-	 * @generated
-	 */
-	public void testExecute__EList() {
-		// TODO: implement this operation test method
-		// Ensure that you remove @generated or mark it @generated NOT
-		fail();
 	}
 
 } //ActionTest

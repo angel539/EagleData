@@ -79,14 +79,6 @@ public class EcarulesSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case EcarulesPackage.PATTERN_EVENT: {
-				PatternEvent patternEvent = (PatternEvent)theEObject;
-				T result = casePatternEvent(patternEvent);
-				if (result == null) result = caseEvent(patternEvent);
-				if (result == null) result = caseNamedElement(patternEvent);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case EcarulesPackage.CONCEPT: {
 				Concept concept = (Concept)theEObject;
 				T result = caseConcept(concept);
@@ -145,6 +137,32 @@ public class EcarulesSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case EcarulesPackage.ACTION_EXECUTABLE_EXTENSION: {
+				ActionExecutableExtension actionExecutableExtension = (ActionExecutableExtension)theEObject;
+				T result = caseActionExecutableExtension(actionExecutableExtension);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case EcarulesPackage.ACTION_PARAM: {
+				ActionParam actionParam = (ActionParam)theEObject;
+				T result = caseActionParam(actionParam);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case EcarulesPackage.CONCEPT_PARAM: {
+				ConceptParam conceptParam = (ConceptParam)theEObject;
+				T result = caseConceptParam(conceptParam);
+				if (result == null) result = caseActionParam(conceptParam);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case EcarulesPackage.STRING_PARAM: {
+				StringParam stringParam = (StringParam)theEObject;
+				T result = caseStringParam(stringParam);
+				if (result == null) result = caseActionParam(stringParam);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case EcarulesPackage.ACTION: {
 				Action action = (Action)theEObject;
 				T result = caseAction(action);
@@ -182,21 +200,6 @@ public class EcarulesSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseEvent(Event object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Pattern Event</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Pattern Event</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T casePatternEvent(PatternEvent object) {
 		return null;
 	}
 
@@ -332,6 +335,66 @@ public class EcarulesSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseLiteral(Literal object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Action Executable Extension</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Action Executable Extension</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseActionExecutableExtension(ActionExecutableExtension object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Action Param</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Action Param</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseActionParam(ActionParam object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Concept Param</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Concept Param</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseConceptParam(ConceptParam object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>String Param</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>String Param</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseStringParam(StringParam object) {
 		return null;
 	}
 

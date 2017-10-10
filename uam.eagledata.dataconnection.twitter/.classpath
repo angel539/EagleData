@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
+	<classpathentry exported="true" kind="lib" path="icons/"/>
 	<classpathentry exported="true" kind="lib" path="lib/bson-3.4.0-rc1.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/commons-codec-1.6.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/commons-lang3-3.5.jar"/>

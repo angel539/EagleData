@@ -56,109 +56,130 @@ public class EventSetManagerDslGrammarAccess extends AbstractGrammarElementFinde
 	}
 	public class EventElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "uam.eagledata.dsl.events.EventSetManagerDsl.Event");
-		private final RuleCall cPatternEventParserRuleCall = (RuleCall)rule.eContents().get(1);
-		
-		//Event events::Event:
-		//	PatternEvent
-		@Override public ParserRule getRule() { return rule; }
-		
-		//PatternEvent
-		public RuleCall getPatternEventParserRuleCall() { return cPatternEventParserRuleCall; }
-	}
-	public class PatternEventElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "uam.eagledata.dsl.events.EventSetManagerDsl.PatternEvent");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Action cPatternEventAction_0 = (Action)cGroup.eContents().get(0);
-		private final Keyword cPatternKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Assignment cNameAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cNameEStringParserRuleCall_2_0 = (RuleCall)cNameAssignment_2.eContents().get(0);
-		private final Keyword cLeftCurlyBracketKeyword_3 = (Keyword)cGroup.eContents().get(3);
-		private final Assignment cConceptsAssignment_4 = (Assignment)cGroup.eContents().get(4);
-		private final RuleCall cConceptsConceptParserRuleCall_4_0 = (RuleCall)cConceptsAssignment_4.eContents().get(0);
+		private final Action cEventAction_0 = (Action)cGroup.eContents().get(0);
+		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
+		private final Keyword cConnectionKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
+		private final Assignment cDataconnectionAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
+		private final RuleCall cDataconnectionEStringParserRuleCall_1_1_0 = (RuleCall)cDataconnectionAssignment_1_1.eContents().get(0);
+		private final Group cGroup_1_2 = (Group)cGroup_1.eContents().get(2);
+		private final Keyword cAndKeyword_1_2_0 = (Keyword)cGroup_1_2.eContents().get(0);
+		private final Assignment cDataconnectionAssignment_1_2_1 = (Assignment)cGroup_1_2.eContents().get(1);
+		private final RuleCall cDataconnectionEStringParserRuleCall_1_2_1_0 = (RuleCall)cDataconnectionAssignment_1_2_1.eContents().get(0);
+		private final Keyword cPatternKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cNameAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cNameEStringParserRuleCall_3_0 = (RuleCall)cNameAssignment_3.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		private final Assignment cConceptsAssignment_5 = (Assignment)cGroup.eContents().get(5);
 		private final RuleCall cConceptsConceptParserRuleCall_5_0 = (RuleCall)cConceptsAssignment_5.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_6 = (Keyword)cGroup.eContents().get(6);
-		private final Group cGroup_7 = (Group)cGroup.eContents().get(7);
-		private final Keyword cIfKeyword_7_0 = (Keyword)cGroup_7.eContents().get(0);
-		private final Assignment cWhenAssignment_7_1 = (Assignment)cGroup_7.eContents().get(1);
-		private final RuleCall cWhenConditionParserRuleCall_7_1_0 = (RuleCall)cWhenAssignment_7_1.eContents().get(0);
+		private final Assignment cConceptsAssignment_6 = (Assignment)cGroup.eContents().get(6);
+		private final RuleCall cConceptsConceptParserRuleCall_6_0 = (RuleCall)cConceptsAssignment_6.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_7 = (Keyword)cGroup.eContents().get(7);
 		private final Group cGroup_8 = (Group)cGroup.eContents().get(8);
-		private final Keyword cThenKeyword_8_0 = (Keyword)cGroup_8.eContents().get(0);
-		private final Assignment cTriggersAssignment_8_1 = (Assignment)cGroup_8.eContents().get(1);
-		private final RuleCall cTriggersEStringParserRuleCall_8_1_0 = (RuleCall)cTriggersAssignment_8_1.eContents().get(0);
-		private final Assignment cTriggersAssignment_8_2 = (Assignment)cGroup_8.eContents().get(2);
-		private final RuleCall cTriggersEStringParserRuleCall_8_2_0 = (RuleCall)cTriggersAssignment_8_2.eContents().get(0);
+		private final Keyword cIfKeyword_8_0 = (Keyword)cGroup_8.eContents().get(0);
+		private final Assignment cWhenAssignment_8_1 = (Assignment)cGroup_8.eContents().get(1);
+		private final RuleCall cWhenConditionParserRuleCall_8_1_0 = (RuleCall)cWhenAssignment_8_1.eContents().get(0);
+		private final Group cGroup_9 = (Group)cGroup.eContents().get(9);
+		private final Keyword cThenKeyword_9_0 = (Keyword)cGroup_9.eContents().get(0);
+		private final Assignment cTriggersAssignment_9_1 = (Assignment)cGroup_9.eContents().get(1);
+		private final RuleCall cTriggersActionParserRuleCall_9_1_0 = (RuleCall)cTriggersAssignment_9_1.eContents().get(0);
+		private final Assignment cTriggersAssignment_9_2 = (Assignment)cGroup_9.eContents().get(2);
+		private final RuleCall cTriggersActionParserRuleCall_9_2_0 = (RuleCall)cTriggersAssignment_9_2.eContents().get(0);
 		
-		//PatternEvent events::PatternEvent:
-		//	{events::PatternEvent}
+		//Event events::Event:
+		//	{events::Event} ('connection' dataconnection+=EString ('and' dataconnection+=EString)*)?
 		//	'pattern' name=EString '{'
 		//	concepts+=Concept concepts+=Concept*
-		//	'}' ('if' when=Condition)? ('then' triggers+=EString triggers+=EString*)
+		//	'}' ('if' when=Condition)? ('then' triggers+=Action triggers+=Action*)
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{events::PatternEvent} 'pattern' name=EString '{' concepts+=Concept concepts+=Concept* '}' ('if' when=Condition)?
-		//('then' triggers+=EString triggers+=EString*)
+		//{events::Event} ('connection' dataconnection+=EString ('and' dataconnection+=EString)*)? 'pattern' name=EString '{'
+		//concepts+=Concept concepts+=Concept* '}' ('if' when=Condition)? ('then' triggers+=Action triggers+=Action*)
 		public Group getGroup() { return cGroup; }
 		
-		//{events::PatternEvent}
-		public Action getPatternEventAction_0() { return cPatternEventAction_0; }
+		//{events::Event}
+		public Action getEventAction_0() { return cEventAction_0; }
 		
-		//'pattern'
-		public Keyword getPatternKeyword_1() { return cPatternKeyword_1; }
+		//('connection' dataconnection+=EString ('and' dataconnection+=EString)*)?
+		public Group getGroup_1() { return cGroup_1; }
 		
-		//name=EString
-		public Assignment getNameAssignment_2() { return cNameAssignment_2; }
+		//'connection'
+		public Keyword getConnectionKeyword_1_0() { return cConnectionKeyword_1_0; }
+		
+		//dataconnection+=EString
+		public Assignment getDataconnectionAssignment_1_1() { return cDataconnectionAssignment_1_1; }
 		
 		//EString
-		public RuleCall getNameEStringParserRuleCall_2_0() { return cNameEStringParserRuleCall_2_0; }
+		public RuleCall getDataconnectionEStringParserRuleCall_1_1_0() { return cDataconnectionEStringParserRuleCall_1_1_0; }
+		
+		//('and' dataconnection+=EString)*
+		public Group getGroup_1_2() { return cGroup_1_2; }
+		
+		//'and'
+		public Keyword getAndKeyword_1_2_0() { return cAndKeyword_1_2_0; }
+		
+		//dataconnection+=EString
+		public Assignment getDataconnectionAssignment_1_2_1() { return cDataconnectionAssignment_1_2_1; }
+		
+		//EString
+		public RuleCall getDataconnectionEStringParserRuleCall_1_2_1_0() { return cDataconnectionEStringParserRuleCall_1_2_1_0; }
+		
+		//'pattern'
+		public Keyword getPatternKeyword_2() { return cPatternKeyword_2; }
+		
+		//name=EString
+		public Assignment getNameAssignment_3() { return cNameAssignment_3; }
+		
+		//EString
+		public RuleCall getNameEStringParserRuleCall_3_0() { return cNameEStringParserRuleCall_3_0; }
 		
 		//'{'
-		public Keyword getLeftCurlyBracketKeyword_3() { return cLeftCurlyBracketKeyword_3; }
+		public Keyword getLeftCurlyBracketKeyword_4() { return cLeftCurlyBracketKeyword_4; }
 		
 		//concepts+=Concept
-		public Assignment getConceptsAssignment_4() { return cConceptsAssignment_4; }
-		
-		//Concept
-		public RuleCall getConceptsConceptParserRuleCall_4_0() { return cConceptsConceptParserRuleCall_4_0; }
-		
-		//concepts+=Concept*
 		public Assignment getConceptsAssignment_5() { return cConceptsAssignment_5; }
 		
 		//Concept
 		public RuleCall getConceptsConceptParserRuleCall_5_0() { return cConceptsConceptParserRuleCall_5_0; }
 		
+		//concepts+=Concept*
+		public Assignment getConceptsAssignment_6() { return cConceptsAssignment_6; }
+		
+		//Concept
+		public RuleCall getConceptsConceptParserRuleCall_6_0() { return cConceptsConceptParserRuleCall_6_0; }
+		
 		//'}'
-		public Keyword getRightCurlyBracketKeyword_6() { return cRightCurlyBracketKeyword_6; }
+		public Keyword getRightCurlyBracketKeyword_7() { return cRightCurlyBracketKeyword_7; }
 		
 		//('if' when=Condition)?
-		public Group getGroup_7() { return cGroup_7; }
-		
-		//'if'
-		public Keyword getIfKeyword_7_0() { return cIfKeyword_7_0; }
-		
-		//when=Condition
-		public Assignment getWhenAssignment_7_1() { return cWhenAssignment_7_1; }
-		
-		//Condition
-		public RuleCall getWhenConditionParserRuleCall_7_1_0() { return cWhenConditionParserRuleCall_7_1_0; }
-		
-		//('then' triggers+=EString triggers+=EString*)
 		public Group getGroup_8() { return cGroup_8; }
 		
+		//'if'
+		public Keyword getIfKeyword_8_0() { return cIfKeyword_8_0; }
+		
+		//when=Condition
+		public Assignment getWhenAssignment_8_1() { return cWhenAssignment_8_1; }
+		
+		//Condition
+		public RuleCall getWhenConditionParserRuleCall_8_1_0() { return cWhenConditionParserRuleCall_8_1_0; }
+		
+		//('then' triggers+=Action triggers+=Action*)
+		public Group getGroup_9() { return cGroup_9; }
+		
 		//'then'
-		public Keyword getThenKeyword_8_0() { return cThenKeyword_8_0; }
+		public Keyword getThenKeyword_9_0() { return cThenKeyword_9_0; }
 		
-		//triggers+=EString
-		public Assignment getTriggersAssignment_8_1() { return cTriggersAssignment_8_1; }
+		//triggers+=Action
+		public Assignment getTriggersAssignment_9_1() { return cTriggersAssignment_9_1; }
 		
-		//EString
-		public RuleCall getTriggersEStringParserRuleCall_8_1_0() { return cTriggersEStringParserRuleCall_8_1_0; }
+		//Action
+		public RuleCall getTriggersActionParserRuleCall_9_1_0() { return cTriggersActionParserRuleCall_9_1_0; }
 		
-		//triggers+=EString*
-		public Assignment getTriggersAssignment_8_2() { return cTriggersAssignment_8_2; }
+		//triggers+=Action*
+		public Assignment getTriggersAssignment_9_2() { return cTriggersAssignment_9_2; }
 		
-		//EString
-		public RuleCall getTriggersEStringParserRuleCall_8_2_0() { return cTriggersEStringParserRuleCall_8_2_0; }
+		//Action
+		public RuleCall getTriggersActionParserRuleCall_9_2_0() { return cTriggersActionParserRuleCall_9_2_0; }
 	}
 	public class ConditionElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "uam.eagledata.dsl.events.EventSetManagerDsl.Condition");
@@ -185,15 +206,15 @@ public class EventSetManagerDslGrammarAccess extends AbstractGrammarElementFinde
 		private final Assignment cLeftAssignment_0 = (Assignment)cGroup.eContents().get(0);
 		private final CrossReference cLeftConceptCrossReference_0_0 = (CrossReference)cLeftAssignment_0.eContents().get(0);
 		private final RuleCall cLeftConceptEStringParserRuleCall_0_0_1 = (RuleCall)cLeftConceptCrossReference_0_0.eContents().get(1);
-		private final Keyword cSpaceEqualsSignSpaceKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Keyword cEqualsSignKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Assignment cRightAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final RuleCall cRightLiteralParserRuleCall_2_0 = (RuleCall)cRightAssignment_2.eContents().get(0);
 		
 		//BinaryExpression events::BinaryExpression:
-		//	left=[events::Concept|EString] ' = ' right=Literal
+		//	left=[events::Concept|EString] '=' right=Literal
 		@Override public ParserRule getRule() { return rule; }
 		
-		//left=[events::Concept|EString] ' = ' right=Literal
+		//left=[events::Concept|EString] '=' right=Literal
 		public Group getGroup() { return cGroup; }
 		
 		//left=[events::Concept|EString]
@@ -205,8 +226,8 @@ public class EventSetManagerDslGrammarAccess extends AbstractGrammarElementFinde
 		//EString
 		public RuleCall getLeftConceptEStringParserRuleCall_0_0_1() { return cLeftConceptEStringParserRuleCall_0_0_1; }
 		
-		//' = '
-		public Keyword getSpaceEqualsSignSpaceKeyword_1() { return cSpaceEqualsSignSpaceKeyword_1; }
+		//'='
+		public Keyword getEqualsSignKeyword_1() { return cEqualsSignKeyword_1; }
 		
 		//right=Literal
 		public Assignment getRightAssignment_2() { return cRightAssignment_2; }
@@ -341,24 +362,153 @@ public class EventSetManagerDslGrammarAccess extends AbstractGrammarElementFinde
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "uam.eagledata.dsl.events.EventSetManagerDsl.Action");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Action cActionAction_0 = (Action)cGroup.eContents().get(0);
-		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cNameEStringParserRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		private final Assignment cCallsAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cCallsEStringParserRuleCall_1_0 = (RuleCall)cCallsAssignment_1.eContents().get(0);
+		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
+		private final Keyword cLeftParenthesisKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
+		private final Assignment cParamsAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
+		private final RuleCall cParamsActionParamParserRuleCall_2_1_0 = (RuleCall)cParamsAssignment_2_1.eContents().get(0);
+		private final Group cGroup_2_2 = (Group)cGroup_2.eContents().get(2);
+		private final Keyword cCommaKeyword_2_2_0 = (Keyword)cGroup_2_2.eContents().get(0);
+		private final Assignment cParamsAssignment_2_2_1 = (Assignment)cGroup_2_2.eContents().get(1);
+		private final RuleCall cParamsActionParamParserRuleCall_2_2_1_0 = (RuleCall)cParamsAssignment_2_2_1.eContents().get(0);
+		private final Keyword cRightParenthesisKeyword_2_3 = (Keyword)cGroup_2.eContents().get(3);
 		
 		//Action events::Action:
-		//	{events::Action} name=EString
+		//	{events::Action} calls=EString ('(' params+=ActionParam (',' params+=ActionParam)* ')')?
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{events::Action} name=EString
+		//{events::Action} calls=EString ('(' params+=ActionParam (',' params+=ActionParam)* ')')?
 		public Group getGroup() { return cGroup; }
 		
 		//{events::Action}
 		public Action getActionAction_0() { return cActionAction_0; }
 		
-		//name=EString
-		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
+		//calls=EString
+		public Assignment getCallsAssignment_1() { return cCallsAssignment_1; }
 		
 		//EString
-		public RuleCall getNameEStringParserRuleCall_1_0() { return cNameEStringParserRuleCall_1_0; }
+		public RuleCall getCallsEStringParserRuleCall_1_0() { return cCallsEStringParserRuleCall_1_0; }
+		
+		//('(' params+=ActionParam (',' params+=ActionParam)* ')')?
+		public Group getGroup_2() { return cGroup_2; }
+		
+		//'('
+		public Keyword getLeftParenthesisKeyword_2_0() { return cLeftParenthesisKeyword_2_0; }
+		
+		//params+=ActionParam
+		public Assignment getParamsAssignment_2_1() { return cParamsAssignment_2_1; }
+		
+		//ActionParam
+		public RuleCall getParamsActionParamParserRuleCall_2_1_0() { return cParamsActionParamParserRuleCall_2_1_0; }
+		
+		//(',' params+=ActionParam)*
+		public Group getGroup_2_2() { return cGroup_2_2; }
+		
+		//','
+		public Keyword getCommaKeyword_2_2_0() { return cCommaKeyword_2_2_0; }
+		
+		//params+=ActionParam
+		public Assignment getParamsAssignment_2_2_1() { return cParamsAssignment_2_2_1; }
+		
+		//ActionParam
+		public RuleCall getParamsActionParamParserRuleCall_2_2_1_0() { return cParamsActionParamParserRuleCall_2_2_1_0; }
+		
+		//')'
+		public Keyword getRightParenthesisKeyword_2_3() { return cRightParenthesisKeyword_2_3; }
+	}
+	public class ActionParamElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "uam.eagledata.dsl.events.EventSetManagerDsl.ActionParam");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final RuleCall cConceptParamParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cStringParamParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		
+		//ActionParam events::ActionParam:
+		//	ConceptParam | StringParam
+		@Override public ParserRule getRule() { return rule; }
+		
+		//ConceptParam | StringParam
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//ConceptParam
+		public RuleCall getConceptParamParserRuleCall_0() { return cConceptParamParserRuleCall_0; }
+		
+		//StringParam
+		public RuleCall getStringParamParserRuleCall_1() { return cStringParamParserRuleCall_1; }
+	}
+	public class ConceptParamElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "uam.eagledata.dsl.events.EventSetManagerDsl.ConceptParam");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cConceptParamAction_0 = (Action)cGroup.eContents().get(0);
+		private final Assignment cKeyAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cKeyEStringParserRuleCall_1_0 = (RuleCall)cKeyAssignment_1.eContents().get(0);
+		private final Keyword cLessThanSignEqualsSignKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cValueAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final CrossReference cValueConceptCrossReference_3_0 = (CrossReference)cValueAssignment_3.eContents().get(0);
+		private final RuleCall cValueConceptIDTerminalRuleCall_3_0_1 = (RuleCall)cValueConceptCrossReference_3_0.eContents().get(1);
+		
+		//ConceptParam events::ConceptParam:
+		//	{events::ConceptParam} key=EString '<=' value=[events::Concept]
+		@Override public ParserRule getRule() { return rule; }
+		
+		//{events::ConceptParam} key=EString '<=' value=[events::Concept]
+		public Group getGroup() { return cGroup; }
+		
+		//{events::ConceptParam}
+		public Action getConceptParamAction_0() { return cConceptParamAction_0; }
+		
+		//key=EString
+		public Assignment getKeyAssignment_1() { return cKeyAssignment_1; }
+		
+		//EString
+		public RuleCall getKeyEStringParserRuleCall_1_0() { return cKeyEStringParserRuleCall_1_0; }
+		
+		//'<='
+		public Keyword getLessThanSignEqualsSignKeyword_2() { return cLessThanSignEqualsSignKeyword_2; }
+		
+		//value=[events::Concept]
+		public Assignment getValueAssignment_3() { return cValueAssignment_3; }
+		
+		//[events::Concept]
+		public CrossReference getValueConceptCrossReference_3_0() { return cValueConceptCrossReference_3_0; }
+		
+		//ID
+		public RuleCall getValueConceptIDTerminalRuleCall_3_0_1() { return cValueConceptIDTerminalRuleCall_3_0_1; }
+	}
+	public class StringParamElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "uam.eagledata.dsl.events.EventSetManagerDsl.StringParam");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cStringParamAction_0 = (Action)cGroup.eContents().get(0);
+		private final Assignment cKeyAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cKeyEStringParserRuleCall_1_0 = (RuleCall)cKeyAssignment_1.eContents().get(0);
+		private final Keyword cEqualsSignKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cValueAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cValueEStringParserRuleCall_3_0 = (RuleCall)cValueAssignment_3.eContents().get(0);
+		
+		//StringParam events::StringParam:
+		//	{events::StringParam} key=EString '=' value=EString
+		@Override public ParserRule getRule() { return rule; }
+		
+		//{events::StringParam} key=EString '=' value=EString
+		public Group getGroup() { return cGroup; }
+		
+		//{events::StringParam}
+		public Action getStringParamAction_0() { return cStringParamAction_0; }
+		
+		//key=EString
+		public Assignment getKeyAssignment_1() { return cKeyAssignment_1; }
+		
+		//EString
+		public RuleCall getKeyEStringParserRuleCall_1_0() { return cKeyEStringParserRuleCall_1_0; }
+		
+		//'='
+		public Keyword getEqualsSignKeyword_2() { return cEqualsSignKeyword_2; }
+		
+		//value=EString
+		public Assignment getValueAssignment_3() { return cValueAssignment_3; }
+		
+		//EString
+		public RuleCall getValueEStringParserRuleCall_3_0() { return cValueEStringParserRuleCall_3_0; }
 	}
 	public class EStringElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "uam.eagledata.dsl.events.EventSetManagerDsl.EString");
@@ -434,7 +584,6 @@ public class EventSetManagerDslGrammarAccess extends AbstractGrammarElementFinde
 	
 	private final EventSetManagerElements pEventSetManager;
 	private final EventElements pEvent;
-	private final PatternEventElements pPatternEvent;
 	private final ConditionElements pCondition;
 	private final BinaryExpressionElements pBinaryExpression;
 	private final LiteralElements pLiteral;
@@ -444,6 +593,9 @@ public class EventSetManagerDslGrammarAccess extends AbstractGrammarElementFinde
 	private final KeyConceptElements pKeyConcept;
 	private final RegexConceptElements pRegexConcept;
 	private final ActionElements pAction;
+	private final ActionParamElements pActionParam;
+	private final ConceptParamElements pConceptParam;
+	private final StringParamElements pStringParam;
 	private final EStringElements pEString;
 	private final TypeElements eType;
 	
@@ -458,7 +610,6 @@ public class EventSetManagerDslGrammarAccess extends AbstractGrammarElementFinde
 		this.gaTerminals = gaTerminals;
 		this.pEventSetManager = new EventSetManagerElements();
 		this.pEvent = new EventElements();
-		this.pPatternEvent = new PatternEventElements();
 		this.pCondition = new ConditionElements();
 		this.pBinaryExpression = new BinaryExpressionElements();
 		this.pLiteral = new LiteralElements();
@@ -468,6 +619,9 @@ public class EventSetManagerDslGrammarAccess extends AbstractGrammarElementFinde
 		this.pKeyConcept = new KeyConceptElements();
 		this.pRegexConcept = new RegexConceptElements();
 		this.pAction = new ActionElements();
+		this.pActionParam = new ActionParamElements();
+		this.pConceptParam = new ConceptParamElements();
+		this.pStringParam = new StringParamElements();
 		this.pEString = new EStringElements();
 		this.eType = new TypeElements();
 	}
@@ -510,26 +664,16 @@ public class EventSetManagerDslGrammarAccess extends AbstractGrammarElementFinde
 	}
 	
 	//Event events::Event:
-	//	PatternEvent
+	//	{events::Event} ('connection' dataconnection+=EString ('and' dataconnection+=EString)*)?
+	//	'pattern' name=EString '{'
+	//	concepts+=Concept concepts+=Concept*
+	//	'}' ('if' when=Condition)? ('then' triggers+=Action triggers+=Action*)
 	public EventElements getEventAccess() {
 		return pEvent;
 	}
 	
 	public ParserRule getEventRule() {
 		return getEventAccess().getRule();
-	}
-	
-	//PatternEvent events::PatternEvent:
-	//	{events::PatternEvent}
-	//	'pattern' name=EString '{'
-	//	concepts+=Concept concepts+=Concept*
-	//	'}' ('if' when=Condition)? ('then' triggers+=EString triggers+=EString*)
-	public PatternEventElements getPatternEventAccess() {
-		return pPatternEvent;
-	}
-	
-	public ParserRule getPatternEventRule() {
-		return getPatternEventAccess().getRule();
 	}
 	
 	//Condition events::Condition:
@@ -543,7 +687,7 @@ public class EventSetManagerDslGrammarAccess extends AbstractGrammarElementFinde
 	}
 	
 	//BinaryExpression events::BinaryExpression:
-	//	left=[events::Concept|EString] ' = ' right=Literal
+	//	left=[events::Concept|EString] '=' right=Literal
 	public BinaryExpressionElements getBinaryExpressionAccess() {
 		return pBinaryExpression;
 	}
@@ -609,13 +753,43 @@ public class EventSetManagerDslGrammarAccess extends AbstractGrammarElementFinde
 	}
 	
 	//Action events::Action:
-	//	{events::Action} name=EString
+	//	{events::Action} calls=EString ('(' params+=ActionParam (',' params+=ActionParam)* ')')?
 	public ActionElements getActionAccess() {
 		return pAction;
 	}
 	
 	public ParserRule getActionRule() {
 		return getActionAccess().getRule();
+	}
+	
+	//ActionParam events::ActionParam:
+	//	ConceptParam | StringParam
+	public ActionParamElements getActionParamAccess() {
+		return pActionParam;
+	}
+	
+	public ParserRule getActionParamRule() {
+		return getActionParamAccess().getRule();
+	}
+	
+	//ConceptParam events::ConceptParam:
+	//	{events::ConceptParam} key=EString '<=' value=[events::Concept]
+	public ConceptParamElements getConceptParamAccess() {
+		return pConceptParam;
+	}
+	
+	public ParserRule getConceptParamRule() {
+		return getConceptParamAccess().getRule();
+	}
+	
+	//StringParam events::StringParam:
+	//	{events::StringParam} key=EString '=' value=EString
+	public StringParamElements getStringParamAccess() {
+		return pStringParam;
+	}
+	
+	public ParserRule getStringParamRule() {
+		return getStringParamAccess().getRule();
 	}
 	
 	//EString:

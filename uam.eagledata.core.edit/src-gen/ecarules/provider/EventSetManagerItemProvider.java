@@ -177,12 +177,12 @@ public class EventSetManagerItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(EcarulesPackage.Literals.EVENT_SET_MANAGER__EVENTS,
-				 EcarulesFactory.eINSTANCE.createPatternEvent()));
+				 EcarulesFactory.eINSTANCE.createEvent()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(EcarulesPackage.Literals.EVENT_SET_MANAGER__ACTIONS,
-				 EcarulesFactory.eINSTANCE.createAction()));
+				 EcarulesFactory.eINSTANCE.createActionExecutableExtension()));
 	}
 
 	/**

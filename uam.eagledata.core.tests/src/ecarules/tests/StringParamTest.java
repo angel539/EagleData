@@ -3,17 +3,17 @@
 package ecarules.tests;
 
 import ecarules.EcarulesFactory;
-import ecarules.PatternEvent;
+import ecarules.StringParam;
 
 import junit.textui.TestRunner;
 
 /**
  * <!-- begin-user-doc -->
- * A test case for the model object '<em><b>Pattern Event</b></em>'.
+ * A test case for the model object '<em><b>String Param</b></em>'.
  * <!-- end-user-doc -->
  * @generated
  */
-public class PatternEventTest extends EventTest {
+public class StringParamTest extends ActionParamTest {
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -21,28 +21,28 @@ public class PatternEventTest extends EventTest {
 	 * @generated
 	 */
 	public static void main(String[] args) {
-		TestRunner.run(PatternEventTest.class);
+		TestRunner.run(StringParamTest.class);
 	}
 
 	/**
-	 * Constructs a new Pattern Event test case with the given name.
+	 * Constructs a new String Param test case with the given name.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public PatternEventTest(String name) {
+	public StringParamTest(String name) {
 		super(name);
 	}
 
 	/**
-	 * Returns the fixture for this Pattern Event test case.
+	 * Returns the fixture for this String Param test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	protected PatternEvent getFixture() {
-		return (PatternEvent)fixture;
+	protected StringParam getFixture() {
+		return (StringParam)fixture;
 	}
 
 	/**
@@ -53,7 +53,7 @@ public class PatternEventTest extends EventTest {
 	 */
 	@Override
 	protected void setUp() throws Exception {
-		setFixture(EcarulesFactory.eINSTANCE.createPatternEvent());
+		setFixture(EcarulesFactory.eINSTANCE.createStringParam());
 	}
 
 	/**
@@ -67,4 +67,4 @@ public class PatternEventTest extends EventTest {
 		setFixture(null);
 	}
 
-} //PatternEventTest
+} //StringParamTest

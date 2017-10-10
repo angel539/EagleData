@@ -23,10 +23,9 @@
     </genClasses>
     <genClasses ecoreClass="ecarules.ecore#//Event">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ecarules.ecore#//Event/when"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EAttribute ecarules.ecore#//Event/triggers"/>
-    </genClasses>
-    <genClasses ecoreClass="ecarules.ecore#//PatternEvent">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ecarules.ecore#//PatternEvent/concepts"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ecarules.ecore#//Event/triggers"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ecarules.ecore#//Event/dataconnection"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ecarules.ecore#//Event/concepts"/>
     </genClasses>
     <genClasses image="false" ecoreClass="ecarules.ecore#//Concept">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ecarules.ecore#//Concept/name"/>
@@ -61,12 +60,25 @@
     <genClasses ecoreClass="ecarules.ecore#//Literal">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ecarules.ecore#//Literal/value"/>
     </genClasses>
-    <genClasses ecoreClass="ecarules.ecore#//Action">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ecarules.ecore#//Action/name"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ecarules.ecore#//Action/id"/>
-      <genOperations ecoreOperation="ecarules.ecore#//Action/execute">
-        <genParameters ecoreParameter="ecarules.ecore#//Action/execute/inputs"/>
+    <genClasses ecoreClass="ecarules.ecore#//ActionExecutableExtension">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ecarules.ecore#//ActionExecutableExtension/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ecarules.ecore#//ActionExecutableExtension/id"/>
+      <genOperations ecoreOperation="ecarules.ecore#//ActionExecutableExtension/execute">
+        <genParameters ecoreParameter="ecarules.ecore#//ActionExecutableExtension/execute/inputs"/>
       </genOperations>
+    </genClasses>
+    <genClasses image="false" ecoreClass="ecarules.ecore#//ActionParam">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ecarules.ecore#//ActionParam/key"/>
+    </genClasses>
+    <genClasses ecoreClass="ecarules.ecore#//ConceptParam">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ecarules.ecore#//ConceptParam/value"/>
+    </genClasses>
+    <genClasses ecoreClass="ecarules.ecore#//StringParam">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ecarules.ecore#//StringParam/value"/>
+    </genClasses>
+    <genClasses ecoreClass="ecarules.ecore#//Action">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ecarules.ecore#//Action/params"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EAttribute ecarules.ecore#//Action/calls"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

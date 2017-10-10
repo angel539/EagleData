@@ -95,26 +95,26 @@ public class EcarulesItemProviderAdapterFactory extends EcarulesAdapterFactory i
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link ecarules.PatternEvent} instances.
+	 * This keeps track of the one adapter used for all {@link ecarules.Event} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected PatternEventItemProvider patternEventItemProvider;
+	protected EventItemProvider eventItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link ecarules.PatternEvent}.
+	 * This creates an adapter for a {@link ecarules.Event}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createPatternEventAdapter() {
-		if (patternEventItemProvider == null) {
-			patternEventItemProvider = new PatternEventItemProvider(this);
+	public Adapter createEventAdapter() {
+		if (eventItemProvider == null) {
+			eventItemProvider = new EventItemProvider(this);
 		}
 
-		return patternEventItemProvider;
+		return eventItemProvider;
 	}
 
 	/**
@@ -256,6 +256,75 @@ public class EcarulesItemProviderAdapterFactory extends EcarulesAdapterFactory i
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link ecarules.ActionExecutableExtension} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ActionExecutableExtensionItemProvider actionExecutableExtensionItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link ecarules.ActionExecutableExtension}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createActionExecutableExtensionAdapter() {
+		if (actionExecutableExtensionItemProvider == null) {
+			actionExecutableExtensionItemProvider = new ActionExecutableExtensionItemProvider(this);
+		}
+
+		return actionExecutableExtensionItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link ecarules.ConceptParam} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ConceptParamItemProvider conceptParamItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link ecarules.ConceptParam}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createConceptParamAdapter() {
+		if (conceptParamItemProvider == null) {
+			conceptParamItemProvider = new ConceptParamItemProvider(this);
+		}
+
+		return conceptParamItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link ecarules.StringParam} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected StringParamItemProvider stringParamItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link ecarules.StringParam}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createStringParamAdapter() {
+		if (stringParamItemProvider == null) {
+			stringParamItemProvider = new StringParamItemProvider(this);
+		}
+
+		return stringParamItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link ecarules.Action} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -378,13 +447,16 @@ public class EcarulesItemProviderAdapterFactory extends EcarulesAdapterFactory i
 	 */
 	public void dispose() {
 		if (eventSetManagerItemProvider != null) eventSetManagerItemProvider.dispose();
-		if (patternEventItemProvider != null) patternEventItemProvider.dispose();
+		if (eventItemProvider != null) eventItemProvider.dispose();
 		if (keyConceptItemProvider != null) keyConceptItemProvider.dispose();
 		if (regexConceptItemProvider != null) regexConceptItemProvider.dispose();
 		if (dataConnectionItemProvider != null) dataConnectionItemProvider.dispose();
 		if (binaryExpressionItemProvider != null) binaryExpressionItemProvider.dispose();
 		if (booleanExpressionItemProvider != null) booleanExpressionItemProvider.dispose();
 		if (literalItemProvider != null) literalItemProvider.dispose();
+		if (actionExecutableExtensionItemProvider != null) actionExecutableExtensionItemProvider.dispose();
+		if (conceptParamItemProvider != null) conceptParamItemProvider.dispose();
+		if (stringParamItemProvider != null) stringParamItemProvider.dispose();
 		if (actionItemProvider != null) actionItemProvider.dispose();
 	}
 

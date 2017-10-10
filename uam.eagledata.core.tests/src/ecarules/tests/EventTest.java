@@ -2,7 +2,9 @@
  */
 package ecarules.tests;
 
+import ecarules.EcarulesFactory;
 import ecarules.Event;
+import junit.textui.TestRunner;
 
 /**
  * <!-- begin-user-doc -->
@@ -10,7 +12,16 @@ import ecarules.Event;
  * <!-- end-user-doc -->
  * @generated
  */
-public abstract class EventTest extends NamedElementTest {
+public class EventTest extends NamedElementTest {
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static void main(String[] args) {
+		TestRunner.run(EventTest.class);
+	}
 
 	/**
 	 * Constructs a new Event test case with the given name.
@@ -31,6 +42,28 @@ public abstract class EventTest extends NamedElementTest {
 	@Override
 	protected Event getFixture() {
 		return (Event)fixture;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see junit.framework.TestCase#setUp()
+	 * @generated
+	 */
+	@Override
+	protected void setUp() throws Exception {
+		setFixture(EcarulesFactory.eINSTANCE.createEvent());
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see junit.framework.TestCase#tearDown()
+	 * @generated
+	 */
+	@Override
+	protected void tearDown() throws Exception {
+		setFixture(null);
 	}
 
 } //EventTest

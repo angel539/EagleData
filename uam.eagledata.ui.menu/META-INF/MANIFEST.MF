@@ -9,7 +9,8 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.ui.workbench,
  org.eclipse.ui.console,
  uam.eagledata.core;bundle-version="1.0.0",
- uam.eagledata.extensions;bundle-version="1.0.0"
+ uam.eagledata.extensions;bundle-version="1.0.0",
+ org.eclipse.equinox.registry
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-ActivationPolicy: lazy
 Bundle-ClassPath: icons/,

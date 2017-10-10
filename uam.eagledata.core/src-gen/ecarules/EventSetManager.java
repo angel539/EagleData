@@ -59,19 +59,19 @@ public interface EventSetManager extends PersistentEObject {
 	EList<DataConnection> getDataconnections();
 
 	/**
-	 * Returns the value of the '<em><b>Actions</b></em>' containment reference list.
-	 * The list contents are of type {@link ecarules.Action}.
+	 * Returns the value of the '<em><b>Actions</b></em>' reference list.
+	 * The list contents are of type {@link ecarules.ActionExecutableExtension}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Actions</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Actions</em>' containment reference list.
+	 * @return the value of the '<em>Actions</em>' reference list.
 	 * @see ecarules.EcarulesPackage#getEventSetManager_Actions()
-	 * @model containment="true"
+	 * @model
 	 * @generated
 	 */
-	EList<Action> getActions();
+	EList<ActionExecutableExtension> getActions();
 
 } // EventSetManager

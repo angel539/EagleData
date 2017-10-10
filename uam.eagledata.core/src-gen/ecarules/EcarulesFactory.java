@@ -31,13 +31,13 @@ public interface EcarulesFactory extends EFactory {
 	EventSetManager createEventSetManager();
 
 	/**
-	 * Returns a new object of class '<em>Pattern Event</em>'.
+	 * Returns a new object of class '<em>Event</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Pattern Event</em>'.
+	 * @return a new object of class '<em>Event</em>'.
 	 * @generated
 	 */
-	PatternEvent createPatternEvent();
+	Event createEvent();
 
 	/**
 	 * Returns a new object of class '<em>Key Concept</em>'.
@@ -92,6 +92,33 @@ public interface EcarulesFactory extends EFactory {
 	 * @generated
 	 */
 	Literal createLiteral();
+
+	/**
+	 * Returns a new object of class '<em>Action Executable Extension</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Action Executable Extension</em>'.
+	 * @generated
+	 */
+	ActionExecutableExtension createActionExecutableExtension();
+
+	/**
+	 * Returns a new object of class '<em>Concept Param</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Concept Param</em>'.
+	 * @generated
+	 */
+	ConceptParam createConceptParam();
+
+	/**
+	 * Returns a new object of class '<em>String Param</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>String Param</em>'.
+	 * @generated
+	 */
+	StringParam createStringParam();
 
 	/**
 	 * Returns a new object of class '<em>Action</em>'.

@@ -22,10 +22,10 @@ import org.osgi.framework.FrameworkUtil;
 
 import com.google.inject.Inject;
 
-import ecarules.Action;
+import ecarules.ActionExecutableExtension;
 import ecarules.DataConnection;
 import ecarules.EventSetManager;
-import ecarules.ExtensibleAction;
+import ecarules.ExtendedActionExecutableExtension;
 import ecarules.ExtensibleDataConnection;
 
 public class EventSetControlManager{
@@ -92,14 +92,14 @@ public class EventSetControlManager{
 		return false;
 	}
 	
-	public List<Action> getActions() {
+	public List<ActionExecutableExtension> getActions() {
 		IExtensionRegistry registry = Platform.getExtensionRegistry();
 		IConfigurationElement[] extensions = registry.getConfigurationElementsFor(ACTION_EXTENSIONS_ID);
 		
 		for(IConfigurationElement extension : extensions){
 			if(! dataConnectionIsOnTheList(extension.getAttribute("id"))){
 				if(extension.getName().compareTo("action") == 0){
-					ExtensibleAction action;
+					ExtendedActionExecutableExtension action;
 					
 					Bundle bundle = null;
 					IContributor contributor = extension.getContributor();
@@ -114,11 +114,11 @@ public class EventSetControlManager{
 					}
 					
 					try{
-						if(extension.createExecutableExtension("class") instanceof ExtensibleAction){
-							action = (ExtensibleAction) extension.createExecutableExtension("class");
+						if(extension.createExecutableExtension("class") instanceof ExtendedActionExecutableExtension){
+							action = (ExtendedActionExecutableExtension) extension.createExecutableExtension("class");
 							
-							((ExtensibleAction) action).setId(extension.getAttribute("id"));
-							((ExtensibleAction) action).setName(extension.getAttribute("name"));
+							((ExtendedActionExecutableExtension) action).setId(extension.getAttribute("id"));
+							((ExtendedActionExecutableExtension) action).setName(extension.getAttribute("name"));
 							
 							getEventSetManager().getActions().add(action);
 						}
@@ -134,14 +134,14 @@ public class EventSetControlManager{
 	}
 	
 	private boolean actionIsOnTheList(String attribute) {
-		List<Action> actions = getEventSetManager().getActions();
+		List<ActionExecutableExtension> actions = getEventSetManager().getActions();
 		
 		if(actions == null)
 			return false;
 		
-		for(Action action : actions){
-			if(action instanceof Action){
-				if(((Action) action).getId().compareTo(attribute) == 0) 
+		for(ActionExecutableExtension action : actions){
+			if(action instanceof ActionExecutableExtension){
+				if(((ActionExecutableExtension) action).getId().compareTo(attribute) == 0) 
 					return true;
 			}
 		}

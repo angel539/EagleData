@@ -5,6 +5,7 @@
          point="eagledata.core.extensions.dataconnection">
       <connection
             class="uam.eagledata.dataconnection.telegram.TelegramConnection"
+            icon16="icons/telegram.png"
             id="eagledata.dataconnection.telegram"
             name="TelegramConnection">
       </connection>

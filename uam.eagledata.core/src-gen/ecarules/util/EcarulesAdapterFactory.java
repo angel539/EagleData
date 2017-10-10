@@ -76,10 +76,6 @@ public class EcarulesAdapterFactory extends AdapterFactoryImpl {
 				return createEventAdapter();
 			}
 			@Override
-			public Adapter casePatternEvent(PatternEvent object) {
-				return createPatternEventAdapter();
-			}
-			@Override
 			public Adapter caseConcept(Concept object) {
 				return createConceptAdapter();
 			}
@@ -114,6 +110,22 @@ public class EcarulesAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseLiteral(Literal object) {
 				return createLiteralAdapter();
+			}
+			@Override
+			public Adapter caseActionExecutableExtension(ActionExecutableExtension object) {
+				return createActionExecutableExtensionAdapter();
+			}
+			@Override
+			public Adapter caseActionParam(ActionParam object) {
+				return createActionParamAdapter();
+			}
+			@Override
+			public Adapter caseConceptParam(ConceptParam object) {
+				return createConceptParamAdapter();
+			}
+			@Override
+			public Adapter caseStringParam(StringParam object) {
+				return createStringParamAdapter();
 			}
 			@Override
 			public Adapter caseAction(Action object) {
@@ -164,20 +176,6 @@ public class EcarulesAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createEventAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link ecarules.PatternEvent <em>Pattern Event</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see ecarules.PatternEvent
-	 * @generated
-	 */
-	public Adapter createPatternEventAdapter() {
 		return null;
 	}
 
@@ -304,6 +302,62 @@ public class EcarulesAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createLiteralAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link ecarules.ActionExecutableExtension <em>Action Executable Extension</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see ecarules.ActionExecutableExtension
+	 * @generated
+	 */
+	public Adapter createActionExecutableExtensionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link ecarules.ActionParam <em>Action Param</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see ecarules.ActionParam
+	 * @generated
+	 */
+	public Adapter createActionParamAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link ecarules.ConceptParam <em>Concept Param</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see ecarules.ConceptParam
+	 * @generated
+	 */
+	public Adapter createConceptParamAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link ecarules.StringParam <em>String Param</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see ecarules.StringParam
+	 * @generated
+	 */
+	public Adapter createStringParamAdapter() {
 		return null;
 	}
 

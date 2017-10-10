@@ -6,12 +6,14 @@ package uam.eagledata.dsl.events.serializer;
 import com.google.inject.Inject;
 import ecarules.BinaryExpression;
 import ecarules.BooleanExpression;
+import ecarules.ConceptParam;
 import ecarules.EcarulesPackage;
+import ecarules.Event;
 import ecarules.EventSetManager;
 import ecarules.KeyConcept;
 import ecarules.Literal;
-import ecarules.PatternEvent;
 import ecarules.RegexConcept;
+import ecarules.StringParam;
 import java.util.Set;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
@@ -47,6 +49,12 @@ public class EventSetManagerDslSemanticSequencer extends AbstractDelegatingSeman
 			case EcarulesPackage.BOOLEAN_EXPRESSION:
 				sequence_BooleanExpression(context, (BooleanExpression) semanticObject); 
 				return; 
+			case EcarulesPackage.CONCEPT_PARAM:
+				sequence_ConceptParam(context, (ConceptParam) semanticObject); 
+				return; 
+			case EcarulesPackage.EVENT:
+				sequence_Event(context, (Event) semanticObject); 
+				return; 
 			case EcarulesPackage.EVENT_SET_MANAGER:
 				sequence_EventSetManager(context, (EventSetManager) semanticObject); 
 				return; 
@@ -56,11 +64,11 @@ public class EventSetManagerDslSemanticSequencer extends AbstractDelegatingSeman
 			case EcarulesPackage.LITERAL:
 				sequence_Literal(context, (Literal) semanticObject); 
 				return; 
-			case EcarulesPackage.PATTERN_EVENT:
-				sequence_PatternEvent(context, (PatternEvent) semanticObject); 
-				return; 
 			case EcarulesPackage.REGEX_CONCEPT:
 				sequence_RegexConcept(context, (RegexConcept) semanticObject); 
+				return; 
+			case EcarulesPackage.STRING_PARAM:
+				sequence_StringParam(context, (StringParam) semanticObject); 
 				return; 
 			}
 		if (errorAcceptor != null)
@@ -72,16 +80,10 @@ public class EventSetManagerDslSemanticSequencer extends AbstractDelegatingSeman
 	 *     Action returns Action
 	 *
 	 * Constraint:
-	 *     name=EString
+	 *     (calls=EString (params+=ActionParam params+=ActionParam*)?)
 	 */
 	protected void sequence_Action(ISerializationContext context, ecarules.Action semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient((EObject) semanticObject, EcarulesPackage.Literals.ACTION__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing((EObject) semanticObject, EcarulesPackage.Literals.ACTION__NAME));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, (EObject) semanticObject);
-		feeder.accept(grammarAccess.getActionAccess().getNameEStringParserRuleCall_1_0(), semanticObject.getName());
-		feeder.finish();
+		genericSequencer.createSequence(context, (EObject) semanticObject);
 	}
 	
 	
@@ -128,12 +130,54 @@ public class EventSetManagerDslSemanticSequencer extends AbstractDelegatingSeman
 	
 	/**
 	 * Contexts:
+	 *     ActionParam returns ConceptParam
+	 *     ConceptParam returns ConceptParam
+	 *
+	 * Constraint:
+	 *     (key=EString value=[Concept|ID])
+	 */
+	protected void sequence_ConceptParam(ISerializationContext context, ConceptParam semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient((EObject) semanticObject, EcarulesPackage.Literals.ACTION_PARAM__KEY) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing((EObject) semanticObject, EcarulesPackage.Literals.ACTION_PARAM__KEY));
+			if (transientValues.isValueTransient((EObject) semanticObject, EcarulesPackage.Literals.CONCEPT_PARAM__VALUE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing((EObject) semanticObject, EcarulesPackage.Literals.CONCEPT_PARAM__VALUE));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, (EObject) semanticObject);
+		feeder.accept(grammarAccess.getConceptParamAccess().getKeyEStringParserRuleCall_1_0(), semanticObject.getKey());
+		feeder.accept(grammarAccess.getConceptParamAccess().getValueConceptIDTerminalRuleCall_3_0_1(), semanticObject.getValue());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     EventSetManager returns EventSetManager
 	 *
 	 * Constraint:
 	 *     (events+=Event events+=Event*)
 	 */
 	protected void sequence_EventSetManager(ISerializationContext context, EventSetManager semanticObject) {
+		genericSequencer.createSequence(context, (EObject) semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Event returns Event
+	 *
+	 * Constraint:
+	 *     (
+	 *         (dataconnection+=EString dataconnection+=EString*)? 
+	 *         name=EString 
+	 *         concepts+=Concept 
+	 *         concepts+=Concept* 
+	 *         when=Condition? 
+	 *         triggers+=Action 
+	 *         triggers+=Action*
+	 *     )
+	 */
+	protected void sequence_Event(ISerializationContext context, Event semanticObject) {
 		genericSequencer.createSequence(context, (EObject) semanticObject);
 	}
 	
@@ -180,26 +224,6 @@ public class EventSetManagerDslSemanticSequencer extends AbstractDelegatingSeman
 	
 	/**
 	 * Contexts:
-	 *     Event returns PatternEvent
-	 *     PatternEvent returns PatternEvent
-	 *
-	 * Constraint:
-	 *     (
-	 *         name=EString 
-	 *         concepts+=Concept 
-	 *         concepts+=Concept* 
-	 *         when=Condition? 
-	 *         triggers+=EString 
-	 *         triggers+=EString*
-	 *     )
-	 */
-	protected void sequence_PatternEvent(ISerializationContext context, PatternEvent semanticObject) {
-		genericSequencer.createSequence(context, (EObject) semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
 	 *     Concept returns RegexConcept
 	 *     RegexConcept returns RegexConcept
 	 *
@@ -219,6 +243,28 @@ public class EventSetManagerDslSemanticSequencer extends AbstractDelegatingSeman
 		feeder.accept(grammarAccess.getRegexConceptAccess().getTypeTypeEnumRuleCall_1_0(), semanticObject.getType());
 		feeder.accept(grammarAccess.getRegexConceptAccess().getNameEStringParserRuleCall_2_0(), semanticObject.getName());
 		feeder.accept(grammarAccess.getRegexConceptAccess().getRegexEStringParserRuleCall_4_0(), semanticObject.getRegex());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     ActionParam returns StringParam
+	 *     StringParam returns StringParam
+	 *
+	 * Constraint:
+	 *     (key=EString value=EString)
+	 */
+	protected void sequence_StringParam(ISerializationContext context, StringParam semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient((EObject) semanticObject, EcarulesPackage.Literals.ACTION_PARAM__KEY) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing((EObject) semanticObject, EcarulesPackage.Literals.ACTION_PARAM__KEY));
+			if (transientValues.isValueTransient((EObject) semanticObject, EcarulesPackage.Literals.STRING_PARAM__VALUE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing((EObject) semanticObject, EcarulesPackage.Literals.STRING_PARAM__VALUE));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, (EObject) semanticObject);
+		feeder.accept(grammarAccess.getStringParamAccess().getKeyEStringParserRuleCall_1_0(), semanticObject.getKey());
+		feeder.accept(grammarAccess.getStringParamAccess().getValueEStringParserRuleCall_3_0(), semanticObject.getValue());
 		feeder.finish();
 	}
 	

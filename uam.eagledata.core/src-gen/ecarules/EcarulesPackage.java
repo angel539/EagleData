@@ -87,7 +87,7 @@ public interface EcarulesPackage extends EPackage {
 	int EVENT_SET_MANAGER__DATACONNECTIONS = 1;
 
 	/**
-	 * The feature id for the '<em><b>Actions</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Actions</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -121,7 +121,7 @@ public interface EcarulesPackage extends EPackage {
 	 * @see ecarules.impl.EcarulesPackageImpl#getNamedElement()
 	 * @generated
 	 */
-	int NAMED_ELEMENT = 6;
+	int NAMED_ELEMENT = 5;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -233,7 +233,7 @@ public interface EcarulesPackage extends EPackage {
 	int EVENT__WHEN = NAMED_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Triggers</b></em>' attribute list.
+	 * The feature id for the '<em><b>Triggers</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -242,13 +242,31 @@ public interface EcarulesPackage extends EPackage {
 	int EVENT__TRIGGERS = NAMED_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Dataconnection</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EVENT__DATACONNECTION = NAMED_ELEMENT_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Concepts</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EVENT__CONCEPTS = NAMED_ELEMENT_FEATURE_COUNT + 3;
+
+	/**
 	 * The number of structural features of the '<em>Event</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int EVENT_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 2;
+	int EVENT_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of operations of the '<em>Event</em>' class.
@@ -261,97 +279,6 @@ public interface EcarulesPackage extends EPackage {
 
 
 	/**
-	 * The meta object id for the '{@link ecarules.impl.PatternEventImpl <em>Pattern Event</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see ecarules.impl.PatternEventImpl
-	 * @see ecarules.impl.EcarulesPackageImpl#getPatternEvent()
-	 * @generated
-	 */
-	int PATTERN_EVENT = 2;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PATTERN_EVENT__NAME = EVENT__NAME;
-
-	/**
-	 * The feature id for the '<em><b>Descriptions</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PATTERN_EVENT__DESCRIPTIONS = EVENT__DESCRIPTIONS;
-
-	/**
-	 * The feature id for the '<em><b>Descriptor</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PATTERN_EVENT__DESCRIPTOR = EVENT__DESCRIPTOR;
-
-	/**
-	 * The feature id for the '<em><b>Value</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PATTERN_EVENT__VALUE = EVENT__VALUE;
-
-	/**
-	 * The feature id for the '<em><b>When</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PATTERN_EVENT__WHEN = EVENT__WHEN;
-
-	/**
-	 * The feature id for the '<em><b>Triggers</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PATTERN_EVENT__TRIGGERS = EVENT__TRIGGERS;
-
-	/**
-	 * The feature id for the '<em><b>Concepts</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PATTERN_EVENT__CONCEPTS = EVENT_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of structural features of the '<em>Pattern Event</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PATTERN_EVENT_FEATURE_COUNT = EVENT_FEATURE_COUNT + 1;
-
-	/**
-	 * The number of operations of the '<em>Pattern Event</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PATTERN_EVENT_OPERATION_COUNT = EVENT_OPERATION_COUNT + 0;
-
-	/**
 	 * The meta object id for the '{@link ecarules.impl.ConceptImpl <em>Concept</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -359,7 +286,7 @@ public interface EcarulesPackage extends EPackage {
 	 * @see ecarules.impl.EcarulesPackageImpl#getConcept()
 	 * @generated
 	 */
-	int CONCEPT = 3;
+	int CONCEPT = 2;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -405,7 +332,7 @@ public interface EcarulesPackage extends EPackage {
 	 * @see ecarules.impl.EcarulesPackageImpl#getKeyConcept()
 	 * @generated
 	 */
-	int KEY_CONCEPT = 4;
+	int KEY_CONCEPT = 3;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -451,7 +378,7 @@ public interface EcarulesPackage extends EPackage {
 	 * @see ecarules.impl.EcarulesPackageImpl#getRegexConcept()
 	 * @generated
 	 */
-	int REGEX_CONCEPT = 5;
+	int REGEX_CONCEPT = 4;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -506,7 +433,7 @@ public interface EcarulesPackage extends EPackage {
 	 * @see ecarules.impl.EcarulesPackageImpl#getDataConnection()
 	 * @generated
 	 */
-	int DATA_CONNECTION = 7;
+	int DATA_CONNECTION = 6;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -570,7 +497,7 @@ public interface EcarulesPackage extends EPackage {
 	 * @see ecarules.impl.EcarulesPackageImpl#getCondition()
 	 * @generated
 	 */
-	int CONDITION = 8;
+	int CONDITION = 7;
 
 	/**
 	 * The number of structural features of the '<em>Condition</em>' class.
@@ -598,7 +525,7 @@ public interface EcarulesPackage extends EPackage {
 	 * @see ecarules.impl.EcarulesPackageImpl#getBinaryExpression()
 	 * @generated
 	 */
-	int BINARY_EXPRESSION = 9;
+	int BINARY_EXPRESSION = 8;
 
 	/**
 	 * The feature id for the '<em><b>Left</b></em>' reference.
@@ -644,7 +571,7 @@ public interface EcarulesPackage extends EPackage {
 	 * @see ecarules.impl.EcarulesPackageImpl#getBooleanExpression()
 	 * @generated
 	 */
-	int BOOLEAN_EXPRESSION = 10;
+	int BOOLEAN_EXPRESSION = 9;
 
 	/**
 	 * The feature id for the '<em><b>Expression</b></em>' attribute.
@@ -681,7 +608,7 @@ public interface EcarulesPackage extends EPackage {
 	 * @see ecarules.impl.EcarulesPackageImpl#getLiteral()
 	 * @generated
 	 */
-	int LITERAL = 11;
+	int LITERAL = 10;
 
 	/**
 	 * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -711,14 +638,14 @@ public interface EcarulesPackage extends EPackage {
 	int LITERAL_OPERATION_COUNT = 0;
 
 	/**
-	 * The meta object id for the '{@link ecarules.impl.ActionImpl <em>Action</em>}' class.
+	 * The meta object id for the '{@link ecarules.impl.ActionExecutableExtensionImpl <em>Action Executable Extension</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see ecarules.impl.ActionImpl
-	 * @see ecarules.impl.EcarulesPackageImpl#getAction()
+	 * @see ecarules.impl.ActionExecutableExtensionImpl
+	 * @see ecarules.impl.EcarulesPackageImpl#getActionExecutableExtension()
 	 * @generated
 	 */
-	int ACTION = 12;
+	int ACTION_EXECUTABLE_EXTENSION = 11;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -727,7 +654,7 @@ public interface EcarulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ACTION__NAME = 0;
+	int ACTION_EXECUTABLE_EXTENSION__NAME = 0;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -736,7 +663,191 @@ public interface EcarulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ACTION__ID = 1;
+	int ACTION_EXECUTABLE_EXTENSION__ID = 1;
+
+	/**
+	 * The number of structural features of the '<em>Action Executable Extension</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTION_EXECUTABLE_EXTENSION_FEATURE_COUNT = 2;
+
+	/**
+	 * The operation id for the '<em>Execute</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTION_EXECUTABLE_EXTENSION___EXECUTE__ELIST = 0;
+
+	/**
+	 * The number of operations of the '<em>Action Executable Extension</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTION_EXECUTABLE_EXTENSION_OPERATION_COUNT = 1;
+
+	/**
+	 * The meta object id for the '{@link ecarules.impl.ActionParamImpl <em>Action Param</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ecarules.impl.ActionParamImpl
+	 * @see ecarules.impl.EcarulesPackageImpl#getActionParam()
+	 * @generated
+	 */
+	int ACTION_PARAM = 12;
+
+	/**
+	 * The feature id for the '<em><b>Key</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTION_PARAM__KEY = 0;
+
+	/**
+	 * The number of structural features of the '<em>Action Param</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTION_PARAM_FEATURE_COUNT = 1;
+
+	/**
+	 * The number of operations of the '<em>Action Param</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTION_PARAM_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link ecarules.impl.ConceptParamImpl <em>Concept Param</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ecarules.impl.ConceptParamImpl
+	 * @see ecarules.impl.EcarulesPackageImpl#getConceptParam()
+	 * @generated
+	 */
+	int CONCEPT_PARAM = 13;
+
+	/**
+	 * The feature id for the '<em><b>Key</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONCEPT_PARAM__KEY = ACTION_PARAM__KEY;
+
+	/**
+	 * The feature id for the '<em><b>Value</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONCEPT_PARAM__VALUE = ACTION_PARAM_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Concept Param</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONCEPT_PARAM_FEATURE_COUNT = ACTION_PARAM_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Concept Param</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONCEPT_PARAM_OPERATION_COUNT = ACTION_PARAM_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link ecarules.impl.StringParamImpl <em>String Param</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ecarules.impl.StringParamImpl
+	 * @see ecarules.impl.EcarulesPackageImpl#getStringParam()
+	 * @generated
+	 */
+	int STRING_PARAM = 14;
+
+	/**
+	 * The feature id for the '<em><b>Key</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRING_PARAM__KEY = ACTION_PARAM__KEY;
+
+	/**
+	 * The feature id for the '<em><b>Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRING_PARAM__VALUE = ACTION_PARAM_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>String Param</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRING_PARAM_FEATURE_COUNT = ACTION_PARAM_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>String Param</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRING_PARAM_OPERATION_COUNT = ACTION_PARAM_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link ecarules.impl.ActionImpl <em>Action</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ecarules.impl.ActionImpl
+	 * @see ecarules.impl.EcarulesPackageImpl#getAction()
+	 * @generated
+	 */
+	int ACTION = 15;
+
+	/**
+	 * The feature id for the '<em><b>Params</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTION__PARAMS = 0;
+
+	/**
+	 * The feature id for the '<em><b>Calls</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTION__CALLS = 1;
 
 	/**
 	 * The number of structural features of the '<em>Action</em>' class.
@@ -748,22 +859,13 @@ public interface EcarulesPackage extends EPackage {
 	int ACTION_FEATURE_COUNT = 2;
 
 	/**
-	 * The operation id for the '<em>Execute</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ACTION___EXECUTE__ELIST = 0;
-
-	/**
 	 * The number of operations of the '<em>Action</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ACTION_OPERATION_COUNT = 1;
+	int ACTION_OPERATION_COUNT = 0;
 
 	/**
 	 * The meta object id for the '{@link ecarules.Type <em>Type</em>}' enum.
@@ -773,7 +875,7 @@ public interface EcarulesPackage extends EPackage {
 	 * @see ecarules.impl.EcarulesPackageImpl#getType()
 	 * @generated
 	 */
-	int TYPE = 13;
+	int TYPE = 16;
 
 
 	/**
@@ -809,10 +911,10 @@ public interface EcarulesPackage extends EPackage {
 	EReference getEventSetManager_Dataconnections();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link ecarules.EventSetManager#getActions <em>Actions</em>}'.
+	 * Returns the meta object for the reference list '{@link ecarules.EventSetManager#getActions <em>Actions</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Actions</em>'.
+	 * @return the meta object for the reference list '<em>Actions</em>'.
 	 * @see ecarules.EventSetManager#getActions()
 	 * @see #getEventSetManager()
 	 * @generated
@@ -841,36 +943,37 @@ public interface EcarulesPackage extends EPackage {
 	EReference getEvent_When();
 
 	/**
-	 * Returns the meta object for the attribute list '{@link ecarules.Event#getTriggers <em>Triggers</em>}'.
+	 * Returns the meta object for the containment reference list '{@link ecarules.Event#getTriggers <em>Triggers</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute list '<em>Triggers</em>'.
+	 * @return the meta object for the containment reference list '<em>Triggers</em>'.
 	 * @see ecarules.Event#getTriggers()
 	 * @see #getEvent()
 	 * @generated
 	 */
-	EAttribute getEvent_Triggers();
+	EReference getEvent_Triggers();
 
 	/**
-	 * Returns the meta object for class '{@link ecarules.PatternEvent <em>Pattern Event</em>}'.
+	 * Returns the meta object for the attribute list '{@link ecarules.Event#getDataconnection <em>Dataconnection</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Pattern Event</em>'.
-	 * @see ecarules.PatternEvent
+	 * @return the meta object for the attribute list '<em>Dataconnection</em>'.
+	 * @see ecarules.Event#getDataconnection()
+	 * @see #getEvent()
 	 * @generated
 	 */
-	EClass getPatternEvent();
+	EAttribute getEvent_Dataconnection();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link ecarules.PatternEvent#getConcepts <em>Concepts</em>}'.
+	 * Returns the meta object for the containment reference list '{@link ecarules.Event#getConcepts <em>Concepts</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference list '<em>Concepts</em>'.
-	 * @see ecarules.PatternEvent#getConcepts()
-	 * @see #getPatternEvent()
+	 * @see ecarules.Event#getConcepts()
+	 * @see #getEvent()
 	 * @generated
 	 */
-	EReference getPatternEvent_Concepts();
+	EReference getEvent_Concepts();
 
 	/**
 	 * Returns the meta object for class '{@link ecarules.Concept <em>Concept</em>}'.
@@ -1126,6 +1229,111 @@ public interface EcarulesPackage extends EPackage {
 	EAttribute getLiteral_Value();
 
 	/**
+	 * Returns the meta object for class '{@link ecarules.ActionExecutableExtension <em>Action Executable Extension</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Action Executable Extension</em>'.
+	 * @see ecarules.ActionExecutableExtension
+	 * @generated
+	 */
+	EClass getActionExecutableExtension();
+
+	/**
+	 * Returns the meta object for the attribute '{@link ecarules.ActionExecutableExtension#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see ecarules.ActionExecutableExtension#getName()
+	 * @see #getActionExecutableExtension()
+	 * @generated
+	 */
+	EAttribute getActionExecutableExtension_Name();
+
+	/**
+	 * Returns the meta object for the attribute '{@link ecarules.ActionExecutableExtension#getId <em>Id</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Id</em>'.
+	 * @see ecarules.ActionExecutableExtension#getId()
+	 * @see #getActionExecutableExtension()
+	 * @generated
+	 */
+	EAttribute getActionExecutableExtension_Id();
+
+	/**
+	 * Returns the meta object for the '{@link ecarules.ActionExecutableExtension#execute(org.eclipse.emf.common.util.EList) <em>Execute</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Execute</em>' operation.
+	 * @see ecarules.ActionExecutableExtension#execute(org.eclipse.emf.common.util.EList)
+	 * @generated
+	 */
+	EOperation getActionExecutableExtension__Execute__EList();
+
+	/**
+	 * Returns the meta object for class '{@link ecarules.ActionParam <em>Action Param</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Action Param</em>'.
+	 * @see ecarules.ActionParam
+	 * @generated
+	 */
+	EClass getActionParam();
+
+	/**
+	 * Returns the meta object for the attribute '{@link ecarules.ActionParam#getKey <em>Key</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Key</em>'.
+	 * @see ecarules.ActionParam#getKey()
+	 * @see #getActionParam()
+	 * @generated
+	 */
+	EAttribute getActionParam_Key();
+
+	/**
+	 * Returns the meta object for class '{@link ecarules.ConceptParam <em>Concept Param</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Concept Param</em>'.
+	 * @see ecarules.ConceptParam
+	 * @generated
+	 */
+	EClass getConceptParam();
+
+	/**
+	 * Returns the meta object for the reference '{@link ecarules.ConceptParam#getValue <em>Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Value</em>'.
+	 * @see ecarules.ConceptParam#getValue()
+	 * @see #getConceptParam()
+	 * @generated
+	 */
+	EReference getConceptParam_Value();
+
+	/**
+	 * Returns the meta object for class '{@link ecarules.StringParam <em>String Param</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>String Param</em>'.
+	 * @see ecarules.StringParam
+	 * @generated
+	 */
+	EClass getStringParam();
+
+	/**
+	 * Returns the meta object for the attribute '{@link ecarules.StringParam#getValue <em>Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Value</em>'.
+	 * @see ecarules.StringParam#getValue()
+	 * @see #getStringParam()
+	 * @generated
+	 */
+	EAttribute getStringParam_Value();
+
+	/**
 	 * Returns the meta object for class '{@link ecarules.Action <em>Action</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1136,36 +1344,26 @@ public interface EcarulesPackage extends EPackage {
 	EClass getAction();
 
 	/**
-	 * Returns the meta object for the attribute '{@link ecarules.Action#getName <em>Name</em>}'.
+	 * Returns the meta object for the containment reference list '{@link ecarules.Action#getParams <em>Params</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Name</em>'.
-	 * @see ecarules.Action#getName()
+	 * @return the meta object for the containment reference list '<em>Params</em>'.
+	 * @see ecarules.Action#getParams()
 	 * @see #getAction()
 	 * @generated
 	 */
-	EAttribute getAction_Name();
+	EReference getAction_Params();
 
 	/**
-	 * Returns the meta object for the attribute '{@link ecarules.Action#getId <em>Id</em>}'.
+	 * Returns the meta object for the attribute '{@link ecarules.Action#getCalls <em>Calls</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Id</em>'.
-	 * @see ecarules.Action#getId()
+	 * @return the meta object for the attribute '<em>Calls</em>'.
+	 * @see ecarules.Action#getCalls()
 	 * @see #getAction()
 	 * @generated
 	 */
-	EAttribute getAction_Id();
-
-	/**
-	 * Returns the meta object for the '{@link ecarules.Action#execute(org.eclipse.emf.common.util.EList) <em>Execute</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Execute</em>' operation.
-	 * @see ecarules.Action#execute(org.eclipse.emf.common.util.EList)
-	 * @generated
-	 */
-	EOperation getAction__Execute__EList();
+	EAttribute getAction_Calls();
 
 	/**
 	 * Returns the meta object for enum '{@link ecarules.Type <em>Type</em>}'.
@@ -1227,7 +1425,7 @@ public interface EcarulesPackage extends EPackage {
 		EReference EVENT_SET_MANAGER__DATACONNECTIONS = eINSTANCE.getEventSetManager_Dataconnections();
 
 		/**
-		 * The meta object literal for the '<em><b>Actions</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Actions</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -1253,22 +1451,20 @@ public interface EcarulesPackage extends EPackage {
 		EReference EVENT__WHEN = eINSTANCE.getEvent_When();
 
 		/**
-		 * The meta object literal for the '<em><b>Triggers</b></em>' attribute list feature.
+		 * The meta object literal for the '<em><b>Triggers</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute EVENT__TRIGGERS = eINSTANCE.getEvent_Triggers();
+		EReference EVENT__TRIGGERS = eINSTANCE.getEvent_Triggers();
 
 		/**
-		 * The meta object literal for the '{@link ecarules.impl.PatternEventImpl <em>Pattern Event</em>}' class.
+		 * The meta object literal for the '<em><b>Dataconnection</b></em>' attribute list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see ecarules.impl.PatternEventImpl
-		 * @see ecarules.impl.EcarulesPackageImpl#getPatternEvent()
 		 * @generated
 		 */
-		EClass PATTERN_EVENT = eINSTANCE.getPatternEvent();
+		EAttribute EVENT__DATACONNECTION = eINSTANCE.getEvent_Dataconnection();
 
 		/**
 		 * The meta object literal for the '<em><b>Concepts</b></em>' containment reference list feature.
@@ -1276,7 +1472,7 @@ public interface EcarulesPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference PATTERN_EVENT__CONCEPTS = eINSTANCE.getPatternEvent_Concepts();
+		EReference EVENT__CONCEPTS = eINSTANCE.getEvent_Concepts();
 
 		/**
 		 * The meta object literal for the '{@link ecarules.impl.ConceptImpl <em>Concept</em>}' class.
@@ -1489,6 +1685,94 @@ public interface EcarulesPackage extends EPackage {
 		EAttribute LITERAL__VALUE = eINSTANCE.getLiteral_Value();
 
 		/**
+		 * The meta object literal for the '{@link ecarules.impl.ActionExecutableExtensionImpl <em>Action Executable Extension</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see ecarules.impl.ActionExecutableExtensionImpl
+		 * @see ecarules.impl.EcarulesPackageImpl#getActionExecutableExtension()
+		 * @generated
+		 */
+		EClass ACTION_EXECUTABLE_EXTENSION = eINSTANCE.getActionExecutableExtension();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ACTION_EXECUTABLE_EXTENSION__NAME = eINSTANCE.getActionExecutableExtension_Name();
+
+		/**
+		 * The meta object literal for the '<em><b>Id</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ACTION_EXECUTABLE_EXTENSION__ID = eINSTANCE.getActionExecutableExtension_Id();
+
+		/**
+		 * The meta object literal for the '<em><b>Execute</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation ACTION_EXECUTABLE_EXTENSION___EXECUTE__ELIST = eINSTANCE.getActionExecutableExtension__Execute__EList();
+
+		/**
+		 * The meta object literal for the '{@link ecarules.impl.ActionParamImpl <em>Action Param</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see ecarules.impl.ActionParamImpl
+		 * @see ecarules.impl.EcarulesPackageImpl#getActionParam()
+		 * @generated
+		 */
+		EClass ACTION_PARAM = eINSTANCE.getActionParam();
+
+		/**
+		 * The meta object literal for the '<em><b>Key</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ACTION_PARAM__KEY = eINSTANCE.getActionParam_Key();
+
+		/**
+		 * The meta object literal for the '{@link ecarules.impl.ConceptParamImpl <em>Concept Param</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see ecarules.impl.ConceptParamImpl
+		 * @see ecarules.impl.EcarulesPackageImpl#getConceptParam()
+		 * @generated
+		 */
+		EClass CONCEPT_PARAM = eINSTANCE.getConceptParam();
+
+		/**
+		 * The meta object literal for the '<em><b>Value</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference CONCEPT_PARAM__VALUE = eINSTANCE.getConceptParam_Value();
+
+		/**
+		 * The meta object literal for the '{@link ecarules.impl.StringParamImpl <em>String Param</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see ecarules.impl.StringParamImpl
+		 * @see ecarules.impl.EcarulesPackageImpl#getStringParam()
+		 * @generated
+		 */
+		EClass STRING_PARAM = eINSTANCE.getStringParam();
+
+		/**
+		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute STRING_PARAM__VALUE = eINSTANCE.getStringParam_Value();
+
+		/**
 		 * The meta object literal for the '{@link ecarules.impl.ActionImpl <em>Action</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1499,28 +1783,20 @@ public interface EcarulesPackage extends EPackage {
 		EClass ACTION = eINSTANCE.getAction();
 
 		/**
-		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Params</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute ACTION__NAME = eINSTANCE.getAction_Name();
+		EReference ACTION__PARAMS = eINSTANCE.getAction_Params();
 
 		/**
-		 * The meta object literal for the '<em><b>Id</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Calls</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute ACTION__ID = eINSTANCE.getAction_Id();
-
-		/**
-		 * The meta object literal for the '<em><b>Execute</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation ACTION___EXECUTE__ELIST = eINSTANCE.getAction__Execute__EList();
+		EAttribute ACTION__CALLS = eINSTANCE.getAction_Calls();
 
 		/**
 		 * The meta object literal for the '{@link ecarules.Type <em>Type</em>}' enum.

@@ -2,6 +2,8 @@
  */
 package ecarules.impl;
 
+import ecarules.Action;
+import ecarules.Concept;
 import ecarules.Condition;
 import ecarules.EcarulesPackage;
 import ecarules.Event;
@@ -18,11 +20,13 @@ import org.eclipse.emf.ecore.EClass;
  * <ul>
  *   <li>{@link ecarules.impl.EventImpl#getWhen <em>When</em>}</li>
  *   <li>{@link ecarules.impl.EventImpl#getTriggers <em>Triggers</em>}</li>
+ *   <li>{@link ecarules.impl.EventImpl#getDataconnection <em>Dataconnection</em>}</li>
+ *   <li>{@link ecarules.impl.EventImpl#getConcepts <em>Concepts</em>}</li>
  * </ul>
  *
  * @generated
  */
-public abstract class EventImpl extends NamedElementImpl implements Event {
+public class EventImpl extends NamedElementImpl implements Event {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -66,8 +70,28 @@ public abstract class EventImpl extends NamedElementImpl implements Event {
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
-	public EList<String> getTriggers() {
-		return (EList<String>)eGet(EcarulesPackage.Literals.EVENT__TRIGGERS, true);
+	public EList<Action> getTriggers() {
+		return (EList<Action>)eGet(EcarulesPackage.Literals.EVENT__TRIGGERS, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@SuppressWarnings("unchecked")
+	public EList<String> getDataconnection() {
+		return (EList<String>)eGet(EcarulesPackage.Literals.EVENT__DATACONNECTION, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@SuppressWarnings("unchecked")
+	public EList<Concept> getConcepts() {
+		return (EList<Concept>)eGet(EcarulesPackage.Literals.EVENT__CONCEPTS, true);
 	}
 
 } //EventImpl

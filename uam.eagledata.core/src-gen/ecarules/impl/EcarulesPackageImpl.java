@@ -3,9 +3,12 @@
 package ecarules.impl;
 
 import ecarules.Action;
+import ecarules.ActionExecutableExtension;
+import ecarules.ActionParam;
 import ecarules.BinaryExpression;
 import ecarules.BooleanExpression;
 import ecarules.Concept;
+import ecarules.ConceptParam;
 import ecarules.Condition;
 import ecarules.DataConnection;
 import ecarules.EcarulesFactory;
@@ -16,8 +19,8 @@ import ecarules.EventSetManager;
 import ecarules.KeyConcept;
 import ecarules.Literal;
 import ecarules.NamedElement;
-import ecarules.PatternEvent;
 import ecarules.RegexConcept;
+import ecarules.StringParam;
 import ecarules.Type;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
@@ -48,13 +51,6 @@ public class EcarulesPackageImpl extends EPackageImpl implements EcarulesPackage
 	 * @generated
 	 */
 	private EClass eventEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass patternEventEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -118,6 +114,34 @@ public class EcarulesPackageImpl extends EPackageImpl implements EcarulesPackage
 	 * @generated
 	 */
 	private EClass literalEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass actionExecutableExtensionEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass actionParamEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass conceptParamEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass stringParamEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -253,8 +277,8 @@ public class EcarulesPackageImpl extends EPackageImpl implements EcarulesPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getEvent_Triggers() {
-		return (EAttribute)eventEClass.getEStructuralFeatures().get(1);
+	public EReference getEvent_Triggers() {
+		return (EReference)eventEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -262,8 +286,8 @@ public class EcarulesPackageImpl extends EPackageImpl implements EcarulesPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getPatternEvent() {
-		return patternEventEClass;
+	public EAttribute getEvent_Dataconnection() {
+		return (EAttribute)eventEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -271,8 +295,8 @@ public class EcarulesPackageImpl extends EPackageImpl implements EcarulesPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getPatternEvent_Concepts() {
-		return (EReference)patternEventEClass.getEStructuralFeatures().get(0);
+	public EReference getEvent_Concepts() {
+		return (EReference)eventEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -496,6 +520,96 @@ public class EcarulesPackageImpl extends EPackageImpl implements EcarulesPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getActionExecutableExtension() {
+		return actionExecutableExtensionEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getActionExecutableExtension_Name() {
+		return (EAttribute)actionExecutableExtensionEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getActionExecutableExtension_Id() {
+		return (EAttribute)actionExecutableExtensionEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getActionExecutableExtension__Execute__EList() {
+		return actionExecutableExtensionEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getActionParam() {
+		return actionParamEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getActionParam_Key() {
+		return (EAttribute)actionParamEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getConceptParam() {
+		return conceptParamEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getConceptParam_Value() {
+		return (EReference)conceptParamEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getStringParam() {
+		return stringParamEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getStringParam_Value() {
+		return (EAttribute)stringParamEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getAction() {
 		return actionEClass;
 	}
@@ -505,8 +619,8 @@ public class EcarulesPackageImpl extends EPackageImpl implements EcarulesPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getAction_Name() {
-		return (EAttribute)actionEClass.getEStructuralFeatures().get(0);
+	public EReference getAction_Params() {
+		return (EReference)actionEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -514,17 +628,8 @@ public class EcarulesPackageImpl extends EPackageImpl implements EcarulesPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getAction_Id() {
+	public EAttribute getAction_Calls() {
 		return (EAttribute)actionEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getAction__Execute__EList() {
-		return actionEClass.getEOperations().get(0);
 	}
 
 	/**
@@ -571,10 +676,9 @@ public class EcarulesPackageImpl extends EPackageImpl implements EcarulesPackage
 
 		eventEClass = createEClass(EVENT);
 		createEReference(eventEClass, EVENT__WHEN);
-		createEAttribute(eventEClass, EVENT__TRIGGERS);
-
-		patternEventEClass = createEClass(PATTERN_EVENT);
-		createEReference(patternEventEClass, PATTERN_EVENT__CONCEPTS);
+		createEReference(eventEClass, EVENT__TRIGGERS);
+		createEAttribute(eventEClass, EVENT__DATACONNECTION);
+		createEReference(eventEClass, EVENT__CONCEPTS);
 
 		conceptEClass = createEClass(CONCEPT);
 		createEAttribute(conceptEClass, CONCEPT__NAME);
@@ -609,10 +713,23 @@ public class EcarulesPackageImpl extends EPackageImpl implements EcarulesPackage
 		literalEClass = createEClass(LITERAL);
 		createEAttribute(literalEClass, LITERAL__VALUE);
 
+		actionExecutableExtensionEClass = createEClass(ACTION_EXECUTABLE_EXTENSION);
+		createEAttribute(actionExecutableExtensionEClass, ACTION_EXECUTABLE_EXTENSION__NAME);
+		createEAttribute(actionExecutableExtensionEClass, ACTION_EXECUTABLE_EXTENSION__ID);
+		createEOperation(actionExecutableExtensionEClass, ACTION_EXECUTABLE_EXTENSION___EXECUTE__ELIST);
+
+		actionParamEClass = createEClass(ACTION_PARAM);
+		createEAttribute(actionParamEClass, ACTION_PARAM__KEY);
+
+		conceptParamEClass = createEClass(CONCEPT_PARAM);
+		createEReference(conceptParamEClass, CONCEPT_PARAM__VALUE);
+
+		stringParamEClass = createEClass(STRING_PARAM);
+		createEAttribute(stringParamEClass, STRING_PARAM__VALUE);
+
 		actionEClass = createEClass(ACTION);
-		createEAttribute(actionEClass, ACTION__NAME);
-		createEAttribute(actionEClass, ACTION__ID);
-		createEOperation(actionEClass, ACTION___EXECUTE__ELIST);
+		createEReference(actionEClass, ACTION__PARAMS);
+		createEAttribute(actionEClass, ACTION__CALLS);
 
 		// Create enums
 		typeEEnum = createEEnum(TYPE);
@@ -647,24 +764,24 @@ public class EcarulesPackageImpl extends EPackageImpl implements EcarulesPackage
 
 		// Add supertypes to classes
 		eventEClass.getESuperTypes().add(this.getNamedElement());
-		patternEventEClass.getESuperTypes().add(this.getEvent());
 		keyConceptEClass.getESuperTypes().add(this.getConcept());
 		regexConceptEClass.getESuperTypes().add(this.getConcept());
 		binaryExpressionEClass.getESuperTypes().add(this.getCondition());
 		booleanExpressionEClass.getESuperTypes().add(this.getCondition());
+		conceptParamEClass.getESuperTypes().add(this.getActionParam());
+		stringParamEClass.getESuperTypes().add(this.getActionParam());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(eventSetManagerEClass, EventSetManager.class, "EventSetManager", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getEventSetManager_Events(), this.getEvent(), null, "events", null, 0, -1, EventSetManager.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getEventSetManager_Dataconnections(), this.getDataConnection(), null, "dataconnections", null, 0, -1, EventSetManager.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getEventSetManager_Actions(), this.getAction(), null, "actions", null, 0, -1, EventSetManager.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getEventSetManager_Actions(), this.getActionExecutableExtension(), null, "actions", null, 0, -1, EventSetManager.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(eventEClass, Event.class, "Event", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(eventEClass, Event.class, "Event", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getEvent_When(), this.getCondition(), null, "when", null, 0, 1, Event.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getEvent_Triggers(), ecorePackage.getEString(), "triggers", null, 0, -1, Event.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(patternEventEClass, PatternEvent.class, "PatternEvent", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getPatternEvent_Concepts(), this.getConcept(), null, "concepts", null, 0, -1, PatternEvent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getEvent_Triggers(), this.getAction(), null, "triggers", null, 0, -1, Event.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getEvent_Dataconnection(), ecorePackage.getEString(), "dataconnection", null, 0, -1, Event.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getEvent_Concepts(), this.getConcept(), null, "concepts", null, 0, -1, Event.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(conceptEClass, Concept.class, "Concept", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getConcept_Name(), ecorePackage.getEString(), "name", null, 0, 1, Concept.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -702,12 +819,25 @@ public class EcarulesPackageImpl extends EPackageImpl implements EcarulesPackage
 		initEClass(literalEClass, Literal.class, "Literal", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getLiteral_Value(), ecorePackage.getEString(), "value", null, 0, 1, Literal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(actionEClass, Action.class, "Action", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getAction_Name(), ecorePackage.getEString(), "name", null, 0, 1, Action.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getAction_Id(), ecorePackage.getEString(), "id", null, 0, 1, Action.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(actionExecutableExtensionEClass, ActionExecutableExtension.class, "ActionExecutableExtension", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getActionExecutableExtension_Name(), ecorePackage.getEString(), "name", null, 0, 1, ActionExecutableExtension.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getActionExecutableExtension_Id(), ecorePackage.getEString(), "id", null, 0, 1, ActionExecutableExtension.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		op = initEOperation(getAction__Execute__EList(), ecorePackage.getEBoolean(), "execute", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getConcept(), "inputs", 0, -1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getActionExecutableExtension__Execute__EList(), ecorePackage.getEBoolean(), "execute", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getActionParam(), "inputs", 0, -1, IS_UNIQUE, IS_ORDERED);
+
+		initEClass(actionParamEClass, ActionParam.class, "ActionParam", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getActionParam_Key(), ecorePackage.getEString(), "key", null, 0, 1, ActionParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(conceptParamEClass, ConceptParam.class, "ConceptParam", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getConceptParam_Value(), this.getConcept(), null, "value", null, 0, 1, ConceptParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(stringParamEClass, StringParam.class, "StringParam", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getStringParam_Value(), ecorePackage.getEString(), "value", null, 0, 1, StringParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(actionEClass, Action.class, "Action", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getAction_Params(), this.getActionParam(), null, "params", null, 0, -1, Action.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getAction_Calls(), ecorePackage.getEString(), "calls", null, 0, 1, Action.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(typeEEnum, Type.class, "Type");
