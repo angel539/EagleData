@@ -103,6 +103,7 @@ public class EventSetManagerItemProvider
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(EcarulesPackage.Literals.EVENT_SET_MANAGER__EVENTS);
 			childrenFeatures.add(EcarulesPackage.Literals.EVENT_SET_MANAGER__ACTIONS);
+			childrenFeatures.add(EcarulesPackage.Literals.EVENT_SET_MANAGER__GEOS);
 		}
 		return childrenFeatures;
 	}
@@ -157,6 +158,7 @@ public class EventSetManagerItemProvider
 		switch (notification.getFeatureID(EventSetManager.class)) {
 			case EcarulesPackage.EVENT_SET_MANAGER__EVENTS:
 			case EcarulesPackage.EVENT_SET_MANAGER__ACTIONS:
+			case EcarulesPackage.EVENT_SET_MANAGER__GEOS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -183,6 +185,16 @@ public class EventSetManagerItemProvider
 			(createChildParameter
 				(EcarulesPackage.Literals.EVENT_SET_MANAGER__ACTIONS,
 				 EcarulesFactory.eINSTANCE.createActionExecutableExtension()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(EcarulesPackage.Literals.EVENT_SET_MANAGER__GEOS,
+				 EcarulesFactory.eINSTANCE.createPoint()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(EcarulesPackage.Literals.EVENT_SET_MANAGER__GEOS,
+				 EcarulesFactory.eINSTANCE.createRegion()));
 	}
 
 	/**

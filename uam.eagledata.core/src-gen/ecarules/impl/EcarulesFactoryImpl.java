@@ -69,6 +69,8 @@ public class EcarulesFactoryImpl extends EFactoryImpl implements EcarulesFactory
 			case EcarulesPackage.CONCEPT_PARAM: return (EObject)createConceptParam();
 			case EcarulesPackage.STRING_PARAM: return (EObject)createStringParam();
 			case EcarulesPackage.ACTION: return (EObject)createAction();
+			case EcarulesPackage.POINT: return (EObject)createPoint();
+			case EcarulesPackage.REGION: return (EObject)createRegion();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -222,6 +224,26 @@ public class EcarulesFactoryImpl extends EFactoryImpl implements EcarulesFactory
 	public Action createAction() {
 		ActionImpl action = new ActionImpl();
 		return action;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Point createPoint() {
+		PointImpl point = new PointImpl();
+		return point;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Region createRegion() {
+		RegionImpl region = new RegionImpl();
+		return region;
 	}
 
 	/**

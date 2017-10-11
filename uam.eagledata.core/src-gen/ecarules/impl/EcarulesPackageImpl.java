@@ -16,10 +16,13 @@ import ecarules.EcarulesPackage;
 import ecarules.Event;
 import ecarules.EventSetManager;
 
+import ecarules.GeographicalElement;
 import ecarules.KeyConcept;
 import ecarules.Literal;
 import ecarules.NamedElement;
+import ecarules.Point;
 import ecarules.RegexConcept;
+import ecarules.Region;
 import ecarules.StringParam;
 import ecarules.Type;
 import org.eclipse.emf.ecore.EAttribute;
@@ -155,6 +158,27 @@ public class EcarulesPackageImpl extends EPackageImpl implements EcarulesPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass geographicalElementEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass pointEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass regionEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EEnum typeEEnum = null;
 
 	/**
@@ -259,6 +283,15 @@ public class EcarulesPackageImpl extends EPackageImpl implements EcarulesPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getEventSetManager_Geos() {
+		return (EReference)eventSetManagerEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getEvent() {
 		return eventEClass;
 	}
@@ -297,6 +330,15 @@ public class EcarulesPackageImpl extends EPackageImpl implements EcarulesPackage
 	 */
 	public EReference getEvent_Concepts() {
 		return (EReference)eventEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getEvent_Geo() {
+		return (EReference)eventEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -637,6 +679,69 @@ public class EcarulesPackageImpl extends EPackageImpl implements EcarulesPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getGeographicalElement() {
+		return geographicalElementEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getGeographicalElement_Name() {
+		return (EAttribute)geographicalElementEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getPoint() {
+		return pointEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getPoint_Lat() {
+		return (EAttribute)pointEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getPoint_Long() {
+		return (EAttribute)pointEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getRegion() {
+		return regionEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getRegion_Points() {
+		return (EReference)regionEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getType() {
 		return typeEEnum;
 	}
@@ -673,12 +778,14 @@ public class EcarulesPackageImpl extends EPackageImpl implements EcarulesPackage
 		createEReference(eventSetManagerEClass, EVENT_SET_MANAGER__EVENTS);
 		createEReference(eventSetManagerEClass, EVENT_SET_MANAGER__DATACONNECTIONS);
 		createEReference(eventSetManagerEClass, EVENT_SET_MANAGER__ACTIONS);
+		createEReference(eventSetManagerEClass, EVENT_SET_MANAGER__GEOS);
 
 		eventEClass = createEClass(EVENT);
 		createEReference(eventEClass, EVENT__WHEN);
 		createEReference(eventEClass, EVENT__TRIGGERS);
 		createEAttribute(eventEClass, EVENT__DATACONNECTION);
 		createEReference(eventEClass, EVENT__CONCEPTS);
+		createEReference(eventEClass, EVENT__GEO);
 
 		conceptEClass = createEClass(CONCEPT);
 		createEAttribute(conceptEClass, CONCEPT__NAME);
@@ -731,6 +838,16 @@ public class EcarulesPackageImpl extends EPackageImpl implements EcarulesPackage
 		createEReference(actionEClass, ACTION__PARAMS);
 		createEAttribute(actionEClass, ACTION__CALLS);
 
+		geographicalElementEClass = createEClass(GEOGRAPHICAL_ELEMENT);
+		createEAttribute(geographicalElementEClass, GEOGRAPHICAL_ELEMENT__NAME);
+
+		pointEClass = createEClass(POINT);
+		createEAttribute(pointEClass, POINT__LAT);
+		createEAttribute(pointEClass, POINT__LONG);
+
+		regionEClass = createEClass(REGION);
+		createEReference(regionEClass, REGION__POINTS);
+
 		// Create enums
 		typeEEnum = createEEnum(TYPE);
 	}
@@ -770,18 +887,22 @@ public class EcarulesPackageImpl extends EPackageImpl implements EcarulesPackage
 		booleanExpressionEClass.getESuperTypes().add(this.getCondition());
 		conceptParamEClass.getESuperTypes().add(this.getActionParam());
 		stringParamEClass.getESuperTypes().add(this.getActionParam());
+		pointEClass.getESuperTypes().add(this.getGeographicalElement());
+		regionEClass.getESuperTypes().add(this.getGeographicalElement());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(eventSetManagerEClass, EventSetManager.class, "EventSetManager", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getEventSetManager_Events(), this.getEvent(), null, "events", null, 0, -1, EventSetManager.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getEventSetManager_Dataconnections(), this.getDataConnection(), null, "dataconnections", null, 0, -1, EventSetManager.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getEventSetManager_Actions(), this.getActionExecutableExtension(), null, "actions", null, 0, -1, EventSetManager.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getEventSetManager_Geos(), this.getGeographicalElement(), null, "geos", null, 0, -1, EventSetManager.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(eventEClass, Event.class, "Event", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getEvent_When(), this.getCondition(), null, "when", null, 0, 1, Event.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getEvent_Triggers(), this.getAction(), null, "triggers", null, 0, -1, Event.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getEvent_Dataconnection(), ecorePackage.getEString(), "dataconnection", null, 0, -1, Event.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getEvent_Concepts(), this.getConcept(), null, "concepts", null, 0, -1, Event.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getEvent_Geo(), this.getGeographicalElement(), null, "geo", null, 0, 1, Event.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(conceptEClass, Concept.class, "Concept", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getConcept_Name(), ecorePackage.getEString(), "name", null, 0, 1, Concept.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -838,6 +959,16 @@ public class EcarulesPackageImpl extends EPackageImpl implements EcarulesPackage
 		initEClass(actionEClass, Action.class, "Action", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getAction_Params(), this.getActionParam(), null, "params", null, 0, -1, Action.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getAction_Calls(), ecorePackage.getEString(), "calls", null, 0, 1, Action.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(geographicalElementEClass, GeographicalElement.class, "GeographicalElement", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getGeographicalElement_Name(), ecorePackage.getEString(), "name", null, 0, 1, GeographicalElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(pointEClass, Point.class, "Point", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getPoint_Lat(), ecorePackage.getEDouble(), "lat", null, 0, 1, Point.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getPoint_Long(), ecorePackage.getEDouble(), "long", null, 0, 1, Point.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(regionEClass, Region.class, "Region", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getRegion_Points(), this.getPoint(), null, "points", null, 0, -1, Region.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(typeEEnum, Type.class, "Type");

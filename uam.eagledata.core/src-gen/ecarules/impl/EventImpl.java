@@ -7,6 +7,7 @@ import ecarules.Concept;
 import ecarules.Condition;
 import ecarules.EcarulesPackage;
 import ecarules.Event;
+import ecarules.GeographicalElement;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 
@@ -22,6 +23,7 @@ import org.eclipse.emf.ecore.EClass;
  *   <li>{@link ecarules.impl.EventImpl#getTriggers <em>Triggers</em>}</li>
  *   <li>{@link ecarules.impl.EventImpl#getDataconnection <em>Dataconnection</em>}</li>
  *   <li>{@link ecarules.impl.EventImpl#getConcepts <em>Concepts</em>}</li>
+ *   <li>{@link ecarules.impl.EventImpl#getGeo <em>Geo</em>}</li>
  * </ul>
  *
  * @generated
@@ -92,6 +94,24 @@ public class EventImpl extends NamedElementImpl implements Event {
 	@SuppressWarnings("unchecked")
 	public EList<Concept> getConcepts() {
 		return (EList<Concept>)eGet(EcarulesPackage.Literals.EVENT__CONCEPTS, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public GeographicalElement getGeo() {
+		return (GeographicalElement)eGet(EcarulesPackage.Literals.EVENT__GEO, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setGeo(GeographicalElement newGeo) {
+		eSet(EcarulesPackage.Literals.EVENT__GEO, newGeo);
 	}
 
 } //EventImpl

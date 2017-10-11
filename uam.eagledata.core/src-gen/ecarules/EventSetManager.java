@@ -18,6 +18,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link ecarules.EventSetManager#getEvents <em>Events</em>}</li>
  *   <li>{@link ecarules.EventSetManager#getDataconnections <em>Dataconnections</em>}</li>
  *   <li>{@link ecarules.EventSetManager#getActions <em>Actions</em>}</li>
+ *   <li>{@link ecarules.EventSetManager#getGeos <em>Geos</em>}</li>
  * </ul>
  *
  * @see ecarules.EcarulesPackage#getEventSetManager()
@@ -73,5 +74,21 @@ public interface EventSetManager extends PersistentEObject {
 	 * @generated
 	 */
 	EList<ActionExecutableExtension> getActions();
+
+	/**
+	 * Returns the value of the '<em><b>Geos</b></em>' containment reference list.
+	 * The list contents are of type {@link ecarules.GeographicalElement}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Geos</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Geos</em>' containment reference list.
+	 * @see ecarules.EcarulesPackage#getEventSetManager_Geos()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<GeographicalElement> getGeos();
 
 } // EventSetManager

@@ -49,6 +49,7 @@ public class EventItemProvider
 
 			addTriggersPropertyDescriptor(object);
 			addDataconnectionPropertyDescriptor(object);
+			addGeoPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -93,6 +94,28 @@ public class EventItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Geo feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addGeoPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Event_geo_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Event_geo_feature", "_UI_Event_type"),
+				 EcarulesPackage.Literals.EVENT__GEO,
+				 true,
+				 false,
+				 true,
+				 null,
 				 null,
 				 null));
 	}

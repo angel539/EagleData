@@ -12,7 +12,9 @@ import ecarules.Event;
 import ecarules.EventSetManager;
 import ecarules.KeyConcept;
 import ecarules.Literal;
+import ecarules.Point;
 import ecarules.RegexConcept;
+import ecarules.Region;
 import ecarules.StringParam;
 import java.util.Set;
 import org.eclipse.emf.ecore.EObject;
@@ -64,8 +66,14 @@ public class EventSetManagerDslSemanticSequencer extends AbstractDelegatingSeman
 			case EcarulesPackage.LITERAL:
 				sequence_Literal(context, (Literal) semanticObject); 
 				return; 
+			case EcarulesPackage.POINT:
+				sequence_Point(context, (Point) semanticObject); 
+				return; 
 			case EcarulesPackage.REGEX_CONCEPT:
 				sequence_RegexConcept(context, (RegexConcept) semanticObject); 
+				return; 
+			case EcarulesPackage.REGION:
+				sequence_Region(context, (Region) semanticObject); 
 				return; 
 			case EcarulesPackage.STRING_PARAM:
 				sequence_StringParam(context, (StringParam) semanticObject); 
@@ -155,7 +163,7 @@ public class EventSetManagerDslSemanticSequencer extends AbstractDelegatingSeman
 	 *     EventSetManager returns EventSetManager
 	 *
 	 * Constraint:
-	 *     (events+=Event events+=Event*)
+	 *     (geos+=GeographicalElement geos+=GeographicalElement* events+=Event events+=Event*)
 	 */
 	protected void sequence_EventSetManager(ISerializationContext context, EventSetManager semanticObject) {
 		genericSequencer.createSequence(context, (EObject) semanticObject);
@@ -170,6 +178,7 @@ public class EventSetManagerDslSemanticSequencer extends AbstractDelegatingSeman
 	 *     (
 	 *         (dataconnection+=EString dataconnection+=EString*)? 
 	 *         name=EString 
+	 *         geo=[GeographicalElement|ID]? 
 	 *         concepts+=Concept 
 	 *         concepts+=Concept* 
 	 *         when=Condition? 
@@ -224,6 +233,31 @@ public class EventSetManagerDslSemanticSequencer extends AbstractDelegatingSeman
 	
 	/**
 	 * Contexts:
+	 *     GeographicalElement returns Point
+	 *     Point returns Point
+	 *
+	 * Constraint:
+	 *     (name=EString lat=DOUBLE long=DOUBLE)
+	 */
+	protected void sequence_Point(ISerializationContext context, Point semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient((EObject) semanticObject, EcarulesPackage.Literals.GEOGRAPHICAL_ELEMENT__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing((EObject) semanticObject, EcarulesPackage.Literals.GEOGRAPHICAL_ELEMENT__NAME));
+			if (transientValues.isValueTransient((EObject) semanticObject, EcarulesPackage.Literals.POINT__LAT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing((EObject) semanticObject, EcarulesPackage.Literals.POINT__LAT));
+			if (transientValues.isValueTransient((EObject) semanticObject, EcarulesPackage.Literals.POINT__LONG) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing((EObject) semanticObject, EcarulesPackage.Literals.POINT__LONG));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, (EObject) semanticObject);
+		feeder.accept(grammarAccess.getPointAccess().getNameEStringParserRuleCall_1_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getPointAccess().getLatDOUBLETerminalRuleCall_3_0(), semanticObject.getLat());
+		feeder.accept(grammarAccess.getPointAccess().getLongDOUBLETerminalRuleCall_5_0(), semanticObject.getLong());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     Concept returns RegexConcept
 	 *     RegexConcept returns RegexConcept
 	 *
@@ -244,6 +278,19 @@ public class EventSetManagerDslSemanticSequencer extends AbstractDelegatingSeman
 		feeder.accept(grammarAccess.getRegexConceptAccess().getNameEStringParserRuleCall_2_0(), semanticObject.getName());
 		feeder.accept(grammarAccess.getRegexConceptAccess().getRegexEStringParserRuleCall_4_0(), semanticObject.getRegex());
 		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     GeographicalElement returns Region
+	 *     Region returns Region
+	 *
+	 * Constraint:
+	 *     (name=EString points+=Point points+=Point*)
+	 */
+	protected void sequence_Region(ISerializationContext context, Region semanticObject) {
+		genericSequencer.createSequence(context, (EObject) semanticObject);
 	}
 	
 	

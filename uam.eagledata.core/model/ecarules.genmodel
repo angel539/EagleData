@@ -20,12 +20,14 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ecarules.ecore#//EventSetManager/events"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ecarules.ecore#//EventSetManager/dataconnections"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ecarules.ecore#//EventSetManager/actions"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ecarules.ecore#//EventSetManager/geos"/>
     </genClasses>
     <genClasses ecoreClass="ecarules.ecore#//Event">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ecarules.ecore#//Event/when"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ecarules.ecore#//Event/triggers"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ecarules.ecore#//Event/dataconnection"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ecarules.ecore#//Event/concepts"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ecarules.ecore#//Event/geo"/>
     </genClasses>
     <genClasses image="false" ecoreClass="ecarules.ecore#//Concept">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ecarules.ecore#//Concept/name"/>
@@ -79,6 +81,16 @@
     <genClasses ecoreClass="ecarules.ecore#//Action">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ecarules.ecore#//Action/params"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EAttribute ecarules.ecore#//Action/calls"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="ecarules.ecore#//GeographicalElement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ecarules.ecore#//GeographicalElement/name"/>
+    </genClasses>
+    <genClasses ecoreClass="ecarules.ecore#//Point">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ecarules.ecore#//Point/lat"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ecarules.ecore#//Point/long"/>
+    </genClasses>
+    <genClasses ecoreClass="ecarules.ecore#//Region">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ecarules.ecore#//Region/points"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

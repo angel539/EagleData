@@ -17,6 +17,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link ecarules.Event#getTriggers <em>Triggers</em>}</li>
  *   <li>{@link ecarules.Event#getDataconnection <em>Dataconnection</em>}</li>
  *   <li>{@link ecarules.Event#getConcepts <em>Concepts</em>}</li>
+ *   <li>{@link ecarules.Event#getGeo <em>Geo</em>}</li>
  * </ul>
  *
  * @see ecarules.EcarulesPackage#getEvent()
@@ -98,5 +99,31 @@ public interface Event extends NamedElement {
 	 * @generated
 	 */
 	EList<Concept> getConcepts();
+
+	/**
+	 * Returns the value of the '<em><b>Geo</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Geo</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Geo</em>' reference.
+	 * @see #setGeo(GeographicalElement)
+	 * @see ecarules.EcarulesPackage#getEvent_Geo()
+	 * @model
+	 * @generated
+	 */
+	GeographicalElement getGeo();
+
+	/**
+	 * Sets the value of the '{@link ecarules.Event#getGeo <em>Geo</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Geo</em>' reference.
+	 * @see #getGeo()
+	 * @generated
+	 */
+	void setGeo(GeographicalElement value);
 
 } // Event

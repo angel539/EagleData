@@ -348,6 +348,52 @@ public class EcarulesItemProviderAdapterFactory extends EcarulesAdapterFactory i
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link ecarules.Point} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected PointItemProvider pointItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link ecarules.Point}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createPointAdapter() {
+		if (pointItemProvider == null) {
+			pointItemProvider = new PointItemProvider(this);
+		}
+
+		return pointItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link ecarules.Region} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected RegionItemProvider regionItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link ecarules.Region}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createRegionAdapter() {
+		if (regionItemProvider == null) {
+			regionItemProvider = new RegionItemProvider(this);
+		}
+
+		return regionItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -458,6 +504,8 @@ public class EcarulesItemProviderAdapterFactory extends EcarulesAdapterFactory i
 		if (conceptParamItemProvider != null) conceptParamItemProvider.dispose();
 		if (stringParamItemProvider != null) stringParamItemProvider.dispose();
 		if (actionItemProvider != null) actionItemProvider.dispose();
+		if (pointItemProvider != null) pointItemProvider.dispose();
+		if (regionItemProvider != null) regionItemProvider.dispose();
 	}
 
 }

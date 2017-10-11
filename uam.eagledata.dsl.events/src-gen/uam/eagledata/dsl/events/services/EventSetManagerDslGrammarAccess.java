@@ -30,29 +30,171 @@ public class EventSetManagerDslGrammarAccess extends AbstractGrammarElementFinde
 	public class EventSetManagerElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "uam.eagledata.dsl.events.EventSetManagerDsl.EventSetManager");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Assignment cEventsAssignment_0 = (Assignment)cGroup.eContents().get(0);
-		private final RuleCall cEventsEventParserRuleCall_0_0 = (RuleCall)cEventsAssignment_0.eContents().get(0);
-		private final Assignment cEventsAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cEventsEventParserRuleCall_1_0 = (RuleCall)cEventsAssignment_1.eContents().get(0);
+		private final Assignment cGeosAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final RuleCall cGeosGeographicalElementParserRuleCall_0_0 = (RuleCall)cGeosAssignment_0.eContents().get(0);
+		private final Assignment cGeosAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cGeosGeographicalElementParserRuleCall_1_0 = (RuleCall)cGeosAssignment_1.eContents().get(0);
+		private final Assignment cEventsAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cEventsEventParserRuleCall_2_0 = (RuleCall)cEventsAssignment_2.eContents().get(0);
+		private final Assignment cEventsAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cEventsEventParserRuleCall_3_0 = (RuleCall)cEventsAssignment_3.eContents().get(0);
 		
 		//EventSetManager events::EventSetManager:
+		//	geos+=GeographicalElement geos+=GeographicalElement*
 		//	events+=Event events+=Event*
 		@Override public ParserRule getRule() { return rule; }
 		
-		//events+=Event events+=Event*
+		//geos+=GeographicalElement geos+=GeographicalElement* events+=Event events+=Event*
 		public Group getGroup() { return cGroup; }
 		
+		//geos+=GeographicalElement
+		public Assignment getGeosAssignment_0() { return cGeosAssignment_0; }
+		
+		//GeographicalElement
+		public RuleCall getGeosGeographicalElementParserRuleCall_0_0() { return cGeosGeographicalElementParserRuleCall_0_0; }
+		
+		//geos+=GeographicalElement*
+		public Assignment getGeosAssignment_1() { return cGeosAssignment_1; }
+		
+		//GeographicalElement
+		public RuleCall getGeosGeographicalElementParserRuleCall_1_0() { return cGeosGeographicalElementParserRuleCall_1_0; }
+		
 		//events+=Event
-		public Assignment getEventsAssignment_0() { return cEventsAssignment_0; }
+		public Assignment getEventsAssignment_2() { return cEventsAssignment_2; }
 		
 		//Event
-		public RuleCall getEventsEventParserRuleCall_0_0() { return cEventsEventParserRuleCall_0_0; }
+		public RuleCall getEventsEventParserRuleCall_2_0() { return cEventsEventParserRuleCall_2_0; }
 		
 		//events+=Event*
-		public Assignment getEventsAssignment_1() { return cEventsAssignment_1; }
+		public Assignment getEventsAssignment_3() { return cEventsAssignment_3; }
 		
 		//Event
-		public RuleCall getEventsEventParserRuleCall_1_0() { return cEventsEventParserRuleCall_1_0; }
+		public RuleCall getEventsEventParserRuleCall_3_0() { return cEventsEventParserRuleCall_3_0; }
+	}
+	public class GeographicalElementElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "uam.eagledata.dsl.events.EventSetManagerDsl.GeographicalElement");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final RuleCall cPointParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cRegionParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		
+		//GeographicalElement events::GeographicalElement:
+		//	Point | Region
+		@Override public ParserRule getRule() { return rule; }
+		
+		//Point | Region
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//Point
+		public RuleCall getPointParserRuleCall_0() { return cPointParserRuleCall_0; }
+		
+		//Region
+		public RuleCall getRegionParserRuleCall_1() { return cRegionParserRuleCall_1; }
+	}
+	public class PointElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "uam.eagledata.dsl.events.EventSetManagerDsl.Point");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cPointAction_0 = (Action)cGroup.eContents().get(0);
+		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cNameEStringParserRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cLatAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cLatDOUBLETerminalRuleCall_3_0 = (RuleCall)cLatAssignment_3.eContents().get(0);
+		private final Keyword cCommaKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		private final Assignment cLongAssignment_5 = (Assignment)cGroup.eContents().get(5);
+		private final RuleCall cLongDOUBLETerminalRuleCall_5_0 = (RuleCall)cLongAssignment_5.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_6 = (Keyword)cGroup.eContents().get(6);
+		
+		//Point events::Point:
+		//	{events::Point} name=EString '{' lat=DOUBLE "," long=DOUBLE '}'
+		@Override public ParserRule getRule() { return rule; }
+		
+		//{events::Point} name=EString '{' lat=DOUBLE "," long=DOUBLE '}'
+		public Group getGroup() { return cGroup; }
+		
+		//{events::Point}
+		public Action getPointAction_0() { return cPointAction_0; }
+		
+		//name=EString
+		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
+		
+		//EString
+		public RuleCall getNameEStringParserRuleCall_1_0() { return cNameEStringParserRuleCall_1_0; }
+		
+		//'{'
+		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
+		
+		//lat=DOUBLE
+		public Assignment getLatAssignment_3() { return cLatAssignment_3; }
+		
+		//DOUBLE
+		public RuleCall getLatDOUBLETerminalRuleCall_3_0() { return cLatDOUBLETerminalRuleCall_3_0; }
+		
+		//","
+		public Keyword getCommaKeyword_4() { return cCommaKeyword_4; }
+		
+		//long=DOUBLE
+		public Assignment getLongAssignment_5() { return cLongAssignment_5; }
+		
+		//DOUBLE
+		public RuleCall getLongDOUBLETerminalRuleCall_5_0() { return cLongDOUBLETerminalRuleCall_5_0; }
+		
+		//'}'
+		public Keyword getRightCurlyBracketKeyword_6() { return cRightCurlyBracketKeyword_6; }
+	}
+	public class RegionElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "uam.eagledata.dsl.events.EventSetManagerDsl.Region");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cRegionAction_0 = (Action)cGroup.eContents().get(0);
+		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cNameEStringParserRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		private final Keyword cLeftSquareBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cPointsAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cPointsPointParserRuleCall_3_0 = (RuleCall)cPointsAssignment_3.eContents().get(0);
+		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
+		private final Keyword cCommaKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
+		private final Assignment cPointsAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
+		private final RuleCall cPointsPointParserRuleCall_4_1_0 = (RuleCall)cPointsAssignment_4_1.eContents().get(0);
+		private final Keyword cRightSquareBracketKeyword_5 = (Keyword)cGroup.eContents().get(5);
+		
+		//Region events::Region:
+		//	{events::Region} name=EString '[' points+=Point (',' points+=Point)* ']'
+		@Override public ParserRule getRule() { return rule; }
+		
+		//{events::Region} name=EString '[' points+=Point (',' points+=Point)* ']'
+		public Group getGroup() { return cGroup; }
+		
+		//{events::Region}
+		public Action getRegionAction_0() { return cRegionAction_0; }
+		
+		//name=EString
+		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
+		
+		//EString
+		public RuleCall getNameEStringParserRuleCall_1_0() { return cNameEStringParserRuleCall_1_0; }
+		
+		//'['
+		public Keyword getLeftSquareBracketKeyword_2() { return cLeftSquareBracketKeyword_2; }
+		
+		//points+=Point
+		public Assignment getPointsAssignment_3() { return cPointsAssignment_3; }
+		
+		//Point
+		public RuleCall getPointsPointParserRuleCall_3_0() { return cPointsPointParserRuleCall_3_0; }
+		
+		//(',' points+=Point)*
+		public Group getGroup_4() { return cGroup_4; }
+		
+		//','
+		public Keyword getCommaKeyword_4_0() { return cCommaKeyword_4_0; }
+		
+		//points+=Point
+		public Assignment getPointsAssignment_4_1() { return cPointsAssignment_4_1; }
+		
+		//Point
+		public RuleCall getPointsPointParserRuleCall_4_1_0() { return cPointsPointParserRuleCall_4_1_0; }
+		
+		//']'
+		public Keyword getRightSquareBracketKeyword_5() { return cRightSquareBracketKeyword_5; }
 	}
 	public class EventElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "uam.eagledata.dsl.events.EventSetManagerDsl.Event");
@@ -69,32 +211,38 @@ public class EventSetManagerDslGrammarAccess extends AbstractGrammarElementFinde
 		private final Keyword cPatternKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		private final Assignment cNameAssignment_3 = (Assignment)cGroup.eContents().get(3);
 		private final RuleCall cNameEStringParserRuleCall_3_0 = (RuleCall)cNameAssignment_3.eContents().get(0);
-		private final Keyword cLeftCurlyBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
-		private final Assignment cConceptsAssignment_5 = (Assignment)cGroup.eContents().get(5);
-		private final RuleCall cConceptsConceptParserRuleCall_5_0 = (RuleCall)cConceptsAssignment_5.eContents().get(0);
+		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
+		private final Keyword cInKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
+		private final Assignment cGeoAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
+		private final CrossReference cGeoGeographicalElementCrossReference_4_1_0 = (CrossReference)cGeoAssignment_4_1.eContents().get(0);
+		private final RuleCall cGeoGeographicalElementIDTerminalRuleCall_4_1_0_1 = (RuleCall)cGeoGeographicalElementCrossReference_4_1_0.eContents().get(1);
+		private final Keyword cLeftCurlyBracketKeyword_5 = (Keyword)cGroup.eContents().get(5);
 		private final Assignment cConceptsAssignment_6 = (Assignment)cGroup.eContents().get(6);
 		private final RuleCall cConceptsConceptParserRuleCall_6_0 = (RuleCall)cConceptsAssignment_6.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_7 = (Keyword)cGroup.eContents().get(7);
-		private final Group cGroup_8 = (Group)cGroup.eContents().get(8);
-		private final Keyword cIfKeyword_8_0 = (Keyword)cGroup_8.eContents().get(0);
-		private final Assignment cWhenAssignment_8_1 = (Assignment)cGroup_8.eContents().get(1);
-		private final RuleCall cWhenConditionParserRuleCall_8_1_0 = (RuleCall)cWhenAssignment_8_1.eContents().get(0);
+		private final Assignment cConceptsAssignment_7 = (Assignment)cGroup.eContents().get(7);
+		private final RuleCall cConceptsConceptParserRuleCall_7_0 = (RuleCall)cConceptsAssignment_7.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_8 = (Keyword)cGroup.eContents().get(8);
 		private final Group cGroup_9 = (Group)cGroup.eContents().get(9);
-		private final Keyword cThenKeyword_9_0 = (Keyword)cGroup_9.eContents().get(0);
-		private final Assignment cTriggersAssignment_9_1 = (Assignment)cGroup_9.eContents().get(1);
-		private final RuleCall cTriggersActionParserRuleCall_9_1_0 = (RuleCall)cTriggersAssignment_9_1.eContents().get(0);
-		private final Assignment cTriggersAssignment_9_2 = (Assignment)cGroup_9.eContents().get(2);
-		private final RuleCall cTriggersActionParserRuleCall_9_2_0 = (RuleCall)cTriggersAssignment_9_2.eContents().get(0);
+		private final Keyword cIfKeyword_9_0 = (Keyword)cGroup_9.eContents().get(0);
+		private final Assignment cWhenAssignment_9_1 = (Assignment)cGroup_9.eContents().get(1);
+		private final RuleCall cWhenConditionParserRuleCall_9_1_0 = (RuleCall)cWhenAssignment_9_1.eContents().get(0);
+		private final Group cGroup_10 = (Group)cGroup.eContents().get(10);
+		private final Keyword cThenKeyword_10_0 = (Keyword)cGroup_10.eContents().get(0);
+		private final Assignment cTriggersAssignment_10_1 = (Assignment)cGroup_10.eContents().get(1);
+		private final RuleCall cTriggersActionParserRuleCall_10_1_0 = (RuleCall)cTriggersAssignment_10_1.eContents().get(0);
+		private final Assignment cTriggersAssignment_10_2 = (Assignment)cGroup_10.eContents().get(2);
+		private final RuleCall cTriggersActionParserRuleCall_10_2_0 = (RuleCall)cTriggersAssignment_10_2.eContents().get(0);
 		
 		//Event events::Event:
 		//	{events::Event} ('connection' dataconnection+=EString ('and' dataconnection+=EString)*)?
-		//	'pattern' name=EString '{'
+		//	'pattern' name=EString ('in' geo=[events::GeographicalElement])? '{'
 		//	concepts+=Concept concepts+=Concept*
 		//	'}' ('if' when=Condition)? ('then' triggers+=Action triggers+=Action*)
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{events::Event} ('connection' dataconnection+=EString ('and' dataconnection+=EString)*)? 'pattern' name=EString '{'
-		//concepts+=Concept concepts+=Concept* '}' ('if' when=Condition)? ('then' triggers+=Action triggers+=Action*)
+		//{events::Event} ('connection' dataconnection+=EString ('and' dataconnection+=EString)*)? 'pattern' name=EString ('in'
+		//geo=[events::GeographicalElement])? '{' concepts+=Concept concepts+=Concept* '}' ('if' when=Condition)? ('then'
+		//triggers+=Action triggers+=Action*)
 		public Group getGroup() { return cGroup; }
 		
 		//{events::Event}
@@ -133,53 +281,68 @@ public class EventSetManagerDslGrammarAccess extends AbstractGrammarElementFinde
 		//EString
 		public RuleCall getNameEStringParserRuleCall_3_0() { return cNameEStringParserRuleCall_3_0; }
 		
+		//('in' geo=[events::GeographicalElement])?
+		public Group getGroup_4() { return cGroup_4; }
+		
+		//'in'
+		public Keyword getInKeyword_4_0() { return cInKeyword_4_0; }
+		
+		//geo=[events::GeographicalElement]
+		public Assignment getGeoAssignment_4_1() { return cGeoAssignment_4_1; }
+		
+		//[events::GeographicalElement]
+		public CrossReference getGeoGeographicalElementCrossReference_4_1_0() { return cGeoGeographicalElementCrossReference_4_1_0; }
+		
+		//ID
+		public RuleCall getGeoGeographicalElementIDTerminalRuleCall_4_1_0_1() { return cGeoGeographicalElementIDTerminalRuleCall_4_1_0_1; }
+		
 		//'{'
-		public Keyword getLeftCurlyBracketKeyword_4() { return cLeftCurlyBracketKeyword_4; }
+		public Keyword getLeftCurlyBracketKeyword_5() { return cLeftCurlyBracketKeyword_5; }
 		
 		//concepts+=Concept
-		public Assignment getConceptsAssignment_5() { return cConceptsAssignment_5; }
-		
-		//Concept
-		public RuleCall getConceptsConceptParserRuleCall_5_0() { return cConceptsConceptParserRuleCall_5_0; }
-		
-		//concepts+=Concept*
 		public Assignment getConceptsAssignment_6() { return cConceptsAssignment_6; }
 		
 		//Concept
 		public RuleCall getConceptsConceptParserRuleCall_6_0() { return cConceptsConceptParserRuleCall_6_0; }
 		
+		//concepts+=Concept*
+		public Assignment getConceptsAssignment_7() { return cConceptsAssignment_7; }
+		
+		//Concept
+		public RuleCall getConceptsConceptParserRuleCall_7_0() { return cConceptsConceptParserRuleCall_7_0; }
+		
 		//'}'
-		public Keyword getRightCurlyBracketKeyword_7() { return cRightCurlyBracketKeyword_7; }
+		public Keyword getRightCurlyBracketKeyword_8() { return cRightCurlyBracketKeyword_8; }
 		
 		//('if' when=Condition)?
-		public Group getGroup_8() { return cGroup_8; }
-		
-		//'if'
-		public Keyword getIfKeyword_8_0() { return cIfKeyword_8_0; }
-		
-		//when=Condition
-		public Assignment getWhenAssignment_8_1() { return cWhenAssignment_8_1; }
-		
-		//Condition
-		public RuleCall getWhenConditionParserRuleCall_8_1_0() { return cWhenConditionParserRuleCall_8_1_0; }
-		
-		//('then' triggers+=Action triggers+=Action*)
 		public Group getGroup_9() { return cGroup_9; }
 		
+		//'if'
+		public Keyword getIfKeyword_9_0() { return cIfKeyword_9_0; }
+		
+		//when=Condition
+		public Assignment getWhenAssignment_9_1() { return cWhenAssignment_9_1; }
+		
+		//Condition
+		public RuleCall getWhenConditionParserRuleCall_9_1_0() { return cWhenConditionParserRuleCall_9_1_0; }
+		
+		//('then' triggers+=Action triggers+=Action*)
+		public Group getGroup_10() { return cGroup_10; }
+		
 		//'then'
-		public Keyword getThenKeyword_9_0() { return cThenKeyword_9_0; }
+		public Keyword getThenKeyword_10_0() { return cThenKeyword_10_0; }
 		
 		//triggers+=Action
-		public Assignment getTriggersAssignment_9_1() { return cTriggersAssignment_9_1; }
+		public Assignment getTriggersAssignment_10_1() { return cTriggersAssignment_10_1; }
 		
 		//Action
-		public RuleCall getTriggersActionParserRuleCall_9_1_0() { return cTriggersActionParserRuleCall_9_1_0; }
+		public RuleCall getTriggersActionParserRuleCall_10_1_0() { return cTriggersActionParserRuleCall_10_1_0; }
 		
 		//triggers+=Action*
-		public Assignment getTriggersAssignment_9_2() { return cTriggersAssignment_9_2; }
+		public Assignment getTriggersAssignment_10_2() { return cTriggersAssignment_10_2; }
 		
 		//Action
-		public RuleCall getTriggersActionParserRuleCall_9_2_0() { return cTriggersActionParserRuleCall_9_2_0; }
+		public RuleCall getTriggersActionParserRuleCall_10_2_0() { return cTriggersActionParserRuleCall_10_2_0; }
 	}
 	public class ConditionElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "uam.eagledata.dsl.events.EventSetManagerDsl.Condition");
@@ -583,6 +746,10 @@ public class EventSetManagerDslGrammarAccess extends AbstractGrammarElementFinde
 	}
 	
 	private final EventSetManagerElements pEventSetManager;
+	private final GeographicalElementElements pGeographicalElement;
+	private final PointElements pPoint;
+	private final RegionElements pRegion;
+	private final TerminalRule tDOUBLE;
 	private final EventElements pEvent;
 	private final ConditionElements pCondition;
 	private final BinaryExpressionElements pBinaryExpression;
@@ -609,6 +776,10 @@ public class EventSetManagerDslGrammarAccess extends AbstractGrammarElementFinde
 		this.grammar = internalFindGrammar(grammarProvider);
 		this.gaTerminals = gaTerminals;
 		this.pEventSetManager = new EventSetManagerElements();
+		this.pGeographicalElement = new GeographicalElementElements();
+		this.pPoint = new PointElements();
+		this.pRegion = new RegionElements();
+		this.tDOUBLE = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "uam.eagledata.dsl.events.EventSetManagerDsl.DOUBLE");
 		this.pEvent = new EventElements();
 		this.pCondition = new ConditionElements();
 		this.pBinaryExpression = new BinaryExpressionElements();
@@ -654,6 +825,7 @@ public class EventSetManagerDslGrammarAccess extends AbstractGrammarElementFinde
 
 	
 	//EventSetManager events::EventSetManager:
+	//	geos+=GeographicalElement geos+=GeographicalElement*
 	//	events+=Event events+=Event*
 	public EventSetManagerElements getEventSetManagerAccess() {
 		return pEventSetManager;
@@ -663,9 +835,45 @@ public class EventSetManagerDslGrammarAccess extends AbstractGrammarElementFinde
 		return getEventSetManagerAccess().getRule();
 	}
 	
+	//GeographicalElement events::GeographicalElement:
+	//	Point | Region
+	public GeographicalElementElements getGeographicalElementAccess() {
+		return pGeographicalElement;
+	}
+	
+	public ParserRule getGeographicalElementRule() {
+		return getGeographicalElementAccess().getRule();
+	}
+	
+	//Point events::Point:
+	//	{events::Point} name=EString '{' lat=DOUBLE "," long=DOUBLE '}'
+	public PointElements getPointAccess() {
+		return pPoint;
+	}
+	
+	public ParserRule getPointRule() {
+		return getPointAccess().getRule();
+	}
+	
+	//Region events::Region:
+	//	{events::Region} name=EString '[' points+=Point (',' points+=Point)* ']'
+	public RegionElements getRegionAccess() {
+		return pRegion;
+	}
+	
+	public ParserRule getRegionRule() {
+		return getRegionAccess().getRule();
+	}
+	
+	//terminal DOUBLE returns ecore::EDouble:
+	//	"-"? INT '.' INT;
+	public TerminalRule getDOUBLERule() {
+		return tDOUBLE;
+	}
+	
 	//Event events::Event:
 	//	{events::Event} ('connection' dataconnection+=EString ('and' dataconnection+=EString)*)?
-	//	'pattern' name=EString '{'
+	//	'pattern' name=EString ('in' geo=[events::GeographicalElement])? '{'
 	//	concepts+=Concept concepts+=Concept*
 	//	'}' ('if' when=Condition)? ('then' triggers+=Action triggers+=Action*)
 	public EventElements getEventAccess() {

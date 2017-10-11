@@ -96,13 +96,22 @@ public interface EcarulesPackage extends EPackage {
 	int EVENT_SET_MANAGER__ACTIONS = 2;
 
 	/**
+	 * The feature id for the '<em><b>Geos</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EVENT_SET_MANAGER__GEOS = 3;
+
+	/**
 	 * The number of structural features of the '<em>Event Set Manager</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int EVENT_SET_MANAGER_FEATURE_COUNT = 3;
+	int EVENT_SET_MANAGER_FEATURE_COUNT = 4;
 
 	/**
 	 * The number of operations of the '<em>Event Set Manager</em>' class.
@@ -260,13 +269,22 @@ public interface EcarulesPackage extends EPackage {
 	int EVENT__CONCEPTS = NAMED_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
+	 * The feature id for the '<em><b>Geo</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EVENT__GEO = NAMED_ELEMENT_FEATURE_COUNT + 4;
+
+	/**
 	 * The number of structural features of the '<em>Event</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int EVENT_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 4;
+	int EVENT_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 5;
 
 	/**
 	 * The number of operations of the '<em>Event</em>' class.
@@ -868,6 +886,144 @@ public interface EcarulesPackage extends EPackage {
 	int ACTION_OPERATION_COUNT = 0;
 
 	/**
+	 * The meta object id for the '{@link ecarules.impl.GeographicalElementImpl <em>Geographical Element</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ecarules.impl.GeographicalElementImpl
+	 * @see ecarules.impl.EcarulesPackageImpl#getGeographicalElement()
+	 * @generated
+	 */
+	int GEOGRAPHICAL_ELEMENT = 16;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GEOGRAPHICAL_ELEMENT__NAME = 0;
+
+	/**
+	 * The number of structural features of the '<em>Geographical Element</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GEOGRAPHICAL_ELEMENT_FEATURE_COUNT = 1;
+
+	/**
+	 * The number of operations of the '<em>Geographical Element</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GEOGRAPHICAL_ELEMENT_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link ecarules.impl.PointImpl <em>Point</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ecarules.impl.PointImpl
+	 * @see ecarules.impl.EcarulesPackageImpl#getPoint()
+	 * @generated
+	 */
+	int POINT = 17;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POINT__NAME = GEOGRAPHICAL_ELEMENT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Lat</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POINT__LAT = GEOGRAPHICAL_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Long</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POINT__LONG = GEOGRAPHICAL_ELEMENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Point</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POINT_FEATURE_COUNT = GEOGRAPHICAL_ELEMENT_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of operations of the '<em>Point</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POINT_OPERATION_COUNT = GEOGRAPHICAL_ELEMENT_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link ecarules.impl.RegionImpl <em>Region</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ecarules.impl.RegionImpl
+	 * @see ecarules.impl.EcarulesPackageImpl#getRegion()
+	 * @generated
+	 */
+	int REGION = 18;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REGION__NAME = GEOGRAPHICAL_ELEMENT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Points</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REGION__POINTS = GEOGRAPHICAL_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Region</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REGION_FEATURE_COUNT = GEOGRAPHICAL_ELEMENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Region</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REGION_OPERATION_COUNT = GEOGRAPHICAL_ELEMENT_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link ecarules.Type <em>Type</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -875,7 +1031,7 @@ public interface EcarulesPackage extends EPackage {
 	 * @see ecarules.impl.EcarulesPackageImpl#getType()
 	 * @generated
 	 */
-	int TYPE = 16;
+	int TYPE = 19;
 
 
 	/**
@@ -920,6 +1076,17 @@ public interface EcarulesPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getEventSetManager_Actions();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link ecarules.EventSetManager#getGeos <em>Geos</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Geos</em>'.
+	 * @see ecarules.EventSetManager#getGeos()
+	 * @see #getEventSetManager()
+	 * @generated
+	 */
+	EReference getEventSetManager_Geos();
 
 	/**
 	 * Returns the meta object for class '{@link ecarules.Event <em>Event</em>}'.
@@ -974,6 +1141,17 @@ public interface EcarulesPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getEvent_Concepts();
+
+	/**
+	 * Returns the meta object for the reference '{@link ecarules.Event#getGeo <em>Geo</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Geo</em>'.
+	 * @see ecarules.Event#getGeo()
+	 * @see #getEvent()
+	 * @generated
+	 */
+	EReference getEvent_Geo();
 
 	/**
 	 * Returns the meta object for class '{@link ecarules.Concept <em>Concept</em>}'.
@@ -1366,6 +1544,80 @@ public interface EcarulesPackage extends EPackage {
 	EAttribute getAction_Calls();
 
 	/**
+	 * Returns the meta object for class '{@link ecarules.GeographicalElement <em>Geographical Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Geographical Element</em>'.
+	 * @see ecarules.GeographicalElement
+	 * @generated
+	 */
+	EClass getGeographicalElement();
+
+	/**
+	 * Returns the meta object for the attribute '{@link ecarules.GeographicalElement#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see ecarules.GeographicalElement#getName()
+	 * @see #getGeographicalElement()
+	 * @generated
+	 */
+	EAttribute getGeographicalElement_Name();
+
+	/**
+	 * Returns the meta object for class '{@link ecarules.Point <em>Point</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Point</em>'.
+	 * @see ecarules.Point
+	 * @generated
+	 */
+	EClass getPoint();
+
+	/**
+	 * Returns the meta object for the attribute '{@link ecarules.Point#getLat <em>Lat</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Lat</em>'.
+	 * @see ecarules.Point#getLat()
+	 * @see #getPoint()
+	 * @generated
+	 */
+	EAttribute getPoint_Lat();
+
+	/**
+	 * Returns the meta object for the attribute '{@link ecarules.Point#getLong <em>Long</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Long</em>'.
+	 * @see ecarules.Point#getLong()
+	 * @see #getPoint()
+	 * @generated
+	 */
+	EAttribute getPoint_Long();
+
+	/**
+	 * Returns the meta object for class '{@link ecarules.Region <em>Region</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Region</em>'.
+	 * @see ecarules.Region
+	 * @generated
+	 */
+	EClass getRegion();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link ecarules.Region#getPoints <em>Points</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Points</em>'.
+	 * @see ecarules.Region#getPoints()
+	 * @see #getRegion()
+	 * @generated
+	 */
+	EReference getRegion_Points();
+
+	/**
 	 * Returns the meta object for enum '{@link ecarules.Type <em>Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1433,6 +1685,14 @@ public interface EcarulesPackage extends EPackage {
 		EReference EVENT_SET_MANAGER__ACTIONS = eINSTANCE.getEventSetManager_Actions();
 
 		/**
+		 * The meta object literal for the '<em><b>Geos</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference EVENT_SET_MANAGER__GEOS = eINSTANCE.getEventSetManager_Geos();
+
+		/**
 		 * The meta object literal for the '{@link ecarules.impl.EventImpl <em>Event</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1473,6 +1733,14 @@ public interface EcarulesPackage extends EPackage {
 		 * @generated
 		 */
 		EReference EVENT__CONCEPTS = eINSTANCE.getEvent_Concepts();
+
+		/**
+		 * The meta object literal for the '<em><b>Geo</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference EVENT__GEO = eINSTANCE.getEvent_Geo();
 
 		/**
 		 * The meta object literal for the '{@link ecarules.impl.ConceptImpl <em>Concept</em>}' class.
@@ -1797,6 +2065,68 @@ public interface EcarulesPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute ACTION__CALLS = eINSTANCE.getAction_Calls();
+
+		/**
+		 * The meta object literal for the '{@link ecarules.impl.GeographicalElementImpl <em>Geographical Element</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see ecarules.impl.GeographicalElementImpl
+		 * @see ecarules.impl.EcarulesPackageImpl#getGeographicalElement()
+		 * @generated
+		 */
+		EClass GEOGRAPHICAL_ELEMENT = eINSTANCE.getGeographicalElement();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute GEOGRAPHICAL_ELEMENT__NAME = eINSTANCE.getGeographicalElement_Name();
+
+		/**
+		 * The meta object literal for the '{@link ecarules.impl.PointImpl <em>Point</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see ecarules.impl.PointImpl
+		 * @see ecarules.impl.EcarulesPackageImpl#getPoint()
+		 * @generated
+		 */
+		EClass POINT = eINSTANCE.getPoint();
+
+		/**
+		 * The meta object literal for the '<em><b>Lat</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute POINT__LAT = eINSTANCE.getPoint_Lat();
+
+		/**
+		 * The meta object literal for the '<em><b>Long</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute POINT__LONG = eINSTANCE.getPoint_Long();
+
+		/**
+		 * The meta object literal for the '{@link ecarules.impl.RegionImpl <em>Region</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see ecarules.impl.RegionImpl
+		 * @see ecarules.impl.EcarulesPackageImpl#getRegion()
+		 * @generated
+		 */
+		EClass REGION = eINSTANCE.getRegion();
+
+		/**
+		 * The meta object literal for the '<em><b>Points</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference REGION__POINTS = eINSTANCE.getRegion_Points();
 
 		/**
 		 * The meta object literal for the '{@link ecarules.Type <em>Type</em>}' enum.
