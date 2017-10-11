@@ -3,6 +3,18 @@
  */
 package uam.eagledata.dsl.events.scoping
 
+import org.eclipse.emf.ecore.EObject
+import org.eclipse.emf.ecore.EReference
+import ecarules.EcarulesPackage
+import org.eclipse.xtext.scoping.Scopes
+import org.eclipse.xtext.EcoreUtil2
+import ecarules.EventSetManager
+import ecarules.Event
+import uam.eagledata.extensions.EventSetControlManager
+import ecarules.DataConnection
+import java.util.List
+import ecarules.ActionExecutableExtension
+import ecarules.Action
 
 /**
  * This class contains custom scoping description.
@@ -11,5 +23,42 @@ package uam.eagledata.dsl.events.scoping
  * on how and when to use it.
  */
 class EventSetManagerDslScopeProvider extends AbstractEventSetManagerDslScopeProvider {
-
+	override getScope(EObject context, EReference reference) {
+		//Si no se hace esto... dangling reference
+		if (context instanceof Event 
+    		&& reference == EcarulesPackage.Literals.EVENT__DATACONNECTIONS) {
+    		val EventSetManager rootElement = EcoreUtil2.getRootContainer(context) as EventSetManager
+    		val List<DataConnection> dataconnections = EventSetControlManager.getInstance().dataConnection
+    		
+    		if(!rootElement.dataconnections.equals(dataconnections)){
+				rootElement.dataconnections.clear
+				rootElement.dataconnections.addAll(dataconnections)
+			}
+			return Scopes.scopeFor(dataconnections)
+		}
+		
+    	if (context instanceof Action 
+    		&& reference == EcarulesPackage.Literals.ACTION__CALLS) {
+    		val EventSetManager rootElement = EcoreUtil2.getRootContainer(context) as EventSetManager
+    		val List<ActionExecutableExtension> actions = EventSetControlManager.getInstance().actions
+    		
+    		if(!rootElement.actions.equals(actions)){
+    			rootElement.actions.clear
+				rootElement.actions.addAll(actions)
+			}	
+			return Scopes.scopeFor(actions)
+		}
+	
+		return super.getScope(context, reference);
+	}
 }
+
+//Ejemplo de la web
+
+// Collect a list of candidates by going through the model
+// EcoreUtil2 provides useful functionality to do that
+// For example searching for all elements within the root Object's tree
+// val rootElement = EcoreUtil2.getRootContainer(context)
+// val candidates = EcoreUtil2.getAllContentsOfType(rootElement, Element)
+// Create IEObjectDescriptions and puts them into an IScope instance
+// return Scopes.scopeFor(candidates)

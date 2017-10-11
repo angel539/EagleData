@@ -2,27 +2,28 @@
  */
 package ecarules.tests;
 
-import ecarules.Condition;
-
 import ecarules.EcarulesFactory;
+import ecarules.Expression;
+
 import junit.framework.TestCase;
+
 import junit.textui.TestRunner;
 
 /**
  * <!-- begin-user-doc -->
- * A test case for the model object '<em><b>Condition</b></em>'.
+ * A test case for the model object '<em><b>Expression</b></em>'.
  * <!-- end-user-doc -->
  * @generated
  */
-public class ConditionTest extends TestCase {
+public class ExpressionTest extends TestCase {
 
 	/**
-	 * The fixture for this Condition test case.
+	 * The fixture for this Expression test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected Condition fixture = null;
+	protected Expression fixture = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -30,36 +31,36 @@ public class ConditionTest extends TestCase {
 	 * @generated
 	 */
 	public static void main(String[] args) {
-		TestRunner.run(ConditionTest.class);
+		TestRunner.run(ExpressionTest.class);
 	}
 
 	/**
-	 * Constructs a new Condition test case with the given name.
+	 * Constructs a new Expression test case with the given name.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ConditionTest(String name) {
+	public ExpressionTest(String name) {
 		super(name);
 	}
 
 	/**
-	 * Sets the fixture for this Condition test case.
+	 * Sets the fixture for this Expression test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void setFixture(Condition fixture) {
+	protected void setFixture(Expression fixture) {
 		this.fixture = fixture;
 	}
 
 	/**
-	 * Returns the fixture for this Condition test case.
+	 * Returns the fixture for this Expression test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected Condition getFixture() {
+	protected Expression getFixture() {
 		return fixture;
 	}
 
@@ -71,7 +72,7 @@ public class ConditionTest extends TestCase {
 	 */
 	@Override
 	protected void setUp() throws Exception {
-		setFixture(EcarulesFactory.eINSTANCE.createCondition());
+		setFixture(EcarulesFactory.eINSTANCE.createExpression());
 	}
 
 	/**
@@ -85,4 +86,4 @@ public class ConditionTest extends TestCase {
 		setFixture(null);
 	}
 
-} //ConditionTest
+} //ExpressionTest

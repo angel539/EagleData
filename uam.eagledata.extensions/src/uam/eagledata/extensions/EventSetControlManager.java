@@ -1,5 +1,6 @@
 package uam.eagledata.extensions;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.eclipse.core.resources.IContainer;
@@ -35,6 +36,9 @@ public class EventSetControlManager{
 	private static EventSetControlManager INSTANCE = null;	
 	@Inject UISynchronize sync;
 	
+	private static List<DataConnection> dataConnections = null;
+	private static List<ActionExecutableExtension> actions = null;
+	
 	public List<DataConnection> getDataConnection() {
 		IExtensionRegistry registry = Platform.getExtensionRegistry();
 		IConfigurationElement[] extensions = registry.getConfigurationElementsFor(DATACONNECTION_EXTENSIONS_ID);
@@ -62,8 +66,8 @@ public class EventSetControlManager{
 							
 							((ExtensibleDataConnection) dataConnection).setId(extension.getAttribute("id"));
 							((ExtensibleDataConnection) dataConnection).setName(extension.getAttribute("name"));
-							
-							getEventSetManager().getDataconnections().add(dataConnection);
+						
+							dataConnections.add(dataConnection);
 						}
 					}
 					catch(CoreException e){
@@ -73,16 +77,14 @@ public class EventSetControlManager{
 			}		
 		}
 		
-		return getEventSetManager().getDataconnections();
+		return dataConnections;
 	}
 	
 	private boolean dataConnectionIsOnTheList(String attribute) {
-		List<DataConnection> connections = getEventSetManager().getDataconnections();
-		
-		if(connections == null)
+		if(dataConnections == null)
 			return false;
 		
-		for(DataConnection connection : connections){
+		for(DataConnection connection : dataConnections){
 			if(connection instanceof DataConnection){
 				if(((DataConnection) connection).getId().compareTo(attribute) == 0) 
 					return true;
@@ -97,7 +99,7 @@ public class EventSetControlManager{
 		IConfigurationElement[] extensions = registry.getConfigurationElementsFor(ACTION_EXTENSIONS_ID);
 		
 		for(IConfigurationElement extension : extensions){
-			if(! dataConnectionIsOnTheList(extension.getAttribute("id"))){
+			if(! actionIsOnTheList(extension.getAttribute("id"))){
 				if(extension.getName().compareTo("action") == 0){
 					ExtendedActionExecutableExtension action;
 					
@@ -119,8 +121,8 @@ public class EventSetControlManager{
 							
 							((ExtendedActionExecutableExtension) action).setId(extension.getAttribute("id"));
 							((ExtendedActionExecutableExtension) action).setName(extension.getAttribute("name"));
-							
-							getEventSetManager().getActions().add(action);
+						
+							actions.add(action);
 						}
 					}
 					catch(CoreException e){
@@ -130,12 +132,10 @@ public class EventSetControlManager{
 			}		
 		}
 		
-		return getEventSetManager().getActions();
+		return actions;
 	}
 	
 	private boolean actionIsOnTheList(String attribute) {
-		List<ActionExecutableExtension> actions = getEventSetManager().getActions();
-		
 		if(actions == null)
 			return false;
 		
@@ -154,6 +154,8 @@ public class EventSetControlManager{
             synchronized(EventSetControlManager.class) {
                 if (INSTANCE == null) { 
                     INSTANCE = new EventSetControlManager();
+                    dataConnections = new ArrayList<DataConnection>();
+                	actions = new ArrayList<ActionExecutableExtension>();
                 }
             }
         }
@@ -165,7 +167,7 @@ public class EventSetControlManager{
 		}
 	}
 	
-	public EventSetManager getEventSetManager() {
+	public EventSetManager getModelDocument() {
 		IXtextDocument xtextDocument = EditorUtils.getActiveXtextEditor().getDocument();
 		
 		XtextResource xtextResource = xtextDocument.readOnly(new IUnitOfWork<XtextResource, XtextResource>() {
@@ -196,16 +198,5 @@ public class EventSetControlManager{
    
 	public Object clone() throws CloneNotSupportedException {
 	   throw new CloneNotSupportedException(); 
-    }
-    
-    private static void createVirtualFolder(IFolder folder) throws CoreException {
-        IContainer parent = folder.getParent();
-        
-        if (parent instanceof IFolder) {
-            createVirtualFolder((IFolder) parent);
-        }
-        if (!folder.exists()) {
-            folder.create(IResource.VIRTUAL, true, null);
-        }
     }
 }

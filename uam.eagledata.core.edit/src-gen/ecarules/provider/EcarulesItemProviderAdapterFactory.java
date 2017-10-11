@@ -187,49 +187,49 @@ public class EcarulesItemProviderAdapterFactory extends EcarulesAdapterFactory i
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link ecarules.BinaryExpression} instances.
+	 * This keeps track of the one adapter used for all {@link ecarules.Condition} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected BinaryExpressionItemProvider binaryExpressionItemProvider;
+	protected ConditionItemProvider conditionItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link ecarules.BinaryExpression}.
+	 * This creates an adapter for a {@link ecarules.Condition}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createBinaryExpressionAdapter() {
-		if (binaryExpressionItemProvider == null) {
-			binaryExpressionItemProvider = new BinaryExpressionItemProvider(this);
+	public Adapter createConditionAdapter() {
+		if (conditionItemProvider == null) {
+			conditionItemProvider = new ConditionItemProvider(this);
 		}
 
-		return binaryExpressionItemProvider;
+		return conditionItemProvider;
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link ecarules.BooleanExpression} instances.
+	 * This keeps track of the one adapter used for all {@link ecarules.Expression} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected BooleanExpressionItemProvider booleanExpressionItemProvider;
+	protected ExpressionItemProvider expressionItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link ecarules.BooleanExpression}.
+	 * This creates an adapter for a {@link ecarules.Expression}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createBooleanExpressionAdapter() {
-		if (booleanExpressionItemProvider == null) {
-			booleanExpressionItemProvider = new BooleanExpressionItemProvider(this);
+	public Adapter createExpressionAdapter() {
+		if (expressionItemProvider == null) {
+			expressionItemProvider = new ExpressionItemProvider(this);
 		}
 
-		return booleanExpressionItemProvider;
+		return expressionItemProvider;
 	}
 
 	/**
@@ -497,8 +497,8 @@ public class EcarulesItemProviderAdapterFactory extends EcarulesAdapterFactory i
 		if (keyConceptItemProvider != null) keyConceptItemProvider.dispose();
 		if (regexConceptItemProvider != null) regexConceptItemProvider.dispose();
 		if (dataConnectionItemProvider != null) dataConnectionItemProvider.dispose();
-		if (binaryExpressionItemProvider != null) binaryExpressionItemProvider.dispose();
-		if (booleanExpressionItemProvider != null) booleanExpressionItemProvider.dispose();
+		if (conditionItemProvider != null) conditionItemProvider.dispose();
+		if (expressionItemProvider != null) expressionItemProvider.dispose();
 		if (literalItemProvider != null) literalItemProvider.dispose();
 		if (actionExecutableExtensionItemProvider != null) actionExecutableExtensionItemProvider.dispose();
 		if (conceptParamItemProvider != null) conceptParamItemProvider.dispose();

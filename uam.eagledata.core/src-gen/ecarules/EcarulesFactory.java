@@ -67,22 +67,22 @@ public interface EcarulesFactory extends EFactory {
 	DataConnection createDataConnection();
 
 	/**
-	 * Returns a new object of class '<em>Binary Expression</em>'.
+	 * Returns a new object of class '<em>Condition</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Binary Expression</em>'.
+	 * @return a new object of class '<em>Condition</em>'.
 	 * @generated
 	 */
-	BinaryExpression createBinaryExpression();
+	Condition createCondition();
 
 	/**
-	 * Returns a new object of class '<em>Boolean Expression</em>'.
+	 * Returns a new object of class '<em>Expression</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Boolean Expression</em>'.
+	 * @return a new object of class '<em>Expression</em>'.
 	 * @generated
 	 */
-	BooleanExpression createBooleanExpression();
+	Expression createExpression();
 
 	/**
 	 * Returns a new object of class '<em>Literal</em>'.

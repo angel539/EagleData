@@ -4,12 +4,12 @@
 package uam.eagledata.dsl.events.serializer;
 
 import com.google.inject.Inject;
-import ecarules.BinaryExpression;
-import ecarules.BooleanExpression;
 import ecarules.ConceptParam;
+import ecarules.Condition;
 import ecarules.EcarulesPackage;
 import ecarules.Event;
 import ecarules.EventSetManager;
+import ecarules.Expression;
 import ecarules.KeyConcept;
 import ecarules.Literal;
 import ecarules.Point;
@@ -45,20 +45,20 @@ public class EventSetManagerDslSemanticSequencer extends AbstractDelegatingSeman
 			case EcarulesPackage.ACTION:
 				sequence_Action(context, (ecarules.Action) semanticObject); 
 				return; 
-			case EcarulesPackage.BINARY_EXPRESSION:
-				sequence_BinaryExpression(context, (BinaryExpression) semanticObject); 
-				return; 
-			case EcarulesPackage.BOOLEAN_EXPRESSION:
-				sequence_BooleanExpression(context, (BooleanExpression) semanticObject); 
-				return; 
 			case EcarulesPackage.CONCEPT_PARAM:
 				sequence_ConceptParam(context, (ConceptParam) semanticObject); 
+				return; 
+			case EcarulesPackage.CONDITION:
+				sequence_Condition(context, (Condition) semanticObject); 
 				return; 
 			case EcarulesPackage.EVENT:
 				sequence_Event(context, (Event) semanticObject); 
 				return; 
 			case EcarulesPackage.EVENT_SET_MANAGER:
 				sequence_EventSetManager(context, (EventSetManager) semanticObject); 
+				return; 
+			case EcarulesPackage.EXPRESSION:
+				sequence_Expression(context, (Expression) semanticObject); 
 				return; 
 			case EcarulesPackage.KEY_CONCEPT:
 				sequence_KeyConcept(context, (KeyConcept) semanticObject); 
@@ -88,51 +88,10 @@ public class EventSetManagerDslSemanticSequencer extends AbstractDelegatingSeman
 	 *     Action returns Action
 	 *
 	 * Constraint:
-	 *     (calls=EString (params+=ActionParam params+=ActionParam*)?)
+	 *     (calls=[ActionExecutableExtension|ID] (params+=ActionParam params+=ActionParam*)?)
 	 */
 	protected void sequence_Action(ISerializationContext context, ecarules.Action semanticObject) {
 		genericSequencer.createSequence(context, (EObject) semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     Condition returns BinaryExpression
-	 *     BinaryExpression returns BinaryExpression
-	 *
-	 * Constraint:
-	 *     (left=[Concept|EString] right=Literal)
-	 */
-	protected void sequence_BinaryExpression(ISerializationContext context, BinaryExpression semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient((EObject) semanticObject, EcarulesPackage.Literals.BINARY_EXPRESSION__LEFT) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing((EObject) semanticObject, EcarulesPackage.Literals.BINARY_EXPRESSION__LEFT));
-			if (transientValues.isValueTransient((EObject) semanticObject, EcarulesPackage.Literals.BINARY_EXPRESSION__RIGHT) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing((EObject) semanticObject, EcarulesPackage.Literals.BINARY_EXPRESSION__RIGHT));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, (EObject) semanticObject);
-		feeder.accept(grammarAccess.getBinaryExpressionAccess().getLeftConceptEStringParserRuleCall_0_0_1(), semanticObject.getLeft());
-		feeder.accept(grammarAccess.getBinaryExpressionAccess().getRightLiteralParserRuleCall_2_0(), semanticObject.getRight());
-		feeder.finish();
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     Condition returns BooleanExpression
-	 *     BooleanExpression returns BooleanExpression
-	 *
-	 * Constraint:
-	 *     expression=BOOLEAN
-	 */
-	protected void sequence_BooleanExpression(ISerializationContext context, BooleanExpression semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient((EObject) semanticObject, EcarulesPackage.Literals.BOOLEAN_EXPRESSION__EXPRESSION) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing((EObject) semanticObject, EcarulesPackage.Literals.BOOLEAN_EXPRESSION__EXPRESSION));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, (EObject) semanticObject);
-		feeder.accept(grammarAccess.getBooleanExpressionAccess().getExpressionBOOLEANTerminalRuleCall_0(), semanticObject.getExpression());
-		feeder.finish();
 	}
 	
 	
@@ -160,10 +119,22 @@ public class EventSetManagerDslSemanticSequencer extends AbstractDelegatingSeman
 	
 	/**
 	 * Contexts:
+	 *     Condition returns Condition
+	 *
+	 * Constraint:
+	 *     (expression=Expression? geo=[GeographicalElement|ID]? triggers+=Action triggers+=Action*)
+	 */
+	protected void sequence_Condition(ISerializationContext context, Condition semanticObject) {
+		genericSequencer.createSequence(context, (EObject) semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     EventSetManager returns EventSetManager
 	 *
 	 * Constraint:
-	 *     (geos+=GeographicalElement geos+=GeographicalElement* events+=Event events+=Event*)
+	 *     ((geos+=GeographicalElement geos+=GeographicalElement*)? events+=Event events+=Event*)
 	 */
 	protected void sequence_EventSetManager(ISerializationContext context, EventSetManager semanticObject) {
 		genericSequencer.createSequence(context, (EObject) semanticObject);
@@ -176,18 +147,37 @@ public class EventSetManagerDslSemanticSequencer extends AbstractDelegatingSeman
 	 *
 	 * Constraint:
 	 *     (
-	 *         (dataconnection+=EString dataconnection+=EString*)? 
+	 *         (dataconnections+=[DataConnection|ID] dataconnections+=[DataConnection|ID]*)? 
 	 *         name=EString 
-	 *         geo=[GeographicalElement|ID]? 
 	 *         concepts+=Concept 
 	 *         concepts+=Concept* 
-	 *         when=Condition? 
-	 *         triggers+=Action 
-	 *         triggers+=Action*
+	 *         when+=Condition 
+	 *         when+=Condition*
 	 *     )
 	 */
 	protected void sequence_Event(ISerializationContext context, Event semanticObject) {
 		genericSequencer.createSequence(context, (EObject) semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Expression returns Expression
+	 *
+	 * Constraint:
+	 *     (left=[Concept|EString] right=Literal)
+	 */
+	protected void sequence_Expression(ISerializationContext context, Expression semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient((EObject) semanticObject, EcarulesPackage.Literals.EXPRESSION__LEFT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing((EObject) semanticObject, EcarulesPackage.Literals.EXPRESSION__LEFT));
+			if (transientValues.isValueTransient((EObject) semanticObject, EcarulesPackage.Literals.EXPRESSION__RIGHT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing((EObject) semanticObject, EcarulesPackage.Literals.EXPRESSION__RIGHT));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, (EObject) semanticObject);
+		feeder.accept(grammarAccess.getExpressionAccess().getLeftConceptEStringParserRuleCall_1_0_1(), semanticObject.getLeft());
+		feeder.accept(grammarAccess.getExpressionAccess().getRightLiteralParserRuleCall_3_0(), semanticObject.getRight());
+		feeder.finish();
 	}
 	
 	
@@ -226,7 +216,7 @@ public class EventSetManagerDslSemanticSequencer extends AbstractDelegatingSeman
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing((EObject) semanticObject, EcarulesPackage.Literals.LITERAL__VALUE));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, (EObject) semanticObject);
-		feeder.accept(grammarAccess.getLiteralAccess().getValueEStringParserRuleCall_0(), semanticObject.getValue());
+		feeder.accept(grammarAccess.getLiteralAccess().getValueEStringParserRuleCall_1_0(), semanticObject.getValue());
 		feeder.finish();
 	}
 	

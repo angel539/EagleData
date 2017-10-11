@@ -79,46 +79,48 @@ ruleEventSetManager returns [EObject current=null]
 	(
 		(
 			(
-				{
-					newCompositeNode(grammarAccess.getEventSetManagerAccess().getGeosGeographicalElementParserRuleCall_0_0());
-				}
-				lv_geos_0_0=ruleGeographicalElement
-				{
-					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getEventSetManagerRule());
+				(
+					{
+						newCompositeNode(grammarAccess.getEventSetManagerAccess().getGeosGeographicalElementParserRuleCall_0_0_0());
 					}
-					add(
-						$current,
-						"geos",
-						lv_geos_0_0,
-						"uam.eagledata.dsl.events.EventSetManagerDsl.GeographicalElement");
-					afterParserOrEnumRuleCall();
-				}
+					lv_geos_0_0=ruleGeographicalElement
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getEventSetManagerRule());
+						}
+						add(
+							$current,
+							"geos",
+							lv_geos_0_0,
+							"uam.eagledata.dsl.events.EventSetManagerDsl.GeographicalElement");
+						afterParserOrEnumRuleCall();
+					}
+				)
 			)
-		)
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getEventSetManagerAccess().getGeosGeographicalElementParserRuleCall_0_1_0());
+					}
+					lv_geos_1_0=ruleGeographicalElement
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getEventSetManagerRule());
+						}
+						add(
+							$current,
+							"geos",
+							lv_geos_1_0,
+							"uam.eagledata.dsl.events.EventSetManagerDsl.GeographicalElement");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)*
+		)?
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getEventSetManagerAccess().getGeosGeographicalElementParserRuleCall_1_0());
-				}
-				lv_geos_1_0=ruleGeographicalElement
-				{
-					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getEventSetManagerRule());
-					}
-					add(
-						$current,
-						"geos",
-						lv_geos_1_0,
-						"uam.eagledata.dsl.events.EventSetManagerDsl.GeographicalElement");
-					afterParserOrEnumRuleCall();
-				}
-			)
-		)*
-		(
-			(
-				{
-					newCompositeNode(grammarAccess.getEventSetManagerAccess().getEventsEventParserRuleCall_2_0());
+					newCompositeNode(grammarAccess.getEventSetManagerAccess().getEventsEventParserRuleCall_1_0());
 				}
 				lv_events_2_0=ruleEvent
 				{
@@ -137,7 +139,7 @@ ruleEventSetManager returns [EObject current=null]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getEventSetManagerAccess().getEventsEventParserRuleCall_3_0());
+					newCompositeNode(grammarAccess.getEventSetManagerAccess().getEventsEventParserRuleCall_2_0());
 				}
 				lv_events_3_0=ruleEvent
 				{
@@ -413,19 +415,13 @@ ruleEvent returns [EObject current=null]
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getEventAccess().getDataconnectionEStringParserRuleCall_1_1_0());
-					}
-					lv_dataconnection_2_0=ruleEString
-					{
 						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getEventRule());
+							$current = createModelElement(grammarAccess.getEventRule());
 						}
-						add(
-							$current,
-							"dataconnection",
-							lv_dataconnection_2_0,
-							"uam.eagledata.dsl.events.EventSetManagerDsl.EString");
-						afterParserOrEnumRuleCall();
+					}
+					otherlv_2=RULE_ID
+					{
+						newLeafNode(otherlv_2, grammarAccess.getEventAccess().getDataconnectionsDataConnectionCrossReference_1_1_0());
 					}
 				)
 			)
@@ -437,19 +433,13 @@ ruleEvent returns [EObject current=null]
 				(
 					(
 						{
-							newCompositeNode(grammarAccess.getEventAccess().getDataconnectionEStringParserRuleCall_1_2_1_0());
-						}
-						lv_dataconnection_4_0=ruleEString
-						{
 							if ($current==null) {
-								$current = createModelElementForParent(grammarAccess.getEventRule());
+								$current = createModelElement(grammarAccess.getEventRule());
 							}
-							add(
-								$current,
-								"dataconnection",
-								lv_dataconnection_4_0,
-								"uam.eagledata.dsl.events.EventSetManagerDsl.EString");
-							afterParserOrEnumRuleCall();
+						}
+						otherlv_4=RULE_ID
+						{
+							newLeafNode(otherlv_4, grammarAccess.getEventAccess().getDataconnectionsDataConnectionCrossReference_1_2_1_0());
 						}
 					)
 				)
@@ -478,35 +468,16 @@ ruleEvent returns [EObject current=null]
 				}
 			)
 		)
-		(
-			otherlv_7='in'
-			{
-				newLeafNode(otherlv_7, grammarAccess.getEventAccess().getInKeyword_4_0());
-			}
-			(
-				(
-					{
-						if ($current==null) {
-							$current = createModelElement(grammarAccess.getEventRule());
-						}
-					}
-					otherlv_8=RULE_ID
-					{
-						newLeafNode(otherlv_8, grammarAccess.getEventAccess().getGeoGeographicalElementCrossReference_4_1_0());
-					}
-				)
-			)
-		)?
-		otherlv_9='{'
+		otherlv_7='{'
 		{
-			newLeafNode(otherlv_9, grammarAccess.getEventAccess().getLeftCurlyBracketKeyword_5());
+			newLeafNode(otherlv_7, grammarAccess.getEventAccess().getLeftCurlyBracketKeyword_4());
 		}
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getEventAccess().getConceptsConceptParserRuleCall_6_0());
+					newCompositeNode(grammarAccess.getEventAccess().getConceptsConceptParserRuleCall_5_0());
 				}
-				lv_concepts_10_0=ruleConcept
+				lv_concepts_8_0=ruleConcept
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getEventRule());
@@ -514,7 +485,7 @@ ruleEvent returns [EObject current=null]
 					add(
 						$current,
 						"concepts",
-						lv_concepts_10_0,
+						lv_concepts_8_0,
 						"uam.eagledata.dsl.events.EventSetManagerDsl.Concept");
 					afterParserOrEnumRuleCall();
 				}
@@ -523,9 +494,9 @@ ruleEvent returns [EObject current=null]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getEventAccess().getConceptsConceptParserRuleCall_7_0());
+					newCompositeNode(grammarAccess.getEventAccess().getConceptsConceptParserRuleCall_6_0());
 				}
-				lv_concepts_11_0=ruleConcept
+				lv_concepts_9_0=ruleConcept
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getEventRule());
@@ -533,80 +504,51 @@ ruleEvent returns [EObject current=null]
 					add(
 						$current,
 						"concepts",
-						lv_concepts_11_0,
+						lv_concepts_9_0,
 						"uam.eagledata.dsl.events.EventSetManagerDsl.Concept");
 					afterParserOrEnumRuleCall();
 				}
 			)
 		)*
-		otherlv_12='}'
+		otherlv_10='}'
 		{
-			newLeafNode(otherlv_12, grammarAccess.getEventAccess().getRightCurlyBracketKeyword_8());
+			newLeafNode(otherlv_10, grammarAccess.getEventAccess().getRightCurlyBracketKeyword_7());
 		}
 		(
-			otherlv_13='if'
-			{
-				newLeafNode(otherlv_13, grammarAccess.getEventAccess().getIfKeyword_9_0());
-			}
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getEventAccess().getWhenConditionParserRuleCall_9_1_0());
+						newCompositeNode(grammarAccess.getEventAccess().getWhenConditionParserRuleCall_8_0_0());
 					}
-					lv_when_14_0=ruleCondition
+					lv_when_11_0=ruleCondition
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getEventRule());
 						}
-						set(
+						add(
 							$current,
 							"when",
-							lv_when_14_0,
+							lv_when_11_0,
 							"uam.eagledata.dsl.events.EventSetManagerDsl.Condition");
 						afterParserOrEnumRuleCall();
 					}
 				)
 			)
-		)?
-		(
-			otherlv_15='then'
-			{
-				newLeafNode(otherlv_15, grammarAccess.getEventAccess().getThenKeyword_10_0());
-			}
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getEventAccess().getTriggersActionParserRuleCall_10_1_0());
+						newCompositeNode(grammarAccess.getEventAccess().getWhenConditionParserRuleCall_8_1_0());
 					}
-					lv_triggers_16_0=ruleAction
+					lv_when_12_0=ruleCondition
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getEventRule());
 						}
 						add(
 							$current,
-							"triggers",
-							lv_triggers_16_0,
-							"uam.eagledata.dsl.events.EventSetManagerDsl.Action");
-						afterParserOrEnumRuleCall();
-					}
-				)
-			)
-			(
-				(
-					{
-						newCompositeNode(grammarAccess.getEventAccess().getTriggersActionParserRuleCall_10_2_0());
-					}
-					lv_triggers_17_0=ruleAction
-					{
-						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getEventRule());
-						}
-						add(
-							$current,
-							"triggers",
-							lv_triggers_17_0,
-							"uam.eagledata.dsl.events.EventSetManagerDsl.Action");
+							"when",
+							lv_when_12_0,
+							"uam.eagledata.dsl.events.EventSetManagerDsl.Condition");
 						afterParserOrEnumRuleCall();
 					}
 				)
@@ -631,35 +573,119 @@ ruleCondition returns [EObject current=null]
 	leaveRule();
 }:
 	(
-		{
-			newCompositeNode(grammarAccess.getConditionAccess().getBinaryExpressionParserRuleCall_0());
-		}
-		this_BinaryExpression_0=ruleBinaryExpression
-		{
-			$current = $this_BinaryExpression_0.current;
-			afterParserOrEnumRuleCall();
-		}
-		    |
-		{
-			newCompositeNode(grammarAccess.getConditionAccess().getBooleanExpressionParserRuleCall_1());
-		}
-		this_BooleanExpression_1=ruleBooleanExpression
-		{
-			$current = $this_BooleanExpression_1.current;
-			afterParserOrEnumRuleCall();
-		}
+		(
+			{
+				$current = forceCreateModelElement(
+					grammarAccess.getConditionAccess().getConditionAction_0(),
+					$current);
+			}
+		)
+		(
+			otherlv_1='if'
+			{
+				newLeafNode(otherlv_1, grammarAccess.getConditionAccess().getIfKeyword_1_0());
+			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getConditionAccess().getExpressionExpressionParserRuleCall_1_1_0());
+					}
+					lv_expression_2_0=ruleExpression
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getConditionRule());
+						}
+						set(
+							$current,
+							"expression",
+							lv_expression_2_0,
+							"uam.eagledata.dsl.events.EventSetManagerDsl.Expression");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+		)?
+		(
+			otherlv_3='in'
+			{
+				newLeafNode(otherlv_3, grammarAccess.getConditionAccess().getInKeyword_2_0());
+			}
+			(
+				(
+					{
+						if ($current==null) {
+							$current = createModelElement(grammarAccess.getConditionRule());
+						}
+					}
+					otherlv_4=RULE_ID
+					{
+						newLeafNode(otherlv_4, grammarAccess.getConditionAccess().getGeoGeographicalElementCrossReference_2_1_0());
+					}
+				)
+			)
+		)?
+		(
+			otherlv_5='then'
+			{
+				newLeafNode(otherlv_5, grammarAccess.getConditionAccess().getThenKeyword_3_0());
+			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getConditionAccess().getTriggersActionParserRuleCall_3_1_0());
+					}
+					lv_triggers_6_0=ruleAction
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getConditionRule());
+						}
+						add(
+							$current,
+							"triggers",
+							lv_triggers_6_0,
+							"uam.eagledata.dsl.events.EventSetManagerDsl.Action");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+			(
+				otherlv_7='and'
+				{
+					newLeafNode(otherlv_7, grammarAccess.getConditionAccess().getAndKeyword_3_2_0());
+				}
+				(
+					(
+						{
+							newCompositeNode(grammarAccess.getConditionAccess().getTriggersActionParserRuleCall_3_2_1_0());
+						}
+						lv_triggers_8_0=ruleAction
+						{
+							if ($current==null) {
+								$current = createModelElementForParent(grammarAccess.getConditionRule());
+							}
+							add(
+								$current,
+								"triggers",
+								lv_triggers_8_0,
+								"uam.eagledata.dsl.events.EventSetManagerDsl.Action");
+							afterParserOrEnumRuleCall();
+						}
+					)
+				)
+			)*
+		)
 	)
 ;
 
-// Entry rule entryRuleBinaryExpression
-entryRuleBinaryExpression returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getBinaryExpressionRule()); }
-	iv_ruleBinaryExpression=ruleBinaryExpression
-	{ $current=$iv_ruleBinaryExpression.current; }
+// Entry rule entryRuleExpression
+entryRuleExpression returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getExpressionRule()); }
+	iv_ruleExpression=ruleExpression
+	{ $current=$iv_ruleExpression.current; }
 	EOF;
 
-// Rule BinaryExpression
-ruleBinaryExpression returns [EObject current=null]
+// Rule Expression
+ruleExpression returns [EObject current=null]
 @init {
 	enterRule();
 }
@@ -668,14 +694,21 @@ ruleBinaryExpression returns [EObject current=null]
 }:
 	(
 		(
+			{
+				$current = forceCreateModelElement(
+					grammarAccess.getExpressionAccess().getExpressionAction_0(),
+					$current);
+			}
+		)
+		(
 			(
 				{
 					if ($current==null) {
-						$current = createModelElement(grammarAccess.getBinaryExpressionRule());
+						$current = createModelElement(grammarAccess.getExpressionRule());
 					}
 				}
 				{
-					newCompositeNode(grammarAccess.getBinaryExpressionAccess().getLeftConceptCrossReference_0_0());
+					newCompositeNode(grammarAccess.getExpressionAccess().getLeftConceptCrossReference_1_0());
 				}
 				ruleEString
 				{
@@ -683,24 +716,24 @@ ruleBinaryExpression returns [EObject current=null]
 				}
 			)
 		)
-		otherlv_1='='
+		otherlv_2='='
 		{
-			newLeafNode(otherlv_1, grammarAccess.getBinaryExpressionAccess().getEqualsSignKeyword_1());
+			newLeafNode(otherlv_2, grammarAccess.getExpressionAccess().getEqualsSignKeyword_2());
 		}
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getBinaryExpressionAccess().getRightLiteralParserRuleCall_2_0());
+					newCompositeNode(grammarAccess.getExpressionAccess().getRightLiteralParserRuleCall_3_0());
 				}
-				lv_right_2_0=ruleLiteral
+				lv_right_3_0=ruleLiteral
 				{
 					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getBinaryExpressionRule());
+						$current = createModelElementForParent(grammarAccess.getExpressionRule());
 					}
 					set(
 						$current,
 						"right",
-						lv_right_2_0,
+						lv_right_3_0,
 						"uam.eagledata.dsl.events.EventSetManagerDsl.Literal");
 					afterParserOrEnumRuleCall();
 				}
@@ -727,55 +760,29 @@ ruleLiteral returns [EObject current=null]
 	(
 		(
 			{
-				newCompositeNode(grammarAccess.getLiteralAccess().getValueEStringParserRuleCall_0());
-			}
-			lv_value_0_0=ruleEString
-			{
-				if ($current==null) {
-					$current = createModelElementForParent(grammarAccess.getLiteralRule());
-				}
-				set(
-					$current,
-					"value",
-					lv_value_0_0,
-					"uam.eagledata.dsl.events.EventSetManagerDsl.EString");
-				afterParserOrEnumRuleCall();
+				$current = forceCreateModelElement(
+					grammarAccess.getLiteralAccess().getLiteralAction_0(),
+					$current);
 			}
 		)
-	)
-;
-
-// Entry rule entryRuleBooleanExpression
-entryRuleBooleanExpression returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getBooleanExpressionRule()); }
-	iv_ruleBooleanExpression=ruleBooleanExpression
-	{ $current=$iv_ruleBooleanExpression.current; }
-	EOF;
-
-// Rule BooleanExpression
-ruleBooleanExpression returns [EObject current=null]
-@init {
-	enterRule();
-}
-@after {
-	leaveRule();
-}:
-	(
 		(
-			lv_expression_0_0=RULE_BOOLEAN
-			{
-				newLeafNode(lv_expression_0_0, grammarAccess.getBooleanExpressionAccess().getExpressionBOOLEANTerminalRuleCall_0());
-			}
-			{
-				if ($current==null) {
-					$current = createModelElement(grammarAccess.getBooleanExpressionRule());
+			(
+				{
+					newCompositeNode(grammarAccess.getLiteralAccess().getValueEStringParserRuleCall_1_0());
 				}
-				setWithLastConsumed(
-					$current,
-					"expression",
-					lv_expression_0_0,
-					"uam.eagledata.dsl.events.EventSetManagerDsl.BOOLEAN");
-			}
+				lv_value_1_0=ruleEString
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getLiteralRule());
+					}
+					set(
+						$current,
+						"value",
+						lv_value_1_0,
+						"uam.eagledata.dsl.events.EventSetManagerDsl.EString");
+					afterParserOrEnumRuleCall();
+				}
+			)
 		)
 	)
 ;
@@ -993,19 +1000,13 @@ ruleAction returns [EObject current=null]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getActionAccess().getCallsEStringParserRuleCall_1_0());
-				}
-				lv_calls_1_0=ruleEString
-				{
 					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getActionRule());
+						$current = createModelElement(grammarAccess.getActionRule());
 					}
-					set(
-						$current,
-						"calls",
-						lv_calls_1_0,
-						"uam.eagledata.dsl.events.EventSetManagerDsl.EString");
-					afterParserOrEnumRuleCall();
+				}
+				otherlv_1=RULE_ID
+				{
+					newLeafNode(otherlv_1, grammarAccess.getActionAccess().getCallsActionExecutableExtensionCrossReference_1_0());
 				}
 			)
 		)
@@ -1318,8 +1319,6 @@ ruleType returns [Enumerator current=null]
 ;
 
 RULE_DOUBLE : '-'? RULE_INT '.' RULE_INT;
-
-RULE_BOOLEAN : ('true'|'false');
 
 RULE_ID : '^'? ('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'_'|'0'..'9')*;
 

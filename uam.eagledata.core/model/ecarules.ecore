@@ -7,20 +7,17 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="dataconnections" upperBound="-1"
         eType="#//DataConnection" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="actions" upperBound="-1"
-        eType="#//ActionExecutableExtension"/>
+        eType="#//ActionExecutableExtension" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="geos" upperBound="-1" eType="#//GeographicalElement"
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Event" eSuperTypes="#//NamedElement">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="when" eType="#//Condition"
-        containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="triggers" upperBound="-1"
-        eType="#//Action" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="dataconnection" upperBound="-1"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="when" lowerBound="1" upperBound="-1"
+        eType="#//Condition" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="concepts" upperBound="-1"
         eType="#//Concept" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="geo" eType="#//GeographicalElement"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="dataconnections" upperBound="-1"
+        eType="#//DataConnection"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Concept" abstract="true">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -52,14 +49,17 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Condition" abstract="true"/>
-  <eClassifiers xsi:type="ecore:EClass" name="BinaryExpression" eSuperTypes="#//Condition">
+  <eClassifiers xsi:type="ecore:EClass" name="Condition">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="expression" eType="#//Expression"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="triggers" upperBound="-1"
+        eType="#//Action" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="geo" eType="#//GeographicalElement"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Expression">
     <eStructuralFeatures xsi:type="ecore:EReference" name="left" eType="#//Concept"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="right" eType="#//Literal"
         containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="BooleanExpression" eSuperTypes="#//Condition">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="expression" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Literal">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -83,7 +83,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="Action">
     <eStructuralFeatures xsi:type="ecore:EReference" name="params" upperBound="-1"
         eType="#//ActionParam" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="calls" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="calls" lowerBound="1" eType="#//ActionExecutableExtension"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="GeographicalElement" abstract="true">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>

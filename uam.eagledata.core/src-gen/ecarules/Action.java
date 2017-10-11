@@ -42,29 +42,29 @@ public interface Action extends PersistentEObject {
 	EList<ActionParam> getParams();
 
 	/**
-	 * Returns the value of the '<em><b>Calls</b></em>' attribute.
+	 * Returns the value of the '<em><b>Calls</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Calls</em>' reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Calls</em>' attribute.
-	 * @see #setCalls(String)
+	 * @return the value of the '<em>Calls</em>' reference.
+	 * @see #setCalls(ActionExecutableExtension)
 	 * @see ecarules.EcarulesPackage#getAction_Calls()
-	 * @model
+	 * @model required="true"
 	 * @generated
 	 */
-	String getCalls();
+	ActionExecutableExtension getCalls();
 
 	/**
-	 * Sets the value of the '{@link ecarules.Action#getCalls <em>Calls</em>}' attribute.
+	 * Sets the value of the '{@link ecarules.Action#getCalls <em>Calls</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Calls</em>' attribute.
+	 * @param value the new value of the '<em>Calls</em>' reference.
 	 * @see #getCalls()
 	 * @generated
 	 */
-	void setCalls(String value);
+	void setCalls(ActionExecutableExtension value);
 
 } // Action

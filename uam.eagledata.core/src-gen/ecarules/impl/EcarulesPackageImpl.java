@@ -5,8 +5,6 @@ package ecarules.impl;
 import ecarules.Action;
 import ecarules.ActionExecutableExtension;
 import ecarules.ActionParam;
-import ecarules.BinaryExpression;
-import ecarules.BooleanExpression;
 import ecarules.Concept;
 import ecarules.ConceptParam;
 import ecarules.Condition;
@@ -16,6 +14,7 @@ import ecarules.EcarulesPackage;
 import ecarules.Event;
 import ecarules.EventSetManager;
 
+import ecarules.Expression;
 import ecarules.GeographicalElement;
 import ecarules.KeyConcept;
 import ecarules.Literal;
@@ -102,14 +101,7 @@ public class EcarulesPackageImpl extends EPackageImpl implements EcarulesPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass binaryExpressionEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass booleanExpressionEClass = null;
+	private EClass expressionEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -310,7 +302,7 @@ public class EcarulesPackageImpl extends EPackageImpl implements EcarulesPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getEvent_Triggers() {
+	public EReference getEvent_Concepts() {
 		return (EReference)eventEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -319,26 +311,8 @@ public class EcarulesPackageImpl extends EPackageImpl implements EcarulesPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getEvent_Dataconnection() {
-		return (EAttribute)eventEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getEvent_Concepts() {
-		return (EReference)eventEClass.getEStructuralFeatures().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getEvent_Geo() {
-		return (EReference)eventEClass.getEStructuralFeatures().get(4);
+	public EReference getEvent_Dataconnections() {
+		return (EReference)eventEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -499,8 +473,8 @@ public class EcarulesPackageImpl extends EPackageImpl implements EcarulesPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getBinaryExpression() {
-		return binaryExpressionEClass;
+	public EReference getCondition_Expression() {
+		return (EReference)conditionEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -508,8 +482,8 @@ public class EcarulesPackageImpl extends EPackageImpl implements EcarulesPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getBinaryExpression_Left() {
-		return (EReference)binaryExpressionEClass.getEStructuralFeatures().get(0);
+	public EReference getCondition_Triggers() {
+		return (EReference)conditionEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -517,8 +491,8 @@ public class EcarulesPackageImpl extends EPackageImpl implements EcarulesPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getBinaryExpression_Right() {
-		return (EReference)binaryExpressionEClass.getEStructuralFeatures().get(1);
+	public EReference getCondition_Geo() {
+		return (EReference)conditionEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -526,8 +500,8 @@ public class EcarulesPackageImpl extends EPackageImpl implements EcarulesPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getBooleanExpression() {
-		return booleanExpressionEClass;
+	public EClass getExpression() {
+		return expressionEClass;
 	}
 
 	/**
@@ -535,8 +509,17 @@ public class EcarulesPackageImpl extends EPackageImpl implements EcarulesPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getBooleanExpression_Expression() {
-		return (EAttribute)booleanExpressionEClass.getEStructuralFeatures().get(0);
+	public EReference getExpression_Left() {
+		return (EReference)expressionEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getExpression_Right() {
+		return (EReference)expressionEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -670,8 +653,8 @@ public class EcarulesPackageImpl extends EPackageImpl implements EcarulesPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getAction_Calls() {
-		return (EAttribute)actionEClass.getEStructuralFeatures().get(1);
+	public EReference getAction_Calls() {
+		return (EReference)actionEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -782,10 +765,8 @@ public class EcarulesPackageImpl extends EPackageImpl implements EcarulesPackage
 
 		eventEClass = createEClass(EVENT);
 		createEReference(eventEClass, EVENT__WHEN);
-		createEReference(eventEClass, EVENT__TRIGGERS);
-		createEAttribute(eventEClass, EVENT__DATACONNECTION);
 		createEReference(eventEClass, EVENT__CONCEPTS);
-		createEReference(eventEClass, EVENT__GEO);
+		createEReference(eventEClass, EVENT__DATACONNECTIONS);
 
 		conceptEClass = createEClass(CONCEPT);
 		createEAttribute(conceptEClass, CONCEPT__NAME);
@@ -809,13 +790,13 @@ public class EcarulesPackageImpl extends EPackageImpl implements EcarulesPackage
 		createEOperation(dataConnectionEClass, DATA_CONNECTION___MATCHES__EVENT);
 
 		conditionEClass = createEClass(CONDITION);
+		createEReference(conditionEClass, CONDITION__EXPRESSION);
+		createEReference(conditionEClass, CONDITION__TRIGGERS);
+		createEReference(conditionEClass, CONDITION__GEO);
 
-		binaryExpressionEClass = createEClass(BINARY_EXPRESSION);
-		createEReference(binaryExpressionEClass, BINARY_EXPRESSION__LEFT);
-		createEReference(binaryExpressionEClass, BINARY_EXPRESSION__RIGHT);
-
-		booleanExpressionEClass = createEClass(BOOLEAN_EXPRESSION);
-		createEAttribute(booleanExpressionEClass, BOOLEAN_EXPRESSION__EXPRESSION);
+		expressionEClass = createEClass(EXPRESSION);
+		createEReference(expressionEClass, EXPRESSION__LEFT);
+		createEReference(expressionEClass, EXPRESSION__RIGHT);
 
 		literalEClass = createEClass(LITERAL);
 		createEAttribute(literalEClass, LITERAL__VALUE);
@@ -836,7 +817,7 @@ public class EcarulesPackageImpl extends EPackageImpl implements EcarulesPackage
 
 		actionEClass = createEClass(ACTION);
 		createEReference(actionEClass, ACTION__PARAMS);
-		createEAttribute(actionEClass, ACTION__CALLS);
+		createEReference(actionEClass, ACTION__CALLS);
 
 		geographicalElementEClass = createEClass(GEOGRAPHICAL_ELEMENT);
 		createEAttribute(geographicalElementEClass, GEOGRAPHICAL_ELEMENT__NAME);
@@ -883,8 +864,6 @@ public class EcarulesPackageImpl extends EPackageImpl implements EcarulesPackage
 		eventEClass.getESuperTypes().add(this.getNamedElement());
 		keyConceptEClass.getESuperTypes().add(this.getConcept());
 		regexConceptEClass.getESuperTypes().add(this.getConcept());
-		binaryExpressionEClass.getESuperTypes().add(this.getCondition());
-		booleanExpressionEClass.getESuperTypes().add(this.getCondition());
 		conceptParamEClass.getESuperTypes().add(this.getActionParam());
 		stringParamEClass.getESuperTypes().add(this.getActionParam());
 		pointEClass.getESuperTypes().add(this.getGeographicalElement());
@@ -894,15 +873,13 @@ public class EcarulesPackageImpl extends EPackageImpl implements EcarulesPackage
 		initEClass(eventSetManagerEClass, EventSetManager.class, "EventSetManager", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getEventSetManager_Events(), this.getEvent(), null, "events", null, 0, -1, EventSetManager.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getEventSetManager_Dataconnections(), this.getDataConnection(), null, "dataconnections", null, 0, -1, EventSetManager.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getEventSetManager_Actions(), this.getActionExecutableExtension(), null, "actions", null, 0, -1, EventSetManager.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getEventSetManager_Actions(), this.getActionExecutableExtension(), null, "actions", null, 0, -1, EventSetManager.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getEventSetManager_Geos(), this.getGeographicalElement(), null, "geos", null, 0, -1, EventSetManager.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(eventEClass, Event.class, "Event", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getEvent_When(), this.getCondition(), null, "when", null, 0, 1, Event.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getEvent_Triggers(), this.getAction(), null, "triggers", null, 0, -1, Event.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getEvent_Dataconnection(), ecorePackage.getEString(), "dataconnection", null, 0, -1, Event.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getEvent_When(), this.getCondition(), null, "when", null, 1, -1, Event.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getEvent_Concepts(), this.getConcept(), null, "concepts", null, 0, -1, Event.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getEvent_Geo(), this.getGeographicalElement(), null, "geo", null, 0, 1, Event.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getEvent_Dataconnections(), this.getDataConnection(), null, "dataconnections", null, 0, -1, Event.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(conceptEClass, Concept.class, "Concept", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getConcept_Name(), ecorePackage.getEString(), "name", null, 0, 1, Concept.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -928,14 +905,14 @@ public class EcarulesPackageImpl extends EPackageImpl implements EcarulesPackage
 		EOperation op = initEOperation(getDataConnection__Matches__Event(), ecorePackage.getEBoolean(), "matches", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getEvent(), "event", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		initEClass(conditionEClass, Condition.class, "Condition", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(conditionEClass, Condition.class, "Condition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getCondition_Expression(), this.getExpression(), null, "expression", null, 0, 1, Condition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getCondition_Triggers(), this.getAction(), null, "triggers", null, 0, -1, Condition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getCondition_Geo(), this.getGeographicalElement(), null, "geo", null, 0, 1, Condition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(binaryExpressionEClass, BinaryExpression.class, "BinaryExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getBinaryExpression_Left(), this.getConcept(), null, "left", null, 0, 1, BinaryExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getBinaryExpression_Right(), this.getLiteral(), null, "right", null, 0, 1, BinaryExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(booleanExpressionEClass, BooleanExpression.class, "BooleanExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getBooleanExpression_Expression(), ecorePackage.getEString(), "expression", null, 0, 1, BooleanExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(expressionEClass, Expression.class, "Expression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getExpression_Left(), this.getConcept(), null, "left", null, 0, 1, Expression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getExpression_Right(), this.getLiteral(), null, "right", null, 0, 1, Expression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(literalEClass, Literal.class, "Literal", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getLiteral_Value(), ecorePackage.getEString(), "value", null, 0, 1, Literal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -958,7 +935,7 @@ public class EcarulesPackageImpl extends EPackageImpl implements EcarulesPackage
 
 		initEClass(actionEClass, Action.class, "Action", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getAction_Params(), this.getActionParam(), null, "params", null, 0, -1, Action.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getAction_Calls(), ecorePackage.getEString(), "calls", null, 0, 1, Action.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getAction_Calls(), this.getActionExecutableExtension(), null, "calls", null, 1, 1, Action.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(geographicalElementEClass, GeographicalElement.class, "GeographicalElement", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getGeographicalElement_Name(), ecorePackage.getEString(), "name", null, 0, 1, GeographicalElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

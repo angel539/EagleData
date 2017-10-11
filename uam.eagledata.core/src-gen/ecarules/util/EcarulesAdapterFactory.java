@@ -100,12 +100,8 @@ public class EcarulesAdapterFactory extends AdapterFactoryImpl {
 				return createConditionAdapter();
 			}
 			@Override
-			public Adapter caseBinaryExpression(BinaryExpression object) {
-				return createBinaryExpressionAdapter();
-			}
-			@Override
-			public Adapter caseBooleanExpression(BooleanExpression object) {
-				return createBooleanExpressionAdapter();
+			public Adapter caseExpression(Expression object) {
+				return createExpressionAdapter();
 			}
 			@Override
 			public Adapter caseLiteral(Literal object) {
@@ -276,30 +272,16 @@ public class EcarulesAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link ecarules.BinaryExpression <em>Binary Expression</em>}'.
+	 * Creates a new adapter for an object of class '{@link ecarules.Expression <em>Expression</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see ecarules.BinaryExpression
+	 * @see ecarules.Expression
 	 * @generated
 	 */
-	public Adapter createBinaryExpressionAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link ecarules.BooleanExpression <em>Boolean Expression</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see ecarules.BooleanExpression
-	 * @generated
-	 */
-	public Adapter createBooleanExpressionAdapter() {
+	public Adapter createExpressionAdapter() {
 		return null;
 	}
 

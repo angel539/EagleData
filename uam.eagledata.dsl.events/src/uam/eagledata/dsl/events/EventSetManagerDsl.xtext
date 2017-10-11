@@ -26,31 +26,29 @@ terminal DOUBLE returns ecore::EDouble: "-"?INT'.' INT;
 
 Event returns events::Event:
 	{events::Event}
-	('connection' dataconnection+=EString ('and' dataconnection+=EString)*)?
-	'pattern' name=EString ('in' geo = [events::GeographicalElement])? '{'
+	('connection' dataconnections+=[events::DataConnection] ('and' dataconnections+=[events::DataConnection])*)?
+	'pattern' name=EString  '{'
 		concepts += Concept (concepts += Concept)*
 	'}'
-	('if' when = Condition)?
-	('then' triggers += Action (triggers += Action)*)
+	(when += Condition (when += Condition)*)
 ;
 
 Condition returns events::Condition:
-	BinaryExpression | BooleanExpression
+	{events::Condition}
+	('if' expression = Expression)?
+	('in' geo = [events::GeographicalElement])?
+	('then' triggers += Action ('and' triggers += Action)*)
 ;
 
-BinaryExpression returns events::BinaryExpression:
+Expression returns events::Expression:
+	{events::Expression}
 	left = [events::Concept|EString] '=' right = Literal
 ;
 
 Literal returns events::Literal:
+	{events::Literal}
 	value = EString
 ;
-
-BooleanExpression returns events::BooleanExpression:
-	expression = BOOLEAN
-;
-
-terminal BOOLEAN : "true" | "false";
 
 Concept returns events::Concept:
 	KeyConcept | RegexConcept
@@ -68,7 +66,7 @@ RegexConcept returns events::RegexConcept:
 
 Action returns events::Action:
 	{events::Action}
-	calls = EString ('(' params += ActionParam (',' params += ActionParam)* ')')?
+	calls = [events::ActionExecutableExtension] ('(' params += ActionParam (',' params += ActionParam)* ')')?
 ;
 
 ActionParam returns events::ActionParam:

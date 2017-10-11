@@ -5,33 +5,49 @@ package ecarules.provider;
 
 import ecarules.EcarulesFactory;
 import ecarules.EcarulesPackage;
-import ecarules.Event;
+import ecarules.Expression;
 
 import java.util.Collection;
 import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
+
+import org.eclipse.emf.common.util.ResourceLocator;
+
 import org.eclipse.emf.ecore.EStructuralFeature;
+
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
+import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
+import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.IItemPropertySource;
+import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
+import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
+import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
- * This is the item provider adapter for a {@link ecarules.Event} object.
+ * This is the item provider adapter for a {@link ecarules.Expression} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class EventItemProvider 
-	extends NamedElementItemProvider {
+public class ExpressionItemProvider 
+	extends ItemProviderAdapter
+	implements
+		IEditingDomainItemProvider,
+		IStructuredItemContentProvider,
+		ITreeItemContentProvider,
+		IItemLabelProvider,
+		IItemPropertySource {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EventItemProvider(AdapterFactory adapterFactory) {
+	public ExpressionItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -46,25 +62,25 @@ public class EventItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addDataconnectionsPropertyDescriptor(object);
+			addLeftPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Dataconnections feature.
+	 * This adds a property descriptor for the Left feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addDataconnectionsPropertyDescriptor(Object object) {
+	protected void addLeftPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Event_dataconnections_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Event_dataconnections_feature", "_UI_Event_type"),
-				 EcarulesPackage.Literals.EVENT__DATACONNECTIONS,
+				 getString("_UI_Expression_left_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Expression_left_feature", "_UI_Expression_type"),
+				 EcarulesPackage.Literals.EXPRESSION__LEFT,
 				 true,
 				 false,
 				 true,
@@ -85,8 +101,7 @@ public class EventItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(EcarulesPackage.Literals.EVENT__WHEN);
-			childrenFeatures.add(EcarulesPackage.Literals.EVENT__CONCEPTS);
+			childrenFeatures.add(EcarulesPackage.Literals.EXPRESSION__RIGHT);
 		}
 		return childrenFeatures;
 	}
@@ -105,14 +120,14 @@ public class EventItemProvider
 	}
 
 	/**
-	 * This returns Event.gif.
+	 * This returns Expression.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/Event"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/Expression"));
 	}
 
 	/**
@@ -123,10 +138,7 @@ public class EventItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((Event)object).getName();
-		return label == null || label.length() == 0 ?
-			getString("_UI_Event_type") :
-			getString("_UI_Event_type") + " " + label;
+		return getString("_UI_Expression_type");
 	}
 	
 
@@ -141,9 +153,8 @@ public class EventItemProvider
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(Event.class)) {
-			case EcarulesPackage.EVENT__WHEN:
-			case EcarulesPackage.EVENT__CONCEPTS:
+		switch (notification.getFeatureID(Expression.class)) {
+			case EcarulesPackage.EXPRESSION__RIGHT:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -163,18 +174,19 @@ public class EventItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(EcarulesPackage.Literals.EVENT__WHEN,
-				 EcarulesFactory.eINSTANCE.createCondition()));
+				(EcarulesPackage.Literals.EXPRESSION__RIGHT,
+				 EcarulesFactory.eINSTANCE.createLiteral()));
+	}
 
-		newChildDescriptors.add
-			(createChildParameter
-				(EcarulesPackage.Literals.EVENT__CONCEPTS,
-				 EcarulesFactory.eINSTANCE.createKeyConcept()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(EcarulesPackage.Literals.EVENT__CONCEPTS,
-				 EcarulesFactory.eINSTANCE.createRegexConcept()));
+	/**
+	 * Return the resource locator for this item provider's resources.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public ResourceLocator getResourceLocator() {
+		return EcarulesEditPlugin.INSTANCE;
 	}
 
 }

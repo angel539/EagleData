@@ -3,6 +3,7 @@
 package ecarules.impl;
 
 import ecarules.Action;
+import ecarules.ActionExecutableExtension;
 import ecarules.ActionParam;
 import ecarules.EcarulesPackage;
 
@@ -71,8 +72,8 @@ public class ActionImpl extends DefaultPersistentEObject implements Action {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getCalls() {
-		return (String)eGet(EcarulesPackage.Literals.ACTION__CALLS, true);
+	public ActionExecutableExtension getCalls() {
+		return (ActionExecutableExtension)eGet(EcarulesPackage.Literals.ACTION__CALLS, true);
 	}
 
 	/**
@@ -80,7 +81,7 @@ public class ActionImpl extends DefaultPersistentEObject implements Action {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setCalls(String newCalls) {
+	public void setCalls(ActionExecutableExtension newCalls) {
 		eSet(EcarulesPackage.Literals.ACTION__CALLS, newCalls);
 	}
 

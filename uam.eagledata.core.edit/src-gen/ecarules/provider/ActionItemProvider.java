@@ -3,7 +3,6 @@
 package ecarules.provider;
 
 
-import ecarules.Action;
 import ecarules.EcarulesPackage;
 
 import java.util.Collection;
@@ -21,7 +20,6 @@ import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
-import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 
 /**
@@ -104,7 +102,7 @@ public class ActionItemProvider
 				 true,
 				 false,
 				 true,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
 				 null,
 				 null));
 	}
@@ -128,10 +126,7 @@ public class ActionItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((Action)object).getCalls();
-		return label == null || label.length() == 0 ?
-			getString("_UI_Action_type") :
-			getString("_UI_Action_type") + " " + label;
+		return getString("_UI_Action_type");
 	}
 	
 

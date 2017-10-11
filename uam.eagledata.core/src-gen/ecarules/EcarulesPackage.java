@@ -87,7 +87,7 @@ public interface EcarulesPackage extends EPackage {
 	int EVENT_SET_MANAGER__DATACONNECTIONS = 1;
 
 	/**
-	 * The feature id for the '<em><b>Actions</b></em>' reference list.
+	 * The feature id for the '<em><b>Actions</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -233,7 +233,7 @@ public interface EcarulesPackage extends EPackage {
 	int EVENT__VALUE = NAMED_ELEMENT__VALUE;
 
 	/**
-	 * The feature id for the '<em><b>When</b></em>' containment reference.
+	 * The feature id for the '<em><b>When</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -242,40 +242,22 @@ public interface EcarulesPackage extends EPackage {
 	int EVENT__WHEN = NAMED_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Triggers</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EVENT__TRIGGERS = NAMED_ELEMENT_FEATURE_COUNT + 1;
-
-	/**
-	 * The feature id for the '<em><b>Dataconnection</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EVENT__DATACONNECTION = NAMED_ELEMENT_FEATURE_COUNT + 2;
-
-	/**
 	 * The feature id for the '<em><b>Concepts</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int EVENT__CONCEPTS = NAMED_ELEMENT_FEATURE_COUNT + 3;
+	int EVENT__CONCEPTS = NAMED_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Geo</b></em>' reference.
+	 * The feature id for the '<em><b>Dataconnections</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int EVENT__GEO = NAMED_ELEMENT_FEATURE_COUNT + 4;
+	int EVENT__DATACONNECTIONS = NAMED_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>Event</em>' class.
@@ -284,7 +266,7 @@ public interface EcarulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EVENT_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 5;
+	int EVENT_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of operations of the '<em>Event</em>' class.
@@ -518,13 +500,40 @@ public interface EcarulesPackage extends EPackage {
 	int CONDITION = 7;
 
 	/**
+	 * The feature id for the '<em><b>Expression</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONDITION__EXPRESSION = 0;
+
+	/**
+	 * The feature id for the '<em><b>Triggers</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONDITION__TRIGGERS = 1;
+
+	/**
+	 * The feature id for the '<em><b>Geo</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONDITION__GEO = 2;
+
+	/**
 	 * The number of structural features of the '<em>Condition</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONDITION_FEATURE_COUNT = 0;
+	int CONDITION_FEATURE_COUNT = 3;
 
 	/**
 	 * The number of operations of the '<em>Condition</em>' class.
@@ -536,14 +545,14 @@ public interface EcarulesPackage extends EPackage {
 	int CONDITION_OPERATION_COUNT = 0;
 
 	/**
-	 * The meta object id for the '{@link ecarules.impl.BinaryExpressionImpl <em>Binary Expression</em>}' class.
+	 * The meta object id for the '{@link ecarules.impl.ExpressionImpl <em>Expression</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see ecarules.impl.BinaryExpressionImpl
-	 * @see ecarules.impl.EcarulesPackageImpl#getBinaryExpression()
+	 * @see ecarules.impl.ExpressionImpl
+	 * @see ecarules.impl.EcarulesPackageImpl#getExpression()
 	 * @generated
 	 */
-	int BINARY_EXPRESSION = 8;
+	int EXPRESSION = 8;
 
 	/**
 	 * The feature id for the '<em><b>Left</b></em>' reference.
@@ -552,7 +561,7 @@ public interface EcarulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BINARY_EXPRESSION__LEFT = CONDITION_FEATURE_COUNT + 0;
+	int EXPRESSION__LEFT = 0;
 
 	/**
 	 * The feature id for the '<em><b>Right</b></em>' containment reference.
@@ -561,62 +570,25 @@ public interface EcarulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BINARY_EXPRESSION__RIGHT = CONDITION_FEATURE_COUNT + 1;
+	int EXPRESSION__RIGHT = 1;
 
 	/**
-	 * The number of structural features of the '<em>Binary Expression</em>' class.
+	 * The number of structural features of the '<em>Expression</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BINARY_EXPRESSION_FEATURE_COUNT = CONDITION_FEATURE_COUNT + 2;
+	int EXPRESSION_FEATURE_COUNT = 2;
 
 	/**
-	 * The number of operations of the '<em>Binary Expression</em>' class.
+	 * The number of operations of the '<em>Expression</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BINARY_EXPRESSION_OPERATION_COUNT = CONDITION_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link ecarules.impl.BooleanExpressionImpl <em>Boolean Expression</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see ecarules.impl.BooleanExpressionImpl
-	 * @see ecarules.impl.EcarulesPackageImpl#getBooleanExpression()
-	 * @generated
-	 */
-	int BOOLEAN_EXPRESSION = 9;
-
-	/**
-	 * The feature id for the '<em><b>Expression</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BOOLEAN_EXPRESSION__EXPRESSION = CONDITION_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of structural features of the '<em>Boolean Expression</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BOOLEAN_EXPRESSION_FEATURE_COUNT = CONDITION_FEATURE_COUNT + 1;
-
-	/**
-	 * The number of operations of the '<em>Boolean Expression</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BOOLEAN_EXPRESSION_OPERATION_COUNT = CONDITION_OPERATION_COUNT + 0;
+	int EXPRESSION_OPERATION_COUNT = 0;
 
 	/**
 	 * The meta object id for the '{@link ecarules.impl.LiteralImpl <em>Literal</em>}' class.
@@ -626,7 +598,7 @@ public interface EcarulesPackage extends EPackage {
 	 * @see ecarules.impl.EcarulesPackageImpl#getLiteral()
 	 * @generated
 	 */
-	int LITERAL = 10;
+	int LITERAL = 9;
 
 	/**
 	 * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -663,7 +635,7 @@ public interface EcarulesPackage extends EPackage {
 	 * @see ecarules.impl.EcarulesPackageImpl#getActionExecutableExtension()
 	 * @generated
 	 */
-	int ACTION_EXECUTABLE_EXTENSION = 11;
+	int ACTION_EXECUTABLE_EXTENSION = 10;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -718,7 +690,7 @@ public interface EcarulesPackage extends EPackage {
 	 * @see ecarules.impl.EcarulesPackageImpl#getActionParam()
 	 * @generated
 	 */
-	int ACTION_PARAM = 12;
+	int ACTION_PARAM = 11;
 
 	/**
 	 * The feature id for the '<em><b>Key</b></em>' attribute.
@@ -755,7 +727,7 @@ public interface EcarulesPackage extends EPackage {
 	 * @see ecarules.impl.EcarulesPackageImpl#getConceptParam()
 	 * @generated
 	 */
-	int CONCEPT_PARAM = 13;
+	int CONCEPT_PARAM = 12;
 
 	/**
 	 * The feature id for the '<em><b>Key</b></em>' attribute.
@@ -801,7 +773,7 @@ public interface EcarulesPackage extends EPackage {
 	 * @see ecarules.impl.EcarulesPackageImpl#getStringParam()
 	 * @generated
 	 */
-	int STRING_PARAM = 14;
+	int STRING_PARAM = 13;
 
 	/**
 	 * The feature id for the '<em><b>Key</b></em>' attribute.
@@ -847,7 +819,7 @@ public interface EcarulesPackage extends EPackage {
 	 * @see ecarules.impl.EcarulesPackageImpl#getAction()
 	 * @generated
 	 */
-	int ACTION = 15;
+	int ACTION = 14;
 
 	/**
 	 * The feature id for the '<em><b>Params</b></em>' containment reference list.
@@ -859,7 +831,7 @@ public interface EcarulesPackage extends EPackage {
 	int ACTION__PARAMS = 0;
 
 	/**
-	 * The feature id for the '<em><b>Calls</b></em>' attribute.
+	 * The feature id for the '<em><b>Calls</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -893,7 +865,7 @@ public interface EcarulesPackage extends EPackage {
 	 * @see ecarules.impl.EcarulesPackageImpl#getGeographicalElement()
 	 * @generated
 	 */
-	int GEOGRAPHICAL_ELEMENT = 16;
+	int GEOGRAPHICAL_ELEMENT = 15;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -930,7 +902,7 @@ public interface EcarulesPackage extends EPackage {
 	 * @see ecarules.impl.EcarulesPackageImpl#getPoint()
 	 * @generated
 	 */
-	int POINT = 17;
+	int POINT = 16;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -985,7 +957,7 @@ public interface EcarulesPackage extends EPackage {
 	 * @see ecarules.impl.EcarulesPackageImpl#getRegion()
 	 * @generated
 	 */
-	int REGION = 18;
+	int REGION = 17;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1031,7 +1003,7 @@ public interface EcarulesPackage extends EPackage {
 	 * @see ecarules.impl.EcarulesPackageImpl#getType()
 	 * @generated
 	 */
-	int TYPE = 19;
+	int TYPE = 18;
 
 
 	/**
@@ -1067,10 +1039,10 @@ public interface EcarulesPackage extends EPackage {
 	EReference getEventSetManager_Dataconnections();
 
 	/**
-	 * Returns the meta object for the reference list '{@link ecarules.EventSetManager#getActions <em>Actions</em>}'.
+	 * Returns the meta object for the containment reference list '{@link ecarules.EventSetManager#getActions <em>Actions</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Actions</em>'.
+	 * @return the meta object for the containment reference list '<em>Actions</em>'.
 	 * @see ecarules.EventSetManager#getActions()
 	 * @see #getEventSetManager()
 	 * @generated
@@ -1099,37 +1071,15 @@ public interface EcarulesPackage extends EPackage {
 	EClass getEvent();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link ecarules.Event#getWhen <em>When</em>}'.
+	 * Returns the meta object for the containment reference list '{@link ecarules.Event#getWhen <em>When</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>When</em>'.
+	 * @return the meta object for the containment reference list '<em>When</em>'.
 	 * @see ecarules.Event#getWhen()
 	 * @see #getEvent()
 	 * @generated
 	 */
 	EReference getEvent_When();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link ecarules.Event#getTriggers <em>Triggers</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Triggers</em>'.
-	 * @see ecarules.Event#getTriggers()
-	 * @see #getEvent()
-	 * @generated
-	 */
-	EReference getEvent_Triggers();
-
-	/**
-	 * Returns the meta object for the attribute list '{@link ecarules.Event#getDataconnection <em>Dataconnection</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute list '<em>Dataconnection</em>'.
-	 * @see ecarules.Event#getDataconnection()
-	 * @see #getEvent()
-	 * @generated
-	 */
-	EAttribute getEvent_Dataconnection();
 
 	/**
 	 * Returns the meta object for the containment reference list '{@link ecarules.Event#getConcepts <em>Concepts</em>}'.
@@ -1143,15 +1093,15 @@ public interface EcarulesPackage extends EPackage {
 	EReference getEvent_Concepts();
 
 	/**
-	 * Returns the meta object for the reference '{@link ecarules.Event#getGeo <em>Geo</em>}'.
+	 * Returns the meta object for the reference list '{@link ecarules.Event#getDataconnections <em>Dataconnections</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Geo</em>'.
-	 * @see ecarules.Event#getGeo()
+	 * @return the meta object for the reference list '<em>Dataconnections</em>'.
+	 * @see ecarules.Event#getDataconnections()
 	 * @see #getEvent()
 	 * @generated
 	 */
-	EReference getEvent_Geo();
+	EReference getEvent_Dataconnections();
 
 	/**
 	 * Returns the meta object for class '{@link ecarules.Concept <em>Concept</em>}'.
@@ -1333,57 +1283,69 @@ public interface EcarulesPackage extends EPackage {
 	EClass getCondition();
 
 	/**
-	 * Returns the meta object for class '{@link ecarules.BinaryExpression <em>Binary Expression</em>}'.
+	 * Returns the meta object for the containment reference '{@link ecarules.Condition#getExpression <em>Expression</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Binary Expression</em>'.
-	 * @see ecarules.BinaryExpression
+	 * @return the meta object for the containment reference '<em>Expression</em>'.
+	 * @see ecarules.Condition#getExpression()
+	 * @see #getCondition()
 	 * @generated
 	 */
-	EClass getBinaryExpression();
+	EReference getCondition_Expression();
 
 	/**
-	 * Returns the meta object for the reference '{@link ecarules.BinaryExpression#getLeft <em>Left</em>}'.
+	 * Returns the meta object for the containment reference list '{@link ecarules.Condition#getTriggers <em>Triggers</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Triggers</em>'.
+	 * @see ecarules.Condition#getTriggers()
+	 * @see #getCondition()
+	 * @generated
+	 */
+	EReference getCondition_Triggers();
+
+	/**
+	 * Returns the meta object for the reference '{@link ecarules.Condition#getGeo <em>Geo</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Geo</em>'.
+	 * @see ecarules.Condition#getGeo()
+	 * @see #getCondition()
+	 * @generated
+	 */
+	EReference getCondition_Geo();
+
+	/**
+	 * Returns the meta object for class '{@link ecarules.Expression <em>Expression</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Expression</em>'.
+	 * @see ecarules.Expression
+	 * @generated
+	 */
+	EClass getExpression();
+
+	/**
+	 * Returns the meta object for the reference '{@link ecarules.Expression#getLeft <em>Left</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the reference '<em>Left</em>'.
-	 * @see ecarules.BinaryExpression#getLeft()
-	 * @see #getBinaryExpression()
+	 * @see ecarules.Expression#getLeft()
+	 * @see #getExpression()
 	 * @generated
 	 */
-	EReference getBinaryExpression_Left();
+	EReference getExpression_Left();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link ecarules.BinaryExpression#getRight <em>Right</em>}'.
+	 * Returns the meta object for the containment reference '{@link ecarules.Expression#getRight <em>Right</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference '<em>Right</em>'.
-	 * @see ecarules.BinaryExpression#getRight()
-	 * @see #getBinaryExpression()
+	 * @see ecarules.Expression#getRight()
+	 * @see #getExpression()
 	 * @generated
 	 */
-	EReference getBinaryExpression_Right();
-
-	/**
-	 * Returns the meta object for class '{@link ecarules.BooleanExpression <em>Boolean Expression</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Boolean Expression</em>'.
-	 * @see ecarules.BooleanExpression
-	 * @generated
-	 */
-	EClass getBooleanExpression();
-
-	/**
-	 * Returns the meta object for the attribute '{@link ecarules.BooleanExpression#getExpression <em>Expression</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Expression</em>'.
-	 * @see ecarules.BooleanExpression#getExpression()
-	 * @see #getBooleanExpression()
-	 * @generated
-	 */
-	EAttribute getBooleanExpression_Expression();
+	EReference getExpression_Right();
 
 	/**
 	 * Returns the meta object for class '{@link ecarules.Literal <em>Literal</em>}'.
@@ -1533,15 +1495,15 @@ public interface EcarulesPackage extends EPackage {
 	EReference getAction_Params();
 
 	/**
-	 * Returns the meta object for the attribute '{@link ecarules.Action#getCalls <em>Calls</em>}'.
+	 * Returns the meta object for the reference '{@link ecarules.Action#getCalls <em>Calls</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Calls</em>'.
+	 * @return the meta object for the reference '<em>Calls</em>'.
 	 * @see ecarules.Action#getCalls()
 	 * @see #getAction()
 	 * @generated
 	 */
-	EAttribute getAction_Calls();
+	EReference getAction_Calls();
 
 	/**
 	 * Returns the meta object for class '{@link ecarules.GeographicalElement <em>Geographical Element</em>}'.
@@ -1677,7 +1639,7 @@ public interface EcarulesPackage extends EPackage {
 		EReference EVENT_SET_MANAGER__DATACONNECTIONS = eINSTANCE.getEventSetManager_Dataconnections();
 
 		/**
-		 * The meta object literal for the '<em><b>Actions</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Actions</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -1703,28 +1665,12 @@ public interface EcarulesPackage extends EPackage {
 		EClass EVENT = eINSTANCE.getEvent();
 
 		/**
-		 * The meta object literal for the '<em><b>When</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>When</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EReference EVENT__WHEN = eINSTANCE.getEvent_When();
-
-		/**
-		 * The meta object literal for the '<em><b>Triggers</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference EVENT__TRIGGERS = eINSTANCE.getEvent_Triggers();
-
-		/**
-		 * The meta object literal for the '<em><b>Dataconnection</b></em>' attribute list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute EVENT__DATACONNECTION = eINSTANCE.getEvent_Dataconnection();
 
 		/**
 		 * The meta object literal for the '<em><b>Concepts</b></em>' containment reference list feature.
@@ -1735,12 +1681,12 @@ public interface EcarulesPackage extends EPackage {
 		EReference EVENT__CONCEPTS = eINSTANCE.getEvent_Concepts();
 
 		/**
-		 * The meta object literal for the '<em><b>Geo</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Dataconnections</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference EVENT__GEO = eINSTANCE.getEvent_Geo();
+		EReference EVENT__DATACONNECTIONS = eINSTANCE.getEvent_Dataconnections();
 
 		/**
 		 * The meta object literal for the '{@link ecarules.impl.ConceptImpl <em>Concept</em>}' class.
@@ -1891,14 +1837,38 @@ public interface EcarulesPackage extends EPackage {
 		EClass CONDITION = eINSTANCE.getCondition();
 
 		/**
-		 * The meta object literal for the '{@link ecarules.impl.BinaryExpressionImpl <em>Binary Expression</em>}' class.
+		 * The meta object literal for the '<em><b>Expression</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see ecarules.impl.BinaryExpressionImpl
-		 * @see ecarules.impl.EcarulesPackageImpl#getBinaryExpression()
 		 * @generated
 		 */
-		EClass BINARY_EXPRESSION = eINSTANCE.getBinaryExpression();
+		EReference CONDITION__EXPRESSION = eINSTANCE.getCondition_Expression();
+
+		/**
+		 * The meta object literal for the '<em><b>Triggers</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference CONDITION__TRIGGERS = eINSTANCE.getCondition_Triggers();
+
+		/**
+		 * The meta object literal for the '<em><b>Geo</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference CONDITION__GEO = eINSTANCE.getCondition_Geo();
+
+		/**
+		 * The meta object literal for the '{@link ecarules.impl.ExpressionImpl <em>Expression</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see ecarules.impl.ExpressionImpl
+		 * @see ecarules.impl.EcarulesPackageImpl#getExpression()
+		 * @generated
+		 */
+		EClass EXPRESSION = eINSTANCE.getExpression();
 
 		/**
 		 * The meta object literal for the '<em><b>Left</b></em>' reference feature.
@@ -1906,7 +1876,7 @@ public interface EcarulesPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference BINARY_EXPRESSION__LEFT = eINSTANCE.getBinaryExpression_Left();
+		EReference EXPRESSION__LEFT = eINSTANCE.getExpression_Left();
 
 		/**
 		 * The meta object literal for the '<em><b>Right</b></em>' containment reference feature.
@@ -1914,25 +1884,7 @@ public interface EcarulesPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference BINARY_EXPRESSION__RIGHT = eINSTANCE.getBinaryExpression_Right();
-
-		/**
-		 * The meta object literal for the '{@link ecarules.impl.BooleanExpressionImpl <em>Boolean Expression</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see ecarules.impl.BooleanExpressionImpl
-		 * @see ecarules.impl.EcarulesPackageImpl#getBooleanExpression()
-		 * @generated
-		 */
-		EClass BOOLEAN_EXPRESSION = eINSTANCE.getBooleanExpression();
-
-		/**
-		 * The meta object literal for the '<em><b>Expression</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute BOOLEAN_EXPRESSION__EXPRESSION = eINSTANCE.getBooleanExpression_Expression();
+		EReference EXPRESSION__RIGHT = eINSTANCE.getExpression_Right();
 
 		/**
 		 * The meta object literal for the '{@link ecarules.impl.LiteralImpl <em>Literal</em>}' class.
@@ -2059,12 +2011,12 @@ public interface EcarulesPackage extends EPackage {
 		EReference ACTION__PARAMS = eINSTANCE.getAction_Params();
 
 		/**
-		 * The meta object literal for the '<em><b>Calls</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Calls</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute ACTION__CALLS = eINSTANCE.getAction_Calls();
+		EReference ACTION__CALLS = eINSTANCE.getAction_Calls();
 
 		/**
 		 * The meta object literal for the '{@link ecarules.impl.GeographicalElementImpl <em>Geographical Element</em>}' class.

@@ -2,34 +2,36 @@
  */
 package ecarules.impl;
 
-import ecarules.BinaryExpression;
 import ecarules.Concept;
 import ecarules.EcarulesPackage;
+import ecarules.Expression;
 import ecarules.Literal;
+
+import fr.inria.atlanmod.neoemf.core.DefaultPersistentEObject;
 
 import org.eclipse.emf.ecore.EClass;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Binary Expression</b></em>'.
+ * An implementation of the model object '<em><b>Expression</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link ecarules.impl.BinaryExpressionImpl#getLeft <em>Left</em>}</li>
- *   <li>{@link ecarules.impl.BinaryExpressionImpl#getRight <em>Right</em>}</li>
+ *   <li>{@link ecarules.impl.ExpressionImpl#getLeft <em>Left</em>}</li>
+ *   <li>{@link ecarules.impl.ExpressionImpl#getRight <em>Right</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class BinaryExpressionImpl extends ConditionImpl implements BinaryExpression {
+public class ExpressionImpl extends DefaultPersistentEObject implements Expression {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected BinaryExpressionImpl() {
+	protected ExpressionImpl() {
 		super();
 	}
 
@@ -40,7 +42,17 @@ public class BinaryExpressionImpl extends ConditionImpl implements BinaryExpress
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return EcarulesPackage.Literals.BINARY_EXPRESSION;
+		return EcarulesPackage.Literals.EXPRESSION;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	protected int eStaticFeatureCount() {
+		return 0;
 	}
 
 	/**
@@ -49,7 +61,7 @@ public class BinaryExpressionImpl extends ConditionImpl implements BinaryExpress
 	 * @generated
 	 */
 	public Concept getLeft() {
-		return (Concept)eGet(EcarulesPackage.Literals.BINARY_EXPRESSION__LEFT, true);
+		return (Concept)eGet(EcarulesPackage.Literals.EXPRESSION__LEFT, true);
 	}
 
 	/**
@@ -58,7 +70,7 @@ public class BinaryExpressionImpl extends ConditionImpl implements BinaryExpress
 	 * @generated
 	 */
 	public void setLeft(Concept newLeft) {
-		eSet(EcarulesPackage.Literals.BINARY_EXPRESSION__LEFT, newLeft);
+		eSet(EcarulesPackage.Literals.EXPRESSION__LEFT, newLeft);
 	}
 
 	/**
@@ -67,7 +79,7 @@ public class BinaryExpressionImpl extends ConditionImpl implements BinaryExpress
 	 * @generated
 	 */
 	public Literal getRight() {
-		return (Literal)eGet(EcarulesPackage.Literals.BINARY_EXPRESSION__RIGHT, true);
+		return (Literal)eGet(EcarulesPackage.Literals.EXPRESSION__RIGHT, true);
 	}
 
 	/**
@@ -76,7 +88,7 @@ public class BinaryExpressionImpl extends ConditionImpl implements BinaryExpress
 	 * @generated
 	 */
 	public void setRight(Literal newRight) {
-		eSet(EcarulesPackage.Literals.BINARY_EXPRESSION__RIGHT, newRight);
+		eSet(EcarulesPackage.Literals.EXPRESSION__RIGHT, newRight);
 	}
 
-} //BinaryExpressionImpl
+} //ExpressionImpl

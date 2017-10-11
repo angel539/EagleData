@@ -62,8 +62,8 @@ public class EcarulesFactoryImpl extends EFactoryImpl implements EcarulesFactory
 			case EcarulesPackage.KEY_CONCEPT: return (EObject)createKeyConcept();
 			case EcarulesPackage.REGEX_CONCEPT: return (EObject)createRegexConcept();
 			case EcarulesPackage.DATA_CONNECTION: return (EObject)createDataConnection();
-			case EcarulesPackage.BINARY_EXPRESSION: return (EObject)createBinaryExpression();
-			case EcarulesPackage.BOOLEAN_EXPRESSION: return (EObject)createBooleanExpression();
+			case EcarulesPackage.CONDITION: return (EObject)createCondition();
+			case EcarulesPackage.EXPRESSION: return (EObject)createExpression();
 			case EcarulesPackage.LITERAL: return (EObject)createLiteral();
 			case EcarulesPackage.ACTION_EXECUTABLE_EXTENSION: return (EObject)createActionExecutableExtension();
 			case EcarulesPackage.CONCEPT_PARAM: return (EObject)createConceptParam();
@@ -161,9 +161,9 @@ public class EcarulesFactoryImpl extends EFactoryImpl implements EcarulesFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public BinaryExpression createBinaryExpression() {
-		BinaryExpressionImpl binaryExpression = new BinaryExpressionImpl();
-		return binaryExpression;
+	public Condition createCondition() {
+		ConditionImpl condition = new ConditionImpl();
+		return condition;
 	}
 
 	/**
@@ -171,9 +171,9 @@ public class EcarulesFactoryImpl extends EFactoryImpl implements EcarulesFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public BooleanExpression createBooleanExpression() {
-		BooleanExpressionImpl booleanExpression = new BooleanExpressionImpl();
-		return booleanExpression;
+	public Expression createExpression() {
+		ExpressionImpl expression = new ExpressionImpl();
+		return expression;
 	}
 
 	/**

@@ -3,7 +3,22 @@
  */
 package uam.eagledata.dsl.events.scoping;
 
+import com.google.common.base.Objects;
+import ecarules.Action;
+import ecarules.ActionExecutableExtension;
+import ecarules.DataConnection;
+import ecarules.EcarulesPackage;
+import ecarules.Event;
+import ecarules.EventSetManager;
+import java.util.List;
+import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EReference;
+import org.eclipse.xtext.EcoreUtil2;
+import org.eclipse.xtext.scoping.IScope;
+import org.eclipse.xtext.scoping.Scopes;
 import uam.eagledata.dsl.events.scoping.AbstractEventSetManagerDslScopeProvider;
+import uam.eagledata.extensions.EventSetControlManager;
 
 /**
  * This class contains custom scoping description.
@@ -13,4 +28,54 @@ import uam.eagledata.dsl.events.scoping.AbstractEventSetManagerDslScopeProvider;
  */
 @SuppressWarnings("all")
 public class EventSetManagerDslScopeProvider extends AbstractEventSetManagerDslScopeProvider {
+  @Override
+  public IScope getScope(final EObject context, final EReference reference) {
+    boolean _and = false;
+    if (!(context instanceof Event)) {
+      _and = false;
+    } else {
+      boolean _equals = Objects.equal(reference, EcarulesPackage.Literals.EVENT__DATACONNECTIONS);
+      _and = _equals;
+    }
+    if (_and) {
+      EObject _rootContainer = EcoreUtil2.getRootContainer(context);
+      final EventSetManager rootElement = ((EventSetManager) _rootContainer);
+      EventSetControlManager _instance = EventSetControlManager.getInstance();
+      final List<DataConnection> dataconnections = _instance.getDataConnection();
+      EList<DataConnection> _dataconnections = rootElement.getDataconnections();
+      boolean _equals_1 = _dataconnections.equals(dataconnections);
+      boolean _not = (!_equals_1);
+      if (_not) {
+        EList<DataConnection> _dataconnections_1 = rootElement.getDataconnections();
+        _dataconnections_1.clear();
+        EList<DataConnection> _dataconnections_2 = rootElement.getDataconnections();
+        _dataconnections_2.addAll(dataconnections);
+      }
+      return Scopes.scopeFor(dataconnections);
+    }
+    boolean _and_1 = false;
+    if (!(context instanceof Action)) {
+      _and_1 = false;
+    } else {
+      boolean _equals_2 = Objects.equal(reference, EcarulesPackage.Literals.ACTION__CALLS);
+      _and_1 = _equals_2;
+    }
+    if (_and_1) {
+      EObject _rootContainer_1 = EcoreUtil2.getRootContainer(context);
+      final EventSetManager rootElement_1 = ((EventSetManager) _rootContainer_1);
+      EventSetControlManager _instance_1 = EventSetControlManager.getInstance();
+      final List<ActionExecutableExtension> actions = _instance_1.getActions();
+      EList<ActionExecutableExtension> _actions = rootElement_1.getActions();
+      boolean _equals_3 = _actions.equals(actions);
+      boolean _not_1 = (!_equals_3);
+      if (_not_1) {
+        EList<ActionExecutableExtension> _actions_1 = rootElement_1.getActions();
+        _actions_1.clear();
+        EList<ActionExecutableExtension> _actions_2 = rootElement_1.getActions();
+        _actions_2.addAll(actions);
+      }
+      return Scopes.scopeFor(actions);
+    }
+    return super.getScope(context, reference);
+  }
 }
