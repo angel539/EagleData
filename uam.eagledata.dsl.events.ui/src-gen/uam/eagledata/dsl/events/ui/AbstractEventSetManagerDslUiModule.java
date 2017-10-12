@@ -67,6 +67,7 @@ import org.eclipse.xtext.ui.refactoring.ui.IRenameSupport;
 import org.eclipse.xtext.ui.refactoring.ui.RefactoringPreferences;
 import org.eclipse.xtext.ui.resource.ResourceServiceDescriptionLabelProvider;
 import org.eclipse.xtext.ui.shared.Access;
+import org.eclipse.xtext.ui.wizard.IProjectCreator;
 import uam.eagledata.dsl.events.ide.contentassist.antlr.EventSetManagerDslParser;
 import uam.eagledata.dsl.events.ide.contentassist.antlr.PartialEventSetManagerDslContentAssistParser;
 import uam.eagledata.dsl.events.ide.contentassist.antlr.internal.InternalEventSetManagerDslLexer;
@@ -75,6 +76,7 @@ import uam.eagledata.dsl.events.ui.labeling.EventSetManagerDslDescriptionLabelPr
 import uam.eagledata.dsl.events.ui.labeling.EventSetManagerDslLabelProvider;
 import uam.eagledata.dsl.events.ui.outline.EventSetManagerDslOutlineTreeProvider;
 import uam.eagledata.dsl.events.ui.quickfix.EventSetManagerDslQuickfixProvider;
+import uam.eagledata.dsl.events.ui.wizard.EventSetManagerDslProjectCreator;
 
 /**
  * Manual modifications go to {@link EventSetManagerDslUiModule}.
@@ -275,6 +277,11 @@ public abstract class AbstractEventSetManagerDslUiModule extends DefaultUiModule
 	// contributed by org.eclipse.xtext.xtext.generator.ui.compare.CompareFragment2
 	public Class<? extends IViewerCreator> bindIViewerCreator() {
 		return DefaultViewerCreator.class;
+	}
+	
+	// contributed by org.eclipse.xtext.ui.generator.projectWizard.SimpleProjectWizardFragment
+	public Class<? extends IProjectCreator> bindIProjectCreator() {
+		return EventSetManagerDslProjectCreator.class;
 	}
 	
 }

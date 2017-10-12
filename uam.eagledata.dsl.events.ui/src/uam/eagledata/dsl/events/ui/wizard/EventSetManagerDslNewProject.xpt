@@ -1,0 +1,36 @@
+«IMPORT uam::eagledata::dsl::events::ui::wizard»
+
+«DEFINE main FOR EventSetManagerDslProjectInfo»
+«EXPAND model FOR this»
+«ENDDEFINE»
+
+«DEFINE model FOR EventSetManagerDslProjectInfo»
+«FILE "model/Model.events"-»
+//// Define here a set of places or regions
+
+//// Examples:
+// Madrid {40.416775, -3.703790}
+Barcelona {41.390205, 2.154007}
+
+//// Define here a set of events connected to data streams
+//connection TelegramConnection and TwitterConnection
+pattern event {
+		String concept1
+		Float concept2
+		Int concept3
+		Double concept4
+		Boolean concept5
+}
+
+//// Each event can have several conditions (if) associated to a place (in)
+//if concept3 = '5'
+//in Madrid
+//// and each condition several actions (then)
+//then email ('param1' <= concept1, 'param2' = '3') and
+//email ('param2' = '4')
+
+if concept4 = 'true'
+in Barcelona
+then email ('param1' <= concept2)
+«ENDFILE»
+«ENDDEFINE»
