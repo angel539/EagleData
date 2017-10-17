@@ -410,11 +410,14 @@
 	<extension
 	     point="org.eclipse.ui.newWizards">
 	  <wizard
-	        category="org.eclipse.xtext.projectwiz"
-	        class="uam.eagledata.dsl.events.ui.EventSetManagerDslExecutableExtensionFactory:uam.eagledata.dsl.events.ui.wizard.EventSetManagerDslNewProjectWizard"
-	        id="uam.eagledata.dsl.events.ui.wizard.EventSetManagerDslNewProjectWizard"
-	        name="EagleData Project"
-	        project="true">
+         canFinishEarly="false"
+         category="org.eclipse.xtext.projectwiz"
+         class="uam.eagledata.dsl.events.ui.EventSetManagerDslExecutableExtensionFactory:uam.eagledata.dsl.events.ui.wizard.EventSetManagerDslNewProjectWizard"
+         finalPerspective="eagledata.ui.perspective.eagledata"
+         icon="icons/eagledataIcon16.png"
+         id="uam.eagledata.dsl.events.ui.wizard.EventSetManagerDslNewProjectWizard"
+         name="EagleData Project"
+         project="true">
 	  </wizard>
 	</extension>
 </plugin>

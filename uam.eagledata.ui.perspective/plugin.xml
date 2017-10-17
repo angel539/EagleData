@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.perspectives">
+      <perspective
+            class="uam.eagledata.ui.perspective.EagleDataPerspective"
+            fixed="false"
+            icon="icons/eagledataIcon16.png"
+            id="eagledata.ui.perspective.eagledata"
+            name="EagleData">
+      </perspective>
+   </extension>
+
+</plugin>

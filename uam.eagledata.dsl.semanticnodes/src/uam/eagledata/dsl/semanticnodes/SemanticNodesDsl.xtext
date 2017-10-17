@@ -23,7 +23,18 @@ Resource returns semantics::Resource:
 	('metadata' '{' metadata+=MetaData ( "," metadata+=MetaData)* '}' )?;
 
 ResourceElement returns semantics::ResourceElement:
-	Resource | SemanticNode;
+	Resource | SemanticNode | Enumeration;
+
+Enumeration returns semantics::Enumeration:
+	{semantics::Enumeration}
+	'enum' name=EString
+	'{'
+		(literals+=EnumerationLiteral (literals+=EnumerationLiteral)*)?
+	'}';
+
+EnumerationLiteral returns semantics::EnumerationLiteral:
+	{semantics::EnumerationLiteral}
+	value=EInt '->' literal=EString;
 
 SemanticNode returns semantics::SemanticNode:
 	{semantics::SemanticNode}
@@ -41,7 +52,7 @@ SemanticNode returns semantics::SemanticNode:
 	('{' metadata+=MetaData ( "," metadata+=MetaData)* '}')?;
 
 Property returns semantics::Property:
-	ObjectProperty | DataProperty;
+	ObjectProperty | PrimitiveTypeDataProperty | EnumerationDataProperty;
 
 ObjectProperty returns semantics::ObjectProperty:
 	{semantics::ObjectProperty}
@@ -55,9 +66,21 @@ ObjectProperty returns semantics::ObjectProperty:
 	//'}'
 	('{' metadata+=MetaData ( "," metadata+=MetaData)* '}')?;
 
-DataProperty returns semantics::DataProperty:
-	{semantics::DataProperty}
+PrimitiveTypeDataProperty returns semantics::PrimitiveTypeDataProperty:
+	{semantics::PrimitiveTypeDataProperty}
 	name=EString (':' type=Type) ('[' lowerBound=EInt ',' upperBound=EInt ']')?
+	//'{'
+		//('value' value=EString)?
+		//('descriptors' '(' descriptors+=[semantics::DataProperty|EString] ( "," descriptors+=[semantics::DataProperty|EString])* ')' )?
+		//('describes' '(' describes+=[semantics::DataProperty|EString] ( "," describes+=[semantics::DataProperty|EString])* ')' )?
+		//('supers' '(' supers+=[semantics::DataProperty|EString] ( "," supers+=[semantics::DataProperty|EString])* ')' )?
+		//('subs' '(' subs+=[semantics::DataProperty|EString] ( "," subs+=[semantics::DataProperty|EString])* ')' )?
+	//'}'
+	('{' metadata+=MetaData ( "," metadata+=MetaData)* '}' )?;
+	
+EnumerationDataProperty returns semantics::EnumDataProperty:
+	{semantics::EnumDataProperty}
+	name=EString (':' type=[semantics::Enumeration|EString]) ('[' lowerBound=EInt ',' upperBound=EInt ']')?
 	//'{'
 		//('value' value=EString)?
 		//('descriptors' '(' descriptors+=[semantics::DataProperty|EString] ( "," descriptors+=[semantics::DataProperty|EString])* ')' )?

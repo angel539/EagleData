@@ -28,3 +28,5 @@ Export-Package: uam.eagledata.dsl.events.ui.quickfix,
  uam.eagledata.dsl.events.ui.internal,
  uam.eagledata.dsl.events.ui.contentassist
 Bundle-Activator: uam.eagledata.dsl.events.ui.internal.EventsActivator
+Bundle-ClassPath: icons/,
+ .

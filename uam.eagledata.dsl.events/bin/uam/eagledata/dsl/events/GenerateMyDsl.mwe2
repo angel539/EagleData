@@ -39,7 +39,10 @@ Workflow {
 				fragment = org.eclipse.xtext.generator.ecore2xtext.FormatterFragment {}
 				fragment = org.eclipse.xtext.ui.generator.projectWizard.SimpleProjectWizardFragment {
 					generatorProjectName = "uam.eagledata.dsl.events.ui"
+					fileExtension = "events"
 				}
+				//fragment = org.eclipse.xtext.ui.generator.outline.OutlineTreeProviderFragment {}
+				//fragment = org.eclipse.xtext.ui.generator.labeling.LabelProviderFragment{}
 			}
 			
 			serializer = {

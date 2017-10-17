@@ -12,4 +12,8 @@ import org.eclipse.xtext.ui.editor.outline.impl.DefaultOutlineTreeProvider;
  */
 @SuppressWarnings("all")
 public class EventSetManagerDslOutlineTreeProvider extends DefaultOutlineTreeProvider {
+  @Override
+  protected Object _text(final Object modelElement) {
+    return super._text(modelElement);
+  }
 }

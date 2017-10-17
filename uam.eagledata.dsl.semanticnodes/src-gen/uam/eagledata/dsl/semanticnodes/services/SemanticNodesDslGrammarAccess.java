@@ -243,12 +243,13 @@ public class SemanticNodesDslGrammarAccess extends AbstractGrammarElementFinder 
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
 		private final RuleCall cResourceParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
 		private final RuleCall cSemanticNodeParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		private final RuleCall cEnumerationParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
 		
 		//ResourceElement semantics::ResourceElement:
-		//	Resource | SemanticNode
+		//	Resource | SemanticNode | Enumeration
 		@Override public ParserRule getRule() { return rule; }
 		
-		//Resource | SemanticNode
+		//Resource | SemanticNode | Enumeration
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
 		//Resource
@@ -256,6 +257,102 @@ public class SemanticNodesDslGrammarAccess extends AbstractGrammarElementFinder 
 		
 		//SemanticNode
 		public RuleCall getSemanticNodeParserRuleCall_1() { return cSemanticNodeParserRuleCall_1; }
+		
+		//Enumeration
+		public RuleCall getEnumerationParserRuleCall_2() { return cEnumerationParserRuleCall_2; }
+	}
+	public class EnumerationElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "uam.eagledata.dsl.semanticnodes.SemanticNodesDsl.Enumeration");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cEnumerationAction_0 = (Action)cGroup.eContents().get(0);
+		private final Keyword cEnumKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cNameAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cNameEStringParserRuleCall_2_0 = (RuleCall)cNameAssignment_2.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
+		private final Assignment cLiteralsAssignment_4_0 = (Assignment)cGroup_4.eContents().get(0);
+		private final RuleCall cLiteralsEnumerationLiteralParserRuleCall_4_0_0 = (RuleCall)cLiteralsAssignment_4_0.eContents().get(0);
+		private final Assignment cLiteralsAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
+		private final RuleCall cLiteralsEnumerationLiteralParserRuleCall_4_1_0 = (RuleCall)cLiteralsAssignment_4_1.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_5 = (Keyword)cGroup.eContents().get(5);
+		
+		//Enumeration semantics::Enumeration:
+		//	{semantics::Enumeration}
+		//	'enum' name=EString
+		//	'{' (literals+=EnumerationLiteral literals+=EnumerationLiteral*)?
+		//	'}'
+		@Override public ParserRule getRule() { return rule; }
+		
+		//{semantics::Enumeration} 'enum' name=EString '{' (literals+=EnumerationLiteral literals+=EnumerationLiteral*)? '}'
+		public Group getGroup() { return cGroup; }
+		
+		//{semantics::Enumeration}
+		public Action getEnumerationAction_0() { return cEnumerationAction_0; }
+		
+		//'enum'
+		public Keyword getEnumKeyword_1() { return cEnumKeyword_1; }
+		
+		//name=EString
+		public Assignment getNameAssignment_2() { return cNameAssignment_2; }
+		
+		//EString
+		public RuleCall getNameEStringParserRuleCall_2_0() { return cNameEStringParserRuleCall_2_0; }
+		
+		//'{'
+		public Keyword getLeftCurlyBracketKeyword_3() { return cLeftCurlyBracketKeyword_3; }
+		
+		//(literals+=EnumerationLiteral literals+=EnumerationLiteral*)?
+		public Group getGroup_4() { return cGroup_4; }
+		
+		//literals+=EnumerationLiteral
+		public Assignment getLiteralsAssignment_4_0() { return cLiteralsAssignment_4_0; }
+		
+		//EnumerationLiteral
+		public RuleCall getLiteralsEnumerationLiteralParserRuleCall_4_0_0() { return cLiteralsEnumerationLiteralParserRuleCall_4_0_0; }
+		
+		//literals+=EnumerationLiteral*
+		public Assignment getLiteralsAssignment_4_1() { return cLiteralsAssignment_4_1; }
+		
+		//EnumerationLiteral
+		public RuleCall getLiteralsEnumerationLiteralParserRuleCall_4_1_0() { return cLiteralsEnumerationLiteralParserRuleCall_4_1_0; }
+		
+		//'}'
+		public Keyword getRightCurlyBracketKeyword_5() { return cRightCurlyBracketKeyword_5; }
+	}
+	public class EnumerationLiteralElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "uam.eagledata.dsl.semanticnodes.SemanticNodesDsl.EnumerationLiteral");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cEnumerationLiteralAction_0 = (Action)cGroup.eContents().get(0);
+		private final Assignment cValueAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cValueEIntParserRuleCall_1_0 = (RuleCall)cValueAssignment_1.eContents().get(0);
+		private final Keyword cHyphenMinusGreaterThanSignKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cLiteralAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cLiteralEStringParserRuleCall_3_0 = (RuleCall)cLiteralAssignment_3.eContents().get(0);
+		
+		//EnumerationLiteral semantics::EnumerationLiteral:
+		//	{semantics::EnumerationLiteral} value=EInt '->' literal=EString
+		@Override public ParserRule getRule() { return rule; }
+		
+		//{semantics::EnumerationLiteral} value=EInt '->' literal=EString
+		public Group getGroup() { return cGroup; }
+		
+		//{semantics::EnumerationLiteral}
+		public Action getEnumerationLiteralAction_0() { return cEnumerationLiteralAction_0; }
+		
+		//value=EInt
+		public Assignment getValueAssignment_1() { return cValueAssignment_1; }
+		
+		//EInt
+		public RuleCall getValueEIntParserRuleCall_1_0() { return cValueEIntParserRuleCall_1_0; }
+		
+		//'->'
+		public Keyword getHyphenMinusGreaterThanSignKeyword_2() { return cHyphenMinusGreaterThanSignKeyword_2; }
+		
+		//literal=EString
+		public Assignment getLiteralAssignment_3() { return cLiteralAssignment_3; }
+		
+		//EString
+		public RuleCall getLiteralEStringParserRuleCall_3_0() { return cLiteralEStringParserRuleCall_3_0; }
 	}
 	public class SemanticNodeElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "uam.eagledata.dsl.semanticnodes.SemanticNodesDsl.SemanticNode");
@@ -384,20 +481,24 @@ public class SemanticNodesDslGrammarAccess extends AbstractGrammarElementFinder 
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "uam.eagledata.dsl.semanticnodes.SemanticNodesDsl.Property");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
 		private final RuleCall cObjectPropertyParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
-		private final RuleCall cDataPropertyParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		private final RuleCall cPrimitiveTypeDataPropertyParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		private final RuleCall cEnumerationDataPropertyParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
 		
 		//Property semantics::Property:
-		//	ObjectProperty | DataProperty
+		//	ObjectProperty | PrimitiveTypeDataProperty | EnumerationDataProperty
 		@Override public ParserRule getRule() { return rule; }
 		
-		//ObjectProperty | DataProperty
+		//ObjectProperty | PrimitiveTypeDataProperty | EnumerationDataProperty
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
 		//ObjectProperty
 		public RuleCall getObjectPropertyParserRuleCall_0() { return cObjectPropertyParserRuleCall_0; }
 		
-		//DataProperty
-		public RuleCall getDataPropertyParserRuleCall_1() { return cDataPropertyParserRuleCall_1; }
+		//PrimitiveTypeDataProperty
+		public RuleCall getPrimitiveTypeDataPropertyParserRuleCall_1() { return cPrimitiveTypeDataPropertyParserRuleCall_1; }
+		
+		//EnumerationDataProperty
+		public RuleCall getEnumerationDataPropertyParserRuleCall_2() { return cEnumerationDataPropertyParserRuleCall_2; }
 	}
 	public class ObjectPropertyElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "uam.eagledata.dsl.semanticnodes.SemanticNodesDsl.ObjectProperty");
@@ -508,10 +609,10 @@ public class SemanticNodesDslGrammarAccess extends AbstractGrammarElementFinder 
 		//'}'
 		public Keyword getRightCurlyBracketKeyword_5_3() { return cRightCurlyBracketKeyword_5_3; }
 	}
-	public class DataPropertyElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "uam.eagledata.dsl.semanticnodes.SemanticNodesDsl.DataProperty");
+	public class PrimitiveTypeDataPropertyElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "uam.eagledata.dsl.semanticnodes.SemanticNodesDsl.PrimitiveTypeDataProperty");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Action cDataPropertyAction_0 = (Action)cGroup.eContents().get(0);
+		private final Action cPrimitiveTypeDataPropertyAction_0 = (Action)cGroup.eContents().get(0);
 		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cNameEStringParserRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
 		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
@@ -536,17 +637,17 @@ public class SemanticNodesDslGrammarAccess extends AbstractGrammarElementFinder 
 		private final RuleCall cMetadataMetaDataParserRuleCall_4_2_1_0 = (RuleCall)cMetadataAssignment_4_2_1.eContents().get(0);
 		private final Keyword cRightCurlyBracketKeyword_4_3 = (Keyword)cGroup_4.eContents().get(3);
 		
-		//DataProperty semantics::DataProperty:
-		//	{semantics::DataProperty} name=EString (':' type=Type) ('[' lowerBound=EInt ',' upperBound=EInt ']')? ('{'
-		//	metadata+=MetaData ("," metadata+=MetaData)* '}')?
+		//PrimitiveTypeDataProperty semantics::PrimitiveTypeDataProperty:
+		//	{semantics::PrimitiveTypeDataProperty} name=EString (':' type=Type) ('[' lowerBound=EInt ',' upperBound=EInt ']')?
+		//	('{' metadata+=MetaData ("," metadata+=MetaData)* '}')?
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{semantics::DataProperty} name=EString (':' type=Type) ('[' lowerBound=EInt ',' upperBound=EInt ']')? ('{'
+		//{semantics::PrimitiveTypeDataProperty} name=EString (':' type=Type) ('[' lowerBound=EInt ',' upperBound=EInt ']')? ('{'
 		//metadata+=MetaData ("," metadata+=MetaData)* '}')?
 		public Group getGroup() { return cGroup; }
 		
-		//{semantics::DataProperty}
-		public Action getDataPropertyAction_0() { return cDataPropertyAction_0; }
+		//{semantics::PrimitiveTypeDataProperty}
+		public Action getPrimitiveTypeDataPropertyAction_0() { return cPrimitiveTypeDataPropertyAction_0; }
 		
 		//name=EString
 		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
@@ -565,6 +666,119 @@ public class SemanticNodesDslGrammarAccess extends AbstractGrammarElementFinder 
 		
 		//Type
 		public RuleCall getTypeTypeEnumRuleCall_2_1_0() { return cTypeTypeEnumRuleCall_2_1_0; }
+		
+		//('[' lowerBound=EInt ',' upperBound=EInt ']')?
+		public Group getGroup_3() { return cGroup_3; }
+		
+		//'['
+		public Keyword getLeftSquareBracketKeyword_3_0() { return cLeftSquareBracketKeyword_3_0; }
+		
+		//lowerBound=EInt
+		public Assignment getLowerBoundAssignment_3_1() { return cLowerBoundAssignment_3_1; }
+		
+		//EInt
+		public RuleCall getLowerBoundEIntParserRuleCall_3_1_0() { return cLowerBoundEIntParserRuleCall_3_1_0; }
+		
+		//','
+		public Keyword getCommaKeyword_3_2() { return cCommaKeyword_3_2; }
+		
+		//upperBound=EInt
+		public Assignment getUpperBoundAssignment_3_3() { return cUpperBoundAssignment_3_3; }
+		
+		//EInt
+		public RuleCall getUpperBoundEIntParserRuleCall_3_3_0() { return cUpperBoundEIntParserRuleCall_3_3_0; }
+		
+		//']'
+		public Keyword getRightSquareBracketKeyword_3_4() { return cRightSquareBracketKeyword_3_4; }
+		
+		//('{' metadata+=MetaData ("," metadata+=MetaData)* '}')?
+		public Group getGroup_4() { return cGroup_4; }
+		
+		//'{'
+		public Keyword getLeftCurlyBracketKeyword_4_0() { return cLeftCurlyBracketKeyword_4_0; }
+		
+		//metadata+=MetaData
+		public Assignment getMetadataAssignment_4_1() { return cMetadataAssignment_4_1; }
+		
+		//MetaData
+		public RuleCall getMetadataMetaDataParserRuleCall_4_1_0() { return cMetadataMetaDataParserRuleCall_4_1_0; }
+		
+		//("," metadata+=MetaData)*
+		public Group getGroup_4_2() { return cGroup_4_2; }
+		
+		//","
+		public Keyword getCommaKeyword_4_2_0() { return cCommaKeyword_4_2_0; }
+		
+		//metadata+=MetaData
+		public Assignment getMetadataAssignment_4_2_1() { return cMetadataAssignment_4_2_1; }
+		
+		//MetaData
+		public RuleCall getMetadataMetaDataParserRuleCall_4_2_1_0() { return cMetadataMetaDataParserRuleCall_4_2_1_0; }
+		
+		//'}'
+		public Keyword getRightCurlyBracketKeyword_4_3() { return cRightCurlyBracketKeyword_4_3; }
+	}
+	public class EnumerationDataPropertyElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "uam.eagledata.dsl.semanticnodes.SemanticNodesDsl.EnumerationDataProperty");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cEnumDataPropertyAction_0 = (Action)cGroup.eContents().get(0);
+		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cNameEStringParserRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
+		private final Keyword cColonKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
+		private final Assignment cTypeAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
+		private final CrossReference cTypeEnumerationCrossReference_2_1_0 = (CrossReference)cTypeAssignment_2_1.eContents().get(0);
+		private final RuleCall cTypeEnumerationEStringParserRuleCall_2_1_0_1 = (RuleCall)cTypeEnumerationCrossReference_2_1_0.eContents().get(1);
+		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
+		private final Keyword cLeftSquareBracketKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
+		private final Assignment cLowerBoundAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
+		private final RuleCall cLowerBoundEIntParserRuleCall_3_1_0 = (RuleCall)cLowerBoundAssignment_3_1.eContents().get(0);
+		private final Keyword cCommaKeyword_3_2 = (Keyword)cGroup_3.eContents().get(2);
+		private final Assignment cUpperBoundAssignment_3_3 = (Assignment)cGroup_3.eContents().get(3);
+		private final RuleCall cUpperBoundEIntParserRuleCall_3_3_0 = (RuleCall)cUpperBoundAssignment_3_3.eContents().get(0);
+		private final Keyword cRightSquareBracketKeyword_3_4 = (Keyword)cGroup_3.eContents().get(4);
+		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
+		private final Keyword cLeftCurlyBracketKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
+		private final Assignment cMetadataAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
+		private final RuleCall cMetadataMetaDataParserRuleCall_4_1_0 = (RuleCall)cMetadataAssignment_4_1.eContents().get(0);
+		private final Group cGroup_4_2 = (Group)cGroup_4.eContents().get(2);
+		private final Keyword cCommaKeyword_4_2_0 = (Keyword)cGroup_4_2.eContents().get(0);
+		private final Assignment cMetadataAssignment_4_2_1 = (Assignment)cGroup_4_2.eContents().get(1);
+		private final RuleCall cMetadataMetaDataParserRuleCall_4_2_1_0 = (RuleCall)cMetadataAssignment_4_2_1.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_4_3 = (Keyword)cGroup_4.eContents().get(3);
+		
+		//EnumerationDataProperty semantics::EnumDataProperty:
+		//	{semantics::EnumDataProperty} name=EString (':' type=[semantics::Enumeration|EString]) ('[' lowerBound=EInt ','
+		//	upperBound=EInt ']')? ('{' metadata+=MetaData ("," metadata+=MetaData)* '}')?
+		@Override public ParserRule getRule() { return rule; }
+		
+		//{semantics::EnumDataProperty} name=EString (':' type=[semantics::Enumeration|EString]) ('[' lowerBound=EInt ','
+		//upperBound=EInt ']')? ('{' metadata+=MetaData ("," metadata+=MetaData)* '}')?
+		public Group getGroup() { return cGroup; }
+		
+		//{semantics::EnumDataProperty}
+		public Action getEnumDataPropertyAction_0() { return cEnumDataPropertyAction_0; }
+		
+		//name=EString
+		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
+		
+		//EString
+		public RuleCall getNameEStringParserRuleCall_1_0() { return cNameEStringParserRuleCall_1_0; }
+		
+		//(':' type=[semantics::Enumeration|EString])
+		public Group getGroup_2() { return cGroup_2; }
+		
+		//':'
+		public Keyword getColonKeyword_2_0() { return cColonKeyword_2_0; }
+		
+		//type=[semantics::Enumeration|EString]
+		public Assignment getTypeAssignment_2_1() { return cTypeAssignment_2_1; }
+		
+		//[semantics::Enumeration|EString]
+		public CrossReference getTypeEnumerationCrossReference_2_1_0() { return cTypeEnumerationCrossReference_2_1_0; }
+		
+		//EString
+		public RuleCall getTypeEnumerationEStringParserRuleCall_2_1_0_1() { return cTypeEnumerationEStringParserRuleCall_2_1_0_1; }
 		
 		//('[' lowerBound=EInt ',' upperBound=EInt ']')?
 		public Group getGroup_3() { return cGroup_3; }
@@ -794,10 +1008,13 @@ public class SemanticNodesDslGrammarAccess extends AbstractGrammarElementFinder 
 	private final RepositoryElements pRepository;
 	private final ResourceElements pResource;
 	private final ResourceElementElements pResourceElement;
+	private final EnumerationElements pEnumeration;
+	private final EnumerationLiteralElements pEnumerationLiteral;
 	private final SemanticNodeElements pSemanticNode;
 	private final PropertyElements pProperty;
 	private final ObjectPropertyElements pObjectProperty;
-	private final DataPropertyElements pDataProperty;
+	private final PrimitiveTypeDataPropertyElements pPrimitiveTypeDataProperty;
+	private final EnumerationDataPropertyElements pEnumerationDataProperty;
 	private final TypeElements eType;
 	private final MetaDataElements pMetaData;
 	private final EStringElements pEString;
@@ -818,10 +1035,13 @@ public class SemanticNodesDslGrammarAccess extends AbstractGrammarElementFinder 
 		this.pRepository = new RepositoryElements();
 		this.pResource = new ResourceElements();
 		this.pResourceElement = new ResourceElementElements();
+		this.pEnumeration = new EnumerationElements();
+		this.pEnumerationLiteral = new EnumerationLiteralElements();
 		this.pSemanticNode = new SemanticNodeElements();
 		this.pProperty = new PropertyElements();
 		this.pObjectProperty = new ObjectPropertyElements();
-		this.pDataProperty = new DataPropertyElements();
+		this.pPrimitiveTypeDataProperty = new PrimitiveTypeDataPropertyElements();
+		this.pEnumerationDataProperty = new EnumerationDataPropertyElements();
 		this.eType = new TypeElements();
 		this.pMetaData = new MetaDataElements();
 		this.pEString = new EStringElements();
@@ -892,13 +1112,36 @@ public class SemanticNodesDslGrammarAccess extends AbstractGrammarElementFinder 
 	}
 	
 	//ResourceElement semantics::ResourceElement:
-	//	Resource | SemanticNode
+	//	Resource | SemanticNode | Enumeration
 	public ResourceElementElements getResourceElementAccess() {
 		return pResourceElement;
 	}
 	
 	public ParserRule getResourceElementRule() {
 		return getResourceElementAccess().getRule();
+	}
+	
+	//Enumeration semantics::Enumeration:
+	//	{semantics::Enumeration}
+	//	'enum' name=EString
+	//	'{' (literals+=EnumerationLiteral literals+=EnumerationLiteral*)?
+	//	'}'
+	public EnumerationElements getEnumerationAccess() {
+		return pEnumeration;
+	}
+	
+	public ParserRule getEnumerationRule() {
+		return getEnumerationAccess().getRule();
+	}
+	
+	//EnumerationLiteral semantics::EnumerationLiteral:
+	//	{semantics::EnumerationLiteral} value=EInt '->' literal=EString
+	public EnumerationLiteralElements getEnumerationLiteralAccess() {
+		return pEnumerationLiteral;
+	}
+	
+	public ParserRule getEnumerationLiteralRule() {
+		return getEnumerationLiteralAccess().getRule();
 	}
 	
 	//SemanticNode semantics::SemanticNode:
@@ -915,7 +1158,7 @@ public class SemanticNodesDslGrammarAccess extends AbstractGrammarElementFinder 
 	}
 	
 	//Property semantics::Property:
-	//	ObjectProperty | DataProperty
+	//	ObjectProperty | PrimitiveTypeDataProperty | EnumerationDataProperty
 	public PropertyElements getPropertyAccess() {
 		return pProperty;
 	}
@@ -935,15 +1178,26 @@ public class SemanticNodesDslGrammarAccess extends AbstractGrammarElementFinder 
 		return getObjectPropertyAccess().getRule();
 	}
 	
-	//DataProperty semantics::DataProperty:
-	//	{semantics::DataProperty} name=EString (':' type=Type) ('[' lowerBound=EInt ',' upperBound=EInt ']')? ('{'
-	//	metadata+=MetaData ("," metadata+=MetaData)* '}')?
-	public DataPropertyElements getDataPropertyAccess() {
-		return pDataProperty;
+	//PrimitiveTypeDataProperty semantics::PrimitiveTypeDataProperty:
+	//	{semantics::PrimitiveTypeDataProperty} name=EString (':' type=Type) ('[' lowerBound=EInt ',' upperBound=EInt ']')?
+	//	('{' metadata+=MetaData ("," metadata+=MetaData)* '}')?
+	public PrimitiveTypeDataPropertyElements getPrimitiveTypeDataPropertyAccess() {
+		return pPrimitiveTypeDataProperty;
 	}
 	
-	public ParserRule getDataPropertyRule() {
-		return getDataPropertyAccess().getRule();
+	public ParserRule getPrimitiveTypeDataPropertyRule() {
+		return getPrimitiveTypeDataPropertyAccess().getRule();
+	}
+	
+	//EnumerationDataProperty semantics::EnumDataProperty:
+	//	{semantics::EnumDataProperty} name=EString (':' type=[semantics::Enumeration|EString]) ('[' lowerBound=EInt ','
+	//	upperBound=EInt ']')? ('{' metadata+=MetaData ("," metadata+=MetaData)* '}')?
+	public EnumerationDataPropertyElements getEnumerationDataPropertyAccess() {
+		return pEnumerationDataProperty;
+	}
+	
+	public ParserRule getEnumerationDataPropertyRule() {
+		return getEnumerationDataPropertyAccess().getRule();
 	}
 	
 	//enum Type returns semantics::Type:

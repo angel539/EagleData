@@ -11,6 +11,7 @@ import org.eclipse.xtext.Constants;
 import org.eclipse.xtext.IGrammarAccess;
 import org.eclipse.xtext.common.services.Ecore2XtextTerminalConverters;
 import org.eclipse.xtext.conversion.IValueConverterService;
+import org.eclipse.xtext.formatting.IFormatter;
 import org.eclipse.xtext.generator.IGenerator2;
 import org.eclipse.xtext.naming.DefaultDeclarativeQualifiedNameProvider;
 import org.eclipse.xtext.naming.IQualifiedNameProvider;
@@ -42,6 +43,7 @@ import org.eclipse.xtext.serializer.sequencer.ISemanticSequencer;
 import org.eclipse.xtext.serializer.sequencer.ISyntacticSequencer;
 import org.eclipse.xtext.service.DefaultRuntimeModule;
 import org.eclipse.xtext.service.SingletonBinding;
+import uam.eagledata.dsl.semanticnodes.formatting.SemanticNodesDslFormatter;
 import uam.eagledata.dsl.semanticnodes.generator.SemanticNodesDslGenerator;
 import uam.eagledata.dsl.semanticnodes.parser.antlr.SemanticNodesDslAntlrTokenFileProvider;
 import uam.eagledata.dsl.semanticnodes.parser.antlr.SemanticNodesDslParser;
@@ -196,6 +198,11 @@ public abstract class AbstractSemanticNodesDslRuntimeModule extends DefaultRunti
 	// contributed by org.eclipse.xtext.xtext.generator.ecore2xtext.Ecore2XtextValueConverterServiceFragment2
 	public Class<? extends IValueConverterService> bindIValueConverterService() {
 		return Ecore2XtextTerminalConverters.class;
+	}
+	
+	// contributed by org.eclipse.xtext.generator.formatting.FormatterFragment
+	public Class<? extends IFormatter> bindIFormatter() {
+		return SemanticNodesDslFormatter.class;
 	}
 	
 }

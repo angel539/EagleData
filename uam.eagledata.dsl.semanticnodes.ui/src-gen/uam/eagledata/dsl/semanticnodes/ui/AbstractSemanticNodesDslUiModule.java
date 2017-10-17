@@ -65,11 +65,13 @@ import org.eclipse.xtext.ui.refactoring.impl.DefaultRenameStrategy;
 import org.eclipse.xtext.ui.refactoring.ui.DefaultRenameSupport;
 import org.eclipse.xtext.ui.refactoring.ui.IRenameSupport;
 import org.eclipse.xtext.ui.refactoring.ui.RefactoringPreferences;
+import org.eclipse.xtext.ui.resource.ResourceServiceDescriptionLabelProvider;
 import org.eclipse.xtext.ui.shared.Access;
 import uam.eagledata.dsl.semanticnodes.ide.contentassist.antlr.PartialSemanticNodesDslContentAssistParser;
 import uam.eagledata.dsl.semanticnodes.ide.contentassist.antlr.SemanticNodesDslParser;
 import uam.eagledata.dsl.semanticnodes.ide.contentassist.antlr.internal.InternalSemanticNodesDslLexer;
 import uam.eagledata.dsl.semanticnodes.ui.contentassist.SemanticNodesDslProposalProvider;
+import uam.eagledata.dsl.semanticnodes.ui.labeling.SemanticNodesDslDescriptionLabelProvider;
 import uam.eagledata.dsl.semanticnodes.ui.labeling.SemanticNodesDslLabelProvider;
 import uam.eagledata.dsl.semanticnodes.ui.outline.SemanticNodesDslOutlineTreeProvider;
 import uam.eagledata.dsl.semanticnodes.ui.quickfix.SemanticNodesDslQuickfixProvider;
@@ -182,6 +184,16 @@ public abstract class AbstractSemanticNodesDslUiModule extends DefaultUiModule {
 			.to(BuilderPreferenceAccess.Initializer.class);
 	}
 	
+	// contributed by org.eclipse.xtext.xtext.generator.ui.labeling.LabelProviderFragment2
+	public Class<? extends ILabelProvider> bindILabelProvider() {
+		return SemanticNodesDslLabelProvider.class;
+	}
+	
+	// contributed by org.eclipse.xtext.xtext.generator.ui.labeling.LabelProviderFragment2
+	public void configureResourceUIServiceLabelProvider(Binder binder) {
+		binder.bind(ILabelProvider.class).annotatedWith(ResourceServiceDescriptionLabelProvider.class).to(SemanticNodesDslDescriptionLabelProvider.class);
+	}
+	
 	// contributed by org.eclipse.xtext.xtext.generator.ui.outline.OutlineTreeProviderFragment2
 	public Class<? extends IOutlineTreeProvider> bindIOutlineTreeProvider() {
 		return SemanticNodesDslOutlineTreeProvider.class;
@@ -263,16 +275,6 @@ public abstract class AbstractSemanticNodesDslUiModule extends DefaultUiModule {
 	// contributed by org.eclipse.xtext.xtext.generator.ui.compare.CompareFragment2
 	public Class<? extends IViewerCreator> bindIViewerCreator() {
 		return DefaultViewerCreator.class;
-	}
-	
-	// contributed by org.eclipse.xtext.ui.generator.labeling.LabelProviderFragment
-	public Class<? extends ILabelProvider> bindILabelProvider() {
-		return SemanticNodesDslLabelProvider.class;
-	}
-	
-	// contributed by org.eclipse.xtext.ui.generator.labeling.LabelProviderFragment
-	public void configureResourceUIServiceLabelProvider(Binder binder) {
-		binder.bind(org.eclipse.jface.viewers.ILabelProvider.class).annotatedWith(org.eclipse.xtext.ui.resource.ResourceServiceDescriptionLabelProvider.class).to(uam.eagledata.dsl.semanticnodes.ui.labeling.SemanticNodesDslDescriptionLabelProvider.class);
 	}
 	
 }
