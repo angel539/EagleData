@@ -41,19 +41,19 @@ public class AnnotationsDslParser extends AbstractContentAssistParser {
 					put(grammarAccess.getSimpleAnnotationAccess().getGroup(), "rule__SimpleAnnotation__Group__0");
 					put(grammarAccess.getAnnotationHierarchyAccess().getGroup(), "rule__AnnotationHierarchy__Group__0");
 					put(grammarAccess.getAnnotationHierarchyAccess().getGroup_3(), "rule__AnnotationHierarchy__Group_3__0");
-					put(grammarAccess.getAnnotationHierarchyAccess().getGroup_3_2(), "rule__AnnotationHierarchy__Group_3_2__0");
+					put(grammarAccess.getAnnotationHierarchyAccess().getGroup_3_3(), "rule__AnnotationHierarchy__Group_3_3__0");
 					put(grammarAccess.getAnnotationInstanceAccess().getGroup(), "rule__AnnotationInstance__Group__0");
 					put(grammarAccess.getAnnotationInstanceAccess().getGroup_3(), "rule__AnnotationInstance__Group_3__0");
-					put(grammarAccess.getAnnotationInstanceAccess().getGroup_3_2(), "rule__AnnotationInstance__Group_3_2__0");
+					put(grammarAccess.getAnnotationInstanceAccess().getGroup_3_3(), "rule__AnnotationInstance__Group_3_3__0");
 					put(grammarAccess.getRepositoryManagerAccess().getAnnotationsAssignment_1_0(), "rule__RepositoryManager__AnnotationsAssignment_1_0");
 					put(grammarAccess.getRepositoryManagerAccess().getAnnotationsAssignment_1_1(), "rule__RepositoryManager__AnnotationsAssignment_1_1");
 					put(grammarAccess.getSimpleAnnotationAccess().getNameAssignment_2(), "rule__SimpleAnnotation__NameAssignment_2");
 					put(grammarAccess.getAnnotationHierarchyAccess().getNameAssignment_2(), "rule__AnnotationHierarchy__NameAssignment_2");
-					put(grammarAccess.getAnnotationHierarchyAccess().getSupersAssignment_3_1(), "rule__AnnotationHierarchy__SupersAssignment_3_1");
-					put(grammarAccess.getAnnotationHierarchyAccess().getSupersAssignment_3_2_1(), "rule__AnnotationHierarchy__SupersAssignment_3_2_1");
+					put(grammarAccess.getAnnotationHierarchyAccess().getSupersAssignment_3_2(), "rule__AnnotationHierarchy__SupersAssignment_3_2");
+					put(grammarAccess.getAnnotationHierarchyAccess().getSupersAssignment_3_3_2(), "rule__AnnotationHierarchy__SupersAssignment_3_3_2");
 					put(grammarAccess.getAnnotationInstanceAccess().getNameAssignment_2(), "rule__AnnotationInstance__NameAssignment_2");
-					put(grammarAccess.getAnnotationInstanceAccess().getDescriptorsAssignment_3_1(), "rule__AnnotationInstance__DescriptorsAssignment_3_1");
-					put(grammarAccess.getAnnotationInstanceAccess().getDescriptorsAssignment_3_2_1(), "rule__AnnotationInstance__DescriptorsAssignment_3_2_1");
+					put(grammarAccess.getAnnotationInstanceAccess().getDescriptorsAssignment_3_2(), "rule__AnnotationInstance__DescriptorsAssignment_3_2");
+					put(grammarAccess.getAnnotationInstanceAccess().getDescriptorsAssignment_3_3_2(), "rule__AnnotationInstance__DescriptorsAssignment_3_3_2");
 				}
 			};
 		}

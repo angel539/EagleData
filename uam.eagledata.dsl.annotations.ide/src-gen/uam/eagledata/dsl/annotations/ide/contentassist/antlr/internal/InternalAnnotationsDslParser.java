@@ -539,6 +539,11 @@ public class InternalAnnotationsDslParser extends AbstractInternalContentAssistP
 
                 if ( (LA1_1==RULE_ID) ) {
                     switch ( input.LA(3) ) {
+                    case 13:
+                        {
+                        alt1=3;
+                        }
+                        break;
                     case EOF:
                     case 11:
                         {
@@ -548,11 +553,6 @@ public class InternalAnnotationsDslParser extends AbstractInternalContentAssistP
                     case 12:
                         {
                         alt1=2;
-                        }
-                        break;
-                    case 13:
-                        {
-                        alt1=3;
                         }
                         break;
                     default:
@@ -1555,7 +1555,7 @@ public class InternalAnnotationsDslParser extends AbstractInternalContentAssistP
             // InternalAnnotationsDsl.g:530:1: ( rule__AnnotationHierarchy__Group_3__0__Impl rule__AnnotationHierarchy__Group_3__1 )
             // InternalAnnotationsDsl.g:531:2: rule__AnnotationHierarchy__Group_3__0__Impl rule__AnnotationHierarchy__Group_3__1
             {
-            pushFollow(FOLLOW_5);
+            pushFollow(FOLLOW_3);
             rule__AnnotationHierarchy__Group_3__0__Impl();
 
             state._fsp--;
@@ -1630,7 +1630,7 @@ public class InternalAnnotationsDslParser extends AbstractInternalContentAssistP
             // InternalAnnotationsDsl.g:557:1: ( rule__AnnotationHierarchy__Group_3__1__Impl rule__AnnotationHierarchy__Group_3__2 )
             // InternalAnnotationsDsl.g:558:2: rule__AnnotationHierarchy__Group_3__1__Impl rule__AnnotationHierarchy__Group_3__2
             {
-            pushFollow(FOLLOW_6);
+            pushFollow(FOLLOW_5);
             rule__AnnotationHierarchy__Group_3__1__Impl();
 
             state._fsp--;
@@ -1659,31 +1659,21 @@ public class InternalAnnotationsDslParser extends AbstractInternalContentAssistP
 
 
     // $ANTLR start "rule__AnnotationHierarchy__Group_3__1__Impl"
-    // InternalAnnotationsDsl.g:565:1: rule__AnnotationHierarchy__Group_3__1__Impl : ( ( rule__AnnotationHierarchy__SupersAssignment_3_1 ) ) ;
+    // InternalAnnotationsDsl.g:565:1: rule__AnnotationHierarchy__Group_3__1__Impl : ( '@' ) ;
     public final void rule__AnnotationHierarchy__Group_3__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAnnotationsDsl.g:569:1: ( ( ( rule__AnnotationHierarchy__SupersAssignment_3_1 ) ) )
-            // InternalAnnotationsDsl.g:570:1: ( ( rule__AnnotationHierarchy__SupersAssignment_3_1 ) )
+            // InternalAnnotationsDsl.g:569:1: ( ( '@' ) )
+            // InternalAnnotationsDsl.g:570:1: ( '@' )
             {
-            // InternalAnnotationsDsl.g:570:1: ( ( rule__AnnotationHierarchy__SupersAssignment_3_1 ) )
-            // InternalAnnotationsDsl.g:571:2: ( rule__AnnotationHierarchy__SupersAssignment_3_1 )
+            // InternalAnnotationsDsl.g:570:1: ( '@' )
+            // InternalAnnotationsDsl.g:571:2: '@'
             {
-             before(grammarAccess.getAnnotationHierarchyAccess().getSupersAssignment_3_1()); 
-            // InternalAnnotationsDsl.g:572:2: ( rule__AnnotationHierarchy__SupersAssignment_3_1 )
-            // InternalAnnotationsDsl.g:572:3: rule__AnnotationHierarchy__SupersAssignment_3_1
-            {
-            pushFollow(FOLLOW_2);
-            rule__AnnotationHierarchy__SupersAssignment_3_1();
-
-            state._fsp--;
-
-
-            }
-
-             after(grammarAccess.getAnnotationHierarchyAccess().getSupersAssignment_3_1()); 
+             before(grammarAccess.getAnnotationHierarchyAccess().getCommercialAtKeyword_3_1()); 
+            match(input,11,FOLLOW_2); 
+             after(grammarAccess.getAnnotationHierarchyAccess().getCommercialAtKeyword_3_1()); 
 
             }
 
@@ -1706,17 +1696,22 @@ public class InternalAnnotationsDslParser extends AbstractInternalContentAssistP
 
 
     // $ANTLR start "rule__AnnotationHierarchy__Group_3__2"
-    // InternalAnnotationsDsl.g:580:1: rule__AnnotationHierarchy__Group_3__2 : rule__AnnotationHierarchy__Group_3__2__Impl ;
+    // InternalAnnotationsDsl.g:580:1: rule__AnnotationHierarchy__Group_3__2 : rule__AnnotationHierarchy__Group_3__2__Impl rule__AnnotationHierarchy__Group_3__3 ;
     public final void rule__AnnotationHierarchy__Group_3__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAnnotationsDsl.g:584:1: ( rule__AnnotationHierarchy__Group_3__2__Impl )
-            // InternalAnnotationsDsl.g:585:2: rule__AnnotationHierarchy__Group_3__2__Impl
+            // InternalAnnotationsDsl.g:584:1: ( rule__AnnotationHierarchy__Group_3__2__Impl rule__AnnotationHierarchy__Group_3__3 )
+            // InternalAnnotationsDsl.g:585:2: rule__AnnotationHierarchy__Group_3__2__Impl rule__AnnotationHierarchy__Group_3__3
             {
-            pushFollow(FOLLOW_2);
+            pushFollow(FOLLOW_6);
             rule__AnnotationHierarchy__Group_3__2__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_2);
+            rule__AnnotationHierarchy__Group_3__3();
 
             state._fsp--;
 
@@ -1739,49 +1734,31 @@ public class InternalAnnotationsDslParser extends AbstractInternalContentAssistP
 
 
     // $ANTLR start "rule__AnnotationHierarchy__Group_3__2__Impl"
-    // InternalAnnotationsDsl.g:591:1: rule__AnnotationHierarchy__Group_3__2__Impl : ( ( rule__AnnotationHierarchy__Group_3_2__0 )* ) ;
+    // InternalAnnotationsDsl.g:592:1: rule__AnnotationHierarchy__Group_3__2__Impl : ( ( rule__AnnotationHierarchy__SupersAssignment_3_2 ) ) ;
     public final void rule__AnnotationHierarchy__Group_3__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAnnotationsDsl.g:595:1: ( ( ( rule__AnnotationHierarchy__Group_3_2__0 )* ) )
-            // InternalAnnotationsDsl.g:596:1: ( ( rule__AnnotationHierarchy__Group_3_2__0 )* )
+            // InternalAnnotationsDsl.g:596:1: ( ( ( rule__AnnotationHierarchy__SupersAssignment_3_2 ) ) )
+            // InternalAnnotationsDsl.g:597:1: ( ( rule__AnnotationHierarchy__SupersAssignment_3_2 ) )
             {
-            // InternalAnnotationsDsl.g:596:1: ( ( rule__AnnotationHierarchy__Group_3_2__0 )* )
-            // InternalAnnotationsDsl.g:597:2: ( rule__AnnotationHierarchy__Group_3_2__0 )*
+            // InternalAnnotationsDsl.g:597:1: ( ( rule__AnnotationHierarchy__SupersAssignment_3_2 ) )
+            // InternalAnnotationsDsl.g:598:2: ( rule__AnnotationHierarchy__SupersAssignment_3_2 )
             {
-             before(grammarAccess.getAnnotationHierarchyAccess().getGroup_3_2()); 
-            // InternalAnnotationsDsl.g:598:2: ( rule__AnnotationHierarchy__Group_3_2__0 )*
-            loop4:
-            do {
-                int alt4=2;
-                int LA4_0 = input.LA(1);
+             before(grammarAccess.getAnnotationHierarchyAccess().getSupersAssignment_3_2()); 
+            // InternalAnnotationsDsl.g:599:2: ( rule__AnnotationHierarchy__SupersAssignment_3_2 )
+            // InternalAnnotationsDsl.g:599:3: rule__AnnotationHierarchy__SupersAssignment_3_2
+            {
+            pushFollow(FOLLOW_2);
+            rule__AnnotationHierarchy__SupersAssignment_3_2();
 
-                if ( (LA4_0==12) ) {
-                    alt4=1;
-                }
+            state._fsp--;
 
 
-                switch (alt4) {
-            	case 1 :
-            	    // InternalAnnotationsDsl.g:598:3: rule__AnnotationHierarchy__Group_3_2__0
-            	    {
-            	    pushFollow(FOLLOW_7);
-            	    rule__AnnotationHierarchy__Group_3_2__0();
+            }
 
-            	    state._fsp--;
-
-
-            	    }
-            	    break;
-
-            	default :
-            	    break loop4;
-                }
-            } while (true);
-
-             after(grammarAccess.getAnnotationHierarchyAccess().getGroup_3_2()); 
+             after(grammarAccess.getAnnotationHierarchyAccess().getSupersAssignment_3_2()); 
 
             }
 
@@ -1803,23 +1780,196 @@ public class InternalAnnotationsDslParser extends AbstractInternalContentAssistP
     // $ANTLR end "rule__AnnotationHierarchy__Group_3__2__Impl"
 
 
-    // $ANTLR start "rule__AnnotationHierarchy__Group_3_2__0"
-    // InternalAnnotationsDsl.g:607:1: rule__AnnotationHierarchy__Group_3_2__0 : rule__AnnotationHierarchy__Group_3_2__0__Impl rule__AnnotationHierarchy__Group_3_2__1 ;
-    public final void rule__AnnotationHierarchy__Group_3_2__0() throws RecognitionException {
+    // $ANTLR start "rule__AnnotationHierarchy__Group_3__3"
+    // InternalAnnotationsDsl.g:607:1: rule__AnnotationHierarchy__Group_3__3 : rule__AnnotationHierarchy__Group_3__3__Impl ;
+    public final void rule__AnnotationHierarchy__Group_3__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAnnotationsDsl.g:611:1: ( rule__AnnotationHierarchy__Group_3_2__0__Impl rule__AnnotationHierarchy__Group_3_2__1 )
-            // InternalAnnotationsDsl.g:612:2: rule__AnnotationHierarchy__Group_3_2__0__Impl rule__AnnotationHierarchy__Group_3_2__1
+            // InternalAnnotationsDsl.g:611:1: ( rule__AnnotationHierarchy__Group_3__3__Impl )
+            // InternalAnnotationsDsl.g:612:2: rule__AnnotationHierarchy__Group_3__3__Impl
+            {
+            pushFollow(FOLLOW_2);
+            rule__AnnotationHierarchy__Group_3__3__Impl();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__AnnotationHierarchy__Group_3__3"
+
+
+    // $ANTLR start "rule__AnnotationHierarchy__Group_3__3__Impl"
+    // InternalAnnotationsDsl.g:618:1: rule__AnnotationHierarchy__Group_3__3__Impl : ( ( rule__AnnotationHierarchy__Group_3_3__0 )* ) ;
+    public final void rule__AnnotationHierarchy__Group_3__3__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalAnnotationsDsl.g:622:1: ( ( ( rule__AnnotationHierarchy__Group_3_3__0 )* ) )
+            // InternalAnnotationsDsl.g:623:1: ( ( rule__AnnotationHierarchy__Group_3_3__0 )* )
+            {
+            // InternalAnnotationsDsl.g:623:1: ( ( rule__AnnotationHierarchy__Group_3_3__0 )* )
+            // InternalAnnotationsDsl.g:624:2: ( rule__AnnotationHierarchy__Group_3_3__0 )*
+            {
+             before(grammarAccess.getAnnotationHierarchyAccess().getGroup_3_3()); 
+            // InternalAnnotationsDsl.g:625:2: ( rule__AnnotationHierarchy__Group_3_3__0 )*
+            loop4:
+            do {
+                int alt4=2;
+                int LA4_0 = input.LA(1);
+
+                if ( (LA4_0==12) ) {
+                    alt4=1;
+                }
+
+
+                switch (alt4) {
+            	case 1 :
+            	    // InternalAnnotationsDsl.g:625:3: rule__AnnotationHierarchy__Group_3_3__0
+            	    {
+            	    pushFollow(FOLLOW_7);
+            	    rule__AnnotationHierarchy__Group_3_3__0();
+
+            	    state._fsp--;
+
+
+            	    }
+            	    break;
+
+            	default :
+            	    break loop4;
+                }
+            } while (true);
+
+             after(grammarAccess.getAnnotationHierarchyAccess().getGroup_3_3()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__AnnotationHierarchy__Group_3__3__Impl"
+
+
+    // $ANTLR start "rule__AnnotationHierarchy__Group_3_3__0"
+    // InternalAnnotationsDsl.g:634:1: rule__AnnotationHierarchy__Group_3_3__0 : rule__AnnotationHierarchy__Group_3_3__0__Impl rule__AnnotationHierarchy__Group_3_3__1 ;
+    public final void rule__AnnotationHierarchy__Group_3_3__0() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalAnnotationsDsl.g:638:1: ( rule__AnnotationHierarchy__Group_3_3__0__Impl rule__AnnotationHierarchy__Group_3_3__1 )
+            // InternalAnnotationsDsl.g:639:2: rule__AnnotationHierarchy__Group_3_3__0__Impl rule__AnnotationHierarchy__Group_3_3__1
+            {
+            pushFollow(FOLLOW_3);
+            rule__AnnotationHierarchy__Group_3_3__0__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_2);
+            rule__AnnotationHierarchy__Group_3_3__1();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__AnnotationHierarchy__Group_3_3__0"
+
+
+    // $ANTLR start "rule__AnnotationHierarchy__Group_3_3__0__Impl"
+    // InternalAnnotationsDsl.g:646:1: rule__AnnotationHierarchy__Group_3_3__0__Impl : ( '<' ) ;
+    public final void rule__AnnotationHierarchy__Group_3_3__0__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalAnnotationsDsl.g:650:1: ( ( '<' ) )
+            // InternalAnnotationsDsl.g:651:1: ( '<' )
+            {
+            // InternalAnnotationsDsl.g:651:1: ( '<' )
+            // InternalAnnotationsDsl.g:652:2: '<'
+            {
+             before(grammarAccess.getAnnotationHierarchyAccess().getLessThanSignKeyword_3_3_0()); 
+            match(input,12,FOLLOW_2); 
+             after(grammarAccess.getAnnotationHierarchyAccess().getLessThanSignKeyword_3_3_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__AnnotationHierarchy__Group_3_3__0__Impl"
+
+
+    // $ANTLR start "rule__AnnotationHierarchy__Group_3_3__1"
+    // InternalAnnotationsDsl.g:661:1: rule__AnnotationHierarchy__Group_3_3__1 : rule__AnnotationHierarchy__Group_3_3__1__Impl rule__AnnotationHierarchy__Group_3_3__2 ;
+    public final void rule__AnnotationHierarchy__Group_3_3__1() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalAnnotationsDsl.g:665:1: ( rule__AnnotationHierarchy__Group_3_3__1__Impl rule__AnnotationHierarchy__Group_3_3__2 )
+            // InternalAnnotationsDsl.g:666:2: rule__AnnotationHierarchy__Group_3_3__1__Impl rule__AnnotationHierarchy__Group_3_3__2
             {
             pushFollow(FOLLOW_5);
-            rule__AnnotationHierarchy__Group_3_2__0__Impl();
+            rule__AnnotationHierarchy__Group_3_3__1__Impl();
 
             state._fsp--;
 
             pushFollow(FOLLOW_2);
-            rule__AnnotationHierarchy__Group_3_2__1();
+            rule__AnnotationHierarchy__Group_3_3__2();
 
             state._fsp--;
 
@@ -1838,25 +1988,25 @@ public class InternalAnnotationsDslParser extends AbstractInternalContentAssistP
         }
         return ;
     }
-    // $ANTLR end "rule__AnnotationHierarchy__Group_3_2__0"
+    // $ANTLR end "rule__AnnotationHierarchy__Group_3_3__1"
 
 
-    // $ANTLR start "rule__AnnotationHierarchy__Group_3_2__0__Impl"
-    // InternalAnnotationsDsl.g:619:1: rule__AnnotationHierarchy__Group_3_2__0__Impl : ( '<' ) ;
-    public final void rule__AnnotationHierarchy__Group_3_2__0__Impl() throws RecognitionException {
+    // $ANTLR start "rule__AnnotationHierarchy__Group_3_3__1__Impl"
+    // InternalAnnotationsDsl.g:673:1: rule__AnnotationHierarchy__Group_3_3__1__Impl : ( '@' ) ;
+    public final void rule__AnnotationHierarchy__Group_3_3__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAnnotationsDsl.g:623:1: ( ( '<' ) )
-            // InternalAnnotationsDsl.g:624:1: ( '<' )
+            // InternalAnnotationsDsl.g:677:1: ( ( '@' ) )
+            // InternalAnnotationsDsl.g:678:1: ( '@' )
             {
-            // InternalAnnotationsDsl.g:624:1: ( '<' )
-            // InternalAnnotationsDsl.g:625:2: '<'
+            // InternalAnnotationsDsl.g:678:1: ( '@' )
+            // InternalAnnotationsDsl.g:679:2: '@'
             {
-             before(grammarAccess.getAnnotationHierarchyAccess().getLessThanSignKeyword_3_2_0()); 
-            match(input,12,FOLLOW_2); 
-             after(grammarAccess.getAnnotationHierarchyAccess().getLessThanSignKeyword_3_2_0()); 
+             before(grammarAccess.getAnnotationHierarchyAccess().getCommercialAtKeyword_3_3_1()); 
+            match(input,11,FOLLOW_2); 
+             after(grammarAccess.getAnnotationHierarchyAccess().getCommercialAtKeyword_3_3_1()); 
 
             }
 
@@ -1875,21 +2025,21 @@ public class InternalAnnotationsDslParser extends AbstractInternalContentAssistP
         }
         return ;
     }
-    // $ANTLR end "rule__AnnotationHierarchy__Group_3_2__0__Impl"
+    // $ANTLR end "rule__AnnotationHierarchy__Group_3_3__1__Impl"
 
 
-    // $ANTLR start "rule__AnnotationHierarchy__Group_3_2__1"
-    // InternalAnnotationsDsl.g:634:1: rule__AnnotationHierarchy__Group_3_2__1 : rule__AnnotationHierarchy__Group_3_2__1__Impl ;
-    public final void rule__AnnotationHierarchy__Group_3_2__1() throws RecognitionException {
+    // $ANTLR start "rule__AnnotationHierarchy__Group_3_3__2"
+    // InternalAnnotationsDsl.g:688:1: rule__AnnotationHierarchy__Group_3_3__2 : rule__AnnotationHierarchy__Group_3_3__2__Impl ;
+    public final void rule__AnnotationHierarchy__Group_3_3__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAnnotationsDsl.g:638:1: ( rule__AnnotationHierarchy__Group_3_2__1__Impl )
-            // InternalAnnotationsDsl.g:639:2: rule__AnnotationHierarchy__Group_3_2__1__Impl
+            // InternalAnnotationsDsl.g:692:1: ( rule__AnnotationHierarchy__Group_3_3__2__Impl )
+            // InternalAnnotationsDsl.g:693:2: rule__AnnotationHierarchy__Group_3_3__2__Impl
             {
             pushFollow(FOLLOW_2);
-            rule__AnnotationHierarchy__Group_3_2__1__Impl();
+            rule__AnnotationHierarchy__Group_3_3__2__Impl();
 
             state._fsp--;
 
@@ -1908,35 +2058,35 @@ public class InternalAnnotationsDslParser extends AbstractInternalContentAssistP
         }
         return ;
     }
-    // $ANTLR end "rule__AnnotationHierarchy__Group_3_2__1"
+    // $ANTLR end "rule__AnnotationHierarchy__Group_3_3__2"
 
 
-    // $ANTLR start "rule__AnnotationHierarchy__Group_3_2__1__Impl"
-    // InternalAnnotationsDsl.g:645:1: rule__AnnotationHierarchy__Group_3_2__1__Impl : ( ( rule__AnnotationHierarchy__SupersAssignment_3_2_1 ) ) ;
-    public final void rule__AnnotationHierarchy__Group_3_2__1__Impl() throws RecognitionException {
+    // $ANTLR start "rule__AnnotationHierarchy__Group_3_3__2__Impl"
+    // InternalAnnotationsDsl.g:699:1: rule__AnnotationHierarchy__Group_3_3__2__Impl : ( ( rule__AnnotationHierarchy__SupersAssignment_3_3_2 ) ) ;
+    public final void rule__AnnotationHierarchy__Group_3_3__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAnnotationsDsl.g:649:1: ( ( ( rule__AnnotationHierarchy__SupersAssignment_3_2_1 ) ) )
-            // InternalAnnotationsDsl.g:650:1: ( ( rule__AnnotationHierarchy__SupersAssignment_3_2_1 ) )
+            // InternalAnnotationsDsl.g:703:1: ( ( ( rule__AnnotationHierarchy__SupersAssignment_3_3_2 ) ) )
+            // InternalAnnotationsDsl.g:704:1: ( ( rule__AnnotationHierarchy__SupersAssignment_3_3_2 ) )
             {
-            // InternalAnnotationsDsl.g:650:1: ( ( rule__AnnotationHierarchy__SupersAssignment_3_2_1 ) )
-            // InternalAnnotationsDsl.g:651:2: ( rule__AnnotationHierarchy__SupersAssignment_3_2_1 )
+            // InternalAnnotationsDsl.g:704:1: ( ( rule__AnnotationHierarchy__SupersAssignment_3_3_2 ) )
+            // InternalAnnotationsDsl.g:705:2: ( rule__AnnotationHierarchy__SupersAssignment_3_3_2 )
             {
-             before(grammarAccess.getAnnotationHierarchyAccess().getSupersAssignment_3_2_1()); 
-            // InternalAnnotationsDsl.g:652:2: ( rule__AnnotationHierarchy__SupersAssignment_3_2_1 )
-            // InternalAnnotationsDsl.g:652:3: rule__AnnotationHierarchy__SupersAssignment_3_2_1
+             before(grammarAccess.getAnnotationHierarchyAccess().getSupersAssignment_3_3_2()); 
+            // InternalAnnotationsDsl.g:706:2: ( rule__AnnotationHierarchy__SupersAssignment_3_3_2 )
+            // InternalAnnotationsDsl.g:706:3: rule__AnnotationHierarchy__SupersAssignment_3_3_2
             {
             pushFollow(FOLLOW_2);
-            rule__AnnotationHierarchy__SupersAssignment_3_2_1();
+            rule__AnnotationHierarchy__SupersAssignment_3_3_2();
 
             state._fsp--;
 
 
             }
 
-             after(grammarAccess.getAnnotationHierarchyAccess().getSupersAssignment_3_2_1()); 
+             after(grammarAccess.getAnnotationHierarchyAccess().getSupersAssignment_3_3_2()); 
 
             }
 
@@ -1955,18 +2105,18 @@ public class InternalAnnotationsDslParser extends AbstractInternalContentAssistP
         }
         return ;
     }
-    // $ANTLR end "rule__AnnotationHierarchy__Group_3_2__1__Impl"
+    // $ANTLR end "rule__AnnotationHierarchy__Group_3_3__2__Impl"
 
 
     // $ANTLR start "rule__AnnotationInstance__Group__0"
-    // InternalAnnotationsDsl.g:661:1: rule__AnnotationInstance__Group__0 : rule__AnnotationInstance__Group__0__Impl rule__AnnotationInstance__Group__1 ;
+    // InternalAnnotationsDsl.g:715:1: rule__AnnotationInstance__Group__0 : rule__AnnotationInstance__Group__0__Impl rule__AnnotationInstance__Group__1 ;
     public final void rule__AnnotationInstance__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAnnotationsDsl.g:665:1: ( rule__AnnotationInstance__Group__0__Impl rule__AnnotationInstance__Group__1 )
-            // InternalAnnotationsDsl.g:666:2: rule__AnnotationInstance__Group__0__Impl rule__AnnotationInstance__Group__1
+            // InternalAnnotationsDsl.g:719:1: ( rule__AnnotationInstance__Group__0__Impl rule__AnnotationInstance__Group__1 )
+            // InternalAnnotationsDsl.g:720:2: rule__AnnotationInstance__Group__0__Impl rule__AnnotationInstance__Group__1
             {
             pushFollow(FOLLOW_3);
             rule__AnnotationInstance__Group__0__Impl();
@@ -1997,21 +2147,21 @@ public class InternalAnnotationsDslParser extends AbstractInternalContentAssistP
 
 
     // $ANTLR start "rule__AnnotationInstance__Group__0__Impl"
-    // InternalAnnotationsDsl.g:673:1: rule__AnnotationInstance__Group__0__Impl : ( () ) ;
+    // InternalAnnotationsDsl.g:727:1: rule__AnnotationInstance__Group__0__Impl : ( () ) ;
     public final void rule__AnnotationInstance__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAnnotationsDsl.g:677:1: ( ( () ) )
-            // InternalAnnotationsDsl.g:678:1: ( () )
+            // InternalAnnotationsDsl.g:731:1: ( ( () ) )
+            // InternalAnnotationsDsl.g:732:1: ( () )
             {
-            // InternalAnnotationsDsl.g:678:1: ( () )
-            // InternalAnnotationsDsl.g:679:2: ()
+            // InternalAnnotationsDsl.g:732:1: ( () )
+            // InternalAnnotationsDsl.g:733:2: ()
             {
              before(grammarAccess.getAnnotationInstanceAccess().getAnnotationAction_0()); 
-            // InternalAnnotationsDsl.g:680:2: ()
-            // InternalAnnotationsDsl.g:680:3: 
+            // InternalAnnotationsDsl.g:734:2: ()
+            // InternalAnnotationsDsl.g:734:3: 
             {
             }
 
@@ -2034,14 +2184,14 @@ public class InternalAnnotationsDslParser extends AbstractInternalContentAssistP
 
 
     // $ANTLR start "rule__AnnotationInstance__Group__1"
-    // InternalAnnotationsDsl.g:688:1: rule__AnnotationInstance__Group__1 : rule__AnnotationInstance__Group__1__Impl rule__AnnotationInstance__Group__2 ;
+    // InternalAnnotationsDsl.g:742:1: rule__AnnotationInstance__Group__1 : rule__AnnotationInstance__Group__1__Impl rule__AnnotationInstance__Group__2 ;
     public final void rule__AnnotationInstance__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAnnotationsDsl.g:692:1: ( rule__AnnotationInstance__Group__1__Impl rule__AnnotationInstance__Group__2 )
-            // InternalAnnotationsDsl.g:693:2: rule__AnnotationInstance__Group__1__Impl rule__AnnotationInstance__Group__2
+            // InternalAnnotationsDsl.g:746:1: ( rule__AnnotationInstance__Group__1__Impl rule__AnnotationInstance__Group__2 )
+            // InternalAnnotationsDsl.g:747:2: rule__AnnotationInstance__Group__1__Impl rule__AnnotationInstance__Group__2
             {
             pushFollow(FOLLOW_5);
             rule__AnnotationInstance__Group__1__Impl();
@@ -2072,17 +2222,17 @@ public class InternalAnnotationsDslParser extends AbstractInternalContentAssistP
 
 
     // $ANTLR start "rule__AnnotationInstance__Group__1__Impl"
-    // InternalAnnotationsDsl.g:700:1: rule__AnnotationInstance__Group__1__Impl : ( '@' ) ;
+    // InternalAnnotationsDsl.g:754:1: rule__AnnotationInstance__Group__1__Impl : ( '@' ) ;
     public final void rule__AnnotationInstance__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAnnotationsDsl.g:704:1: ( ( '@' ) )
-            // InternalAnnotationsDsl.g:705:1: ( '@' )
+            // InternalAnnotationsDsl.g:758:1: ( ( '@' ) )
+            // InternalAnnotationsDsl.g:759:1: ( '@' )
             {
-            // InternalAnnotationsDsl.g:705:1: ( '@' )
-            // InternalAnnotationsDsl.g:706:2: '@'
+            // InternalAnnotationsDsl.g:759:1: ( '@' )
+            // InternalAnnotationsDsl.g:760:2: '@'
             {
              before(grammarAccess.getAnnotationInstanceAccess().getCommercialAtKeyword_1()); 
             match(input,11,FOLLOW_2); 
@@ -2109,14 +2259,14 @@ public class InternalAnnotationsDslParser extends AbstractInternalContentAssistP
 
 
     // $ANTLR start "rule__AnnotationInstance__Group__2"
-    // InternalAnnotationsDsl.g:715:1: rule__AnnotationInstance__Group__2 : rule__AnnotationInstance__Group__2__Impl rule__AnnotationInstance__Group__3 ;
+    // InternalAnnotationsDsl.g:769:1: rule__AnnotationInstance__Group__2 : rule__AnnotationInstance__Group__2__Impl rule__AnnotationInstance__Group__3 ;
     public final void rule__AnnotationInstance__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAnnotationsDsl.g:719:1: ( rule__AnnotationInstance__Group__2__Impl rule__AnnotationInstance__Group__3 )
-            // InternalAnnotationsDsl.g:720:2: rule__AnnotationInstance__Group__2__Impl rule__AnnotationInstance__Group__3
+            // InternalAnnotationsDsl.g:773:1: ( rule__AnnotationInstance__Group__2__Impl rule__AnnotationInstance__Group__3 )
+            // InternalAnnotationsDsl.g:774:2: rule__AnnotationInstance__Group__2__Impl rule__AnnotationInstance__Group__3
             {
             pushFollow(FOLLOW_8);
             rule__AnnotationInstance__Group__2__Impl();
@@ -2147,21 +2297,21 @@ public class InternalAnnotationsDslParser extends AbstractInternalContentAssistP
 
 
     // $ANTLR start "rule__AnnotationInstance__Group__2__Impl"
-    // InternalAnnotationsDsl.g:727:1: rule__AnnotationInstance__Group__2__Impl : ( ( rule__AnnotationInstance__NameAssignment_2 ) ) ;
+    // InternalAnnotationsDsl.g:781:1: rule__AnnotationInstance__Group__2__Impl : ( ( rule__AnnotationInstance__NameAssignment_2 ) ) ;
     public final void rule__AnnotationInstance__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAnnotationsDsl.g:731:1: ( ( ( rule__AnnotationInstance__NameAssignment_2 ) ) )
-            // InternalAnnotationsDsl.g:732:1: ( ( rule__AnnotationInstance__NameAssignment_2 ) )
+            // InternalAnnotationsDsl.g:785:1: ( ( ( rule__AnnotationInstance__NameAssignment_2 ) ) )
+            // InternalAnnotationsDsl.g:786:1: ( ( rule__AnnotationInstance__NameAssignment_2 ) )
             {
-            // InternalAnnotationsDsl.g:732:1: ( ( rule__AnnotationInstance__NameAssignment_2 ) )
-            // InternalAnnotationsDsl.g:733:2: ( rule__AnnotationInstance__NameAssignment_2 )
+            // InternalAnnotationsDsl.g:786:1: ( ( rule__AnnotationInstance__NameAssignment_2 ) )
+            // InternalAnnotationsDsl.g:787:2: ( rule__AnnotationInstance__NameAssignment_2 )
             {
              before(grammarAccess.getAnnotationInstanceAccess().getNameAssignment_2()); 
-            // InternalAnnotationsDsl.g:734:2: ( rule__AnnotationInstance__NameAssignment_2 )
-            // InternalAnnotationsDsl.g:734:3: rule__AnnotationInstance__NameAssignment_2
+            // InternalAnnotationsDsl.g:788:2: ( rule__AnnotationInstance__NameAssignment_2 )
+            // InternalAnnotationsDsl.g:788:3: rule__AnnotationInstance__NameAssignment_2
             {
             pushFollow(FOLLOW_2);
             rule__AnnotationInstance__NameAssignment_2();
@@ -2194,14 +2344,14 @@ public class InternalAnnotationsDslParser extends AbstractInternalContentAssistP
 
 
     // $ANTLR start "rule__AnnotationInstance__Group__3"
-    // InternalAnnotationsDsl.g:742:1: rule__AnnotationInstance__Group__3 : rule__AnnotationInstance__Group__3__Impl ;
+    // InternalAnnotationsDsl.g:796:1: rule__AnnotationInstance__Group__3 : rule__AnnotationInstance__Group__3__Impl ;
     public final void rule__AnnotationInstance__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAnnotationsDsl.g:746:1: ( rule__AnnotationInstance__Group__3__Impl )
-            // InternalAnnotationsDsl.g:747:2: rule__AnnotationInstance__Group__3__Impl
+            // InternalAnnotationsDsl.g:800:1: ( rule__AnnotationInstance__Group__3__Impl )
+            // InternalAnnotationsDsl.g:801:2: rule__AnnotationInstance__Group__3__Impl
             {
             pushFollow(FOLLOW_2);
             rule__AnnotationInstance__Group__3__Impl();
@@ -2227,21 +2377,21 @@ public class InternalAnnotationsDslParser extends AbstractInternalContentAssistP
 
 
     // $ANTLR start "rule__AnnotationInstance__Group__3__Impl"
-    // InternalAnnotationsDsl.g:753:1: rule__AnnotationInstance__Group__3__Impl : ( ( rule__AnnotationInstance__Group_3__0 ) ) ;
+    // InternalAnnotationsDsl.g:807:1: rule__AnnotationInstance__Group__3__Impl : ( ( rule__AnnotationInstance__Group_3__0 ) ) ;
     public final void rule__AnnotationInstance__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAnnotationsDsl.g:757:1: ( ( ( rule__AnnotationInstance__Group_3__0 ) ) )
-            // InternalAnnotationsDsl.g:758:1: ( ( rule__AnnotationInstance__Group_3__0 ) )
+            // InternalAnnotationsDsl.g:811:1: ( ( ( rule__AnnotationInstance__Group_3__0 ) ) )
+            // InternalAnnotationsDsl.g:812:1: ( ( rule__AnnotationInstance__Group_3__0 ) )
             {
-            // InternalAnnotationsDsl.g:758:1: ( ( rule__AnnotationInstance__Group_3__0 ) )
-            // InternalAnnotationsDsl.g:759:2: ( rule__AnnotationInstance__Group_3__0 )
+            // InternalAnnotationsDsl.g:812:1: ( ( rule__AnnotationInstance__Group_3__0 ) )
+            // InternalAnnotationsDsl.g:813:2: ( rule__AnnotationInstance__Group_3__0 )
             {
              before(grammarAccess.getAnnotationInstanceAccess().getGroup_3()); 
-            // InternalAnnotationsDsl.g:760:2: ( rule__AnnotationInstance__Group_3__0 )
-            // InternalAnnotationsDsl.g:760:3: rule__AnnotationInstance__Group_3__0
+            // InternalAnnotationsDsl.g:814:2: ( rule__AnnotationInstance__Group_3__0 )
+            // InternalAnnotationsDsl.g:814:3: rule__AnnotationInstance__Group_3__0
             {
             pushFollow(FOLLOW_2);
             rule__AnnotationInstance__Group_3__0();
@@ -2274,16 +2424,16 @@ public class InternalAnnotationsDslParser extends AbstractInternalContentAssistP
 
 
     // $ANTLR start "rule__AnnotationInstance__Group_3__0"
-    // InternalAnnotationsDsl.g:769:1: rule__AnnotationInstance__Group_3__0 : rule__AnnotationInstance__Group_3__0__Impl rule__AnnotationInstance__Group_3__1 ;
+    // InternalAnnotationsDsl.g:823:1: rule__AnnotationInstance__Group_3__0 : rule__AnnotationInstance__Group_3__0__Impl rule__AnnotationInstance__Group_3__1 ;
     public final void rule__AnnotationInstance__Group_3__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAnnotationsDsl.g:773:1: ( rule__AnnotationInstance__Group_3__0__Impl rule__AnnotationInstance__Group_3__1 )
-            // InternalAnnotationsDsl.g:774:2: rule__AnnotationInstance__Group_3__0__Impl rule__AnnotationInstance__Group_3__1
+            // InternalAnnotationsDsl.g:827:1: ( rule__AnnotationInstance__Group_3__0__Impl rule__AnnotationInstance__Group_3__1 )
+            // InternalAnnotationsDsl.g:828:2: rule__AnnotationInstance__Group_3__0__Impl rule__AnnotationInstance__Group_3__1
             {
-            pushFollow(FOLLOW_5);
+            pushFollow(FOLLOW_3);
             rule__AnnotationInstance__Group_3__0__Impl();
 
             state._fsp--;
@@ -2312,17 +2462,17 @@ public class InternalAnnotationsDslParser extends AbstractInternalContentAssistP
 
 
     // $ANTLR start "rule__AnnotationInstance__Group_3__0__Impl"
-    // InternalAnnotationsDsl.g:781:1: rule__AnnotationInstance__Group_3__0__Impl : ( ':' ) ;
+    // InternalAnnotationsDsl.g:835:1: rule__AnnotationInstance__Group_3__0__Impl : ( ':' ) ;
     public final void rule__AnnotationInstance__Group_3__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAnnotationsDsl.g:785:1: ( ( ':' ) )
-            // InternalAnnotationsDsl.g:786:1: ( ':' )
+            // InternalAnnotationsDsl.g:839:1: ( ( ':' ) )
+            // InternalAnnotationsDsl.g:840:1: ( ':' )
             {
-            // InternalAnnotationsDsl.g:786:1: ( ':' )
-            // InternalAnnotationsDsl.g:787:2: ':'
+            // InternalAnnotationsDsl.g:840:1: ( ':' )
+            // InternalAnnotationsDsl.g:841:2: ':'
             {
              before(grammarAccess.getAnnotationInstanceAccess().getColonKeyword_3_0()); 
             match(input,13,FOLLOW_2); 
@@ -2349,16 +2499,16 @@ public class InternalAnnotationsDslParser extends AbstractInternalContentAssistP
 
 
     // $ANTLR start "rule__AnnotationInstance__Group_3__1"
-    // InternalAnnotationsDsl.g:796:1: rule__AnnotationInstance__Group_3__1 : rule__AnnotationInstance__Group_3__1__Impl rule__AnnotationInstance__Group_3__2 ;
+    // InternalAnnotationsDsl.g:850:1: rule__AnnotationInstance__Group_3__1 : rule__AnnotationInstance__Group_3__1__Impl rule__AnnotationInstance__Group_3__2 ;
     public final void rule__AnnotationInstance__Group_3__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAnnotationsDsl.g:800:1: ( rule__AnnotationInstance__Group_3__1__Impl rule__AnnotationInstance__Group_3__2 )
-            // InternalAnnotationsDsl.g:801:2: rule__AnnotationInstance__Group_3__1__Impl rule__AnnotationInstance__Group_3__2
+            // InternalAnnotationsDsl.g:854:1: ( rule__AnnotationInstance__Group_3__1__Impl rule__AnnotationInstance__Group_3__2 )
+            // InternalAnnotationsDsl.g:855:2: rule__AnnotationInstance__Group_3__1__Impl rule__AnnotationInstance__Group_3__2
             {
-            pushFollow(FOLLOW_8);
+            pushFollow(FOLLOW_5);
             rule__AnnotationInstance__Group_3__1__Impl();
 
             state._fsp--;
@@ -2387,31 +2537,21 @@ public class InternalAnnotationsDslParser extends AbstractInternalContentAssistP
 
 
     // $ANTLR start "rule__AnnotationInstance__Group_3__1__Impl"
-    // InternalAnnotationsDsl.g:808:1: rule__AnnotationInstance__Group_3__1__Impl : ( ( rule__AnnotationInstance__DescriptorsAssignment_3_1 ) ) ;
+    // InternalAnnotationsDsl.g:862:1: rule__AnnotationInstance__Group_3__1__Impl : ( '@' ) ;
     public final void rule__AnnotationInstance__Group_3__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAnnotationsDsl.g:812:1: ( ( ( rule__AnnotationInstance__DescriptorsAssignment_3_1 ) ) )
-            // InternalAnnotationsDsl.g:813:1: ( ( rule__AnnotationInstance__DescriptorsAssignment_3_1 ) )
+            // InternalAnnotationsDsl.g:866:1: ( ( '@' ) )
+            // InternalAnnotationsDsl.g:867:1: ( '@' )
             {
-            // InternalAnnotationsDsl.g:813:1: ( ( rule__AnnotationInstance__DescriptorsAssignment_3_1 ) )
-            // InternalAnnotationsDsl.g:814:2: ( rule__AnnotationInstance__DescriptorsAssignment_3_1 )
+            // InternalAnnotationsDsl.g:867:1: ( '@' )
+            // InternalAnnotationsDsl.g:868:2: '@'
             {
-             before(grammarAccess.getAnnotationInstanceAccess().getDescriptorsAssignment_3_1()); 
-            // InternalAnnotationsDsl.g:815:2: ( rule__AnnotationInstance__DescriptorsAssignment_3_1 )
-            // InternalAnnotationsDsl.g:815:3: rule__AnnotationInstance__DescriptorsAssignment_3_1
-            {
-            pushFollow(FOLLOW_2);
-            rule__AnnotationInstance__DescriptorsAssignment_3_1();
-
-            state._fsp--;
-
-
-            }
-
-             after(grammarAccess.getAnnotationInstanceAccess().getDescriptorsAssignment_3_1()); 
+             before(grammarAccess.getAnnotationInstanceAccess().getCommercialAtKeyword_3_1()); 
+            match(input,11,FOLLOW_2); 
+             after(grammarAccess.getAnnotationInstanceAccess().getCommercialAtKeyword_3_1()); 
 
             }
 
@@ -2434,17 +2574,22 @@ public class InternalAnnotationsDslParser extends AbstractInternalContentAssistP
 
 
     // $ANTLR start "rule__AnnotationInstance__Group_3__2"
-    // InternalAnnotationsDsl.g:823:1: rule__AnnotationInstance__Group_3__2 : rule__AnnotationInstance__Group_3__2__Impl ;
+    // InternalAnnotationsDsl.g:877:1: rule__AnnotationInstance__Group_3__2 : rule__AnnotationInstance__Group_3__2__Impl rule__AnnotationInstance__Group_3__3 ;
     public final void rule__AnnotationInstance__Group_3__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAnnotationsDsl.g:827:1: ( rule__AnnotationInstance__Group_3__2__Impl )
-            // InternalAnnotationsDsl.g:828:2: rule__AnnotationInstance__Group_3__2__Impl
+            // InternalAnnotationsDsl.g:881:1: ( rule__AnnotationInstance__Group_3__2__Impl rule__AnnotationInstance__Group_3__3 )
+            // InternalAnnotationsDsl.g:882:2: rule__AnnotationInstance__Group_3__2__Impl rule__AnnotationInstance__Group_3__3
             {
-            pushFollow(FOLLOW_2);
+            pushFollow(FOLLOW_8);
             rule__AnnotationInstance__Group_3__2__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_2);
+            rule__AnnotationInstance__Group_3__3();
 
             state._fsp--;
 
@@ -2467,49 +2612,31 @@ public class InternalAnnotationsDslParser extends AbstractInternalContentAssistP
 
 
     // $ANTLR start "rule__AnnotationInstance__Group_3__2__Impl"
-    // InternalAnnotationsDsl.g:834:1: rule__AnnotationInstance__Group_3__2__Impl : ( ( rule__AnnotationInstance__Group_3_2__0 )* ) ;
+    // InternalAnnotationsDsl.g:889:1: rule__AnnotationInstance__Group_3__2__Impl : ( ( rule__AnnotationInstance__DescriptorsAssignment_3_2 ) ) ;
     public final void rule__AnnotationInstance__Group_3__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAnnotationsDsl.g:838:1: ( ( ( rule__AnnotationInstance__Group_3_2__0 )* ) )
-            // InternalAnnotationsDsl.g:839:1: ( ( rule__AnnotationInstance__Group_3_2__0 )* )
+            // InternalAnnotationsDsl.g:893:1: ( ( ( rule__AnnotationInstance__DescriptorsAssignment_3_2 ) ) )
+            // InternalAnnotationsDsl.g:894:1: ( ( rule__AnnotationInstance__DescriptorsAssignment_3_2 ) )
             {
-            // InternalAnnotationsDsl.g:839:1: ( ( rule__AnnotationInstance__Group_3_2__0 )* )
-            // InternalAnnotationsDsl.g:840:2: ( rule__AnnotationInstance__Group_3_2__0 )*
+            // InternalAnnotationsDsl.g:894:1: ( ( rule__AnnotationInstance__DescriptorsAssignment_3_2 ) )
+            // InternalAnnotationsDsl.g:895:2: ( rule__AnnotationInstance__DescriptorsAssignment_3_2 )
             {
-             before(grammarAccess.getAnnotationInstanceAccess().getGroup_3_2()); 
-            // InternalAnnotationsDsl.g:841:2: ( rule__AnnotationInstance__Group_3_2__0 )*
-            loop5:
-            do {
-                int alt5=2;
-                int LA5_0 = input.LA(1);
+             before(grammarAccess.getAnnotationInstanceAccess().getDescriptorsAssignment_3_2()); 
+            // InternalAnnotationsDsl.g:896:2: ( rule__AnnotationInstance__DescriptorsAssignment_3_2 )
+            // InternalAnnotationsDsl.g:896:3: rule__AnnotationInstance__DescriptorsAssignment_3_2
+            {
+            pushFollow(FOLLOW_2);
+            rule__AnnotationInstance__DescriptorsAssignment_3_2();
 
-                if ( (LA5_0==13) ) {
-                    alt5=1;
-                }
+            state._fsp--;
 
 
-                switch (alt5) {
-            	case 1 :
-            	    // InternalAnnotationsDsl.g:841:3: rule__AnnotationInstance__Group_3_2__0
-            	    {
-            	    pushFollow(FOLLOW_9);
-            	    rule__AnnotationInstance__Group_3_2__0();
+            }
 
-            	    state._fsp--;
-
-
-            	    }
-            	    break;
-
-            	default :
-            	    break loop5;
-                }
-            } while (true);
-
-             after(grammarAccess.getAnnotationInstanceAccess().getGroup_3_2()); 
+             after(grammarAccess.getAnnotationInstanceAccess().getDescriptorsAssignment_3_2()); 
 
             }
 
@@ -2531,23 +2658,196 @@ public class InternalAnnotationsDslParser extends AbstractInternalContentAssistP
     // $ANTLR end "rule__AnnotationInstance__Group_3__2__Impl"
 
 
-    // $ANTLR start "rule__AnnotationInstance__Group_3_2__0"
-    // InternalAnnotationsDsl.g:850:1: rule__AnnotationInstance__Group_3_2__0 : rule__AnnotationInstance__Group_3_2__0__Impl rule__AnnotationInstance__Group_3_2__1 ;
-    public final void rule__AnnotationInstance__Group_3_2__0() throws RecognitionException {
+    // $ANTLR start "rule__AnnotationInstance__Group_3__3"
+    // InternalAnnotationsDsl.g:904:1: rule__AnnotationInstance__Group_3__3 : rule__AnnotationInstance__Group_3__3__Impl ;
+    public final void rule__AnnotationInstance__Group_3__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAnnotationsDsl.g:854:1: ( rule__AnnotationInstance__Group_3_2__0__Impl rule__AnnotationInstance__Group_3_2__1 )
-            // InternalAnnotationsDsl.g:855:2: rule__AnnotationInstance__Group_3_2__0__Impl rule__AnnotationInstance__Group_3_2__1
+            // InternalAnnotationsDsl.g:908:1: ( rule__AnnotationInstance__Group_3__3__Impl )
+            // InternalAnnotationsDsl.g:909:2: rule__AnnotationInstance__Group_3__3__Impl
+            {
+            pushFollow(FOLLOW_2);
+            rule__AnnotationInstance__Group_3__3__Impl();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__AnnotationInstance__Group_3__3"
+
+
+    // $ANTLR start "rule__AnnotationInstance__Group_3__3__Impl"
+    // InternalAnnotationsDsl.g:915:1: rule__AnnotationInstance__Group_3__3__Impl : ( ( rule__AnnotationInstance__Group_3_3__0 )* ) ;
+    public final void rule__AnnotationInstance__Group_3__3__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalAnnotationsDsl.g:919:1: ( ( ( rule__AnnotationInstance__Group_3_3__0 )* ) )
+            // InternalAnnotationsDsl.g:920:1: ( ( rule__AnnotationInstance__Group_3_3__0 )* )
+            {
+            // InternalAnnotationsDsl.g:920:1: ( ( rule__AnnotationInstance__Group_3_3__0 )* )
+            // InternalAnnotationsDsl.g:921:2: ( rule__AnnotationInstance__Group_3_3__0 )*
+            {
+             before(grammarAccess.getAnnotationInstanceAccess().getGroup_3_3()); 
+            // InternalAnnotationsDsl.g:922:2: ( rule__AnnotationInstance__Group_3_3__0 )*
+            loop5:
+            do {
+                int alt5=2;
+                int LA5_0 = input.LA(1);
+
+                if ( (LA5_0==13) ) {
+                    alt5=1;
+                }
+
+
+                switch (alt5) {
+            	case 1 :
+            	    // InternalAnnotationsDsl.g:922:3: rule__AnnotationInstance__Group_3_3__0
+            	    {
+            	    pushFollow(FOLLOW_9);
+            	    rule__AnnotationInstance__Group_3_3__0();
+
+            	    state._fsp--;
+
+
+            	    }
+            	    break;
+
+            	default :
+            	    break loop5;
+                }
+            } while (true);
+
+             after(grammarAccess.getAnnotationInstanceAccess().getGroup_3_3()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__AnnotationInstance__Group_3__3__Impl"
+
+
+    // $ANTLR start "rule__AnnotationInstance__Group_3_3__0"
+    // InternalAnnotationsDsl.g:931:1: rule__AnnotationInstance__Group_3_3__0 : rule__AnnotationInstance__Group_3_3__0__Impl rule__AnnotationInstance__Group_3_3__1 ;
+    public final void rule__AnnotationInstance__Group_3_3__0() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalAnnotationsDsl.g:935:1: ( rule__AnnotationInstance__Group_3_3__0__Impl rule__AnnotationInstance__Group_3_3__1 )
+            // InternalAnnotationsDsl.g:936:2: rule__AnnotationInstance__Group_3_3__0__Impl rule__AnnotationInstance__Group_3_3__1
+            {
+            pushFollow(FOLLOW_3);
+            rule__AnnotationInstance__Group_3_3__0__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_2);
+            rule__AnnotationInstance__Group_3_3__1();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__AnnotationInstance__Group_3_3__0"
+
+
+    // $ANTLR start "rule__AnnotationInstance__Group_3_3__0__Impl"
+    // InternalAnnotationsDsl.g:943:1: rule__AnnotationInstance__Group_3_3__0__Impl : ( ':' ) ;
+    public final void rule__AnnotationInstance__Group_3_3__0__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalAnnotationsDsl.g:947:1: ( ( ':' ) )
+            // InternalAnnotationsDsl.g:948:1: ( ':' )
+            {
+            // InternalAnnotationsDsl.g:948:1: ( ':' )
+            // InternalAnnotationsDsl.g:949:2: ':'
+            {
+             before(grammarAccess.getAnnotationInstanceAccess().getColonKeyword_3_3_0()); 
+            match(input,13,FOLLOW_2); 
+             after(grammarAccess.getAnnotationInstanceAccess().getColonKeyword_3_3_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__AnnotationInstance__Group_3_3__0__Impl"
+
+
+    // $ANTLR start "rule__AnnotationInstance__Group_3_3__1"
+    // InternalAnnotationsDsl.g:958:1: rule__AnnotationInstance__Group_3_3__1 : rule__AnnotationInstance__Group_3_3__1__Impl rule__AnnotationInstance__Group_3_3__2 ;
+    public final void rule__AnnotationInstance__Group_3_3__1() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalAnnotationsDsl.g:962:1: ( rule__AnnotationInstance__Group_3_3__1__Impl rule__AnnotationInstance__Group_3_3__2 )
+            // InternalAnnotationsDsl.g:963:2: rule__AnnotationInstance__Group_3_3__1__Impl rule__AnnotationInstance__Group_3_3__2
             {
             pushFollow(FOLLOW_5);
-            rule__AnnotationInstance__Group_3_2__0__Impl();
+            rule__AnnotationInstance__Group_3_3__1__Impl();
 
             state._fsp--;
 
             pushFollow(FOLLOW_2);
-            rule__AnnotationInstance__Group_3_2__1();
+            rule__AnnotationInstance__Group_3_3__2();
 
             state._fsp--;
 
@@ -2566,25 +2866,25 @@ public class InternalAnnotationsDslParser extends AbstractInternalContentAssistP
         }
         return ;
     }
-    // $ANTLR end "rule__AnnotationInstance__Group_3_2__0"
+    // $ANTLR end "rule__AnnotationInstance__Group_3_3__1"
 
 
-    // $ANTLR start "rule__AnnotationInstance__Group_3_2__0__Impl"
-    // InternalAnnotationsDsl.g:862:1: rule__AnnotationInstance__Group_3_2__0__Impl : ( ':' ) ;
-    public final void rule__AnnotationInstance__Group_3_2__0__Impl() throws RecognitionException {
+    // $ANTLR start "rule__AnnotationInstance__Group_3_3__1__Impl"
+    // InternalAnnotationsDsl.g:970:1: rule__AnnotationInstance__Group_3_3__1__Impl : ( '@' ) ;
+    public final void rule__AnnotationInstance__Group_3_3__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAnnotationsDsl.g:866:1: ( ( ':' ) )
-            // InternalAnnotationsDsl.g:867:1: ( ':' )
+            // InternalAnnotationsDsl.g:974:1: ( ( '@' ) )
+            // InternalAnnotationsDsl.g:975:1: ( '@' )
             {
-            // InternalAnnotationsDsl.g:867:1: ( ':' )
-            // InternalAnnotationsDsl.g:868:2: ':'
+            // InternalAnnotationsDsl.g:975:1: ( '@' )
+            // InternalAnnotationsDsl.g:976:2: '@'
             {
-             before(grammarAccess.getAnnotationInstanceAccess().getColonKeyword_3_2_0()); 
-            match(input,13,FOLLOW_2); 
-             after(grammarAccess.getAnnotationInstanceAccess().getColonKeyword_3_2_0()); 
+             before(grammarAccess.getAnnotationInstanceAccess().getCommercialAtKeyword_3_3_1()); 
+            match(input,11,FOLLOW_2); 
+             after(grammarAccess.getAnnotationInstanceAccess().getCommercialAtKeyword_3_3_1()); 
 
             }
 
@@ -2603,21 +2903,21 @@ public class InternalAnnotationsDslParser extends AbstractInternalContentAssistP
         }
         return ;
     }
-    // $ANTLR end "rule__AnnotationInstance__Group_3_2__0__Impl"
+    // $ANTLR end "rule__AnnotationInstance__Group_3_3__1__Impl"
 
 
-    // $ANTLR start "rule__AnnotationInstance__Group_3_2__1"
-    // InternalAnnotationsDsl.g:877:1: rule__AnnotationInstance__Group_3_2__1 : rule__AnnotationInstance__Group_3_2__1__Impl ;
-    public final void rule__AnnotationInstance__Group_3_2__1() throws RecognitionException {
+    // $ANTLR start "rule__AnnotationInstance__Group_3_3__2"
+    // InternalAnnotationsDsl.g:985:1: rule__AnnotationInstance__Group_3_3__2 : rule__AnnotationInstance__Group_3_3__2__Impl ;
+    public final void rule__AnnotationInstance__Group_3_3__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAnnotationsDsl.g:881:1: ( rule__AnnotationInstance__Group_3_2__1__Impl )
-            // InternalAnnotationsDsl.g:882:2: rule__AnnotationInstance__Group_3_2__1__Impl
+            // InternalAnnotationsDsl.g:989:1: ( rule__AnnotationInstance__Group_3_3__2__Impl )
+            // InternalAnnotationsDsl.g:990:2: rule__AnnotationInstance__Group_3_3__2__Impl
             {
             pushFollow(FOLLOW_2);
-            rule__AnnotationInstance__Group_3_2__1__Impl();
+            rule__AnnotationInstance__Group_3_3__2__Impl();
 
             state._fsp--;
 
@@ -2636,35 +2936,35 @@ public class InternalAnnotationsDslParser extends AbstractInternalContentAssistP
         }
         return ;
     }
-    // $ANTLR end "rule__AnnotationInstance__Group_3_2__1"
+    // $ANTLR end "rule__AnnotationInstance__Group_3_3__2"
 
 
-    // $ANTLR start "rule__AnnotationInstance__Group_3_2__1__Impl"
-    // InternalAnnotationsDsl.g:888:1: rule__AnnotationInstance__Group_3_2__1__Impl : ( ( rule__AnnotationInstance__DescriptorsAssignment_3_2_1 ) ) ;
-    public final void rule__AnnotationInstance__Group_3_2__1__Impl() throws RecognitionException {
+    // $ANTLR start "rule__AnnotationInstance__Group_3_3__2__Impl"
+    // InternalAnnotationsDsl.g:996:1: rule__AnnotationInstance__Group_3_3__2__Impl : ( ( rule__AnnotationInstance__DescriptorsAssignment_3_3_2 ) ) ;
+    public final void rule__AnnotationInstance__Group_3_3__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAnnotationsDsl.g:892:1: ( ( ( rule__AnnotationInstance__DescriptorsAssignment_3_2_1 ) ) )
-            // InternalAnnotationsDsl.g:893:1: ( ( rule__AnnotationInstance__DescriptorsAssignment_3_2_1 ) )
+            // InternalAnnotationsDsl.g:1000:1: ( ( ( rule__AnnotationInstance__DescriptorsAssignment_3_3_2 ) ) )
+            // InternalAnnotationsDsl.g:1001:1: ( ( rule__AnnotationInstance__DescriptorsAssignment_3_3_2 ) )
             {
-            // InternalAnnotationsDsl.g:893:1: ( ( rule__AnnotationInstance__DescriptorsAssignment_3_2_1 ) )
-            // InternalAnnotationsDsl.g:894:2: ( rule__AnnotationInstance__DescriptorsAssignment_3_2_1 )
+            // InternalAnnotationsDsl.g:1001:1: ( ( rule__AnnotationInstance__DescriptorsAssignment_3_3_2 ) )
+            // InternalAnnotationsDsl.g:1002:2: ( rule__AnnotationInstance__DescriptorsAssignment_3_3_2 )
             {
-             before(grammarAccess.getAnnotationInstanceAccess().getDescriptorsAssignment_3_2_1()); 
-            // InternalAnnotationsDsl.g:895:2: ( rule__AnnotationInstance__DescriptorsAssignment_3_2_1 )
-            // InternalAnnotationsDsl.g:895:3: rule__AnnotationInstance__DescriptorsAssignment_3_2_1
+             before(grammarAccess.getAnnotationInstanceAccess().getDescriptorsAssignment_3_3_2()); 
+            // InternalAnnotationsDsl.g:1003:2: ( rule__AnnotationInstance__DescriptorsAssignment_3_3_2 )
+            // InternalAnnotationsDsl.g:1003:3: rule__AnnotationInstance__DescriptorsAssignment_3_3_2
             {
             pushFollow(FOLLOW_2);
-            rule__AnnotationInstance__DescriptorsAssignment_3_2_1();
+            rule__AnnotationInstance__DescriptorsAssignment_3_3_2();
 
             state._fsp--;
 
 
             }
 
-             after(grammarAccess.getAnnotationInstanceAccess().getDescriptorsAssignment_3_2_1()); 
+             after(grammarAccess.getAnnotationInstanceAccess().getDescriptorsAssignment_3_3_2()); 
 
             }
 
@@ -2683,21 +2983,21 @@ public class InternalAnnotationsDslParser extends AbstractInternalContentAssistP
         }
         return ;
     }
-    // $ANTLR end "rule__AnnotationInstance__Group_3_2__1__Impl"
+    // $ANTLR end "rule__AnnotationInstance__Group_3_3__2__Impl"
 
 
     // $ANTLR start "rule__RepositoryManager__AnnotationsAssignment_1_0"
-    // InternalAnnotationsDsl.g:904:1: rule__RepositoryManager__AnnotationsAssignment_1_0 : ( ruleAnnotation ) ;
+    // InternalAnnotationsDsl.g:1012:1: rule__RepositoryManager__AnnotationsAssignment_1_0 : ( ruleAnnotation ) ;
     public final void rule__RepositoryManager__AnnotationsAssignment_1_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAnnotationsDsl.g:908:1: ( ( ruleAnnotation ) )
-            // InternalAnnotationsDsl.g:909:2: ( ruleAnnotation )
+            // InternalAnnotationsDsl.g:1016:1: ( ( ruleAnnotation ) )
+            // InternalAnnotationsDsl.g:1017:2: ( ruleAnnotation )
             {
-            // InternalAnnotationsDsl.g:909:2: ( ruleAnnotation )
-            // InternalAnnotationsDsl.g:910:3: ruleAnnotation
+            // InternalAnnotationsDsl.g:1017:2: ( ruleAnnotation )
+            // InternalAnnotationsDsl.g:1018:3: ruleAnnotation
             {
              before(grammarAccess.getRepositoryManagerAccess().getAnnotationsAnnotationParserRuleCall_1_0_0()); 
             pushFollow(FOLLOW_2);
@@ -2728,17 +3028,17 @@ public class InternalAnnotationsDslParser extends AbstractInternalContentAssistP
 
 
     // $ANTLR start "rule__RepositoryManager__AnnotationsAssignment_1_1"
-    // InternalAnnotationsDsl.g:919:1: rule__RepositoryManager__AnnotationsAssignment_1_1 : ( ruleAnnotation ) ;
+    // InternalAnnotationsDsl.g:1027:1: rule__RepositoryManager__AnnotationsAssignment_1_1 : ( ruleAnnotation ) ;
     public final void rule__RepositoryManager__AnnotationsAssignment_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAnnotationsDsl.g:923:1: ( ( ruleAnnotation ) )
-            // InternalAnnotationsDsl.g:924:2: ( ruleAnnotation )
+            // InternalAnnotationsDsl.g:1031:1: ( ( ruleAnnotation ) )
+            // InternalAnnotationsDsl.g:1032:2: ( ruleAnnotation )
             {
-            // InternalAnnotationsDsl.g:924:2: ( ruleAnnotation )
-            // InternalAnnotationsDsl.g:925:3: ruleAnnotation
+            // InternalAnnotationsDsl.g:1032:2: ( ruleAnnotation )
+            // InternalAnnotationsDsl.g:1033:3: ruleAnnotation
             {
              before(grammarAccess.getRepositoryManagerAccess().getAnnotationsAnnotationParserRuleCall_1_1_0()); 
             pushFollow(FOLLOW_2);
@@ -2769,17 +3069,17 @@ public class InternalAnnotationsDslParser extends AbstractInternalContentAssistP
 
 
     // $ANTLR start "rule__SimpleAnnotation__NameAssignment_2"
-    // InternalAnnotationsDsl.g:934:1: rule__SimpleAnnotation__NameAssignment_2 : ( ruleQualifiedName ) ;
+    // InternalAnnotationsDsl.g:1042:1: rule__SimpleAnnotation__NameAssignment_2 : ( ruleQualifiedName ) ;
     public final void rule__SimpleAnnotation__NameAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAnnotationsDsl.g:938:1: ( ( ruleQualifiedName ) )
-            // InternalAnnotationsDsl.g:939:2: ( ruleQualifiedName )
+            // InternalAnnotationsDsl.g:1046:1: ( ( ruleQualifiedName ) )
+            // InternalAnnotationsDsl.g:1047:2: ( ruleQualifiedName )
             {
-            // InternalAnnotationsDsl.g:939:2: ( ruleQualifiedName )
-            // InternalAnnotationsDsl.g:940:3: ruleQualifiedName
+            // InternalAnnotationsDsl.g:1047:2: ( ruleQualifiedName )
+            // InternalAnnotationsDsl.g:1048:3: ruleQualifiedName
             {
              before(grammarAccess.getSimpleAnnotationAccess().getNameQualifiedNameParserRuleCall_2_0()); 
             pushFollow(FOLLOW_2);
@@ -2810,17 +3110,17 @@ public class InternalAnnotationsDslParser extends AbstractInternalContentAssistP
 
 
     // $ANTLR start "rule__AnnotationHierarchy__NameAssignment_2"
-    // InternalAnnotationsDsl.g:949:1: rule__AnnotationHierarchy__NameAssignment_2 : ( ruleQualifiedName ) ;
+    // InternalAnnotationsDsl.g:1057:1: rule__AnnotationHierarchy__NameAssignment_2 : ( ruleQualifiedName ) ;
     public final void rule__AnnotationHierarchy__NameAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAnnotationsDsl.g:953:1: ( ( ruleQualifiedName ) )
-            // InternalAnnotationsDsl.g:954:2: ( ruleQualifiedName )
+            // InternalAnnotationsDsl.g:1061:1: ( ( ruleQualifiedName ) )
+            // InternalAnnotationsDsl.g:1062:2: ( ruleQualifiedName )
             {
-            // InternalAnnotationsDsl.g:954:2: ( ruleQualifiedName )
-            // InternalAnnotationsDsl.g:955:3: ruleQualifiedName
+            // InternalAnnotationsDsl.g:1062:2: ( ruleQualifiedName )
+            // InternalAnnotationsDsl.g:1063:3: ruleQualifiedName
             {
              before(grammarAccess.getAnnotationHierarchyAccess().getNameQualifiedNameParserRuleCall_2_0()); 
             pushFollow(FOLLOW_2);
@@ -2850,34 +3150,34 @@ public class InternalAnnotationsDslParser extends AbstractInternalContentAssistP
     // $ANTLR end "rule__AnnotationHierarchy__NameAssignment_2"
 
 
-    // $ANTLR start "rule__AnnotationHierarchy__SupersAssignment_3_1"
-    // InternalAnnotationsDsl.g:964:1: rule__AnnotationHierarchy__SupersAssignment_3_1 : ( ( ruleQualifiedName ) ) ;
-    public final void rule__AnnotationHierarchy__SupersAssignment_3_1() throws RecognitionException {
+    // $ANTLR start "rule__AnnotationHierarchy__SupersAssignment_3_2"
+    // InternalAnnotationsDsl.g:1072:1: rule__AnnotationHierarchy__SupersAssignment_3_2 : ( ( ruleQualifiedName ) ) ;
+    public final void rule__AnnotationHierarchy__SupersAssignment_3_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAnnotationsDsl.g:968:1: ( ( ( ruleQualifiedName ) ) )
-            // InternalAnnotationsDsl.g:969:2: ( ( ruleQualifiedName ) )
+            // InternalAnnotationsDsl.g:1076:1: ( ( ( ruleQualifiedName ) ) )
+            // InternalAnnotationsDsl.g:1077:2: ( ( ruleQualifiedName ) )
             {
-            // InternalAnnotationsDsl.g:969:2: ( ( ruleQualifiedName ) )
-            // InternalAnnotationsDsl.g:970:3: ( ruleQualifiedName )
+            // InternalAnnotationsDsl.g:1077:2: ( ( ruleQualifiedName ) )
+            // InternalAnnotationsDsl.g:1078:3: ( ruleQualifiedName )
             {
-             before(grammarAccess.getAnnotationHierarchyAccess().getSupersAnnotationCrossReference_3_1_0()); 
-            // InternalAnnotationsDsl.g:971:3: ( ruleQualifiedName )
-            // InternalAnnotationsDsl.g:972:4: ruleQualifiedName
+             before(grammarAccess.getAnnotationHierarchyAccess().getSupersAnnotationCrossReference_3_2_0()); 
+            // InternalAnnotationsDsl.g:1079:3: ( ruleQualifiedName )
+            // InternalAnnotationsDsl.g:1080:4: ruleQualifiedName
             {
-             before(grammarAccess.getAnnotationHierarchyAccess().getSupersAnnotationQualifiedNameParserRuleCall_3_1_0_1()); 
+             before(grammarAccess.getAnnotationHierarchyAccess().getSupersAnnotationQualifiedNameParserRuleCall_3_2_0_1()); 
             pushFollow(FOLLOW_2);
             ruleQualifiedName();
 
             state._fsp--;
 
-             after(grammarAccess.getAnnotationHierarchyAccess().getSupersAnnotationQualifiedNameParserRuleCall_3_1_0_1()); 
+             after(grammarAccess.getAnnotationHierarchyAccess().getSupersAnnotationQualifiedNameParserRuleCall_3_2_0_1()); 
 
             }
 
-             after(grammarAccess.getAnnotationHierarchyAccess().getSupersAnnotationCrossReference_3_1_0()); 
+             after(grammarAccess.getAnnotationHierarchyAccess().getSupersAnnotationCrossReference_3_2_0()); 
 
             }
 
@@ -2896,37 +3196,37 @@ public class InternalAnnotationsDslParser extends AbstractInternalContentAssistP
         }
         return ;
     }
-    // $ANTLR end "rule__AnnotationHierarchy__SupersAssignment_3_1"
+    // $ANTLR end "rule__AnnotationHierarchy__SupersAssignment_3_2"
 
 
-    // $ANTLR start "rule__AnnotationHierarchy__SupersAssignment_3_2_1"
-    // InternalAnnotationsDsl.g:983:1: rule__AnnotationHierarchy__SupersAssignment_3_2_1 : ( ( ruleQualifiedName ) ) ;
-    public final void rule__AnnotationHierarchy__SupersAssignment_3_2_1() throws RecognitionException {
+    // $ANTLR start "rule__AnnotationHierarchy__SupersAssignment_3_3_2"
+    // InternalAnnotationsDsl.g:1091:1: rule__AnnotationHierarchy__SupersAssignment_3_3_2 : ( ( ruleQualifiedName ) ) ;
+    public final void rule__AnnotationHierarchy__SupersAssignment_3_3_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAnnotationsDsl.g:987:1: ( ( ( ruleQualifiedName ) ) )
-            // InternalAnnotationsDsl.g:988:2: ( ( ruleQualifiedName ) )
+            // InternalAnnotationsDsl.g:1095:1: ( ( ( ruleQualifiedName ) ) )
+            // InternalAnnotationsDsl.g:1096:2: ( ( ruleQualifiedName ) )
             {
-            // InternalAnnotationsDsl.g:988:2: ( ( ruleQualifiedName ) )
-            // InternalAnnotationsDsl.g:989:3: ( ruleQualifiedName )
+            // InternalAnnotationsDsl.g:1096:2: ( ( ruleQualifiedName ) )
+            // InternalAnnotationsDsl.g:1097:3: ( ruleQualifiedName )
             {
-             before(grammarAccess.getAnnotationHierarchyAccess().getSupersAnnotationCrossReference_3_2_1_0()); 
-            // InternalAnnotationsDsl.g:990:3: ( ruleQualifiedName )
-            // InternalAnnotationsDsl.g:991:4: ruleQualifiedName
+             before(grammarAccess.getAnnotationHierarchyAccess().getSupersAnnotationCrossReference_3_3_2_0()); 
+            // InternalAnnotationsDsl.g:1098:3: ( ruleQualifiedName )
+            // InternalAnnotationsDsl.g:1099:4: ruleQualifiedName
             {
-             before(grammarAccess.getAnnotationHierarchyAccess().getSupersAnnotationQualifiedNameParserRuleCall_3_2_1_0_1()); 
+             before(grammarAccess.getAnnotationHierarchyAccess().getSupersAnnotationQualifiedNameParserRuleCall_3_3_2_0_1()); 
             pushFollow(FOLLOW_2);
             ruleQualifiedName();
 
             state._fsp--;
 
-             after(grammarAccess.getAnnotationHierarchyAccess().getSupersAnnotationQualifiedNameParserRuleCall_3_2_1_0_1()); 
+             after(grammarAccess.getAnnotationHierarchyAccess().getSupersAnnotationQualifiedNameParserRuleCall_3_3_2_0_1()); 
 
             }
 
-             after(grammarAccess.getAnnotationHierarchyAccess().getSupersAnnotationCrossReference_3_2_1_0()); 
+             after(grammarAccess.getAnnotationHierarchyAccess().getSupersAnnotationCrossReference_3_3_2_0()); 
 
             }
 
@@ -2945,21 +3245,21 @@ public class InternalAnnotationsDslParser extends AbstractInternalContentAssistP
         }
         return ;
     }
-    // $ANTLR end "rule__AnnotationHierarchy__SupersAssignment_3_2_1"
+    // $ANTLR end "rule__AnnotationHierarchy__SupersAssignment_3_3_2"
 
 
     // $ANTLR start "rule__AnnotationInstance__NameAssignment_2"
-    // InternalAnnotationsDsl.g:1002:1: rule__AnnotationInstance__NameAssignment_2 : ( ruleQualifiedName ) ;
+    // InternalAnnotationsDsl.g:1110:1: rule__AnnotationInstance__NameAssignment_2 : ( ruleQualifiedName ) ;
     public final void rule__AnnotationInstance__NameAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAnnotationsDsl.g:1006:1: ( ( ruleQualifiedName ) )
-            // InternalAnnotationsDsl.g:1007:2: ( ruleQualifiedName )
+            // InternalAnnotationsDsl.g:1114:1: ( ( ruleQualifiedName ) )
+            // InternalAnnotationsDsl.g:1115:2: ( ruleQualifiedName )
             {
-            // InternalAnnotationsDsl.g:1007:2: ( ruleQualifiedName )
-            // InternalAnnotationsDsl.g:1008:3: ruleQualifiedName
+            // InternalAnnotationsDsl.g:1115:2: ( ruleQualifiedName )
+            // InternalAnnotationsDsl.g:1116:3: ruleQualifiedName
             {
              before(grammarAccess.getAnnotationInstanceAccess().getNameQualifiedNameParserRuleCall_2_0()); 
             pushFollow(FOLLOW_2);
@@ -2989,34 +3289,34 @@ public class InternalAnnotationsDslParser extends AbstractInternalContentAssistP
     // $ANTLR end "rule__AnnotationInstance__NameAssignment_2"
 
 
-    // $ANTLR start "rule__AnnotationInstance__DescriptorsAssignment_3_1"
-    // InternalAnnotationsDsl.g:1017:1: rule__AnnotationInstance__DescriptorsAssignment_3_1 : ( ( ruleQualifiedName ) ) ;
-    public final void rule__AnnotationInstance__DescriptorsAssignment_3_1() throws RecognitionException {
+    // $ANTLR start "rule__AnnotationInstance__DescriptorsAssignment_3_2"
+    // InternalAnnotationsDsl.g:1125:1: rule__AnnotationInstance__DescriptorsAssignment_3_2 : ( ( ruleQualifiedName ) ) ;
+    public final void rule__AnnotationInstance__DescriptorsAssignment_3_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAnnotationsDsl.g:1021:1: ( ( ( ruleQualifiedName ) ) )
-            // InternalAnnotationsDsl.g:1022:2: ( ( ruleQualifiedName ) )
+            // InternalAnnotationsDsl.g:1129:1: ( ( ( ruleQualifiedName ) ) )
+            // InternalAnnotationsDsl.g:1130:2: ( ( ruleQualifiedName ) )
             {
-            // InternalAnnotationsDsl.g:1022:2: ( ( ruleQualifiedName ) )
-            // InternalAnnotationsDsl.g:1023:3: ( ruleQualifiedName )
+            // InternalAnnotationsDsl.g:1130:2: ( ( ruleQualifiedName ) )
+            // InternalAnnotationsDsl.g:1131:3: ( ruleQualifiedName )
             {
-             before(grammarAccess.getAnnotationInstanceAccess().getDescriptorsAnnotationCrossReference_3_1_0()); 
-            // InternalAnnotationsDsl.g:1024:3: ( ruleQualifiedName )
-            // InternalAnnotationsDsl.g:1025:4: ruleQualifiedName
+             before(grammarAccess.getAnnotationInstanceAccess().getDescriptorsAnnotationCrossReference_3_2_0()); 
+            // InternalAnnotationsDsl.g:1132:3: ( ruleQualifiedName )
+            // InternalAnnotationsDsl.g:1133:4: ruleQualifiedName
             {
-             before(grammarAccess.getAnnotationInstanceAccess().getDescriptorsAnnotationQualifiedNameParserRuleCall_3_1_0_1()); 
+             before(grammarAccess.getAnnotationInstanceAccess().getDescriptorsAnnotationQualifiedNameParserRuleCall_3_2_0_1()); 
             pushFollow(FOLLOW_2);
             ruleQualifiedName();
 
             state._fsp--;
 
-             after(grammarAccess.getAnnotationInstanceAccess().getDescriptorsAnnotationQualifiedNameParserRuleCall_3_1_0_1()); 
+             after(grammarAccess.getAnnotationInstanceAccess().getDescriptorsAnnotationQualifiedNameParserRuleCall_3_2_0_1()); 
 
             }
 
-             after(grammarAccess.getAnnotationInstanceAccess().getDescriptorsAnnotationCrossReference_3_1_0()); 
+             after(grammarAccess.getAnnotationInstanceAccess().getDescriptorsAnnotationCrossReference_3_2_0()); 
 
             }
 
@@ -3035,37 +3335,37 @@ public class InternalAnnotationsDslParser extends AbstractInternalContentAssistP
         }
         return ;
     }
-    // $ANTLR end "rule__AnnotationInstance__DescriptorsAssignment_3_1"
+    // $ANTLR end "rule__AnnotationInstance__DescriptorsAssignment_3_2"
 
 
-    // $ANTLR start "rule__AnnotationInstance__DescriptorsAssignment_3_2_1"
-    // InternalAnnotationsDsl.g:1036:1: rule__AnnotationInstance__DescriptorsAssignment_3_2_1 : ( ( ruleQualifiedName ) ) ;
-    public final void rule__AnnotationInstance__DescriptorsAssignment_3_2_1() throws RecognitionException {
+    // $ANTLR start "rule__AnnotationInstance__DescriptorsAssignment_3_3_2"
+    // InternalAnnotationsDsl.g:1144:1: rule__AnnotationInstance__DescriptorsAssignment_3_3_2 : ( ( ruleQualifiedName ) ) ;
+    public final void rule__AnnotationInstance__DescriptorsAssignment_3_3_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAnnotationsDsl.g:1040:1: ( ( ( ruleQualifiedName ) ) )
-            // InternalAnnotationsDsl.g:1041:2: ( ( ruleQualifiedName ) )
+            // InternalAnnotationsDsl.g:1148:1: ( ( ( ruleQualifiedName ) ) )
+            // InternalAnnotationsDsl.g:1149:2: ( ( ruleQualifiedName ) )
             {
-            // InternalAnnotationsDsl.g:1041:2: ( ( ruleQualifiedName ) )
-            // InternalAnnotationsDsl.g:1042:3: ( ruleQualifiedName )
+            // InternalAnnotationsDsl.g:1149:2: ( ( ruleQualifiedName ) )
+            // InternalAnnotationsDsl.g:1150:3: ( ruleQualifiedName )
             {
-             before(grammarAccess.getAnnotationInstanceAccess().getDescriptorsAnnotationCrossReference_3_2_1_0()); 
-            // InternalAnnotationsDsl.g:1043:3: ( ruleQualifiedName )
-            // InternalAnnotationsDsl.g:1044:4: ruleQualifiedName
+             before(grammarAccess.getAnnotationInstanceAccess().getDescriptorsAnnotationCrossReference_3_3_2_0()); 
+            // InternalAnnotationsDsl.g:1151:3: ( ruleQualifiedName )
+            // InternalAnnotationsDsl.g:1152:4: ruleQualifiedName
             {
-             before(grammarAccess.getAnnotationInstanceAccess().getDescriptorsAnnotationQualifiedNameParserRuleCall_3_2_1_0_1()); 
+             before(grammarAccess.getAnnotationInstanceAccess().getDescriptorsAnnotationQualifiedNameParserRuleCall_3_3_2_0_1()); 
             pushFollow(FOLLOW_2);
             ruleQualifiedName();
 
             state._fsp--;
 
-             after(grammarAccess.getAnnotationInstanceAccess().getDescriptorsAnnotationQualifiedNameParserRuleCall_3_2_1_0_1()); 
+             after(grammarAccess.getAnnotationInstanceAccess().getDescriptorsAnnotationQualifiedNameParserRuleCall_3_3_2_0_1()); 
 
             }
 
-             after(grammarAccess.getAnnotationInstanceAccess().getDescriptorsAnnotationCrossReference_3_2_1_0()); 
+             after(grammarAccess.getAnnotationInstanceAccess().getDescriptorsAnnotationCrossReference_3_3_2_0()); 
 
             }
 
@@ -3084,7 +3384,7 @@ public class InternalAnnotationsDslParser extends AbstractInternalContentAssistP
         }
         return ;
     }
-    // $ANTLR end "rule__AnnotationInstance__DescriptorsAssignment_3_2_1"
+    // $ANTLR end "rule__AnnotationInstance__DescriptorsAssignment_3_3_2"
 
     // Delegated rules
 

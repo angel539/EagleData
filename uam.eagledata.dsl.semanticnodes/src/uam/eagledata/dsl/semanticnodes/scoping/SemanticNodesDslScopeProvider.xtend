@@ -16,6 +16,7 @@ import org.eclipse.xtext.scoping.Scopes
 import semanticmanager.MetaDataValue
 import semanticmanager.MetaData
 import semanticmanager.NamedElement
+import java.util.ArrayList
 
 /**
  * This class contains custom scoping description.
@@ -43,11 +44,30 @@ class SemanticNodesDslScopeProvider extends AbstractSemanticNodesDslScopeProvide
     		val RepositoryManager rootElement = EcoreUtil2.getRootContainer(context) as RepositoryManager
     		val List<MetaData> metadata = AssistantFactory.getInstance().registeredMetaData
     		
+    		// controlling the dangling reference
     		if(!rootElement.metadata.equals(metadata)){
 				rootElement.metadata.clear
 				rootElement.metadata.addAll(metadata)
 			}
-			return Scopes.scopeFor(EcoreUtil2.getAllContentsOfType(rootElement, MetaData))
+			
+			// filtering if metadata should be applied
+			var List<MetaData> metadataApplicable = new ArrayList<MetaData>	
+			
+			//println("before... " + metadataApplicable)
+			//println("before on model... " + rootElement.metadata)
+			//println("econtainer... " + context.eContainer)
+			
+			for(MetaData m : rootElement.metadata){
+				if(m.select(context.eContainer as NamedElement)){
+					metadataApplicable.add(m)
+				}
+			}
+			
+			//metadataApplicable = rootElement.metadata.filter[m | m.select(context.eContainer as NamedElement)].toList
+			
+			println("after... " + metadataApplicable)
+			
+			return Scopes.scopeFor(metadataApplicable)
 		}
 	
 		return super.getScope(context, reference);

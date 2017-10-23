@@ -4,6 +4,7 @@
 package uam.eagledata.dsl.semanticnodes.scoping;
 
 import com.google.common.base.Objects;
+import java.util.ArrayList;
 import java.util.List;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
@@ -11,9 +12,11 @@ import org.eclipse.emf.ecore.EReference;
 import org.eclipse.xtext.EcoreUtil2;
 import org.eclipse.xtext.scoping.IScope;
 import org.eclipse.xtext.scoping.Scopes;
+import org.eclipse.xtext.xbase.lib.InputOutput;
 import semanticmanager.FormatAssistant;
 import semanticmanager.MetaData;
 import semanticmanager.MetaDataValue;
+import semanticmanager.NamedElement;
 import semanticmanager.RepositoryManager;
 import semanticmanager.Resource;
 import semanticmanager.SemanticmanagerPackage;
@@ -75,8 +78,17 @@ public class SemanticNodesDslScopeProvider extends AbstractSemanticNodesDslScope
         EList<MetaData> _metadata_2 = rootElement_1.getMetadata();
         _metadata_2.addAll(metadata);
       }
-      List<MetaData> _allContentsOfType_1 = EcoreUtil2.<MetaData>getAllContentsOfType(rootElement_1, MetaData.class);
-      return Scopes.scopeFor(_allContentsOfType_1);
+      List<MetaData> metadataApplicable = new ArrayList<MetaData>();
+      EList<MetaData> _metadata_3 = rootElement_1.getMetadata();
+      for (final MetaData m : _metadata_3) {
+        EObject _eContainer = context.eContainer();
+        boolean _select = m.select(((NamedElement) _eContainer));
+        if (_select) {
+          metadataApplicable.add(m);
+        }
+      }
+      InputOutput.<String>println(("after... " + metadataApplicable));
+      return Scopes.scopeFor(metadataApplicable);
     }
     return super.getScope(context, reference);
   }

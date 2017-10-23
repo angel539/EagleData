@@ -21,14 +21,14 @@ SimpleAnnotation returns semantics::Annotation:
 
 AnnotationHierarchy returns semantics::Annotation:
 	{semantics::Annotation}
-	'@'name=QualifiedName ('<' supers+=[semantics::Annotation|QualifiedName] ( "<" supers+=[semantics::Annotation|QualifiedName])*);
+	'@'name=QualifiedName ('<' '@'supers+=[semantics::Annotation|QualifiedName] ( "<" '@'supers+=[semantics::Annotation|QualifiedName])*);
 	//('{'
 	//	annotations+=Annotation (annotations+=Annotation)*'}'
 	//)?;
 
 AnnotationInstance returns semantics::Annotation:
 	{semantics::Annotation}
-	'@'name=QualifiedName (':' descriptors+=[semantics::Annotation|QualifiedName] ( ":" descriptors+=[semantics::Annotation|QualifiedName])*);
+	'@'name=QualifiedName (':' '@'descriptors+=[semantics::Annotation|QualifiedName] ( ":" '@'descriptors+=[semantics::Annotation|QualifiedName])*);
 	//('{'
 	//	annotations+=Annotation (annotations+=Annotation)*'}'
 	//)?;

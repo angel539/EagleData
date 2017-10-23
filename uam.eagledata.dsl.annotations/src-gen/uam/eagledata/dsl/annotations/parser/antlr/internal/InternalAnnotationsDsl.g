@@ -271,6 +271,10 @@ ruleAnnotationHierarchy returns [EObject current=null]
 			{
 				newLeafNode(otherlv_3, grammarAccess.getAnnotationHierarchyAccess().getLessThanSignKeyword_3_0());
 			}
+			otherlv_4='@'
+			{
+				newLeafNode(otherlv_4, grammarAccess.getAnnotationHierarchyAccess().getCommercialAtKeyword_3_1());
+			}
 			(
 				(
 					{
@@ -279,7 +283,7 @@ ruleAnnotationHierarchy returns [EObject current=null]
 						}
 					}
 					{
-						newCompositeNode(grammarAccess.getAnnotationHierarchyAccess().getSupersAnnotationCrossReference_3_1_0());
+						newCompositeNode(grammarAccess.getAnnotationHierarchyAccess().getSupersAnnotationCrossReference_3_2_0());
 					}
 					ruleQualifiedName
 					{
@@ -288,9 +292,13 @@ ruleAnnotationHierarchy returns [EObject current=null]
 				)
 			)
 			(
-				otherlv_5='<'
+				otherlv_6='<'
 				{
-					newLeafNode(otherlv_5, grammarAccess.getAnnotationHierarchyAccess().getLessThanSignKeyword_3_2_0());
+					newLeafNode(otherlv_6, grammarAccess.getAnnotationHierarchyAccess().getLessThanSignKeyword_3_3_0());
+				}
+				otherlv_7='@'
+				{
+					newLeafNode(otherlv_7, grammarAccess.getAnnotationHierarchyAccess().getCommercialAtKeyword_3_3_1());
 				}
 				(
 					(
@@ -300,7 +308,7 @@ ruleAnnotationHierarchy returns [EObject current=null]
 							}
 						}
 						{
-							newCompositeNode(grammarAccess.getAnnotationHierarchyAccess().getSupersAnnotationCrossReference_3_2_1_0());
+							newCompositeNode(grammarAccess.getAnnotationHierarchyAccess().getSupersAnnotationCrossReference_3_3_2_0());
 						}
 						ruleQualifiedName
 						{
@@ -364,6 +372,10 @@ ruleAnnotationInstance returns [EObject current=null]
 			{
 				newLeafNode(otherlv_3, grammarAccess.getAnnotationInstanceAccess().getColonKeyword_3_0());
 			}
+			otherlv_4='@'
+			{
+				newLeafNode(otherlv_4, grammarAccess.getAnnotationInstanceAccess().getCommercialAtKeyword_3_1());
+			}
 			(
 				(
 					{
@@ -372,7 +384,7 @@ ruleAnnotationInstance returns [EObject current=null]
 						}
 					}
 					{
-						newCompositeNode(grammarAccess.getAnnotationInstanceAccess().getDescriptorsAnnotationCrossReference_3_1_0());
+						newCompositeNode(grammarAccess.getAnnotationInstanceAccess().getDescriptorsAnnotationCrossReference_3_2_0());
 					}
 					ruleQualifiedName
 					{
@@ -381,9 +393,13 @@ ruleAnnotationInstance returns [EObject current=null]
 				)
 			)
 			(
-				otherlv_5=':'
+				otherlv_6=':'
 				{
-					newLeafNode(otherlv_5, grammarAccess.getAnnotationInstanceAccess().getColonKeyword_3_2_0());
+					newLeafNode(otherlv_6, grammarAccess.getAnnotationInstanceAccess().getColonKeyword_3_3_0());
+				}
+				otherlv_7='@'
+				{
+					newLeafNode(otherlv_7, grammarAccess.getAnnotationInstanceAccess().getCommercialAtKeyword_3_3_1());
 				}
 				(
 					(
@@ -393,7 +409,7 @@ ruleAnnotationInstance returns [EObject current=null]
 							}
 						}
 						{
-							newCompositeNode(grammarAccess.getAnnotationInstanceAccess().getDescriptorsAnnotationCrossReference_3_2_1_0());
+							newCompositeNode(grammarAccess.getAnnotationInstanceAccess().getDescriptorsAnnotationCrossReference_3_3_2_0());
 						}
 						ruleQualifiedName
 						{

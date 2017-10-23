@@ -119,25 +119,27 @@ public class AnnotationsDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cNameQualifiedNameParserRuleCall_2_0 = (RuleCall)cNameAssignment_2.eContents().get(0);
 		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
 		private final Keyword cLessThanSignKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
-		private final Assignment cSupersAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
-		private final CrossReference cSupersAnnotationCrossReference_3_1_0 = (CrossReference)cSupersAssignment_3_1.eContents().get(0);
-		private final RuleCall cSupersAnnotationQualifiedNameParserRuleCall_3_1_0_1 = (RuleCall)cSupersAnnotationCrossReference_3_1_0.eContents().get(1);
-		private final Group cGroup_3_2 = (Group)cGroup_3.eContents().get(2);
-		private final Keyword cLessThanSignKeyword_3_2_0 = (Keyword)cGroup_3_2.eContents().get(0);
-		private final Assignment cSupersAssignment_3_2_1 = (Assignment)cGroup_3_2.eContents().get(1);
-		private final CrossReference cSupersAnnotationCrossReference_3_2_1_0 = (CrossReference)cSupersAssignment_3_2_1.eContents().get(0);
-		private final RuleCall cSupersAnnotationQualifiedNameParserRuleCall_3_2_1_0_1 = (RuleCall)cSupersAnnotationCrossReference_3_2_1_0.eContents().get(1);
+		private final Keyword cCommercialAtKeyword_3_1 = (Keyword)cGroup_3.eContents().get(1);
+		private final Assignment cSupersAssignment_3_2 = (Assignment)cGroup_3.eContents().get(2);
+		private final CrossReference cSupersAnnotationCrossReference_3_2_0 = (CrossReference)cSupersAssignment_3_2.eContents().get(0);
+		private final RuleCall cSupersAnnotationQualifiedNameParserRuleCall_3_2_0_1 = (RuleCall)cSupersAnnotationCrossReference_3_2_0.eContents().get(1);
+		private final Group cGroup_3_3 = (Group)cGroup_3.eContents().get(3);
+		private final Keyword cLessThanSignKeyword_3_3_0 = (Keyword)cGroup_3_3.eContents().get(0);
+		private final Keyword cCommercialAtKeyword_3_3_1 = (Keyword)cGroup_3_3.eContents().get(1);
+		private final Assignment cSupersAssignment_3_3_2 = (Assignment)cGroup_3_3.eContents().get(2);
+		private final CrossReference cSupersAnnotationCrossReference_3_3_2_0 = (CrossReference)cSupersAssignment_3_3_2.eContents().get(0);
+		private final RuleCall cSupersAnnotationQualifiedNameParserRuleCall_3_3_2_0_1 = (RuleCall)cSupersAnnotationCrossReference_3_3_2_0.eContents().get(1);
 		
 		////('{'
 		////	annotations+=Annotation (annotations+=Annotation)*'}'
 		////)?;
 		//AnnotationHierarchy semantics::Annotation:
 		//	{semantics::Annotation}
-		//	'@' name=QualifiedName ('<' supers+=[semantics::Annotation|QualifiedName] ("<"
+		//	'@' name=QualifiedName ('<' '@' supers+=[semantics::Annotation|QualifiedName] ("<" '@'
 		//	supers+=[semantics::Annotation|QualifiedName])*)
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{semantics::Annotation} '@' name=QualifiedName ('<' supers+=[semantics::Annotation|QualifiedName] ("<"
+		//{semantics::Annotation} '@' name=QualifiedName ('<' '@' supers+=[semantics::Annotation|QualifiedName] ("<" '@'
 		//supers+=[semantics::Annotation|QualifiedName])*)
 		public Group getGroup() { return cGroup; }
 		
@@ -153,35 +155,41 @@ public class AnnotationsDslGrammarAccess extends AbstractGrammarElementFinder {
 		//QualifiedName
 		public RuleCall getNameQualifiedNameParserRuleCall_2_0() { return cNameQualifiedNameParserRuleCall_2_0; }
 		
-		//('<' supers+=[semantics::Annotation|QualifiedName] ("<" supers+=[semantics::Annotation|QualifiedName])*)
+		//('<' '@' supers+=[semantics::Annotation|QualifiedName] ("<" '@' supers+=[semantics::Annotation|QualifiedName])*)
 		public Group getGroup_3() { return cGroup_3; }
 		
 		//'<'
 		public Keyword getLessThanSignKeyword_3_0() { return cLessThanSignKeyword_3_0; }
 		
+		//'@'
+		public Keyword getCommercialAtKeyword_3_1() { return cCommercialAtKeyword_3_1; }
+		
 		//supers+=[semantics::Annotation|QualifiedName]
-		public Assignment getSupersAssignment_3_1() { return cSupersAssignment_3_1; }
+		public Assignment getSupersAssignment_3_2() { return cSupersAssignment_3_2; }
 		
 		//[semantics::Annotation|QualifiedName]
-		public CrossReference getSupersAnnotationCrossReference_3_1_0() { return cSupersAnnotationCrossReference_3_1_0; }
+		public CrossReference getSupersAnnotationCrossReference_3_2_0() { return cSupersAnnotationCrossReference_3_2_0; }
 		
 		//QualifiedName
-		public RuleCall getSupersAnnotationQualifiedNameParserRuleCall_3_1_0_1() { return cSupersAnnotationQualifiedNameParserRuleCall_3_1_0_1; }
+		public RuleCall getSupersAnnotationQualifiedNameParserRuleCall_3_2_0_1() { return cSupersAnnotationQualifiedNameParserRuleCall_3_2_0_1; }
 		
-		//("<" supers+=[semantics::Annotation|QualifiedName])*
-		public Group getGroup_3_2() { return cGroup_3_2; }
+		//("<" '@' supers+=[semantics::Annotation|QualifiedName])*
+		public Group getGroup_3_3() { return cGroup_3_3; }
 		
 		//"<"
-		public Keyword getLessThanSignKeyword_3_2_0() { return cLessThanSignKeyword_3_2_0; }
+		public Keyword getLessThanSignKeyword_3_3_0() { return cLessThanSignKeyword_3_3_0; }
+		
+		//'@'
+		public Keyword getCommercialAtKeyword_3_3_1() { return cCommercialAtKeyword_3_3_1; }
 		
 		//supers+=[semantics::Annotation|QualifiedName]
-		public Assignment getSupersAssignment_3_2_1() { return cSupersAssignment_3_2_1; }
+		public Assignment getSupersAssignment_3_3_2() { return cSupersAssignment_3_3_2; }
 		
 		//[semantics::Annotation|QualifiedName]
-		public CrossReference getSupersAnnotationCrossReference_3_2_1_0() { return cSupersAnnotationCrossReference_3_2_1_0; }
+		public CrossReference getSupersAnnotationCrossReference_3_3_2_0() { return cSupersAnnotationCrossReference_3_3_2_0; }
 		
 		//QualifiedName
-		public RuleCall getSupersAnnotationQualifiedNameParserRuleCall_3_2_1_0_1() { return cSupersAnnotationQualifiedNameParserRuleCall_3_2_1_0_1; }
+		public RuleCall getSupersAnnotationQualifiedNameParserRuleCall_3_3_2_0_1() { return cSupersAnnotationQualifiedNameParserRuleCall_3_3_2_0_1; }
 	}
 	public class AnnotationInstanceElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "uam.eagledata.dsl.annotations.AnnotationsDsl.AnnotationInstance");
@@ -192,25 +200,27 @@ public class AnnotationsDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cNameQualifiedNameParserRuleCall_2_0 = (RuleCall)cNameAssignment_2.eContents().get(0);
 		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
 		private final Keyword cColonKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
-		private final Assignment cDescriptorsAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
-		private final CrossReference cDescriptorsAnnotationCrossReference_3_1_0 = (CrossReference)cDescriptorsAssignment_3_1.eContents().get(0);
-		private final RuleCall cDescriptorsAnnotationQualifiedNameParserRuleCall_3_1_0_1 = (RuleCall)cDescriptorsAnnotationCrossReference_3_1_0.eContents().get(1);
-		private final Group cGroup_3_2 = (Group)cGroup_3.eContents().get(2);
-		private final Keyword cColonKeyword_3_2_0 = (Keyword)cGroup_3_2.eContents().get(0);
-		private final Assignment cDescriptorsAssignment_3_2_1 = (Assignment)cGroup_3_2.eContents().get(1);
-		private final CrossReference cDescriptorsAnnotationCrossReference_3_2_1_0 = (CrossReference)cDescriptorsAssignment_3_2_1.eContents().get(0);
-		private final RuleCall cDescriptorsAnnotationQualifiedNameParserRuleCall_3_2_1_0_1 = (RuleCall)cDescriptorsAnnotationCrossReference_3_2_1_0.eContents().get(1);
+		private final Keyword cCommercialAtKeyword_3_1 = (Keyword)cGroup_3.eContents().get(1);
+		private final Assignment cDescriptorsAssignment_3_2 = (Assignment)cGroup_3.eContents().get(2);
+		private final CrossReference cDescriptorsAnnotationCrossReference_3_2_0 = (CrossReference)cDescriptorsAssignment_3_2.eContents().get(0);
+		private final RuleCall cDescriptorsAnnotationQualifiedNameParserRuleCall_3_2_0_1 = (RuleCall)cDescriptorsAnnotationCrossReference_3_2_0.eContents().get(1);
+		private final Group cGroup_3_3 = (Group)cGroup_3.eContents().get(3);
+		private final Keyword cColonKeyword_3_3_0 = (Keyword)cGroup_3_3.eContents().get(0);
+		private final Keyword cCommercialAtKeyword_3_3_1 = (Keyword)cGroup_3_3.eContents().get(1);
+		private final Assignment cDescriptorsAssignment_3_3_2 = (Assignment)cGroup_3_3.eContents().get(2);
+		private final CrossReference cDescriptorsAnnotationCrossReference_3_3_2_0 = (CrossReference)cDescriptorsAssignment_3_3_2.eContents().get(0);
+		private final RuleCall cDescriptorsAnnotationQualifiedNameParserRuleCall_3_3_2_0_1 = (RuleCall)cDescriptorsAnnotationCrossReference_3_3_2_0.eContents().get(1);
 		
 		////('{'
 		////	annotations+=Annotation (annotations+=Annotation)*'}'
 		////)?;
 		//AnnotationInstance semantics::Annotation:
 		//	{semantics::Annotation}
-		//	'@' name=QualifiedName (':' descriptors+=[semantics::Annotation|QualifiedName] (":"
+		//	'@' name=QualifiedName (':' '@' descriptors+=[semantics::Annotation|QualifiedName] (":" '@'
 		//	descriptors+=[semantics::Annotation|QualifiedName])*)
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{semantics::Annotation} '@' name=QualifiedName (':' descriptors+=[semantics::Annotation|QualifiedName] (":"
+		//{semantics::Annotation} '@' name=QualifiedName (':' '@' descriptors+=[semantics::Annotation|QualifiedName] (":" '@'
 		//descriptors+=[semantics::Annotation|QualifiedName])*)
 		public Group getGroup() { return cGroup; }
 		
@@ -226,35 +236,42 @@ public class AnnotationsDslGrammarAccess extends AbstractGrammarElementFinder {
 		//QualifiedName
 		public RuleCall getNameQualifiedNameParserRuleCall_2_0() { return cNameQualifiedNameParserRuleCall_2_0; }
 		
-		//(':' descriptors+=[semantics::Annotation|QualifiedName] (":" descriptors+=[semantics::Annotation|QualifiedName])*)
+		//(':' '@' descriptors+=[semantics::Annotation|QualifiedName] (":" '@'
+		//descriptors+=[semantics::Annotation|QualifiedName])*)
 		public Group getGroup_3() { return cGroup_3; }
 		
 		//':'
 		public Keyword getColonKeyword_3_0() { return cColonKeyword_3_0; }
 		
+		//'@'
+		public Keyword getCommercialAtKeyword_3_1() { return cCommercialAtKeyword_3_1; }
+		
 		//descriptors+=[semantics::Annotation|QualifiedName]
-		public Assignment getDescriptorsAssignment_3_1() { return cDescriptorsAssignment_3_1; }
+		public Assignment getDescriptorsAssignment_3_2() { return cDescriptorsAssignment_3_2; }
 		
 		//[semantics::Annotation|QualifiedName]
-		public CrossReference getDescriptorsAnnotationCrossReference_3_1_0() { return cDescriptorsAnnotationCrossReference_3_1_0; }
+		public CrossReference getDescriptorsAnnotationCrossReference_3_2_0() { return cDescriptorsAnnotationCrossReference_3_2_0; }
 		
 		//QualifiedName
-		public RuleCall getDescriptorsAnnotationQualifiedNameParserRuleCall_3_1_0_1() { return cDescriptorsAnnotationQualifiedNameParserRuleCall_3_1_0_1; }
+		public RuleCall getDescriptorsAnnotationQualifiedNameParserRuleCall_3_2_0_1() { return cDescriptorsAnnotationQualifiedNameParserRuleCall_3_2_0_1; }
 		
-		//(":" descriptors+=[semantics::Annotation|QualifiedName])*
-		public Group getGroup_3_2() { return cGroup_3_2; }
+		//(":" '@' descriptors+=[semantics::Annotation|QualifiedName])*
+		public Group getGroup_3_3() { return cGroup_3_3; }
 		
 		//":"
-		public Keyword getColonKeyword_3_2_0() { return cColonKeyword_3_2_0; }
+		public Keyword getColonKeyword_3_3_0() { return cColonKeyword_3_3_0; }
+		
+		//'@'
+		public Keyword getCommercialAtKeyword_3_3_1() { return cCommercialAtKeyword_3_3_1; }
 		
 		//descriptors+=[semantics::Annotation|QualifiedName]
-		public Assignment getDescriptorsAssignment_3_2_1() { return cDescriptorsAssignment_3_2_1; }
+		public Assignment getDescriptorsAssignment_3_3_2() { return cDescriptorsAssignment_3_3_2; }
 		
 		//[semantics::Annotation|QualifiedName]
-		public CrossReference getDescriptorsAnnotationCrossReference_3_2_1_0() { return cDescriptorsAnnotationCrossReference_3_2_1_0; }
+		public CrossReference getDescriptorsAnnotationCrossReference_3_3_2_0() { return cDescriptorsAnnotationCrossReference_3_3_2_0; }
 		
 		//QualifiedName
-		public RuleCall getDescriptorsAnnotationQualifiedNameParserRuleCall_3_2_1_0_1() { return cDescriptorsAnnotationQualifiedNameParserRuleCall_3_2_1_0_1; }
+		public RuleCall getDescriptorsAnnotationQualifiedNameParserRuleCall_3_3_2_0_1() { return cDescriptorsAnnotationQualifiedNameParserRuleCall_3_3_2_0_1; }
 	}
 	public class QualifiedNameElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "uam.eagledata.dsl.annotations.AnnotationsDsl.QualifiedName");
@@ -359,7 +376,7 @@ public class AnnotationsDslGrammarAccess extends AbstractGrammarElementFinder {
 	////)?;
 	//AnnotationHierarchy semantics::Annotation:
 	//	{semantics::Annotation}
-	//	'@' name=QualifiedName ('<' supers+=[semantics::Annotation|QualifiedName] ("<"
+	//	'@' name=QualifiedName ('<' '@' supers+=[semantics::Annotation|QualifiedName] ("<" '@'
 	//	supers+=[semantics::Annotation|QualifiedName])*)
 	public AnnotationHierarchyElements getAnnotationHierarchyAccess() {
 		return pAnnotationHierarchy;
@@ -374,7 +391,7 @@ public class AnnotationsDslGrammarAccess extends AbstractGrammarElementFinder {
 	////)?;
 	//AnnotationInstance semantics::Annotation:
 	//	{semantics::Annotation}
-	//	'@' name=QualifiedName (':' descriptors+=[semantics::Annotation|QualifiedName] (":"
+	//	'@' name=QualifiedName (':' '@' descriptors+=[semantics::Annotation|QualifiedName] (":" '@'
 	//	descriptors+=[semantics::Annotation|QualifiedName])*)
 	public AnnotationInstanceElements getAnnotationInstanceAccess() {
 		return pAnnotationInstance;

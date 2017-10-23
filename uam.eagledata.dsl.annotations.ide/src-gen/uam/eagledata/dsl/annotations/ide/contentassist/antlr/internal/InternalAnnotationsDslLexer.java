@@ -102,10 +102,10 @@ public class InternalAnnotationsDslLexer extends Lexer {
         try {
             int _type = RULE_ID;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalAnnotationsDsl.g:1055:9: ( ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )* )
-            // InternalAnnotationsDsl.g:1055:11: ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
+            // InternalAnnotationsDsl.g:1163:9: ( ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )* )
+            // InternalAnnotationsDsl.g:1163:11: ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
             {
-            // InternalAnnotationsDsl.g:1055:11: ( '^' )?
+            // InternalAnnotationsDsl.g:1163:11: ( '^' )?
             int alt1=2;
             int LA1_0 = input.LA(1);
 
@@ -114,7 +114,7 @@ public class InternalAnnotationsDslLexer extends Lexer {
             }
             switch (alt1) {
                 case 1 :
-                    // InternalAnnotationsDsl.g:1055:11: '^'
+                    // InternalAnnotationsDsl.g:1163:11: '^'
                     {
                     match('^'); 
 
@@ -132,7 +132,7 @@ public class InternalAnnotationsDslLexer extends Lexer {
                 recover(mse);
                 throw mse;}
 
-            // InternalAnnotationsDsl.g:1055:40: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
+            // InternalAnnotationsDsl.g:1163:40: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
             loop2:
             do {
                 int alt2=2;
@@ -181,10 +181,10 @@ public class InternalAnnotationsDslLexer extends Lexer {
         try {
             int _type = RULE_INT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalAnnotationsDsl.g:1057:10: ( ( '0' .. '9' )+ )
-            // InternalAnnotationsDsl.g:1057:12: ( '0' .. '9' )+
+            // InternalAnnotationsDsl.g:1165:10: ( ( '0' .. '9' )+ )
+            // InternalAnnotationsDsl.g:1165:12: ( '0' .. '9' )+
             {
-            // InternalAnnotationsDsl.g:1057:12: ( '0' .. '9' )+
+            // InternalAnnotationsDsl.g:1165:12: ( '0' .. '9' )+
             int cnt3=0;
             loop3:
             do {
@@ -198,7 +198,7 @@ public class InternalAnnotationsDslLexer extends Lexer {
 
                 switch (alt3) {
             	case 1 :
-            	    // InternalAnnotationsDsl.g:1057:13: '0' .. '9'
+            	    // InternalAnnotationsDsl.g:1165:13: '0' .. '9'
             	    {
             	    matchRange('0','9'); 
 
@@ -230,10 +230,10 @@ public class InternalAnnotationsDslLexer extends Lexer {
         try {
             int _type = RULE_STRING;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalAnnotationsDsl.g:1059:13: ( ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' ) )
-            // InternalAnnotationsDsl.g:1059:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
+            // InternalAnnotationsDsl.g:1167:13: ( ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' ) )
+            // InternalAnnotationsDsl.g:1167:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
             {
-            // InternalAnnotationsDsl.g:1059:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
+            // InternalAnnotationsDsl.g:1167:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
             int alt6=2;
             int LA6_0 = input.LA(1);
 
@@ -251,10 +251,10 @@ public class InternalAnnotationsDslLexer extends Lexer {
             }
             switch (alt6) {
                 case 1 :
-                    // InternalAnnotationsDsl.g:1059:16: '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
+                    // InternalAnnotationsDsl.g:1167:16: '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
                     {
                     match('\"'); 
-                    // InternalAnnotationsDsl.g:1059:20: ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )*
+                    // InternalAnnotationsDsl.g:1167:20: ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )*
                     loop4:
                     do {
                         int alt4=3;
@@ -270,7 +270,7 @@ public class InternalAnnotationsDslLexer extends Lexer {
 
                         switch (alt4) {
                     	case 1 :
-                    	    // InternalAnnotationsDsl.g:1059:21: '\\\\' .
+                    	    // InternalAnnotationsDsl.g:1167:21: '\\\\' .
                     	    {
                     	    match('\\'); 
                     	    matchAny(); 
@@ -278,7 +278,7 @@ public class InternalAnnotationsDslLexer extends Lexer {
                     	    }
                     	    break;
                     	case 2 :
-                    	    // InternalAnnotationsDsl.g:1059:28: ~ ( ( '\\\\' | '\"' ) )
+                    	    // InternalAnnotationsDsl.g:1167:28: ~ ( ( '\\\\' | '\"' ) )
                     	    {
                     	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='!')||(input.LA(1)>='#' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFF') ) {
                     	        input.consume();
@@ -303,10 +303,10 @@ public class InternalAnnotationsDslLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // InternalAnnotationsDsl.g:1059:48: '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\''
+                    // InternalAnnotationsDsl.g:1167:48: '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\''
                     {
                     match('\''); 
-                    // InternalAnnotationsDsl.g:1059:53: ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )*
+                    // InternalAnnotationsDsl.g:1167:53: ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )*
                     loop5:
                     do {
                         int alt5=3;
@@ -322,7 +322,7 @@ public class InternalAnnotationsDslLexer extends Lexer {
 
                         switch (alt5) {
                     	case 1 :
-                    	    // InternalAnnotationsDsl.g:1059:54: '\\\\' .
+                    	    // InternalAnnotationsDsl.g:1167:54: '\\\\' .
                     	    {
                     	    match('\\'); 
                     	    matchAny(); 
@@ -330,7 +330,7 @@ public class InternalAnnotationsDslLexer extends Lexer {
                     	    }
                     	    break;
                     	case 2 :
-                    	    // InternalAnnotationsDsl.g:1059:61: ~ ( ( '\\\\' | '\\'' ) )
+                    	    // InternalAnnotationsDsl.g:1167:61: ~ ( ( '\\\\' | '\\'' ) )
                     	    {
                     	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='&')||(input.LA(1)>='(' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFF') ) {
                     	        input.consume();
@@ -373,12 +373,12 @@ public class InternalAnnotationsDslLexer extends Lexer {
         try {
             int _type = RULE_ML_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalAnnotationsDsl.g:1061:17: ( '/*' ( options {greedy=false; } : . )* '*/' )
-            // InternalAnnotationsDsl.g:1061:19: '/*' ( options {greedy=false; } : . )* '*/'
+            // InternalAnnotationsDsl.g:1169:17: ( '/*' ( options {greedy=false; } : . )* '*/' )
+            // InternalAnnotationsDsl.g:1169:19: '/*' ( options {greedy=false; } : . )* '*/'
             {
             match("/*"); 
 
-            // InternalAnnotationsDsl.g:1061:24: ( options {greedy=false; } : . )*
+            // InternalAnnotationsDsl.g:1169:24: ( options {greedy=false; } : . )*
             loop7:
             do {
                 int alt7=2;
@@ -403,7 +403,7 @@ public class InternalAnnotationsDslLexer extends Lexer {
 
                 switch (alt7) {
             	case 1 :
-            	    // InternalAnnotationsDsl.g:1061:52: .
+            	    // InternalAnnotationsDsl.g:1169:52: .
             	    {
             	    matchAny(); 
 
@@ -433,12 +433,12 @@ public class InternalAnnotationsDslLexer extends Lexer {
         try {
             int _type = RULE_SL_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalAnnotationsDsl.g:1063:17: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
-            // InternalAnnotationsDsl.g:1063:19: '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
+            // InternalAnnotationsDsl.g:1171:17: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
+            // InternalAnnotationsDsl.g:1171:19: '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
             {
             match("//"); 
 
-            // InternalAnnotationsDsl.g:1063:24: (~ ( ( '\\n' | '\\r' ) ) )*
+            // InternalAnnotationsDsl.g:1171:24: (~ ( ( '\\n' | '\\r' ) ) )*
             loop8:
             do {
                 int alt8=2;
@@ -451,7 +451,7 @@ public class InternalAnnotationsDslLexer extends Lexer {
 
                 switch (alt8) {
             	case 1 :
-            	    // InternalAnnotationsDsl.g:1063:24: ~ ( ( '\\n' | '\\r' ) )
+            	    // InternalAnnotationsDsl.g:1171:24: ~ ( ( '\\n' | '\\r' ) )
             	    {
             	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='\t')||(input.LA(1)>='\u000B' && input.LA(1)<='\f')||(input.LA(1)>='\u000E' && input.LA(1)<='\uFFFF') ) {
             	        input.consume();
@@ -471,7 +471,7 @@ public class InternalAnnotationsDslLexer extends Lexer {
                 }
             } while (true);
 
-            // InternalAnnotationsDsl.g:1063:40: ( ( '\\r' )? '\\n' )?
+            // InternalAnnotationsDsl.g:1171:40: ( ( '\\r' )? '\\n' )?
             int alt10=2;
             int LA10_0 = input.LA(1);
 
@@ -480,9 +480,9 @@ public class InternalAnnotationsDslLexer extends Lexer {
             }
             switch (alt10) {
                 case 1 :
-                    // InternalAnnotationsDsl.g:1063:41: ( '\\r' )? '\\n'
+                    // InternalAnnotationsDsl.g:1171:41: ( '\\r' )? '\\n'
                     {
-                    // InternalAnnotationsDsl.g:1063:41: ( '\\r' )?
+                    // InternalAnnotationsDsl.g:1171:41: ( '\\r' )?
                     int alt9=2;
                     int LA9_0 = input.LA(1);
 
@@ -491,7 +491,7 @@ public class InternalAnnotationsDslLexer extends Lexer {
                     }
                     switch (alt9) {
                         case 1 :
-                            // InternalAnnotationsDsl.g:1063:41: '\\r'
+                            // InternalAnnotationsDsl.g:1171:41: '\\r'
                             {
                             match('\r'); 
 
@@ -523,10 +523,10 @@ public class InternalAnnotationsDslLexer extends Lexer {
         try {
             int _type = RULE_WS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalAnnotationsDsl.g:1065:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
-            // InternalAnnotationsDsl.g:1065:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // InternalAnnotationsDsl.g:1173:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
+            // InternalAnnotationsDsl.g:1173:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             {
-            // InternalAnnotationsDsl.g:1065:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // InternalAnnotationsDsl.g:1173:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             int cnt11=0;
             loop11:
             do {
@@ -580,8 +580,8 @@ public class InternalAnnotationsDslLexer extends Lexer {
         try {
             int _type = RULE_ANY_OTHER;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalAnnotationsDsl.g:1067:16: ( . )
-            // InternalAnnotationsDsl.g:1067:18: .
+            // InternalAnnotationsDsl.g:1175:16: ( . )
+            // InternalAnnotationsDsl.g:1175:18: .
             {
             matchAny(); 
 
