@@ -13,7 +13,8 @@ Require-Bundle: uam.extremo.core,
  org.antlr.runtime,
  org.eclipse.xtext.util,
  org.eclipse.xtend.lib,
- uam.extremo.extensions;bundle-version="1.0.0"
+ uam.extremo.extensions;bundle-version="1.0.0",
+ uam.eagledata.dsl.annotations;bundle-version="1.0.0"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Export-Package: uam.eagledata.dsl.semanticnodes.parser.antlr,
  uam.eagledata.dsl.semanticnodes.parser.antlr.internal,

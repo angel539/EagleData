@@ -22,7 +22,7 @@ import java.util.ArrayList;
 @SuppressWarnings("all")
 public class InternalSemanticNodesDslParser extends AbstractInternalContentAssistParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_STRING", "RULE_ID", "RULE_INT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'String'", "'Int'", "'Boolean'", "'Float'", "'Double'", "'repository'", "'{'", "'}'", "'metadata'", "','", "'enum'", "'->'", "'node'", "'['", "']'", "':'", "'='", "'-'", "'@'", "'abstract'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_STRING", "RULE_ID", "RULE_INT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'String'", "'Int'", "'Boolean'", "'Float'", "'Double'", "'import'", "'repository'", "'{'", "'}'", "'@'", "','", "'enum'", "'->'", "'node'", "'['", "']'", "':'", "'='", "'-'", "'abstract'"
     };
     public static final int RULE_STRING=4;
     public static final int RULE_SL_COMMENT=8;
@@ -935,20 +935,20 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
     // $ANTLR end "ruleEnumerationDataProperty"
 
 
-    // $ANTLR start "entryRuleMetaData"
-    // InternalSemanticNodesDsl.g:328:1: entryRuleMetaData : ruleMetaData EOF ;
-    public final void entryRuleMetaData() throws RecognitionException {
+    // $ANTLR start "entryRuleMetaDataValue"
+    // InternalSemanticNodesDsl.g:328:1: entryRuleMetaDataValue : ruleMetaDataValue EOF ;
+    public final void entryRuleMetaDataValue() throws RecognitionException {
         try {
-            // InternalSemanticNodesDsl.g:329:1: ( ruleMetaData EOF )
-            // InternalSemanticNodesDsl.g:330:1: ruleMetaData EOF
+            // InternalSemanticNodesDsl.g:329:1: ( ruleMetaDataValue EOF )
+            // InternalSemanticNodesDsl.g:330:1: ruleMetaDataValue EOF
             {
-             before(grammarAccess.getMetaDataRule()); 
+             before(grammarAccess.getMetaDataValueRule()); 
             pushFollow(FOLLOW_1);
-            ruleMetaData();
+            ruleMetaDataValue();
 
             state._fsp--;
 
-             after(grammarAccess.getMetaDataRule()); 
+             after(grammarAccess.getMetaDataValueRule()); 
             match(input,EOF,FOLLOW_2); 
 
             }
@@ -962,35 +962,35 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
         }
         return ;
     }
-    // $ANTLR end "entryRuleMetaData"
+    // $ANTLR end "entryRuleMetaDataValue"
 
 
-    // $ANTLR start "ruleMetaData"
-    // InternalSemanticNodesDsl.g:337:1: ruleMetaData : ( ( rule__MetaData__Group__0 ) ) ;
-    public final void ruleMetaData() throws RecognitionException {
+    // $ANTLR start "ruleMetaDataValue"
+    // InternalSemanticNodesDsl.g:337:1: ruleMetaDataValue : ( ( rule__MetaDataValue__Group__0 ) ) ;
+    public final void ruleMetaDataValue() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:341:2: ( ( ( rule__MetaData__Group__0 ) ) )
-            // InternalSemanticNodesDsl.g:342:2: ( ( rule__MetaData__Group__0 ) )
+            // InternalSemanticNodesDsl.g:341:2: ( ( ( rule__MetaDataValue__Group__0 ) ) )
+            // InternalSemanticNodesDsl.g:342:2: ( ( rule__MetaDataValue__Group__0 ) )
             {
-            // InternalSemanticNodesDsl.g:342:2: ( ( rule__MetaData__Group__0 ) )
-            // InternalSemanticNodesDsl.g:343:3: ( rule__MetaData__Group__0 )
+            // InternalSemanticNodesDsl.g:342:2: ( ( rule__MetaDataValue__Group__0 ) )
+            // InternalSemanticNodesDsl.g:343:3: ( rule__MetaDataValue__Group__0 )
             {
-             before(grammarAccess.getMetaDataAccess().getGroup()); 
-            // InternalSemanticNodesDsl.g:344:3: ( rule__MetaData__Group__0 )
-            // InternalSemanticNodesDsl.g:344:4: rule__MetaData__Group__0
+             before(grammarAccess.getMetaDataValueAccess().getGroup()); 
+            // InternalSemanticNodesDsl.g:344:3: ( rule__MetaDataValue__Group__0 )
+            // InternalSemanticNodesDsl.g:344:4: rule__MetaDataValue__Group__0
             {
             pushFollow(FOLLOW_2);
-            rule__MetaData__Group__0();
+            rule__MetaDataValue__Group__0();
 
             state._fsp--;
 
 
             }
 
-             after(grammarAccess.getMetaDataAccess().getGroup()); 
+             after(grammarAccess.getMetaDataValueAccess().getGroup()); 
 
             }
 
@@ -1009,7 +1009,7 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
         }
         return ;
     }
-    // $ANTLR end "ruleMetaData"
+    // $ANTLR end "ruleMetaDataValue"
 
 
     // $ANTLR start "entryRuleEString"
@@ -1166,99 +1166,22 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
     // $ANTLR end "ruleEInt"
 
 
-    // $ANTLR start "entryRuleAnnotation"
-    // InternalSemanticNodesDsl.g:403:1: entryRuleAnnotation : ruleAnnotation EOF ;
-    public final void entryRuleAnnotation() throws RecognitionException {
-        try {
-            // InternalSemanticNodesDsl.g:404:1: ( ruleAnnotation EOF )
-            // InternalSemanticNodesDsl.g:405:1: ruleAnnotation EOF
-            {
-             before(grammarAccess.getAnnotationRule()); 
-            pushFollow(FOLLOW_1);
-            ruleAnnotation();
-
-            state._fsp--;
-
-             after(grammarAccess.getAnnotationRule()); 
-            match(input,EOF,FOLLOW_2); 
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-        }
-        return ;
-    }
-    // $ANTLR end "entryRuleAnnotation"
-
-
-    // $ANTLR start "ruleAnnotation"
-    // InternalSemanticNodesDsl.g:412:1: ruleAnnotation : ( ( rule__Annotation__Group__0 ) ) ;
-    public final void ruleAnnotation() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalSemanticNodesDsl.g:416:2: ( ( ( rule__Annotation__Group__0 ) ) )
-            // InternalSemanticNodesDsl.g:417:2: ( ( rule__Annotation__Group__0 ) )
-            {
-            // InternalSemanticNodesDsl.g:417:2: ( ( rule__Annotation__Group__0 ) )
-            // InternalSemanticNodesDsl.g:418:3: ( rule__Annotation__Group__0 )
-            {
-             before(grammarAccess.getAnnotationAccess().getGroup()); 
-            // InternalSemanticNodesDsl.g:419:3: ( rule__Annotation__Group__0 )
-            // InternalSemanticNodesDsl.g:419:4: rule__Annotation__Group__0
-            {
-            pushFollow(FOLLOW_2);
-            rule__Annotation__Group__0();
-
-            state._fsp--;
-
-
-            }
-
-             after(grammarAccess.getAnnotationAccess().getGroup()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "ruleAnnotation"
-
-
     // $ANTLR start "ruleType"
-    // InternalSemanticNodesDsl.g:428:1: ruleType : ( ( rule__Type__Alternatives ) ) ;
+    // InternalSemanticNodesDsl.g:403:1: ruleType : ( ( rule__Type__Alternatives ) ) ;
     public final void ruleType() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:432:1: ( ( ( rule__Type__Alternatives ) ) )
-            // InternalSemanticNodesDsl.g:433:2: ( ( rule__Type__Alternatives ) )
+            // InternalSemanticNodesDsl.g:407:1: ( ( ( rule__Type__Alternatives ) ) )
+            // InternalSemanticNodesDsl.g:408:2: ( ( rule__Type__Alternatives ) )
             {
-            // InternalSemanticNodesDsl.g:433:2: ( ( rule__Type__Alternatives ) )
-            // InternalSemanticNodesDsl.g:434:3: ( rule__Type__Alternatives )
+            // InternalSemanticNodesDsl.g:408:2: ( ( rule__Type__Alternatives ) )
+            // InternalSemanticNodesDsl.g:409:3: ( rule__Type__Alternatives )
             {
              before(grammarAccess.getTypeAccess().getAlternatives()); 
-            // InternalSemanticNodesDsl.g:435:3: ( rule__Type__Alternatives )
-            // InternalSemanticNodesDsl.g:435:4: rule__Type__Alternatives
+            // InternalSemanticNodesDsl.g:410:3: ( rule__Type__Alternatives )
+            // InternalSemanticNodesDsl.g:410:4: rule__Type__Alternatives
             {
             pushFollow(FOLLOW_2);
             rule__Type__Alternatives();
@@ -1291,21 +1214,46 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__ResourceElement__Alternatives"
-    // InternalSemanticNodesDsl.g:443:1: rule__ResourceElement__Alternatives : ( ( ruleResource ) | ( ruleSemanticNode ) | ( ruleEnumeration ) );
+    // InternalSemanticNodesDsl.g:418:1: rule__ResourceElement__Alternatives : ( ( ruleResource ) | ( ruleSemanticNode ) | ( ruleEnumeration ) );
     public final void rule__ResourceElement__Alternatives() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:447:1: ( ( ruleResource ) | ( ruleSemanticNode ) | ( ruleEnumeration ) )
+            // InternalSemanticNodesDsl.g:422:1: ( ( ruleResource ) | ( ruleSemanticNode ) | ( ruleEnumeration ) )
             int alt1=3;
-            alt1 = dfa1.predict(input);
+            switch ( input.LA(1) ) {
+            case RULE_STRING:
+            case RULE_ID:
+            case 20:
+                {
+                alt1=1;
+                }
+                break;
+            case 24:
+            case 30:
+                {
+                alt1=2;
+                }
+                break;
+            case 22:
+                {
+                alt1=3;
+                }
+                break;
+            default:
+                NoViableAltException nvae =
+                    new NoViableAltException("", 1, 0, input);
+
+                throw nvae;
+            }
+
             switch (alt1) {
                 case 1 :
-                    // InternalSemanticNodesDsl.g:448:2: ( ruleResource )
+                    // InternalSemanticNodesDsl.g:423:2: ( ruleResource )
                     {
-                    // InternalSemanticNodesDsl.g:448:2: ( ruleResource )
-                    // InternalSemanticNodesDsl.g:449:3: ruleResource
+                    // InternalSemanticNodesDsl.g:423:2: ( ruleResource )
+                    // InternalSemanticNodesDsl.g:424:3: ruleResource
                     {
                      before(grammarAccess.getResourceElementAccess().getResourceParserRuleCall_0()); 
                     pushFollow(FOLLOW_2);
@@ -1321,10 +1269,10 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
                     }
                     break;
                 case 2 :
-                    // InternalSemanticNodesDsl.g:454:2: ( ruleSemanticNode )
+                    // InternalSemanticNodesDsl.g:429:2: ( ruleSemanticNode )
                     {
-                    // InternalSemanticNodesDsl.g:454:2: ( ruleSemanticNode )
-                    // InternalSemanticNodesDsl.g:455:3: ruleSemanticNode
+                    // InternalSemanticNodesDsl.g:429:2: ( ruleSemanticNode )
+                    // InternalSemanticNodesDsl.g:430:3: ruleSemanticNode
                     {
                      before(grammarAccess.getResourceElementAccess().getSemanticNodeParserRuleCall_1()); 
                     pushFollow(FOLLOW_2);
@@ -1340,10 +1288,10 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
                     }
                     break;
                 case 3 :
-                    // InternalSemanticNodesDsl.g:460:2: ( ruleEnumeration )
+                    // InternalSemanticNodesDsl.g:435:2: ( ruleEnumeration )
                     {
-                    // InternalSemanticNodesDsl.g:460:2: ( ruleEnumeration )
-                    // InternalSemanticNodesDsl.g:461:3: ruleEnumeration
+                    // InternalSemanticNodesDsl.g:435:2: ( ruleEnumeration )
+                    // InternalSemanticNodesDsl.g:436:3: ruleEnumeration
                     {
                      before(grammarAccess.getResourceElementAccess().getEnumerationParserRuleCall_2()); 
                     pushFollow(FOLLOW_2);
@@ -1376,20 +1324,20 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__Property__Alternatives"
-    // InternalSemanticNodesDsl.g:470:1: rule__Property__Alternatives : ( ( ruleObjectProperty ) | ( rulePrimitiveTypeDataProperty ) | ( ruleEnumerationDataProperty ) );
+    // InternalSemanticNodesDsl.g:445:1: rule__Property__Alternatives : ( ( ruleObjectProperty ) | ( rulePrimitiveTypeDataProperty ) | ( ruleEnumerationDataProperty ) );
     public final void rule__Property__Alternatives() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:474:1: ( ( ruleObjectProperty ) | ( rulePrimitiveTypeDataProperty ) | ( ruleEnumerationDataProperty ) )
+            // InternalSemanticNodesDsl.g:449:1: ( ( ruleObjectProperty ) | ( rulePrimitiveTypeDataProperty ) | ( ruleEnumerationDataProperty ) )
             int alt2=3;
             int LA2_0 = input.LA(1);
 
             if ( (LA2_0==RULE_STRING) ) {
                 int LA2_1 = input.LA(2);
 
-                if ( (LA2_1==26) ) {
+                if ( (LA2_1==27) ) {
                     int LA2_3 = input.LA(3);
 
                     if ( ((LA2_3>=11 && LA2_3<=15)) ) {
@@ -1405,7 +1353,7 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
                         throw nvae;
                     }
                 }
-                else if ( (LA2_1==22) ) {
+                else if ( (LA2_1==23) ) {
                     alt2=1;
                 }
                 else {
@@ -1418,7 +1366,7 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
             else if ( (LA2_0==RULE_ID) ) {
                 int LA2_2 = input.LA(2);
 
-                if ( (LA2_2==26) ) {
+                if ( (LA2_2==27) ) {
                     int LA2_3 = input.LA(3);
 
                     if ( ((LA2_3>=11 && LA2_3<=15)) ) {
@@ -1434,7 +1382,7 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
                         throw nvae;
                     }
                 }
-                else if ( (LA2_2==22) ) {
+                else if ( (LA2_2==23) ) {
                     alt2=1;
                 }
                 else {
@@ -1452,10 +1400,10 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
             }
             switch (alt2) {
                 case 1 :
-                    // InternalSemanticNodesDsl.g:475:2: ( ruleObjectProperty )
+                    // InternalSemanticNodesDsl.g:450:2: ( ruleObjectProperty )
                     {
-                    // InternalSemanticNodesDsl.g:475:2: ( ruleObjectProperty )
-                    // InternalSemanticNodesDsl.g:476:3: ruleObjectProperty
+                    // InternalSemanticNodesDsl.g:450:2: ( ruleObjectProperty )
+                    // InternalSemanticNodesDsl.g:451:3: ruleObjectProperty
                     {
                      before(grammarAccess.getPropertyAccess().getObjectPropertyParserRuleCall_0()); 
                     pushFollow(FOLLOW_2);
@@ -1471,10 +1419,10 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
                     }
                     break;
                 case 2 :
-                    // InternalSemanticNodesDsl.g:481:2: ( rulePrimitiveTypeDataProperty )
+                    // InternalSemanticNodesDsl.g:456:2: ( rulePrimitiveTypeDataProperty )
                     {
-                    // InternalSemanticNodesDsl.g:481:2: ( rulePrimitiveTypeDataProperty )
-                    // InternalSemanticNodesDsl.g:482:3: rulePrimitiveTypeDataProperty
+                    // InternalSemanticNodesDsl.g:456:2: ( rulePrimitiveTypeDataProperty )
+                    // InternalSemanticNodesDsl.g:457:3: rulePrimitiveTypeDataProperty
                     {
                      before(grammarAccess.getPropertyAccess().getPrimitiveTypeDataPropertyParserRuleCall_1()); 
                     pushFollow(FOLLOW_2);
@@ -1490,10 +1438,10 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
                     }
                     break;
                 case 3 :
-                    // InternalSemanticNodesDsl.g:487:2: ( ruleEnumerationDataProperty )
+                    // InternalSemanticNodesDsl.g:462:2: ( ruleEnumerationDataProperty )
                     {
-                    // InternalSemanticNodesDsl.g:487:2: ( ruleEnumerationDataProperty )
-                    // InternalSemanticNodesDsl.g:488:3: ruleEnumerationDataProperty
+                    // InternalSemanticNodesDsl.g:462:2: ( ruleEnumerationDataProperty )
+                    // InternalSemanticNodesDsl.g:463:3: ruleEnumerationDataProperty
                     {
                      before(grammarAccess.getPropertyAccess().getEnumerationDataPropertyParserRuleCall_2()); 
                     pushFollow(FOLLOW_2);
@@ -1526,13 +1474,13 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__EString__Alternatives"
-    // InternalSemanticNodesDsl.g:497:1: rule__EString__Alternatives : ( ( RULE_STRING ) | ( RULE_ID ) );
+    // InternalSemanticNodesDsl.g:472:1: rule__EString__Alternatives : ( ( RULE_STRING ) | ( RULE_ID ) );
     public final void rule__EString__Alternatives() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:501:1: ( ( RULE_STRING ) | ( RULE_ID ) )
+            // InternalSemanticNodesDsl.g:476:1: ( ( RULE_STRING ) | ( RULE_ID ) )
             int alt3=2;
             int LA3_0 = input.LA(1);
 
@@ -1550,10 +1498,10 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
             }
             switch (alt3) {
                 case 1 :
-                    // InternalSemanticNodesDsl.g:502:2: ( RULE_STRING )
+                    // InternalSemanticNodesDsl.g:477:2: ( RULE_STRING )
                     {
-                    // InternalSemanticNodesDsl.g:502:2: ( RULE_STRING )
-                    // InternalSemanticNodesDsl.g:503:3: RULE_STRING
+                    // InternalSemanticNodesDsl.g:477:2: ( RULE_STRING )
+                    // InternalSemanticNodesDsl.g:478:3: RULE_STRING
                     {
                      before(grammarAccess.getEStringAccess().getSTRINGTerminalRuleCall_0()); 
                     match(input,RULE_STRING,FOLLOW_2); 
@@ -1565,10 +1513,10 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
                     }
                     break;
                 case 2 :
-                    // InternalSemanticNodesDsl.g:508:2: ( RULE_ID )
+                    // InternalSemanticNodesDsl.g:483:2: ( RULE_ID )
                     {
-                    // InternalSemanticNodesDsl.g:508:2: ( RULE_ID )
-                    // InternalSemanticNodesDsl.g:509:3: RULE_ID
+                    // InternalSemanticNodesDsl.g:483:2: ( RULE_ID )
+                    // InternalSemanticNodesDsl.g:484:3: RULE_ID
                     {
                      before(grammarAccess.getEStringAccess().getIDTerminalRuleCall_1()); 
                     match(input,RULE_ID,FOLLOW_2); 
@@ -1597,13 +1545,13 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__Type__Alternatives"
-    // InternalSemanticNodesDsl.g:518:1: rule__Type__Alternatives : ( ( ( 'String' ) ) | ( ( 'Int' ) ) | ( ( 'Boolean' ) ) | ( ( 'Float' ) ) | ( ( 'Double' ) ) );
+    // InternalSemanticNodesDsl.g:493:1: rule__Type__Alternatives : ( ( ( 'String' ) ) | ( ( 'Int' ) ) | ( ( 'Boolean' ) ) | ( ( 'Float' ) ) | ( ( 'Double' ) ) );
     public final void rule__Type__Alternatives() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:522:1: ( ( ( 'String' ) ) | ( ( 'Int' ) ) | ( ( 'Boolean' ) ) | ( ( 'Float' ) ) | ( ( 'Double' ) ) )
+            // InternalSemanticNodesDsl.g:497:1: ( ( ( 'String' ) ) | ( ( 'Int' ) ) | ( ( 'Boolean' ) ) | ( ( 'Float' ) ) | ( ( 'Double' ) ) )
             int alt4=5;
             switch ( input.LA(1) ) {
             case 11:
@@ -1640,14 +1588,14 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
 
             switch (alt4) {
                 case 1 :
-                    // InternalSemanticNodesDsl.g:523:2: ( ( 'String' ) )
+                    // InternalSemanticNodesDsl.g:498:2: ( ( 'String' ) )
                     {
-                    // InternalSemanticNodesDsl.g:523:2: ( ( 'String' ) )
-                    // InternalSemanticNodesDsl.g:524:3: ( 'String' )
+                    // InternalSemanticNodesDsl.g:498:2: ( ( 'String' ) )
+                    // InternalSemanticNodesDsl.g:499:3: ( 'String' )
                     {
                      before(grammarAccess.getTypeAccess().getStringEnumLiteralDeclaration_0()); 
-                    // InternalSemanticNodesDsl.g:525:3: ( 'String' )
-                    // InternalSemanticNodesDsl.g:525:4: 'String'
+                    // InternalSemanticNodesDsl.g:500:3: ( 'String' )
+                    // InternalSemanticNodesDsl.g:500:4: 'String'
                     {
                     match(input,11,FOLLOW_2); 
 
@@ -1661,14 +1609,14 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
                     }
                     break;
                 case 2 :
-                    // InternalSemanticNodesDsl.g:529:2: ( ( 'Int' ) )
+                    // InternalSemanticNodesDsl.g:504:2: ( ( 'Int' ) )
                     {
-                    // InternalSemanticNodesDsl.g:529:2: ( ( 'Int' ) )
-                    // InternalSemanticNodesDsl.g:530:3: ( 'Int' )
+                    // InternalSemanticNodesDsl.g:504:2: ( ( 'Int' ) )
+                    // InternalSemanticNodesDsl.g:505:3: ( 'Int' )
                     {
                      before(grammarAccess.getTypeAccess().getIntEnumLiteralDeclaration_1()); 
-                    // InternalSemanticNodesDsl.g:531:3: ( 'Int' )
-                    // InternalSemanticNodesDsl.g:531:4: 'Int'
+                    // InternalSemanticNodesDsl.g:506:3: ( 'Int' )
+                    // InternalSemanticNodesDsl.g:506:4: 'Int'
                     {
                     match(input,12,FOLLOW_2); 
 
@@ -1682,14 +1630,14 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
                     }
                     break;
                 case 3 :
-                    // InternalSemanticNodesDsl.g:535:2: ( ( 'Boolean' ) )
+                    // InternalSemanticNodesDsl.g:510:2: ( ( 'Boolean' ) )
                     {
-                    // InternalSemanticNodesDsl.g:535:2: ( ( 'Boolean' ) )
-                    // InternalSemanticNodesDsl.g:536:3: ( 'Boolean' )
+                    // InternalSemanticNodesDsl.g:510:2: ( ( 'Boolean' ) )
+                    // InternalSemanticNodesDsl.g:511:3: ( 'Boolean' )
                     {
                      before(grammarAccess.getTypeAccess().getBooleanEnumLiteralDeclaration_2()); 
-                    // InternalSemanticNodesDsl.g:537:3: ( 'Boolean' )
-                    // InternalSemanticNodesDsl.g:537:4: 'Boolean'
+                    // InternalSemanticNodesDsl.g:512:3: ( 'Boolean' )
+                    // InternalSemanticNodesDsl.g:512:4: 'Boolean'
                     {
                     match(input,13,FOLLOW_2); 
 
@@ -1703,14 +1651,14 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
                     }
                     break;
                 case 4 :
-                    // InternalSemanticNodesDsl.g:541:2: ( ( 'Float' ) )
+                    // InternalSemanticNodesDsl.g:516:2: ( ( 'Float' ) )
                     {
-                    // InternalSemanticNodesDsl.g:541:2: ( ( 'Float' ) )
-                    // InternalSemanticNodesDsl.g:542:3: ( 'Float' )
+                    // InternalSemanticNodesDsl.g:516:2: ( ( 'Float' ) )
+                    // InternalSemanticNodesDsl.g:517:3: ( 'Float' )
                     {
                      before(grammarAccess.getTypeAccess().getFloatEnumLiteralDeclaration_3()); 
-                    // InternalSemanticNodesDsl.g:543:3: ( 'Float' )
-                    // InternalSemanticNodesDsl.g:543:4: 'Float'
+                    // InternalSemanticNodesDsl.g:518:3: ( 'Float' )
+                    // InternalSemanticNodesDsl.g:518:4: 'Float'
                     {
                     match(input,14,FOLLOW_2); 
 
@@ -1724,14 +1672,14 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
                     }
                     break;
                 case 5 :
-                    // InternalSemanticNodesDsl.g:547:2: ( ( 'Double' ) )
+                    // InternalSemanticNodesDsl.g:522:2: ( ( 'Double' ) )
                     {
-                    // InternalSemanticNodesDsl.g:547:2: ( ( 'Double' ) )
-                    // InternalSemanticNodesDsl.g:548:3: ( 'Double' )
+                    // InternalSemanticNodesDsl.g:522:2: ( ( 'Double' ) )
+                    // InternalSemanticNodesDsl.g:523:3: ( 'Double' )
                     {
                      before(grammarAccess.getTypeAccess().getDoubleEnumLiteralDeclaration_4()); 
-                    // InternalSemanticNodesDsl.g:549:3: ( 'Double' )
-                    // InternalSemanticNodesDsl.g:549:4: 'Double'
+                    // InternalSemanticNodesDsl.g:524:3: ( 'Double' )
+                    // InternalSemanticNodesDsl.g:524:4: 'Double'
                     {
                     match(input,15,FOLLOW_2); 
 
@@ -1762,14 +1710,14 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__RepositoryManager__Group__0"
-    // InternalSemanticNodesDsl.g:557:1: rule__RepositoryManager__Group__0 : rule__RepositoryManager__Group__0__Impl rule__RepositoryManager__Group__1 ;
+    // InternalSemanticNodesDsl.g:532:1: rule__RepositoryManager__Group__0 : rule__RepositoryManager__Group__0__Impl rule__RepositoryManager__Group__1 ;
     public final void rule__RepositoryManager__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:561:1: ( rule__RepositoryManager__Group__0__Impl rule__RepositoryManager__Group__1 )
-            // InternalSemanticNodesDsl.g:562:2: rule__RepositoryManager__Group__0__Impl rule__RepositoryManager__Group__1
+            // InternalSemanticNodesDsl.g:536:1: ( rule__RepositoryManager__Group__0__Impl rule__RepositoryManager__Group__1 )
+            // InternalSemanticNodesDsl.g:537:2: rule__RepositoryManager__Group__0__Impl rule__RepositoryManager__Group__1
             {
             pushFollow(FOLLOW_3);
             rule__RepositoryManager__Group__0__Impl();
@@ -1800,21 +1748,21 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__RepositoryManager__Group__0__Impl"
-    // InternalSemanticNodesDsl.g:569:1: rule__RepositoryManager__Group__0__Impl : ( () ) ;
+    // InternalSemanticNodesDsl.g:544:1: rule__RepositoryManager__Group__0__Impl : ( () ) ;
     public final void rule__RepositoryManager__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:573:1: ( ( () ) )
-            // InternalSemanticNodesDsl.g:574:1: ( () )
+            // InternalSemanticNodesDsl.g:548:1: ( ( () ) )
+            // InternalSemanticNodesDsl.g:549:1: ( () )
             {
-            // InternalSemanticNodesDsl.g:574:1: ( () )
-            // InternalSemanticNodesDsl.g:575:2: ()
+            // InternalSemanticNodesDsl.g:549:1: ( () )
+            // InternalSemanticNodesDsl.g:550:2: ()
             {
              before(grammarAccess.getRepositoryManagerAccess().getRepositoryManagerAction_0()); 
-            // InternalSemanticNodesDsl.g:576:2: ()
-            // InternalSemanticNodesDsl.g:576:3: 
+            // InternalSemanticNodesDsl.g:551:2: ()
+            // InternalSemanticNodesDsl.g:551:3: 
             {
             }
 
@@ -1837,17 +1785,22 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__RepositoryManager__Group__1"
-    // InternalSemanticNodesDsl.g:584:1: rule__RepositoryManager__Group__1 : rule__RepositoryManager__Group__1__Impl ;
+    // InternalSemanticNodesDsl.g:559:1: rule__RepositoryManager__Group__1 : rule__RepositoryManager__Group__1__Impl rule__RepositoryManager__Group__2 ;
     public final void rule__RepositoryManager__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:588:1: ( rule__RepositoryManager__Group__1__Impl )
-            // InternalSemanticNodesDsl.g:589:2: rule__RepositoryManager__Group__1__Impl
+            // InternalSemanticNodesDsl.g:563:1: ( rule__RepositoryManager__Group__1__Impl rule__RepositoryManager__Group__2 )
+            // InternalSemanticNodesDsl.g:564:2: rule__RepositoryManager__Group__1__Impl rule__RepositoryManager__Group__2
             {
-            pushFollow(FOLLOW_2);
+            pushFollow(FOLLOW_3);
             rule__RepositoryManager__Group__1__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_2);
+            rule__RepositoryManager__Group__2();
 
             state._fsp--;
 
@@ -1870,20 +1823,20 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__RepositoryManager__Group__1__Impl"
-    // InternalSemanticNodesDsl.g:595:1: rule__RepositoryManager__Group__1__Impl : ( ( rule__RepositoryManager__Group_1__0 )? ) ;
+    // InternalSemanticNodesDsl.g:571:1: rule__RepositoryManager__Group__1__Impl : ( ( rule__RepositoryManager__Group_1__0 )? ) ;
     public final void rule__RepositoryManager__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:599:1: ( ( ( rule__RepositoryManager__Group_1__0 )? ) )
-            // InternalSemanticNodesDsl.g:600:1: ( ( rule__RepositoryManager__Group_1__0 )? )
+            // InternalSemanticNodesDsl.g:575:1: ( ( ( rule__RepositoryManager__Group_1__0 )? ) )
+            // InternalSemanticNodesDsl.g:576:1: ( ( rule__RepositoryManager__Group_1__0 )? )
             {
-            // InternalSemanticNodesDsl.g:600:1: ( ( rule__RepositoryManager__Group_1__0 )? )
-            // InternalSemanticNodesDsl.g:601:2: ( rule__RepositoryManager__Group_1__0 )?
+            // InternalSemanticNodesDsl.g:576:1: ( ( rule__RepositoryManager__Group_1__0 )? )
+            // InternalSemanticNodesDsl.g:577:2: ( rule__RepositoryManager__Group_1__0 )?
             {
              before(grammarAccess.getRepositoryManagerAccess().getGroup_1()); 
-            // InternalSemanticNodesDsl.g:602:2: ( rule__RepositoryManager__Group_1__0 )?
+            // InternalSemanticNodesDsl.g:578:2: ( rule__RepositoryManager__Group_1__0 )?
             int alt5=2;
             int LA5_0 = input.LA(1);
 
@@ -1892,7 +1845,7 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
             }
             switch (alt5) {
                 case 1 :
-                    // InternalSemanticNodesDsl.g:602:3: rule__RepositoryManager__Group_1__0
+                    // InternalSemanticNodesDsl.g:578:3: rule__RepositoryManager__Group_1__0
                     {
                     pushFollow(FOLLOW_2);
                     rule__RepositoryManager__Group_1__0();
@@ -1927,17 +1880,108 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
     // $ANTLR end "rule__RepositoryManager__Group__1__Impl"
 
 
+    // $ANTLR start "rule__RepositoryManager__Group__2"
+    // InternalSemanticNodesDsl.g:586:1: rule__RepositoryManager__Group__2 : rule__RepositoryManager__Group__2__Impl ;
+    public final void rule__RepositoryManager__Group__2() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalSemanticNodesDsl.g:590:1: ( rule__RepositoryManager__Group__2__Impl )
+            // InternalSemanticNodesDsl.g:591:2: rule__RepositoryManager__Group__2__Impl
+            {
+            pushFollow(FOLLOW_2);
+            rule__RepositoryManager__Group__2__Impl();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__RepositoryManager__Group__2"
+
+
+    // $ANTLR start "rule__RepositoryManager__Group__2__Impl"
+    // InternalSemanticNodesDsl.g:597:1: rule__RepositoryManager__Group__2__Impl : ( ( rule__RepositoryManager__Group_2__0 )? ) ;
+    public final void rule__RepositoryManager__Group__2__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalSemanticNodesDsl.g:601:1: ( ( ( rule__RepositoryManager__Group_2__0 )? ) )
+            // InternalSemanticNodesDsl.g:602:1: ( ( rule__RepositoryManager__Group_2__0 )? )
+            {
+            // InternalSemanticNodesDsl.g:602:1: ( ( rule__RepositoryManager__Group_2__0 )? )
+            // InternalSemanticNodesDsl.g:603:2: ( rule__RepositoryManager__Group_2__0 )?
+            {
+             before(grammarAccess.getRepositoryManagerAccess().getGroup_2()); 
+            // InternalSemanticNodesDsl.g:604:2: ( rule__RepositoryManager__Group_2__0 )?
+            int alt6=2;
+            int LA6_0 = input.LA(1);
+
+            if ( (LA6_0==17) ) {
+                alt6=1;
+            }
+            switch (alt6) {
+                case 1 :
+                    // InternalSemanticNodesDsl.g:604:3: rule__RepositoryManager__Group_2__0
+                    {
+                    pushFollow(FOLLOW_2);
+                    rule__RepositoryManager__Group_2__0();
+
+                    state._fsp--;
+
+
+                    }
+                    break;
+
+            }
+
+             after(grammarAccess.getRepositoryManagerAccess().getGroup_2()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__RepositoryManager__Group__2__Impl"
+
+
     // $ANTLR start "rule__RepositoryManager__Group_1__0"
-    // InternalSemanticNodesDsl.g:611:1: rule__RepositoryManager__Group_1__0 : rule__RepositoryManager__Group_1__0__Impl rule__RepositoryManager__Group_1__1 ;
+    // InternalSemanticNodesDsl.g:613:1: rule__RepositoryManager__Group_1__0 : rule__RepositoryManager__Group_1__0__Impl rule__RepositoryManager__Group_1__1 ;
     public final void rule__RepositoryManager__Group_1__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:615:1: ( rule__RepositoryManager__Group_1__0__Impl rule__RepositoryManager__Group_1__1 )
-            // InternalSemanticNodesDsl.g:616:2: rule__RepositoryManager__Group_1__0__Impl rule__RepositoryManager__Group_1__1
+            // InternalSemanticNodesDsl.g:617:1: ( rule__RepositoryManager__Group_1__0__Impl rule__RepositoryManager__Group_1__1 )
+            // InternalSemanticNodesDsl.g:618:2: rule__RepositoryManager__Group_1__0__Impl rule__RepositoryManager__Group_1__1
             {
-            pushFollow(FOLLOW_3);
+            pushFollow(FOLLOW_4);
             rule__RepositoryManager__Group_1__0__Impl();
 
             state._fsp--;
@@ -1966,31 +2010,21 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__RepositoryManager__Group_1__0__Impl"
-    // InternalSemanticNodesDsl.g:623:1: rule__RepositoryManager__Group_1__0__Impl : ( ( rule__RepositoryManager__RepositoriesAssignment_1_0 ) ) ;
+    // InternalSemanticNodesDsl.g:625:1: rule__RepositoryManager__Group_1__0__Impl : ( 'import' ) ;
     public final void rule__RepositoryManager__Group_1__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:627:1: ( ( ( rule__RepositoryManager__RepositoriesAssignment_1_0 ) ) )
-            // InternalSemanticNodesDsl.g:628:1: ( ( rule__RepositoryManager__RepositoriesAssignment_1_0 ) )
+            // InternalSemanticNodesDsl.g:629:1: ( ( 'import' ) )
+            // InternalSemanticNodesDsl.g:630:1: ( 'import' )
             {
-            // InternalSemanticNodesDsl.g:628:1: ( ( rule__RepositoryManager__RepositoriesAssignment_1_0 ) )
-            // InternalSemanticNodesDsl.g:629:2: ( rule__RepositoryManager__RepositoriesAssignment_1_0 )
+            // InternalSemanticNodesDsl.g:630:1: ( 'import' )
+            // InternalSemanticNodesDsl.g:631:2: 'import'
             {
-             before(grammarAccess.getRepositoryManagerAccess().getRepositoriesAssignment_1_0()); 
-            // InternalSemanticNodesDsl.g:630:2: ( rule__RepositoryManager__RepositoriesAssignment_1_0 )
-            // InternalSemanticNodesDsl.g:630:3: rule__RepositoryManager__RepositoriesAssignment_1_0
-            {
-            pushFollow(FOLLOW_2);
-            rule__RepositoryManager__RepositoriesAssignment_1_0();
-
-            state._fsp--;
-
-
-            }
-
-             after(grammarAccess.getRepositoryManagerAccess().getRepositoriesAssignment_1_0()); 
+             before(grammarAccess.getRepositoryManagerAccess().getImportKeyword_1_0()); 
+            match(input,16,FOLLOW_2); 
+             after(grammarAccess.getRepositoryManagerAccess().getImportKeyword_1_0()); 
 
             }
 
@@ -2013,17 +2047,22 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__RepositoryManager__Group_1__1"
-    // InternalSemanticNodesDsl.g:638:1: rule__RepositoryManager__Group_1__1 : rule__RepositoryManager__Group_1__1__Impl ;
+    // InternalSemanticNodesDsl.g:640:1: rule__RepositoryManager__Group_1__1 : rule__RepositoryManager__Group_1__1__Impl rule__RepositoryManager__Group_1__2 ;
     public final void rule__RepositoryManager__Group_1__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:642:1: ( rule__RepositoryManager__Group_1__1__Impl )
-            // InternalSemanticNodesDsl.g:643:2: rule__RepositoryManager__Group_1__1__Impl
+            // InternalSemanticNodesDsl.g:644:1: ( rule__RepositoryManager__Group_1__1__Impl rule__RepositoryManager__Group_1__2 )
+            // InternalSemanticNodesDsl.g:645:2: rule__RepositoryManager__Group_1__1__Impl rule__RepositoryManager__Group_1__2
             {
-            pushFollow(FOLLOW_2);
+            pushFollow(FOLLOW_5);
             rule__RepositoryManager__Group_1__1__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_2);
+            rule__RepositoryManager__Group_1__2();
 
             state._fsp--;
 
@@ -2046,49 +2085,31 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__RepositoryManager__Group_1__1__Impl"
-    // InternalSemanticNodesDsl.g:649:1: rule__RepositoryManager__Group_1__1__Impl : ( ( rule__RepositoryManager__RepositoriesAssignment_1_1 )* ) ;
+    // InternalSemanticNodesDsl.g:652:1: rule__RepositoryManager__Group_1__1__Impl : ( ( rule__RepositoryManager__ImportURIAssignment_1_1 ) ) ;
     public final void rule__RepositoryManager__Group_1__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:653:1: ( ( ( rule__RepositoryManager__RepositoriesAssignment_1_1 )* ) )
-            // InternalSemanticNodesDsl.g:654:1: ( ( rule__RepositoryManager__RepositoriesAssignment_1_1 )* )
+            // InternalSemanticNodesDsl.g:656:1: ( ( ( rule__RepositoryManager__ImportURIAssignment_1_1 ) ) )
+            // InternalSemanticNodesDsl.g:657:1: ( ( rule__RepositoryManager__ImportURIAssignment_1_1 ) )
             {
-            // InternalSemanticNodesDsl.g:654:1: ( ( rule__RepositoryManager__RepositoriesAssignment_1_1 )* )
-            // InternalSemanticNodesDsl.g:655:2: ( rule__RepositoryManager__RepositoriesAssignment_1_1 )*
+            // InternalSemanticNodesDsl.g:657:1: ( ( rule__RepositoryManager__ImportURIAssignment_1_1 ) )
+            // InternalSemanticNodesDsl.g:658:2: ( rule__RepositoryManager__ImportURIAssignment_1_1 )
             {
-             before(grammarAccess.getRepositoryManagerAccess().getRepositoriesAssignment_1_1()); 
-            // InternalSemanticNodesDsl.g:656:2: ( rule__RepositoryManager__RepositoriesAssignment_1_1 )*
-            loop6:
-            do {
-                int alt6=2;
-                int LA6_0 = input.LA(1);
+             before(grammarAccess.getRepositoryManagerAccess().getImportURIAssignment_1_1()); 
+            // InternalSemanticNodesDsl.g:659:2: ( rule__RepositoryManager__ImportURIAssignment_1_1 )
+            // InternalSemanticNodesDsl.g:659:3: rule__RepositoryManager__ImportURIAssignment_1_1
+            {
+            pushFollow(FOLLOW_2);
+            rule__RepositoryManager__ImportURIAssignment_1_1();
 
-                if ( (LA6_0==16) ) {
-                    alt6=1;
-                }
+            state._fsp--;
 
 
-                switch (alt6) {
-            	case 1 :
-            	    // InternalSemanticNodesDsl.g:656:3: rule__RepositoryManager__RepositoriesAssignment_1_1
-            	    {
-            	    pushFollow(FOLLOW_4);
-            	    rule__RepositoryManager__RepositoriesAssignment_1_1();
+            }
 
-            	    state._fsp--;
-
-
-            	    }
-            	    break;
-
-            	default :
-            	    break loop6;
-                }
-            } while (true);
-
-             after(grammarAccess.getRepositoryManagerAccess().getRepositoriesAssignment_1_1()); 
+             after(grammarAccess.getRepositoryManagerAccess().getImportURIAssignment_1_1()); 
 
             }
 
@@ -2110,17 +2131,453 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
     // $ANTLR end "rule__RepositoryManager__Group_1__1__Impl"
 
 
+    // $ANTLR start "rule__RepositoryManager__Group_1__2"
+    // InternalSemanticNodesDsl.g:667:1: rule__RepositoryManager__Group_1__2 : rule__RepositoryManager__Group_1__2__Impl ;
+    public final void rule__RepositoryManager__Group_1__2() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalSemanticNodesDsl.g:671:1: ( rule__RepositoryManager__Group_1__2__Impl )
+            // InternalSemanticNodesDsl.g:672:2: rule__RepositoryManager__Group_1__2__Impl
+            {
+            pushFollow(FOLLOW_2);
+            rule__RepositoryManager__Group_1__2__Impl();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__RepositoryManager__Group_1__2"
+
+
+    // $ANTLR start "rule__RepositoryManager__Group_1__2__Impl"
+    // InternalSemanticNodesDsl.g:678:1: rule__RepositoryManager__Group_1__2__Impl : ( ( rule__RepositoryManager__Group_1_2__0 )* ) ;
+    public final void rule__RepositoryManager__Group_1__2__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalSemanticNodesDsl.g:682:1: ( ( ( rule__RepositoryManager__Group_1_2__0 )* ) )
+            // InternalSemanticNodesDsl.g:683:1: ( ( rule__RepositoryManager__Group_1_2__0 )* )
+            {
+            // InternalSemanticNodesDsl.g:683:1: ( ( rule__RepositoryManager__Group_1_2__0 )* )
+            // InternalSemanticNodesDsl.g:684:2: ( rule__RepositoryManager__Group_1_2__0 )*
+            {
+             before(grammarAccess.getRepositoryManagerAccess().getGroup_1_2()); 
+            // InternalSemanticNodesDsl.g:685:2: ( rule__RepositoryManager__Group_1_2__0 )*
+            loop7:
+            do {
+                int alt7=2;
+                int LA7_0 = input.LA(1);
+
+                if ( (LA7_0==16) ) {
+                    alt7=1;
+                }
+
+
+                switch (alt7) {
+            	case 1 :
+            	    // InternalSemanticNodesDsl.g:685:3: rule__RepositoryManager__Group_1_2__0
+            	    {
+            	    pushFollow(FOLLOW_6);
+            	    rule__RepositoryManager__Group_1_2__0();
+
+            	    state._fsp--;
+
+
+            	    }
+            	    break;
+
+            	default :
+            	    break loop7;
+                }
+            } while (true);
+
+             after(grammarAccess.getRepositoryManagerAccess().getGroup_1_2()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__RepositoryManager__Group_1__2__Impl"
+
+
+    // $ANTLR start "rule__RepositoryManager__Group_1_2__0"
+    // InternalSemanticNodesDsl.g:694:1: rule__RepositoryManager__Group_1_2__0 : rule__RepositoryManager__Group_1_2__0__Impl rule__RepositoryManager__Group_1_2__1 ;
+    public final void rule__RepositoryManager__Group_1_2__0() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalSemanticNodesDsl.g:698:1: ( rule__RepositoryManager__Group_1_2__0__Impl rule__RepositoryManager__Group_1_2__1 )
+            // InternalSemanticNodesDsl.g:699:2: rule__RepositoryManager__Group_1_2__0__Impl rule__RepositoryManager__Group_1_2__1
+            {
+            pushFollow(FOLLOW_4);
+            rule__RepositoryManager__Group_1_2__0__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_2);
+            rule__RepositoryManager__Group_1_2__1();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__RepositoryManager__Group_1_2__0"
+
+
+    // $ANTLR start "rule__RepositoryManager__Group_1_2__0__Impl"
+    // InternalSemanticNodesDsl.g:706:1: rule__RepositoryManager__Group_1_2__0__Impl : ( 'import' ) ;
+    public final void rule__RepositoryManager__Group_1_2__0__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalSemanticNodesDsl.g:710:1: ( ( 'import' ) )
+            // InternalSemanticNodesDsl.g:711:1: ( 'import' )
+            {
+            // InternalSemanticNodesDsl.g:711:1: ( 'import' )
+            // InternalSemanticNodesDsl.g:712:2: 'import'
+            {
+             before(grammarAccess.getRepositoryManagerAccess().getImportKeyword_1_2_0()); 
+            match(input,16,FOLLOW_2); 
+             after(grammarAccess.getRepositoryManagerAccess().getImportKeyword_1_2_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__RepositoryManager__Group_1_2__0__Impl"
+
+
+    // $ANTLR start "rule__RepositoryManager__Group_1_2__1"
+    // InternalSemanticNodesDsl.g:721:1: rule__RepositoryManager__Group_1_2__1 : rule__RepositoryManager__Group_1_2__1__Impl ;
+    public final void rule__RepositoryManager__Group_1_2__1() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalSemanticNodesDsl.g:725:1: ( rule__RepositoryManager__Group_1_2__1__Impl )
+            // InternalSemanticNodesDsl.g:726:2: rule__RepositoryManager__Group_1_2__1__Impl
+            {
+            pushFollow(FOLLOW_2);
+            rule__RepositoryManager__Group_1_2__1__Impl();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__RepositoryManager__Group_1_2__1"
+
+
+    // $ANTLR start "rule__RepositoryManager__Group_1_2__1__Impl"
+    // InternalSemanticNodesDsl.g:732:1: rule__RepositoryManager__Group_1_2__1__Impl : ( ( rule__RepositoryManager__ImportURIAssignment_1_2_1 ) ) ;
+    public final void rule__RepositoryManager__Group_1_2__1__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalSemanticNodesDsl.g:736:1: ( ( ( rule__RepositoryManager__ImportURIAssignment_1_2_1 ) ) )
+            // InternalSemanticNodesDsl.g:737:1: ( ( rule__RepositoryManager__ImportURIAssignment_1_2_1 ) )
+            {
+            // InternalSemanticNodesDsl.g:737:1: ( ( rule__RepositoryManager__ImportURIAssignment_1_2_1 ) )
+            // InternalSemanticNodesDsl.g:738:2: ( rule__RepositoryManager__ImportURIAssignment_1_2_1 )
+            {
+             before(grammarAccess.getRepositoryManagerAccess().getImportURIAssignment_1_2_1()); 
+            // InternalSemanticNodesDsl.g:739:2: ( rule__RepositoryManager__ImportURIAssignment_1_2_1 )
+            // InternalSemanticNodesDsl.g:739:3: rule__RepositoryManager__ImportURIAssignment_1_2_1
+            {
+            pushFollow(FOLLOW_2);
+            rule__RepositoryManager__ImportURIAssignment_1_2_1();
+
+            state._fsp--;
+
+
+            }
+
+             after(grammarAccess.getRepositoryManagerAccess().getImportURIAssignment_1_2_1()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__RepositoryManager__Group_1_2__1__Impl"
+
+
+    // $ANTLR start "rule__RepositoryManager__Group_2__0"
+    // InternalSemanticNodesDsl.g:748:1: rule__RepositoryManager__Group_2__0 : rule__RepositoryManager__Group_2__0__Impl rule__RepositoryManager__Group_2__1 ;
+    public final void rule__RepositoryManager__Group_2__0() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalSemanticNodesDsl.g:752:1: ( rule__RepositoryManager__Group_2__0__Impl rule__RepositoryManager__Group_2__1 )
+            // InternalSemanticNodesDsl.g:753:2: rule__RepositoryManager__Group_2__0__Impl rule__RepositoryManager__Group_2__1
+            {
+            pushFollow(FOLLOW_7);
+            rule__RepositoryManager__Group_2__0__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_2);
+            rule__RepositoryManager__Group_2__1();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__RepositoryManager__Group_2__0"
+
+
+    // $ANTLR start "rule__RepositoryManager__Group_2__0__Impl"
+    // InternalSemanticNodesDsl.g:760:1: rule__RepositoryManager__Group_2__0__Impl : ( ( rule__RepositoryManager__RepositoriesAssignment_2_0 ) ) ;
+    public final void rule__RepositoryManager__Group_2__0__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalSemanticNodesDsl.g:764:1: ( ( ( rule__RepositoryManager__RepositoriesAssignment_2_0 ) ) )
+            // InternalSemanticNodesDsl.g:765:1: ( ( rule__RepositoryManager__RepositoriesAssignment_2_0 ) )
+            {
+            // InternalSemanticNodesDsl.g:765:1: ( ( rule__RepositoryManager__RepositoriesAssignment_2_0 ) )
+            // InternalSemanticNodesDsl.g:766:2: ( rule__RepositoryManager__RepositoriesAssignment_2_0 )
+            {
+             before(grammarAccess.getRepositoryManagerAccess().getRepositoriesAssignment_2_0()); 
+            // InternalSemanticNodesDsl.g:767:2: ( rule__RepositoryManager__RepositoriesAssignment_2_0 )
+            // InternalSemanticNodesDsl.g:767:3: rule__RepositoryManager__RepositoriesAssignment_2_0
+            {
+            pushFollow(FOLLOW_2);
+            rule__RepositoryManager__RepositoriesAssignment_2_0();
+
+            state._fsp--;
+
+
+            }
+
+             after(grammarAccess.getRepositoryManagerAccess().getRepositoriesAssignment_2_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__RepositoryManager__Group_2__0__Impl"
+
+
+    // $ANTLR start "rule__RepositoryManager__Group_2__1"
+    // InternalSemanticNodesDsl.g:775:1: rule__RepositoryManager__Group_2__1 : rule__RepositoryManager__Group_2__1__Impl ;
+    public final void rule__RepositoryManager__Group_2__1() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalSemanticNodesDsl.g:779:1: ( rule__RepositoryManager__Group_2__1__Impl )
+            // InternalSemanticNodesDsl.g:780:2: rule__RepositoryManager__Group_2__1__Impl
+            {
+            pushFollow(FOLLOW_2);
+            rule__RepositoryManager__Group_2__1__Impl();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__RepositoryManager__Group_2__1"
+
+
+    // $ANTLR start "rule__RepositoryManager__Group_2__1__Impl"
+    // InternalSemanticNodesDsl.g:786:1: rule__RepositoryManager__Group_2__1__Impl : ( ( rule__RepositoryManager__RepositoriesAssignment_2_1 )* ) ;
+    public final void rule__RepositoryManager__Group_2__1__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalSemanticNodesDsl.g:790:1: ( ( ( rule__RepositoryManager__RepositoriesAssignment_2_1 )* ) )
+            // InternalSemanticNodesDsl.g:791:1: ( ( rule__RepositoryManager__RepositoriesAssignment_2_1 )* )
+            {
+            // InternalSemanticNodesDsl.g:791:1: ( ( rule__RepositoryManager__RepositoriesAssignment_2_1 )* )
+            // InternalSemanticNodesDsl.g:792:2: ( rule__RepositoryManager__RepositoriesAssignment_2_1 )*
+            {
+             before(grammarAccess.getRepositoryManagerAccess().getRepositoriesAssignment_2_1()); 
+            // InternalSemanticNodesDsl.g:793:2: ( rule__RepositoryManager__RepositoriesAssignment_2_1 )*
+            loop8:
+            do {
+                int alt8=2;
+                int LA8_0 = input.LA(1);
+
+                if ( (LA8_0==17) ) {
+                    alt8=1;
+                }
+
+
+                switch (alt8) {
+            	case 1 :
+            	    // InternalSemanticNodesDsl.g:793:3: rule__RepositoryManager__RepositoriesAssignment_2_1
+            	    {
+            	    pushFollow(FOLLOW_8);
+            	    rule__RepositoryManager__RepositoriesAssignment_2_1();
+
+            	    state._fsp--;
+
+
+            	    }
+            	    break;
+
+            	default :
+            	    break loop8;
+                }
+            } while (true);
+
+             after(grammarAccess.getRepositoryManagerAccess().getRepositoriesAssignment_2_1()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__RepositoryManager__Group_2__1__Impl"
+
+
     // $ANTLR start "rule__Repository__Group__0"
-    // InternalSemanticNodesDsl.g:665:1: rule__Repository__Group__0 : rule__Repository__Group__0__Impl rule__Repository__Group__1 ;
+    // InternalSemanticNodesDsl.g:802:1: rule__Repository__Group__0 : rule__Repository__Group__0__Impl rule__Repository__Group__1 ;
     public final void rule__Repository__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:669:1: ( rule__Repository__Group__0__Impl rule__Repository__Group__1 )
-            // InternalSemanticNodesDsl.g:670:2: rule__Repository__Group__0__Impl rule__Repository__Group__1
+            // InternalSemanticNodesDsl.g:806:1: ( rule__Repository__Group__0__Impl rule__Repository__Group__1 )
+            // InternalSemanticNodesDsl.g:807:2: rule__Repository__Group__0__Impl rule__Repository__Group__1
             {
-            pushFollow(FOLLOW_3);
+            pushFollow(FOLLOW_7);
             rule__Repository__Group__0__Impl();
 
             state._fsp--;
@@ -2149,21 +2606,21 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__Repository__Group__0__Impl"
-    // InternalSemanticNodesDsl.g:677:1: rule__Repository__Group__0__Impl : ( () ) ;
+    // InternalSemanticNodesDsl.g:814:1: rule__Repository__Group__0__Impl : ( () ) ;
     public final void rule__Repository__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:681:1: ( ( () ) )
-            // InternalSemanticNodesDsl.g:682:1: ( () )
+            // InternalSemanticNodesDsl.g:818:1: ( ( () ) )
+            // InternalSemanticNodesDsl.g:819:1: ( () )
             {
-            // InternalSemanticNodesDsl.g:682:1: ( () )
-            // InternalSemanticNodesDsl.g:683:2: ()
+            // InternalSemanticNodesDsl.g:819:1: ( () )
+            // InternalSemanticNodesDsl.g:820:2: ()
             {
              before(grammarAccess.getRepositoryAccess().getRepositoryAction_0()); 
-            // InternalSemanticNodesDsl.g:684:2: ()
-            // InternalSemanticNodesDsl.g:684:3: 
+            // InternalSemanticNodesDsl.g:821:2: ()
+            // InternalSemanticNodesDsl.g:821:3: 
             {
             }
 
@@ -2186,16 +2643,16 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__Repository__Group__1"
-    // InternalSemanticNodesDsl.g:692:1: rule__Repository__Group__1 : rule__Repository__Group__1__Impl rule__Repository__Group__2 ;
+    // InternalSemanticNodesDsl.g:829:1: rule__Repository__Group__1 : rule__Repository__Group__1__Impl rule__Repository__Group__2 ;
     public final void rule__Repository__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:696:1: ( rule__Repository__Group__1__Impl rule__Repository__Group__2 )
-            // InternalSemanticNodesDsl.g:697:2: rule__Repository__Group__1__Impl rule__Repository__Group__2
+            // InternalSemanticNodesDsl.g:833:1: ( rule__Repository__Group__1__Impl rule__Repository__Group__2 )
+            // InternalSemanticNodesDsl.g:834:2: rule__Repository__Group__1__Impl rule__Repository__Group__2
             {
-            pushFollow(FOLLOW_5);
+            pushFollow(FOLLOW_4);
             rule__Repository__Group__1__Impl();
 
             state._fsp--;
@@ -2224,20 +2681,20 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__Repository__Group__1__Impl"
-    // InternalSemanticNodesDsl.g:704:1: rule__Repository__Group__1__Impl : ( 'repository' ) ;
+    // InternalSemanticNodesDsl.g:841:1: rule__Repository__Group__1__Impl : ( 'repository' ) ;
     public final void rule__Repository__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:708:1: ( ( 'repository' ) )
-            // InternalSemanticNodesDsl.g:709:1: ( 'repository' )
+            // InternalSemanticNodesDsl.g:845:1: ( ( 'repository' ) )
+            // InternalSemanticNodesDsl.g:846:1: ( 'repository' )
             {
-            // InternalSemanticNodesDsl.g:709:1: ( 'repository' )
-            // InternalSemanticNodesDsl.g:710:2: 'repository'
+            // InternalSemanticNodesDsl.g:846:1: ( 'repository' )
+            // InternalSemanticNodesDsl.g:847:2: 'repository'
             {
              before(grammarAccess.getRepositoryAccess().getRepositoryKeyword_1()); 
-            match(input,16,FOLLOW_2); 
+            match(input,17,FOLLOW_2); 
              after(grammarAccess.getRepositoryAccess().getRepositoryKeyword_1()); 
 
             }
@@ -2261,16 +2718,16 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__Repository__Group__2"
-    // InternalSemanticNodesDsl.g:719:1: rule__Repository__Group__2 : rule__Repository__Group__2__Impl rule__Repository__Group__3 ;
+    // InternalSemanticNodesDsl.g:856:1: rule__Repository__Group__2 : rule__Repository__Group__2__Impl rule__Repository__Group__3 ;
     public final void rule__Repository__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:723:1: ( rule__Repository__Group__2__Impl rule__Repository__Group__3 )
-            // InternalSemanticNodesDsl.g:724:2: rule__Repository__Group__2__Impl rule__Repository__Group__3
+            // InternalSemanticNodesDsl.g:860:1: ( rule__Repository__Group__2__Impl rule__Repository__Group__3 )
+            // InternalSemanticNodesDsl.g:861:2: rule__Repository__Group__2__Impl rule__Repository__Group__3
             {
-            pushFollow(FOLLOW_6);
+            pushFollow(FOLLOW_9);
             rule__Repository__Group__2__Impl();
 
             state._fsp--;
@@ -2299,21 +2756,21 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__Repository__Group__2__Impl"
-    // InternalSemanticNodesDsl.g:731:1: rule__Repository__Group__2__Impl : ( ( rule__Repository__NameAssignment_2 ) ) ;
+    // InternalSemanticNodesDsl.g:868:1: rule__Repository__Group__2__Impl : ( ( rule__Repository__NameAssignment_2 ) ) ;
     public final void rule__Repository__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:735:1: ( ( ( rule__Repository__NameAssignment_2 ) ) )
-            // InternalSemanticNodesDsl.g:736:1: ( ( rule__Repository__NameAssignment_2 ) )
+            // InternalSemanticNodesDsl.g:872:1: ( ( ( rule__Repository__NameAssignment_2 ) ) )
+            // InternalSemanticNodesDsl.g:873:1: ( ( rule__Repository__NameAssignment_2 ) )
             {
-            // InternalSemanticNodesDsl.g:736:1: ( ( rule__Repository__NameAssignment_2 ) )
-            // InternalSemanticNodesDsl.g:737:2: ( rule__Repository__NameAssignment_2 )
+            // InternalSemanticNodesDsl.g:873:1: ( ( rule__Repository__NameAssignment_2 ) )
+            // InternalSemanticNodesDsl.g:874:2: ( rule__Repository__NameAssignment_2 )
             {
              before(grammarAccess.getRepositoryAccess().getNameAssignment_2()); 
-            // InternalSemanticNodesDsl.g:738:2: ( rule__Repository__NameAssignment_2 )
-            // InternalSemanticNodesDsl.g:738:3: rule__Repository__NameAssignment_2
+            // InternalSemanticNodesDsl.g:875:2: ( rule__Repository__NameAssignment_2 )
+            // InternalSemanticNodesDsl.g:875:3: rule__Repository__NameAssignment_2
             {
             pushFollow(FOLLOW_2);
             rule__Repository__NameAssignment_2();
@@ -2346,16 +2803,16 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__Repository__Group__3"
-    // InternalSemanticNodesDsl.g:746:1: rule__Repository__Group__3 : rule__Repository__Group__3__Impl rule__Repository__Group__4 ;
+    // InternalSemanticNodesDsl.g:883:1: rule__Repository__Group__3 : rule__Repository__Group__3__Impl rule__Repository__Group__4 ;
     public final void rule__Repository__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:750:1: ( rule__Repository__Group__3__Impl rule__Repository__Group__4 )
-            // InternalSemanticNodesDsl.g:751:2: rule__Repository__Group__3__Impl rule__Repository__Group__4
+            // InternalSemanticNodesDsl.g:887:1: ( rule__Repository__Group__3__Impl rule__Repository__Group__4 )
+            // InternalSemanticNodesDsl.g:888:2: rule__Repository__Group__3__Impl rule__Repository__Group__4
             {
-            pushFollow(FOLLOW_7);
+            pushFollow(FOLLOW_10);
             rule__Repository__Group__3__Impl();
 
             state._fsp--;
@@ -2384,20 +2841,20 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__Repository__Group__3__Impl"
-    // InternalSemanticNodesDsl.g:758:1: rule__Repository__Group__3__Impl : ( '{' ) ;
+    // InternalSemanticNodesDsl.g:895:1: rule__Repository__Group__3__Impl : ( '{' ) ;
     public final void rule__Repository__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:762:1: ( ( '{' ) )
-            // InternalSemanticNodesDsl.g:763:1: ( '{' )
+            // InternalSemanticNodesDsl.g:899:1: ( ( '{' ) )
+            // InternalSemanticNodesDsl.g:900:1: ( '{' )
             {
-            // InternalSemanticNodesDsl.g:763:1: ( '{' )
-            // InternalSemanticNodesDsl.g:764:2: '{'
+            // InternalSemanticNodesDsl.g:900:1: ( '{' )
+            // InternalSemanticNodesDsl.g:901:2: '{'
             {
              before(grammarAccess.getRepositoryAccess().getLeftCurlyBracketKeyword_3()); 
-            match(input,17,FOLLOW_2); 
+            match(input,18,FOLLOW_2); 
              after(grammarAccess.getRepositoryAccess().getLeftCurlyBracketKeyword_3()); 
 
             }
@@ -2421,16 +2878,16 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__Repository__Group__4"
-    // InternalSemanticNodesDsl.g:773:1: rule__Repository__Group__4 : rule__Repository__Group__4__Impl rule__Repository__Group__5 ;
+    // InternalSemanticNodesDsl.g:910:1: rule__Repository__Group__4 : rule__Repository__Group__4__Impl rule__Repository__Group__5 ;
     public final void rule__Repository__Group__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:777:1: ( rule__Repository__Group__4__Impl rule__Repository__Group__5 )
-            // InternalSemanticNodesDsl.g:778:2: rule__Repository__Group__4__Impl rule__Repository__Group__5
+            // InternalSemanticNodesDsl.g:914:1: ( rule__Repository__Group__4__Impl rule__Repository__Group__5 )
+            // InternalSemanticNodesDsl.g:915:2: rule__Repository__Group__4__Impl rule__Repository__Group__5
             {
-            pushFollow(FOLLOW_8);
+            pushFollow(FOLLOW_11);
             rule__Repository__Group__4__Impl();
 
             state._fsp--;
@@ -2459,21 +2916,21 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__Repository__Group__4__Impl"
-    // InternalSemanticNodesDsl.g:785:1: rule__Repository__Group__4__Impl : ( ( rule__Repository__ResourcesAssignment_4 ) ) ;
+    // InternalSemanticNodesDsl.g:922:1: rule__Repository__Group__4__Impl : ( ( rule__Repository__ResourcesAssignment_4 ) ) ;
     public final void rule__Repository__Group__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:789:1: ( ( ( rule__Repository__ResourcesAssignment_4 ) ) )
-            // InternalSemanticNodesDsl.g:790:1: ( ( rule__Repository__ResourcesAssignment_4 ) )
+            // InternalSemanticNodesDsl.g:926:1: ( ( ( rule__Repository__ResourcesAssignment_4 ) ) )
+            // InternalSemanticNodesDsl.g:927:1: ( ( rule__Repository__ResourcesAssignment_4 ) )
             {
-            // InternalSemanticNodesDsl.g:790:1: ( ( rule__Repository__ResourcesAssignment_4 ) )
-            // InternalSemanticNodesDsl.g:791:2: ( rule__Repository__ResourcesAssignment_4 )
+            // InternalSemanticNodesDsl.g:927:1: ( ( rule__Repository__ResourcesAssignment_4 ) )
+            // InternalSemanticNodesDsl.g:928:2: ( rule__Repository__ResourcesAssignment_4 )
             {
              before(grammarAccess.getRepositoryAccess().getResourcesAssignment_4()); 
-            // InternalSemanticNodesDsl.g:792:2: ( rule__Repository__ResourcesAssignment_4 )
-            // InternalSemanticNodesDsl.g:792:3: rule__Repository__ResourcesAssignment_4
+            // InternalSemanticNodesDsl.g:929:2: ( rule__Repository__ResourcesAssignment_4 )
+            // InternalSemanticNodesDsl.g:929:3: rule__Repository__ResourcesAssignment_4
             {
             pushFollow(FOLLOW_2);
             rule__Repository__ResourcesAssignment_4();
@@ -2506,16 +2963,16 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__Repository__Group__5"
-    // InternalSemanticNodesDsl.g:800:1: rule__Repository__Group__5 : rule__Repository__Group__5__Impl rule__Repository__Group__6 ;
+    // InternalSemanticNodesDsl.g:937:1: rule__Repository__Group__5 : rule__Repository__Group__5__Impl rule__Repository__Group__6 ;
     public final void rule__Repository__Group__5() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:804:1: ( rule__Repository__Group__5__Impl rule__Repository__Group__6 )
-            // InternalSemanticNodesDsl.g:805:2: rule__Repository__Group__5__Impl rule__Repository__Group__6
+            // InternalSemanticNodesDsl.g:941:1: ( rule__Repository__Group__5__Impl rule__Repository__Group__6 )
+            // InternalSemanticNodesDsl.g:942:2: rule__Repository__Group__5__Impl rule__Repository__Group__6
             {
-            pushFollow(FOLLOW_8);
+            pushFollow(FOLLOW_11);
             rule__Repository__Group__5__Impl();
 
             state._fsp--;
@@ -2544,35 +3001,35 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__Repository__Group__5__Impl"
-    // InternalSemanticNodesDsl.g:812:1: rule__Repository__Group__5__Impl : ( ( rule__Repository__ResourcesAssignment_5 )* ) ;
+    // InternalSemanticNodesDsl.g:949:1: rule__Repository__Group__5__Impl : ( ( rule__Repository__ResourcesAssignment_5 )* ) ;
     public final void rule__Repository__Group__5__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:816:1: ( ( ( rule__Repository__ResourcesAssignment_5 )* ) )
-            // InternalSemanticNodesDsl.g:817:1: ( ( rule__Repository__ResourcesAssignment_5 )* )
+            // InternalSemanticNodesDsl.g:953:1: ( ( ( rule__Repository__ResourcesAssignment_5 )* ) )
+            // InternalSemanticNodesDsl.g:954:1: ( ( rule__Repository__ResourcesAssignment_5 )* )
             {
-            // InternalSemanticNodesDsl.g:817:1: ( ( rule__Repository__ResourcesAssignment_5 )* )
-            // InternalSemanticNodesDsl.g:818:2: ( rule__Repository__ResourcesAssignment_5 )*
+            // InternalSemanticNodesDsl.g:954:1: ( ( rule__Repository__ResourcesAssignment_5 )* )
+            // InternalSemanticNodesDsl.g:955:2: ( rule__Repository__ResourcesAssignment_5 )*
             {
              before(grammarAccess.getRepositoryAccess().getResourcesAssignment_5()); 
-            // InternalSemanticNodesDsl.g:819:2: ( rule__Repository__ResourcesAssignment_5 )*
-            loop7:
+            // InternalSemanticNodesDsl.g:956:2: ( rule__Repository__ResourcesAssignment_5 )*
+            loop9:
             do {
-                int alt7=2;
-                int LA7_0 = input.LA(1);
+                int alt9=2;
+                int LA9_0 = input.LA(1);
 
-                if ( ((LA7_0>=RULE_STRING && LA7_0<=RULE_ID)||LA7_0==29) ) {
-                    alt7=1;
+                if ( ((LA9_0>=RULE_STRING && LA9_0<=RULE_ID)||LA9_0==20) ) {
+                    alt9=1;
                 }
 
 
-                switch (alt7) {
+                switch (alt9) {
             	case 1 :
-            	    // InternalSemanticNodesDsl.g:819:3: rule__Repository__ResourcesAssignment_5
+            	    // InternalSemanticNodesDsl.g:956:3: rule__Repository__ResourcesAssignment_5
             	    {
-            	    pushFollow(FOLLOW_9);
+            	    pushFollow(FOLLOW_12);
             	    rule__Repository__ResourcesAssignment_5();
 
             	    state._fsp--;
@@ -2582,7 +3039,7 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
             	    break;
 
             	default :
-            	    break loop7;
+            	    break loop9;
                 }
             } while (true);
 
@@ -2609,14 +3066,14 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__Repository__Group__6"
-    // InternalSemanticNodesDsl.g:827:1: rule__Repository__Group__6 : rule__Repository__Group__6__Impl ;
+    // InternalSemanticNodesDsl.g:964:1: rule__Repository__Group__6 : rule__Repository__Group__6__Impl ;
     public final void rule__Repository__Group__6() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:831:1: ( rule__Repository__Group__6__Impl )
-            // InternalSemanticNodesDsl.g:832:2: rule__Repository__Group__6__Impl
+            // InternalSemanticNodesDsl.g:968:1: ( rule__Repository__Group__6__Impl )
+            // InternalSemanticNodesDsl.g:969:2: rule__Repository__Group__6__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Repository__Group__6__Impl();
@@ -2642,20 +3099,20 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__Repository__Group__6__Impl"
-    // InternalSemanticNodesDsl.g:838:1: rule__Repository__Group__6__Impl : ( '}' ) ;
+    // InternalSemanticNodesDsl.g:975:1: rule__Repository__Group__6__Impl : ( '}' ) ;
     public final void rule__Repository__Group__6__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:842:1: ( ( '}' ) )
-            // InternalSemanticNodesDsl.g:843:1: ( '}' )
+            // InternalSemanticNodesDsl.g:979:1: ( ( '}' ) )
+            // InternalSemanticNodesDsl.g:980:1: ( '}' )
             {
-            // InternalSemanticNodesDsl.g:843:1: ( '}' )
-            // InternalSemanticNodesDsl.g:844:2: '}'
+            // InternalSemanticNodesDsl.g:980:1: ( '}' )
+            // InternalSemanticNodesDsl.g:981:2: '}'
             {
              before(grammarAccess.getRepositoryAccess().getRightCurlyBracketKeyword_6()); 
-            match(input,18,FOLLOW_2); 
+            match(input,19,FOLLOW_2); 
              after(grammarAccess.getRepositoryAccess().getRightCurlyBracketKeyword_6()); 
 
             }
@@ -2679,16 +3136,16 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__Resource__Group__0"
-    // InternalSemanticNodesDsl.g:854:1: rule__Resource__Group__0 : rule__Resource__Group__0__Impl rule__Resource__Group__1 ;
+    // InternalSemanticNodesDsl.g:991:1: rule__Resource__Group__0 : rule__Resource__Group__0__Impl rule__Resource__Group__1 ;
     public final void rule__Resource__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:858:1: ( rule__Resource__Group__0__Impl rule__Resource__Group__1 )
-            // InternalSemanticNodesDsl.g:859:2: rule__Resource__Group__0__Impl rule__Resource__Group__1
+            // InternalSemanticNodesDsl.g:995:1: ( rule__Resource__Group__0__Impl rule__Resource__Group__1 )
+            // InternalSemanticNodesDsl.g:996:2: rule__Resource__Group__0__Impl rule__Resource__Group__1
             {
-            pushFollow(FOLLOW_7);
+            pushFollow(FOLLOW_10);
             rule__Resource__Group__0__Impl();
 
             state._fsp--;
@@ -2717,21 +3174,21 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__Resource__Group__0__Impl"
-    // InternalSemanticNodesDsl.g:866:1: rule__Resource__Group__0__Impl : ( () ) ;
+    // InternalSemanticNodesDsl.g:1003:1: rule__Resource__Group__0__Impl : ( () ) ;
     public final void rule__Resource__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:870:1: ( ( () ) )
-            // InternalSemanticNodesDsl.g:871:1: ( () )
+            // InternalSemanticNodesDsl.g:1007:1: ( ( () ) )
+            // InternalSemanticNodesDsl.g:1008:1: ( () )
             {
-            // InternalSemanticNodesDsl.g:871:1: ( () )
-            // InternalSemanticNodesDsl.g:872:2: ()
+            // InternalSemanticNodesDsl.g:1008:1: ( () )
+            // InternalSemanticNodesDsl.g:1009:2: ()
             {
              before(grammarAccess.getResourceAccess().getResourceAction_0()); 
-            // InternalSemanticNodesDsl.g:873:2: ()
-            // InternalSemanticNodesDsl.g:873:3: 
+            // InternalSemanticNodesDsl.g:1010:2: ()
+            // InternalSemanticNodesDsl.g:1010:3: 
             {
             }
 
@@ -2754,16 +3211,16 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__Resource__Group__1"
-    // InternalSemanticNodesDsl.g:881:1: rule__Resource__Group__1 : rule__Resource__Group__1__Impl rule__Resource__Group__2 ;
+    // InternalSemanticNodesDsl.g:1018:1: rule__Resource__Group__1 : rule__Resource__Group__1__Impl rule__Resource__Group__2 ;
     public final void rule__Resource__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:885:1: ( rule__Resource__Group__1__Impl rule__Resource__Group__2 )
-            // InternalSemanticNodesDsl.g:886:2: rule__Resource__Group__1__Impl rule__Resource__Group__2
+            // InternalSemanticNodesDsl.g:1022:1: ( rule__Resource__Group__1__Impl rule__Resource__Group__2 )
+            // InternalSemanticNodesDsl.g:1023:2: rule__Resource__Group__1__Impl rule__Resource__Group__2
             {
-            pushFollow(FOLLOW_7);
+            pushFollow(FOLLOW_10);
             rule__Resource__Group__1__Impl();
 
             state._fsp--;
@@ -2792,29 +3249,29 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__Resource__Group__1__Impl"
-    // InternalSemanticNodesDsl.g:893:1: rule__Resource__Group__1__Impl : ( ( rule__Resource__Group_1__0 )? ) ;
+    // InternalSemanticNodesDsl.g:1030:1: rule__Resource__Group__1__Impl : ( ( rule__Resource__Group_1__0 )? ) ;
     public final void rule__Resource__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:897:1: ( ( ( rule__Resource__Group_1__0 )? ) )
-            // InternalSemanticNodesDsl.g:898:1: ( ( rule__Resource__Group_1__0 )? )
+            // InternalSemanticNodesDsl.g:1034:1: ( ( ( rule__Resource__Group_1__0 )? ) )
+            // InternalSemanticNodesDsl.g:1035:1: ( ( rule__Resource__Group_1__0 )? )
             {
-            // InternalSemanticNodesDsl.g:898:1: ( ( rule__Resource__Group_1__0 )? )
-            // InternalSemanticNodesDsl.g:899:2: ( rule__Resource__Group_1__0 )?
+            // InternalSemanticNodesDsl.g:1035:1: ( ( rule__Resource__Group_1__0 )? )
+            // InternalSemanticNodesDsl.g:1036:2: ( rule__Resource__Group_1__0 )?
             {
              before(grammarAccess.getResourceAccess().getGroup_1()); 
-            // InternalSemanticNodesDsl.g:900:2: ( rule__Resource__Group_1__0 )?
-            int alt8=2;
-            int LA8_0 = input.LA(1);
+            // InternalSemanticNodesDsl.g:1037:2: ( rule__Resource__Group_1__0 )?
+            int alt10=2;
+            int LA10_0 = input.LA(1);
 
-            if ( (LA8_0==29) ) {
-                alt8=1;
+            if ( (LA10_0==20) ) {
+                alt10=1;
             }
-            switch (alt8) {
+            switch (alt10) {
                 case 1 :
-                    // InternalSemanticNodesDsl.g:900:3: rule__Resource__Group_1__0
+                    // InternalSemanticNodesDsl.g:1037:3: rule__Resource__Group_1__0
                     {
                     pushFollow(FOLLOW_2);
                     rule__Resource__Group_1__0();
@@ -2850,16 +3307,16 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__Resource__Group__2"
-    // InternalSemanticNodesDsl.g:908:1: rule__Resource__Group__2 : rule__Resource__Group__2__Impl rule__Resource__Group__3 ;
+    // InternalSemanticNodesDsl.g:1045:1: rule__Resource__Group__2 : rule__Resource__Group__2__Impl rule__Resource__Group__3 ;
     public final void rule__Resource__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:912:1: ( rule__Resource__Group__2__Impl rule__Resource__Group__3 )
-            // InternalSemanticNodesDsl.g:913:2: rule__Resource__Group__2__Impl rule__Resource__Group__3
+            // InternalSemanticNodesDsl.g:1049:1: ( rule__Resource__Group__2__Impl rule__Resource__Group__3 )
+            // InternalSemanticNodesDsl.g:1050:2: rule__Resource__Group__2__Impl rule__Resource__Group__3
             {
-            pushFollow(FOLLOW_5);
+            pushFollow(FOLLOW_10);
             rule__Resource__Group__2__Impl();
 
             state._fsp--;
@@ -2888,27 +3345,49 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__Resource__Group__2__Impl"
-    // InternalSemanticNodesDsl.g:920:1: rule__Resource__Group__2__Impl : ( ( rule__Resource__AssistantAssignment_2 ) ) ;
+    // InternalSemanticNodesDsl.g:1057:1: rule__Resource__Group__2__Impl : ( ( rule__Resource__AssistantAssignment_2 )? ) ;
     public final void rule__Resource__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:924:1: ( ( ( rule__Resource__AssistantAssignment_2 ) ) )
-            // InternalSemanticNodesDsl.g:925:1: ( ( rule__Resource__AssistantAssignment_2 ) )
+            // InternalSemanticNodesDsl.g:1061:1: ( ( ( rule__Resource__AssistantAssignment_2 )? ) )
+            // InternalSemanticNodesDsl.g:1062:1: ( ( rule__Resource__AssistantAssignment_2 )? )
             {
-            // InternalSemanticNodesDsl.g:925:1: ( ( rule__Resource__AssistantAssignment_2 ) )
-            // InternalSemanticNodesDsl.g:926:2: ( rule__Resource__AssistantAssignment_2 )
+            // InternalSemanticNodesDsl.g:1062:1: ( ( rule__Resource__AssistantAssignment_2 )? )
+            // InternalSemanticNodesDsl.g:1063:2: ( rule__Resource__AssistantAssignment_2 )?
             {
              before(grammarAccess.getResourceAccess().getAssistantAssignment_2()); 
-            // InternalSemanticNodesDsl.g:927:2: ( rule__Resource__AssistantAssignment_2 )
-            // InternalSemanticNodesDsl.g:927:3: rule__Resource__AssistantAssignment_2
-            {
-            pushFollow(FOLLOW_2);
-            rule__Resource__AssistantAssignment_2();
+            // InternalSemanticNodesDsl.g:1064:2: ( rule__Resource__AssistantAssignment_2 )?
+            int alt11=2;
+            int LA11_0 = input.LA(1);
 
-            state._fsp--;
+            if ( (LA11_0==RULE_STRING) ) {
+                int LA11_1 = input.LA(2);
 
+                if ( ((LA11_1>=RULE_STRING && LA11_1<=RULE_ID)) ) {
+                    alt11=1;
+                }
+            }
+            else if ( (LA11_0==RULE_ID) ) {
+                int LA11_2 = input.LA(2);
+
+                if ( ((LA11_2>=RULE_STRING && LA11_2<=RULE_ID)) ) {
+                    alt11=1;
+                }
+            }
+            switch (alt11) {
+                case 1 :
+                    // InternalSemanticNodesDsl.g:1064:3: rule__Resource__AssistantAssignment_2
+                    {
+                    pushFollow(FOLLOW_2);
+                    rule__Resource__AssistantAssignment_2();
+
+                    state._fsp--;
+
+
+                    }
+                    break;
 
             }
 
@@ -2935,16 +3414,16 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__Resource__Group__3"
-    // InternalSemanticNodesDsl.g:935:1: rule__Resource__Group__3 : rule__Resource__Group__3__Impl rule__Resource__Group__4 ;
+    // InternalSemanticNodesDsl.g:1072:1: rule__Resource__Group__3 : rule__Resource__Group__3__Impl rule__Resource__Group__4 ;
     public final void rule__Resource__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:939:1: ( rule__Resource__Group__3__Impl rule__Resource__Group__4 )
-            // InternalSemanticNodesDsl.g:940:2: rule__Resource__Group__3__Impl rule__Resource__Group__4
+            // InternalSemanticNodesDsl.g:1076:1: ( rule__Resource__Group__3__Impl rule__Resource__Group__4 )
+            // InternalSemanticNodesDsl.g:1077:2: rule__Resource__Group__3__Impl rule__Resource__Group__4
             {
-            pushFollow(FOLLOW_6);
+            pushFollow(FOLLOW_9);
             rule__Resource__Group__3__Impl();
 
             state._fsp--;
@@ -2973,21 +3452,21 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__Resource__Group__3__Impl"
-    // InternalSemanticNodesDsl.g:947:1: rule__Resource__Group__3__Impl : ( ( rule__Resource__NameAssignment_3 ) ) ;
+    // InternalSemanticNodesDsl.g:1084:1: rule__Resource__Group__3__Impl : ( ( rule__Resource__NameAssignment_3 ) ) ;
     public final void rule__Resource__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:951:1: ( ( ( rule__Resource__NameAssignment_3 ) ) )
-            // InternalSemanticNodesDsl.g:952:1: ( ( rule__Resource__NameAssignment_3 ) )
+            // InternalSemanticNodesDsl.g:1088:1: ( ( ( rule__Resource__NameAssignment_3 ) ) )
+            // InternalSemanticNodesDsl.g:1089:1: ( ( rule__Resource__NameAssignment_3 ) )
             {
-            // InternalSemanticNodesDsl.g:952:1: ( ( rule__Resource__NameAssignment_3 ) )
-            // InternalSemanticNodesDsl.g:953:2: ( rule__Resource__NameAssignment_3 )
+            // InternalSemanticNodesDsl.g:1089:1: ( ( rule__Resource__NameAssignment_3 ) )
+            // InternalSemanticNodesDsl.g:1090:2: ( rule__Resource__NameAssignment_3 )
             {
              before(grammarAccess.getResourceAccess().getNameAssignment_3()); 
-            // InternalSemanticNodesDsl.g:954:2: ( rule__Resource__NameAssignment_3 )
-            // InternalSemanticNodesDsl.g:954:3: rule__Resource__NameAssignment_3
+            // InternalSemanticNodesDsl.g:1091:2: ( rule__Resource__NameAssignment_3 )
+            // InternalSemanticNodesDsl.g:1091:3: rule__Resource__NameAssignment_3
             {
             pushFollow(FOLLOW_2);
             rule__Resource__NameAssignment_3();
@@ -3020,16 +3499,16 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__Resource__Group__4"
-    // InternalSemanticNodesDsl.g:962:1: rule__Resource__Group__4 : rule__Resource__Group__4__Impl rule__Resource__Group__5 ;
+    // InternalSemanticNodesDsl.g:1099:1: rule__Resource__Group__4 : rule__Resource__Group__4__Impl rule__Resource__Group__5 ;
     public final void rule__Resource__Group__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:966:1: ( rule__Resource__Group__4__Impl rule__Resource__Group__5 )
-            // InternalSemanticNodesDsl.g:967:2: rule__Resource__Group__4__Impl rule__Resource__Group__5
+            // InternalSemanticNodesDsl.g:1103:1: ( rule__Resource__Group__4__Impl rule__Resource__Group__5 )
+            // InternalSemanticNodesDsl.g:1104:2: rule__Resource__Group__4__Impl rule__Resource__Group__5
             {
-            pushFollow(FOLLOW_10);
+            pushFollow(FOLLOW_13);
             rule__Resource__Group__4__Impl();
 
             state._fsp--;
@@ -3058,20 +3537,20 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__Resource__Group__4__Impl"
-    // InternalSemanticNodesDsl.g:974:1: rule__Resource__Group__4__Impl : ( '{' ) ;
+    // InternalSemanticNodesDsl.g:1111:1: rule__Resource__Group__4__Impl : ( '{' ) ;
     public final void rule__Resource__Group__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:978:1: ( ( '{' ) )
-            // InternalSemanticNodesDsl.g:979:1: ( '{' )
+            // InternalSemanticNodesDsl.g:1115:1: ( ( '{' ) )
+            // InternalSemanticNodesDsl.g:1116:1: ( '{' )
             {
-            // InternalSemanticNodesDsl.g:979:1: ( '{' )
-            // InternalSemanticNodesDsl.g:980:2: '{'
+            // InternalSemanticNodesDsl.g:1116:1: ( '{' )
+            // InternalSemanticNodesDsl.g:1117:2: '{'
             {
              before(grammarAccess.getResourceAccess().getLeftCurlyBracketKeyword_4()); 
-            match(input,17,FOLLOW_2); 
+            match(input,18,FOLLOW_2); 
              after(grammarAccess.getResourceAccess().getLeftCurlyBracketKeyword_4()); 
 
             }
@@ -3095,16 +3574,16 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__Resource__Group__5"
-    // InternalSemanticNodesDsl.g:989:1: rule__Resource__Group__5 : rule__Resource__Group__5__Impl rule__Resource__Group__6 ;
+    // InternalSemanticNodesDsl.g:1126:1: rule__Resource__Group__5 : rule__Resource__Group__5__Impl rule__Resource__Group__6 ;
     public final void rule__Resource__Group__5() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:993:1: ( rule__Resource__Group__5__Impl rule__Resource__Group__6 )
-            // InternalSemanticNodesDsl.g:994:2: rule__Resource__Group__5__Impl rule__Resource__Group__6
+            // InternalSemanticNodesDsl.g:1130:1: ( rule__Resource__Group__5__Impl rule__Resource__Group__6 )
+            // InternalSemanticNodesDsl.g:1131:2: rule__Resource__Group__5__Impl rule__Resource__Group__6
             {
-            pushFollow(FOLLOW_10);
+            pushFollow(FOLLOW_13);
             rule__Resource__Group__5__Impl();
 
             state._fsp--;
@@ -3133,29 +3612,29 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__Resource__Group__5__Impl"
-    // InternalSemanticNodesDsl.g:1001:1: rule__Resource__Group__5__Impl : ( ( rule__Resource__Group_5__0 )? ) ;
+    // InternalSemanticNodesDsl.g:1138:1: rule__Resource__Group__5__Impl : ( ( rule__Resource__Group_5__0 )? ) ;
     public final void rule__Resource__Group__5__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:1005:1: ( ( ( rule__Resource__Group_5__0 )? ) )
-            // InternalSemanticNodesDsl.g:1006:1: ( ( rule__Resource__Group_5__0 )? )
+            // InternalSemanticNodesDsl.g:1142:1: ( ( ( rule__Resource__Group_5__0 )? ) )
+            // InternalSemanticNodesDsl.g:1143:1: ( ( rule__Resource__Group_5__0 )? )
             {
-            // InternalSemanticNodesDsl.g:1006:1: ( ( rule__Resource__Group_5__0 )? )
-            // InternalSemanticNodesDsl.g:1007:2: ( rule__Resource__Group_5__0 )?
+            // InternalSemanticNodesDsl.g:1143:1: ( ( rule__Resource__Group_5__0 )? )
+            // InternalSemanticNodesDsl.g:1144:2: ( rule__Resource__Group_5__0 )?
             {
              before(grammarAccess.getResourceAccess().getGroup_5()); 
-            // InternalSemanticNodesDsl.g:1008:2: ( rule__Resource__Group_5__0 )?
-            int alt9=2;
-            int LA9_0 = input.LA(1);
+            // InternalSemanticNodesDsl.g:1145:2: ( rule__Resource__Group_5__0 )?
+            int alt12=2;
+            int LA12_0 = input.LA(1);
 
-            if ( ((LA9_0>=RULE_STRING && LA9_0<=RULE_ID)||LA9_0==21||LA9_0==23||(LA9_0>=29 && LA9_0<=30)) ) {
-                alt9=1;
+            if ( ((LA12_0>=RULE_STRING && LA12_0<=RULE_ID)||LA12_0==20||LA12_0==22||LA12_0==24||LA12_0==30) ) {
+                alt12=1;
             }
-            switch (alt9) {
+            switch (alt12) {
                 case 1 :
-                    // InternalSemanticNodesDsl.g:1008:3: rule__Resource__Group_5__0
+                    // InternalSemanticNodesDsl.g:1145:3: rule__Resource__Group_5__0
                     {
                     pushFollow(FOLLOW_2);
                     rule__Resource__Group_5__0();
@@ -3191,16 +3670,16 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__Resource__Group__6"
-    // InternalSemanticNodesDsl.g:1016:1: rule__Resource__Group__6 : rule__Resource__Group__6__Impl rule__Resource__Group__7 ;
+    // InternalSemanticNodesDsl.g:1153:1: rule__Resource__Group__6 : rule__Resource__Group__6__Impl rule__Resource__Group__7 ;
     public final void rule__Resource__Group__6() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:1020:1: ( rule__Resource__Group__6__Impl rule__Resource__Group__7 )
-            // InternalSemanticNodesDsl.g:1021:2: rule__Resource__Group__6__Impl rule__Resource__Group__7
+            // InternalSemanticNodesDsl.g:1157:1: ( rule__Resource__Group__6__Impl rule__Resource__Group__7 )
+            // InternalSemanticNodesDsl.g:1158:2: rule__Resource__Group__6__Impl rule__Resource__Group__7
             {
-            pushFollow(FOLLOW_11);
+            pushFollow(FOLLOW_9);
             rule__Resource__Group__6__Impl();
 
             state._fsp--;
@@ -3229,20 +3708,20 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__Resource__Group__6__Impl"
-    // InternalSemanticNodesDsl.g:1028:1: rule__Resource__Group__6__Impl : ( '}' ) ;
+    // InternalSemanticNodesDsl.g:1165:1: rule__Resource__Group__6__Impl : ( '}' ) ;
     public final void rule__Resource__Group__6__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:1032:1: ( ( '}' ) )
-            // InternalSemanticNodesDsl.g:1033:1: ( '}' )
+            // InternalSemanticNodesDsl.g:1169:1: ( ( '}' ) )
+            // InternalSemanticNodesDsl.g:1170:1: ( '}' )
             {
-            // InternalSemanticNodesDsl.g:1033:1: ( '}' )
-            // InternalSemanticNodesDsl.g:1034:2: '}'
+            // InternalSemanticNodesDsl.g:1170:1: ( '}' )
+            // InternalSemanticNodesDsl.g:1171:2: '}'
             {
              before(grammarAccess.getResourceAccess().getRightCurlyBracketKeyword_6()); 
-            match(input,18,FOLLOW_2); 
+            match(input,19,FOLLOW_2); 
              after(grammarAccess.getResourceAccess().getRightCurlyBracketKeyword_6()); 
 
             }
@@ -3266,14 +3745,14 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__Resource__Group__7"
-    // InternalSemanticNodesDsl.g:1043:1: rule__Resource__Group__7 : rule__Resource__Group__7__Impl ;
+    // InternalSemanticNodesDsl.g:1180:1: rule__Resource__Group__7 : rule__Resource__Group__7__Impl ;
     public final void rule__Resource__Group__7() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:1047:1: ( rule__Resource__Group__7__Impl )
-            // InternalSemanticNodesDsl.g:1048:2: rule__Resource__Group__7__Impl
+            // InternalSemanticNodesDsl.g:1184:1: ( rule__Resource__Group__7__Impl )
+            // InternalSemanticNodesDsl.g:1185:2: rule__Resource__Group__7__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Resource__Group__7__Impl();
@@ -3299,29 +3778,29 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__Resource__Group__7__Impl"
-    // InternalSemanticNodesDsl.g:1054:1: rule__Resource__Group__7__Impl : ( ( rule__Resource__Group_7__0 )? ) ;
+    // InternalSemanticNodesDsl.g:1191:1: rule__Resource__Group__7__Impl : ( ( rule__Resource__Group_7__0 )? ) ;
     public final void rule__Resource__Group__7__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:1058:1: ( ( ( rule__Resource__Group_7__0 )? ) )
-            // InternalSemanticNodesDsl.g:1059:1: ( ( rule__Resource__Group_7__0 )? )
+            // InternalSemanticNodesDsl.g:1195:1: ( ( ( rule__Resource__Group_7__0 )? ) )
+            // InternalSemanticNodesDsl.g:1196:1: ( ( rule__Resource__Group_7__0 )? )
             {
-            // InternalSemanticNodesDsl.g:1059:1: ( ( rule__Resource__Group_7__0 )? )
-            // InternalSemanticNodesDsl.g:1060:2: ( rule__Resource__Group_7__0 )?
+            // InternalSemanticNodesDsl.g:1196:1: ( ( rule__Resource__Group_7__0 )? )
+            // InternalSemanticNodesDsl.g:1197:2: ( rule__Resource__Group_7__0 )?
             {
              before(grammarAccess.getResourceAccess().getGroup_7()); 
-            // InternalSemanticNodesDsl.g:1061:2: ( rule__Resource__Group_7__0 )?
-            int alt10=2;
-            int LA10_0 = input.LA(1);
+            // InternalSemanticNodesDsl.g:1198:2: ( rule__Resource__Group_7__0 )?
+            int alt13=2;
+            int LA13_0 = input.LA(1);
 
-            if ( (LA10_0==19) ) {
-                alt10=1;
+            if ( (LA13_0==18) ) {
+                alt13=1;
             }
-            switch (alt10) {
+            switch (alt13) {
                 case 1 :
-                    // InternalSemanticNodesDsl.g:1061:3: rule__Resource__Group_7__0
+                    // InternalSemanticNodesDsl.g:1198:3: rule__Resource__Group_7__0
                     {
                     pushFollow(FOLLOW_2);
                     rule__Resource__Group_7__0();
@@ -3357,16 +3836,16 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__Resource__Group_1__0"
-    // InternalSemanticNodesDsl.g:1070:1: rule__Resource__Group_1__0 : rule__Resource__Group_1__0__Impl rule__Resource__Group_1__1 ;
+    // InternalSemanticNodesDsl.g:1207:1: rule__Resource__Group_1__0 : rule__Resource__Group_1__0__Impl rule__Resource__Group_1__1 ;
     public final void rule__Resource__Group_1__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:1074:1: ( rule__Resource__Group_1__0__Impl rule__Resource__Group_1__1 )
-            // InternalSemanticNodesDsl.g:1075:2: rule__Resource__Group_1__0__Impl rule__Resource__Group_1__1
+            // InternalSemanticNodesDsl.g:1211:1: ( rule__Resource__Group_1__0__Impl rule__Resource__Group_1__1 )
+            // InternalSemanticNodesDsl.g:1212:2: rule__Resource__Group_1__0__Impl rule__Resource__Group_1__1
             {
-            pushFollow(FOLLOW_12);
+            pushFollow(FOLLOW_4);
             rule__Resource__Group_1__0__Impl();
 
             state._fsp--;
@@ -3395,31 +3874,21 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__Resource__Group_1__0__Impl"
-    // InternalSemanticNodesDsl.g:1082:1: rule__Resource__Group_1__0__Impl : ( ( rule__Resource__AnnotationsAssignment_1_0 ) ) ;
+    // InternalSemanticNodesDsl.g:1219:1: rule__Resource__Group_1__0__Impl : ( '@' ) ;
     public final void rule__Resource__Group_1__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:1086:1: ( ( ( rule__Resource__AnnotationsAssignment_1_0 ) ) )
-            // InternalSemanticNodesDsl.g:1087:1: ( ( rule__Resource__AnnotationsAssignment_1_0 ) )
+            // InternalSemanticNodesDsl.g:1223:1: ( ( '@' ) )
+            // InternalSemanticNodesDsl.g:1224:1: ( '@' )
             {
-            // InternalSemanticNodesDsl.g:1087:1: ( ( rule__Resource__AnnotationsAssignment_1_0 ) )
-            // InternalSemanticNodesDsl.g:1088:2: ( rule__Resource__AnnotationsAssignment_1_0 )
+            // InternalSemanticNodesDsl.g:1224:1: ( '@' )
+            // InternalSemanticNodesDsl.g:1225:2: '@'
             {
-             before(grammarAccess.getResourceAccess().getAnnotationsAssignment_1_0()); 
-            // InternalSemanticNodesDsl.g:1089:2: ( rule__Resource__AnnotationsAssignment_1_0 )
-            // InternalSemanticNodesDsl.g:1089:3: rule__Resource__AnnotationsAssignment_1_0
-            {
-            pushFollow(FOLLOW_2);
-            rule__Resource__AnnotationsAssignment_1_0();
-
-            state._fsp--;
-
-
-            }
-
-             after(grammarAccess.getResourceAccess().getAnnotationsAssignment_1_0()); 
+             before(grammarAccess.getResourceAccess().getCommercialAtKeyword_1_0()); 
+            match(input,20,FOLLOW_2); 
+             after(grammarAccess.getResourceAccess().getCommercialAtKeyword_1_0()); 
 
             }
 
@@ -3442,17 +3911,22 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__Resource__Group_1__1"
-    // InternalSemanticNodesDsl.g:1097:1: rule__Resource__Group_1__1 : rule__Resource__Group_1__1__Impl ;
+    // InternalSemanticNodesDsl.g:1234:1: rule__Resource__Group_1__1 : rule__Resource__Group_1__1__Impl rule__Resource__Group_1__2 ;
     public final void rule__Resource__Group_1__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:1101:1: ( rule__Resource__Group_1__1__Impl )
-            // InternalSemanticNodesDsl.g:1102:2: rule__Resource__Group_1__1__Impl
+            // InternalSemanticNodesDsl.g:1238:1: ( rule__Resource__Group_1__1__Impl rule__Resource__Group_1__2 )
+            // InternalSemanticNodesDsl.g:1239:2: rule__Resource__Group_1__1__Impl rule__Resource__Group_1__2
             {
-            pushFollow(FOLLOW_2);
+            pushFollow(FOLLOW_14);
             rule__Resource__Group_1__1__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_2);
+            rule__Resource__Group_1__2();
 
             state._fsp--;
 
@@ -3475,47 +3949,29 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__Resource__Group_1__1__Impl"
-    // InternalSemanticNodesDsl.g:1108:1: rule__Resource__Group_1__1__Impl : ( ( rule__Resource__AnnotationsAssignment_1_1 )* ) ;
+    // InternalSemanticNodesDsl.g:1246:1: rule__Resource__Group_1__1__Impl : ( ( rule__Resource__AnnotationsAssignment_1_1 ) ) ;
     public final void rule__Resource__Group_1__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:1112:1: ( ( ( rule__Resource__AnnotationsAssignment_1_1 )* ) )
-            // InternalSemanticNodesDsl.g:1113:1: ( ( rule__Resource__AnnotationsAssignment_1_1 )* )
+            // InternalSemanticNodesDsl.g:1250:1: ( ( ( rule__Resource__AnnotationsAssignment_1_1 ) ) )
+            // InternalSemanticNodesDsl.g:1251:1: ( ( rule__Resource__AnnotationsAssignment_1_1 ) )
             {
-            // InternalSemanticNodesDsl.g:1113:1: ( ( rule__Resource__AnnotationsAssignment_1_1 )* )
-            // InternalSemanticNodesDsl.g:1114:2: ( rule__Resource__AnnotationsAssignment_1_1 )*
+            // InternalSemanticNodesDsl.g:1251:1: ( ( rule__Resource__AnnotationsAssignment_1_1 ) )
+            // InternalSemanticNodesDsl.g:1252:2: ( rule__Resource__AnnotationsAssignment_1_1 )
             {
              before(grammarAccess.getResourceAccess().getAnnotationsAssignment_1_1()); 
-            // InternalSemanticNodesDsl.g:1115:2: ( rule__Resource__AnnotationsAssignment_1_1 )*
-            loop11:
-            do {
-                int alt11=2;
-                int LA11_0 = input.LA(1);
+            // InternalSemanticNodesDsl.g:1253:2: ( rule__Resource__AnnotationsAssignment_1_1 )
+            // InternalSemanticNodesDsl.g:1253:3: rule__Resource__AnnotationsAssignment_1_1
+            {
+            pushFollow(FOLLOW_2);
+            rule__Resource__AnnotationsAssignment_1_1();
 
-                if ( (LA11_0==29) ) {
-                    alt11=1;
-                }
+            state._fsp--;
 
 
-                switch (alt11) {
-            	case 1 :
-            	    // InternalSemanticNodesDsl.g:1115:3: rule__Resource__AnnotationsAssignment_1_1
-            	    {
-            	    pushFollow(FOLLOW_13);
-            	    rule__Resource__AnnotationsAssignment_1_1();
-
-            	    state._fsp--;
-
-
-            	    }
-            	    break;
-
-            	default :
-            	    break loop11;
-                }
-            } while (true);
+            }
 
              after(grammarAccess.getResourceAccess().getAnnotationsAssignment_1_1()); 
 
@@ -3539,17 +3995,270 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
     // $ANTLR end "rule__Resource__Group_1__1__Impl"
 
 
+    // $ANTLR start "rule__Resource__Group_1__2"
+    // InternalSemanticNodesDsl.g:1261:1: rule__Resource__Group_1__2 : rule__Resource__Group_1__2__Impl ;
+    public final void rule__Resource__Group_1__2() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalSemanticNodesDsl.g:1265:1: ( rule__Resource__Group_1__2__Impl )
+            // InternalSemanticNodesDsl.g:1266:2: rule__Resource__Group_1__2__Impl
+            {
+            pushFollow(FOLLOW_2);
+            rule__Resource__Group_1__2__Impl();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Resource__Group_1__2"
+
+
+    // $ANTLR start "rule__Resource__Group_1__2__Impl"
+    // InternalSemanticNodesDsl.g:1272:1: rule__Resource__Group_1__2__Impl : ( ( rule__Resource__Group_1_2__0 )* ) ;
+    public final void rule__Resource__Group_1__2__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalSemanticNodesDsl.g:1276:1: ( ( ( rule__Resource__Group_1_2__0 )* ) )
+            // InternalSemanticNodesDsl.g:1277:1: ( ( rule__Resource__Group_1_2__0 )* )
+            {
+            // InternalSemanticNodesDsl.g:1277:1: ( ( rule__Resource__Group_1_2__0 )* )
+            // InternalSemanticNodesDsl.g:1278:2: ( rule__Resource__Group_1_2__0 )*
+            {
+             before(grammarAccess.getResourceAccess().getGroup_1_2()); 
+            // InternalSemanticNodesDsl.g:1279:2: ( rule__Resource__Group_1_2__0 )*
+            loop14:
+            do {
+                int alt14=2;
+                int LA14_0 = input.LA(1);
+
+                if ( (LA14_0==20) ) {
+                    alt14=1;
+                }
+
+
+                switch (alt14) {
+            	case 1 :
+            	    // InternalSemanticNodesDsl.g:1279:3: rule__Resource__Group_1_2__0
+            	    {
+            	    pushFollow(FOLLOW_15);
+            	    rule__Resource__Group_1_2__0();
+
+            	    state._fsp--;
+
+
+            	    }
+            	    break;
+
+            	default :
+            	    break loop14;
+                }
+            } while (true);
+
+             after(grammarAccess.getResourceAccess().getGroup_1_2()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Resource__Group_1__2__Impl"
+
+
+    // $ANTLR start "rule__Resource__Group_1_2__0"
+    // InternalSemanticNodesDsl.g:1288:1: rule__Resource__Group_1_2__0 : rule__Resource__Group_1_2__0__Impl rule__Resource__Group_1_2__1 ;
+    public final void rule__Resource__Group_1_2__0() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalSemanticNodesDsl.g:1292:1: ( rule__Resource__Group_1_2__0__Impl rule__Resource__Group_1_2__1 )
+            // InternalSemanticNodesDsl.g:1293:2: rule__Resource__Group_1_2__0__Impl rule__Resource__Group_1_2__1
+            {
+            pushFollow(FOLLOW_4);
+            rule__Resource__Group_1_2__0__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_2);
+            rule__Resource__Group_1_2__1();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Resource__Group_1_2__0"
+
+
+    // $ANTLR start "rule__Resource__Group_1_2__0__Impl"
+    // InternalSemanticNodesDsl.g:1300:1: rule__Resource__Group_1_2__0__Impl : ( '@' ) ;
+    public final void rule__Resource__Group_1_2__0__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalSemanticNodesDsl.g:1304:1: ( ( '@' ) )
+            // InternalSemanticNodesDsl.g:1305:1: ( '@' )
+            {
+            // InternalSemanticNodesDsl.g:1305:1: ( '@' )
+            // InternalSemanticNodesDsl.g:1306:2: '@'
+            {
+             before(grammarAccess.getResourceAccess().getCommercialAtKeyword_1_2_0()); 
+            match(input,20,FOLLOW_2); 
+             after(grammarAccess.getResourceAccess().getCommercialAtKeyword_1_2_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Resource__Group_1_2__0__Impl"
+
+
+    // $ANTLR start "rule__Resource__Group_1_2__1"
+    // InternalSemanticNodesDsl.g:1315:1: rule__Resource__Group_1_2__1 : rule__Resource__Group_1_2__1__Impl ;
+    public final void rule__Resource__Group_1_2__1() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalSemanticNodesDsl.g:1319:1: ( rule__Resource__Group_1_2__1__Impl )
+            // InternalSemanticNodesDsl.g:1320:2: rule__Resource__Group_1_2__1__Impl
+            {
+            pushFollow(FOLLOW_2);
+            rule__Resource__Group_1_2__1__Impl();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Resource__Group_1_2__1"
+
+
+    // $ANTLR start "rule__Resource__Group_1_2__1__Impl"
+    // InternalSemanticNodesDsl.g:1326:1: rule__Resource__Group_1_2__1__Impl : ( ( rule__Resource__AnnotationsAssignment_1_2_1 ) ) ;
+    public final void rule__Resource__Group_1_2__1__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalSemanticNodesDsl.g:1330:1: ( ( ( rule__Resource__AnnotationsAssignment_1_2_1 ) ) )
+            // InternalSemanticNodesDsl.g:1331:1: ( ( rule__Resource__AnnotationsAssignment_1_2_1 ) )
+            {
+            // InternalSemanticNodesDsl.g:1331:1: ( ( rule__Resource__AnnotationsAssignment_1_2_1 ) )
+            // InternalSemanticNodesDsl.g:1332:2: ( rule__Resource__AnnotationsAssignment_1_2_1 )
+            {
+             before(grammarAccess.getResourceAccess().getAnnotationsAssignment_1_2_1()); 
+            // InternalSemanticNodesDsl.g:1333:2: ( rule__Resource__AnnotationsAssignment_1_2_1 )
+            // InternalSemanticNodesDsl.g:1333:3: rule__Resource__AnnotationsAssignment_1_2_1
+            {
+            pushFollow(FOLLOW_2);
+            rule__Resource__AnnotationsAssignment_1_2_1();
+
+            state._fsp--;
+
+
+            }
+
+             after(grammarAccess.getResourceAccess().getAnnotationsAssignment_1_2_1()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Resource__Group_1_2__1__Impl"
+
+
     // $ANTLR start "rule__Resource__Group_5__0"
-    // InternalSemanticNodesDsl.g:1124:1: rule__Resource__Group_5__0 : rule__Resource__Group_5__0__Impl rule__Resource__Group_5__1 ;
+    // InternalSemanticNodesDsl.g:1342:1: rule__Resource__Group_5__0 : rule__Resource__Group_5__0__Impl rule__Resource__Group_5__1 ;
     public final void rule__Resource__Group_5__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:1128:1: ( rule__Resource__Group_5__0__Impl rule__Resource__Group_5__1 )
-            // InternalSemanticNodesDsl.g:1129:2: rule__Resource__Group_5__0__Impl rule__Resource__Group_5__1
+            // InternalSemanticNodesDsl.g:1346:1: ( rule__Resource__Group_5__0__Impl rule__Resource__Group_5__1 )
+            // InternalSemanticNodesDsl.g:1347:2: rule__Resource__Group_5__0__Impl rule__Resource__Group_5__1
             {
-            pushFollow(FOLLOW_14);
+            pushFollow(FOLLOW_16);
             rule__Resource__Group_5__0__Impl();
 
             state._fsp--;
@@ -3578,21 +4287,21 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__Resource__Group_5__0__Impl"
-    // InternalSemanticNodesDsl.g:1136:1: rule__Resource__Group_5__0__Impl : ( ( rule__Resource__ResourceElementsAssignment_5_0 ) ) ;
+    // InternalSemanticNodesDsl.g:1354:1: rule__Resource__Group_5__0__Impl : ( ( rule__Resource__ResourceElementsAssignment_5_0 ) ) ;
     public final void rule__Resource__Group_5__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:1140:1: ( ( ( rule__Resource__ResourceElementsAssignment_5_0 ) ) )
-            // InternalSemanticNodesDsl.g:1141:1: ( ( rule__Resource__ResourceElementsAssignment_5_0 ) )
+            // InternalSemanticNodesDsl.g:1358:1: ( ( ( rule__Resource__ResourceElementsAssignment_5_0 ) ) )
+            // InternalSemanticNodesDsl.g:1359:1: ( ( rule__Resource__ResourceElementsAssignment_5_0 ) )
             {
-            // InternalSemanticNodesDsl.g:1141:1: ( ( rule__Resource__ResourceElementsAssignment_5_0 ) )
-            // InternalSemanticNodesDsl.g:1142:2: ( rule__Resource__ResourceElementsAssignment_5_0 )
+            // InternalSemanticNodesDsl.g:1359:1: ( ( rule__Resource__ResourceElementsAssignment_5_0 ) )
+            // InternalSemanticNodesDsl.g:1360:2: ( rule__Resource__ResourceElementsAssignment_5_0 )
             {
              before(grammarAccess.getResourceAccess().getResourceElementsAssignment_5_0()); 
-            // InternalSemanticNodesDsl.g:1143:2: ( rule__Resource__ResourceElementsAssignment_5_0 )
-            // InternalSemanticNodesDsl.g:1143:3: rule__Resource__ResourceElementsAssignment_5_0
+            // InternalSemanticNodesDsl.g:1361:2: ( rule__Resource__ResourceElementsAssignment_5_0 )
+            // InternalSemanticNodesDsl.g:1361:3: rule__Resource__ResourceElementsAssignment_5_0
             {
             pushFollow(FOLLOW_2);
             rule__Resource__ResourceElementsAssignment_5_0();
@@ -3625,14 +4334,14 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__Resource__Group_5__1"
-    // InternalSemanticNodesDsl.g:1151:1: rule__Resource__Group_5__1 : rule__Resource__Group_5__1__Impl ;
+    // InternalSemanticNodesDsl.g:1369:1: rule__Resource__Group_5__1 : rule__Resource__Group_5__1__Impl ;
     public final void rule__Resource__Group_5__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:1155:1: ( rule__Resource__Group_5__1__Impl )
-            // InternalSemanticNodesDsl.g:1156:2: rule__Resource__Group_5__1__Impl
+            // InternalSemanticNodesDsl.g:1373:1: ( rule__Resource__Group_5__1__Impl )
+            // InternalSemanticNodesDsl.g:1374:2: rule__Resource__Group_5__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Resource__Group_5__1__Impl();
@@ -3658,35 +4367,35 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__Resource__Group_5__1__Impl"
-    // InternalSemanticNodesDsl.g:1162:1: rule__Resource__Group_5__1__Impl : ( ( rule__Resource__ResourceElementsAssignment_5_1 )* ) ;
+    // InternalSemanticNodesDsl.g:1380:1: rule__Resource__Group_5__1__Impl : ( ( rule__Resource__ResourceElementsAssignment_5_1 )* ) ;
     public final void rule__Resource__Group_5__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:1166:1: ( ( ( rule__Resource__ResourceElementsAssignment_5_1 )* ) )
-            // InternalSemanticNodesDsl.g:1167:1: ( ( rule__Resource__ResourceElementsAssignment_5_1 )* )
+            // InternalSemanticNodesDsl.g:1384:1: ( ( ( rule__Resource__ResourceElementsAssignment_5_1 )* ) )
+            // InternalSemanticNodesDsl.g:1385:1: ( ( rule__Resource__ResourceElementsAssignment_5_1 )* )
             {
-            // InternalSemanticNodesDsl.g:1167:1: ( ( rule__Resource__ResourceElementsAssignment_5_1 )* )
-            // InternalSemanticNodesDsl.g:1168:2: ( rule__Resource__ResourceElementsAssignment_5_1 )*
+            // InternalSemanticNodesDsl.g:1385:1: ( ( rule__Resource__ResourceElementsAssignment_5_1 )* )
+            // InternalSemanticNodesDsl.g:1386:2: ( rule__Resource__ResourceElementsAssignment_5_1 )*
             {
              before(grammarAccess.getResourceAccess().getResourceElementsAssignment_5_1()); 
-            // InternalSemanticNodesDsl.g:1169:2: ( rule__Resource__ResourceElementsAssignment_5_1 )*
-            loop12:
+            // InternalSemanticNodesDsl.g:1387:2: ( rule__Resource__ResourceElementsAssignment_5_1 )*
+            loop15:
             do {
-                int alt12=2;
-                int LA12_0 = input.LA(1);
+                int alt15=2;
+                int LA15_0 = input.LA(1);
 
-                if ( ((LA12_0>=RULE_STRING && LA12_0<=RULE_ID)||LA12_0==21||LA12_0==23||(LA12_0>=29 && LA12_0<=30)) ) {
-                    alt12=1;
+                if ( ((LA15_0>=RULE_STRING && LA15_0<=RULE_ID)||LA15_0==20||LA15_0==22||LA15_0==24||LA15_0==30) ) {
+                    alt15=1;
                 }
 
 
-                switch (alt12) {
+                switch (alt15) {
             	case 1 :
-            	    // InternalSemanticNodesDsl.g:1169:3: rule__Resource__ResourceElementsAssignment_5_1
+            	    // InternalSemanticNodesDsl.g:1387:3: rule__Resource__ResourceElementsAssignment_5_1
             	    {
-            	    pushFollow(FOLLOW_15);
+            	    pushFollow(FOLLOW_17);
             	    rule__Resource__ResourceElementsAssignment_5_1();
 
             	    state._fsp--;
@@ -3696,7 +4405,7 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
             	    break;
 
             	default :
-            	    break loop12;
+            	    break loop15;
                 }
             } while (true);
 
@@ -3723,16 +4432,16 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__Resource__Group_7__0"
-    // InternalSemanticNodesDsl.g:1178:1: rule__Resource__Group_7__0 : rule__Resource__Group_7__0__Impl rule__Resource__Group_7__1 ;
+    // InternalSemanticNodesDsl.g:1396:1: rule__Resource__Group_7__0 : rule__Resource__Group_7__0__Impl rule__Resource__Group_7__1 ;
     public final void rule__Resource__Group_7__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:1182:1: ( rule__Resource__Group_7__0__Impl rule__Resource__Group_7__1 )
-            // InternalSemanticNodesDsl.g:1183:2: rule__Resource__Group_7__0__Impl rule__Resource__Group_7__1
+            // InternalSemanticNodesDsl.g:1400:1: ( rule__Resource__Group_7__0__Impl rule__Resource__Group_7__1 )
+            // InternalSemanticNodesDsl.g:1401:2: rule__Resource__Group_7__0__Impl rule__Resource__Group_7__1
             {
-            pushFollow(FOLLOW_6);
+            pushFollow(FOLLOW_4);
             rule__Resource__Group_7__0__Impl();
 
             state._fsp--;
@@ -3761,21 +4470,21 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__Resource__Group_7__0__Impl"
-    // InternalSemanticNodesDsl.g:1190:1: rule__Resource__Group_7__0__Impl : ( 'metadata' ) ;
+    // InternalSemanticNodesDsl.g:1408:1: rule__Resource__Group_7__0__Impl : ( '{' ) ;
     public final void rule__Resource__Group_7__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:1194:1: ( ( 'metadata' ) )
-            // InternalSemanticNodesDsl.g:1195:1: ( 'metadata' )
+            // InternalSemanticNodesDsl.g:1412:1: ( ( '{' ) )
+            // InternalSemanticNodesDsl.g:1413:1: ( '{' )
             {
-            // InternalSemanticNodesDsl.g:1195:1: ( 'metadata' )
-            // InternalSemanticNodesDsl.g:1196:2: 'metadata'
+            // InternalSemanticNodesDsl.g:1413:1: ( '{' )
+            // InternalSemanticNodesDsl.g:1414:2: '{'
             {
-             before(grammarAccess.getResourceAccess().getMetadataKeyword_7_0()); 
-            match(input,19,FOLLOW_2); 
-             after(grammarAccess.getResourceAccess().getMetadataKeyword_7_0()); 
+             before(grammarAccess.getResourceAccess().getLeftCurlyBracketKeyword_7_0()); 
+            match(input,18,FOLLOW_2); 
+             after(grammarAccess.getResourceAccess().getLeftCurlyBracketKeyword_7_0()); 
 
             }
 
@@ -3798,16 +4507,16 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__Resource__Group_7__1"
-    // InternalSemanticNodesDsl.g:1205:1: rule__Resource__Group_7__1 : rule__Resource__Group_7__1__Impl rule__Resource__Group_7__2 ;
+    // InternalSemanticNodesDsl.g:1423:1: rule__Resource__Group_7__1 : rule__Resource__Group_7__1__Impl rule__Resource__Group_7__2 ;
     public final void rule__Resource__Group_7__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:1209:1: ( rule__Resource__Group_7__1__Impl rule__Resource__Group_7__2 )
-            // InternalSemanticNodesDsl.g:1210:2: rule__Resource__Group_7__1__Impl rule__Resource__Group_7__2
+            // InternalSemanticNodesDsl.g:1427:1: ( rule__Resource__Group_7__1__Impl rule__Resource__Group_7__2 )
+            // InternalSemanticNodesDsl.g:1428:2: rule__Resource__Group_7__1__Impl rule__Resource__Group_7__2
             {
-            pushFollow(FOLLOW_5);
+            pushFollow(FOLLOW_18);
             rule__Resource__Group_7__1__Impl();
 
             state._fsp--;
@@ -3836,21 +4545,31 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__Resource__Group_7__1__Impl"
-    // InternalSemanticNodesDsl.g:1217:1: rule__Resource__Group_7__1__Impl : ( '{' ) ;
+    // InternalSemanticNodesDsl.g:1435:1: rule__Resource__Group_7__1__Impl : ( ( rule__Resource__MetaDataValueAssignment_7_1 ) ) ;
     public final void rule__Resource__Group_7__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:1221:1: ( ( '{' ) )
-            // InternalSemanticNodesDsl.g:1222:1: ( '{' )
+            // InternalSemanticNodesDsl.g:1439:1: ( ( ( rule__Resource__MetaDataValueAssignment_7_1 ) ) )
+            // InternalSemanticNodesDsl.g:1440:1: ( ( rule__Resource__MetaDataValueAssignment_7_1 ) )
             {
-            // InternalSemanticNodesDsl.g:1222:1: ( '{' )
-            // InternalSemanticNodesDsl.g:1223:2: '{'
+            // InternalSemanticNodesDsl.g:1440:1: ( ( rule__Resource__MetaDataValueAssignment_7_1 ) )
+            // InternalSemanticNodesDsl.g:1441:2: ( rule__Resource__MetaDataValueAssignment_7_1 )
             {
-             before(grammarAccess.getResourceAccess().getLeftCurlyBracketKeyword_7_1()); 
-            match(input,17,FOLLOW_2); 
-             after(grammarAccess.getResourceAccess().getLeftCurlyBracketKeyword_7_1()); 
+             before(grammarAccess.getResourceAccess().getMetaDataValueAssignment_7_1()); 
+            // InternalSemanticNodesDsl.g:1442:2: ( rule__Resource__MetaDataValueAssignment_7_1 )
+            // InternalSemanticNodesDsl.g:1442:3: rule__Resource__MetaDataValueAssignment_7_1
+            {
+            pushFollow(FOLLOW_2);
+            rule__Resource__MetaDataValueAssignment_7_1();
+
+            state._fsp--;
+
+
+            }
+
+             after(grammarAccess.getResourceAccess().getMetaDataValueAssignment_7_1()); 
 
             }
 
@@ -3873,16 +4592,16 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__Resource__Group_7__2"
-    // InternalSemanticNodesDsl.g:1232:1: rule__Resource__Group_7__2 : rule__Resource__Group_7__2__Impl rule__Resource__Group_7__3 ;
+    // InternalSemanticNodesDsl.g:1450:1: rule__Resource__Group_7__2 : rule__Resource__Group_7__2__Impl rule__Resource__Group_7__3 ;
     public final void rule__Resource__Group_7__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:1236:1: ( rule__Resource__Group_7__2__Impl rule__Resource__Group_7__3 )
-            // InternalSemanticNodesDsl.g:1237:2: rule__Resource__Group_7__2__Impl rule__Resource__Group_7__3
+            // InternalSemanticNodesDsl.g:1454:1: ( rule__Resource__Group_7__2__Impl rule__Resource__Group_7__3 )
+            // InternalSemanticNodesDsl.g:1455:2: rule__Resource__Group_7__2__Impl rule__Resource__Group_7__3
             {
-            pushFollow(FOLLOW_16);
+            pushFollow(FOLLOW_18);
             rule__Resource__Group_7__2__Impl();
 
             state._fsp--;
@@ -3911,31 +4630,49 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__Resource__Group_7__2__Impl"
-    // InternalSemanticNodesDsl.g:1244:1: rule__Resource__Group_7__2__Impl : ( ( rule__Resource__MetadataAssignment_7_2 ) ) ;
+    // InternalSemanticNodesDsl.g:1462:1: rule__Resource__Group_7__2__Impl : ( ( rule__Resource__Group_7_2__0 )* ) ;
     public final void rule__Resource__Group_7__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:1248:1: ( ( ( rule__Resource__MetadataAssignment_7_2 ) ) )
-            // InternalSemanticNodesDsl.g:1249:1: ( ( rule__Resource__MetadataAssignment_7_2 ) )
+            // InternalSemanticNodesDsl.g:1466:1: ( ( ( rule__Resource__Group_7_2__0 )* ) )
+            // InternalSemanticNodesDsl.g:1467:1: ( ( rule__Resource__Group_7_2__0 )* )
             {
-            // InternalSemanticNodesDsl.g:1249:1: ( ( rule__Resource__MetadataAssignment_7_2 ) )
-            // InternalSemanticNodesDsl.g:1250:2: ( rule__Resource__MetadataAssignment_7_2 )
+            // InternalSemanticNodesDsl.g:1467:1: ( ( rule__Resource__Group_7_2__0 )* )
+            // InternalSemanticNodesDsl.g:1468:2: ( rule__Resource__Group_7_2__0 )*
             {
-             before(grammarAccess.getResourceAccess().getMetadataAssignment_7_2()); 
-            // InternalSemanticNodesDsl.g:1251:2: ( rule__Resource__MetadataAssignment_7_2 )
-            // InternalSemanticNodesDsl.g:1251:3: rule__Resource__MetadataAssignment_7_2
-            {
-            pushFollow(FOLLOW_2);
-            rule__Resource__MetadataAssignment_7_2();
+             before(grammarAccess.getResourceAccess().getGroup_7_2()); 
+            // InternalSemanticNodesDsl.g:1469:2: ( rule__Resource__Group_7_2__0 )*
+            loop16:
+            do {
+                int alt16=2;
+                int LA16_0 = input.LA(1);
 
-            state._fsp--;
+                if ( (LA16_0==21) ) {
+                    alt16=1;
+                }
 
 
-            }
+                switch (alt16) {
+            	case 1 :
+            	    // InternalSemanticNodesDsl.g:1469:3: rule__Resource__Group_7_2__0
+            	    {
+            	    pushFollow(FOLLOW_19);
+            	    rule__Resource__Group_7_2__0();
 
-             after(grammarAccess.getResourceAccess().getMetadataAssignment_7_2()); 
+            	    state._fsp--;
+
+
+            	    }
+            	    break;
+
+            	default :
+            	    break loop16;
+                }
+            } while (true);
+
+             after(grammarAccess.getResourceAccess().getGroup_7_2()); 
 
             }
 
@@ -3958,22 +4695,17 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__Resource__Group_7__3"
-    // InternalSemanticNodesDsl.g:1259:1: rule__Resource__Group_7__3 : rule__Resource__Group_7__3__Impl rule__Resource__Group_7__4 ;
+    // InternalSemanticNodesDsl.g:1477:1: rule__Resource__Group_7__3 : rule__Resource__Group_7__3__Impl ;
     public final void rule__Resource__Group_7__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:1263:1: ( rule__Resource__Group_7__3__Impl rule__Resource__Group_7__4 )
-            // InternalSemanticNodesDsl.g:1264:2: rule__Resource__Group_7__3__Impl rule__Resource__Group_7__4
+            // InternalSemanticNodesDsl.g:1481:1: ( rule__Resource__Group_7__3__Impl )
+            // InternalSemanticNodesDsl.g:1482:2: rule__Resource__Group_7__3__Impl
             {
-            pushFollow(FOLLOW_16);
-            rule__Resource__Group_7__3__Impl();
-
-            state._fsp--;
-
             pushFollow(FOLLOW_2);
-            rule__Resource__Group_7__4();
+            rule__Resource__Group_7__3__Impl();
 
             state._fsp--;
 
@@ -3996,49 +4728,21 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__Resource__Group_7__3__Impl"
-    // InternalSemanticNodesDsl.g:1271:1: rule__Resource__Group_7__3__Impl : ( ( rule__Resource__Group_7_3__0 )* ) ;
+    // InternalSemanticNodesDsl.g:1488:1: rule__Resource__Group_7__3__Impl : ( '}' ) ;
     public final void rule__Resource__Group_7__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:1275:1: ( ( ( rule__Resource__Group_7_3__0 )* ) )
-            // InternalSemanticNodesDsl.g:1276:1: ( ( rule__Resource__Group_7_3__0 )* )
+            // InternalSemanticNodesDsl.g:1492:1: ( ( '}' ) )
+            // InternalSemanticNodesDsl.g:1493:1: ( '}' )
             {
-            // InternalSemanticNodesDsl.g:1276:1: ( ( rule__Resource__Group_7_3__0 )* )
-            // InternalSemanticNodesDsl.g:1277:2: ( rule__Resource__Group_7_3__0 )*
+            // InternalSemanticNodesDsl.g:1493:1: ( '}' )
+            // InternalSemanticNodesDsl.g:1494:2: '}'
             {
-             before(grammarAccess.getResourceAccess().getGroup_7_3()); 
-            // InternalSemanticNodesDsl.g:1278:2: ( rule__Resource__Group_7_3__0 )*
-            loop13:
-            do {
-                int alt13=2;
-                int LA13_0 = input.LA(1);
-
-                if ( (LA13_0==20) ) {
-                    alt13=1;
-                }
-
-
-                switch (alt13) {
-            	case 1 :
-            	    // InternalSemanticNodesDsl.g:1278:3: rule__Resource__Group_7_3__0
-            	    {
-            	    pushFollow(FOLLOW_17);
-            	    rule__Resource__Group_7_3__0();
-
-            	    state._fsp--;
-
-
-            	    }
-            	    break;
-
-            	default :
-            	    break loop13;
-                }
-            } while (true);
-
-             after(grammarAccess.getResourceAccess().getGroup_7_3()); 
+             before(grammarAccess.getResourceAccess().getRightCurlyBracketKeyword_7_3()); 
+            match(input,19,FOLLOW_2); 
+             after(grammarAccess.getResourceAccess().getRightCurlyBracketKeyword_7_3()); 
 
             }
 
@@ -4060,93 +4764,23 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
     // $ANTLR end "rule__Resource__Group_7__3__Impl"
 
 
-    // $ANTLR start "rule__Resource__Group_7__4"
-    // InternalSemanticNodesDsl.g:1286:1: rule__Resource__Group_7__4 : rule__Resource__Group_7__4__Impl ;
-    public final void rule__Resource__Group_7__4() throws RecognitionException {
+    // $ANTLR start "rule__Resource__Group_7_2__0"
+    // InternalSemanticNodesDsl.g:1504:1: rule__Resource__Group_7_2__0 : rule__Resource__Group_7_2__0__Impl rule__Resource__Group_7_2__1 ;
+    public final void rule__Resource__Group_7_2__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:1290:1: ( rule__Resource__Group_7__4__Impl )
-            // InternalSemanticNodesDsl.g:1291:2: rule__Resource__Group_7__4__Impl
+            // InternalSemanticNodesDsl.g:1508:1: ( rule__Resource__Group_7_2__0__Impl rule__Resource__Group_7_2__1 )
+            // InternalSemanticNodesDsl.g:1509:2: rule__Resource__Group_7_2__0__Impl rule__Resource__Group_7_2__1
             {
-            pushFollow(FOLLOW_2);
-            rule__Resource__Group_7__4__Impl();
-
-            state._fsp--;
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Resource__Group_7__4"
-
-
-    // $ANTLR start "rule__Resource__Group_7__4__Impl"
-    // InternalSemanticNodesDsl.g:1297:1: rule__Resource__Group_7__4__Impl : ( '}' ) ;
-    public final void rule__Resource__Group_7__4__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalSemanticNodesDsl.g:1301:1: ( ( '}' ) )
-            // InternalSemanticNodesDsl.g:1302:1: ( '}' )
-            {
-            // InternalSemanticNodesDsl.g:1302:1: ( '}' )
-            // InternalSemanticNodesDsl.g:1303:2: '}'
-            {
-             before(grammarAccess.getResourceAccess().getRightCurlyBracketKeyword_7_4()); 
-            match(input,18,FOLLOW_2); 
-             after(grammarAccess.getResourceAccess().getRightCurlyBracketKeyword_7_4()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Resource__Group_7__4__Impl"
-
-
-    // $ANTLR start "rule__Resource__Group_7_3__0"
-    // InternalSemanticNodesDsl.g:1313:1: rule__Resource__Group_7_3__0 : rule__Resource__Group_7_3__0__Impl rule__Resource__Group_7_3__1 ;
-    public final void rule__Resource__Group_7_3__0() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalSemanticNodesDsl.g:1317:1: ( rule__Resource__Group_7_3__0__Impl rule__Resource__Group_7_3__1 )
-            // InternalSemanticNodesDsl.g:1318:2: rule__Resource__Group_7_3__0__Impl rule__Resource__Group_7_3__1
-            {
-            pushFollow(FOLLOW_5);
-            rule__Resource__Group_7_3__0__Impl();
+            pushFollow(FOLLOW_4);
+            rule__Resource__Group_7_2__0__Impl();
 
             state._fsp--;
 
             pushFollow(FOLLOW_2);
-            rule__Resource__Group_7_3__1();
+            rule__Resource__Group_7_2__1();
 
             state._fsp--;
 
@@ -4165,25 +4799,25 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
         }
         return ;
     }
-    // $ANTLR end "rule__Resource__Group_7_3__0"
+    // $ANTLR end "rule__Resource__Group_7_2__0"
 
 
-    // $ANTLR start "rule__Resource__Group_7_3__0__Impl"
-    // InternalSemanticNodesDsl.g:1325:1: rule__Resource__Group_7_3__0__Impl : ( ',' ) ;
-    public final void rule__Resource__Group_7_3__0__Impl() throws RecognitionException {
+    // $ANTLR start "rule__Resource__Group_7_2__0__Impl"
+    // InternalSemanticNodesDsl.g:1516:1: rule__Resource__Group_7_2__0__Impl : ( ',' ) ;
+    public final void rule__Resource__Group_7_2__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:1329:1: ( ( ',' ) )
-            // InternalSemanticNodesDsl.g:1330:1: ( ',' )
+            // InternalSemanticNodesDsl.g:1520:1: ( ( ',' ) )
+            // InternalSemanticNodesDsl.g:1521:1: ( ',' )
             {
-            // InternalSemanticNodesDsl.g:1330:1: ( ',' )
-            // InternalSemanticNodesDsl.g:1331:2: ','
+            // InternalSemanticNodesDsl.g:1521:1: ( ',' )
+            // InternalSemanticNodesDsl.g:1522:2: ','
             {
-             before(grammarAccess.getResourceAccess().getCommaKeyword_7_3_0()); 
-            match(input,20,FOLLOW_2); 
-             after(grammarAccess.getResourceAccess().getCommaKeyword_7_3_0()); 
+             before(grammarAccess.getResourceAccess().getCommaKeyword_7_2_0()); 
+            match(input,21,FOLLOW_2); 
+             after(grammarAccess.getResourceAccess().getCommaKeyword_7_2_0()); 
 
             }
 
@@ -4202,21 +4836,21 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
         }
         return ;
     }
-    // $ANTLR end "rule__Resource__Group_7_3__0__Impl"
+    // $ANTLR end "rule__Resource__Group_7_2__0__Impl"
 
 
-    // $ANTLR start "rule__Resource__Group_7_3__1"
-    // InternalSemanticNodesDsl.g:1340:1: rule__Resource__Group_7_3__1 : rule__Resource__Group_7_3__1__Impl ;
-    public final void rule__Resource__Group_7_3__1() throws RecognitionException {
+    // $ANTLR start "rule__Resource__Group_7_2__1"
+    // InternalSemanticNodesDsl.g:1531:1: rule__Resource__Group_7_2__1 : rule__Resource__Group_7_2__1__Impl ;
+    public final void rule__Resource__Group_7_2__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:1344:1: ( rule__Resource__Group_7_3__1__Impl )
-            // InternalSemanticNodesDsl.g:1345:2: rule__Resource__Group_7_3__1__Impl
+            // InternalSemanticNodesDsl.g:1535:1: ( rule__Resource__Group_7_2__1__Impl )
+            // InternalSemanticNodesDsl.g:1536:2: rule__Resource__Group_7_2__1__Impl
             {
             pushFollow(FOLLOW_2);
-            rule__Resource__Group_7_3__1__Impl();
+            rule__Resource__Group_7_2__1__Impl();
 
             state._fsp--;
 
@@ -4235,35 +4869,35 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
         }
         return ;
     }
-    // $ANTLR end "rule__Resource__Group_7_3__1"
+    // $ANTLR end "rule__Resource__Group_7_2__1"
 
 
-    // $ANTLR start "rule__Resource__Group_7_3__1__Impl"
-    // InternalSemanticNodesDsl.g:1351:1: rule__Resource__Group_7_3__1__Impl : ( ( rule__Resource__MetadataAssignment_7_3_1 ) ) ;
-    public final void rule__Resource__Group_7_3__1__Impl() throws RecognitionException {
+    // $ANTLR start "rule__Resource__Group_7_2__1__Impl"
+    // InternalSemanticNodesDsl.g:1542:1: rule__Resource__Group_7_2__1__Impl : ( ( rule__Resource__MetaDataValueAssignment_7_2_1 ) ) ;
+    public final void rule__Resource__Group_7_2__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:1355:1: ( ( ( rule__Resource__MetadataAssignment_7_3_1 ) ) )
-            // InternalSemanticNodesDsl.g:1356:1: ( ( rule__Resource__MetadataAssignment_7_3_1 ) )
+            // InternalSemanticNodesDsl.g:1546:1: ( ( ( rule__Resource__MetaDataValueAssignment_7_2_1 ) ) )
+            // InternalSemanticNodesDsl.g:1547:1: ( ( rule__Resource__MetaDataValueAssignment_7_2_1 ) )
             {
-            // InternalSemanticNodesDsl.g:1356:1: ( ( rule__Resource__MetadataAssignment_7_3_1 ) )
-            // InternalSemanticNodesDsl.g:1357:2: ( rule__Resource__MetadataAssignment_7_3_1 )
+            // InternalSemanticNodesDsl.g:1547:1: ( ( rule__Resource__MetaDataValueAssignment_7_2_1 ) )
+            // InternalSemanticNodesDsl.g:1548:2: ( rule__Resource__MetaDataValueAssignment_7_2_1 )
             {
-             before(grammarAccess.getResourceAccess().getMetadataAssignment_7_3_1()); 
-            // InternalSemanticNodesDsl.g:1358:2: ( rule__Resource__MetadataAssignment_7_3_1 )
-            // InternalSemanticNodesDsl.g:1358:3: rule__Resource__MetadataAssignment_7_3_1
+             before(grammarAccess.getResourceAccess().getMetaDataValueAssignment_7_2_1()); 
+            // InternalSemanticNodesDsl.g:1549:2: ( rule__Resource__MetaDataValueAssignment_7_2_1 )
+            // InternalSemanticNodesDsl.g:1549:3: rule__Resource__MetaDataValueAssignment_7_2_1
             {
             pushFollow(FOLLOW_2);
-            rule__Resource__MetadataAssignment_7_3_1();
+            rule__Resource__MetaDataValueAssignment_7_2_1();
 
             state._fsp--;
 
 
             }
 
-             after(grammarAccess.getResourceAccess().getMetadataAssignment_7_3_1()); 
+             after(grammarAccess.getResourceAccess().getMetaDataValueAssignment_7_2_1()); 
 
             }
 
@@ -4282,20 +4916,20 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
         }
         return ;
     }
-    // $ANTLR end "rule__Resource__Group_7_3__1__Impl"
+    // $ANTLR end "rule__Resource__Group_7_2__1__Impl"
 
 
     // $ANTLR start "rule__Enumeration__Group__0"
-    // InternalSemanticNodesDsl.g:1367:1: rule__Enumeration__Group__0 : rule__Enumeration__Group__0__Impl rule__Enumeration__Group__1 ;
+    // InternalSemanticNodesDsl.g:1558:1: rule__Enumeration__Group__0 : rule__Enumeration__Group__0__Impl rule__Enumeration__Group__1 ;
     public final void rule__Enumeration__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:1371:1: ( rule__Enumeration__Group__0__Impl rule__Enumeration__Group__1 )
-            // InternalSemanticNodesDsl.g:1372:2: rule__Enumeration__Group__0__Impl rule__Enumeration__Group__1
+            // InternalSemanticNodesDsl.g:1562:1: ( rule__Enumeration__Group__0__Impl rule__Enumeration__Group__1 )
+            // InternalSemanticNodesDsl.g:1563:2: rule__Enumeration__Group__0__Impl rule__Enumeration__Group__1
             {
-            pushFollow(FOLLOW_14);
+            pushFollow(FOLLOW_16);
             rule__Enumeration__Group__0__Impl();
 
             state._fsp--;
@@ -4324,21 +4958,21 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__Enumeration__Group__0__Impl"
-    // InternalSemanticNodesDsl.g:1379:1: rule__Enumeration__Group__0__Impl : ( () ) ;
+    // InternalSemanticNodesDsl.g:1570:1: rule__Enumeration__Group__0__Impl : ( () ) ;
     public final void rule__Enumeration__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:1383:1: ( ( () ) )
-            // InternalSemanticNodesDsl.g:1384:1: ( () )
+            // InternalSemanticNodesDsl.g:1574:1: ( ( () ) )
+            // InternalSemanticNodesDsl.g:1575:1: ( () )
             {
-            // InternalSemanticNodesDsl.g:1384:1: ( () )
-            // InternalSemanticNodesDsl.g:1385:2: ()
+            // InternalSemanticNodesDsl.g:1575:1: ( () )
+            // InternalSemanticNodesDsl.g:1576:2: ()
             {
              before(grammarAccess.getEnumerationAccess().getEnumerationAction_0()); 
-            // InternalSemanticNodesDsl.g:1386:2: ()
-            // InternalSemanticNodesDsl.g:1386:3: 
+            // InternalSemanticNodesDsl.g:1577:2: ()
+            // InternalSemanticNodesDsl.g:1577:3: 
             {
             }
 
@@ -4361,16 +4995,16 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__Enumeration__Group__1"
-    // InternalSemanticNodesDsl.g:1394:1: rule__Enumeration__Group__1 : rule__Enumeration__Group__1__Impl rule__Enumeration__Group__2 ;
+    // InternalSemanticNodesDsl.g:1585:1: rule__Enumeration__Group__1 : rule__Enumeration__Group__1__Impl rule__Enumeration__Group__2 ;
     public final void rule__Enumeration__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:1398:1: ( rule__Enumeration__Group__1__Impl rule__Enumeration__Group__2 )
-            // InternalSemanticNodesDsl.g:1399:2: rule__Enumeration__Group__1__Impl rule__Enumeration__Group__2
+            // InternalSemanticNodesDsl.g:1589:1: ( rule__Enumeration__Group__1__Impl rule__Enumeration__Group__2 )
+            // InternalSemanticNodesDsl.g:1590:2: rule__Enumeration__Group__1__Impl rule__Enumeration__Group__2
             {
-            pushFollow(FOLLOW_5);
+            pushFollow(FOLLOW_4);
             rule__Enumeration__Group__1__Impl();
 
             state._fsp--;
@@ -4399,20 +5033,20 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__Enumeration__Group__1__Impl"
-    // InternalSemanticNodesDsl.g:1406:1: rule__Enumeration__Group__1__Impl : ( 'enum' ) ;
+    // InternalSemanticNodesDsl.g:1597:1: rule__Enumeration__Group__1__Impl : ( 'enum' ) ;
     public final void rule__Enumeration__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:1410:1: ( ( 'enum' ) )
-            // InternalSemanticNodesDsl.g:1411:1: ( 'enum' )
+            // InternalSemanticNodesDsl.g:1601:1: ( ( 'enum' ) )
+            // InternalSemanticNodesDsl.g:1602:1: ( 'enum' )
             {
-            // InternalSemanticNodesDsl.g:1411:1: ( 'enum' )
-            // InternalSemanticNodesDsl.g:1412:2: 'enum'
+            // InternalSemanticNodesDsl.g:1602:1: ( 'enum' )
+            // InternalSemanticNodesDsl.g:1603:2: 'enum'
             {
              before(grammarAccess.getEnumerationAccess().getEnumKeyword_1()); 
-            match(input,21,FOLLOW_2); 
+            match(input,22,FOLLOW_2); 
              after(grammarAccess.getEnumerationAccess().getEnumKeyword_1()); 
 
             }
@@ -4436,16 +5070,16 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__Enumeration__Group__2"
-    // InternalSemanticNodesDsl.g:1421:1: rule__Enumeration__Group__2 : rule__Enumeration__Group__2__Impl rule__Enumeration__Group__3 ;
+    // InternalSemanticNodesDsl.g:1612:1: rule__Enumeration__Group__2 : rule__Enumeration__Group__2__Impl rule__Enumeration__Group__3 ;
     public final void rule__Enumeration__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:1425:1: ( rule__Enumeration__Group__2__Impl rule__Enumeration__Group__3 )
-            // InternalSemanticNodesDsl.g:1426:2: rule__Enumeration__Group__2__Impl rule__Enumeration__Group__3
+            // InternalSemanticNodesDsl.g:1616:1: ( rule__Enumeration__Group__2__Impl rule__Enumeration__Group__3 )
+            // InternalSemanticNodesDsl.g:1617:2: rule__Enumeration__Group__2__Impl rule__Enumeration__Group__3
             {
-            pushFollow(FOLLOW_6);
+            pushFollow(FOLLOW_9);
             rule__Enumeration__Group__2__Impl();
 
             state._fsp--;
@@ -4474,21 +5108,21 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__Enumeration__Group__2__Impl"
-    // InternalSemanticNodesDsl.g:1433:1: rule__Enumeration__Group__2__Impl : ( ( rule__Enumeration__NameAssignment_2 ) ) ;
+    // InternalSemanticNodesDsl.g:1624:1: rule__Enumeration__Group__2__Impl : ( ( rule__Enumeration__NameAssignment_2 ) ) ;
     public final void rule__Enumeration__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:1437:1: ( ( ( rule__Enumeration__NameAssignment_2 ) ) )
-            // InternalSemanticNodesDsl.g:1438:1: ( ( rule__Enumeration__NameAssignment_2 ) )
+            // InternalSemanticNodesDsl.g:1628:1: ( ( ( rule__Enumeration__NameAssignment_2 ) ) )
+            // InternalSemanticNodesDsl.g:1629:1: ( ( rule__Enumeration__NameAssignment_2 ) )
             {
-            // InternalSemanticNodesDsl.g:1438:1: ( ( rule__Enumeration__NameAssignment_2 ) )
-            // InternalSemanticNodesDsl.g:1439:2: ( rule__Enumeration__NameAssignment_2 )
+            // InternalSemanticNodesDsl.g:1629:1: ( ( rule__Enumeration__NameAssignment_2 ) )
+            // InternalSemanticNodesDsl.g:1630:2: ( rule__Enumeration__NameAssignment_2 )
             {
              before(grammarAccess.getEnumerationAccess().getNameAssignment_2()); 
-            // InternalSemanticNodesDsl.g:1440:2: ( rule__Enumeration__NameAssignment_2 )
-            // InternalSemanticNodesDsl.g:1440:3: rule__Enumeration__NameAssignment_2
+            // InternalSemanticNodesDsl.g:1631:2: ( rule__Enumeration__NameAssignment_2 )
+            // InternalSemanticNodesDsl.g:1631:3: rule__Enumeration__NameAssignment_2
             {
             pushFollow(FOLLOW_2);
             rule__Enumeration__NameAssignment_2();
@@ -4521,16 +5155,16 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__Enumeration__Group__3"
-    // InternalSemanticNodesDsl.g:1448:1: rule__Enumeration__Group__3 : rule__Enumeration__Group__3__Impl rule__Enumeration__Group__4 ;
+    // InternalSemanticNodesDsl.g:1639:1: rule__Enumeration__Group__3 : rule__Enumeration__Group__3__Impl rule__Enumeration__Group__4 ;
     public final void rule__Enumeration__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:1452:1: ( rule__Enumeration__Group__3__Impl rule__Enumeration__Group__4 )
-            // InternalSemanticNodesDsl.g:1453:2: rule__Enumeration__Group__3__Impl rule__Enumeration__Group__4
+            // InternalSemanticNodesDsl.g:1643:1: ( rule__Enumeration__Group__3__Impl rule__Enumeration__Group__4 )
+            // InternalSemanticNodesDsl.g:1644:2: rule__Enumeration__Group__3__Impl rule__Enumeration__Group__4
             {
-            pushFollow(FOLLOW_18);
+            pushFollow(FOLLOW_20);
             rule__Enumeration__Group__3__Impl();
 
             state._fsp--;
@@ -4559,20 +5193,20 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__Enumeration__Group__3__Impl"
-    // InternalSemanticNodesDsl.g:1460:1: rule__Enumeration__Group__3__Impl : ( '{' ) ;
+    // InternalSemanticNodesDsl.g:1651:1: rule__Enumeration__Group__3__Impl : ( '{' ) ;
     public final void rule__Enumeration__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:1464:1: ( ( '{' ) )
-            // InternalSemanticNodesDsl.g:1465:1: ( '{' )
+            // InternalSemanticNodesDsl.g:1655:1: ( ( '{' ) )
+            // InternalSemanticNodesDsl.g:1656:1: ( '{' )
             {
-            // InternalSemanticNodesDsl.g:1465:1: ( '{' )
-            // InternalSemanticNodesDsl.g:1466:2: '{'
+            // InternalSemanticNodesDsl.g:1656:1: ( '{' )
+            // InternalSemanticNodesDsl.g:1657:2: '{'
             {
              before(grammarAccess.getEnumerationAccess().getLeftCurlyBracketKeyword_3()); 
-            match(input,17,FOLLOW_2); 
+            match(input,18,FOLLOW_2); 
              after(grammarAccess.getEnumerationAccess().getLeftCurlyBracketKeyword_3()); 
 
             }
@@ -4596,16 +5230,16 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__Enumeration__Group__4"
-    // InternalSemanticNodesDsl.g:1475:1: rule__Enumeration__Group__4 : rule__Enumeration__Group__4__Impl rule__Enumeration__Group__5 ;
+    // InternalSemanticNodesDsl.g:1666:1: rule__Enumeration__Group__4 : rule__Enumeration__Group__4__Impl rule__Enumeration__Group__5 ;
     public final void rule__Enumeration__Group__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:1479:1: ( rule__Enumeration__Group__4__Impl rule__Enumeration__Group__5 )
-            // InternalSemanticNodesDsl.g:1480:2: rule__Enumeration__Group__4__Impl rule__Enumeration__Group__5
+            // InternalSemanticNodesDsl.g:1670:1: ( rule__Enumeration__Group__4__Impl rule__Enumeration__Group__5 )
+            // InternalSemanticNodesDsl.g:1671:2: rule__Enumeration__Group__4__Impl rule__Enumeration__Group__5
             {
-            pushFollow(FOLLOW_18);
+            pushFollow(FOLLOW_20);
             rule__Enumeration__Group__4__Impl();
 
             state._fsp--;
@@ -4634,29 +5268,29 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__Enumeration__Group__4__Impl"
-    // InternalSemanticNodesDsl.g:1487:1: rule__Enumeration__Group__4__Impl : ( ( rule__Enumeration__Group_4__0 )? ) ;
+    // InternalSemanticNodesDsl.g:1678:1: rule__Enumeration__Group__4__Impl : ( ( rule__Enumeration__Group_4__0 )? ) ;
     public final void rule__Enumeration__Group__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:1491:1: ( ( ( rule__Enumeration__Group_4__0 )? ) )
-            // InternalSemanticNodesDsl.g:1492:1: ( ( rule__Enumeration__Group_4__0 )? )
+            // InternalSemanticNodesDsl.g:1682:1: ( ( ( rule__Enumeration__Group_4__0 )? ) )
+            // InternalSemanticNodesDsl.g:1683:1: ( ( rule__Enumeration__Group_4__0 )? )
             {
-            // InternalSemanticNodesDsl.g:1492:1: ( ( rule__Enumeration__Group_4__0 )? )
-            // InternalSemanticNodesDsl.g:1493:2: ( rule__Enumeration__Group_4__0 )?
+            // InternalSemanticNodesDsl.g:1683:1: ( ( rule__Enumeration__Group_4__0 )? )
+            // InternalSemanticNodesDsl.g:1684:2: ( rule__Enumeration__Group_4__0 )?
             {
              before(grammarAccess.getEnumerationAccess().getGroup_4()); 
-            // InternalSemanticNodesDsl.g:1494:2: ( rule__Enumeration__Group_4__0 )?
-            int alt14=2;
-            int LA14_0 = input.LA(1);
+            // InternalSemanticNodesDsl.g:1685:2: ( rule__Enumeration__Group_4__0 )?
+            int alt17=2;
+            int LA17_0 = input.LA(1);
 
-            if ( (LA14_0==RULE_INT||LA14_0==28) ) {
-                alt14=1;
+            if ( (LA17_0==RULE_INT||LA17_0==29) ) {
+                alt17=1;
             }
-            switch (alt14) {
+            switch (alt17) {
                 case 1 :
-                    // InternalSemanticNodesDsl.g:1494:3: rule__Enumeration__Group_4__0
+                    // InternalSemanticNodesDsl.g:1685:3: rule__Enumeration__Group_4__0
                     {
                     pushFollow(FOLLOW_2);
                     rule__Enumeration__Group_4__0();
@@ -4692,14 +5326,14 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__Enumeration__Group__5"
-    // InternalSemanticNodesDsl.g:1502:1: rule__Enumeration__Group__5 : rule__Enumeration__Group__5__Impl ;
+    // InternalSemanticNodesDsl.g:1693:1: rule__Enumeration__Group__5 : rule__Enumeration__Group__5__Impl ;
     public final void rule__Enumeration__Group__5() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:1506:1: ( rule__Enumeration__Group__5__Impl )
-            // InternalSemanticNodesDsl.g:1507:2: rule__Enumeration__Group__5__Impl
+            // InternalSemanticNodesDsl.g:1697:1: ( rule__Enumeration__Group__5__Impl )
+            // InternalSemanticNodesDsl.g:1698:2: rule__Enumeration__Group__5__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Enumeration__Group__5__Impl();
@@ -4725,20 +5359,20 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__Enumeration__Group__5__Impl"
-    // InternalSemanticNodesDsl.g:1513:1: rule__Enumeration__Group__5__Impl : ( '}' ) ;
+    // InternalSemanticNodesDsl.g:1704:1: rule__Enumeration__Group__5__Impl : ( '}' ) ;
     public final void rule__Enumeration__Group__5__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:1517:1: ( ( '}' ) )
-            // InternalSemanticNodesDsl.g:1518:1: ( '}' )
+            // InternalSemanticNodesDsl.g:1708:1: ( ( '}' ) )
+            // InternalSemanticNodesDsl.g:1709:1: ( '}' )
             {
-            // InternalSemanticNodesDsl.g:1518:1: ( '}' )
-            // InternalSemanticNodesDsl.g:1519:2: '}'
+            // InternalSemanticNodesDsl.g:1709:1: ( '}' )
+            // InternalSemanticNodesDsl.g:1710:2: '}'
             {
              before(grammarAccess.getEnumerationAccess().getRightCurlyBracketKeyword_5()); 
-            match(input,18,FOLLOW_2); 
+            match(input,19,FOLLOW_2); 
              after(grammarAccess.getEnumerationAccess().getRightCurlyBracketKeyword_5()); 
 
             }
@@ -4762,16 +5396,16 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__Enumeration__Group_4__0"
-    // InternalSemanticNodesDsl.g:1529:1: rule__Enumeration__Group_4__0 : rule__Enumeration__Group_4__0__Impl rule__Enumeration__Group_4__1 ;
+    // InternalSemanticNodesDsl.g:1720:1: rule__Enumeration__Group_4__0 : rule__Enumeration__Group_4__0__Impl rule__Enumeration__Group_4__1 ;
     public final void rule__Enumeration__Group_4__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:1533:1: ( rule__Enumeration__Group_4__0__Impl rule__Enumeration__Group_4__1 )
-            // InternalSemanticNodesDsl.g:1534:2: rule__Enumeration__Group_4__0__Impl rule__Enumeration__Group_4__1
+            // InternalSemanticNodesDsl.g:1724:1: ( rule__Enumeration__Group_4__0__Impl rule__Enumeration__Group_4__1 )
+            // InternalSemanticNodesDsl.g:1725:2: rule__Enumeration__Group_4__0__Impl rule__Enumeration__Group_4__1
             {
-            pushFollow(FOLLOW_19);
+            pushFollow(FOLLOW_21);
             rule__Enumeration__Group_4__0__Impl();
 
             state._fsp--;
@@ -4800,21 +5434,21 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__Enumeration__Group_4__0__Impl"
-    // InternalSemanticNodesDsl.g:1541:1: rule__Enumeration__Group_4__0__Impl : ( ( rule__Enumeration__LiteralsAssignment_4_0 ) ) ;
+    // InternalSemanticNodesDsl.g:1732:1: rule__Enumeration__Group_4__0__Impl : ( ( rule__Enumeration__LiteralsAssignment_4_0 ) ) ;
     public final void rule__Enumeration__Group_4__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:1545:1: ( ( ( rule__Enumeration__LiteralsAssignment_4_0 ) ) )
-            // InternalSemanticNodesDsl.g:1546:1: ( ( rule__Enumeration__LiteralsAssignment_4_0 ) )
+            // InternalSemanticNodesDsl.g:1736:1: ( ( ( rule__Enumeration__LiteralsAssignment_4_0 ) ) )
+            // InternalSemanticNodesDsl.g:1737:1: ( ( rule__Enumeration__LiteralsAssignment_4_0 ) )
             {
-            // InternalSemanticNodesDsl.g:1546:1: ( ( rule__Enumeration__LiteralsAssignment_4_0 ) )
-            // InternalSemanticNodesDsl.g:1547:2: ( rule__Enumeration__LiteralsAssignment_4_0 )
+            // InternalSemanticNodesDsl.g:1737:1: ( ( rule__Enumeration__LiteralsAssignment_4_0 ) )
+            // InternalSemanticNodesDsl.g:1738:2: ( rule__Enumeration__LiteralsAssignment_4_0 )
             {
              before(grammarAccess.getEnumerationAccess().getLiteralsAssignment_4_0()); 
-            // InternalSemanticNodesDsl.g:1548:2: ( rule__Enumeration__LiteralsAssignment_4_0 )
-            // InternalSemanticNodesDsl.g:1548:3: rule__Enumeration__LiteralsAssignment_4_0
+            // InternalSemanticNodesDsl.g:1739:2: ( rule__Enumeration__LiteralsAssignment_4_0 )
+            // InternalSemanticNodesDsl.g:1739:3: rule__Enumeration__LiteralsAssignment_4_0
             {
             pushFollow(FOLLOW_2);
             rule__Enumeration__LiteralsAssignment_4_0();
@@ -4847,14 +5481,14 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__Enumeration__Group_4__1"
-    // InternalSemanticNodesDsl.g:1556:1: rule__Enumeration__Group_4__1 : rule__Enumeration__Group_4__1__Impl ;
+    // InternalSemanticNodesDsl.g:1747:1: rule__Enumeration__Group_4__1 : rule__Enumeration__Group_4__1__Impl ;
     public final void rule__Enumeration__Group_4__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:1560:1: ( rule__Enumeration__Group_4__1__Impl )
-            // InternalSemanticNodesDsl.g:1561:2: rule__Enumeration__Group_4__1__Impl
+            // InternalSemanticNodesDsl.g:1751:1: ( rule__Enumeration__Group_4__1__Impl )
+            // InternalSemanticNodesDsl.g:1752:2: rule__Enumeration__Group_4__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Enumeration__Group_4__1__Impl();
@@ -4880,35 +5514,35 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__Enumeration__Group_4__1__Impl"
-    // InternalSemanticNodesDsl.g:1567:1: rule__Enumeration__Group_4__1__Impl : ( ( rule__Enumeration__LiteralsAssignment_4_1 )* ) ;
+    // InternalSemanticNodesDsl.g:1758:1: rule__Enumeration__Group_4__1__Impl : ( ( rule__Enumeration__LiteralsAssignment_4_1 )* ) ;
     public final void rule__Enumeration__Group_4__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:1571:1: ( ( ( rule__Enumeration__LiteralsAssignment_4_1 )* ) )
-            // InternalSemanticNodesDsl.g:1572:1: ( ( rule__Enumeration__LiteralsAssignment_4_1 )* )
+            // InternalSemanticNodesDsl.g:1762:1: ( ( ( rule__Enumeration__LiteralsAssignment_4_1 )* ) )
+            // InternalSemanticNodesDsl.g:1763:1: ( ( rule__Enumeration__LiteralsAssignment_4_1 )* )
             {
-            // InternalSemanticNodesDsl.g:1572:1: ( ( rule__Enumeration__LiteralsAssignment_4_1 )* )
-            // InternalSemanticNodesDsl.g:1573:2: ( rule__Enumeration__LiteralsAssignment_4_1 )*
+            // InternalSemanticNodesDsl.g:1763:1: ( ( rule__Enumeration__LiteralsAssignment_4_1 )* )
+            // InternalSemanticNodesDsl.g:1764:2: ( rule__Enumeration__LiteralsAssignment_4_1 )*
             {
              before(grammarAccess.getEnumerationAccess().getLiteralsAssignment_4_1()); 
-            // InternalSemanticNodesDsl.g:1574:2: ( rule__Enumeration__LiteralsAssignment_4_1 )*
-            loop15:
+            // InternalSemanticNodesDsl.g:1765:2: ( rule__Enumeration__LiteralsAssignment_4_1 )*
+            loop18:
             do {
-                int alt15=2;
-                int LA15_0 = input.LA(1);
+                int alt18=2;
+                int LA18_0 = input.LA(1);
 
-                if ( (LA15_0==RULE_INT||LA15_0==28) ) {
-                    alt15=1;
+                if ( (LA18_0==RULE_INT||LA18_0==29) ) {
+                    alt18=1;
                 }
 
 
-                switch (alt15) {
+                switch (alt18) {
             	case 1 :
-            	    // InternalSemanticNodesDsl.g:1574:3: rule__Enumeration__LiteralsAssignment_4_1
+            	    // InternalSemanticNodesDsl.g:1765:3: rule__Enumeration__LiteralsAssignment_4_1
             	    {
-            	    pushFollow(FOLLOW_20);
+            	    pushFollow(FOLLOW_22);
             	    rule__Enumeration__LiteralsAssignment_4_1();
 
             	    state._fsp--;
@@ -4918,7 +5552,7 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
             	    break;
 
             	default :
-            	    break loop15;
+            	    break loop18;
                 }
             } while (true);
 
@@ -4945,16 +5579,16 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__EnumerationLiteral__Group__0"
-    // InternalSemanticNodesDsl.g:1583:1: rule__EnumerationLiteral__Group__0 : rule__EnumerationLiteral__Group__0__Impl rule__EnumerationLiteral__Group__1 ;
+    // InternalSemanticNodesDsl.g:1774:1: rule__EnumerationLiteral__Group__0 : rule__EnumerationLiteral__Group__0__Impl rule__EnumerationLiteral__Group__1 ;
     public final void rule__EnumerationLiteral__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:1587:1: ( rule__EnumerationLiteral__Group__0__Impl rule__EnumerationLiteral__Group__1 )
-            // InternalSemanticNodesDsl.g:1588:2: rule__EnumerationLiteral__Group__0__Impl rule__EnumerationLiteral__Group__1
+            // InternalSemanticNodesDsl.g:1778:1: ( rule__EnumerationLiteral__Group__0__Impl rule__EnumerationLiteral__Group__1 )
+            // InternalSemanticNodesDsl.g:1779:2: rule__EnumerationLiteral__Group__0__Impl rule__EnumerationLiteral__Group__1
             {
-            pushFollow(FOLLOW_19);
+            pushFollow(FOLLOW_21);
             rule__EnumerationLiteral__Group__0__Impl();
 
             state._fsp--;
@@ -4983,21 +5617,21 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__EnumerationLiteral__Group__0__Impl"
-    // InternalSemanticNodesDsl.g:1595:1: rule__EnumerationLiteral__Group__0__Impl : ( () ) ;
+    // InternalSemanticNodesDsl.g:1786:1: rule__EnumerationLiteral__Group__0__Impl : ( () ) ;
     public final void rule__EnumerationLiteral__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:1599:1: ( ( () ) )
-            // InternalSemanticNodesDsl.g:1600:1: ( () )
+            // InternalSemanticNodesDsl.g:1790:1: ( ( () ) )
+            // InternalSemanticNodesDsl.g:1791:1: ( () )
             {
-            // InternalSemanticNodesDsl.g:1600:1: ( () )
-            // InternalSemanticNodesDsl.g:1601:2: ()
+            // InternalSemanticNodesDsl.g:1791:1: ( () )
+            // InternalSemanticNodesDsl.g:1792:2: ()
             {
              before(grammarAccess.getEnumerationLiteralAccess().getEnumerationLiteralAction_0()); 
-            // InternalSemanticNodesDsl.g:1602:2: ()
-            // InternalSemanticNodesDsl.g:1602:3: 
+            // InternalSemanticNodesDsl.g:1793:2: ()
+            // InternalSemanticNodesDsl.g:1793:3: 
             {
             }
 
@@ -5020,16 +5654,16 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__EnumerationLiteral__Group__1"
-    // InternalSemanticNodesDsl.g:1610:1: rule__EnumerationLiteral__Group__1 : rule__EnumerationLiteral__Group__1__Impl rule__EnumerationLiteral__Group__2 ;
+    // InternalSemanticNodesDsl.g:1801:1: rule__EnumerationLiteral__Group__1 : rule__EnumerationLiteral__Group__1__Impl rule__EnumerationLiteral__Group__2 ;
     public final void rule__EnumerationLiteral__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:1614:1: ( rule__EnumerationLiteral__Group__1__Impl rule__EnumerationLiteral__Group__2 )
-            // InternalSemanticNodesDsl.g:1615:2: rule__EnumerationLiteral__Group__1__Impl rule__EnumerationLiteral__Group__2
+            // InternalSemanticNodesDsl.g:1805:1: ( rule__EnumerationLiteral__Group__1__Impl rule__EnumerationLiteral__Group__2 )
+            // InternalSemanticNodesDsl.g:1806:2: rule__EnumerationLiteral__Group__1__Impl rule__EnumerationLiteral__Group__2
             {
-            pushFollow(FOLLOW_21);
+            pushFollow(FOLLOW_23);
             rule__EnumerationLiteral__Group__1__Impl();
 
             state._fsp--;
@@ -5058,21 +5692,21 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__EnumerationLiteral__Group__1__Impl"
-    // InternalSemanticNodesDsl.g:1622:1: rule__EnumerationLiteral__Group__1__Impl : ( ( rule__EnumerationLiteral__ValueAssignment_1 ) ) ;
+    // InternalSemanticNodesDsl.g:1813:1: rule__EnumerationLiteral__Group__1__Impl : ( ( rule__EnumerationLiteral__ValueAssignment_1 ) ) ;
     public final void rule__EnumerationLiteral__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:1626:1: ( ( ( rule__EnumerationLiteral__ValueAssignment_1 ) ) )
-            // InternalSemanticNodesDsl.g:1627:1: ( ( rule__EnumerationLiteral__ValueAssignment_1 ) )
+            // InternalSemanticNodesDsl.g:1817:1: ( ( ( rule__EnumerationLiteral__ValueAssignment_1 ) ) )
+            // InternalSemanticNodesDsl.g:1818:1: ( ( rule__EnumerationLiteral__ValueAssignment_1 ) )
             {
-            // InternalSemanticNodesDsl.g:1627:1: ( ( rule__EnumerationLiteral__ValueAssignment_1 ) )
-            // InternalSemanticNodesDsl.g:1628:2: ( rule__EnumerationLiteral__ValueAssignment_1 )
+            // InternalSemanticNodesDsl.g:1818:1: ( ( rule__EnumerationLiteral__ValueAssignment_1 ) )
+            // InternalSemanticNodesDsl.g:1819:2: ( rule__EnumerationLiteral__ValueAssignment_1 )
             {
              before(grammarAccess.getEnumerationLiteralAccess().getValueAssignment_1()); 
-            // InternalSemanticNodesDsl.g:1629:2: ( rule__EnumerationLiteral__ValueAssignment_1 )
-            // InternalSemanticNodesDsl.g:1629:3: rule__EnumerationLiteral__ValueAssignment_1
+            // InternalSemanticNodesDsl.g:1820:2: ( rule__EnumerationLiteral__ValueAssignment_1 )
+            // InternalSemanticNodesDsl.g:1820:3: rule__EnumerationLiteral__ValueAssignment_1
             {
             pushFollow(FOLLOW_2);
             rule__EnumerationLiteral__ValueAssignment_1();
@@ -5105,16 +5739,16 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__EnumerationLiteral__Group__2"
-    // InternalSemanticNodesDsl.g:1637:1: rule__EnumerationLiteral__Group__2 : rule__EnumerationLiteral__Group__2__Impl rule__EnumerationLiteral__Group__3 ;
+    // InternalSemanticNodesDsl.g:1828:1: rule__EnumerationLiteral__Group__2 : rule__EnumerationLiteral__Group__2__Impl rule__EnumerationLiteral__Group__3 ;
     public final void rule__EnumerationLiteral__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:1641:1: ( rule__EnumerationLiteral__Group__2__Impl rule__EnumerationLiteral__Group__3 )
-            // InternalSemanticNodesDsl.g:1642:2: rule__EnumerationLiteral__Group__2__Impl rule__EnumerationLiteral__Group__3
+            // InternalSemanticNodesDsl.g:1832:1: ( rule__EnumerationLiteral__Group__2__Impl rule__EnumerationLiteral__Group__3 )
+            // InternalSemanticNodesDsl.g:1833:2: rule__EnumerationLiteral__Group__2__Impl rule__EnumerationLiteral__Group__3
             {
-            pushFollow(FOLLOW_5);
+            pushFollow(FOLLOW_4);
             rule__EnumerationLiteral__Group__2__Impl();
 
             state._fsp--;
@@ -5143,20 +5777,20 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__EnumerationLiteral__Group__2__Impl"
-    // InternalSemanticNodesDsl.g:1649:1: rule__EnumerationLiteral__Group__2__Impl : ( '->' ) ;
+    // InternalSemanticNodesDsl.g:1840:1: rule__EnumerationLiteral__Group__2__Impl : ( '->' ) ;
     public final void rule__EnumerationLiteral__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:1653:1: ( ( '->' ) )
-            // InternalSemanticNodesDsl.g:1654:1: ( '->' )
+            // InternalSemanticNodesDsl.g:1844:1: ( ( '->' ) )
+            // InternalSemanticNodesDsl.g:1845:1: ( '->' )
             {
-            // InternalSemanticNodesDsl.g:1654:1: ( '->' )
-            // InternalSemanticNodesDsl.g:1655:2: '->'
+            // InternalSemanticNodesDsl.g:1845:1: ( '->' )
+            // InternalSemanticNodesDsl.g:1846:2: '->'
             {
              before(grammarAccess.getEnumerationLiteralAccess().getHyphenMinusGreaterThanSignKeyword_2()); 
-            match(input,22,FOLLOW_2); 
+            match(input,23,FOLLOW_2); 
              after(grammarAccess.getEnumerationLiteralAccess().getHyphenMinusGreaterThanSignKeyword_2()); 
 
             }
@@ -5180,14 +5814,14 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__EnumerationLiteral__Group__3"
-    // InternalSemanticNodesDsl.g:1664:1: rule__EnumerationLiteral__Group__3 : rule__EnumerationLiteral__Group__3__Impl ;
+    // InternalSemanticNodesDsl.g:1855:1: rule__EnumerationLiteral__Group__3 : rule__EnumerationLiteral__Group__3__Impl ;
     public final void rule__EnumerationLiteral__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:1668:1: ( rule__EnumerationLiteral__Group__3__Impl )
-            // InternalSemanticNodesDsl.g:1669:2: rule__EnumerationLiteral__Group__3__Impl
+            // InternalSemanticNodesDsl.g:1859:1: ( rule__EnumerationLiteral__Group__3__Impl )
+            // InternalSemanticNodesDsl.g:1860:2: rule__EnumerationLiteral__Group__3__Impl
             {
             pushFollow(FOLLOW_2);
             rule__EnumerationLiteral__Group__3__Impl();
@@ -5213,21 +5847,21 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__EnumerationLiteral__Group__3__Impl"
-    // InternalSemanticNodesDsl.g:1675:1: rule__EnumerationLiteral__Group__3__Impl : ( ( rule__EnumerationLiteral__LiteralAssignment_3 ) ) ;
+    // InternalSemanticNodesDsl.g:1866:1: rule__EnumerationLiteral__Group__3__Impl : ( ( rule__EnumerationLiteral__LiteralAssignment_3 ) ) ;
     public final void rule__EnumerationLiteral__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:1679:1: ( ( ( rule__EnumerationLiteral__LiteralAssignment_3 ) ) )
-            // InternalSemanticNodesDsl.g:1680:1: ( ( rule__EnumerationLiteral__LiteralAssignment_3 ) )
+            // InternalSemanticNodesDsl.g:1870:1: ( ( ( rule__EnumerationLiteral__LiteralAssignment_3 ) ) )
+            // InternalSemanticNodesDsl.g:1871:1: ( ( rule__EnumerationLiteral__LiteralAssignment_3 ) )
             {
-            // InternalSemanticNodesDsl.g:1680:1: ( ( rule__EnumerationLiteral__LiteralAssignment_3 ) )
-            // InternalSemanticNodesDsl.g:1681:2: ( rule__EnumerationLiteral__LiteralAssignment_3 )
+            // InternalSemanticNodesDsl.g:1871:1: ( ( rule__EnumerationLiteral__LiteralAssignment_3 ) )
+            // InternalSemanticNodesDsl.g:1872:2: ( rule__EnumerationLiteral__LiteralAssignment_3 )
             {
              before(grammarAccess.getEnumerationLiteralAccess().getLiteralAssignment_3()); 
-            // InternalSemanticNodesDsl.g:1682:2: ( rule__EnumerationLiteral__LiteralAssignment_3 )
-            // InternalSemanticNodesDsl.g:1682:3: rule__EnumerationLiteral__LiteralAssignment_3
+            // InternalSemanticNodesDsl.g:1873:2: ( rule__EnumerationLiteral__LiteralAssignment_3 )
+            // InternalSemanticNodesDsl.g:1873:3: rule__EnumerationLiteral__LiteralAssignment_3
             {
             pushFollow(FOLLOW_2);
             rule__EnumerationLiteral__LiteralAssignment_3();
@@ -5260,16 +5894,16 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__SemanticNode__Group__0"
-    // InternalSemanticNodesDsl.g:1691:1: rule__SemanticNode__Group__0 : rule__SemanticNode__Group__0__Impl rule__SemanticNode__Group__1 ;
+    // InternalSemanticNodesDsl.g:1882:1: rule__SemanticNode__Group__0 : rule__SemanticNode__Group__0__Impl rule__SemanticNode__Group__1 ;
     public final void rule__SemanticNode__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:1695:1: ( rule__SemanticNode__Group__0__Impl rule__SemanticNode__Group__1 )
-            // InternalSemanticNodesDsl.g:1696:2: rule__SemanticNode__Group__0__Impl rule__SemanticNode__Group__1
+            // InternalSemanticNodesDsl.g:1886:1: ( rule__SemanticNode__Group__0__Impl rule__SemanticNode__Group__1 )
+            // InternalSemanticNodesDsl.g:1887:2: rule__SemanticNode__Group__0__Impl rule__SemanticNode__Group__1
             {
-            pushFollow(FOLLOW_22);
+            pushFollow(FOLLOW_24);
             rule__SemanticNode__Group__0__Impl();
 
             state._fsp--;
@@ -5298,21 +5932,21 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__SemanticNode__Group__0__Impl"
-    // InternalSemanticNodesDsl.g:1703:1: rule__SemanticNode__Group__0__Impl : ( () ) ;
+    // InternalSemanticNodesDsl.g:1894:1: rule__SemanticNode__Group__0__Impl : ( () ) ;
     public final void rule__SemanticNode__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:1707:1: ( ( () ) )
-            // InternalSemanticNodesDsl.g:1708:1: ( () )
+            // InternalSemanticNodesDsl.g:1898:1: ( ( () ) )
+            // InternalSemanticNodesDsl.g:1899:1: ( () )
             {
-            // InternalSemanticNodesDsl.g:1708:1: ( () )
-            // InternalSemanticNodesDsl.g:1709:2: ()
+            // InternalSemanticNodesDsl.g:1899:1: ( () )
+            // InternalSemanticNodesDsl.g:1900:2: ()
             {
              before(grammarAccess.getSemanticNodeAccess().getSemanticNodeAction_0()); 
-            // InternalSemanticNodesDsl.g:1710:2: ()
-            // InternalSemanticNodesDsl.g:1710:3: 
+            // InternalSemanticNodesDsl.g:1901:2: ()
+            // InternalSemanticNodesDsl.g:1901:3: 
             {
             }
 
@@ -5335,16 +5969,16 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__SemanticNode__Group__1"
-    // InternalSemanticNodesDsl.g:1718:1: rule__SemanticNode__Group__1 : rule__SemanticNode__Group__1__Impl rule__SemanticNode__Group__2 ;
+    // InternalSemanticNodesDsl.g:1909:1: rule__SemanticNode__Group__1 : rule__SemanticNode__Group__1__Impl rule__SemanticNode__Group__2 ;
     public final void rule__SemanticNode__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:1722:1: ( rule__SemanticNode__Group__1__Impl rule__SemanticNode__Group__2 )
-            // InternalSemanticNodesDsl.g:1723:2: rule__SemanticNode__Group__1__Impl rule__SemanticNode__Group__2
+            // InternalSemanticNodesDsl.g:1913:1: ( rule__SemanticNode__Group__1__Impl rule__SemanticNode__Group__2 )
+            // InternalSemanticNodesDsl.g:1914:2: rule__SemanticNode__Group__1__Impl rule__SemanticNode__Group__2
             {
-            pushFollow(FOLLOW_22);
+            pushFollow(FOLLOW_24);
             rule__SemanticNode__Group__1__Impl();
 
             state._fsp--;
@@ -5373,32 +6007,32 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__SemanticNode__Group__1__Impl"
-    // InternalSemanticNodesDsl.g:1730:1: rule__SemanticNode__Group__1__Impl : ( ( rule__SemanticNode__Group_1__0 )? ) ;
+    // InternalSemanticNodesDsl.g:1921:1: rule__SemanticNode__Group__1__Impl : ( ( rule__SemanticNode__AbstractAssignment_1 )? ) ;
     public final void rule__SemanticNode__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:1734:1: ( ( ( rule__SemanticNode__Group_1__0 )? ) )
-            // InternalSemanticNodesDsl.g:1735:1: ( ( rule__SemanticNode__Group_1__0 )? )
+            // InternalSemanticNodesDsl.g:1925:1: ( ( ( rule__SemanticNode__AbstractAssignment_1 )? ) )
+            // InternalSemanticNodesDsl.g:1926:1: ( ( rule__SemanticNode__AbstractAssignment_1 )? )
             {
-            // InternalSemanticNodesDsl.g:1735:1: ( ( rule__SemanticNode__Group_1__0 )? )
-            // InternalSemanticNodesDsl.g:1736:2: ( rule__SemanticNode__Group_1__0 )?
+            // InternalSemanticNodesDsl.g:1926:1: ( ( rule__SemanticNode__AbstractAssignment_1 )? )
+            // InternalSemanticNodesDsl.g:1927:2: ( rule__SemanticNode__AbstractAssignment_1 )?
             {
-             before(grammarAccess.getSemanticNodeAccess().getGroup_1()); 
-            // InternalSemanticNodesDsl.g:1737:2: ( rule__SemanticNode__Group_1__0 )?
-            int alt16=2;
-            int LA16_0 = input.LA(1);
+             before(grammarAccess.getSemanticNodeAccess().getAbstractAssignment_1()); 
+            // InternalSemanticNodesDsl.g:1928:2: ( rule__SemanticNode__AbstractAssignment_1 )?
+            int alt19=2;
+            int LA19_0 = input.LA(1);
 
-            if ( (LA16_0==29) ) {
-                alt16=1;
+            if ( (LA19_0==30) ) {
+                alt19=1;
             }
-            switch (alt16) {
+            switch (alt19) {
                 case 1 :
-                    // InternalSemanticNodesDsl.g:1737:3: rule__SemanticNode__Group_1__0
+                    // InternalSemanticNodesDsl.g:1928:3: rule__SemanticNode__AbstractAssignment_1
                     {
                     pushFollow(FOLLOW_2);
-                    rule__SemanticNode__Group_1__0();
+                    rule__SemanticNode__AbstractAssignment_1();
 
                     state._fsp--;
 
@@ -5408,7 +6042,7 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
 
             }
 
-             after(grammarAccess.getSemanticNodeAccess().getGroup_1()); 
+             after(grammarAccess.getSemanticNodeAccess().getAbstractAssignment_1()); 
 
             }
 
@@ -5431,16 +6065,16 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__SemanticNode__Group__2"
-    // InternalSemanticNodesDsl.g:1745:1: rule__SemanticNode__Group__2 : rule__SemanticNode__Group__2__Impl rule__SemanticNode__Group__3 ;
+    // InternalSemanticNodesDsl.g:1936:1: rule__SemanticNode__Group__2 : rule__SemanticNode__Group__2__Impl rule__SemanticNode__Group__3 ;
     public final void rule__SemanticNode__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:1749:1: ( rule__SemanticNode__Group__2__Impl rule__SemanticNode__Group__3 )
-            // InternalSemanticNodesDsl.g:1750:2: rule__SemanticNode__Group__2__Impl rule__SemanticNode__Group__3
+            // InternalSemanticNodesDsl.g:1940:1: ( rule__SemanticNode__Group__2__Impl rule__SemanticNode__Group__3 )
+            // InternalSemanticNodesDsl.g:1941:2: rule__SemanticNode__Group__2__Impl rule__SemanticNode__Group__3
             {
-            pushFollow(FOLLOW_22);
+            pushFollow(FOLLOW_4);
             rule__SemanticNode__Group__2__Impl();
 
             state._fsp--;
@@ -5469,42 +6103,21 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__SemanticNode__Group__2__Impl"
-    // InternalSemanticNodesDsl.g:1757:1: rule__SemanticNode__Group__2__Impl : ( ( rule__SemanticNode__AbstractAssignment_2 )? ) ;
+    // InternalSemanticNodesDsl.g:1948:1: rule__SemanticNode__Group__2__Impl : ( 'node' ) ;
     public final void rule__SemanticNode__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:1761:1: ( ( ( rule__SemanticNode__AbstractAssignment_2 )? ) )
-            // InternalSemanticNodesDsl.g:1762:1: ( ( rule__SemanticNode__AbstractAssignment_2 )? )
+            // InternalSemanticNodesDsl.g:1952:1: ( ( 'node' ) )
+            // InternalSemanticNodesDsl.g:1953:1: ( 'node' )
             {
-            // InternalSemanticNodesDsl.g:1762:1: ( ( rule__SemanticNode__AbstractAssignment_2 )? )
-            // InternalSemanticNodesDsl.g:1763:2: ( rule__SemanticNode__AbstractAssignment_2 )?
+            // InternalSemanticNodesDsl.g:1953:1: ( 'node' )
+            // InternalSemanticNodesDsl.g:1954:2: 'node'
             {
-             before(grammarAccess.getSemanticNodeAccess().getAbstractAssignment_2()); 
-            // InternalSemanticNodesDsl.g:1764:2: ( rule__SemanticNode__AbstractAssignment_2 )?
-            int alt17=2;
-            int LA17_0 = input.LA(1);
-
-            if ( (LA17_0==30) ) {
-                alt17=1;
-            }
-            switch (alt17) {
-                case 1 :
-                    // InternalSemanticNodesDsl.g:1764:3: rule__SemanticNode__AbstractAssignment_2
-                    {
-                    pushFollow(FOLLOW_2);
-                    rule__SemanticNode__AbstractAssignment_2();
-
-                    state._fsp--;
-
-
-                    }
-                    break;
-
-            }
-
-             after(grammarAccess.getSemanticNodeAccess().getAbstractAssignment_2()); 
+             before(grammarAccess.getSemanticNodeAccess().getNodeKeyword_2()); 
+            match(input,24,FOLLOW_2); 
+             after(grammarAccess.getSemanticNodeAccess().getNodeKeyword_2()); 
 
             }
 
@@ -5527,16 +6140,16 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__SemanticNode__Group__3"
-    // InternalSemanticNodesDsl.g:1772:1: rule__SemanticNode__Group__3 : rule__SemanticNode__Group__3__Impl rule__SemanticNode__Group__4 ;
+    // InternalSemanticNodesDsl.g:1963:1: rule__SemanticNode__Group__3 : rule__SemanticNode__Group__3__Impl rule__SemanticNode__Group__4 ;
     public final void rule__SemanticNode__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:1776:1: ( rule__SemanticNode__Group__3__Impl rule__SemanticNode__Group__4 )
-            // InternalSemanticNodesDsl.g:1777:2: rule__SemanticNode__Group__3__Impl rule__SemanticNode__Group__4
+            // InternalSemanticNodesDsl.g:1967:1: ( rule__SemanticNode__Group__3__Impl rule__SemanticNode__Group__4 )
+            // InternalSemanticNodesDsl.g:1968:2: rule__SemanticNode__Group__3__Impl rule__SemanticNode__Group__4
             {
-            pushFollow(FOLLOW_5);
+            pushFollow(FOLLOW_9);
             rule__SemanticNode__Group__3__Impl();
 
             state._fsp--;
@@ -5565,21 +6178,31 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__SemanticNode__Group__3__Impl"
-    // InternalSemanticNodesDsl.g:1784:1: rule__SemanticNode__Group__3__Impl : ( 'node' ) ;
+    // InternalSemanticNodesDsl.g:1975:1: rule__SemanticNode__Group__3__Impl : ( ( rule__SemanticNode__NameAssignment_3 ) ) ;
     public final void rule__SemanticNode__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:1788:1: ( ( 'node' ) )
-            // InternalSemanticNodesDsl.g:1789:1: ( 'node' )
+            // InternalSemanticNodesDsl.g:1979:1: ( ( ( rule__SemanticNode__NameAssignment_3 ) ) )
+            // InternalSemanticNodesDsl.g:1980:1: ( ( rule__SemanticNode__NameAssignment_3 ) )
             {
-            // InternalSemanticNodesDsl.g:1789:1: ( 'node' )
-            // InternalSemanticNodesDsl.g:1790:2: 'node'
+            // InternalSemanticNodesDsl.g:1980:1: ( ( rule__SemanticNode__NameAssignment_3 ) )
+            // InternalSemanticNodesDsl.g:1981:2: ( rule__SemanticNode__NameAssignment_3 )
             {
-             before(grammarAccess.getSemanticNodeAccess().getNodeKeyword_3()); 
-            match(input,23,FOLLOW_2); 
-             after(grammarAccess.getSemanticNodeAccess().getNodeKeyword_3()); 
+             before(grammarAccess.getSemanticNodeAccess().getNameAssignment_3()); 
+            // InternalSemanticNodesDsl.g:1982:2: ( rule__SemanticNode__NameAssignment_3 )
+            // InternalSemanticNodesDsl.g:1982:3: rule__SemanticNode__NameAssignment_3
+            {
+            pushFollow(FOLLOW_2);
+            rule__SemanticNode__NameAssignment_3();
+
+            state._fsp--;
+
+
+            }
+
+             after(grammarAccess.getSemanticNodeAccess().getNameAssignment_3()); 
 
             }
 
@@ -5602,16 +6225,16 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__SemanticNode__Group__4"
-    // InternalSemanticNodesDsl.g:1799:1: rule__SemanticNode__Group__4 : rule__SemanticNode__Group__4__Impl rule__SemanticNode__Group__5 ;
+    // InternalSemanticNodesDsl.g:1990:1: rule__SemanticNode__Group__4 : rule__SemanticNode__Group__4__Impl rule__SemanticNode__Group__5 ;
     public final void rule__SemanticNode__Group__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:1803:1: ( rule__SemanticNode__Group__4__Impl rule__SemanticNode__Group__5 )
-            // InternalSemanticNodesDsl.g:1804:2: rule__SemanticNode__Group__4__Impl rule__SemanticNode__Group__5
+            // InternalSemanticNodesDsl.g:1994:1: ( rule__SemanticNode__Group__4__Impl rule__SemanticNode__Group__5 )
+            // InternalSemanticNodesDsl.g:1995:2: rule__SemanticNode__Group__4__Impl rule__SemanticNode__Group__5
             {
-            pushFollow(FOLLOW_6);
+            pushFollow(FOLLOW_25);
             rule__SemanticNode__Group__4__Impl();
 
             state._fsp--;
@@ -5640,31 +6263,21 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__SemanticNode__Group__4__Impl"
-    // InternalSemanticNodesDsl.g:1811:1: rule__SemanticNode__Group__4__Impl : ( ( rule__SemanticNode__NameAssignment_4 ) ) ;
+    // InternalSemanticNodesDsl.g:2002:1: rule__SemanticNode__Group__4__Impl : ( '{' ) ;
     public final void rule__SemanticNode__Group__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:1815:1: ( ( ( rule__SemanticNode__NameAssignment_4 ) ) )
-            // InternalSemanticNodesDsl.g:1816:1: ( ( rule__SemanticNode__NameAssignment_4 ) )
+            // InternalSemanticNodesDsl.g:2006:1: ( ( '{' ) )
+            // InternalSemanticNodesDsl.g:2007:1: ( '{' )
             {
-            // InternalSemanticNodesDsl.g:1816:1: ( ( rule__SemanticNode__NameAssignment_4 ) )
-            // InternalSemanticNodesDsl.g:1817:2: ( rule__SemanticNode__NameAssignment_4 )
+            // InternalSemanticNodesDsl.g:2007:1: ( '{' )
+            // InternalSemanticNodesDsl.g:2008:2: '{'
             {
-             before(grammarAccess.getSemanticNodeAccess().getNameAssignment_4()); 
-            // InternalSemanticNodesDsl.g:1818:2: ( rule__SemanticNode__NameAssignment_4 )
-            // InternalSemanticNodesDsl.g:1818:3: rule__SemanticNode__NameAssignment_4
-            {
-            pushFollow(FOLLOW_2);
-            rule__SemanticNode__NameAssignment_4();
-
-            state._fsp--;
-
-
-            }
-
-             after(grammarAccess.getSemanticNodeAccess().getNameAssignment_4()); 
+             before(grammarAccess.getSemanticNodeAccess().getLeftCurlyBracketKeyword_4()); 
+            match(input,18,FOLLOW_2); 
+             after(grammarAccess.getSemanticNodeAccess().getLeftCurlyBracketKeyword_4()); 
 
             }
 
@@ -5687,16 +6300,16 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__SemanticNode__Group__5"
-    // InternalSemanticNodesDsl.g:1826:1: rule__SemanticNode__Group__5 : rule__SemanticNode__Group__5__Impl rule__SemanticNode__Group__6 ;
+    // InternalSemanticNodesDsl.g:2017:1: rule__SemanticNode__Group__5 : rule__SemanticNode__Group__5__Impl rule__SemanticNode__Group__6 ;
     public final void rule__SemanticNode__Group__5() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:1830:1: ( rule__SemanticNode__Group__5__Impl rule__SemanticNode__Group__6 )
-            // InternalSemanticNodesDsl.g:1831:2: rule__SemanticNode__Group__5__Impl rule__SemanticNode__Group__6
+            // InternalSemanticNodesDsl.g:2021:1: ( rule__SemanticNode__Group__5__Impl rule__SemanticNode__Group__6 )
+            // InternalSemanticNodesDsl.g:2022:2: rule__SemanticNode__Group__5__Impl rule__SemanticNode__Group__6
             {
-            pushFollow(FOLLOW_23);
+            pushFollow(FOLLOW_25);
             rule__SemanticNode__Group__5__Impl();
 
             state._fsp--;
@@ -5725,21 +6338,42 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__SemanticNode__Group__5__Impl"
-    // InternalSemanticNodesDsl.g:1838:1: rule__SemanticNode__Group__5__Impl : ( '{' ) ;
+    // InternalSemanticNodesDsl.g:2029:1: rule__SemanticNode__Group__5__Impl : ( ( rule__SemanticNode__Group_5__0 )? ) ;
     public final void rule__SemanticNode__Group__5__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:1842:1: ( ( '{' ) )
-            // InternalSemanticNodesDsl.g:1843:1: ( '{' )
+            // InternalSemanticNodesDsl.g:2033:1: ( ( ( rule__SemanticNode__Group_5__0 )? ) )
+            // InternalSemanticNodesDsl.g:2034:1: ( ( rule__SemanticNode__Group_5__0 )? )
             {
-            // InternalSemanticNodesDsl.g:1843:1: ( '{' )
-            // InternalSemanticNodesDsl.g:1844:2: '{'
+            // InternalSemanticNodesDsl.g:2034:1: ( ( rule__SemanticNode__Group_5__0 )? )
+            // InternalSemanticNodesDsl.g:2035:2: ( rule__SemanticNode__Group_5__0 )?
             {
-             before(grammarAccess.getSemanticNodeAccess().getLeftCurlyBracketKeyword_5()); 
-            match(input,17,FOLLOW_2); 
-             after(grammarAccess.getSemanticNodeAccess().getLeftCurlyBracketKeyword_5()); 
+             before(grammarAccess.getSemanticNodeAccess().getGroup_5()); 
+            // InternalSemanticNodesDsl.g:2036:2: ( rule__SemanticNode__Group_5__0 )?
+            int alt20=2;
+            int LA20_0 = input.LA(1);
+
+            if ( ((LA20_0>=RULE_STRING && LA20_0<=RULE_ID)) ) {
+                alt20=1;
+            }
+            switch (alt20) {
+                case 1 :
+                    // InternalSemanticNodesDsl.g:2036:3: rule__SemanticNode__Group_5__0
+                    {
+                    pushFollow(FOLLOW_2);
+                    rule__SemanticNode__Group_5__0();
+
+                    state._fsp--;
+
+
+                    }
+                    break;
+
+            }
+
+             after(grammarAccess.getSemanticNodeAccess().getGroup_5()); 
 
             }
 
@@ -5762,16 +6396,16 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__SemanticNode__Group__6"
-    // InternalSemanticNodesDsl.g:1853:1: rule__SemanticNode__Group__6 : rule__SemanticNode__Group__6__Impl rule__SemanticNode__Group__7 ;
+    // InternalSemanticNodesDsl.g:2044:1: rule__SemanticNode__Group__6 : rule__SemanticNode__Group__6__Impl rule__SemanticNode__Group__7 ;
     public final void rule__SemanticNode__Group__6() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:1857:1: ( rule__SemanticNode__Group__6__Impl rule__SemanticNode__Group__7 )
-            // InternalSemanticNodesDsl.g:1858:2: rule__SemanticNode__Group__6__Impl rule__SemanticNode__Group__7
+            // InternalSemanticNodesDsl.g:2048:1: ( rule__SemanticNode__Group__6__Impl rule__SemanticNode__Group__7 )
+            // InternalSemanticNodesDsl.g:2049:2: rule__SemanticNode__Group__6__Impl rule__SemanticNode__Group__7
             {
-            pushFollow(FOLLOW_23);
+            pushFollow(FOLLOW_9);
             rule__SemanticNode__Group__6__Impl();
 
             state._fsp--;
@@ -5800,42 +6434,21 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__SemanticNode__Group__6__Impl"
-    // InternalSemanticNodesDsl.g:1865:1: rule__SemanticNode__Group__6__Impl : ( ( rule__SemanticNode__Group_6__0 )? ) ;
+    // InternalSemanticNodesDsl.g:2056:1: rule__SemanticNode__Group__6__Impl : ( '}' ) ;
     public final void rule__SemanticNode__Group__6__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:1869:1: ( ( ( rule__SemanticNode__Group_6__0 )? ) )
-            // InternalSemanticNodesDsl.g:1870:1: ( ( rule__SemanticNode__Group_6__0 )? )
+            // InternalSemanticNodesDsl.g:2060:1: ( ( '}' ) )
+            // InternalSemanticNodesDsl.g:2061:1: ( '}' )
             {
-            // InternalSemanticNodesDsl.g:1870:1: ( ( rule__SemanticNode__Group_6__0 )? )
-            // InternalSemanticNodesDsl.g:1871:2: ( rule__SemanticNode__Group_6__0 )?
+            // InternalSemanticNodesDsl.g:2061:1: ( '}' )
+            // InternalSemanticNodesDsl.g:2062:2: '}'
             {
-             before(grammarAccess.getSemanticNodeAccess().getGroup_6()); 
-            // InternalSemanticNodesDsl.g:1872:2: ( rule__SemanticNode__Group_6__0 )?
-            int alt18=2;
-            int LA18_0 = input.LA(1);
-
-            if ( ((LA18_0>=RULE_STRING && LA18_0<=RULE_ID)) ) {
-                alt18=1;
-            }
-            switch (alt18) {
-                case 1 :
-                    // InternalSemanticNodesDsl.g:1872:3: rule__SemanticNode__Group_6__0
-                    {
-                    pushFollow(FOLLOW_2);
-                    rule__SemanticNode__Group_6__0();
-
-                    state._fsp--;
-
-
-                    }
-                    break;
-
-            }
-
-             after(grammarAccess.getSemanticNodeAccess().getGroup_6()); 
+             before(grammarAccess.getSemanticNodeAccess().getRightCurlyBracketKeyword_6()); 
+            match(input,19,FOLLOW_2); 
+             after(grammarAccess.getSemanticNodeAccess().getRightCurlyBracketKeyword_6()); 
 
             }
 
@@ -5858,22 +6471,17 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__SemanticNode__Group__7"
-    // InternalSemanticNodesDsl.g:1880:1: rule__SemanticNode__Group__7 : rule__SemanticNode__Group__7__Impl rule__SemanticNode__Group__8 ;
+    // InternalSemanticNodesDsl.g:2071:1: rule__SemanticNode__Group__7 : rule__SemanticNode__Group__7__Impl ;
     public final void rule__SemanticNode__Group__7() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:1884:1: ( rule__SemanticNode__Group__7__Impl rule__SemanticNode__Group__8 )
-            // InternalSemanticNodesDsl.g:1885:2: rule__SemanticNode__Group__7__Impl rule__SemanticNode__Group__8
+            // InternalSemanticNodesDsl.g:2075:1: ( rule__SemanticNode__Group__7__Impl )
+            // InternalSemanticNodesDsl.g:2076:2: rule__SemanticNode__Group__7__Impl
             {
-            pushFollow(FOLLOW_6);
-            rule__SemanticNode__Group__7__Impl();
-
-            state._fsp--;
-
             pushFollow(FOLLOW_2);
-            rule__SemanticNode__Group__8();
+            rule__SemanticNode__Group__7__Impl();
 
             state._fsp--;
 
@@ -5896,21 +6504,42 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__SemanticNode__Group__7__Impl"
-    // InternalSemanticNodesDsl.g:1892:1: rule__SemanticNode__Group__7__Impl : ( '}' ) ;
+    // InternalSemanticNodesDsl.g:2082:1: rule__SemanticNode__Group__7__Impl : ( ( rule__SemanticNode__Group_7__0 )? ) ;
     public final void rule__SemanticNode__Group__7__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:1896:1: ( ( '}' ) )
-            // InternalSemanticNodesDsl.g:1897:1: ( '}' )
+            // InternalSemanticNodesDsl.g:2086:1: ( ( ( rule__SemanticNode__Group_7__0 )? ) )
+            // InternalSemanticNodesDsl.g:2087:1: ( ( rule__SemanticNode__Group_7__0 )? )
             {
-            // InternalSemanticNodesDsl.g:1897:1: ( '}' )
-            // InternalSemanticNodesDsl.g:1898:2: '}'
+            // InternalSemanticNodesDsl.g:2087:1: ( ( rule__SemanticNode__Group_7__0 )? )
+            // InternalSemanticNodesDsl.g:2088:2: ( rule__SemanticNode__Group_7__0 )?
             {
-             before(grammarAccess.getSemanticNodeAccess().getRightCurlyBracketKeyword_7()); 
-            match(input,18,FOLLOW_2); 
-             after(grammarAccess.getSemanticNodeAccess().getRightCurlyBracketKeyword_7()); 
+             before(grammarAccess.getSemanticNodeAccess().getGroup_7()); 
+            // InternalSemanticNodesDsl.g:2089:2: ( rule__SemanticNode__Group_7__0 )?
+            int alt21=2;
+            int LA21_0 = input.LA(1);
+
+            if ( (LA21_0==18) ) {
+                alt21=1;
+            }
+            switch (alt21) {
+                case 1 :
+                    // InternalSemanticNodesDsl.g:2089:3: rule__SemanticNode__Group_7__0
+                    {
+                    pushFollow(FOLLOW_2);
+                    rule__SemanticNode__Group_7__0();
+
+                    state._fsp--;
+
+
+                    }
+                    break;
+
+            }
+
+             after(grammarAccess.getSemanticNodeAccess().getGroup_7()); 
 
             }
 
@@ -5932,114 +6561,23 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
     // $ANTLR end "rule__SemanticNode__Group__7__Impl"
 
 
-    // $ANTLR start "rule__SemanticNode__Group__8"
-    // InternalSemanticNodesDsl.g:1907:1: rule__SemanticNode__Group__8 : rule__SemanticNode__Group__8__Impl ;
-    public final void rule__SemanticNode__Group__8() throws RecognitionException {
+    // $ANTLR start "rule__SemanticNode__Group_5__0"
+    // InternalSemanticNodesDsl.g:2098:1: rule__SemanticNode__Group_5__0 : rule__SemanticNode__Group_5__0__Impl rule__SemanticNode__Group_5__1 ;
+    public final void rule__SemanticNode__Group_5__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:1911:1: ( rule__SemanticNode__Group__8__Impl )
-            // InternalSemanticNodesDsl.g:1912:2: rule__SemanticNode__Group__8__Impl
+            // InternalSemanticNodesDsl.g:2102:1: ( rule__SemanticNode__Group_5__0__Impl rule__SemanticNode__Group_5__1 )
+            // InternalSemanticNodesDsl.g:2103:2: rule__SemanticNode__Group_5__0__Impl rule__SemanticNode__Group_5__1
             {
-            pushFollow(FOLLOW_2);
-            rule__SemanticNode__Group__8__Impl();
-
-            state._fsp--;
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__SemanticNode__Group__8"
-
-
-    // $ANTLR start "rule__SemanticNode__Group__8__Impl"
-    // InternalSemanticNodesDsl.g:1918:1: rule__SemanticNode__Group__8__Impl : ( ( rule__SemanticNode__Group_8__0 )? ) ;
-    public final void rule__SemanticNode__Group__8__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalSemanticNodesDsl.g:1922:1: ( ( ( rule__SemanticNode__Group_8__0 )? ) )
-            // InternalSemanticNodesDsl.g:1923:1: ( ( rule__SemanticNode__Group_8__0 )? )
-            {
-            // InternalSemanticNodesDsl.g:1923:1: ( ( rule__SemanticNode__Group_8__0 )? )
-            // InternalSemanticNodesDsl.g:1924:2: ( rule__SemanticNode__Group_8__0 )?
-            {
-             before(grammarAccess.getSemanticNodeAccess().getGroup_8()); 
-            // InternalSemanticNodesDsl.g:1925:2: ( rule__SemanticNode__Group_8__0 )?
-            int alt19=2;
-            int LA19_0 = input.LA(1);
-
-            if ( (LA19_0==17) ) {
-                alt19=1;
-            }
-            switch (alt19) {
-                case 1 :
-                    // InternalSemanticNodesDsl.g:1925:3: rule__SemanticNode__Group_8__0
-                    {
-                    pushFollow(FOLLOW_2);
-                    rule__SemanticNode__Group_8__0();
-
-                    state._fsp--;
-
-
-                    }
-                    break;
-
-            }
-
-             after(grammarAccess.getSemanticNodeAccess().getGroup_8()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__SemanticNode__Group__8__Impl"
-
-
-    // $ANTLR start "rule__SemanticNode__Group_1__0"
-    // InternalSemanticNodesDsl.g:1934:1: rule__SemanticNode__Group_1__0 : rule__SemanticNode__Group_1__0__Impl rule__SemanticNode__Group_1__1 ;
-    public final void rule__SemanticNode__Group_1__0() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalSemanticNodesDsl.g:1938:1: ( rule__SemanticNode__Group_1__0__Impl rule__SemanticNode__Group_1__1 )
-            // InternalSemanticNodesDsl.g:1939:2: rule__SemanticNode__Group_1__0__Impl rule__SemanticNode__Group_1__1
-            {
-            pushFollow(FOLLOW_12);
-            rule__SemanticNode__Group_1__0__Impl();
+            pushFollow(FOLLOW_4);
+            rule__SemanticNode__Group_5__0__Impl();
 
             state._fsp--;
 
             pushFollow(FOLLOW_2);
-            rule__SemanticNode__Group_1__1();
+            rule__SemanticNode__Group_5__1();
 
             state._fsp--;
 
@@ -6058,35 +6596,35 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
         }
         return ;
     }
-    // $ANTLR end "rule__SemanticNode__Group_1__0"
+    // $ANTLR end "rule__SemanticNode__Group_5__0"
 
 
-    // $ANTLR start "rule__SemanticNode__Group_1__0__Impl"
-    // InternalSemanticNodesDsl.g:1946:1: rule__SemanticNode__Group_1__0__Impl : ( ( rule__SemanticNode__AnnotationsAssignment_1_0 ) ) ;
-    public final void rule__SemanticNode__Group_1__0__Impl() throws RecognitionException {
+    // $ANTLR start "rule__SemanticNode__Group_5__0__Impl"
+    // InternalSemanticNodesDsl.g:2110:1: rule__SemanticNode__Group_5__0__Impl : ( ( rule__SemanticNode__PropertiesAssignment_5_0 ) ) ;
+    public final void rule__SemanticNode__Group_5__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:1950:1: ( ( ( rule__SemanticNode__AnnotationsAssignment_1_0 ) ) )
-            // InternalSemanticNodesDsl.g:1951:1: ( ( rule__SemanticNode__AnnotationsAssignment_1_0 ) )
+            // InternalSemanticNodesDsl.g:2114:1: ( ( ( rule__SemanticNode__PropertiesAssignment_5_0 ) ) )
+            // InternalSemanticNodesDsl.g:2115:1: ( ( rule__SemanticNode__PropertiesAssignment_5_0 ) )
             {
-            // InternalSemanticNodesDsl.g:1951:1: ( ( rule__SemanticNode__AnnotationsAssignment_1_0 ) )
-            // InternalSemanticNodesDsl.g:1952:2: ( rule__SemanticNode__AnnotationsAssignment_1_0 )
+            // InternalSemanticNodesDsl.g:2115:1: ( ( rule__SemanticNode__PropertiesAssignment_5_0 ) )
+            // InternalSemanticNodesDsl.g:2116:2: ( rule__SemanticNode__PropertiesAssignment_5_0 )
             {
-             before(grammarAccess.getSemanticNodeAccess().getAnnotationsAssignment_1_0()); 
-            // InternalSemanticNodesDsl.g:1953:2: ( rule__SemanticNode__AnnotationsAssignment_1_0 )
-            // InternalSemanticNodesDsl.g:1953:3: rule__SemanticNode__AnnotationsAssignment_1_0
+             before(grammarAccess.getSemanticNodeAccess().getPropertiesAssignment_5_0()); 
+            // InternalSemanticNodesDsl.g:2117:2: ( rule__SemanticNode__PropertiesAssignment_5_0 )
+            // InternalSemanticNodesDsl.g:2117:3: rule__SemanticNode__PropertiesAssignment_5_0
             {
             pushFollow(FOLLOW_2);
-            rule__SemanticNode__AnnotationsAssignment_1_0();
+            rule__SemanticNode__PropertiesAssignment_5_0();
 
             state._fsp--;
 
 
             }
 
-             after(grammarAccess.getSemanticNodeAccess().getAnnotationsAssignment_1_0()); 
+             after(grammarAccess.getSemanticNodeAccess().getPropertiesAssignment_5_0()); 
 
             }
 
@@ -6105,21 +6643,21 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
         }
         return ;
     }
-    // $ANTLR end "rule__SemanticNode__Group_1__0__Impl"
+    // $ANTLR end "rule__SemanticNode__Group_5__0__Impl"
 
 
-    // $ANTLR start "rule__SemanticNode__Group_1__1"
-    // InternalSemanticNodesDsl.g:1961:1: rule__SemanticNode__Group_1__1 : rule__SemanticNode__Group_1__1__Impl ;
-    public final void rule__SemanticNode__Group_1__1() throws RecognitionException {
+    // $ANTLR start "rule__SemanticNode__Group_5__1"
+    // InternalSemanticNodesDsl.g:2125:1: rule__SemanticNode__Group_5__1 : rule__SemanticNode__Group_5__1__Impl ;
+    public final void rule__SemanticNode__Group_5__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:1965:1: ( rule__SemanticNode__Group_1__1__Impl )
-            // InternalSemanticNodesDsl.g:1966:2: rule__SemanticNode__Group_1__1__Impl
+            // InternalSemanticNodesDsl.g:2129:1: ( rule__SemanticNode__Group_5__1__Impl )
+            // InternalSemanticNodesDsl.g:2130:2: rule__SemanticNode__Group_5__1__Impl
             {
             pushFollow(FOLLOW_2);
-            rule__SemanticNode__Group_1__1__Impl();
+            rule__SemanticNode__Group_5__1__Impl();
 
             state._fsp--;
 
@@ -6138,486 +6676,40 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
         }
         return ;
     }
-    // $ANTLR end "rule__SemanticNode__Group_1__1"
+    // $ANTLR end "rule__SemanticNode__Group_5__1"
 
 
-    // $ANTLR start "rule__SemanticNode__Group_1__1__Impl"
-    // InternalSemanticNodesDsl.g:1972:1: rule__SemanticNode__Group_1__1__Impl : ( ( rule__SemanticNode__AnnotationsAssignment_1_1 )* ) ;
-    public final void rule__SemanticNode__Group_1__1__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalSemanticNodesDsl.g:1976:1: ( ( ( rule__SemanticNode__AnnotationsAssignment_1_1 )* ) )
-            // InternalSemanticNodesDsl.g:1977:1: ( ( rule__SemanticNode__AnnotationsAssignment_1_1 )* )
-            {
-            // InternalSemanticNodesDsl.g:1977:1: ( ( rule__SemanticNode__AnnotationsAssignment_1_1 )* )
-            // InternalSemanticNodesDsl.g:1978:2: ( rule__SemanticNode__AnnotationsAssignment_1_1 )*
-            {
-             before(grammarAccess.getSemanticNodeAccess().getAnnotationsAssignment_1_1()); 
-            // InternalSemanticNodesDsl.g:1979:2: ( rule__SemanticNode__AnnotationsAssignment_1_1 )*
-            loop20:
-            do {
-                int alt20=2;
-                int LA20_0 = input.LA(1);
-
-                if ( (LA20_0==29) ) {
-                    alt20=1;
-                }
-
-
-                switch (alt20) {
-            	case 1 :
-            	    // InternalSemanticNodesDsl.g:1979:3: rule__SemanticNode__AnnotationsAssignment_1_1
-            	    {
-            	    pushFollow(FOLLOW_13);
-            	    rule__SemanticNode__AnnotationsAssignment_1_1();
-
-            	    state._fsp--;
-
-
-            	    }
-            	    break;
-
-            	default :
-            	    break loop20;
-                }
-            } while (true);
-
-             after(grammarAccess.getSemanticNodeAccess().getAnnotationsAssignment_1_1()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__SemanticNode__Group_1__1__Impl"
-
-
-    // $ANTLR start "rule__SemanticNode__Group_6__0"
-    // InternalSemanticNodesDsl.g:1988:1: rule__SemanticNode__Group_6__0 : rule__SemanticNode__Group_6__0__Impl rule__SemanticNode__Group_6__1 ;
-    public final void rule__SemanticNode__Group_6__0() throws RecognitionException {
+    // $ANTLR start "rule__SemanticNode__Group_5__1__Impl"
+    // InternalSemanticNodesDsl.g:2136:1: rule__SemanticNode__Group_5__1__Impl : ( ( rule__SemanticNode__PropertiesAssignment_5_1 )* ) ;
+    public final void rule__SemanticNode__Group_5__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:1992:1: ( rule__SemanticNode__Group_6__0__Impl rule__SemanticNode__Group_6__1 )
-            // InternalSemanticNodesDsl.g:1993:2: rule__SemanticNode__Group_6__0__Impl rule__SemanticNode__Group_6__1
+            // InternalSemanticNodesDsl.g:2140:1: ( ( ( rule__SemanticNode__PropertiesAssignment_5_1 )* ) )
+            // InternalSemanticNodesDsl.g:2141:1: ( ( rule__SemanticNode__PropertiesAssignment_5_1 )* )
             {
-            pushFollow(FOLLOW_5);
-            rule__SemanticNode__Group_6__0__Impl();
-
-            state._fsp--;
-
-            pushFollow(FOLLOW_2);
-            rule__SemanticNode__Group_6__1();
-
-            state._fsp--;
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__SemanticNode__Group_6__0"
-
-
-    // $ANTLR start "rule__SemanticNode__Group_6__0__Impl"
-    // InternalSemanticNodesDsl.g:2000:1: rule__SemanticNode__Group_6__0__Impl : ( ( rule__SemanticNode__PropertiesAssignment_6_0 ) ) ;
-    public final void rule__SemanticNode__Group_6__0__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalSemanticNodesDsl.g:2004:1: ( ( ( rule__SemanticNode__PropertiesAssignment_6_0 ) ) )
-            // InternalSemanticNodesDsl.g:2005:1: ( ( rule__SemanticNode__PropertiesAssignment_6_0 ) )
+            // InternalSemanticNodesDsl.g:2141:1: ( ( rule__SemanticNode__PropertiesAssignment_5_1 )* )
+            // InternalSemanticNodesDsl.g:2142:2: ( rule__SemanticNode__PropertiesAssignment_5_1 )*
             {
-            // InternalSemanticNodesDsl.g:2005:1: ( ( rule__SemanticNode__PropertiesAssignment_6_0 ) )
-            // InternalSemanticNodesDsl.g:2006:2: ( rule__SemanticNode__PropertiesAssignment_6_0 )
-            {
-             before(grammarAccess.getSemanticNodeAccess().getPropertiesAssignment_6_0()); 
-            // InternalSemanticNodesDsl.g:2007:2: ( rule__SemanticNode__PropertiesAssignment_6_0 )
-            // InternalSemanticNodesDsl.g:2007:3: rule__SemanticNode__PropertiesAssignment_6_0
-            {
-            pushFollow(FOLLOW_2);
-            rule__SemanticNode__PropertiesAssignment_6_0();
-
-            state._fsp--;
-
-
-            }
-
-             after(grammarAccess.getSemanticNodeAccess().getPropertiesAssignment_6_0()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__SemanticNode__Group_6__0__Impl"
-
-
-    // $ANTLR start "rule__SemanticNode__Group_6__1"
-    // InternalSemanticNodesDsl.g:2015:1: rule__SemanticNode__Group_6__1 : rule__SemanticNode__Group_6__1__Impl ;
-    public final void rule__SemanticNode__Group_6__1() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalSemanticNodesDsl.g:2019:1: ( rule__SemanticNode__Group_6__1__Impl )
-            // InternalSemanticNodesDsl.g:2020:2: rule__SemanticNode__Group_6__1__Impl
-            {
-            pushFollow(FOLLOW_2);
-            rule__SemanticNode__Group_6__1__Impl();
-
-            state._fsp--;
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__SemanticNode__Group_6__1"
-
-
-    // $ANTLR start "rule__SemanticNode__Group_6__1__Impl"
-    // InternalSemanticNodesDsl.g:2026:1: rule__SemanticNode__Group_6__1__Impl : ( ( rule__SemanticNode__PropertiesAssignment_6_1 )* ) ;
-    public final void rule__SemanticNode__Group_6__1__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalSemanticNodesDsl.g:2030:1: ( ( ( rule__SemanticNode__PropertiesAssignment_6_1 )* ) )
-            // InternalSemanticNodesDsl.g:2031:1: ( ( rule__SemanticNode__PropertiesAssignment_6_1 )* )
-            {
-            // InternalSemanticNodesDsl.g:2031:1: ( ( rule__SemanticNode__PropertiesAssignment_6_1 )* )
-            // InternalSemanticNodesDsl.g:2032:2: ( rule__SemanticNode__PropertiesAssignment_6_1 )*
-            {
-             before(grammarAccess.getSemanticNodeAccess().getPropertiesAssignment_6_1()); 
-            // InternalSemanticNodesDsl.g:2033:2: ( rule__SemanticNode__PropertiesAssignment_6_1 )*
-            loop21:
-            do {
-                int alt21=2;
-                int LA21_0 = input.LA(1);
-
-                if ( ((LA21_0>=RULE_STRING && LA21_0<=RULE_ID)) ) {
-                    alt21=1;
-                }
-
-
-                switch (alt21) {
-            	case 1 :
-            	    // InternalSemanticNodesDsl.g:2033:3: rule__SemanticNode__PropertiesAssignment_6_1
-            	    {
-            	    pushFollow(FOLLOW_24);
-            	    rule__SemanticNode__PropertiesAssignment_6_1();
-
-            	    state._fsp--;
-
-
-            	    }
-            	    break;
-
-            	default :
-            	    break loop21;
-                }
-            } while (true);
-
-             after(grammarAccess.getSemanticNodeAccess().getPropertiesAssignment_6_1()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__SemanticNode__Group_6__1__Impl"
-
-
-    // $ANTLR start "rule__SemanticNode__Group_8__0"
-    // InternalSemanticNodesDsl.g:2042:1: rule__SemanticNode__Group_8__0 : rule__SemanticNode__Group_8__0__Impl rule__SemanticNode__Group_8__1 ;
-    public final void rule__SemanticNode__Group_8__0() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalSemanticNodesDsl.g:2046:1: ( rule__SemanticNode__Group_8__0__Impl rule__SemanticNode__Group_8__1 )
-            // InternalSemanticNodesDsl.g:2047:2: rule__SemanticNode__Group_8__0__Impl rule__SemanticNode__Group_8__1
-            {
-            pushFollow(FOLLOW_5);
-            rule__SemanticNode__Group_8__0__Impl();
-
-            state._fsp--;
-
-            pushFollow(FOLLOW_2);
-            rule__SemanticNode__Group_8__1();
-
-            state._fsp--;
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__SemanticNode__Group_8__0"
-
-
-    // $ANTLR start "rule__SemanticNode__Group_8__0__Impl"
-    // InternalSemanticNodesDsl.g:2054:1: rule__SemanticNode__Group_8__0__Impl : ( '{' ) ;
-    public final void rule__SemanticNode__Group_8__0__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalSemanticNodesDsl.g:2058:1: ( ( '{' ) )
-            // InternalSemanticNodesDsl.g:2059:1: ( '{' )
-            {
-            // InternalSemanticNodesDsl.g:2059:1: ( '{' )
-            // InternalSemanticNodesDsl.g:2060:2: '{'
-            {
-             before(grammarAccess.getSemanticNodeAccess().getLeftCurlyBracketKeyword_8_0()); 
-            match(input,17,FOLLOW_2); 
-             after(grammarAccess.getSemanticNodeAccess().getLeftCurlyBracketKeyword_8_0()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__SemanticNode__Group_8__0__Impl"
-
-
-    // $ANTLR start "rule__SemanticNode__Group_8__1"
-    // InternalSemanticNodesDsl.g:2069:1: rule__SemanticNode__Group_8__1 : rule__SemanticNode__Group_8__1__Impl rule__SemanticNode__Group_8__2 ;
-    public final void rule__SemanticNode__Group_8__1() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalSemanticNodesDsl.g:2073:1: ( rule__SemanticNode__Group_8__1__Impl rule__SemanticNode__Group_8__2 )
-            // InternalSemanticNodesDsl.g:2074:2: rule__SemanticNode__Group_8__1__Impl rule__SemanticNode__Group_8__2
-            {
-            pushFollow(FOLLOW_16);
-            rule__SemanticNode__Group_8__1__Impl();
-
-            state._fsp--;
-
-            pushFollow(FOLLOW_2);
-            rule__SemanticNode__Group_8__2();
-
-            state._fsp--;
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__SemanticNode__Group_8__1"
-
-
-    // $ANTLR start "rule__SemanticNode__Group_8__1__Impl"
-    // InternalSemanticNodesDsl.g:2081:1: rule__SemanticNode__Group_8__1__Impl : ( ( rule__SemanticNode__MetadataAssignment_8_1 ) ) ;
-    public final void rule__SemanticNode__Group_8__1__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalSemanticNodesDsl.g:2085:1: ( ( ( rule__SemanticNode__MetadataAssignment_8_1 ) ) )
-            // InternalSemanticNodesDsl.g:2086:1: ( ( rule__SemanticNode__MetadataAssignment_8_1 ) )
-            {
-            // InternalSemanticNodesDsl.g:2086:1: ( ( rule__SemanticNode__MetadataAssignment_8_1 ) )
-            // InternalSemanticNodesDsl.g:2087:2: ( rule__SemanticNode__MetadataAssignment_8_1 )
-            {
-             before(grammarAccess.getSemanticNodeAccess().getMetadataAssignment_8_1()); 
-            // InternalSemanticNodesDsl.g:2088:2: ( rule__SemanticNode__MetadataAssignment_8_1 )
-            // InternalSemanticNodesDsl.g:2088:3: rule__SemanticNode__MetadataAssignment_8_1
-            {
-            pushFollow(FOLLOW_2);
-            rule__SemanticNode__MetadataAssignment_8_1();
-
-            state._fsp--;
-
-
-            }
-
-             after(grammarAccess.getSemanticNodeAccess().getMetadataAssignment_8_1()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__SemanticNode__Group_8__1__Impl"
-
-
-    // $ANTLR start "rule__SemanticNode__Group_8__2"
-    // InternalSemanticNodesDsl.g:2096:1: rule__SemanticNode__Group_8__2 : rule__SemanticNode__Group_8__2__Impl rule__SemanticNode__Group_8__3 ;
-    public final void rule__SemanticNode__Group_8__2() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalSemanticNodesDsl.g:2100:1: ( rule__SemanticNode__Group_8__2__Impl rule__SemanticNode__Group_8__3 )
-            // InternalSemanticNodesDsl.g:2101:2: rule__SemanticNode__Group_8__2__Impl rule__SemanticNode__Group_8__3
-            {
-            pushFollow(FOLLOW_16);
-            rule__SemanticNode__Group_8__2__Impl();
-
-            state._fsp--;
-
-            pushFollow(FOLLOW_2);
-            rule__SemanticNode__Group_8__3();
-
-            state._fsp--;
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__SemanticNode__Group_8__2"
-
-
-    // $ANTLR start "rule__SemanticNode__Group_8__2__Impl"
-    // InternalSemanticNodesDsl.g:2108:1: rule__SemanticNode__Group_8__2__Impl : ( ( rule__SemanticNode__Group_8_2__0 )* ) ;
-    public final void rule__SemanticNode__Group_8__2__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalSemanticNodesDsl.g:2112:1: ( ( ( rule__SemanticNode__Group_8_2__0 )* ) )
-            // InternalSemanticNodesDsl.g:2113:1: ( ( rule__SemanticNode__Group_8_2__0 )* )
-            {
-            // InternalSemanticNodesDsl.g:2113:1: ( ( rule__SemanticNode__Group_8_2__0 )* )
-            // InternalSemanticNodesDsl.g:2114:2: ( rule__SemanticNode__Group_8_2__0 )*
-            {
-             before(grammarAccess.getSemanticNodeAccess().getGroup_8_2()); 
-            // InternalSemanticNodesDsl.g:2115:2: ( rule__SemanticNode__Group_8_2__0 )*
+             before(grammarAccess.getSemanticNodeAccess().getPropertiesAssignment_5_1()); 
+            // InternalSemanticNodesDsl.g:2143:2: ( rule__SemanticNode__PropertiesAssignment_5_1 )*
             loop22:
             do {
                 int alt22=2;
                 int LA22_0 = input.LA(1);
 
-                if ( (LA22_0==20) ) {
+                if ( ((LA22_0>=RULE_STRING && LA22_0<=RULE_ID)) ) {
                     alt22=1;
                 }
 
 
                 switch (alt22) {
             	case 1 :
-            	    // InternalSemanticNodesDsl.g:2115:3: rule__SemanticNode__Group_8_2__0
+            	    // InternalSemanticNodesDsl.g:2143:3: rule__SemanticNode__PropertiesAssignment_5_1
             	    {
-            	    pushFollow(FOLLOW_17);
-            	    rule__SemanticNode__Group_8_2__0();
+            	    pushFollow(FOLLOW_26);
+            	    rule__SemanticNode__PropertiesAssignment_5_1();
 
             	    state._fsp--;
 
@@ -6630,7 +6722,7 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
                 }
             } while (true);
 
-             after(grammarAccess.getSemanticNodeAccess().getGroup_8_2()); 
+             after(grammarAccess.getSemanticNodeAccess().getPropertiesAssignment_5_1()); 
 
             }
 
@@ -6649,21 +6741,26 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
         }
         return ;
     }
-    // $ANTLR end "rule__SemanticNode__Group_8__2__Impl"
+    // $ANTLR end "rule__SemanticNode__Group_5__1__Impl"
 
 
-    // $ANTLR start "rule__SemanticNode__Group_8__3"
-    // InternalSemanticNodesDsl.g:2123:1: rule__SemanticNode__Group_8__3 : rule__SemanticNode__Group_8__3__Impl ;
-    public final void rule__SemanticNode__Group_8__3() throws RecognitionException {
+    // $ANTLR start "rule__SemanticNode__Group_7__0"
+    // InternalSemanticNodesDsl.g:2152:1: rule__SemanticNode__Group_7__0 : rule__SemanticNode__Group_7__0__Impl rule__SemanticNode__Group_7__1 ;
+    public final void rule__SemanticNode__Group_7__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:2127:1: ( rule__SemanticNode__Group_8__3__Impl )
-            // InternalSemanticNodesDsl.g:2128:2: rule__SemanticNode__Group_8__3__Impl
+            // InternalSemanticNodesDsl.g:2156:1: ( rule__SemanticNode__Group_7__0__Impl rule__SemanticNode__Group_7__1 )
+            // InternalSemanticNodesDsl.g:2157:2: rule__SemanticNode__Group_7__0__Impl rule__SemanticNode__Group_7__1
             {
+            pushFollow(FOLLOW_4);
+            rule__SemanticNode__Group_7__0__Impl();
+
+            state._fsp--;
+
             pushFollow(FOLLOW_2);
-            rule__SemanticNode__Group_8__3__Impl();
+            rule__SemanticNode__Group_7__1();
 
             state._fsp--;
 
@@ -6682,25 +6779,25 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
         }
         return ;
     }
-    // $ANTLR end "rule__SemanticNode__Group_8__3"
+    // $ANTLR end "rule__SemanticNode__Group_7__0"
 
 
-    // $ANTLR start "rule__SemanticNode__Group_8__3__Impl"
-    // InternalSemanticNodesDsl.g:2134:1: rule__SemanticNode__Group_8__3__Impl : ( '}' ) ;
-    public final void rule__SemanticNode__Group_8__3__Impl() throws RecognitionException {
+    // $ANTLR start "rule__SemanticNode__Group_7__0__Impl"
+    // InternalSemanticNodesDsl.g:2164:1: rule__SemanticNode__Group_7__0__Impl : ( '{' ) ;
+    public final void rule__SemanticNode__Group_7__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:2138:1: ( ( '}' ) )
-            // InternalSemanticNodesDsl.g:2139:1: ( '}' )
+            // InternalSemanticNodesDsl.g:2168:1: ( ( '{' ) )
+            // InternalSemanticNodesDsl.g:2169:1: ( '{' )
             {
-            // InternalSemanticNodesDsl.g:2139:1: ( '}' )
-            // InternalSemanticNodesDsl.g:2140:2: '}'
+            // InternalSemanticNodesDsl.g:2169:1: ( '{' )
+            // InternalSemanticNodesDsl.g:2170:2: '{'
             {
-             before(grammarAccess.getSemanticNodeAccess().getRightCurlyBracketKeyword_8_3()); 
+             before(grammarAccess.getSemanticNodeAccess().getLeftCurlyBracketKeyword_7_0()); 
             match(input,18,FOLLOW_2); 
-             after(grammarAccess.getSemanticNodeAccess().getRightCurlyBracketKeyword_8_3()); 
+             after(grammarAccess.getSemanticNodeAccess().getLeftCurlyBracketKeyword_7_0()); 
 
             }
 
@@ -6719,26 +6816,26 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
         }
         return ;
     }
-    // $ANTLR end "rule__SemanticNode__Group_8__3__Impl"
+    // $ANTLR end "rule__SemanticNode__Group_7__0__Impl"
 
 
-    // $ANTLR start "rule__SemanticNode__Group_8_2__0"
-    // InternalSemanticNodesDsl.g:2150:1: rule__SemanticNode__Group_8_2__0 : rule__SemanticNode__Group_8_2__0__Impl rule__SemanticNode__Group_8_2__1 ;
-    public final void rule__SemanticNode__Group_8_2__0() throws RecognitionException {
+    // $ANTLR start "rule__SemanticNode__Group_7__1"
+    // InternalSemanticNodesDsl.g:2179:1: rule__SemanticNode__Group_7__1 : rule__SemanticNode__Group_7__1__Impl rule__SemanticNode__Group_7__2 ;
+    public final void rule__SemanticNode__Group_7__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:2154:1: ( rule__SemanticNode__Group_8_2__0__Impl rule__SemanticNode__Group_8_2__1 )
-            // InternalSemanticNodesDsl.g:2155:2: rule__SemanticNode__Group_8_2__0__Impl rule__SemanticNode__Group_8_2__1
+            // InternalSemanticNodesDsl.g:2183:1: ( rule__SemanticNode__Group_7__1__Impl rule__SemanticNode__Group_7__2 )
+            // InternalSemanticNodesDsl.g:2184:2: rule__SemanticNode__Group_7__1__Impl rule__SemanticNode__Group_7__2
             {
-            pushFollow(FOLLOW_5);
-            rule__SemanticNode__Group_8_2__0__Impl();
+            pushFollow(FOLLOW_18);
+            rule__SemanticNode__Group_7__1__Impl();
 
             state._fsp--;
 
             pushFollow(FOLLOW_2);
-            rule__SemanticNode__Group_8_2__1();
+            rule__SemanticNode__Group_7__2();
 
             state._fsp--;
 
@@ -6757,60 +6854,37 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
         }
         return ;
     }
-    // $ANTLR end "rule__SemanticNode__Group_8_2__0"
+    // $ANTLR end "rule__SemanticNode__Group_7__1"
 
 
-    // $ANTLR start "rule__SemanticNode__Group_8_2__0__Impl"
-    // InternalSemanticNodesDsl.g:2162:1: rule__SemanticNode__Group_8_2__0__Impl : ( ',' ) ;
-    public final void rule__SemanticNode__Group_8_2__0__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalSemanticNodesDsl.g:2166:1: ( ( ',' ) )
-            // InternalSemanticNodesDsl.g:2167:1: ( ',' )
-            {
-            // InternalSemanticNodesDsl.g:2167:1: ( ',' )
-            // InternalSemanticNodesDsl.g:2168:2: ','
-            {
-             before(grammarAccess.getSemanticNodeAccess().getCommaKeyword_8_2_0()); 
-            match(input,20,FOLLOW_2); 
-             after(grammarAccess.getSemanticNodeAccess().getCommaKeyword_8_2_0()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__SemanticNode__Group_8_2__0__Impl"
-
-
-    // $ANTLR start "rule__SemanticNode__Group_8_2__1"
-    // InternalSemanticNodesDsl.g:2177:1: rule__SemanticNode__Group_8_2__1 : rule__SemanticNode__Group_8_2__1__Impl ;
-    public final void rule__SemanticNode__Group_8_2__1() throws RecognitionException {
+    // $ANTLR start "rule__SemanticNode__Group_7__1__Impl"
+    // InternalSemanticNodesDsl.g:2191:1: rule__SemanticNode__Group_7__1__Impl : ( ( rule__SemanticNode__MetaDataValueAssignment_7_1 ) ) ;
+    public final void rule__SemanticNode__Group_7__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:2181:1: ( rule__SemanticNode__Group_8_2__1__Impl )
-            // InternalSemanticNodesDsl.g:2182:2: rule__SemanticNode__Group_8_2__1__Impl
+            // InternalSemanticNodesDsl.g:2195:1: ( ( ( rule__SemanticNode__MetaDataValueAssignment_7_1 ) ) )
+            // InternalSemanticNodesDsl.g:2196:1: ( ( rule__SemanticNode__MetaDataValueAssignment_7_1 ) )
+            {
+            // InternalSemanticNodesDsl.g:2196:1: ( ( rule__SemanticNode__MetaDataValueAssignment_7_1 ) )
+            // InternalSemanticNodesDsl.g:2197:2: ( rule__SemanticNode__MetaDataValueAssignment_7_1 )
+            {
+             before(grammarAccess.getSemanticNodeAccess().getMetaDataValueAssignment_7_1()); 
+            // InternalSemanticNodesDsl.g:2198:2: ( rule__SemanticNode__MetaDataValueAssignment_7_1 )
+            // InternalSemanticNodesDsl.g:2198:3: rule__SemanticNode__MetaDataValueAssignment_7_1
             {
             pushFollow(FOLLOW_2);
-            rule__SemanticNode__Group_8_2__1__Impl();
+            rule__SemanticNode__MetaDataValueAssignment_7_1();
 
             state._fsp--;
+
+
+            }
+
+             after(grammarAccess.getSemanticNodeAccess().getMetaDataValueAssignment_7_1()); 
+
+            }
 
 
             }
@@ -6827,35 +6901,91 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
         }
         return ;
     }
-    // $ANTLR end "rule__SemanticNode__Group_8_2__1"
+    // $ANTLR end "rule__SemanticNode__Group_7__1__Impl"
 
 
-    // $ANTLR start "rule__SemanticNode__Group_8_2__1__Impl"
-    // InternalSemanticNodesDsl.g:2188:1: rule__SemanticNode__Group_8_2__1__Impl : ( ( rule__SemanticNode__MetadataAssignment_8_2_1 ) ) ;
-    public final void rule__SemanticNode__Group_8_2__1__Impl() throws RecognitionException {
+    // $ANTLR start "rule__SemanticNode__Group_7__2"
+    // InternalSemanticNodesDsl.g:2206:1: rule__SemanticNode__Group_7__2 : rule__SemanticNode__Group_7__2__Impl rule__SemanticNode__Group_7__3 ;
+    public final void rule__SemanticNode__Group_7__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:2192:1: ( ( ( rule__SemanticNode__MetadataAssignment_8_2_1 ) ) )
-            // InternalSemanticNodesDsl.g:2193:1: ( ( rule__SemanticNode__MetadataAssignment_8_2_1 ) )
+            // InternalSemanticNodesDsl.g:2210:1: ( rule__SemanticNode__Group_7__2__Impl rule__SemanticNode__Group_7__3 )
+            // InternalSemanticNodesDsl.g:2211:2: rule__SemanticNode__Group_7__2__Impl rule__SemanticNode__Group_7__3
             {
-            // InternalSemanticNodesDsl.g:2193:1: ( ( rule__SemanticNode__MetadataAssignment_8_2_1 ) )
-            // InternalSemanticNodesDsl.g:2194:2: ( rule__SemanticNode__MetadataAssignment_8_2_1 )
-            {
-             before(grammarAccess.getSemanticNodeAccess().getMetadataAssignment_8_2_1()); 
-            // InternalSemanticNodesDsl.g:2195:2: ( rule__SemanticNode__MetadataAssignment_8_2_1 )
-            // InternalSemanticNodesDsl.g:2195:3: rule__SemanticNode__MetadataAssignment_8_2_1
-            {
+            pushFollow(FOLLOW_18);
+            rule__SemanticNode__Group_7__2__Impl();
+
+            state._fsp--;
+
             pushFollow(FOLLOW_2);
-            rule__SemanticNode__MetadataAssignment_8_2_1();
+            rule__SemanticNode__Group_7__3();
 
             state._fsp--;
 
 
             }
 
-             after(grammarAccess.getSemanticNodeAccess().getMetadataAssignment_8_2_1()); 
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__SemanticNode__Group_7__2"
+
+
+    // $ANTLR start "rule__SemanticNode__Group_7__2__Impl"
+    // InternalSemanticNodesDsl.g:2218:1: rule__SemanticNode__Group_7__2__Impl : ( ( rule__SemanticNode__Group_7_2__0 )* ) ;
+    public final void rule__SemanticNode__Group_7__2__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalSemanticNodesDsl.g:2222:1: ( ( ( rule__SemanticNode__Group_7_2__0 )* ) )
+            // InternalSemanticNodesDsl.g:2223:1: ( ( rule__SemanticNode__Group_7_2__0 )* )
+            {
+            // InternalSemanticNodesDsl.g:2223:1: ( ( rule__SemanticNode__Group_7_2__0 )* )
+            // InternalSemanticNodesDsl.g:2224:2: ( rule__SemanticNode__Group_7_2__0 )*
+            {
+             before(grammarAccess.getSemanticNodeAccess().getGroup_7_2()); 
+            // InternalSemanticNodesDsl.g:2225:2: ( rule__SemanticNode__Group_7_2__0 )*
+            loop23:
+            do {
+                int alt23=2;
+                int LA23_0 = input.LA(1);
+
+                if ( (LA23_0==21) ) {
+                    alt23=1;
+                }
+
+
+                switch (alt23) {
+            	case 1 :
+            	    // InternalSemanticNodesDsl.g:2225:3: rule__SemanticNode__Group_7_2__0
+            	    {
+            	    pushFollow(FOLLOW_19);
+            	    rule__SemanticNode__Group_7_2__0();
+
+            	    state._fsp--;
+
+
+            	    }
+            	    break;
+
+            	default :
+            	    break loop23;
+                }
+            } while (true);
+
+             after(grammarAccess.getSemanticNodeAccess().getGroup_7_2()); 
 
             }
 
@@ -6874,20 +7004,245 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
         }
         return ;
     }
-    // $ANTLR end "rule__SemanticNode__Group_8_2__1__Impl"
+    // $ANTLR end "rule__SemanticNode__Group_7__2__Impl"
+
+
+    // $ANTLR start "rule__SemanticNode__Group_7__3"
+    // InternalSemanticNodesDsl.g:2233:1: rule__SemanticNode__Group_7__3 : rule__SemanticNode__Group_7__3__Impl ;
+    public final void rule__SemanticNode__Group_7__3() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalSemanticNodesDsl.g:2237:1: ( rule__SemanticNode__Group_7__3__Impl )
+            // InternalSemanticNodesDsl.g:2238:2: rule__SemanticNode__Group_7__3__Impl
+            {
+            pushFollow(FOLLOW_2);
+            rule__SemanticNode__Group_7__3__Impl();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__SemanticNode__Group_7__3"
+
+
+    // $ANTLR start "rule__SemanticNode__Group_7__3__Impl"
+    // InternalSemanticNodesDsl.g:2244:1: rule__SemanticNode__Group_7__3__Impl : ( '}' ) ;
+    public final void rule__SemanticNode__Group_7__3__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalSemanticNodesDsl.g:2248:1: ( ( '}' ) )
+            // InternalSemanticNodesDsl.g:2249:1: ( '}' )
+            {
+            // InternalSemanticNodesDsl.g:2249:1: ( '}' )
+            // InternalSemanticNodesDsl.g:2250:2: '}'
+            {
+             before(grammarAccess.getSemanticNodeAccess().getRightCurlyBracketKeyword_7_3()); 
+            match(input,19,FOLLOW_2); 
+             after(grammarAccess.getSemanticNodeAccess().getRightCurlyBracketKeyword_7_3()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__SemanticNode__Group_7__3__Impl"
+
+
+    // $ANTLR start "rule__SemanticNode__Group_7_2__0"
+    // InternalSemanticNodesDsl.g:2260:1: rule__SemanticNode__Group_7_2__0 : rule__SemanticNode__Group_7_2__0__Impl rule__SemanticNode__Group_7_2__1 ;
+    public final void rule__SemanticNode__Group_7_2__0() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalSemanticNodesDsl.g:2264:1: ( rule__SemanticNode__Group_7_2__0__Impl rule__SemanticNode__Group_7_2__1 )
+            // InternalSemanticNodesDsl.g:2265:2: rule__SemanticNode__Group_7_2__0__Impl rule__SemanticNode__Group_7_2__1
+            {
+            pushFollow(FOLLOW_4);
+            rule__SemanticNode__Group_7_2__0__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_2);
+            rule__SemanticNode__Group_7_2__1();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__SemanticNode__Group_7_2__0"
+
+
+    // $ANTLR start "rule__SemanticNode__Group_7_2__0__Impl"
+    // InternalSemanticNodesDsl.g:2272:1: rule__SemanticNode__Group_7_2__0__Impl : ( ',' ) ;
+    public final void rule__SemanticNode__Group_7_2__0__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalSemanticNodesDsl.g:2276:1: ( ( ',' ) )
+            // InternalSemanticNodesDsl.g:2277:1: ( ',' )
+            {
+            // InternalSemanticNodesDsl.g:2277:1: ( ',' )
+            // InternalSemanticNodesDsl.g:2278:2: ','
+            {
+             before(grammarAccess.getSemanticNodeAccess().getCommaKeyword_7_2_0()); 
+            match(input,21,FOLLOW_2); 
+             after(grammarAccess.getSemanticNodeAccess().getCommaKeyword_7_2_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__SemanticNode__Group_7_2__0__Impl"
+
+
+    // $ANTLR start "rule__SemanticNode__Group_7_2__1"
+    // InternalSemanticNodesDsl.g:2287:1: rule__SemanticNode__Group_7_2__1 : rule__SemanticNode__Group_7_2__1__Impl ;
+    public final void rule__SemanticNode__Group_7_2__1() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalSemanticNodesDsl.g:2291:1: ( rule__SemanticNode__Group_7_2__1__Impl )
+            // InternalSemanticNodesDsl.g:2292:2: rule__SemanticNode__Group_7_2__1__Impl
+            {
+            pushFollow(FOLLOW_2);
+            rule__SemanticNode__Group_7_2__1__Impl();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__SemanticNode__Group_7_2__1"
+
+
+    // $ANTLR start "rule__SemanticNode__Group_7_2__1__Impl"
+    // InternalSemanticNodesDsl.g:2298:1: rule__SemanticNode__Group_7_2__1__Impl : ( ( rule__SemanticNode__MetaDataValueAssignment_7_2_1 ) ) ;
+    public final void rule__SemanticNode__Group_7_2__1__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalSemanticNodesDsl.g:2302:1: ( ( ( rule__SemanticNode__MetaDataValueAssignment_7_2_1 ) ) )
+            // InternalSemanticNodesDsl.g:2303:1: ( ( rule__SemanticNode__MetaDataValueAssignment_7_2_1 ) )
+            {
+            // InternalSemanticNodesDsl.g:2303:1: ( ( rule__SemanticNode__MetaDataValueAssignment_7_2_1 ) )
+            // InternalSemanticNodesDsl.g:2304:2: ( rule__SemanticNode__MetaDataValueAssignment_7_2_1 )
+            {
+             before(grammarAccess.getSemanticNodeAccess().getMetaDataValueAssignment_7_2_1()); 
+            // InternalSemanticNodesDsl.g:2305:2: ( rule__SemanticNode__MetaDataValueAssignment_7_2_1 )
+            // InternalSemanticNodesDsl.g:2305:3: rule__SemanticNode__MetaDataValueAssignment_7_2_1
+            {
+            pushFollow(FOLLOW_2);
+            rule__SemanticNode__MetaDataValueAssignment_7_2_1();
+
+            state._fsp--;
+
+
+            }
+
+             after(grammarAccess.getSemanticNodeAccess().getMetaDataValueAssignment_7_2_1()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__SemanticNode__Group_7_2__1__Impl"
 
 
     // $ANTLR start "rule__ObjectProperty__Group__0"
-    // InternalSemanticNodesDsl.g:2204:1: rule__ObjectProperty__Group__0 : rule__ObjectProperty__Group__0__Impl rule__ObjectProperty__Group__1 ;
+    // InternalSemanticNodesDsl.g:2314:1: rule__ObjectProperty__Group__0 : rule__ObjectProperty__Group__0__Impl rule__ObjectProperty__Group__1 ;
     public final void rule__ObjectProperty__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:2208:1: ( rule__ObjectProperty__Group__0__Impl rule__ObjectProperty__Group__1 )
-            // InternalSemanticNodesDsl.g:2209:2: rule__ObjectProperty__Group__0__Impl rule__ObjectProperty__Group__1
+            // InternalSemanticNodesDsl.g:2318:1: ( rule__ObjectProperty__Group__0__Impl rule__ObjectProperty__Group__1 )
+            // InternalSemanticNodesDsl.g:2319:2: rule__ObjectProperty__Group__0__Impl rule__ObjectProperty__Group__1
             {
-            pushFollow(FOLLOW_5);
+            pushFollow(FOLLOW_4);
             rule__ObjectProperty__Group__0__Impl();
 
             state._fsp--;
@@ -6916,21 +7271,21 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__ObjectProperty__Group__0__Impl"
-    // InternalSemanticNodesDsl.g:2216:1: rule__ObjectProperty__Group__0__Impl : ( () ) ;
+    // InternalSemanticNodesDsl.g:2326:1: rule__ObjectProperty__Group__0__Impl : ( () ) ;
     public final void rule__ObjectProperty__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:2220:1: ( ( () ) )
-            // InternalSemanticNodesDsl.g:2221:1: ( () )
+            // InternalSemanticNodesDsl.g:2330:1: ( ( () ) )
+            // InternalSemanticNodesDsl.g:2331:1: ( () )
             {
-            // InternalSemanticNodesDsl.g:2221:1: ( () )
-            // InternalSemanticNodesDsl.g:2222:2: ()
+            // InternalSemanticNodesDsl.g:2331:1: ( () )
+            // InternalSemanticNodesDsl.g:2332:2: ()
             {
              before(grammarAccess.getObjectPropertyAccess().getObjectPropertyAction_0()); 
-            // InternalSemanticNodesDsl.g:2223:2: ()
-            // InternalSemanticNodesDsl.g:2223:3: 
+            // InternalSemanticNodesDsl.g:2333:2: ()
+            // InternalSemanticNodesDsl.g:2333:3: 
             {
             }
 
@@ -6953,16 +7308,16 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__ObjectProperty__Group__1"
-    // InternalSemanticNodesDsl.g:2231:1: rule__ObjectProperty__Group__1 : rule__ObjectProperty__Group__1__Impl rule__ObjectProperty__Group__2 ;
+    // InternalSemanticNodesDsl.g:2341:1: rule__ObjectProperty__Group__1 : rule__ObjectProperty__Group__1__Impl rule__ObjectProperty__Group__2 ;
     public final void rule__ObjectProperty__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:2235:1: ( rule__ObjectProperty__Group__1__Impl rule__ObjectProperty__Group__2 )
-            // InternalSemanticNodesDsl.g:2236:2: rule__ObjectProperty__Group__1__Impl rule__ObjectProperty__Group__2
+            // InternalSemanticNodesDsl.g:2345:1: ( rule__ObjectProperty__Group__1__Impl rule__ObjectProperty__Group__2 )
+            // InternalSemanticNodesDsl.g:2346:2: rule__ObjectProperty__Group__1__Impl rule__ObjectProperty__Group__2
             {
-            pushFollow(FOLLOW_21);
+            pushFollow(FOLLOW_23);
             rule__ObjectProperty__Group__1__Impl();
 
             state._fsp--;
@@ -6991,21 +7346,21 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__ObjectProperty__Group__1__Impl"
-    // InternalSemanticNodesDsl.g:2243:1: rule__ObjectProperty__Group__1__Impl : ( ( rule__ObjectProperty__NameAssignment_1 ) ) ;
+    // InternalSemanticNodesDsl.g:2353:1: rule__ObjectProperty__Group__1__Impl : ( ( rule__ObjectProperty__NameAssignment_1 ) ) ;
     public final void rule__ObjectProperty__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:2247:1: ( ( ( rule__ObjectProperty__NameAssignment_1 ) ) )
-            // InternalSemanticNodesDsl.g:2248:1: ( ( rule__ObjectProperty__NameAssignment_1 ) )
+            // InternalSemanticNodesDsl.g:2357:1: ( ( ( rule__ObjectProperty__NameAssignment_1 ) ) )
+            // InternalSemanticNodesDsl.g:2358:1: ( ( rule__ObjectProperty__NameAssignment_1 ) )
             {
-            // InternalSemanticNodesDsl.g:2248:1: ( ( rule__ObjectProperty__NameAssignment_1 ) )
-            // InternalSemanticNodesDsl.g:2249:2: ( rule__ObjectProperty__NameAssignment_1 )
+            // InternalSemanticNodesDsl.g:2358:1: ( ( rule__ObjectProperty__NameAssignment_1 ) )
+            // InternalSemanticNodesDsl.g:2359:2: ( rule__ObjectProperty__NameAssignment_1 )
             {
              before(grammarAccess.getObjectPropertyAccess().getNameAssignment_1()); 
-            // InternalSemanticNodesDsl.g:2250:2: ( rule__ObjectProperty__NameAssignment_1 )
-            // InternalSemanticNodesDsl.g:2250:3: rule__ObjectProperty__NameAssignment_1
+            // InternalSemanticNodesDsl.g:2360:2: ( rule__ObjectProperty__NameAssignment_1 )
+            // InternalSemanticNodesDsl.g:2360:3: rule__ObjectProperty__NameAssignment_1
             {
             pushFollow(FOLLOW_2);
             rule__ObjectProperty__NameAssignment_1();
@@ -7038,16 +7393,16 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__ObjectProperty__Group__2"
-    // InternalSemanticNodesDsl.g:2258:1: rule__ObjectProperty__Group__2 : rule__ObjectProperty__Group__2__Impl rule__ObjectProperty__Group__3 ;
+    // InternalSemanticNodesDsl.g:2368:1: rule__ObjectProperty__Group__2 : rule__ObjectProperty__Group__2__Impl rule__ObjectProperty__Group__3 ;
     public final void rule__ObjectProperty__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:2262:1: ( rule__ObjectProperty__Group__2__Impl rule__ObjectProperty__Group__3 )
-            // InternalSemanticNodesDsl.g:2263:2: rule__ObjectProperty__Group__2__Impl rule__ObjectProperty__Group__3
+            // InternalSemanticNodesDsl.g:2372:1: ( rule__ObjectProperty__Group__2__Impl rule__ObjectProperty__Group__3 )
+            // InternalSemanticNodesDsl.g:2373:2: rule__ObjectProperty__Group__2__Impl rule__ObjectProperty__Group__3
             {
-            pushFollow(FOLLOW_5);
+            pushFollow(FOLLOW_4);
             rule__ObjectProperty__Group__2__Impl();
 
             state._fsp--;
@@ -7076,20 +7431,20 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__ObjectProperty__Group__2__Impl"
-    // InternalSemanticNodesDsl.g:2270:1: rule__ObjectProperty__Group__2__Impl : ( '->' ) ;
+    // InternalSemanticNodesDsl.g:2380:1: rule__ObjectProperty__Group__2__Impl : ( '->' ) ;
     public final void rule__ObjectProperty__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:2274:1: ( ( '->' ) )
-            // InternalSemanticNodesDsl.g:2275:1: ( '->' )
+            // InternalSemanticNodesDsl.g:2384:1: ( ( '->' ) )
+            // InternalSemanticNodesDsl.g:2385:1: ( '->' )
             {
-            // InternalSemanticNodesDsl.g:2275:1: ( '->' )
-            // InternalSemanticNodesDsl.g:2276:2: '->'
+            // InternalSemanticNodesDsl.g:2385:1: ( '->' )
+            // InternalSemanticNodesDsl.g:2386:2: '->'
             {
              before(grammarAccess.getObjectPropertyAccess().getHyphenMinusGreaterThanSignKeyword_2()); 
-            match(input,22,FOLLOW_2); 
+            match(input,23,FOLLOW_2); 
              after(grammarAccess.getObjectPropertyAccess().getHyphenMinusGreaterThanSignKeyword_2()); 
 
             }
@@ -7113,16 +7468,16 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__ObjectProperty__Group__3"
-    // InternalSemanticNodesDsl.g:2285:1: rule__ObjectProperty__Group__3 : rule__ObjectProperty__Group__3__Impl rule__ObjectProperty__Group__4 ;
+    // InternalSemanticNodesDsl.g:2395:1: rule__ObjectProperty__Group__3 : rule__ObjectProperty__Group__3__Impl rule__ObjectProperty__Group__4 ;
     public final void rule__ObjectProperty__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:2289:1: ( rule__ObjectProperty__Group__3__Impl rule__ObjectProperty__Group__4 )
-            // InternalSemanticNodesDsl.g:2290:2: rule__ObjectProperty__Group__3__Impl rule__ObjectProperty__Group__4
+            // InternalSemanticNodesDsl.g:2399:1: ( rule__ObjectProperty__Group__3__Impl rule__ObjectProperty__Group__4 )
+            // InternalSemanticNodesDsl.g:2400:2: rule__ObjectProperty__Group__3__Impl rule__ObjectProperty__Group__4
             {
-            pushFollow(FOLLOW_25);
+            pushFollow(FOLLOW_27);
             rule__ObjectProperty__Group__3__Impl();
 
             state._fsp--;
@@ -7151,21 +7506,21 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__ObjectProperty__Group__3__Impl"
-    // InternalSemanticNodesDsl.g:2297:1: rule__ObjectProperty__Group__3__Impl : ( ( rule__ObjectProperty__RangeAssignment_3 ) ) ;
+    // InternalSemanticNodesDsl.g:2407:1: rule__ObjectProperty__Group__3__Impl : ( ( rule__ObjectProperty__RangeAssignment_3 ) ) ;
     public final void rule__ObjectProperty__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:2301:1: ( ( ( rule__ObjectProperty__RangeAssignment_3 ) ) )
-            // InternalSemanticNodesDsl.g:2302:1: ( ( rule__ObjectProperty__RangeAssignment_3 ) )
+            // InternalSemanticNodesDsl.g:2411:1: ( ( ( rule__ObjectProperty__RangeAssignment_3 ) ) )
+            // InternalSemanticNodesDsl.g:2412:1: ( ( rule__ObjectProperty__RangeAssignment_3 ) )
             {
-            // InternalSemanticNodesDsl.g:2302:1: ( ( rule__ObjectProperty__RangeAssignment_3 ) )
-            // InternalSemanticNodesDsl.g:2303:2: ( rule__ObjectProperty__RangeAssignment_3 )
+            // InternalSemanticNodesDsl.g:2412:1: ( ( rule__ObjectProperty__RangeAssignment_3 ) )
+            // InternalSemanticNodesDsl.g:2413:2: ( rule__ObjectProperty__RangeAssignment_3 )
             {
              before(grammarAccess.getObjectPropertyAccess().getRangeAssignment_3()); 
-            // InternalSemanticNodesDsl.g:2304:2: ( rule__ObjectProperty__RangeAssignment_3 )
-            // InternalSemanticNodesDsl.g:2304:3: rule__ObjectProperty__RangeAssignment_3
+            // InternalSemanticNodesDsl.g:2414:2: ( rule__ObjectProperty__RangeAssignment_3 )
+            // InternalSemanticNodesDsl.g:2414:3: rule__ObjectProperty__RangeAssignment_3
             {
             pushFollow(FOLLOW_2);
             rule__ObjectProperty__RangeAssignment_3();
@@ -7198,16 +7553,16 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__ObjectProperty__Group__4"
-    // InternalSemanticNodesDsl.g:2312:1: rule__ObjectProperty__Group__4 : rule__ObjectProperty__Group__4__Impl rule__ObjectProperty__Group__5 ;
+    // InternalSemanticNodesDsl.g:2422:1: rule__ObjectProperty__Group__4 : rule__ObjectProperty__Group__4__Impl rule__ObjectProperty__Group__5 ;
     public final void rule__ObjectProperty__Group__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:2316:1: ( rule__ObjectProperty__Group__4__Impl rule__ObjectProperty__Group__5 )
-            // InternalSemanticNodesDsl.g:2317:2: rule__ObjectProperty__Group__4__Impl rule__ObjectProperty__Group__5
+            // InternalSemanticNodesDsl.g:2426:1: ( rule__ObjectProperty__Group__4__Impl rule__ObjectProperty__Group__5 )
+            // InternalSemanticNodesDsl.g:2427:2: rule__ObjectProperty__Group__4__Impl rule__ObjectProperty__Group__5
             {
-            pushFollow(FOLLOW_25);
+            pushFollow(FOLLOW_27);
             rule__ObjectProperty__Group__4__Impl();
 
             state._fsp--;
@@ -7236,29 +7591,29 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__ObjectProperty__Group__4__Impl"
-    // InternalSemanticNodesDsl.g:2324:1: rule__ObjectProperty__Group__4__Impl : ( ( rule__ObjectProperty__Group_4__0 )? ) ;
+    // InternalSemanticNodesDsl.g:2434:1: rule__ObjectProperty__Group__4__Impl : ( ( rule__ObjectProperty__Group_4__0 )? ) ;
     public final void rule__ObjectProperty__Group__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:2328:1: ( ( ( rule__ObjectProperty__Group_4__0 )? ) )
-            // InternalSemanticNodesDsl.g:2329:1: ( ( rule__ObjectProperty__Group_4__0 )? )
+            // InternalSemanticNodesDsl.g:2438:1: ( ( ( rule__ObjectProperty__Group_4__0 )? ) )
+            // InternalSemanticNodesDsl.g:2439:1: ( ( rule__ObjectProperty__Group_4__0 )? )
             {
-            // InternalSemanticNodesDsl.g:2329:1: ( ( rule__ObjectProperty__Group_4__0 )? )
-            // InternalSemanticNodesDsl.g:2330:2: ( rule__ObjectProperty__Group_4__0 )?
+            // InternalSemanticNodesDsl.g:2439:1: ( ( rule__ObjectProperty__Group_4__0 )? )
+            // InternalSemanticNodesDsl.g:2440:2: ( rule__ObjectProperty__Group_4__0 )?
             {
              before(grammarAccess.getObjectPropertyAccess().getGroup_4()); 
-            // InternalSemanticNodesDsl.g:2331:2: ( rule__ObjectProperty__Group_4__0 )?
-            int alt23=2;
-            int LA23_0 = input.LA(1);
+            // InternalSemanticNodesDsl.g:2441:2: ( rule__ObjectProperty__Group_4__0 )?
+            int alt24=2;
+            int LA24_0 = input.LA(1);
 
-            if ( (LA23_0==24) ) {
-                alt23=1;
+            if ( (LA24_0==25) ) {
+                alt24=1;
             }
-            switch (alt23) {
+            switch (alt24) {
                 case 1 :
-                    // InternalSemanticNodesDsl.g:2331:3: rule__ObjectProperty__Group_4__0
+                    // InternalSemanticNodesDsl.g:2441:3: rule__ObjectProperty__Group_4__0
                     {
                     pushFollow(FOLLOW_2);
                     rule__ObjectProperty__Group_4__0();
@@ -7294,14 +7649,14 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__ObjectProperty__Group__5"
-    // InternalSemanticNodesDsl.g:2339:1: rule__ObjectProperty__Group__5 : rule__ObjectProperty__Group__5__Impl ;
+    // InternalSemanticNodesDsl.g:2449:1: rule__ObjectProperty__Group__5 : rule__ObjectProperty__Group__5__Impl ;
     public final void rule__ObjectProperty__Group__5() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:2343:1: ( rule__ObjectProperty__Group__5__Impl )
-            // InternalSemanticNodesDsl.g:2344:2: rule__ObjectProperty__Group__5__Impl
+            // InternalSemanticNodesDsl.g:2453:1: ( rule__ObjectProperty__Group__5__Impl )
+            // InternalSemanticNodesDsl.g:2454:2: rule__ObjectProperty__Group__5__Impl
             {
             pushFollow(FOLLOW_2);
             rule__ObjectProperty__Group__5__Impl();
@@ -7327,29 +7682,29 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__ObjectProperty__Group__5__Impl"
-    // InternalSemanticNodesDsl.g:2350:1: rule__ObjectProperty__Group__5__Impl : ( ( rule__ObjectProperty__Group_5__0 )? ) ;
+    // InternalSemanticNodesDsl.g:2460:1: rule__ObjectProperty__Group__5__Impl : ( ( rule__ObjectProperty__Group_5__0 )? ) ;
     public final void rule__ObjectProperty__Group__5__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:2354:1: ( ( ( rule__ObjectProperty__Group_5__0 )? ) )
-            // InternalSemanticNodesDsl.g:2355:1: ( ( rule__ObjectProperty__Group_5__0 )? )
+            // InternalSemanticNodesDsl.g:2464:1: ( ( ( rule__ObjectProperty__Group_5__0 )? ) )
+            // InternalSemanticNodesDsl.g:2465:1: ( ( rule__ObjectProperty__Group_5__0 )? )
             {
-            // InternalSemanticNodesDsl.g:2355:1: ( ( rule__ObjectProperty__Group_5__0 )? )
-            // InternalSemanticNodesDsl.g:2356:2: ( rule__ObjectProperty__Group_5__0 )?
+            // InternalSemanticNodesDsl.g:2465:1: ( ( rule__ObjectProperty__Group_5__0 )? )
+            // InternalSemanticNodesDsl.g:2466:2: ( rule__ObjectProperty__Group_5__0 )?
             {
              before(grammarAccess.getObjectPropertyAccess().getGroup_5()); 
-            // InternalSemanticNodesDsl.g:2357:2: ( rule__ObjectProperty__Group_5__0 )?
-            int alt24=2;
-            int LA24_0 = input.LA(1);
+            // InternalSemanticNodesDsl.g:2467:2: ( rule__ObjectProperty__Group_5__0 )?
+            int alt25=2;
+            int LA25_0 = input.LA(1);
 
-            if ( (LA24_0==17) ) {
-                alt24=1;
+            if ( (LA25_0==18) ) {
+                alt25=1;
             }
-            switch (alt24) {
+            switch (alt25) {
                 case 1 :
-                    // InternalSemanticNodesDsl.g:2357:3: rule__ObjectProperty__Group_5__0
+                    // InternalSemanticNodesDsl.g:2467:3: rule__ObjectProperty__Group_5__0
                     {
                     pushFollow(FOLLOW_2);
                     rule__ObjectProperty__Group_5__0();
@@ -7385,16 +7740,16 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__ObjectProperty__Group_4__0"
-    // InternalSemanticNodesDsl.g:2366:1: rule__ObjectProperty__Group_4__0 : rule__ObjectProperty__Group_4__0__Impl rule__ObjectProperty__Group_4__1 ;
+    // InternalSemanticNodesDsl.g:2476:1: rule__ObjectProperty__Group_4__0 : rule__ObjectProperty__Group_4__0__Impl rule__ObjectProperty__Group_4__1 ;
     public final void rule__ObjectProperty__Group_4__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:2370:1: ( rule__ObjectProperty__Group_4__0__Impl rule__ObjectProperty__Group_4__1 )
-            // InternalSemanticNodesDsl.g:2371:2: rule__ObjectProperty__Group_4__0__Impl rule__ObjectProperty__Group_4__1
+            // InternalSemanticNodesDsl.g:2480:1: ( rule__ObjectProperty__Group_4__0__Impl rule__ObjectProperty__Group_4__1 )
+            // InternalSemanticNodesDsl.g:2481:2: rule__ObjectProperty__Group_4__0__Impl rule__ObjectProperty__Group_4__1
             {
-            pushFollow(FOLLOW_19);
+            pushFollow(FOLLOW_21);
             rule__ObjectProperty__Group_4__0__Impl();
 
             state._fsp--;
@@ -7423,20 +7778,20 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__ObjectProperty__Group_4__0__Impl"
-    // InternalSemanticNodesDsl.g:2378:1: rule__ObjectProperty__Group_4__0__Impl : ( '[' ) ;
+    // InternalSemanticNodesDsl.g:2488:1: rule__ObjectProperty__Group_4__0__Impl : ( '[' ) ;
     public final void rule__ObjectProperty__Group_4__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:2382:1: ( ( '[' ) )
-            // InternalSemanticNodesDsl.g:2383:1: ( '[' )
+            // InternalSemanticNodesDsl.g:2492:1: ( ( '[' ) )
+            // InternalSemanticNodesDsl.g:2493:1: ( '[' )
             {
-            // InternalSemanticNodesDsl.g:2383:1: ( '[' )
-            // InternalSemanticNodesDsl.g:2384:2: '['
+            // InternalSemanticNodesDsl.g:2493:1: ( '[' )
+            // InternalSemanticNodesDsl.g:2494:2: '['
             {
              before(grammarAccess.getObjectPropertyAccess().getLeftSquareBracketKeyword_4_0()); 
-            match(input,24,FOLLOW_2); 
+            match(input,25,FOLLOW_2); 
              after(grammarAccess.getObjectPropertyAccess().getLeftSquareBracketKeyword_4_0()); 
 
             }
@@ -7460,16 +7815,16 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__ObjectProperty__Group_4__1"
-    // InternalSemanticNodesDsl.g:2393:1: rule__ObjectProperty__Group_4__1 : rule__ObjectProperty__Group_4__1__Impl rule__ObjectProperty__Group_4__2 ;
+    // InternalSemanticNodesDsl.g:2503:1: rule__ObjectProperty__Group_4__1 : rule__ObjectProperty__Group_4__1__Impl rule__ObjectProperty__Group_4__2 ;
     public final void rule__ObjectProperty__Group_4__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:2397:1: ( rule__ObjectProperty__Group_4__1__Impl rule__ObjectProperty__Group_4__2 )
-            // InternalSemanticNodesDsl.g:2398:2: rule__ObjectProperty__Group_4__1__Impl rule__ObjectProperty__Group_4__2
+            // InternalSemanticNodesDsl.g:2507:1: ( rule__ObjectProperty__Group_4__1__Impl rule__ObjectProperty__Group_4__2 )
+            // InternalSemanticNodesDsl.g:2508:2: rule__ObjectProperty__Group_4__1__Impl rule__ObjectProperty__Group_4__2
             {
-            pushFollow(FOLLOW_26);
+            pushFollow(FOLLOW_28);
             rule__ObjectProperty__Group_4__1__Impl();
 
             state._fsp--;
@@ -7498,21 +7853,21 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__ObjectProperty__Group_4__1__Impl"
-    // InternalSemanticNodesDsl.g:2405:1: rule__ObjectProperty__Group_4__1__Impl : ( ( rule__ObjectProperty__LowerBoundAssignment_4_1 ) ) ;
+    // InternalSemanticNodesDsl.g:2515:1: rule__ObjectProperty__Group_4__1__Impl : ( ( rule__ObjectProperty__LowerBoundAssignment_4_1 ) ) ;
     public final void rule__ObjectProperty__Group_4__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:2409:1: ( ( ( rule__ObjectProperty__LowerBoundAssignment_4_1 ) ) )
-            // InternalSemanticNodesDsl.g:2410:1: ( ( rule__ObjectProperty__LowerBoundAssignment_4_1 ) )
+            // InternalSemanticNodesDsl.g:2519:1: ( ( ( rule__ObjectProperty__LowerBoundAssignment_4_1 ) ) )
+            // InternalSemanticNodesDsl.g:2520:1: ( ( rule__ObjectProperty__LowerBoundAssignment_4_1 ) )
             {
-            // InternalSemanticNodesDsl.g:2410:1: ( ( rule__ObjectProperty__LowerBoundAssignment_4_1 ) )
-            // InternalSemanticNodesDsl.g:2411:2: ( rule__ObjectProperty__LowerBoundAssignment_4_1 )
+            // InternalSemanticNodesDsl.g:2520:1: ( ( rule__ObjectProperty__LowerBoundAssignment_4_1 ) )
+            // InternalSemanticNodesDsl.g:2521:2: ( rule__ObjectProperty__LowerBoundAssignment_4_1 )
             {
              before(grammarAccess.getObjectPropertyAccess().getLowerBoundAssignment_4_1()); 
-            // InternalSemanticNodesDsl.g:2412:2: ( rule__ObjectProperty__LowerBoundAssignment_4_1 )
-            // InternalSemanticNodesDsl.g:2412:3: rule__ObjectProperty__LowerBoundAssignment_4_1
+            // InternalSemanticNodesDsl.g:2522:2: ( rule__ObjectProperty__LowerBoundAssignment_4_1 )
+            // InternalSemanticNodesDsl.g:2522:3: rule__ObjectProperty__LowerBoundAssignment_4_1
             {
             pushFollow(FOLLOW_2);
             rule__ObjectProperty__LowerBoundAssignment_4_1();
@@ -7545,16 +7900,16 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__ObjectProperty__Group_4__2"
-    // InternalSemanticNodesDsl.g:2420:1: rule__ObjectProperty__Group_4__2 : rule__ObjectProperty__Group_4__2__Impl rule__ObjectProperty__Group_4__3 ;
+    // InternalSemanticNodesDsl.g:2530:1: rule__ObjectProperty__Group_4__2 : rule__ObjectProperty__Group_4__2__Impl rule__ObjectProperty__Group_4__3 ;
     public final void rule__ObjectProperty__Group_4__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:2424:1: ( rule__ObjectProperty__Group_4__2__Impl rule__ObjectProperty__Group_4__3 )
-            // InternalSemanticNodesDsl.g:2425:2: rule__ObjectProperty__Group_4__2__Impl rule__ObjectProperty__Group_4__3
+            // InternalSemanticNodesDsl.g:2534:1: ( rule__ObjectProperty__Group_4__2__Impl rule__ObjectProperty__Group_4__3 )
+            // InternalSemanticNodesDsl.g:2535:2: rule__ObjectProperty__Group_4__2__Impl rule__ObjectProperty__Group_4__3
             {
-            pushFollow(FOLLOW_19);
+            pushFollow(FOLLOW_21);
             rule__ObjectProperty__Group_4__2__Impl();
 
             state._fsp--;
@@ -7583,20 +7938,20 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__ObjectProperty__Group_4__2__Impl"
-    // InternalSemanticNodesDsl.g:2432:1: rule__ObjectProperty__Group_4__2__Impl : ( ',' ) ;
+    // InternalSemanticNodesDsl.g:2542:1: rule__ObjectProperty__Group_4__2__Impl : ( ',' ) ;
     public final void rule__ObjectProperty__Group_4__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:2436:1: ( ( ',' ) )
-            // InternalSemanticNodesDsl.g:2437:1: ( ',' )
+            // InternalSemanticNodesDsl.g:2546:1: ( ( ',' ) )
+            // InternalSemanticNodesDsl.g:2547:1: ( ',' )
             {
-            // InternalSemanticNodesDsl.g:2437:1: ( ',' )
-            // InternalSemanticNodesDsl.g:2438:2: ','
+            // InternalSemanticNodesDsl.g:2547:1: ( ',' )
+            // InternalSemanticNodesDsl.g:2548:2: ','
             {
              before(grammarAccess.getObjectPropertyAccess().getCommaKeyword_4_2()); 
-            match(input,20,FOLLOW_2); 
+            match(input,21,FOLLOW_2); 
              after(grammarAccess.getObjectPropertyAccess().getCommaKeyword_4_2()); 
 
             }
@@ -7620,16 +7975,16 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__ObjectProperty__Group_4__3"
-    // InternalSemanticNodesDsl.g:2447:1: rule__ObjectProperty__Group_4__3 : rule__ObjectProperty__Group_4__3__Impl rule__ObjectProperty__Group_4__4 ;
+    // InternalSemanticNodesDsl.g:2557:1: rule__ObjectProperty__Group_4__3 : rule__ObjectProperty__Group_4__3__Impl rule__ObjectProperty__Group_4__4 ;
     public final void rule__ObjectProperty__Group_4__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:2451:1: ( rule__ObjectProperty__Group_4__3__Impl rule__ObjectProperty__Group_4__4 )
-            // InternalSemanticNodesDsl.g:2452:2: rule__ObjectProperty__Group_4__3__Impl rule__ObjectProperty__Group_4__4
+            // InternalSemanticNodesDsl.g:2561:1: ( rule__ObjectProperty__Group_4__3__Impl rule__ObjectProperty__Group_4__4 )
+            // InternalSemanticNodesDsl.g:2562:2: rule__ObjectProperty__Group_4__3__Impl rule__ObjectProperty__Group_4__4
             {
-            pushFollow(FOLLOW_27);
+            pushFollow(FOLLOW_29);
             rule__ObjectProperty__Group_4__3__Impl();
 
             state._fsp--;
@@ -7658,21 +8013,21 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__ObjectProperty__Group_4__3__Impl"
-    // InternalSemanticNodesDsl.g:2459:1: rule__ObjectProperty__Group_4__3__Impl : ( ( rule__ObjectProperty__UpperBoundAssignment_4_3 ) ) ;
+    // InternalSemanticNodesDsl.g:2569:1: rule__ObjectProperty__Group_4__3__Impl : ( ( rule__ObjectProperty__UpperBoundAssignment_4_3 ) ) ;
     public final void rule__ObjectProperty__Group_4__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:2463:1: ( ( ( rule__ObjectProperty__UpperBoundAssignment_4_3 ) ) )
-            // InternalSemanticNodesDsl.g:2464:1: ( ( rule__ObjectProperty__UpperBoundAssignment_4_3 ) )
+            // InternalSemanticNodesDsl.g:2573:1: ( ( ( rule__ObjectProperty__UpperBoundAssignment_4_3 ) ) )
+            // InternalSemanticNodesDsl.g:2574:1: ( ( rule__ObjectProperty__UpperBoundAssignment_4_3 ) )
             {
-            // InternalSemanticNodesDsl.g:2464:1: ( ( rule__ObjectProperty__UpperBoundAssignment_4_3 ) )
-            // InternalSemanticNodesDsl.g:2465:2: ( rule__ObjectProperty__UpperBoundAssignment_4_3 )
+            // InternalSemanticNodesDsl.g:2574:1: ( ( rule__ObjectProperty__UpperBoundAssignment_4_3 ) )
+            // InternalSemanticNodesDsl.g:2575:2: ( rule__ObjectProperty__UpperBoundAssignment_4_3 )
             {
              before(grammarAccess.getObjectPropertyAccess().getUpperBoundAssignment_4_3()); 
-            // InternalSemanticNodesDsl.g:2466:2: ( rule__ObjectProperty__UpperBoundAssignment_4_3 )
-            // InternalSemanticNodesDsl.g:2466:3: rule__ObjectProperty__UpperBoundAssignment_4_3
+            // InternalSemanticNodesDsl.g:2576:2: ( rule__ObjectProperty__UpperBoundAssignment_4_3 )
+            // InternalSemanticNodesDsl.g:2576:3: rule__ObjectProperty__UpperBoundAssignment_4_3
             {
             pushFollow(FOLLOW_2);
             rule__ObjectProperty__UpperBoundAssignment_4_3();
@@ -7705,14 +8060,14 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__ObjectProperty__Group_4__4"
-    // InternalSemanticNodesDsl.g:2474:1: rule__ObjectProperty__Group_4__4 : rule__ObjectProperty__Group_4__4__Impl ;
+    // InternalSemanticNodesDsl.g:2584:1: rule__ObjectProperty__Group_4__4 : rule__ObjectProperty__Group_4__4__Impl ;
     public final void rule__ObjectProperty__Group_4__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:2478:1: ( rule__ObjectProperty__Group_4__4__Impl )
-            // InternalSemanticNodesDsl.g:2479:2: rule__ObjectProperty__Group_4__4__Impl
+            // InternalSemanticNodesDsl.g:2588:1: ( rule__ObjectProperty__Group_4__4__Impl )
+            // InternalSemanticNodesDsl.g:2589:2: rule__ObjectProperty__Group_4__4__Impl
             {
             pushFollow(FOLLOW_2);
             rule__ObjectProperty__Group_4__4__Impl();
@@ -7738,20 +8093,20 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__ObjectProperty__Group_4__4__Impl"
-    // InternalSemanticNodesDsl.g:2485:1: rule__ObjectProperty__Group_4__4__Impl : ( ']' ) ;
+    // InternalSemanticNodesDsl.g:2595:1: rule__ObjectProperty__Group_4__4__Impl : ( ']' ) ;
     public final void rule__ObjectProperty__Group_4__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:2489:1: ( ( ']' ) )
-            // InternalSemanticNodesDsl.g:2490:1: ( ']' )
+            // InternalSemanticNodesDsl.g:2599:1: ( ( ']' ) )
+            // InternalSemanticNodesDsl.g:2600:1: ( ']' )
             {
-            // InternalSemanticNodesDsl.g:2490:1: ( ']' )
-            // InternalSemanticNodesDsl.g:2491:2: ']'
+            // InternalSemanticNodesDsl.g:2600:1: ( ']' )
+            // InternalSemanticNodesDsl.g:2601:2: ']'
             {
              before(grammarAccess.getObjectPropertyAccess().getRightSquareBracketKeyword_4_4()); 
-            match(input,25,FOLLOW_2); 
+            match(input,26,FOLLOW_2); 
              after(grammarAccess.getObjectPropertyAccess().getRightSquareBracketKeyword_4_4()); 
 
             }
@@ -7775,16 +8130,16 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__ObjectProperty__Group_5__0"
-    // InternalSemanticNodesDsl.g:2501:1: rule__ObjectProperty__Group_5__0 : rule__ObjectProperty__Group_5__0__Impl rule__ObjectProperty__Group_5__1 ;
+    // InternalSemanticNodesDsl.g:2611:1: rule__ObjectProperty__Group_5__0 : rule__ObjectProperty__Group_5__0__Impl rule__ObjectProperty__Group_5__1 ;
     public final void rule__ObjectProperty__Group_5__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:2505:1: ( rule__ObjectProperty__Group_5__0__Impl rule__ObjectProperty__Group_5__1 )
-            // InternalSemanticNodesDsl.g:2506:2: rule__ObjectProperty__Group_5__0__Impl rule__ObjectProperty__Group_5__1
+            // InternalSemanticNodesDsl.g:2615:1: ( rule__ObjectProperty__Group_5__0__Impl rule__ObjectProperty__Group_5__1 )
+            // InternalSemanticNodesDsl.g:2616:2: rule__ObjectProperty__Group_5__0__Impl rule__ObjectProperty__Group_5__1
             {
-            pushFollow(FOLLOW_5);
+            pushFollow(FOLLOW_4);
             rule__ObjectProperty__Group_5__0__Impl();
 
             state._fsp--;
@@ -7813,20 +8168,20 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__ObjectProperty__Group_5__0__Impl"
-    // InternalSemanticNodesDsl.g:2513:1: rule__ObjectProperty__Group_5__0__Impl : ( '{' ) ;
+    // InternalSemanticNodesDsl.g:2623:1: rule__ObjectProperty__Group_5__0__Impl : ( '{' ) ;
     public final void rule__ObjectProperty__Group_5__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:2517:1: ( ( '{' ) )
-            // InternalSemanticNodesDsl.g:2518:1: ( '{' )
+            // InternalSemanticNodesDsl.g:2627:1: ( ( '{' ) )
+            // InternalSemanticNodesDsl.g:2628:1: ( '{' )
             {
-            // InternalSemanticNodesDsl.g:2518:1: ( '{' )
-            // InternalSemanticNodesDsl.g:2519:2: '{'
+            // InternalSemanticNodesDsl.g:2628:1: ( '{' )
+            // InternalSemanticNodesDsl.g:2629:2: '{'
             {
              before(grammarAccess.getObjectPropertyAccess().getLeftCurlyBracketKeyword_5_0()); 
-            match(input,17,FOLLOW_2); 
+            match(input,18,FOLLOW_2); 
              after(grammarAccess.getObjectPropertyAccess().getLeftCurlyBracketKeyword_5_0()); 
 
             }
@@ -7850,16 +8205,16 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__ObjectProperty__Group_5__1"
-    // InternalSemanticNodesDsl.g:2528:1: rule__ObjectProperty__Group_5__1 : rule__ObjectProperty__Group_5__1__Impl rule__ObjectProperty__Group_5__2 ;
+    // InternalSemanticNodesDsl.g:2638:1: rule__ObjectProperty__Group_5__1 : rule__ObjectProperty__Group_5__1__Impl rule__ObjectProperty__Group_5__2 ;
     public final void rule__ObjectProperty__Group_5__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:2532:1: ( rule__ObjectProperty__Group_5__1__Impl rule__ObjectProperty__Group_5__2 )
-            // InternalSemanticNodesDsl.g:2533:2: rule__ObjectProperty__Group_5__1__Impl rule__ObjectProperty__Group_5__2
+            // InternalSemanticNodesDsl.g:2642:1: ( rule__ObjectProperty__Group_5__1__Impl rule__ObjectProperty__Group_5__2 )
+            // InternalSemanticNodesDsl.g:2643:2: rule__ObjectProperty__Group_5__1__Impl rule__ObjectProperty__Group_5__2
             {
-            pushFollow(FOLLOW_16);
+            pushFollow(FOLLOW_18);
             rule__ObjectProperty__Group_5__1__Impl();
 
             state._fsp--;
@@ -7888,31 +8243,31 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__ObjectProperty__Group_5__1__Impl"
-    // InternalSemanticNodesDsl.g:2540:1: rule__ObjectProperty__Group_5__1__Impl : ( ( rule__ObjectProperty__MetadataAssignment_5_1 ) ) ;
+    // InternalSemanticNodesDsl.g:2650:1: rule__ObjectProperty__Group_5__1__Impl : ( ( rule__ObjectProperty__MetaDataValueAssignment_5_1 ) ) ;
     public final void rule__ObjectProperty__Group_5__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:2544:1: ( ( ( rule__ObjectProperty__MetadataAssignment_5_1 ) ) )
-            // InternalSemanticNodesDsl.g:2545:1: ( ( rule__ObjectProperty__MetadataAssignment_5_1 ) )
+            // InternalSemanticNodesDsl.g:2654:1: ( ( ( rule__ObjectProperty__MetaDataValueAssignment_5_1 ) ) )
+            // InternalSemanticNodesDsl.g:2655:1: ( ( rule__ObjectProperty__MetaDataValueAssignment_5_1 ) )
             {
-            // InternalSemanticNodesDsl.g:2545:1: ( ( rule__ObjectProperty__MetadataAssignment_5_1 ) )
-            // InternalSemanticNodesDsl.g:2546:2: ( rule__ObjectProperty__MetadataAssignment_5_1 )
+            // InternalSemanticNodesDsl.g:2655:1: ( ( rule__ObjectProperty__MetaDataValueAssignment_5_1 ) )
+            // InternalSemanticNodesDsl.g:2656:2: ( rule__ObjectProperty__MetaDataValueAssignment_5_1 )
             {
-             before(grammarAccess.getObjectPropertyAccess().getMetadataAssignment_5_1()); 
-            // InternalSemanticNodesDsl.g:2547:2: ( rule__ObjectProperty__MetadataAssignment_5_1 )
-            // InternalSemanticNodesDsl.g:2547:3: rule__ObjectProperty__MetadataAssignment_5_1
+             before(grammarAccess.getObjectPropertyAccess().getMetaDataValueAssignment_5_1()); 
+            // InternalSemanticNodesDsl.g:2657:2: ( rule__ObjectProperty__MetaDataValueAssignment_5_1 )
+            // InternalSemanticNodesDsl.g:2657:3: rule__ObjectProperty__MetaDataValueAssignment_5_1
             {
             pushFollow(FOLLOW_2);
-            rule__ObjectProperty__MetadataAssignment_5_1();
+            rule__ObjectProperty__MetaDataValueAssignment_5_1();
 
             state._fsp--;
 
 
             }
 
-             after(grammarAccess.getObjectPropertyAccess().getMetadataAssignment_5_1()); 
+             after(grammarAccess.getObjectPropertyAccess().getMetaDataValueAssignment_5_1()); 
 
             }
 
@@ -7935,16 +8290,16 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__ObjectProperty__Group_5__2"
-    // InternalSemanticNodesDsl.g:2555:1: rule__ObjectProperty__Group_5__2 : rule__ObjectProperty__Group_5__2__Impl rule__ObjectProperty__Group_5__3 ;
+    // InternalSemanticNodesDsl.g:2665:1: rule__ObjectProperty__Group_5__2 : rule__ObjectProperty__Group_5__2__Impl rule__ObjectProperty__Group_5__3 ;
     public final void rule__ObjectProperty__Group_5__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:2559:1: ( rule__ObjectProperty__Group_5__2__Impl rule__ObjectProperty__Group_5__3 )
-            // InternalSemanticNodesDsl.g:2560:2: rule__ObjectProperty__Group_5__2__Impl rule__ObjectProperty__Group_5__3
+            // InternalSemanticNodesDsl.g:2669:1: ( rule__ObjectProperty__Group_5__2__Impl rule__ObjectProperty__Group_5__3 )
+            // InternalSemanticNodesDsl.g:2670:2: rule__ObjectProperty__Group_5__2__Impl rule__ObjectProperty__Group_5__3
             {
-            pushFollow(FOLLOW_16);
+            pushFollow(FOLLOW_18);
             rule__ObjectProperty__Group_5__2__Impl();
 
             state._fsp--;
@@ -7973,35 +8328,35 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__ObjectProperty__Group_5__2__Impl"
-    // InternalSemanticNodesDsl.g:2567:1: rule__ObjectProperty__Group_5__2__Impl : ( ( rule__ObjectProperty__Group_5_2__0 )* ) ;
+    // InternalSemanticNodesDsl.g:2677:1: rule__ObjectProperty__Group_5__2__Impl : ( ( rule__ObjectProperty__Group_5_2__0 )* ) ;
     public final void rule__ObjectProperty__Group_5__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:2571:1: ( ( ( rule__ObjectProperty__Group_5_2__0 )* ) )
-            // InternalSemanticNodesDsl.g:2572:1: ( ( rule__ObjectProperty__Group_5_2__0 )* )
+            // InternalSemanticNodesDsl.g:2681:1: ( ( ( rule__ObjectProperty__Group_5_2__0 )* ) )
+            // InternalSemanticNodesDsl.g:2682:1: ( ( rule__ObjectProperty__Group_5_2__0 )* )
             {
-            // InternalSemanticNodesDsl.g:2572:1: ( ( rule__ObjectProperty__Group_5_2__0 )* )
-            // InternalSemanticNodesDsl.g:2573:2: ( rule__ObjectProperty__Group_5_2__0 )*
+            // InternalSemanticNodesDsl.g:2682:1: ( ( rule__ObjectProperty__Group_5_2__0 )* )
+            // InternalSemanticNodesDsl.g:2683:2: ( rule__ObjectProperty__Group_5_2__0 )*
             {
              before(grammarAccess.getObjectPropertyAccess().getGroup_5_2()); 
-            // InternalSemanticNodesDsl.g:2574:2: ( rule__ObjectProperty__Group_5_2__0 )*
-            loop25:
+            // InternalSemanticNodesDsl.g:2684:2: ( rule__ObjectProperty__Group_5_2__0 )*
+            loop26:
             do {
-                int alt25=2;
-                int LA25_0 = input.LA(1);
+                int alt26=2;
+                int LA26_0 = input.LA(1);
 
-                if ( (LA25_0==20) ) {
-                    alt25=1;
+                if ( (LA26_0==21) ) {
+                    alt26=1;
                 }
 
 
-                switch (alt25) {
+                switch (alt26) {
             	case 1 :
-            	    // InternalSemanticNodesDsl.g:2574:3: rule__ObjectProperty__Group_5_2__0
+            	    // InternalSemanticNodesDsl.g:2684:3: rule__ObjectProperty__Group_5_2__0
             	    {
-            	    pushFollow(FOLLOW_17);
+            	    pushFollow(FOLLOW_19);
             	    rule__ObjectProperty__Group_5_2__0();
 
             	    state._fsp--;
@@ -8011,7 +8366,7 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
             	    break;
 
             	default :
-            	    break loop25;
+            	    break loop26;
                 }
             } while (true);
 
@@ -8038,14 +8393,14 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__ObjectProperty__Group_5__3"
-    // InternalSemanticNodesDsl.g:2582:1: rule__ObjectProperty__Group_5__3 : rule__ObjectProperty__Group_5__3__Impl ;
+    // InternalSemanticNodesDsl.g:2692:1: rule__ObjectProperty__Group_5__3 : rule__ObjectProperty__Group_5__3__Impl ;
     public final void rule__ObjectProperty__Group_5__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:2586:1: ( rule__ObjectProperty__Group_5__3__Impl )
-            // InternalSemanticNodesDsl.g:2587:2: rule__ObjectProperty__Group_5__3__Impl
+            // InternalSemanticNodesDsl.g:2696:1: ( rule__ObjectProperty__Group_5__3__Impl )
+            // InternalSemanticNodesDsl.g:2697:2: rule__ObjectProperty__Group_5__3__Impl
             {
             pushFollow(FOLLOW_2);
             rule__ObjectProperty__Group_5__3__Impl();
@@ -8071,20 +8426,20 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__ObjectProperty__Group_5__3__Impl"
-    // InternalSemanticNodesDsl.g:2593:1: rule__ObjectProperty__Group_5__3__Impl : ( '}' ) ;
+    // InternalSemanticNodesDsl.g:2703:1: rule__ObjectProperty__Group_5__3__Impl : ( '}' ) ;
     public final void rule__ObjectProperty__Group_5__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:2597:1: ( ( '}' ) )
-            // InternalSemanticNodesDsl.g:2598:1: ( '}' )
+            // InternalSemanticNodesDsl.g:2707:1: ( ( '}' ) )
+            // InternalSemanticNodesDsl.g:2708:1: ( '}' )
             {
-            // InternalSemanticNodesDsl.g:2598:1: ( '}' )
-            // InternalSemanticNodesDsl.g:2599:2: '}'
+            // InternalSemanticNodesDsl.g:2708:1: ( '}' )
+            // InternalSemanticNodesDsl.g:2709:2: '}'
             {
              before(grammarAccess.getObjectPropertyAccess().getRightCurlyBracketKeyword_5_3()); 
-            match(input,18,FOLLOW_2); 
+            match(input,19,FOLLOW_2); 
              after(grammarAccess.getObjectPropertyAccess().getRightCurlyBracketKeyword_5_3()); 
 
             }
@@ -8108,16 +8463,16 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__ObjectProperty__Group_5_2__0"
-    // InternalSemanticNodesDsl.g:2609:1: rule__ObjectProperty__Group_5_2__0 : rule__ObjectProperty__Group_5_2__0__Impl rule__ObjectProperty__Group_5_2__1 ;
+    // InternalSemanticNodesDsl.g:2719:1: rule__ObjectProperty__Group_5_2__0 : rule__ObjectProperty__Group_5_2__0__Impl rule__ObjectProperty__Group_5_2__1 ;
     public final void rule__ObjectProperty__Group_5_2__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:2613:1: ( rule__ObjectProperty__Group_5_2__0__Impl rule__ObjectProperty__Group_5_2__1 )
-            // InternalSemanticNodesDsl.g:2614:2: rule__ObjectProperty__Group_5_2__0__Impl rule__ObjectProperty__Group_5_2__1
+            // InternalSemanticNodesDsl.g:2723:1: ( rule__ObjectProperty__Group_5_2__0__Impl rule__ObjectProperty__Group_5_2__1 )
+            // InternalSemanticNodesDsl.g:2724:2: rule__ObjectProperty__Group_5_2__0__Impl rule__ObjectProperty__Group_5_2__1
             {
-            pushFollow(FOLLOW_5);
+            pushFollow(FOLLOW_4);
             rule__ObjectProperty__Group_5_2__0__Impl();
 
             state._fsp--;
@@ -8146,20 +8501,20 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__ObjectProperty__Group_5_2__0__Impl"
-    // InternalSemanticNodesDsl.g:2621:1: rule__ObjectProperty__Group_5_2__0__Impl : ( ',' ) ;
+    // InternalSemanticNodesDsl.g:2731:1: rule__ObjectProperty__Group_5_2__0__Impl : ( ',' ) ;
     public final void rule__ObjectProperty__Group_5_2__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:2625:1: ( ( ',' ) )
-            // InternalSemanticNodesDsl.g:2626:1: ( ',' )
+            // InternalSemanticNodesDsl.g:2735:1: ( ( ',' ) )
+            // InternalSemanticNodesDsl.g:2736:1: ( ',' )
             {
-            // InternalSemanticNodesDsl.g:2626:1: ( ',' )
-            // InternalSemanticNodesDsl.g:2627:2: ','
+            // InternalSemanticNodesDsl.g:2736:1: ( ',' )
+            // InternalSemanticNodesDsl.g:2737:2: ','
             {
              before(grammarAccess.getObjectPropertyAccess().getCommaKeyword_5_2_0()); 
-            match(input,20,FOLLOW_2); 
+            match(input,21,FOLLOW_2); 
              after(grammarAccess.getObjectPropertyAccess().getCommaKeyword_5_2_0()); 
 
             }
@@ -8183,14 +8538,14 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__ObjectProperty__Group_5_2__1"
-    // InternalSemanticNodesDsl.g:2636:1: rule__ObjectProperty__Group_5_2__1 : rule__ObjectProperty__Group_5_2__1__Impl ;
+    // InternalSemanticNodesDsl.g:2746:1: rule__ObjectProperty__Group_5_2__1 : rule__ObjectProperty__Group_5_2__1__Impl ;
     public final void rule__ObjectProperty__Group_5_2__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:2640:1: ( rule__ObjectProperty__Group_5_2__1__Impl )
-            // InternalSemanticNodesDsl.g:2641:2: rule__ObjectProperty__Group_5_2__1__Impl
+            // InternalSemanticNodesDsl.g:2750:1: ( rule__ObjectProperty__Group_5_2__1__Impl )
+            // InternalSemanticNodesDsl.g:2751:2: rule__ObjectProperty__Group_5_2__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__ObjectProperty__Group_5_2__1__Impl();
@@ -8216,31 +8571,31 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__ObjectProperty__Group_5_2__1__Impl"
-    // InternalSemanticNodesDsl.g:2647:1: rule__ObjectProperty__Group_5_2__1__Impl : ( ( rule__ObjectProperty__MetadataAssignment_5_2_1 ) ) ;
+    // InternalSemanticNodesDsl.g:2757:1: rule__ObjectProperty__Group_5_2__1__Impl : ( ( rule__ObjectProperty__MetaDataValueAssignment_5_2_1 ) ) ;
     public final void rule__ObjectProperty__Group_5_2__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:2651:1: ( ( ( rule__ObjectProperty__MetadataAssignment_5_2_1 ) ) )
-            // InternalSemanticNodesDsl.g:2652:1: ( ( rule__ObjectProperty__MetadataAssignment_5_2_1 ) )
+            // InternalSemanticNodesDsl.g:2761:1: ( ( ( rule__ObjectProperty__MetaDataValueAssignment_5_2_1 ) ) )
+            // InternalSemanticNodesDsl.g:2762:1: ( ( rule__ObjectProperty__MetaDataValueAssignment_5_2_1 ) )
             {
-            // InternalSemanticNodesDsl.g:2652:1: ( ( rule__ObjectProperty__MetadataAssignment_5_2_1 ) )
-            // InternalSemanticNodesDsl.g:2653:2: ( rule__ObjectProperty__MetadataAssignment_5_2_1 )
+            // InternalSemanticNodesDsl.g:2762:1: ( ( rule__ObjectProperty__MetaDataValueAssignment_5_2_1 ) )
+            // InternalSemanticNodesDsl.g:2763:2: ( rule__ObjectProperty__MetaDataValueAssignment_5_2_1 )
             {
-             before(grammarAccess.getObjectPropertyAccess().getMetadataAssignment_5_2_1()); 
-            // InternalSemanticNodesDsl.g:2654:2: ( rule__ObjectProperty__MetadataAssignment_5_2_1 )
-            // InternalSemanticNodesDsl.g:2654:3: rule__ObjectProperty__MetadataAssignment_5_2_1
+             before(grammarAccess.getObjectPropertyAccess().getMetaDataValueAssignment_5_2_1()); 
+            // InternalSemanticNodesDsl.g:2764:2: ( rule__ObjectProperty__MetaDataValueAssignment_5_2_1 )
+            // InternalSemanticNodesDsl.g:2764:3: rule__ObjectProperty__MetaDataValueAssignment_5_2_1
             {
             pushFollow(FOLLOW_2);
-            rule__ObjectProperty__MetadataAssignment_5_2_1();
+            rule__ObjectProperty__MetaDataValueAssignment_5_2_1();
 
             state._fsp--;
 
 
             }
 
-             after(grammarAccess.getObjectPropertyAccess().getMetadataAssignment_5_2_1()); 
+             after(grammarAccess.getObjectPropertyAccess().getMetaDataValueAssignment_5_2_1()); 
 
             }
 
@@ -8263,16 +8618,16 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__PrimitiveTypeDataProperty__Group__0"
-    // InternalSemanticNodesDsl.g:2663:1: rule__PrimitiveTypeDataProperty__Group__0 : rule__PrimitiveTypeDataProperty__Group__0__Impl rule__PrimitiveTypeDataProperty__Group__1 ;
+    // InternalSemanticNodesDsl.g:2773:1: rule__PrimitiveTypeDataProperty__Group__0 : rule__PrimitiveTypeDataProperty__Group__0__Impl rule__PrimitiveTypeDataProperty__Group__1 ;
     public final void rule__PrimitiveTypeDataProperty__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:2667:1: ( rule__PrimitiveTypeDataProperty__Group__0__Impl rule__PrimitiveTypeDataProperty__Group__1 )
-            // InternalSemanticNodesDsl.g:2668:2: rule__PrimitiveTypeDataProperty__Group__0__Impl rule__PrimitiveTypeDataProperty__Group__1
+            // InternalSemanticNodesDsl.g:2777:1: ( rule__PrimitiveTypeDataProperty__Group__0__Impl rule__PrimitiveTypeDataProperty__Group__1 )
+            // InternalSemanticNodesDsl.g:2778:2: rule__PrimitiveTypeDataProperty__Group__0__Impl rule__PrimitiveTypeDataProperty__Group__1
             {
-            pushFollow(FOLLOW_5);
+            pushFollow(FOLLOW_4);
             rule__PrimitiveTypeDataProperty__Group__0__Impl();
 
             state._fsp--;
@@ -8301,21 +8656,21 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__PrimitiveTypeDataProperty__Group__0__Impl"
-    // InternalSemanticNodesDsl.g:2675:1: rule__PrimitiveTypeDataProperty__Group__0__Impl : ( () ) ;
+    // InternalSemanticNodesDsl.g:2785:1: rule__PrimitiveTypeDataProperty__Group__0__Impl : ( () ) ;
     public final void rule__PrimitiveTypeDataProperty__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:2679:1: ( ( () ) )
-            // InternalSemanticNodesDsl.g:2680:1: ( () )
+            // InternalSemanticNodesDsl.g:2789:1: ( ( () ) )
+            // InternalSemanticNodesDsl.g:2790:1: ( () )
             {
-            // InternalSemanticNodesDsl.g:2680:1: ( () )
-            // InternalSemanticNodesDsl.g:2681:2: ()
+            // InternalSemanticNodesDsl.g:2790:1: ( () )
+            // InternalSemanticNodesDsl.g:2791:2: ()
             {
              before(grammarAccess.getPrimitiveTypeDataPropertyAccess().getPrimitiveTypeDataPropertyAction_0()); 
-            // InternalSemanticNodesDsl.g:2682:2: ()
-            // InternalSemanticNodesDsl.g:2682:3: 
+            // InternalSemanticNodesDsl.g:2792:2: ()
+            // InternalSemanticNodesDsl.g:2792:3: 
             {
             }
 
@@ -8338,16 +8693,16 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__PrimitiveTypeDataProperty__Group__1"
-    // InternalSemanticNodesDsl.g:2690:1: rule__PrimitiveTypeDataProperty__Group__1 : rule__PrimitiveTypeDataProperty__Group__1__Impl rule__PrimitiveTypeDataProperty__Group__2 ;
+    // InternalSemanticNodesDsl.g:2800:1: rule__PrimitiveTypeDataProperty__Group__1 : rule__PrimitiveTypeDataProperty__Group__1__Impl rule__PrimitiveTypeDataProperty__Group__2 ;
     public final void rule__PrimitiveTypeDataProperty__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:2694:1: ( rule__PrimitiveTypeDataProperty__Group__1__Impl rule__PrimitiveTypeDataProperty__Group__2 )
-            // InternalSemanticNodesDsl.g:2695:2: rule__PrimitiveTypeDataProperty__Group__1__Impl rule__PrimitiveTypeDataProperty__Group__2
+            // InternalSemanticNodesDsl.g:2804:1: ( rule__PrimitiveTypeDataProperty__Group__1__Impl rule__PrimitiveTypeDataProperty__Group__2 )
+            // InternalSemanticNodesDsl.g:2805:2: rule__PrimitiveTypeDataProperty__Group__1__Impl rule__PrimitiveTypeDataProperty__Group__2
             {
-            pushFollow(FOLLOW_28);
+            pushFollow(FOLLOW_30);
             rule__PrimitiveTypeDataProperty__Group__1__Impl();
 
             state._fsp--;
@@ -8376,21 +8731,21 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__PrimitiveTypeDataProperty__Group__1__Impl"
-    // InternalSemanticNodesDsl.g:2702:1: rule__PrimitiveTypeDataProperty__Group__1__Impl : ( ( rule__PrimitiveTypeDataProperty__NameAssignment_1 ) ) ;
+    // InternalSemanticNodesDsl.g:2812:1: rule__PrimitiveTypeDataProperty__Group__1__Impl : ( ( rule__PrimitiveTypeDataProperty__NameAssignment_1 ) ) ;
     public final void rule__PrimitiveTypeDataProperty__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:2706:1: ( ( ( rule__PrimitiveTypeDataProperty__NameAssignment_1 ) ) )
-            // InternalSemanticNodesDsl.g:2707:1: ( ( rule__PrimitiveTypeDataProperty__NameAssignment_1 ) )
+            // InternalSemanticNodesDsl.g:2816:1: ( ( ( rule__PrimitiveTypeDataProperty__NameAssignment_1 ) ) )
+            // InternalSemanticNodesDsl.g:2817:1: ( ( rule__PrimitiveTypeDataProperty__NameAssignment_1 ) )
             {
-            // InternalSemanticNodesDsl.g:2707:1: ( ( rule__PrimitiveTypeDataProperty__NameAssignment_1 ) )
-            // InternalSemanticNodesDsl.g:2708:2: ( rule__PrimitiveTypeDataProperty__NameAssignment_1 )
+            // InternalSemanticNodesDsl.g:2817:1: ( ( rule__PrimitiveTypeDataProperty__NameAssignment_1 ) )
+            // InternalSemanticNodesDsl.g:2818:2: ( rule__PrimitiveTypeDataProperty__NameAssignment_1 )
             {
              before(grammarAccess.getPrimitiveTypeDataPropertyAccess().getNameAssignment_1()); 
-            // InternalSemanticNodesDsl.g:2709:2: ( rule__PrimitiveTypeDataProperty__NameAssignment_1 )
-            // InternalSemanticNodesDsl.g:2709:3: rule__PrimitiveTypeDataProperty__NameAssignment_1
+            // InternalSemanticNodesDsl.g:2819:2: ( rule__PrimitiveTypeDataProperty__NameAssignment_1 )
+            // InternalSemanticNodesDsl.g:2819:3: rule__PrimitiveTypeDataProperty__NameAssignment_1
             {
             pushFollow(FOLLOW_2);
             rule__PrimitiveTypeDataProperty__NameAssignment_1();
@@ -8423,16 +8778,16 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__PrimitiveTypeDataProperty__Group__2"
-    // InternalSemanticNodesDsl.g:2717:1: rule__PrimitiveTypeDataProperty__Group__2 : rule__PrimitiveTypeDataProperty__Group__2__Impl rule__PrimitiveTypeDataProperty__Group__3 ;
+    // InternalSemanticNodesDsl.g:2827:1: rule__PrimitiveTypeDataProperty__Group__2 : rule__PrimitiveTypeDataProperty__Group__2__Impl rule__PrimitiveTypeDataProperty__Group__3 ;
     public final void rule__PrimitiveTypeDataProperty__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:2721:1: ( rule__PrimitiveTypeDataProperty__Group__2__Impl rule__PrimitiveTypeDataProperty__Group__3 )
-            // InternalSemanticNodesDsl.g:2722:2: rule__PrimitiveTypeDataProperty__Group__2__Impl rule__PrimitiveTypeDataProperty__Group__3
+            // InternalSemanticNodesDsl.g:2831:1: ( rule__PrimitiveTypeDataProperty__Group__2__Impl rule__PrimitiveTypeDataProperty__Group__3 )
+            // InternalSemanticNodesDsl.g:2832:2: rule__PrimitiveTypeDataProperty__Group__2__Impl rule__PrimitiveTypeDataProperty__Group__3
             {
-            pushFollow(FOLLOW_25);
+            pushFollow(FOLLOW_27);
             rule__PrimitiveTypeDataProperty__Group__2__Impl();
 
             state._fsp--;
@@ -8461,21 +8816,21 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__PrimitiveTypeDataProperty__Group__2__Impl"
-    // InternalSemanticNodesDsl.g:2729:1: rule__PrimitiveTypeDataProperty__Group__2__Impl : ( ( rule__PrimitiveTypeDataProperty__Group_2__0 ) ) ;
+    // InternalSemanticNodesDsl.g:2839:1: rule__PrimitiveTypeDataProperty__Group__2__Impl : ( ( rule__PrimitiveTypeDataProperty__Group_2__0 ) ) ;
     public final void rule__PrimitiveTypeDataProperty__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:2733:1: ( ( ( rule__PrimitiveTypeDataProperty__Group_2__0 ) ) )
-            // InternalSemanticNodesDsl.g:2734:1: ( ( rule__PrimitiveTypeDataProperty__Group_2__0 ) )
+            // InternalSemanticNodesDsl.g:2843:1: ( ( ( rule__PrimitiveTypeDataProperty__Group_2__0 ) ) )
+            // InternalSemanticNodesDsl.g:2844:1: ( ( rule__PrimitiveTypeDataProperty__Group_2__0 ) )
             {
-            // InternalSemanticNodesDsl.g:2734:1: ( ( rule__PrimitiveTypeDataProperty__Group_2__0 ) )
-            // InternalSemanticNodesDsl.g:2735:2: ( rule__PrimitiveTypeDataProperty__Group_2__0 )
+            // InternalSemanticNodesDsl.g:2844:1: ( ( rule__PrimitiveTypeDataProperty__Group_2__0 ) )
+            // InternalSemanticNodesDsl.g:2845:2: ( rule__PrimitiveTypeDataProperty__Group_2__0 )
             {
              before(grammarAccess.getPrimitiveTypeDataPropertyAccess().getGroup_2()); 
-            // InternalSemanticNodesDsl.g:2736:2: ( rule__PrimitiveTypeDataProperty__Group_2__0 )
-            // InternalSemanticNodesDsl.g:2736:3: rule__PrimitiveTypeDataProperty__Group_2__0
+            // InternalSemanticNodesDsl.g:2846:2: ( rule__PrimitiveTypeDataProperty__Group_2__0 )
+            // InternalSemanticNodesDsl.g:2846:3: rule__PrimitiveTypeDataProperty__Group_2__0
             {
             pushFollow(FOLLOW_2);
             rule__PrimitiveTypeDataProperty__Group_2__0();
@@ -8508,16 +8863,16 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__PrimitiveTypeDataProperty__Group__3"
-    // InternalSemanticNodesDsl.g:2744:1: rule__PrimitiveTypeDataProperty__Group__3 : rule__PrimitiveTypeDataProperty__Group__3__Impl rule__PrimitiveTypeDataProperty__Group__4 ;
+    // InternalSemanticNodesDsl.g:2854:1: rule__PrimitiveTypeDataProperty__Group__3 : rule__PrimitiveTypeDataProperty__Group__3__Impl rule__PrimitiveTypeDataProperty__Group__4 ;
     public final void rule__PrimitiveTypeDataProperty__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:2748:1: ( rule__PrimitiveTypeDataProperty__Group__3__Impl rule__PrimitiveTypeDataProperty__Group__4 )
-            // InternalSemanticNodesDsl.g:2749:2: rule__PrimitiveTypeDataProperty__Group__3__Impl rule__PrimitiveTypeDataProperty__Group__4
+            // InternalSemanticNodesDsl.g:2858:1: ( rule__PrimitiveTypeDataProperty__Group__3__Impl rule__PrimitiveTypeDataProperty__Group__4 )
+            // InternalSemanticNodesDsl.g:2859:2: rule__PrimitiveTypeDataProperty__Group__3__Impl rule__PrimitiveTypeDataProperty__Group__4
             {
-            pushFollow(FOLLOW_25);
+            pushFollow(FOLLOW_27);
             rule__PrimitiveTypeDataProperty__Group__3__Impl();
 
             state._fsp--;
@@ -8546,29 +8901,29 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__PrimitiveTypeDataProperty__Group__3__Impl"
-    // InternalSemanticNodesDsl.g:2756:1: rule__PrimitiveTypeDataProperty__Group__3__Impl : ( ( rule__PrimitiveTypeDataProperty__Group_3__0 )? ) ;
+    // InternalSemanticNodesDsl.g:2866:1: rule__PrimitiveTypeDataProperty__Group__3__Impl : ( ( rule__PrimitiveTypeDataProperty__Group_3__0 )? ) ;
     public final void rule__PrimitiveTypeDataProperty__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:2760:1: ( ( ( rule__PrimitiveTypeDataProperty__Group_3__0 )? ) )
-            // InternalSemanticNodesDsl.g:2761:1: ( ( rule__PrimitiveTypeDataProperty__Group_3__0 )? )
+            // InternalSemanticNodesDsl.g:2870:1: ( ( ( rule__PrimitiveTypeDataProperty__Group_3__0 )? ) )
+            // InternalSemanticNodesDsl.g:2871:1: ( ( rule__PrimitiveTypeDataProperty__Group_3__0 )? )
             {
-            // InternalSemanticNodesDsl.g:2761:1: ( ( rule__PrimitiveTypeDataProperty__Group_3__0 )? )
-            // InternalSemanticNodesDsl.g:2762:2: ( rule__PrimitiveTypeDataProperty__Group_3__0 )?
+            // InternalSemanticNodesDsl.g:2871:1: ( ( rule__PrimitiveTypeDataProperty__Group_3__0 )? )
+            // InternalSemanticNodesDsl.g:2872:2: ( rule__PrimitiveTypeDataProperty__Group_3__0 )?
             {
              before(grammarAccess.getPrimitiveTypeDataPropertyAccess().getGroup_3()); 
-            // InternalSemanticNodesDsl.g:2763:2: ( rule__PrimitiveTypeDataProperty__Group_3__0 )?
-            int alt26=2;
-            int LA26_0 = input.LA(1);
+            // InternalSemanticNodesDsl.g:2873:2: ( rule__PrimitiveTypeDataProperty__Group_3__0 )?
+            int alt27=2;
+            int LA27_0 = input.LA(1);
 
-            if ( (LA26_0==24) ) {
-                alt26=1;
+            if ( (LA27_0==25) ) {
+                alt27=1;
             }
-            switch (alt26) {
+            switch (alt27) {
                 case 1 :
-                    // InternalSemanticNodesDsl.g:2763:3: rule__PrimitiveTypeDataProperty__Group_3__0
+                    // InternalSemanticNodesDsl.g:2873:3: rule__PrimitiveTypeDataProperty__Group_3__0
                     {
                     pushFollow(FOLLOW_2);
                     rule__PrimitiveTypeDataProperty__Group_3__0();
@@ -8604,14 +8959,14 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__PrimitiveTypeDataProperty__Group__4"
-    // InternalSemanticNodesDsl.g:2771:1: rule__PrimitiveTypeDataProperty__Group__4 : rule__PrimitiveTypeDataProperty__Group__4__Impl ;
+    // InternalSemanticNodesDsl.g:2881:1: rule__PrimitiveTypeDataProperty__Group__4 : rule__PrimitiveTypeDataProperty__Group__4__Impl ;
     public final void rule__PrimitiveTypeDataProperty__Group__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:2775:1: ( rule__PrimitiveTypeDataProperty__Group__4__Impl )
-            // InternalSemanticNodesDsl.g:2776:2: rule__PrimitiveTypeDataProperty__Group__4__Impl
+            // InternalSemanticNodesDsl.g:2885:1: ( rule__PrimitiveTypeDataProperty__Group__4__Impl )
+            // InternalSemanticNodesDsl.g:2886:2: rule__PrimitiveTypeDataProperty__Group__4__Impl
             {
             pushFollow(FOLLOW_2);
             rule__PrimitiveTypeDataProperty__Group__4__Impl();
@@ -8637,29 +8992,29 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__PrimitiveTypeDataProperty__Group__4__Impl"
-    // InternalSemanticNodesDsl.g:2782:1: rule__PrimitiveTypeDataProperty__Group__4__Impl : ( ( rule__PrimitiveTypeDataProperty__Group_4__0 )? ) ;
+    // InternalSemanticNodesDsl.g:2892:1: rule__PrimitiveTypeDataProperty__Group__4__Impl : ( ( rule__PrimitiveTypeDataProperty__Group_4__0 )? ) ;
     public final void rule__PrimitiveTypeDataProperty__Group__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:2786:1: ( ( ( rule__PrimitiveTypeDataProperty__Group_4__0 )? ) )
-            // InternalSemanticNodesDsl.g:2787:1: ( ( rule__PrimitiveTypeDataProperty__Group_4__0 )? )
+            // InternalSemanticNodesDsl.g:2896:1: ( ( ( rule__PrimitiveTypeDataProperty__Group_4__0 )? ) )
+            // InternalSemanticNodesDsl.g:2897:1: ( ( rule__PrimitiveTypeDataProperty__Group_4__0 )? )
             {
-            // InternalSemanticNodesDsl.g:2787:1: ( ( rule__PrimitiveTypeDataProperty__Group_4__0 )? )
-            // InternalSemanticNodesDsl.g:2788:2: ( rule__PrimitiveTypeDataProperty__Group_4__0 )?
+            // InternalSemanticNodesDsl.g:2897:1: ( ( rule__PrimitiveTypeDataProperty__Group_4__0 )? )
+            // InternalSemanticNodesDsl.g:2898:2: ( rule__PrimitiveTypeDataProperty__Group_4__0 )?
             {
              before(grammarAccess.getPrimitiveTypeDataPropertyAccess().getGroup_4()); 
-            // InternalSemanticNodesDsl.g:2789:2: ( rule__PrimitiveTypeDataProperty__Group_4__0 )?
-            int alt27=2;
-            int LA27_0 = input.LA(1);
+            // InternalSemanticNodesDsl.g:2899:2: ( rule__PrimitiveTypeDataProperty__Group_4__0 )?
+            int alt28=2;
+            int LA28_0 = input.LA(1);
 
-            if ( (LA27_0==17) ) {
-                alt27=1;
+            if ( (LA28_0==18) ) {
+                alt28=1;
             }
-            switch (alt27) {
+            switch (alt28) {
                 case 1 :
-                    // InternalSemanticNodesDsl.g:2789:3: rule__PrimitiveTypeDataProperty__Group_4__0
+                    // InternalSemanticNodesDsl.g:2899:3: rule__PrimitiveTypeDataProperty__Group_4__0
                     {
                     pushFollow(FOLLOW_2);
                     rule__PrimitiveTypeDataProperty__Group_4__0();
@@ -8695,16 +9050,16 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__PrimitiveTypeDataProperty__Group_2__0"
-    // InternalSemanticNodesDsl.g:2798:1: rule__PrimitiveTypeDataProperty__Group_2__0 : rule__PrimitiveTypeDataProperty__Group_2__0__Impl rule__PrimitiveTypeDataProperty__Group_2__1 ;
+    // InternalSemanticNodesDsl.g:2908:1: rule__PrimitiveTypeDataProperty__Group_2__0 : rule__PrimitiveTypeDataProperty__Group_2__0__Impl rule__PrimitiveTypeDataProperty__Group_2__1 ;
     public final void rule__PrimitiveTypeDataProperty__Group_2__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:2802:1: ( rule__PrimitiveTypeDataProperty__Group_2__0__Impl rule__PrimitiveTypeDataProperty__Group_2__1 )
-            // InternalSemanticNodesDsl.g:2803:2: rule__PrimitiveTypeDataProperty__Group_2__0__Impl rule__PrimitiveTypeDataProperty__Group_2__1
+            // InternalSemanticNodesDsl.g:2912:1: ( rule__PrimitiveTypeDataProperty__Group_2__0__Impl rule__PrimitiveTypeDataProperty__Group_2__1 )
+            // InternalSemanticNodesDsl.g:2913:2: rule__PrimitiveTypeDataProperty__Group_2__0__Impl rule__PrimitiveTypeDataProperty__Group_2__1
             {
-            pushFollow(FOLLOW_29);
+            pushFollow(FOLLOW_31);
             rule__PrimitiveTypeDataProperty__Group_2__0__Impl();
 
             state._fsp--;
@@ -8733,20 +9088,20 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__PrimitiveTypeDataProperty__Group_2__0__Impl"
-    // InternalSemanticNodesDsl.g:2810:1: rule__PrimitiveTypeDataProperty__Group_2__0__Impl : ( ':' ) ;
+    // InternalSemanticNodesDsl.g:2920:1: rule__PrimitiveTypeDataProperty__Group_2__0__Impl : ( ':' ) ;
     public final void rule__PrimitiveTypeDataProperty__Group_2__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:2814:1: ( ( ':' ) )
-            // InternalSemanticNodesDsl.g:2815:1: ( ':' )
+            // InternalSemanticNodesDsl.g:2924:1: ( ( ':' ) )
+            // InternalSemanticNodesDsl.g:2925:1: ( ':' )
             {
-            // InternalSemanticNodesDsl.g:2815:1: ( ':' )
-            // InternalSemanticNodesDsl.g:2816:2: ':'
+            // InternalSemanticNodesDsl.g:2925:1: ( ':' )
+            // InternalSemanticNodesDsl.g:2926:2: ':'
             {
              before(grammarAccess.getPrimitiveTypeDataPropertyAccess().getColonKeyword_2_0()); 
-            match(input,26,FOLLOW_2); 
+            match(input,27,FOLLOW_2); 
              after(grammarAccess.getPrimitiveTypeDataPropertyAccess().getColonKeyword_2_0()); 
 
             }
@@ -8770,14 +9125,14 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__PrimitiveTypeDataProperty__Group_2__1"
-    // InternalSemanticNodesDsl.g:2825:1: rule__PrimitiveTypeDataProperty__Group_2__1 : rule__PrimitiveTypeDataProperty__Group_2__1__Impl ;
+    // InternalSemanticNodesDsl.g:2935:1: rule__PrimitiveTypeDataProperty__Group_2__1 : rule__PrimitiveTypeDataProperty__Group_2__1__Impl ;
     public final void rule__PrimitiveTypeDataProperty__Group_2__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:2829:1: ( rule__PrimitiveTypeDataProperty__Group_2__1__Impl )
-            // InternalSemanticNodesDsl.g:2830:2: rule__PrimitiveTypeDataProperty__Group_2__1__Impl
+            // InternalSemanticNodesDsl.g:2939:1: ( rule__PrimitiveTypeDataProperty__Group_2__1__Impl )
+            // InternalSemanticNodesDsl.g:2940:2: rule__PrimitiveTypeDataProperty__Group_2__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__PrimitiveTypeDataProperty__Group_2__1__Impl();
@@ -8803,21 +9158,21 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__PrimitiveTypeDataProperty__Group_2__1__Impl"
-    // InternalSemanticNodesDsl.g:2836:1: rule__PrimitiveTypeDataProperty__Group_2__1__Impl : ( ( rule__PrimitiveTypeDataProperty__TypeAssignment_2_1 ) ) ;
+    // InternalSemanticNodesDsl.g:2946:1: rule__PrimitiveTypeDataProperty__Group_2__1__Impl : ( ( rule__PrimitiveTypeDataProperty__TypeAssignment_2_1 ) ) ;
     public final void rule__PrimitiveTypeDataProperty__Group_2__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:2840:1: ( ( ( rule__PrimitiveTypeDataProperty__TypeAssignment_2_1 ) ) )
-            // InternalSemanticNodesDsl.g:2841:1: ( ( rule__PrimitiveTypeDataProperty__TypeAssignment_2_1 ) )
+            // InternalSemanticNodesDsl.g:2950:1: ( ( ( rule__PrimitiveTypeDataProperty__TypeAssignment_2_1 ) ) )
+            // InternalSemanticNodesDsl.g:2951:1: ( ( rule__PrimitiveTypeDataProperty__TypeAssignment_2_1 ) )
             {
-            // InternalSemanticNodesDsl.g:2841:1: ( ( rule__PrimitiveTypeDataProperty__TypeAssignment_2_1 ) )
-            // InternalSemanticNodesDsl.g:2842:2: ( rule__PrimitiveTypeDataProperty__TypeAssignment_2_1 )
+            // InternalSemanticNodesDsl.g:2951:1: ( ( rule__PrimitiveTypeDataProperty__TypeAssignment_2_1 ) )
+            // InternalSemanticNodesDsl.g:2952:2: ( rule__PrimitiveTypeDataProperty__TypeAssignment_2_1 )
             {
              before(grammarAccess.getPrimitiveTypeDataPropertyAccess().getTypeAssignment_2_1()); 
-            // InternalSemanticNodesDsl.g:2843:2: ( rule__PrimitiveTypeDataProperty__TypeAssignment_2_1 )
-            // InternalSemanticNodesDsl.g:2843:3: rule__PrimitiveTypeDataProperty__TypeAssignment_2_1
+            // InternalSemanticNodesDsl.g:2953:2: ( rule__PrimitiveTypeDataProperty__TypeAssignment_2_1 )
+            // InternalSemanticNodesDsl.g:2953:3: rule__PrimitiveTypeDataProperty__TypeAssignment_2_1
             {
             pushFollow(FOLLOW_2);
             rule__PrimitiveTypeDataProperty__TypeAssignment_2_1();
@@ -8850,16 +9205,16 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__PrimitiveTypeDataProperty__Group_3__0"
-    // InternalSemanticNodesDsl.g:2852:1: rule__PrimitiveTypeDataProperty__Group_3__0 : rule__PrimitiveTypeDataProperty__Group_3__0__Impl rule__PrimitiveTypeDataProperty__Group_3__1 ;
+    // InternalSemanticNodesDsl.g:2962:1: rule__PrimitiveTypeDataProperty__Group_3__0 : rule__PrimitiveTypeDataProperty__Group_3__0__Impl rule__PrimitiveTypeDataProperty__Group_3__1 ;
     public final void rule__PrimitiveTypeDataProperty__Group_3__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:2856:1: ( rule__PrimitiveTypeDataProperty__Group_3__0__Impl rule__PrimitiveTypeDataProperty__Group_3__1 )
-            // InternalSemanticNodesDsl.g:2857:2: rule__PrimitiveTypeDataProperty__Group_3__0__Impl rule__PrimitiveTypeDataProperty__Group_3__1
+            // InternalSemanticNodesDsl.g:2966:1: ( rule__PrimitiveTypeDataProperty__Group_3__0__Impl rule__PrimitiveTypeDataProperty__Group_3__1 )
+            // InternalSemanticNodesDsl.g:2967:2: rule__PrimitiveTypeDataProperty__Group_3__0__Impl rule__PrimitiveTypeDataProperty__Group_3__1
             {
-            pushFollow(FOLLOW_19);
+            pushFollow(FOLLOW_21);
             rule__PrimitiveTypeDataProperty__Group_3__0__Impl();
 
             state._fsp--;
@@ -8888,20 +9243,20 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__PrimitiveTypeDataProperty__Group_3__0__Impl"
-    // InternalSemanticNodesDsl.g:2864:1: rule__PrimitiveTypeDataProperty__Group_3__0__Impl : ( '[' ) ;
+    // InternalSemanticNodesDsl.g:2974:1: rule__PrimitiveTypeDataProperty__Group_3__0__Impl : ( '[' ) ;
     public final void rule__PrimitiveTypeDataProperty__Group_3__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:2868:1: ( ( '[' ) )
-            // InternalSemanticNodesDsl.g:2869:1: ( '[' )
+            // InternalSemanticNodesDsl.g:2978:1: ( ( '[' ) )
+            // InternalSemanticNodesDsl.g:2979:1: ( '[' )
             {
-            // InternalSemanticNodesDsl.g:2869:1: ( '[' )
-            // InternalSemanticNodesDsl.g:2870:2: '['
+            // InternalSemanticNodesDsl.g:2979:1: ( '[' )
+            // InternalSemanticNodesDsl.g:2980:2: '['
             {
              before(grammarAccess.getPrimitiveTypeDataPropertyAccess().getLeftSquareBracketKeyword_3_0()); 
-            match(input,24,FOLLOW_2); 
+            match(input,25,FOLLOW_2); 
              after(grammarAccess.getPrimitiveTypeDataPropertyAccess().getLeftSquareBracketKeyword_3_0()); 
 
             }
@@ -8925,16 +9280,16 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__PrimitiveTypeDataProperty__Group_3__1"
-    // InternalSemanticNodesDsl.g:2879:1: rule__PrimitiveTypeDataProperty__Group_3__1 : rule__PrimitiveTypeDataProperty__Group_3__1__Impl rule__PrimitiveTypeDataProperty__Group_3__2 ;
+    // InternalSemanticNodesDsl.g:2989:1: rule__PrimitiveTypeDataProperty__Group_3__1 : rule__PrimitiveTypeDataProperty__Group_3__1__Impl rule__PrimitiveTypeDataProperty__Group_3__2 ;
     public final void rule__PrimitiveTypeDataProperty__Group_3__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:2883:1: ( rule__PrimitiveTypeDataProperty__Group_3__1__Impl rule__PrimitiveTypeDataProperty__Group_3__2 )
-            // InternalSemanticNodesDsl.g:2884:2: rule__PrimitiveTypeDataProperty__Group_3__1__Impl rule__PrimitiveTypeDataProperty__Group_3__2
+            // InternalSemanticNodesDsl.g:2993:1: ( rule__PrimitiveTypeDataProperty__Group_3__1__Impl rule__PrimitiveTypeDataProperty__Group_3__2 )
+            // InternalSemanticNodesDsl.g:2994:2: rule__PrimitiveTypeDataProperty__Group_3__1__Impl rule__PrimitiveTypeDataProperty__Group_3__2
             {
-            pushFollow(FOLLOW_26);
+            pushFollow(FOLLOW_28);
             rule__PrimitiveTypeDataProperty__Group_3__1__Impl();
 
             state._fsp--;
@@ -8963,21 +9318,21 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__PrimitiveTypeDataProperty__Group_3__1__Impl"
-    // InternalSemanticNodesDsl.g:2891:1: rule__PrimitiveTypeDataProperty__Group_3__1__Impl : ( ( rule__PrimitiveTypeDataProperty__LowerBoundAssignment_3_1 ) ) ;
+    // InternalSemanticNodesDsl.g:3001:1: rule__PrimitiveTypeDataProperty__Group_3__1__Impl : ( ( rule__PrimitiveTypeDataProperty__LowerBoundAssignment_3_1 ) ) ;
     public final void rule__PrimitiveTypeDataProperty__Group_3__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:2895:1: ( ( ( rule__PrimitiveTypeDataProperty__LowerBoundAssignment_3_1 ) ) )
-            // InternalSemanticNodesDsl.g:2896:1: ( ( rule__PrimitiveTypeDataProperty__LowerBoundAssignment_3_1 ) )
+            // InternalSemanticNodesDsl.g:3005:1: ( ( ( rule__PrimitiveTypeDataProperty__LowerBoundAssignment_3_1 ) ) )
+            // InternalSemanticNodesDsl.g:3006:1: ( ( rule__PrimitiveTypeDataProperty__LowerBoundAssignment_3_1 ) )
             {
-            // InternalSemanticNodesDsl.g:2896:1: ( ( rule__PrimitiveTypeDataProperty__LowerBoundAssignment_3_1 ) )
-            // InternalSemanticNodesDsl.g:2897:2: ( rule__PrimitiveTypeDataProperty__LowerBoundAssignment_3_1 )
+            // InternalSemanticNodesDsl.g:3006:1: ( ( rule__PrimitiveTypeDataProperty__LowerBoundAssignment_3_1 ) )
+            // InternalSemanticNodesDsl.g:3007:2: ( rule__PrimitiveTypeDataProperty__LowerBoundAssignment_3_1 )
             {
              before(grammarAccess.getPrimitiveTypeDataPropertyAccess().getLowerBoundAssignment_3_1()); 
-            // InternalSemanticNodesDsl.g:2898:2: ( rule__PrimitiveTypeDataProperty__LowerBoundAssignment_3_1 )
-            // InternalSemanticNodesDsl.g:2898:3: rule__PrimitiveTypeDataProperty__LowerBoundAssignment_3_1
+            // InternalSemanticNodesDsl.g:3008:2: ( rule__PrimitiveTypeDataProperty__LowerBoundAssignment_3_1 )
+            // InternalSemanticNodesDsl.g:3008:3: rule__PrimitiveTypeDataProperty__LowerBoundAssignment_3_1
             {
             pushFollow(FOLLOW_2);
             rule__PrimitiveTypeDataProperty__LowerBoundAssignment_3_1();
@@ -9010,16 +9365,16 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__PrimitiveTypeDataProperty__Group_3__2"
-    // InternalSemanticNodesDsl.g:2906:1: rule__PrimitiveTypeDataProperty__Group_3__2 : rule__PrimitiveTypeDataProperty__Group_3__2__Impl rule__PrimitiveTypeDataProperty__Group_3__3 ;
+    // InternalSemanticNodesDsl.g:3016:1: rule__PrimitiveTypeDataProperty__Group_3__2 : rule__PrimitiveTypeDataProperty__Group_3__2__Impl rule__PrimitiveTypeDataProperty__Group_3__3 ;
     public final void rule__PrimitiveTypeDataProperty__Group_3__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:2910:1: ( rule__PrimitiveTypeDataProperty__Group_3__2__Impl rule__PrimitiveTypeDataProperty__Group_3__3 )
-            // InternalSemanticNodesDsl.g:2911:2: rule__PrimitiveTypeDataProperty__Group_3__2__Impl rule__PrimitiveTypeDataProperty__Group_3__3
+            // InternalSemanticNodesDsl.g:3020:1: ( rule__PrimitiveTypeDataProperty__Group_3__2__Impl rule__PrimitiveTypeDataProperty__Group_3__3 )
+            // InternalSemanticNodesDsl.g:3021:2: rule__PrimitiveTypeDataProperty__Group_3__2__Impl rule__PrimitiveTypeDataProperty__Group_3__3
             {
-            pushFollow(FOLLOW_19);
+            pushFollow(FOLLOW_21);
             rule__PrimitiveTypeDataProperty__Group_3__2__Impl();
 
             state._fsp--;
@@ -9048,20 +9403,20 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__PrimitiveTypeDataProperty__Group_3__2__Impl"
-    // InternalSemanticNodesDsl.g:2918:1: rule__PrimitiveTypeDataProperty__Group_3__2__Impl : ( ',' ) ;
+    // InternalSemanticNodesDsl.g:3028:1: rule__PrimitiveTypeDataProperty__Group_3__2__Impl : ( ',' ) ;
     public final void rule__PrimitiveTypeDataProperty__Group_3__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:2922:1: ( ( ',' ) )
-            // InternalSemanticNodesDsl.g:2923:1: ( ',' )
+            // InternalSemanticNodesDsl.g:3032:1: ( ( ',' ) )
+            // InternalSemanticNodesDsl.g:3033:1: ( ',' )
             {
-            // InternalSemanticNodesDsl.g:2923:1: ( ',' )
-            // InternalSemanticNodesDsl.g:2924:2: ','
+            // InternalSemanticNodesDsl.g:3033:1: ( ',' )
+            // InternalSemanticNodesDsl.g:3034:2: ','
             {
              before(grammarAccess.getPrimitiveTypeDataPropertyAccess().getCommaKeyword_3_2()); 
-            match(input,20,FOLLOW_2); 
+            match(input,21,FOLLOW_2); 
              after(grammarAccess.getPrimitiveTypeDataPropertyAccess().getCommaKeyword_3_2()); 
 
             }
@@ -9085,16 +9440,16 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__PrimitiveTypeDataProperty__Group_3__3"
-    // InternalSemanticNodesDsl.g:2933:1: rule__PrimitiveTypeDataProperty__Group_3__3 : rule__PrimitiveTypeDataProperty__Group_3__3__Impl rule__PrimitiveTypeDataProperty__Group_3__4 ;
+    // InternalSemanticNodesDsl.g:3043:1: rule__PrimitiveTypeDataProperty__Group_3__3 : rule__PrimitiveTypeDataProperty__Group_3__3__Impl rule__PrimitiveTypeDataProperty__Group_3__4 ;
     public final void rule__PrimitiveTypeDataProperty__Group_3__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:2937:1: ( rule__PrimitiveTypeDataProperty__Group_3__3__Impl rule__PrimitiveTypeDataProperty__Group_3__4 )
-            // InternalSemanticNodesDsl.g:2938:2: rule__PrimitiveTypeDataProperty__Group_3__3__Impl rule__PrimitiveTypeDataProperty__Group_3__4
+            // InternalSemanticNodesDsl.g:3047:1: ( rule__PrimitiveTypeDataProperty__Group_3__3__Impl rule__PrimitiveTypeDataProperty__Group_3__4 )
+            // InternalSemanticNodesDsl.g:3048:2: rule__PrimitiveTypeDataProperty__Group_3__3__Impl rule__PrimitiveTypeDataProperty__Group_3__4
             {
-            pushFollow(FOLLOW_27);
+            pushFollow(FOLLOW_29);
             rule__PrimitiveTypeDataProperty__Group_3__3__Impl();
 
             state._fsp--;
@@ -9123,21 +9478,21 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__PrimitiveTypeDataProperty__Group_3__3__Impl"
-    // InternalSemanticNodesDsl.g:2945:1: rule__PrimitiveTypeDataProperty__Group_3__3__Impl : ( ( rule__PrimitiveTypeDataProperty__UpperBoundAssignment_3_3 ) ) ;
+    // InternalSemanticNodesDsl.g:3055:1: rule__PrimitiveTypeDataProperty__Group_3__3__Impl : ( ( rule__PrimitiveTypeDataProperty__UpperBoundAssignment_3_3 ) ) ;
     public final void rule__PrimitiveTypeDataProperty__Group_3__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:2949:1: ( ( ( rule__PrimitiveTypeDataProperty__UpperBoundAssignment_3_3 ) ) )
-            // InternalSemanticNodesDsl.g:2950:1: ( ( rule__PrimitiveTypeDataProperty__UpperBoundAssignment_3_3 ) )
+            // InternalSemanticNodesDsl.g:3059:1: ( ( ( rule__PrimitiveTypeDataProperty__UpperBoundAssignment_3_3 ) ) )
+            // InternalSemanticNodesDsl.g:3060:1: ( ( rule__PrimitiveTypeDataProperty__UpperBoundAssignment_3_3 ) )
             {
-            // InternalSemanticNodesDsl.g:2950:1: ( ( rule__PrimitiveTypeDataProperty__UpperBoundAssignment_3_3 ) )
-            // InternalSemanticNodesDsl.g:2951:2: ( rule__PrimitiveTypeDataProperty__UpperBoundAssignment_3_3 )
+            // InternalSemanticNodesDsl.g:3060:1: ( ( rule__PrimitiveTypeDataProperty__UpperBoundAssignment_3_3 ) )
+            // InternalSemanticNodesDsl.g:3061:2: ( rule__PrimitiveTypeDataProperty__UpperBoundAssignment_3_3 )
             {
              before(grammarAccess.getPrimitiveTypeDataPropertyAccess().getUpperBoundAssignment_3_3()); 
-            // InternalSemanticNodesDsl.g:2952:2: ( rule__PrimitiveTypeDataProperty__UpperBoundAssignment_3_3 )
-            // InternalSemanticNodesDsl.g:2952:3: rule__PrimitiveTypeDataProperty__UpperBoundAssignment_3_3
+            // InternalSemanticNodesDsl.g:3062:2: ( rule__PrimitiveTypeDataProperty__UpperBoundAssignment_3_3 )
+            // InternalSemanticNodesDsl.g:3062:3: rule__PrimitiveTypeDataProperty__UpperBoundAssignment_3_3
             {
             pushFollow(FOLLOW_2);
             rule__PrimitiveTypeDataProperty__UpperBoundAssignment_3_3();
@@ -9170,14 +9525,14 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__PrimitiveTypeDataProperty__Group_3__4"
-    // InternalSemanticNodesDsl.g:2960:1: rule__PrimitiveTypeDataProperty__Group_3__4 : rule__PrimitiveTypeDataProperty__Group_3__4__Impl ;
+    // InternalSemanticNodesDsl.g:3070:1: rule__PrimitiveTypeDataProperty__Group_3__4 : rule__PrimitiveTypeDataProperty__Group_3__4__Impl ;
     public final void rule__PrimitiveTypeDataProperty__Group_3__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:2964:1: ( rule__PrimitiveTypeDataProperty__Group_3__4__Impl )
-            // InternalSemanticNodesDsl.g:2965:2: rule__PrimitiveTypeDataProperty__Group_3__4__Impl
+            // InternalSemanticNodesDsl.g:3074:1: ( rule__PrimitiveTypeDataProperty__Group_3__4__Impl )
+            // InternalSemanticNodesDsl.g:3075:2: rule__PrimitiveTypeDataProperty__Group_3__4__Impl
             {
             pushFollow(FOLLOW_2);
             rule__PrimitiveTypeDataProperty__Group_3__4__Impl();
@@ -9203,20 +9558,20 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__PrimitiveTypeDataProperty__Group_3__4__Impl"
-    // InternalSemanticNodesDsl.g:2971:1: rule__PrimitiveTypeDataProperty__Group_3__4__Impl : ( ']' ) ;
+    // InternalSemanticNodesDsl.g:3081:1: rule__PrimitiveTypeDataProperty__Group_3__4__Impl : ( ']' ) ;
     public final void rule__PrimitiveTypeDataProperty__Group_3__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:2975:1: ( ( ']' ) )
-            // InternalSemanticNodesDsl.g:2976:1: ( ']' )
+            // InternalSemanticNodesDsl.g:3085:1: ( ( ']' ) )
+            // InternalSemanticNodesDsl.g:3086:1: ( ']' )
             {
-            // InternalSemanticNodesDsl.g:2976:1: ( ']' )
-            // InternalSemanticNodesDsl.g:2977:2: ']'
+            // InternalSemanticNodesDsl.g:3086:1: ( ']' )
+            // InternalSemanticNodesDsl.g:3087:2: ']'
             {
              before(grammarAccess.getPrimitiveTypeDataPropertyAccess().getRightSquareBracketKeyword_3_4()); 
-            match(input,25,FOLLOW_2); 
+            match(input,26,FOLLOW_2); 
              after(grammarAccess.getPrimitiveTypeDataPropertyAccess().getRightSquareBracketKeyword_3_4()); 
 
             }
@@ -9240,16 +9595,16 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__PrimitiveTypeDataProperty__Group_4__0"
-    // InternalSemanticNodesDsl.g:2987:1: rule__PrimitiveTypeDataProperty__Group_4__0 : rule__PrimitiveTypeDataProperty__Group_4__0__Impl rule__PrimitiveTypeDataProperty__Group_4__1 ;
+    // InternalSemanticNodesDsl.g:3097:1: rule__PrimitiveTypeDataProperty__Group_4__0 : rule__PrimitiveTypeDataProperty__Group_4__0__Impl rule__PrimitiveTypeDataProperty__Group_4__1 ;
     public final void rule__PrimitiveTypeDataProperty__Group_4__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:2991:1: ( rule__PrimitiveTypeDataProperty__Group_4__0__Impl rule__PrimitiveTypeDataProperty__Group_4__1 )
-            // InternalSemanticNodesDsl.g:2992:2: rule__PrimitiveTypeDataProperty__Group_4__0__Impl rule__PrimitiveTypeDataProperty__Group_4__1
+            // InternalSemanticNodesDsl.g:3101:1: ( rule__PrimitiveTypeDataProperty__Group_4__0__Impl rule__PrimitiveTypeDataProperty__Group_4__1 )
+            // InternalSemanticNodesDsl.g:3102:2: rule__PrimitiveTypeDataProperty__Group_4__0__Impl rule__PrimitiveTypeDataProperty__Group_4__1
             {
-            pushFollow(FOLLOW_5);
+            pushFollow(FOLLOW_4);
             rule__PrimitiveTypeDataProperty__Group_4__0__Impl();
 
             state._fsp--;
@@ -9278,20 +9633,20 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__PrimitiveTypeDataProperty__Group_4__0__Impl"
-    // InternalSemanticNodesDsl.g:2999:1: rule__PrimitiveTypeDataProperty__Group_4__0__Impl : ( '{' ) ;
+    // InternalSemanticNodesDsl.g:3109:1: rule__PrimitiveTypeDataProperty__Group_4__0__Impl : ( '{' ) ;
     public final void rule__PrimitiveTypeDataProperty__Group_4__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:3003:1: ( ( '{' ) )
-            // InternalSemanticNodesDsl.g:3004:1: ( '{' )
+            // InternalSemanticNodesDsl.g:3113:1: ( ( '{' ) )
+            // InternalSemanticNodesDsl.g:3114:1: ( '{' )
             {
-            // InternalSemanticNodesDsl.g:3004:1: ( '{' )
-            // InternalSemanticNodesDsl.g:3005:2: '{'
+            // InternalSemanticNodesDsl.g:3114:1: ( '{' )
+            // InternalSemanticNodesDsl.g:3115:2: '{'
             {
              before(grammarAccess.getPrimitiveTypeDataPropertyAccess().getLeftCurlyBracketKeyword_4_0()); 
-            match(input,17,FOLLOW_2); 
+            match(input,18,FOLLOW_2); 
              after(grammarAccess.getPrimitiveTypeDataPropertyAccess().getLeftCurlyBracketKeyword_4_0()); 
 
             }
@@ -9315,16 +9670,16 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__PrimitiveTypeDataProperty__Group_4__1"
-    // InternalSemanticNodesDsl.g:3014:1: rule__PrimitiveTypeDataProperty__Group_4__1 : rule__PrimitiveTypeDataProperty__Group_4__1__Impl rule__PrimitiveTypeDataProperty__Group_4__2 ;
+    // InternalSemanticNodesDsl.g:3124:1: rule__PrimitiveTypeDataProperty__Group_4__1 : rule__PrimitiveTypeDataProperty__Group_4__1__Impl rule__PrimitiveTypeDataProperty__Group_4__2 ;
     public final void rule__PrimitiveTypeDataProperty__Group_4__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:3018:1: ( rule__PrimitiveTypeDataProperty__Group_4__1__Impl rule__PrimitiveTypeDataProperty__Group_4__2 )
-            // InternalSemanticNodesDsl.g:3019:2: rule__PrimitiveTypeDataProperty__Group_4__1__Impl rule__PrimitiveTypeDataProperty__Group_4__2
+            // InternalSemanticNodesDsl.g:3128:1: ( rule__PrimitiveTypeDataProperty__Group_4__1__Impl rule__PrimitiveTypeDataProperty__Group_4__2 )
+            // InternalSemanticNodesDsl.g:3129:2: rule__PrimitiveTypeDataProperty__Group_4__1__Impl rule__PrimitiveTypeDataProperty__Group_4__2
             {
-            pushFollow(FOLLOW_16);
+            pushFollow(FOLLOW_18);
             rule__PrimitiveTypeDataProperty__Group_4__1__Impl();
 
             state._fsp--;
@@ -9353,31 +9708,31 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__PrimitiveTypeDataProperty__Group_4__1__Impl"
-    // InternalSemanticNodesDsl.g:3026:1: rule__PrimitiveTypeDataProperty__Group_4__1__Impl : ( ( rule__PrimitiveTypeDataProperty__MetadataAssignment_4_1 ) ) ;
+    // InternalSemanticNodesDsl.g:3136:1: rule__PrimitiveTypeDataProperty__Group_4__1__Impl : ( ( rule__PrimitiveTypeDataProperty__MetaDataValueAssignment_4_1 ) ) ;
     public final void rule__PrimitiveTypeDataProperty__Group_4__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:3030:1: ( ( ( rule__PrimitiveTypeDataProperty__MetadataAssignment_4_1 ) ) )
-            // InternalSemanticNodesDsl.g:3031:1: ( ( rule__PrimitiveTypeDataProperty__MetadataAssignment_4_1 ) )
+            // InternalSemanticNodesDsl.g:3140:1: ( ( ( rule__PrimitiveTypeDataProperty__MetaDataValueAssignment_4_1 ) ) )
+            // InternalSemanticNodesDsl.g:3141:1: ( ( rule__PrimitiveTypeDataProperty__MetaDataValueAssignment_4_1 ) )
             {
-            // InternalSemanticNodesDsl.g:3031:1: ( ( rule__PrimitiveTypeDataProperty__MetadataAssignment_4_1 ) )
-            // InternalSemanticNodesDsl.g:3032:2: ( rule__PrimitiveTypeDataProperty__MetadataAssignment_4_1 )
+            // InternalSemanticNodesDsl.g:3141:1: ( ( rule__PrimitiveTypeDataProperty__MetaDataValueAssignment_4_1 ) )
+            // InternalSemanticNodesDsl.g:3142:2: ( rule__PrimitiveTypeDataProperty__MetaDataValueAssignment_4_1 )
             {
-             before(grammarAccess.getPrimitiveTypeDataPropertyAccess().getMetadataAssignment_4_1()); 
-            // InternalSemanticNodesDsl.g:3033:2: ( rule__PrimitiveTypeDataProperty__MetadataAssignment_4_1 )
-            // InternalSemanticNodesDsl.g:3033:3: rule__PrimitiveTypeDataProperty__MetadataAssignment_4_1
+             before(grammarAccess.getPrimitiveTypeDataPropertyAccess().getMetaDataValueAssignment_4_1()); 
+            // InternalSemanticNodesDsl.g:3143:2: ( rule__PrimitiveTypeDataProperty__MetaDataValueAssignment_4_1 )
+            // InternalSemanticNodesDsl.g:3143:3: rule__PrimitiveTypeDataProperty__MetaDataValueAssignment_4_1
             {
             pushFollow(FOLLOW_2);
-            rule__PrimitiveTypeDataProperty__MetadataAssignment_4_1();
+            rule__PrimitiveTypeDataProperty__MetaDataValueAssignment_4_1();
 
             state._fsp--;
 
 
             }
 
-             after(grammarAccess.getPrimitiveTypeDataPropertyAccess().getMetadataAssignment_4_1()); 
+             after(grammarAccess.getPrimitiveTypeDataPropertyAccess().getMetaDataValueAssignment_4_1()); 
 
             }
 
@@ -9400,16 +9755,16 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__PrimitiveTypeDataProperty__Group_4__2"
-    // InternalSemanticNodesDsl.g:3041:1: rule__PrimitiveTypeDataProperty__Group_4__2 : rule__PrimitiveTypeDataProperty__Group_4__2__Impl rule__PrimitiveTypeDataProperty__Group_4__3 ;
+    // InternalSemanticNodesDsl.g:3151:1: rule__PrimitiveTypeDataProperty__Group_4__2 : rule__PrimitiveTypeDataProperty__Group_4__2__Impl rule__PrimitiveTypeDataProperty__Group_4__3 ;
     public final void rule__PrimitiveTypeDataProperty__Group_4__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:3045:1: ( rule__PrimitiveTypeDataProperty__Group_4__2__Impl rule__PrimitiveTypeDataProperty__Group_4__3 )
-            // InternalSemanticNodesDsl.g:3046:2: rule__PrimitiveTypeDataProperty__Group_4__2__Impl rule__PrimitiveTypeDataProperty__Group_4__3
+            // InternalSemanticNodesDsl.g:3155:1: ( rule__PrimitiveTypeDataProperty__Group_4__2__Impl rule__PrimitiveTypeDataProperty__Group_4__3 )
+            // InternalSemanticNodesDsl.g:3156:2: rule__PrimitiveTypeDataProperty__Group_4__2__Impl rule__PrimitiveTypeDataProperty__Group_4__3
             {
-            pushFollow(FOLLOW_16);
+            pushFollow(FOLLOW_18);
             rule__PrimitiveTypeDataProperty__Group_4__2__Impl();
 
             state._fsp--;
@@ -9438,35 +9793,35 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__PrimitiveTypeDataProperty__Group_4__2__Impl"
-    // InternalSemanticNodesDsl.g:3053:1: rule__PrimitiveTypeDataProperty__Group_4__2__Impl : ( ( rule__PrimitiveTypeDataProperty__Group_4_2__0 )* ) ;
+    // InternalSemanticNodesDsl.g:3163:1: rule__PrimitiveTypeDataProperty__Group_4__2__Impl : ( ( rule__PrimitiveTypeDataProperty__Group_4_2__0 )* ) ;
     public final void rule__PrimitiveTypeDataProperty__Group_4__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:3057:1: ( ( ( rule__PrimitiveTypeDataProperty__Group_4_2__0 )* ) )
-            // InternalSemanticNodesDsl.g:3058:1: ( ( rule__PrimitiveTypeDataProperty__Group_4_2__0 )* )
+            // InternalSemanticNodesDsl.g:3167:1: ( ( ( rule__PrimitiveTypeDataProperty__Group_4_2__0 )* ) )
+            // InternalSemanticNodesDsl.g:3168:1: ( ( rule__PrimitiveTypeDataProperty__Group_4_2__0 )* )
             {
-            // InternalSemanticNodesDsl.g:3058:1: ( ( rule__PrimitiveTypeDataProperty__Group_4_2__0 )* )
-            // InternalSemanticNodesDsl.g:3059:2: ( rule__PrimitiveTypeDataProperty__Group_4_2__0 )*
+            // InternalSemanticNodesDsl.g:3168:1: ( ( rule__PrimitiveTypeDataProperty__Group_4_2__0 )* )
+            // InternalSemanticNodesDsl.g:3169:2: ( rule__PrimitiveTypeDataProperty__Group_4_2__0 )*
             {
              before(grammarAccess.getPrimitiveTypeDataPropertyAccess().getGroup_4_2()); 
-            // InternalSemanticNodesDsl.g:3060:2: ( rule__PrimitiveTypeDataProperty__Group_4_2__0 )*
-            loop28:
+            // InternalSemanticNodesDsl.g:3170:2: ( rule__PrimitiveTypeDataProperty__Group_4_2__0 )*
+            loop29:
             do {
-                int alt28=2;
-                int LA28_0 = input.LA(1);
+                int alt29=2;
+                int LA29_0 = input.LA(1);
 
-                if ( (LA28_0==20) ) {
-                    alt28=1;
+                if ( (LA29_0==21) ) {
+                    alt29=1;
                 }
 
 
-                switch (alt28) {
+                switch (alt29) {
             	case 1 :
-            	    // InternalSemanticNodesDsl.g:3060:3: rule__PrimitiveTypeDataProperty__Group_4_2__0
+            	    // InternalSemanticNodesDsl.g:3170:3: rule__PrimitiveTypeDataProperty__Group_4_2__0
             	    {
-            	    pushFollow(FOLLOW_17);
+            	    pushFollow(FOLLOW_19);
             	    rule__PrimitiveTypeDataProperty__Group_4_2__0();
 
             	    state._fsp--;
@@ -9476,7 +9831,7 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
             	    break;
 
             	default :
-            	    break loop28;
+            	    break loop29;
                 }
             } while (true);
 
@@ -9503,14 +9858,14 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__PrimitiveTypeDataProperty__Group_4__3"
-    // InternalSemanticNodesDsl.g:3068:1: rule__PrimitiveTypeDataProperty__Group_4__3 : rule__PrimitiveTypeDataProperty__Group_4__3__Impl ;
+    // InternalSemanticNodesDsl.g:3178:1: rule__PrimitiveTypeDataProperty__Group_4__3 : rule__PrimitiveTypeDataProperty__Group_4__3__Impl ;
     public final void rule__PrimitiveTypeDataProperty__Group_4__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:3072:1: ( rule__PrimitiveTypeDataProperty__Group_4__3__Impl )
-            // InternalSemanticNodesDsl.g:3073:2: rule__PrimitiveTypeDataProperty__Group_4__3__Impl
+            // InternalSemanticNodesDsl.g:3182:1: ( rule__PrimitiveTypeDataProperty__Group_4__3__Impl )
+            // InternalSemanticNodesDsl.g:3183:2: rule__PrimitiveTypeDataProperty__Group_4__3__Impl
             {
             pushFollow(FOLLOW_2);
             rule__PrimitiveTypeDataProperty__Group_4__3__Impl();
@@ -9536,20 +9891,20 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__PrimitiveTypeDataProperty__Group_4__3__Impl"
-    // InternalSemanticNodesDsl.g:3079:1: rule__PrimitiveTypeDataProperty__Group_4__3__Impl : ( '}' ) ;
+    // InternalSemanticNodesDsl.g:3189:1: rule__PrimitiveTypeDataProperty__Group_4__3__Impl : ( '}' ) ;
     public final void rule__PrimitiveTypeDataProperty__Group_4__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:3083:1: ( ( '}' ) )
-            // InternalSemanticNodesDsl.g:3084:1: ( '}' )
+            // InternalSemanticNodesDsl.g:3193:1: ( ( '}' ) )
+            // InternalSemanticNodesDsl.g:3194:1: ( '}' )
             {
-            // InternalSemanticNodesDsl.g:3084:1: ( '}' )
-            // InternalSemanticNodesDsl.g:3085:2: '}'
+            // InternalSemanticNodesDsl.g:3194:1: ( '}' )
+            // InternalSemanticNodesDsl.g:3195:2: '}'
             {
              before(grammarAccess.getPrimitiveTypeDataPropertyAccess().getRightCurlyBracketKeyword_4_3()); 
-            match(input,18,FOLLOW_2); 
+            match(input,19,FOLLOW_2); 
              after(grammarAccess.getPrimitiveTypeDataPropertyAccess().getRightCurlyBracketKeyword_4_3()); 
 
             }
@@ -9573,16 +9928,16 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__PrimitiveTypeDataProperty__Group_4_2__0"
-    // InternalSemanticNodesDsl.g:3095:1: rule__PrimitiveTypeDataProperty__Group_4_2__0 : rule__PrimitiveTypeDataProperty__Group_4_2__0__Impl rule__PrimitiveTypeDataProperty__Group_4_2__1 ;
+    // InternalSemanticNodesDsl.g:3205:1: rule__PrimitiveTypeDataProperty__Group_4_2__0 : rule__PrimitiveTypeDataProperty__Group_4_2__0__Impl rule__PrimitiveTypeDataProperty__Group_4_2__1 ;
     public final void rule__PrimitiveTypeDataProperty__Group_4_2__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:3099:1: ( rule__PrimitiveTypeDataProperty__Group_4_2__0__Impl rule__PrimitiveTypeDataProperty__Group_4_2__1 )
-            // InternalSemanticNodesDsl.g:3100:2: rule__PrimitiveTypeDataProperty__Group_4_2__0__Impl rule__PrimitiveTypeDataProperty__Group_4_2__1
+            // InternalSemanticNodesDsl.g:3209:1: ( rule__PrimitiveTypeDataProperty__Group_4_2__0__Impl rule__PrimitiveTypeDataProperty__Group_4_2__1 )
+            // InternalSemanticNodesDsl.g:3210:2: rule__PrimitiveTypeDataProperty__Group_4_2__0__Impl rule__PrimitiveTypeDataProperty__Group_4_2__1
             {
-            pushFollow(FOLLOW_5);
+            pushFollow(FOLLOW_4);
             rule__PrimitiveTypeDataProperty__Group_4_2__0__Impl();
 
             state._fsp--;
@@ -9611,20 +9966,20 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__PrimitiveTypeDataProperty__Group_4_2__0__Impl"
-    // InternalSemanticNodesDsl.g:3107:1: rule__PrimitiveTypeDataProperty__Group_4_2__0__Impl : ( ',' ) ;
+    // InternalSemanticNodesDsl.g:3217:1: rule__PrimitiveTypeDataProperty__Group_4_2__0__Impl : ( ',' ) ;
     public final void rule__PrimitiveTypeDataProperty__Group_4_2__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:3111:1: ( ( ',' ) )
-            // InternalSemanticNodesDsl.g:3112:1: ( ',' )
+            // InternalSemanticNodesDsl.g:3221:1: ( ( ',' ) )
+            // InternalSemanticNodesDsl.g:3222:1: ( ',' )
             {
-            // InternalSemanticNodesDsl.g:3112:1: ( ',' )
-            // InternalSemanticNodesDsl.g:3113:2: ','
+            // InternalSemanticNodesDsl.g:3222:1: ( ',' )
+            // InternalSemanticNodesDsl.g:3223:2: ','
             {
              before(grammarAccess.getPrimitiveTypeDataPropertyAccess().getCommaKeyword_4_2_0()); 
-            match(input,20,FOLLOW_2); 
+            match(input,21,FOLLOW_2); 
              after(grammarAccess.getPrimitiveTypeDataPropertyAccess().getCommaKeyword_4_2_0()); 
 
             }
@@ -9648,14 +10003,14 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__PrimitiveTypeDataProperty__Group_4_2__1"
-    // InternalSemanticNodesDsl.g:3122:1: rule__PrimitiveTypeDataProperty__Group_4_2__1 : rule__PrimitiveTypeDataProperty__Group_4_2__1__Impl ;
+    // InternalSemanticNodesDsl.g:3232:1: rule__PrimitiveTypeDataProperty__Group_4_2__1 : rule__PrimitiveTypeDataProperty__Group_4_2__1__Impl ;
     public final void rule__PrimitiveTypeDataProperty__Group_4_2__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:3126:1: ( rule__PrimitiveTypeDataProperty__Group_4_2__1__Impl )
-            // InternalSemanticNodesDsl.g:3127:2: rule__PrimitiveTypeDataProperty__Group_4_2__1__Impl
+            // InternalSemanticNodesDsl.g:3236:1: ( rule__PrimitiveTypeDataProperty__Group_4_2__1__Impl )
+            // InternalSemanticNodesDsl.g:3237:2: rule__PrimitiveTypeDataProperty__Group_4_2__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__PrimitiveTypeDataProperty__Group_4_2__1__Impl();
@@ -9681,31 +10036,31 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__PrimitiveTypeDataProperty__Group_4_2__1__Impl"
-    // InternalSemanticNodesDsl.g:3133:1: rule__PrimitiveTypeDataProperty__Group_4_2__1__Impl : ( ( rule__PrimitiveTypeDataProperty__MetadataAssignment_4_2_1 ) ) ;
+    // InternalSemanticNodesDsl.g:3243:1: rule__PrimitiveTypeDataProperty__Group_4_2__1__Impl : ( ( rule__PrimitiveTypeDataProperty__MetaDataValueAssignment_4_2_1 ) ) ;
     public final void rule__PrimitiveTypeDataProperty__Group_4_2__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:3137:1: ( ( ( rule__PrimitiveTypeDataProperty__MetadataAssignment_4_2_1 ) ) )
-            // InternalSemanticNodesDsl.g:3138:1: ( ( rule__PrimitiveTypeDataProperty__MetadataAssignment_4_2_1 ) )
+            // InternalSemanticNodesDsl.g:3247:1: ( ( ( rule__PrimitiveTypeDataProperty__MetaDataValueAssignment_4_2_1 ) ) )
+            // InternalSemanticNodesDsl.g:3248:1: ( ( rule__PrimitiveTypeDataProperty__MetaDataValueAssignment_4_2_1 ) )
             {
-            // InternalSemanticNodesDsl.g:3138:1: ( ( rule__PrimitiveTypeDataProperty__MetadataAssignment_4_2_1 ) )
-            // InternalSemanticNodesDsl.g:3139:2: ( rule__PrimitiveTypeDataProperty__MetadataAssignment_4_2_1 )
+            // InternalSemanticNodesDsl.g:3248:1: ( ( rule__PrimitiveTypeDataProperty__MetaDataValueAssignment_4_2_1 ) )
+            // InternalSemanticNodesDsl.g:3249:2: ( rule__PrimitiveTypeDataProperty__MetaDataValueAssignment_4_2_1 )
             {
-             before(grammarAccess.getPrimitiveTypeDataPropertyAccess().getMetadataAssignment_4_2_1()); 
-            // InternalSemanticNodesDsl.g:3140:2: ( rule__PrimitiveTypeDataProperty__MetadataAssignment_4_2_1 )
-            // InternalSemanticNodesDsl.g:3140:3: rule__PrimitiveTypeDataProperty__MetadataAssignment_4_2_1
+             before(grammarAccess.getPrimitiveTypeDataPropertyAccess().getMetaDataValueAssignment_4_2_1()); 
+            // InternalSemanticNodesDsl.g:3250:2: ( rule__PrimitiveTypeDataProperty__MetaDataValueAssignment_4_2_1 )
+            // InternalSemanticNodesDsl.g:3250:3: rule__PrimitiveTypeDataProperty__MetaDataValueAssignment_4_2_1
             {
             pushFollow(FOLLOW_2);
-            rule__PrimitiveTypeDataProperty__MetadataAssignment_4_2_1();
+            rule__PrimitiveTypeDataProperty__MetaDataValueAssignment_4_2_1();
 
             state._fsp--;
 
 
             }
 
-             after(grammarAccess.getPrimitiveTypeDataPropertyAccess().getMetadataAssignment_4_2_1()); 
+             after(grammarAccess.getPrimitiveTypeDataPropertyAccess().getMetaDataValueAssignment_4_2_1()); 
 
             }
 
@@ -9728,16 +10083,16 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__EnumerationDataProperty__Group__0"
-    // InternalSemanticNodesDsl.g:3149:1: rule__EnumerationDataProperty__Group__0 : rule__EnumerationDataProperty__Group__0__Impl rule__EnumerationDataProperty__Group__1 ;
+    // InternalSemanticNodesDsl.g:3259:1: rule__EnumerationDataProperty__Group__0 : rule__EnumerationDataProperty__Group__0__Impl rule__EnumerationDataProperty__Group__1 ;
     public final void rule__EnumerationDataProperty__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:3153:1: ( rule__EnumerationDataProperty__Group__0__Impl rule__EnumerationDataProperty__Group__1 )
-            // InternalSemanticNodesDsl.g:3154:2: rule__EnumerationDataProperty__Group__0__Impl rule__EnumerationDataProperty__Group__1
+            // InternalSemanticNodesDsl.g:3263:1: ( rule__EnumerationDataProperty__Group__0__Impl rule__EnumerationDataProperty__Group__1 )
+            // InternalSemanticNodesDsl.g:3264:2: rule__EnumerationDataProperty__Group__0__Impl rule__EnumerationDataProperty__Group__1
             {
-            pushFollow(FOLLOW_5);
+            pushFollow(FOLLOW_4);
             rule__EnumerationDataProperty__Group__0__Impl();
 
             state._fsp--;
@@ -9766,21 +10121,21 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__EnumerationDataProperty__Group__0__Impl"
-    // InternalSemanticNodesDsl.g:3161:1: rule__EnumerationDataProperty__Group__0__Impl : ( () ) ;
+    // InternalSemanticNodesDsl.g:3271:1: rule__EnumerationDataProperty__Group__0__Impl : ( () ) ;
     public final void rule__EnumerationDataProperty__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:3165:1: ( ( () ) )
-            // InternalSemanticNodesDsl.g:3166:1: ( () )
+            // InternalSemanticNodesDsl.g:3275:1: ( ( () ) )
+            // InternalSemanticNodesDsl.g:3276:1: ( () )
             {
-            // InternalSemanticNodesDsl.g:3166:1: ( () )
-            // InternalSemanticNodesDsl.g:3167:2: ()
+            // InternalSemanticNodesDsl.g:3276:1: ( () )
+            // InternalSemanticNodesDsl.g:3277:2: ()
             {
              before(grammarAccess.getEnumerationDataPropertyAccess().getEnumDataPropertyAction_0()); 
-            // InternalSemanticNodesDsl.g:3168:2: ()
-            // InternalSemanticNodesDsl.g:3168:3: 
+            // InternalSemanticNodesDsl.g:3278:2: ()
+            // InternalSemanticNodesDsl.g:3278:3: 
             {
             }
 
@@ -9803,16 +10158,16 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__EnumerationDataProperty__Group__1"
-    // InternalSemanticNodesDsl.g:3176:1: rule__EnumerationDataProperty__Group__1 : rule__EnumerationDataProperty__Group__1__Impl rule__EnumerationDataProperty__Group__2 ;
+    // InternalSemanticNodesDsl.g:3286:1: rule__EnumerationDataProperty__Group__1 : rule__EnumerationDataProperty__Group__1__Impl rule__EnumerationDataProperty__Group__2 ;
     public final void rule__EnumerationDataProperty__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:3180:1: ( rule__EnumerationDataProperty__Group__1__Impl rule__EnumerationDataProperty__Group__2 )
-            // InternalSemanticNodesDsl.g:3181:2: rule__EnumerationDataProperty__Group__1__Impl rule__EnumerationDataProperty__Group__2
+            // InternalSemanticNodesDsl.g:3290:1: ( rule__EnumerationDataProperty__Group__1__Impl rule__EnumerationDataProperty__Group__2 )
+            // InternalSemanticNodesDsl.g:3291:2: rule__EnumerationDataProperty__Group__1__Impl rule__EnumerationDataProperty__Group__2
             {
-            pushFollow(FOLLOW_28);
+            pushFollow(FOLLOW_30);
             rule__EnumerationDataProperty__Group__1__Impl();
 
             state._fsp--;
@@ -9841,21 +10196,21 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__EnumerationDataProperty__Group__1__Impl"
-    // InternalSemanticNodesDsl.g:3188:1: rule__EnumerationDataProperty__Group__1__Impl : ( ( rule__EnumerationDataProperty__NameAssignment_1 ) ) ;
+    // InternalSemanticNodesDsl.g:3298:1: rule__EnumerationDataProperty__Group__1__Impl : ( ( rule__EnumerationDataProperty__NameAssignment_1 ) ) ;
     public final void rule__EnumerationDataProperty__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:3192:1: ( ( ( rule__EnumerationDataProperty__NameAssignment_1 ) ) )
-            // InternalSemanticNodesDsl.g:3193:1: ( ( rule__EnumerationDataProperty__NameAssignment_1 ) )
+            // InternalSemanticNodesDsl.g:3302:1: ( ( ( rule__EnumerationDataProperty__NameAssignment_1 ) ) )
+            // InternalSemanticNodesDsl.g:3303:1: ( ( rule__EnumerationDataProperty__NameAssignment_1 ) )
             {
-            // InternalSemanticNodesDsl.g:3193:1: ( ( rule__EnumerationDataProperty__NameAssignment_1 ) )
-            // InternalSemanticNodesDsl.g:3194:2: ( rule__EnumerationDataProperty__NameAssignment_1 )
+            // InternalSemanticNodesDsl.g:3303:1: ( ( rule__EnumerationDataProperty__NameAssignment_1 ) )
+            // InternalSemanticNodesDsl.g:3304:2: ( rule__EnumerationDataProperty__NameAssignment_1 )
             {
              before(grammarAccess.getEnumerationDataPropertyAccess().getNameAssignment_1()); 
-            // InternalSemanticNodesDsl.g:3195:2: ( rule__EnumerationDataProperty__NameAssignment_1 )
-            // InternalSemanticNodesDsl.g:3195:3: rule__EnumerationDataProperty__NameAssignment_1
+            // InternalSemanticNodesDsl.g:3305:2: ( rule__EnumerationDataProperty__NameAssignment_1 )
+            // InternalSemanticNodesDsl.g:3305:3: rule__EnumerationDataProperty__NameAssignment_1
             {
             pushFollow(FOLLOW_2);
             rule__EnumerationDataProperty__NameAssignment_1();
@@ -9888,16 +10243,16 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__EnumerationDataProperty__Group__2"
-    // InternalSemanticNodesDsl.g:3203:1: rule__EnumerationDataProperty__Group__2 : rule__EnumerationDataProperty__Group__2__Impl rule__EnumerationDataProperty__Group__3 ;
+    // InternalSemanticNodesDsl.g:3313:1: rule__EnumerationDataProperty__Group__2 : rule__EnumerationDataProperty__Group__2__Impl rule__EnumerationDataProperty__Group__3 ;
     public final void rule__EnumerationDataProperty__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:3207:1: ( rule__EnumerationDataProperty__Group__2__Impl rule__EnumerationDataProperty__Group__3 )
-            // InternalSemanticNodesDsl.g:3208:2: rule__EnumerationDataProperty__Group__2__Impl rule__EnumerationDataProperty__Group__3
+            // InternalSemanticNodesDsl.g:3317:1: ( rule__EnumerationDataProperty__Group__2__Impl rule__EnumerationDataProperty__Group__3 )
+            // InternalSemanticNodesDsl.g:3318:2: rule__EnumerationDataProperty__Group__2__Impl rule__EnumerationDataProperty__Group__3
             {
-            pushFollow(FOLLOW_25);
+            pushFollow(FOLLOW_27);
             rule__EnumerationDataProperty__Group__2__Impl();
 
             state._fsp--;
@@ -9926,21 +10281,21 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__EnumerationDataProperty__Group__2__Impl"
-    // InternalSemanticNodesDsl.g:3215:1: rule__EnumerationDataProperty__Group__2__Impl : ( ( rule__EnumerationDataProperty__Group_2__0 ) ) ;
+    // InternalSemanticNodesDsl.g:3325:1: rule__EnumerationDataProperty__Group__2__Impl : ( ( rule__EnumerationDataProperty__Group_2__0 ) ) ;
     public final void rule__EnumerationDataProperty__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:3219:1: ( ( ( rule__EnumerationDataProperty__Group_2__0 ) ) )
-            // InternalSemanticNodesDsl.g:3220:1: ( ( rule__EnumerationDataProperty__Group_2__0 ) )
+            // InternalSemanticNodesDsl.g:3329:1: ( ( ( rule__EnumerationDataProperty__Group_2__0 ) ) )
+            // InternalSemanticNodesDsl.g:3330:1: ( ( rule__EnumerationDataProperty__Group_2__0 ) )
             {
-            // InternalSemanticNodesDsl.g:3220:1: ( ( rule__EnumerationDataProperty__Group_2__0 ) )
-            // InternalSemanticNodesDsl.g:3221:2: ( rule__EnumerationDataProperty__Group_2__0 )
+            // InternalSemanticNodesDsl.g:3330:1: ( ( rule__EnumerationDataProperty__Group_2__0 ) )
+            // InternalSemanticNodesDsl.g:3331:2: ( rule__EnumerationDataProperty__Group_2__0 )
             {
              before(grammarAccess.getEnumerationDataPropertyAccess().getGroup_2()); 
-            // InternalSemanticNodesDsl.g:3222:2: ( rule__EnumerationDataProperty__Group_2__0 )
-            // InternalSemanticNodesDsl.g:3222:3: rule__EnumerationDataProperty__Group_2__0
+            // InternalSemanticNodesDsl.g:3332:2: ( rule__EnumerationDataProperty__Group_2__0 )
+            // InternalSemanticNodesDsl.g:3332:3: rule__EnumerationDataProperty__Group_2__0
             {
             pushFollow(FOLLOW_2);
             rule__EnumerationDataProperty__Group_2__0();
@@ -9973,16 +10328,16 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__EnumerationDataProperty__Group__3"
-    // InternalSemanticNodesDsl.g:3230:1: rule__EnumerationDataProperty__Group__3 : rule__EnumerationDataProperty__Group__3__Impl rule__EnumerationDataProperty__Group__4 ;
+    // InternalSemanticNodesDsl.g:3340:1: rule__EnumerationDataProperty__Group__3 : rule__EnumerationDataProperty__Group__3__Impl rule__EnumerationDataProperty__Group__4 ;
     public final void rule__EnumerationDataProperty__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:3234:1: ( rule__EnumerationDataProperty__Group__3__Impl rule__EnumerationDataProperty__Group__4 )
-            // InternalSemanticNodesDsl.g:3235:2: rule__EnumerationDataProperty__Group__3__Impl rule__EnumerationDataProperty__Group__4
+            // InternalSemanticNodesDsl.g:3344:1: ( rule__EnumerationDataProperty__Group__3__Impl rule__EnumerationDataProperty__Group__4 )
+            // InternalSemanticNodesDsl.g:3345:2: rule__EnumerationDataProperty__Group__3__Impl rule__EnumerationDataProperty__Group__4
             {
-            pushFollow(FOLLOW_25);
+            pushFollow(FOLLOW_27);
             rule__EnumerationDataProperty__Group__3__Impl();
 
             state._fsp--;
@@ -10011,29 +10366,29 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__EnumerationDataProperty__Group__3__Impl"
-    // InternalSemanticNodesDsl.g:3242:1: rule__EnumerationDataProperty__Group__3__Impl : ( ( rule__EnumerationDataProperty__Group_3__0 )? ) ;
+    // InternalSemanticNodesDsl.g:3352:1: rule__EnumerationDataProperty__Group__3__Impl : ( ( rule__EnumerationDataProperty__Group_3__0 )? ) ;
     public final void rule__EnumerationDataProperty__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:3246:1: ( ( ( rule__EnumerationDataProperty__Group_3__0 )? ) )
-            // InternalSemanticNodesDsl.g:3247:1: ( ( rule__EnumerationDataProperty__Group_3__0 )? )
+            // InternalSemanticNodesDsl.g:3356:1: ( ( ( rule__EnumerationDataProperty__Group_3__0 )? ) )
+            // InternalSemanticNodesDsl.g:3357:1: ( ( rule__EnumerationDataProperty__Group_3__0 )? )
             {
-            // InternalSemanticNodesDsl.g:3247:1: ( ( rule__EnumerationDataProperty__Group_3__0 )? )
-            // InternalSemanticNodesDsl.g:3248:2: ( rule__EnumerationDataProperty__Group_3__0 )?
+            // InternalSemanticNodesDsl.g:3357:1: ( ( rule__EnumerationDataProperty__Group_3__0 )? )
+            // InternalSemanticNodesDsl.g:3358:2: ( rule__EnumerationDataProperty__Group_3__0 )?
             {
              before(grammarAccess.getEnumerationDataPropertyAccess().getGroup_3()); 
-            // InternalSemanticNodesDsl.g:3249:2: ( rule__EnumerationDataProperty__Group_3__0 )?
-            int alt29=2;
-            int LA29_0 = input.LA(1);
+            // InternalSemanticNodesDsl.g:3359:2: ( rule__EnumerationDataProperty__Group_3__0 )?
+            int alt30=2;
+            int LA30_0 = input.LA(1);
 
-            if ( (LA29_0==24) ) {
-                alt29=1;
+            if ( (LA30_0==25) ) {
+                alt30=1;
             }
-            switch (alt29) {
+            switch (alt30) {
                 case 1 :
-                    // InternalSemanticNodesDsl.g:3249:3: rule__EnumerationDataProperty__Group_3__0
+                    // InternalSemanticNodesDsl.g:3359:3: rule__EnumerationDataProperty__Group_3__0
                     {
                     pushFollow(FOLLOW_2);
                     rule__EnumerationDataProperty__Group_3__0();
@@ -10069,14 +10424,14 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__EnumerationDataProperty__Group__4"
-    // InternalSemanticNodesDsl.g:3257:1: rule__EnumerationDataProperty__Group__4 : rule__EnumerationDataProperty__Group__4__Impl ;
+    // InternalSemanticNodesDsl.g:3367:1: rule__EnumerationDataProperty__Group__4 : rule__EnumerationDataProperty__Group__4__Impl ;
     public final void rule__EnumerationDataProperty__Group__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:3261:1: ( rule__EnumerationDataProperty__Group__4__Impl )
-            // InternalSemanticNodesDsl.g:3262:2: rule__EnumerationDataProperty__Group__4__Impl
+            // InternalSemanticNodesDsl.g:3371:1: ( rule__EnumerationDataProperty__Group__4__Impl )
+            // InternalSemanticNodesDsl.g:3372:2: rule__EnumerationDataProperty__Group__4__Impl
             {
             pushFollow(FOLLOW_2);
             rule__EnumerationDataProperty__Group__4__Impl();
@@ -10102,29 +10457,29 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__EnumerationDataProperty__Group__4__Impl"
-    // InternalSemanticNodesDsl.g:3268:1: rule__EnumerationDataProperty__Group__4__Impl : ( ( rule__EnumerationDataProperty__Group_4__0 )? ) ;
+    // InternalSemanticNodesDsl.g:3378:1: rule__EnumerationDataProperty__Group__4__Impl : ( ( rule__EnumerationDataProperty__Group_4__0 )? ) ;
     public final void rule__EnumerationDataProperty__Group__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:3272:1: ( ( ( rule__EnumerationDataProperty__Group_4__0 )? ) )
-            // InternalSemanticNodesDsl.g:3273:1: ( ( rule__EnumerationDataProperty__Group_4__0 )? )
+            // InternalSemanticNodesDsl.g:3382:1: ( ( ( rule__EnumerationDataProperty__Group_4__0 )? ) )
+            // InternalSemanticNodesDsl.g:3383:1: ( ( rule__EnumerationDataProperty__Group_4__0 )? )
             {
-            // InternalSemanticNodesDsl.g:3273:1: ( ( rule__EnumerationDataProperty__Group_4__0 )? )
-            // InternalSemanticNodesDsl.g:3274:2: ( rule__EnumerationDataProperty__Group_4__0 )?
+            // InternalSemanticNodesDsl.g:3383:1: ( ( rule__EnumerationDataProperty__Group_4__0 )? )
+            // InternalSemanticNodesDsl.g:3384:2: ( rule__EnumerationDataProperty__Group_4__0 )?
             {
              before(grammarAccess.getEnumerationDataPropertyAccess().getGroup_4()); 
-            // InternalSemanticNodesDsl.g:3275:2: ( rule__EnumerationDataProperty__Group_4__0 )?
-            int alt30=2;
-            int LA30_0 = input.LA(1);
+            // InternalSemanticNodesDsl.g:3385:2: ( rule__EnumerationDataProperty__Group_4__0 )?
+            int alt31=2;
+            int LA31_0 = input.LA(1);
 
-            if ( (LA30_0==17) ) {
-                alt30=1;
+            if ( (LA31_0==18) ) {
+                alt31=1;
             }
-            switch (alt30) {
+            switch (alt31) {
                 case 1 :
-                    // InternalSemanticNodesDsl.g:3275:3: rule__EnumerationDataProperty__Group_4__0
+                    // InternalSemanticNodesDsl.g:3385:3: rule__EnumerationDataProperty__Group_4__0
                     {
                     pushFollow(FOLLOW_2);
                     rule__EnumerationDataProperty__Group_4__0();
@@ -10160,16 +10515,16 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__EnumerationDataProperty__Group_2__0"
-    // InternalSemanticNodesDsl.g:3284:1: rule__EnumerationDataProperty__Group_2__0 : rule__EnumerationDataProperty__Group_2__0__Impl rule__EnumerationDataProperty__Group_2__1 ;
+    // InternalSemanticNodesDsl.g:3394:1: rule__EnumerationDataProperty__Group_2__0 : rule__EnumerationDataProperty__Group_2__0__Impl rule__EnumerationDataProperty__Group_2__1 ;
     public final void rule__EnumerationDataProperty__Group_2__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:3288:1: ( rule__EnumerationDataProperty__Group_2__0__Impl rule__EnumerationDataProperty__Group_2__1 )
-            // InternalSemanticNodesDsl.g:3289:2: rule__EnumerationDataProperty__Group_2__0__Impl rule__EnumerationDataProperty__Group_2__1
+            // InternalSemanticNodesDsl.g:3398:1: ( rule__EnumerationDataProperty__Group_2__0__Impl rule__EnumerationDataProperty__Group_2__1 )
+            // InternalSemanticNodesDsl.g:3399:2: rule__EnumerationDataProperty__Group_2__0__Impl rule__EnumerationDataProperty__Group_2__1
             {
-            pushFollow(FOLLOW_5);
+            pushFollow(FOLLOW_4);
             rule__EnumerationDataProperty__Group_2__0__Impl();
 
             state._fsp--;
@@ -10198,20 +10553,20 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__EnumerationDataProperty__Group_2__0__Impl"
-    // InternalSemanticNodesDsl.g:3296:1: rule__EnumerationDataProperty__Group_2__0__Impl : ( ':' ) ;
+    // InternalSemanticNodesDsl.g:3406:1: rule__EnumerationDataProperty__Group_2__0__Impl : ( ':' ) ;
     public final void rule__EnumerationDataProperty__Group_2__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:3300:1: ( ( ':' ) )
-            // InternalSemanticNodesDsl.g:3301:1: ( ':' )
+            // InternalSemanticNodesDsl.g:3410:1: ( ( ':' ) )
+            // InternalSemanticNodesDsl.g:3411:1: ( ':' )
             {
-            // InternalSemanticNodesDsl.g:3301:1: ( ':' )
-            // InternalSemanticNodesDsl.g:3302:2: ':'
+            // InternalSemanticNodesDsl.g:3411:1: ( ':' )
+            // InternalSemanticNodesDsl.g:3412:2: ':'
             {
              before(grammarAccess.getEnumerationDataPropertyAccess().getColonKeyword_2_0()); 
-            match(input,26,FOLLOW_2); 
+            match(input,27,FOLLOW_2); 
              after(grammarAccess.getEnumerationDataPropertyAccess().getColonKeyword_2_0()); 
 
             }
@@ -10235,14 +10590,14 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__EnumerationDataProperty__Group_2__1"
-    // InternalSemanticNodesDsl.g:3311:1: rule__EnumerationDataProperty__Group_2__1 : rule__EnumerationDataProperty__Group_2__1__Impl ;
+    // InternalSemanticNodesDsl.g:3421:1: rule__EnumerationDataProperty__Group_2__1 : rule__EnumerationDataProperty__Group_2__1__Impl ;
     public final void rule__EnumerationDataProperty__Group_2__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:3315:1: ( rule__EnumerationDataProperty__Group_2__1__Impl )
-            // InternalSemanticNodesDsl.g:3316:2: rule__EnumerationDataProperty__Group_2__1__Impl
+            // InternalSemanticNodesDsl.g:3425:1: ( rule__EnumerationDataProperty__Group_2__1__Impl )
+            // InternalSemanticNodesDsl.g:3426:2: rule__EnumerationDataProperty__Group_2__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__EnumerationDataProperty__Group_2__1__Impl();
@@ -10268,21 +10623,21 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__EnumerationDataProperty__Group_2__1__Impl"
-    // InternalSemanticNodesDsl.g:3322:1: rule__EnumerationDataProperty__Group_2__1__Impl : ( ( rule__EnumerationDataProperty__TypeAssignment_2_1 ) ) ;
+    // InternalSemanticNodesDsl.g:3432:1: rule__EnumerationDataProperty__Group_2__1__Impl : ( ( rule__EnumerationDataProperty__TypeAssignment_2_1 ) ) ;
     public final void rule__EnumerationDataProperty__Group_2__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:3326:1: ( ( ( rule__EnumerationDataProperty__TypeAssignment_2_1 ) ) )
-            // InternalSemanticNodesDsl.g:3327:1: ( ( rule__EnumerationDataProperty__TypeAssignment_2_1 ) )
+            // InternalSemanticNodesDsl.g:3436:1: ( ( ( rule__EnumerationDataProperty__TypeAssignment_2_1 ) ) )
+            // InternalSemanticNodesDsl.g:3437:1: ( ( rule__EnumerationDataProperty__TypeAssignment_2_1 ) )
             {
-            // InternalSemanticNodesDsl.g:3327:1: ( ( rule__EnumerationDataProperty__TypeAssignment_2_1 ) )
-            // InternalSemanticNodesDsl.g:3328:2: ( rule__EnumerationDataProperty__TypeAssignment_2_1 )
+            // InternalSemanticNodesDsl.g:3437:1: ( ( rule__EnumerationDataProperty__TypeAssignment_2_1 ) )
+            // InternalSemanticNodesDsl.g:3438:2: ( rule__EnumerationDataProperty__TypeAssignment_2_1 )
             {
              before(grammarAccess.getEnumerationDataPropertyAccess().getTypeAssignment_2_1()); 
-            // InternalSemanticNodesDsl.g:3329:2: ( rule__EnumerationDataProperty__TypeAssignment_2_1 )
-            // InternalSemanticNodesDsl.g:3329:3: rule__EnumerationDataProperty__TypeAssignment_2_1
+            // InternalSemanticNodesDsl.g:3439:2: ( rule__EnumerationDataProperty__TypeAssignment_2_1 )
+            // InternalSemanticNodesDsl.g:3439:3: rule__EnumerationDataProperty__TypeAssignment_2_1
             {
             pushFollow(FOLLOW_2);
             rule__EnumerationDataProperty__TypeAssignment_2_1();
@@ -10315,16 +10670,16 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__EnumerationDataProperty__Group_3__0"
-    // InternalSemanticNodesDsl.g:3338:1: rule__EnumerationDataProperty__Group_3__0 : rule__EnumerationDataProperty__Group_3__0__Impl rule__EnumerationDataProperty__Group_3__1 ;
+    // InternalSemanticNodesDsl.g:3448:1: rule__EnumerationDataProperty__Group_3__0 : rule__EnumerationDataProperty__Group_3__0__Impl rule__EnumerationDataProperty__Group_3__1 ;
     public final void rule__EnumerationDataProperty__Group_3__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:3342:1: ( rule__EnumerationDataProperty__Group_3__0__Impl rule__EnumerationDataProperty__Group_3__1 )
-            // InternalSemanticNodesDsl.g:3343:2: rule__EnumerationDataProperty__Group_3__0__Impl rule__EnumerationDataProperty__Group_3__1
+            // InternalSemanticNodesDsl.g:3452:1: ( rule__EnumerationDataProperty__Group_3__0__Impl rule__EnumerationDataProperty__Group_3__1 )
+            // InternalSemanticNodesDsl.g:3453:2: rule__EnumerationDataProperty__Group_3__0__Impl rule__EnumerationDataProperty__Group_3__1
             {
-            pushFollow(FOLLOW_19);
+            pushFollow(FOLLOW_21);
             rule__EnumerationDataProperty__Group_3__0__Impl();
 
             state._fsp--;
@@ -10353,20 +10708,20 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__EnumerationDataProperty__Group_3__0__Impl"
-    // InternalSemanticNodesDsl.g:3350:1: rule__EnumerationDataProperty__Group_3__0__Impl : ( '[' ) ;
+    // InternalSemanticNodesDsl.g:3460:1: rule__EnumerationDataProperty__Group_3__0__Impl : ( '[' ) ;
     public final void rule__EnumerationDataProperty__Group_3__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:3354:1: ( ( '[' ) )
-            // InternalSemanticNodesDsl.g:3355:1: ( '[' )
+            // InternalSemanticNodesDsl.g:3464:1: ( ( '[' ) )
+            // InternalSemanticNodesDsl.g:3465:1: ( '[' )
             {
-            // InternalSemanticNodesDsl.g:3355:1: ( '[' )
-            // InternalSemanticNodesDsl.g:3356:2: '['
+            // InternalSemanticNodesDsl.g:3465:1: ( '[' )
+            // InternalSemanticNodesDsl.g:3466:2: '['
             {
              before(grammarAccess.getEnumerationDataPropertyAccess().getLeftSquareBracketKeyword_3_0()); 
-            match(input,24,FOLLOW_2); 
+            match(input,25,FOLLOW_2); 
              after(grammarAccess.getEnumerationDataPropertyAccess().getLeftSquareBracketKeyword_3_0()); 
 
             }
@@ -10390,16 +10745,16 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__EnumerationDataProperty__Group_3__1"
-    // InternalSemanticNodesDsl.g:3365:1: rule__EnumerationDataProperty__Group_3__1 : rule__EnumerationDataProperty__Group_3__1__Impl rule__EnumerationDataProperty__Group_3__2 ;
+    // InternalSemanticNodesDsl.g:3475:1: rule__EnumerationDataProperty__Group_3__1 : rule__EnumerationDataProperty__Group_3__1__Impl rule__EnumerationDataProperty__Group_3__2 ;
     public final void rule__EnumerationDataProperty__Group_3__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:3369:1: ( rule__EnumerationDataProperty__Group_3__1__Impl rule__EnumerationDataProperty__Group_3__2 )
-            // InternalSemanticNodesDsl.g:3370:2: rule__EnumerationDataProperty__Group_3__1__Impl rule__EnumerationDataProperty__Group_3__2
+            // InternalSemanticNodesDsl.g:3479:1: ( rule__EnumerationDataProperty__Group_3__1__Impl rule__EnumerationDataProperty__Group_3__2 )
+            // InternalSemanticNodesDsl.g:3480:2: rule__EnumerationDataProperty__Group_3__1__Impl rule__EnumerationDataProperty__Group_3__2
             {
-            pushFollow(FOLLOW_26);
+            pushFollow(FOLLOW_28);
             rule__EnumerationDataProperty__Group_3__1__Impl();
 
             state._fsp--;
@@ -10428,21 +10783,21 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__EnumerationDataProperty__Group_3__1__Impl"
-    // InternalSemanticNodesDsl.g:3377:1: rule__EnumerationDataProperty__Group_3__1__Impl : ( ( rule__EnumerationDataProperty__LowerBoundAssignment_3_1 ) ) ;
+    // InternalSemanticNodesDsl.g:3487:1: rule__EnumerationDataProperty__Group_3__1__Impl : ( ( rule__EnumerationDataProperty__LowerBoundAssignment_3_1 ) ) ;
     public final void rule__EnumerationDataProperty__Group_3__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:3381:1: ( ( ( rule__EnumerationDataProperty__LowerBoundAssignment_3_1 ) ) )
-            // InternalSemanticNodesDsl.g:3382:1: ( ( rule__EnumerationDataProperty__LowerBoundAssignment_3_1 ) )
+            // InternalSemanticNodesDsl.g:3491:1: ( ( ( rule__EnumerationDataProperty__LowerBoundAssignment_3_1 ) ) )
+            // InternalSemanticNodesDsl.g:3492:1: ( ( rule__EnumerationDataProperty__LowerBoundAssignment_3_1 ) )
             {
-            // InternalSemanticNodesDsl.g:3382:1: ( ( rule__EnumerationDataProperty__LowerBoundAssignment_3_1 ) )
-            // InternalSemanticNodesDsl.g:3383:2: ( rule__EnumerationDataProperty__LowerBoundAssignment_3_1 )
+            // InternalSemanticNodesDsl.g:3492:1: ( ( rule__EnumerationDataProperty__LowerBoundAssignment_3_1 ) )
+            // InternalSemanticNodesDsl.g:3493:2: ( rule__EnumerationDataProperty__LowerBoundAssignment_3_1 )
             {
              before(grammarAccess.getEnumerationDataPropertyAccess().getLowerBoundAssignment_3_1()); 
-            // InternalSemanticNodesDsl.g:3384:2: ( rule__EnumerationDataProperty__LowerBoundAssignment_3_1 )
-            // InternalSemanticNodesDsl.g:3384:3: rule__EnumerationDataProperty__LowerBoundAssignment_3_1
+            // InternalSemanticNodesDsl.g:3494:2: ( rule__EnumerationDataProperty__LowerBoundAssignment_3_1 )
+            // InternalSemanticNodesDsl.g:3494:3: rule__EnumerationDataProperty__LowerBoundAssignment_3_1
             {
             pushFollow(FOLLOW_2);
             rule__EnumerationDataProperty__LowerBoundAssignment_3_1();
@@ -10475,16 +10830,16 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__EnumerationDataProperty__Group_3__2"
-    // InternalSemanticNodesDsl.g:3392:1: rule__EnumerationDataProperty__Group_3__2 : rule__EnumerationDataProperty__Group_3__2__Impl rule__EnumerationDataProperty__Group_3__3 ;
+    // InternalSemanticNodesDsl.g:3502:1: rule__EnumerationDataProperty__Group_3__2 : rule__EnumerationDataProperty__Group_3__2__Impl rule__EnumerationDataProperty__Group_3__3 ;
     public final void rule__EnumerationDataProperty__Group_3__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:3396:1: ( rule__EnumerationDataProperty__Group_3__2__Impl rule__EnumerationDataProperty__Group_3__3 )
-            // InternalSemanticNodesDsl.g:3397:2: rule__EnumerationDataProperty__Group_3__2__Impl rule__EnumerationDataProperty__Group_3__3
+            // InternalSemanticNodesDsl.g:3506:1: ( rule__EnumerationDataProperty__Group_3__2__Impl rule__EnumerationDataProperty__Group_3__3 )
+            // InternalSemanticNodesDsl.g:3507:2: rule__EnumerationDataProperty__Group_3__2__Impl rule__EnumerationDataProperty__Group_3__3
             {
-            pushFollow(FOLLOW_19);
+            pushFollow(FOLLOW_21);
             rule__EnumerationDataProperty__Group_3__2__Impl();
 
             state._fsp--;
@@ -10513,20 +10868,20 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__EnumerationDataProperty__Group_3__2__Impl"
-    // InternalSemanticNodesDsl.g:3404:1: rule__EnumerationDataProperty__Group_3__2__Impl : ( ',' ) ;
+    // InternalSemanticNodesDsl.g:3514:1: rule__EnumerationDataProperty__Group_3__2__Impl : ( ',' ) ;
     public final void rule__EnumerationDataProperty__Group_3__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:3408:1: ( ( ',' ) )
-            // InternalSemanticNodesDsl.g:3409:1: ( ',' )
+            // InternalSemanticNodesDsl.g:3518:1: ( ( ',' ) )
+            // InternalSemanticNodesDsl.g:3519:1: ( ',' )
             {
-            // InternalSemanticNodesDsl.g:3409:1: ( ',' )
-            // InternalSemanticNodesDsl.g:3410:2: ','
+            // InternalSemanticNodesDsl.g:3519:1: ( ',' )
+            // InternalSemanticNodesDsl.g:3520:2: ','
             {
              before(grammarAccess.getEnumerationDataPropertyAccess().getCommaKeyword_3_2()); 
-            match(input,20,FOLLOW_2); 
+            match(input,21,FOLLOW_2); 
              after(grammarAccess.getEnumerationDataPropertyAccess().getCommaKeyword_3_2()); 
 
             }
@@ -10550,16 +10905,16 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__EnumerationDataProperty__Group_3__3"
-    // InternalSemanticNodesDsl.g:3419:1: rule__EnumerationDataProperty__Group_3__3 : rule__EnumerationDataProperty__Group_3__3__Impl rule__EnumerationDataProperty__Group_3__4 ;
+    // InternalSemanticNodesDsl.g:3529:1: rule__EnumerationDataProperty__Group_3__3 : rule__EnumerationDataProperty__Group_3__3__Impl rule__EnumerationDataProperty__Group_3__4 ;
     public final void rule__EnumerationDataProperty__Group_3__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:3423:1: ( rule__EnumerationDataProperty__Group_3__3__Impl rule__EnumerationDataProperty__Group_3__4 )
-            // InternalSemanticNodesDsl.g:3424:2: rule__EnumerationDataProperty__Group_3__3__Impl rule__EnumerationDataProperty__Group_3__4
+            // InternalSemanticNodesDsl.g:3533:1: ( rule__EnumerationDataProperty__Group_3__3__Impl rule__EnumerationDataProperty__Group_3__4 )
+            // InternalSemanticNodesDsl.g:3534:2: rule__EnumerationDataProperty__Group_3__3__Impl rule__EnumerationDataProperty__Group_3__4
             {
-            pushFollow(FOLLOW_27);
+            pushFollow(FOLLOW_29);
             rule__EnumerationDataProperty__Group_3__3__Impl();
 
             state._fsp--;
@@ -10588,21 +10943,21 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__EnumerationDataProperty__Group_3__3__Impl"
-    // InternalSemanticNodesDsl.g:3431:1: rule__EnumerationDataProperty__Group_3__3__Impl : ( ( rule__EnumerationDataProperty__UpperBoundAssignment_3_3 ) ) ;
+    // InternalSemanticNodesDsl.g:3541:1: rule__EnumerationDataProperty__Group_3__3__Impl : ( ( rule__EnumerationDataProperty__UpperBoundAssignment_3_3 ) ) ;
     public final void rule__EnumerationDataProperty__Group_3__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:3435:1: ( ( ( rule__EnumerationDataProperty__UpperBoundAssignment_3_3 ) ) )
-            // InternalSemanticNodesDsl.g:3436:1: ( ( rule__EnumerationDataProperty__UpperBoundAssignment_3_3 ) )
+            // InternalSemanticNodesDsl.g:3545:1: ( ( ( rule__EnumerationDataProperty__UpperBoundAssignment_3_3 ) ) )
+            // InternalSemanticNodesDsl.g:3546:1: ( ( rule__EnumerationDataProperty__UpperBoundAssignment_3_3 ) )
             {
-            // InternalSemanticNodesDsl.g:3436:1: ( ( rule__EnumerationDataProperty__UpperBoundAssignment_3_3 ) )
-            // InternalSemanticNodesDsl.g:3437:2: ( rule__EnumerationDataProperty__UpperBoundAssignment_3_3 )
+            // InternalSemanticNodesDsl.g:3546:1: ( ( rule__EnumerationDataProperty__UpperBoundAssignment_3_3 ) )
+            // InternalSemanticNodesDsl.g:3547:2: ( rule__EnumerationDataProperty__UpperBoundAssignment_3_3 )
             {
              before(grammarAccess.getEnumerationDataPropertyAccess().getUpperBoundAssignment_3_3()); 
-            // InternalSemanticNodesDsl.g:3438:2: ( rule__EnumerationDataProperty__UpperBoundAssignment_3_3 )
-            // InternalSemanticNodesDsl.g:3438:3: rule__EnumerationDataProperty__UpperBoundAssignment_3_3
+            // InternalSemanticNodesDsl.g:3548:2: ( rule__EnumerationDataProperty__UpperBoundAssignment_3_3 )
+            // InternalSemanticNodesDsl.g:3548:3: rule__EnumerationDataProperty__UpperBoundAssignment_3_3
             {
             pushFollow(FOLLOW_2);
             rule__EnumerationDataProperty__UpperBoundAssignment_3_3();
@@ -10635,14 +10990,14 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__EnumerationDataProperty__Group_3__4"
-    // InternalSemanticNodesDsl.g:3446:1: rule__EnumerationDataProperty__Group_3__4 : rule__EnumerationDataProperty__Group_3__4__Impl ;
+    // InternalSemanticNodesDsl.g:3556:1: rule__EnumerationDataProperty__Group_3__4 : rule__EnumerationDataProperty__Group_3__4__Impl ;
     public final void rule__EnumerationDataProperty__Group_3__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:3450:1: ( rule__EnumerationDataProperty__Group_3__4__Impl )
-            // InternalSemanticNodesDsl.g:3451:2: rule__EnumerationDataProperty__Group_3__4__Impl
+            // InternalSemanticNodesDsl.g:3560:1: ( rule__EnumerationDataProperty__Group_3__4__Impl )
+            // InternalSemanticNodesDsl.g:3561:2: rule__EnumerationDataProperty__Group_3__4__Impl
             {
             pushFollow(FOLLOW_2);
             rule__EnumerationDataProperty__Group_3__4__Impl();
@@ -10668,20 +11023,20 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__EnumerationDataProperty__Group_3__4__Impl"
-    // InternalSemanticNodesDsl.g:3457:1: rule__EnumerationDataProperty__Group_3__4__Impl : ( ']' ) ;
+    // InternalSemanticNodesDsl.g:3567:1: rule__EnumerationDataProperty__Group_3__4__Impl : ( ']' ) ;
     public final void rule__EnumerationDataProperty__Group_3__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:3461:1: ( ( ']' ) )
-            // InternalSemanticNodesDsl.g:3462:1: ( ']' )
+            // InternalSemanticNodesDsl.g:3571:1: ( ( ']' ) )
+            // InternalSemanticNodesDsl.g:3572:1: ( ']' )
             {
-            // InternalSemanticNodesDsl.g:3462:1: ( ']' )
-            // InternalSemanticNodesDsl.g:3463:2: ']'
+            // InternalSemanticNodesDsl.g:3572:1: ( ']' )
+            // InternalSemanticNodesDsl.g:3573:2: ']'
             {
              before(grammarAccess.getEnumerationDataPropertyAccess().getRightSquareBracketKeyword_3_4()); 
-            match(input,25,FOLLOW_2); 
+            match(input,26,FOLLOW_2); 
              after(grammarAccess.getEnumerationDataPropertyAccess().getRightSquareBracketKeyword_3_4()); 
 
             }
@@ -10705,16 +11060,16 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__EnumerationDataProperty__Group_4__0"
-    // InternalSemanticNodesDsl.g:3473:1: rule__EnumerationDataProperty__Group_4__0 : rule__EnumerationDataProperty__Group_4__0__Impl rule__EnumerationDataProperty__Group_4__1 ;
+    // InternalSemanticNodesDsl.g:3583:1: rule__EnumerationDataProperty__Group_4__0 : rule__EnumerationDataProperty__Group_4__0__Impl rule__EnumerationDataProperty__Group_4__1 ;
     public final void rule__EnumerationDataProperty__Group_4__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:3477:1: ( rule__EnumerationDataProperty__Group_4__0__Impl rule__EnumerationDataProperty__Group_4__1 )
-            // InternalSemanticNodesDsl.g:3478:2: rule__EnumerationDataProperty__Group_4__0__Impl rule__EnumerationDataProperty__Group_4__1
+            // InternalSemanticNodesDsl.g:3587:1: ( rule__EnumerationDataProperty__Group_4__0__Impl rule__EnumerationDataProperty__Group_4__1 )
+            // InternalSemanticNodesDsl.g:3588:2: rule__EnumerationDataProperty__Group_4__0__Impl rule__EnumerationDataProperty__Group_4__1
             {
-            pushFollow(FOLLOW_5);
+            pushFollow(FOLLOW_4);
             rule__EnumerationDataProperty__Group_4__0__Impl();
 
             state._fsp--;
@@ -10743,20 +11098,20 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__EnumerationDataProperty__Group_4__0__Impl"
-    // InternalSemanticNodesDsl.g:3485:1: rule__EnumerationDataProperty__Group_4__0__Impl : ( '{' ) ;
+    // InternalSemanticNodesDsl.g:3595:1: rule__EnumerationDataProperty__Group_4__0__Impl : ( '{' ) ;
     public final void rule__EnumerationDataProperty__Group_4__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:3489:1: ( ( '{' ) )
-            // InternalSemanticNodesDsl.g:3490:1: ( '{' )
+            // InternalSemanticNodesDsl.g:3599:1: ( ( '{' ) )
+            // InternalSemanticNodesDsl.g:3600:1: ( '{' )
             {
-            // InternalSemanticNodesDsl.g:3490:1: ( '{' )
-            // InternalSemanticNodesDsl.g:3491:2: '{'
+            // InternalSemanticNodesDsl.g:3600:1: ( '{' )
+            // InternalSemanticNodesDsl.g:3601:2: '{'
             {
              before(grammarAccess.getEnumerationDataPropertyAccess().getLeftCurlyBracketKeyword_4_0()); 
-            match(input,17,FOLLOW_2); 
+            match(input,18,FOLLOW_2); 
              after(grammarAccess.getEnumerationDataPropertyAccess().getLeftCurlyBracketKeyword_4_0()); 
 
             }
@@ -10780,16 +11135,16 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__EnumerationDataProperty__Group_4__1"
-    // InternalSemanticNodesDsl.g:3500:1: rule__EnumerationDataProperty__Group_4__1 : rule__EnumerationDataProperty__Group_4__1__Impl rule__EnumerationDataProperty__Group_4__2 ;
+    // InternalSemanticNodesDsl.g:3610:1: rule__EnumerationDataProperty__Group_4__1 : rule__EnumerationDataProperty__Group_4__1__Impl rule__EnumerationDataProperty__Group_4__2 ;
     public final void rule__EnumerationDataProperty__Group_4__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:3504:1: ( rule__EnumerationDataProperty__Group_4__1__Impl rule__EnumerationDataProperty__Group_4__2 )
-            // InternalSemanticNodesDsl.g:3505:2: rule__EnumerationDataProperty__Group_4__1__Impl rule__EnumerationDataProperty__Group_4__2
+            // InternalSemanticNodesDsl.g:3614:1: ( rule__EnumerationDataProperty__Group_4__1__Impl rule__EnumerationDataProperty__Group_4__2 )
+            // InternalSemanticNodesDsl.g:3615:2: rule__EnumerationDataProperty__Group_4__1__Impl rule__EnumerationDataProperty__Group_4__2
             {
-            pushFollow(FOLLOW_16);
+            pushFollow(FOLLOW_18);
             rule__EnumerationDataProperty__Group_4__1__Impl();
 
             state._fsp--;
@@ -10818,31 +11173,31 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__EnumerationDataProperty__Group_4__1__Impl"
-    // InternalSemanticNodesDsl.g:3512:1: rule__EnumerationDataProperty__Group_4__1__Impl : ( ( rule__EnumerationDataProperty__MetadataAssignment_4_1 ) ) ;
+    // InternalSemanticNodesDsl.g:3622:1: rule__EnumerationDataProperty__Group_4__1__Impl : ( ( rule__EnumerationDataProperty__MetaDataValueAssignment_4_1 ) ) ;
     public final void rule__EnumerationDataProperty__Group_4__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:3516:1: ( ( ( rule__EnumerationDataProperty__MetadataAssignment_4_1 ) ) )
-            // InternalSemanticNodesDsl.g:3517:1: ( ( rule__EnumerationDataProperty__MetadataAssignment_4_1 ) )
+            // InternalSemanticNodesDsl.g:3626:1: ( ( ( rule__EnumerationDataProperty__MetaDataValueAssignment_4_1 ) ) )
+            // InternalSemanticNodesDsl.g:3627:1: ( ( rule__EnumerationDataProperty__MetaDataValueAssignment_4_1 ) )
             {
-            // InternalSemanticNodesDsl.g:3517:1: ( ( rule__EnumerationDataProperty__MetadataAssignment_4_1 ) )
-            // InternalSemanticNodesDsl.g:3518:2: ( rule__EnumerationDataProperty__MetadataAssignment_4_1 )
+            // InternalSemanticNodesDsl.g:3627:1: ( ( rule__EnumerationDataProperty__MetaDataValueAssignment_4_1 ) )
+            // InternalSemanticNodesDsl.g:3628:2: ( rule__EnumerationDataProperty__MetaDataValueAssignment_4_1 )
             {
-             before(grammarAccess.getEnumerationDataPropertyAccess().getMetadataAssignment_4_1()); 
-            // InternalSemanticNodesDsl.g:3519:2: ( rule__EnumerationDataProperty__MetadataAssignment_4_1 )
-            // InternalSemanticNodesDsl.g:3519:3: rule__EnumerationDataProperty__MetadataAssignment_4_1
+             before(grammarAccess.getEnumerationDataPropertyAccess().getMetaDataValueAssignment_4_1()); 
+            // InternalSemanticNodesDsl.g:3629:2: ( rule__EnumerationDataProperty__MetaDataValueAssignment_4_1 )
+            // InternalSemanticNodesDsl.g:3629:3: rule__EnumerationDataProperty__MetaDataValueAssignment_4_1
             {
             pushFollow(FOLLOW_2);
-            rule__EnumerationDataProperty__MetadataAssignment_4_1();
+            rule__EnumerationDataProperty__MetaDataValueAssignment_4_1();
 
             state._fsp--;
 
 
             }
 
-             after(grammarAccess.getEnumerationDataPropertyAccess().getMetadataAssignment_4_1()); 
+             after(grammarAccess.getEnumerationDataPropertyAccess().getMetaDataValueAssignment_4_1()); 
 
             }
 
@@ -10865,16 +11220,16 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__EnumerationDataProperty__Group_4__2"
-    // InternalSemanticNodesDsl.g:3527:1: rule__EnumerationDataProperty__Group_4__2 : rule__EnumerationDataProperty__Group_4__2__Impl rule__EnumerationDataProperty__Group_4__3 ;
+    // InternalSemanticNodesDsl.g:3637:1: rule__EnumerationDataProperty__Group_4__2 : rule__EnumerationDataProperty__Group_4__2__Impl rule__EnumerationDataProperty__Group_4__3 ;
     public final void rule__EnumerationDataProperty__Group_4__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:3531:1: ( rule__EnumerationDataProperty__Group_4__2__Impl rule__EnumerationDataProperty__Group_4__3 )
-            // InternalSemanticNodesDsl.g:3532:2: rule__EnumerationDataProperty__Group_4__2__Impl rule__EnumerationDataProperty__Group_4__3
+            // InternalSemanticNodesDsl.g:3641:1: ( rule__EnumerationDataProperty__Group_4__2__Impl rule__EnumerationDataProperty__Group_4__3 )
+            // InternalSemanticNodesDsl.g:3642:2: rule__EnumerationDataProperty__Group_4__2__Impl rule__EnumerationDataProperty__Group_4__3
             {
-            pushFollow(FOLLOW_16);
+            pushFollow(FOLLOW_18);
             rule__EnumerationDataProperty__Group_4__2__Impl();
 
             state._fsp--;
@@ -10903,35 +11258,35 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__EnumerationDataProperty__Group_4__2__Impl"
-    // InternalSemanticNodesDsl.g:3539:1: rule__EnumerationDataProperty__Group_4__2__Impl : ( ( rule__EnumerationDataProperty__Group_4_2__0 )* ) ;
+    // InternalSemanticNodesDsl.g:3649:1: rule__EnumerationDataProperty__Group_4__2__Impl : ( ( rule__EnumerationDataProperty__Group_4_2__0 )* ) ;
     public final void rule__EnumerationDataProperty__Group_4__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:3543:1: ( ( ( rule__EnumerationDataProperty__Group_4_2__0 )* ) )
-            // InternalSemanticNodesDsl.g:3544:1: ( ( rule__EnumerationDataProperty__Group_4_2__0 )* )
+            // InternalSemanticNodesDsl.g:3653:1: ( ( ( rule__EnumerationDataProperty__Group_4_2__0 )* ) )
+            // InternalSemanticNodesDsl.g:3654:1: ( ( rule__EnumerationDataProperty__Group_4_2__0 )* )
             {
-            // InternalSemanticNodesDsl.g:3544:1: ( ( rule__EnumerationDataProperty__Group_4_2__0 )* )
-            // InternalSemanticNodesDsl.g:3545:2: ( rule__EnumerationDataProperty__Group_4_2__0 )*
+            // InternalSemanticNodesDsl.g:3654:1: ( ( rule__EnumerationDataProperty__Group_4_2__0 )* )
+            // InternalSemanticNodesDsl.g:3655:2: ( rule__EnumerationDataProperty__Group_4_2__0 )*
             {
              before(grammarAccess.getEnumerationDataPropertyAccess().getGroup_4_2()); 
-            // InternalSemanticNodesDsl.g:3546:2: ( rule__EnumerationDataProperty__Group_4_2__0 )*
-            loop31:
+            // InternalSemanticNodesDsl.g:3656:2: ( rule__EnumerationDataProperty__Group_4_2__0 )*
+            loop32:
             do {
-                int alt31=2;
-                int LA31_0 = input.LA(1);
+                int alt32=2;
+                int LA32_0 = input.LA(1);
 
-                if ( (LA31_0==20) ) {
-                    alt31=1;
+                if ( (LA32_0==21) ) {
+                    alt32=1;
                 }
 
 
-                switch (alt31) {
+                switch (alt32) {
             	case 1 :
-            	    // InternalSemanticNodesDsl.g:3546:3: rule__EnumerationDataProperty__Group_4_2__0
+            	    // InternalSemanticNodesDsl.g:3656:3: rule__EnumerationDataProperty__Group_4_2__0
             	    {
-            	    pushFollow(FOLLOW_17);
+            	    pushFollow(FOLLOW_19);
             	    rule__EnumerationDataProperty__Group_4_2__0();
 
             	    state._fsp--;
@@ -10941,7 +11296,7 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
             	    break;
 
             	default :
-            	    break loop31;
+            	    break loop32;
                 }
             } while (true);
 
@@ -10968,14 +11323,14 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__EnumerationDataProperty__Group_4__3"
-    // InternalSemanticNodesDsl.g:3554:1: rule__EnumerationDataProperty__Group_4__3 : rule__EnumerationDataProperty__Group_4__3__Impl ;
+    // InternalSemanticNodesDsl.g:3664:1: rule__EnumerationDataProperty__Group_4__3 : rule__EnumerationDataProperty__Group_4__3__Impl ;
     public final void rule__EnumerationDataProperty__Group_4__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:3558:1: ( rule__EnumerationDataProperty__Group_4__3__Impl )
-            // InternalSemanticNodesDsl.g:3559:2: rule__EnumerationDataProperty__Group_4__3__Impl
+            // InternalSemanticNodesDsl.g:3668:1: ( rule__EnumerationDataProperty__Group_4__3__Impl )
+            // InternalSemanticNodesDsl.g:3669:2: rule__EnumerationDataProperty__Group_4__3__Impl
             {
             pushFollow(FOLLOW_2);
             rule__EnumerationDataProperty__Group_4__3__Impl();
@@ -11001,20 +11356,20 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__EnumerationDataProperty__Group_4__3__Impl"
-    // InternalSemanticNodesDsl.g:3565:1: rule__EnumerationDataProperty__Group_4__3__Impl : ( '}' ) ;
+    // InternalSemanticNodesDsl.g:3675:1: rule__EnumerationDataProperty__Group_4__3__Impl : ( '}' ) ;
     public final void rule__EnumerationDataProperty__Group_4__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:3569:1: ( ( '}' ) )
-            // InternalSemanticNodesDsl.g:3570:1: ( '}' )
+            // InternalSemanticNodesDsl.g:3679:1: ( ( '}' ) )
+            // InternalSemanticNodesDsl.g:3680:1: ( '}' )
             {
-            // InternalSemanticNodesDsl.g:3570:1: ( '}' )
-            // InternalSemanticNodesDsl.g:3571:2: '}'
+            // InternalSemanticNodesDsl.g:3680:1: ( '}' )
+            // InternalSemanticNodesDsl.g:3681:2: '}'
             {
              before(grammarAccess.getEnumerationDataPropertyAccess().getRightCurlyBracketKeyword_4_3()); 
-            match(input,18,FOLLOW_2); 
+            match(input,19,FOLLOW_2); 
              after(grammarAccess.getEnumerationDataPropertyAccess().getRightCurlyBracketKeyword_4_3()); 
 
             }
@@ -11038,16 +11393,16 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__EnumerationDataProperty__Group_4_2__0"
-    // InternalSemanticNodesDsl.g:3581:1: rule__EnumerationDataProperty__Group_4_2__0 : rule__EnumerationDataProperty__Group_4_2__0__Impl rule__EnumerationDataProperty__Group_4_2__1 ;
+    // InternalSemanticNodesDsl.g:3691:1: rule__EnumerationDataProperty__Group_4_2__0 : rule__EnumerationDataProperty__Group_4_2__0__Impl rule__EnumerationDataProperty__Group_4_2__1 ;
     public final void rule__EnumerationDataProperty__Group_4_2__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:3585:1: ( rule__EnumerationDataProperty__Group_4_2__0__Impl rule__EnumerationDataProperty__Group_4_2__1 )
-            // InternalSemanticNodesDsl.g:3586:2: rule__EnumerationDataProperty__Group_4_2__0__Impl rule__EnumerationDataProperty__Group_4_2__1
+            // InternalSemanticNodesDsl.g:3695:1: ( rule__EnumerationDataProperty__Group_4_2__0__Impl rule__EnumerationDataProperty__Group_4_2__1 )
+            // InternalSemanticNodesDsl.g:3696:2: rule__EnumerationDataProperty__Group_4_2__0__Impl rule__EnumerationDataProperty__Group_4_2__1
             {
-            pushFollow(FOLLOW_5);
+            pushFollow(FOLLOW_4);
             rule__EnumerationDataProperty__Group_4_2__0__Impl();
 
             state._fsp--;
@@ -11076,20 +11431,20 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__EnumerationDataProperty__Group_4_2__0__Impl"
-    // InternalSemanticNodesDsl.g:3593:1: rule__EnumerationDataProperty__Group_4_2__0__Impl : ( ',' ) ;
+    // InternalSemanticNodesDsl.g:3703:1: rule__EnumerationDataProperty__Group_4_2__0__Impl : ( ',' ) ;
     public final void rule__EnumerationDataProperty__Group_4_2__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:3597:1: ( ( ',' ) )
-            // InternalSemanticNodesDsl.g:3598:1: ( ',' )
+            // InternalSemanticNodesDsl.g:3707:1: ( ( ',' ) )
+            // InternalSemanticNodesDsl.g:3708:1: ( ',' )
             {
-            // InternalSemanticNodesDsl.g:3598:1: ( ',' )
-            // InternalSemanticNodesDsl.g:3599:2: ','
+            // InternalSemanticNodesDsl.g:3708:1: ( ',' )
+            // InternalSemanticNodesDsl.g:3709:2: ','
             {
              before(grammarAccess.getEnumerationDataPropertyAccess().getCommaKeyword_4_2_0()); 
-            match(input,20,FOLLOW_2); 
+            match(input,21,FOLLOW_2); 
              after(grammarAccess.getEnumerationDataPropertyAccess().getCommaKeyword_4_2_0()); 
 
             }
@@ -11113,14 +11468,14 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__EnumerationDataProperty__Group_4_2__1"
-    // InternalSemanticNodesDsl.g:3608:1: rule__EnumerationDataProperty__Group_4_2__1 : rule__EnumerationDataProperty__Group_4_2__1__Impl ;
+    // InternalSemanticNodesDsl.g:3718:1: rule__EnumerationDataProperty__Group_4_2__1 : rule__EnumerationDataProperty__Group_4_2__1__Impl ;
     public final void rule__EnumerationDataProperty__Group_4_2__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:3612:1: ( rule__EnumerationDataProperty__Group_4_2__1__Impl )
-            // InternalSemanticNodesDsl.g:3613:2: rule__EnumerationDataProperty__Group_4_2__1__Impl
+            // InternalSemanticNodesDsl.g:3722:1: ( rule__EnumerationDataProperty__Group_4_2__1__Impl )
+            // InternalSemanticNodesDsl.g:3723:2: rule__EnumerationDataProperty__Group_4_2__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__EnumerationDataProperty__Group_4_2__1__Impl();
@@ -11146,31 +11501,31 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__EnumerationDataProperty__Group_4_2__1__Impl"
-    // InternalSemanticNodesDsl.g:3619:1: rule__EnumerationDataProperty__Group_4_2__1__Impl : ( ( rule__EnumerationDataProperty__MetadataAssignment_4_2_1 ) ) ;
+    // InternalSemanticNodesDsl.g:3729:1: rule__EnumerationDataProperty__Group_4_2__1__Impl : ( ( rule__EnumerationDataProperty__MetaDataValueAssignment_4_2_1 ) ) ;
     public final void rule__EnumerationDataProperty__Group_4_2__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:3623:1: ( ( ( rule__EnumerationDataProperty__MetadataAssignment_4_2_1 ) ) )
-            // InternalSemanticNodesDsl.g:3624:1: ( ( rule__EnumerationDataProperty__MetadataAssignment_4_2_1 ) )
+            // InternalSemanticNodesDsl.g:3733:1: ( ( ( rule__EnumerationDataProperty__MetaDataValueAssignment_4_2_1 ) ) )
+            // InternalSemanticNodesDsl.g:3734:1: ( ( rule__EnumerationDataProperty__MetaDataValueAssignment_4_2_1 ) )
             {
-            // InternalSemanticNodesDsl.g:3624:1: ( ( rule__EnumerationDataProperty__MetadataAssignment_4_2_1 ) )
-            // InternalSemanticNodesDsl.g:3625:2: ( rule__EnumerationDataProperty__MetadataAssignment_4_2_1 )
+            // InternalSemanticNodesDsl.g:3734:1: ( ( rule__EnumerationDataProperty__MetaDataValueAssignment_4_2_1 ) )
+            // InternalSemanticNodesDsl.g:3735:2: ( rule__EnumerationDataProperty__MetaDataValueAssignment_4_2_1 )
             {
-             before(grammarAccess.getEnumerationDataPropertyAccess().getMetadataAssignment_4_2_1()); 
-            // InternalSemanticNodesDsl.g:3626:2: ( rule__EnumerationDataProperty__MetadataAssignment_4_2_1 )
-            // InternalSemanticNodesDsl.g:3626:3: rule__EnumerationDataProperty__MetadataAssignment_4_2_1
+             before(grammarAccess.getEnumerationDataPropertyAccess().getMetaDataValueAssignment_4_2_1()); 
+            // InternalSemanticNodesDsl.g:3736:2: ( rule__EnumerationDataProperty__MetaDataValueAssignment_4_2_1 )
+            // InternalSemanticNodesDsl.g:3736:3: rule__EnumerationDataProperty__MetaDataValueAssignment_4_2_1
             {
             pushFollow(FOLLOW_2);
-            rule__EnumerationDataProperty__MetadataAssignment_4_2_1();
+            rule__EnumerationDataProperty__MetaDataValueAssignment_4_2_1();
 
             state._fsp--;
 
 
             }
 
-             after(grammarAccess.getEnumerationDataPropertyAccess().getMetadataAssignment_4_2_1()); 
+             after(grammarAccess.getEnumerationDataPropertyAccess().getMetaDataValueAssignment_4_2_1()); 
 
             }
 
@@ -11192,23 +11547,23 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
     // $ANTLR end "rule__EnumerationDataProperty__Group_4_2__1__Impl"
 
 
-    // $ANTLR start "rule__MetaData__Group__0"
-    // InternalSemanticNodesDsl.g:3635:1: rule__MetaData__Group__0 : rule__MetaData__Group__0__Impl rule__MetaData__Group__1 ;
-    public final void rule__MetaData__Group__0() throws RecognitionException {
+    // $ANTLR start "rule__MetaDataValue__Group__0"
+    // InternalSemanticNodesDsl.g:3745:1: rule__MetaDataValue__Group__0 : rule__MetaDataValue__Group__0__Impl rule__MetaDataValue__Group__1 ;
+    public final void rule__MetaDataValue__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:3639:1: ( rule__MetaData__Group__0__Impl rule__MetaData__Group__1 )
-            // InternalSemanticNodesDsl.g:3640:2: rule__MetaData__Group__0__Impl rule__MetaData__Group__1
+            // InternalSemanticNodesDsl.g:3749:1: ( rule__MetaDataValue__Group__0__Impl rule__MetaDataValue__Group__1 )
+            // InternalSemanticNodesDsl.g:3750:2: rule__MetaDataValue__Group__0__Impl rule__MetaDataValue__Group__1
             {
-            pushFollow(FOLLOW_5);
-            rule__MetaData__Group__0__Impl();
+            pushFollow(FOLLOW_4);
+            rule__MetaDataValue__Group__0__Impl();
 
             state._fsp--;
 
             pushFollow(FOLLOW_2);
-            rule__MetaData__Group__1();
+            rule__MetaDataValue__Group__1();
 
             state._fsp--;
 
@@ -11227,29 +11582,29 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
         }
         return ;
     }
-    // $ANTLR end "rule__MetaData__Group__0"
+    // $ANTLR end "rule__MetaDataValue__Group__0"
 
 
-    // $ANTLR start "rule__MetaData__Group__0__Impl"
-    // InternalSemanticNodesDsl.g:3647:1: rule__MetaData__Group__0__Impl : ( () ) ;
-    public final void rule__MetaData__Group__0__Impl() throws RecognitionException {
+    // $ANTLR start "rule__MetaDataValue__Group__0__Impl"
+    // InternalSemanticNodesDsl.g:3757:1: rule__MetaDataValue__Group__0__Impl : ( () ) ;
+    public final void rule__MetaDataValue__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:3651:1: ( ( () ) )
-            // InternalSemanticNodesDsl.g:3652:1: ( () )
+            // InternalSemanticNodesDsl.g:3761:1: ( ( () ) )
+            // InternalSemanticNodesDsl.g:3762:1: ( () )
             {
-            // InternalSemanticNodesDsl.g:3652:1: ( () )
-            // InternalSemanticNodesDsl.g:3653:2: ()
+            // InternalSemanticNodesDsl.g:3762:1: ( () )
+            // InternalSemanticNodesDsl.g:3763:2: ()
             {
-             before(grammarAccess.getMetaDataAccess().getMetaDataAction_0()); 
-            // InternalSemanticNodesDsl.g:3654:2: ()
-            // InternalSemanticNodesDsl.g:3654:3: 
+             before(grammarAccess.getMetaDataValueAccess().getMetaDataValueAction_0()); 
+            // InternalSemanticNodesDsl.g:3764:2: ()
+            // InternalSemanticNodesDsl.g:3764:3: 
             {
             }
 
-             after(grammarAccess.getMetaDataAccess().getMetaDataAction_0()); 
+             after(grammarAccess.getMetaDataValueAccess().getMetaDataValueAction_0()); 
 
             }
 
@@ -11264,26 +11619,26 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
         }
         return ;
     }
-    // $ANTLR end "rule__MetaData__Group__0__Impl"
+    // $ANTLR end "rule__MetaDataValue__Group__0__Impl"
 
 
-    // $ANTLR start "rule__MetaData__Group__1"
-    // InternalSemanticNodesDsl.g:3662:1: rule__MetaData__Group__1 : rule__MetaData__Group__1__Impl rule__MetaData__Group__2 ;
-    public final void rule__MetaData__Group__1() throws RecognitionException {
+    // $ANTLR start "rule__MetaDataValue__Group__1"
+    // InternalSemanticNodesDsl.g:3772:1: rule__MetaDataValue__Group__1 : rule__MetaDataValue__Group__1__Impl rule__MetaDataValue__Group__2 ;
+    public final void rule__MetaDataValue__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:3666:1: ( rule__MetaData__Group__1__Impl rule__MetaData__Group__2 )
-            // InternalSemanticNodesDsl.g:3667:2: rule__MetaData__Group__1__Impl rule__MetaData__Group__2
+            // InternalSemanticNodesDsl.g:3776:1: ( rule__MetaDataValue__Group__1__Impl rule__MetaDataValue__Group__2 )
+            // InternalSemanticNodesDsl.g:3777:2: rule__MetaDataValue__Group__1__Impl rule__MetaDataValue__Group__2
             {
-            pushFollow(FOLLOW_30);
-            rule__MetaData__Group__1__Impl();
+            pushFollow(FOLLOW_32);
+            rule__MetaDataValue__Group__1__Impl();
 
             state._fsp--;
 
             pushFollow(FOLLOW_2);
-            rule__MetaData__Group__2();
+            rule__MetaDataValue__Group__2();
 
             state._fsp--;
 
@@ -11302,35 +11657,35 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
         }
         return ;
     }
-    // $ANTLR end "rule__MetaData__Group__1"
+    // $ANTLR end "rule__MetaDataValue__Group__1"
 
 
-    // $ANTLR start "rule__MetaData__Group__1__Impl"
-    // InternalSemanticNodesDsl.g:3674:1: rule__MetaData__Group__1__Impl : ( ( rule__MetaData__KeyAssignment_1 ) ) ;
-    public final void rule__MetaData__Group__1__Impl() throws RecognitionException {
+    // $ANTLR start "rule__MetaDataValue__Group__1__Impl"
+    // InternalSemanticNodesDsl.g:3784:1: rule__MetaDataValue__Group__1__Impl : ( ( rule__MetaDataValue__KeyMetaDataAssignment_1 ) ) ;
+    public final void rule__MetaDataValue__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:3678:1: ( ( ( rule__MetaData__KeyAssignment_1 ) ) )
-            // InternalSemanticNodesDsl.g:3679:1: ( ( rule__MetaData__KeyAssignment_1 ) )
+            // InternalSemanticNodesDsl.g:3788:1: ( ( ( rule__MetaDataValue__KeyMetaDataAssignment_1 ) ) )
+            // InternalSemanticNodesDsl.g:3789:1: ( ( rule__MetaDataValue__KeyMetaDataAssignment_1 ) )
             {
-            // InternalSemanticNodesDsl.g:3679:1: ( ( rule__MetaData__KeyAssignment_1 ) )
-            // InternalSemanticNodesDsl.g:3680:2: ( rule__MetaData__KeyAssignment_1 )
+            // InternalSemanticNodesDsl.g:3789:1: ( ( rule__MetaDataValue__KeyMetaDataAssignment_1 ) )
+            // InternalSemanticNodesDsl.g:3790:2: ( rule__MetaDataValue__KeyMetaDataAssignment_1 )
             {
-             before(grammarAccess.getMetaDataAccess().getKeyAssignment_1()); 
-            // InternalSemanticNodesDsl.g:3681:2: ( rule__MetaData__KeyAssignment_1 )
-            // InternalSemanticNodesDsl.g:3681:3: rule__MetaData__KeyAssignment_1
+             before(grammarAccess.getMetaDataValueAccess().getKeyMetaDataAssignment_1()); 
+            // InternalSemanticNodesDsl.g:3791:2: ( rule__MetaDataValue__KeyMetaDataAssignment_1 )
+            // InternalSemanticNodesDsl.g:3791:3: rule__MetaDataValue__KeyMetaDataAssignment_1
             {
             pushFollow(FOLLOW_2);
-            rule__MetaData__KeyAssignment_1();
+            rule__MetaDataValue__KeyMetaDataAssignment_1();
 
             state._fsp--;
 
 
             }
 
-             after(grammarAccess.getMetaDataAccess().getKeyAssignment_1()); 
+             after(grammarAccess.getMetaDataValueAccess().getKeyMetaDataAssignment_1()); 
 
             }
 
@@ -11349,26 +11704,26 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
         }
         return ;
     }
-    // $ANTLR end "rule__MetaData__Group__1__Impl"
+    // $ANTLR end "rule__MetaDataValue__Group__1__Impl"
 
 
-    // $ANTLR start "rule__MetaData__Group__2"
-    // InternalSemanticNodesDsl.g:3689:1: rule__MetaData__Group__2 : rule__MetaData__Group__2__Impl rule__MetaData__Group__3 ;
-    public final void rule__MetaData__Group__2() throws RecognitionException {
+    // $ANTLR start "rule__MetaDataValue__Group__2"
+    // InternalSemanticNodesDsl.g:3799:1: rule__MetaDataValue__Group__2 : rule__MetaDataValue__Group__2__Impl rule__MetaDataValue__Group__3 ;
+    public final void rule__MetaDataValue__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:3693:1: ( rule__MetaData__Group__2__Impl rule__MetaData__Group__3 )
-            // InternalSemanticNodesDsl.g:3694:2: rule__MetaData__Group__2__Impl rule__MetaData__Group__3
+            // InternalSemanticNodesDsl.g:3803:1: ( rule__MetaDataValue__Group__2__Impl rule__MetaDataValue__Group__3 )
+            // InternalSemanticNodesDsl.g:3804:2: rule__MetaDataValue__Group__2__Impl rule__MetaDataValue__Group__3
             {
-            pushFollow(FOLLOW_5);
-            rule__MetaData__Group__2__Impl();
+            pushFollow(FOLLOW_4);
+            rule__MetaDataValue__Group__2__Impl();
 
             state._fsp--;
 
             pushFollow(FOLLOW_2);
-            rule__MetaData__Group__3();
+            rule__MetaDataValue__Group__3();
 
             state._fsp--;
 
@@ -11387,25 +11742,25 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
         }
         return ;
     }
-    // $ANTLR end "rule__MetaData__Group__2"
+    // $ANTLR end "rule__MetaDataValue__Group__2"
 
 
-    // $ANTLR start "rule__MetaData__Group__2__Impl"
-    // InternalSemanticNodesDsl.g:3701:1: rule__MetaData__Group__2__Impl : ( '=' ) ;
-    public final void rule__MetaData__Group__2__Impl() throws RecognitionException {
+    // $ANTLR start "rule__MetaDataValue__Group__2__Impl"
+    // InternalSemanticNodesDsl.g:3811:1: rule__MetaDataValue__Group__2__Impl : ( '=' ) ;
+    public final void rule__MetaDataValue__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:3705:1: ( ( '=' ) )
-            // InternalSemanticNodesDsl.g:3706:1: ( '=' )
+            // InternalSemanticNodesDsl.g:3815:1: ( ( '=' ) )
+            // InternalSemanticNodesDsl.g:3816:1: ( '=' )
             {
-            // InternalSemanticNodesDsl.g:3706:1: ( '=' )
-            // InternalSemanticNodesDsl.g:3707:2: '='
+            // InternalSemanticNodesDsl.g:3816:1: ( '=' )
+            // InternalSemanticNodesDsl.g:3817:2: '='
             {
-             before(grammarAccess.getMetaDataAccess().getEqualsSignKeyword_2()); 
-            match(input,27,FOLLOW_2); 
-             after(grammarAccess.getMetaDataAccess().getEqualsSignKeyword_2()); 
+             before(grammarAccess.getMetaDataValueAccess().getEqualsSignKeyword_2()); 
+            match(input,28,FOLLOW_2); 
+             after(grammarAccess.getMetaDataValueAccess().getEqualsSignKeyword_2()); 
 
             }
 
@@ -11424,21 +11779,21 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
         }
         return ;
     }
-    // $ANTLR end "rule__MetaData__Group__2__Impl"
+    // $ANTLR end "rule__MetaDataValue__Group__2__Impl"
 
 
-    // $ANTLR start "rule__MetaData__Group__3"
-    // InternalSemanticNodesDsl.g:3716:1: rule__MetaData__Group__3 : rule__MetaData__Group__3__Impl ;
-    public final void rule__MetaData__Group__3() throws RecognitionException {
+    // $ANTLR start "rule__MetaDataValue__Group__3"
+    // InternalSemanticNodesDsl.g:3826:1: rule__MetaDataValue__Group__3 : rule__MetaDataValue__Group__3__Impl ;
+    public final void rule__MetaDataValue__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:3720:1: ( rule__MetaData__Group__3__Impl )
-            // InternalSemanticNodesDsl.g:3721:2: rule__MetaData__Group__3__Impl
+            // InternalSemanticNodesDsl.g:3830:1: ( rule__MetaDataValue__Group__3__Impl )
+            // InternalSemanticNodesDsl.g:3831:2: rule__MetaDataValue__Group__3__Impl
             {
             pushFollow(FOLLOW_2);
-            rule__MetaData__Group__3__Impl();
+            rule__MetaDataValue__Group__3__Impl();
 
             state._fsp--;
 
@@ -11457,35 +11812,35 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
         }
         return ;
     }
-    // $ANTLR end "rule__MetaData__Group__3"
+    // $ANTLR end "rule__MetaDataValue__Group__3"
 
 
-    // $ANTLR start "rule__MetaData__Group__3__Impl"
-    // InternalSemanticNodesDsl.g:3727:1: rule__MetaData__Group__3__Impl : ( ( rule__MetaData__ValueAssignment_3 ) ) ;
-    public final void rule__MetaData__Group__3__Impl() throws RecognitionException {
+    // $ANTLR start "rule__MetaDataValue__Group__3__Impl"
+    // InternalSemanticNodesDsl.g:3837:1: rule__MetaDataValue__Group__3__Impl : ( ( rule__MetaDataValue__ValueAssignment_3 ) ) ;
+    public final void rule__MetaDataValue__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:3731:1: ( ( ( rule__MetaData__ValueAssignment_3 ) ) )
-            // InternalSemanticNodesDsl.g:3732:1: ( ( rule__MetaData__ValueAssignment_3 ) )
+            // InternalSemanticNodesDsl.g:3841:1: ( ( ( rule__MetaDataValue__ValueAssignment_3 ) ) )
+            // InternalSemanticNodesDsl.g:3842:1: ( ( rule__MetaDataValue__ValueAssignment_3 ) )
             {
-            // InternalSemanticNodesDsl.g:3732:1: ( ( rule__MetaData__ValueAssignment_3 ) )
-            // InternalSemanticNodesDsl.g:3733:2: ( rule__MetaData__ValueAssignment_3 )
+            // InternalSemanticNodesDsl.g:3842:1: ( ( rule__MetaDataValue__ValueAssignment_3 ) )
+            // InternalSemanticNodesDsl.g:3843:2: ( rule__MetaDataValue__ValueAssignment_3 )
             {
-             before(grammarAccess.getMetaDataAccess().getValueAssignment_3()); 
-            // InternalSemanticNodesDsl.g:3734:2: ( rule__MetaData__ValueAssignment_3 )
-            // InternalSemanticNodesDsl.g:3734:3: rule__MetaData__ValueAssignment_3
+             before(grammarAccess.getMetaDataValueAccess().getValueAssignment_3()); 
+            // InternalSemanticNodesDsl.g:3844:2: ( rule__MetaDataValue__ValueAssignment_3 )
+            // InternalSemanticNodesDsl.g:3844:3: rule__MetaDataValue__ValueAssignment_3
             {
             pushFollow(FOLLOW_2);
-            rule__MetaData__ValueAssignment_3();
+            rule__MetaDataValue__ValueAssignment_3();
 
             state._fsp--;
 
 
             }
 
-             after(grammarAccess.getMetaDataAccess().getValueAssignment_3()); 
+             after(grammarAccess.getMetaDataValueAccess().getValueAssignment_3()); 
 
             }
 
@@ -11504,20 +11859,20 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
         }
         return ;
     }
-    // $ANTLR end "rule__MetaData__Group__3__Impl"
+    // $ANTLR end "rule__MetaDataValue__Group__3__Impl"
 
 
     // $ANTLR start "rule__EInt__Group__0"
-    // InternalSemanticNodesDsl.g:3743:1: rule__EInt__Group__0 : rule__EInt__Group__0__Impl rule__EInt__Group__1 ;
+    // InternalSemanticNodesDsl.g:3853:1: rule__EInt__Group__0 : rule__EInt__Group__0__Impl rule__EInt__Group__1 ;
     public final void rule__EInt__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:3747:1: ( rule__EInt__Group__0__Impl rule__EInt__Group__1 )
-            // InternalSemanticNodesDsl.g:3748:2: rule__EInt__Group__0__Impl rule__EInt__Group__1
+            // InternalSemanticNodesDsl.g:3857:1: ( rule__EInt__Group__0__Impl rule__EInt__Group__1 )
+            // InternalSemanticNodesDsl.g:3858:2: rule__EInt__Group__0__Impl rule__EInt__Group__1
             {
-            pushFollow(FOLLOW_19);
+            pushFollow(FOLLOW_21);
             rule__EInt__Group__0__Impl();
 
             state._fsp--;
@@ -11546,31 +11901,31 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__EInt__Group__0__Impl"
-    // InternalSemanticNodesDsl.g:3755:1: rule__EInt__Group__0__Impl : ( ( '-' )? ) ;
+    // InternalSemanticNodesDsl.g:3865:1: rule__EInt__Group__0__Impl : ( ( '-' )? ) ;
     public final void rule__EInt__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:3759:1: ( ( ( '-' )? ) )
-            // InternalSemanticNodesDsl.g:3760:1: ( ( '-' )? )
+            // InternalSemanticNodesDsl.g:3869:1: ( ( ( '-' )? ) )
+            // InternalSemanticNodesDsl.g:3870:1: ( ( '-' )? )
             {
-            // InternalSemanticNodesDsl.g:3760:1: ( ( '-' )? )
-            // InternalSemanticNodesDsl.g:3761:2: ( '-' )?
+            // InternalSemanticNodesDsl.g:3870:1: ( ( '-' )? )
+            // InternalSemanticNodesDsl.g:3871:2: ( '-' )?
             {
              before(grammarAccess.getEIntAccess().getHyphenMinusKeyword_0()); 
-            // InternalSemanticNodesDsl.g:3762:2: ( '-' )?
-            int alt32=2;
-            int LA32_0 = input.LA(1);
+            // InternalSemanticNodesDsl.g:3872:2: ( '-' )?
+            int alt33=2;
+            int LA33_0 = input.LA(1);
 
-            if ( (LA32_0==28) ) {
-                alt32=1;
+            if ( (LA33_0==29) ) {
+                alt33=1;
             }
-            switch (alt32) {
+            switch (alt33) {
                 case 1 :
-                    // InternalSemanticNodesDsl.g:3762:3: '-'
+                    // InternalSemanticNodesDsl.g:3872:3: '-'
                     {
-                    match(input,28,FOLLOW_2); 
+                    match(input,29,FOLLOW_2); 
 
                     }
                     break;
@@ -11600,14 +11955,14 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__EInt__Group__1"
-    // InternalSemanticNodesDsl.g:3770:1: rule__EInt__Group__1 : rule__EInt__Group__1__Impl ;
+    // InternalSemanticNodesDsl.g:3880:1: rule__EInt__Group__1 : rule__EInt__Group__1__Impl ;
     public final void rule__EInt__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:3774:1: ( rule__EInt__Group__1__Impl )
-            // InternalSemanticNodesDsl.g:3775:2: rule__EInt__Group__1__Impl
+            // InternalSemanticNodesDsl.g:3884:1: ( rule__EInt__Group__1__Impl )
+            // InternalSemanticNodesDsl.g:3885:2: rule__EInt__Group__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__EInt__Group__1__Impl();
@@ -11633,17 +11988,17 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__EInt__Group__1__Impl"
-    // InternalSemanticNodesDsl.g:3781:1: rule__EInt__Group__1__Impl : ( RULE_INT ) ;
+    // InternalSemanticNodesDsl.g:3891:1: rule__EInt__Group__1__Impl : ( RULE_INT ) ;
     public final void rule__EInt__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:3785:1: ( ( RULE_INT ) )
-            // InternalSemanticNodesDsl.g:3786:1: ( RULE_INT )
+            // InternalSemanticNodesDsl.g:3895:1: ( ( RULE_INT ) )
+            // InternalSemanticNodesDsl.g:3896:1: ( RULE_INT )
             {
-            // InternalSemanticNodesDsl.g:3786:1: ( RULE_INT )
-            // InternalSemanticNodesDsl.g:3787:2: RULE_INT
+            // InternalSemanticNodesDsl.g:3896:1: ( RULE_INT )
+            // InternalSemanticNodesDsl.g:3897:2: RULE_INT
             {
              before(grammarAccess.getEIntAccess().getINTTerminalRuleCall_1()); 
             match(input,RULE_INT,FOLLOW_2); 
@@ -11669,25 +12024,28 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
     // $ANTLR end "rule__EInt__Group__1__Impl"
 
 
-    // $ANTLR start "rule__Annotation__Group__0"
-    // InternalSemanticNodesDsl.g:3797:1: rule__Annotation__Group__0 : rule__Annotation__Group__0__Impl rule__Annotation__Group__1 ;
-    public final void rule__Annotation__Group__0() throws RecognitionException {
+    // $ANTLR start "rule__RepositoryManager__ImportURIAssignment_1_1"
+    // InternalSemanticNodesDsl.g:3907:1: rule__RepositoryManager__ImportURIAssignment_1_1 : ( ruleEString ) ;
+    public final void rule__RepositoryManager__ImportURIAssignment_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:3801:1: ( rule__Annotation__Group__0__Impl rule__Annotation__Group__1 )
-            // InternalSemanticNodesDsl.g:3802:2: rule__Annotation__Group__0__Impl rule__Annotation__Group__1
+            // InternalSemanticNodesDsl.g:3911:1: ( ( ruleEString ) )
+            // InternalSemanticNodesDsl.g:3912:2: ( ruleEString )
             {
-            pushFollow(FOLLOW_12);
-            rule__Annotation__Group__0__Impl();
-
-            state._fsp--;
-
+            // InternalSemanticNodesDsl.g:3912:2: ( ruleEString )
+            // InternalSemanticNodesDsl.g:3913:3: ruleEString
+            {
+             before(grammarAccess.getRepositoryManagerAccess().getImportURIEStringParserRuleCall_1_1_0()); 
             pushFollow(FOLLOW_2);
-            rule__Annotation__Group__1();
+            ruleEString();
 
             state._fsp--;
+
+             after(grammarAccess.getRepositoryManagerAccess().getImportURIEStringParserRuleCall_1_1_0()); 
+
+            }
 
 
             }
@@ -11704,100 +12062,29 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
         }
         return ;
     }
-    // $ANTLR end "rule__Annotation__Group__0"
+    // $ANTLR end "rule__RepositoryManager__ImportURIAssignment_1_1"
 
 
-    // $ANTLR start "rule__Annotation__Group__0__Impl"
-    // InternalSemanticNodesDsl.g:3809:1: rule__Annotation__Group__0__Impl : ( () ) ;
-    public final void rule__Annotation__Group__0__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalSemanticNodesDsl.g:3813:1: ( ( () ) )
-            // InternalSemanticNodesDsl.g:3814:1: ( () )
-            {
-            // InternalSemanticNodesDsl.g:3814:1: ( () )
-            // InternalSemanticNodesDsl.g:3815:2: ()
-            {
-             before(grammarAccess.getAnnotationAccess().getAnnotationAction_0()); 
-            // InternalSemanticNodesDsl.g:3816:2: ()
-            // InternalSemanticNodesDsl.g:3816:3: 
-            {
-            }
-
-             after(grammarAccess.getAnnotationAccess().getAnnotationAction_0()); 
-
-            }
-
-
-            }
-
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Annotation__Group__0__Impl"
-
-
-    // $ANTLR start "rule__Annotation__Group__1"
-    // InternalSemanticNodesDsl.g:3824:1: rule__Annotation__Group__1 : rule__Annotation__Group__1__Impl rule__Annotation__Group__2 ;
-    public final void rule__Annotation__Group__1() throws RecognitionException {
+    // $ANTLR start "rule__RepositoryManager__ImportURIAssignment_1_2_1"
+    // InternalSemanticNodesDsl.g:3922:1: rule__RepositoryManager__ImportURIAssignment_1_2_1 : ( ruleEString ) ;
+    public final void rule__RepositoryManager__ImportURIAssignment_1_2_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:3828:1: ( rule__Annotation__Group__1__Impl rule__Annotation__Group__2 )
-            // InternalSemanticNodesDsl.g:3829:2: rule__Annotation__Group__1__Impl rule__Annotation__Group__2
+            // InternalSemanticNodesDsl.g:3926:1: ( ( ruleEString ) )
+            // InternalSemanticNodesDsl.g:3927:2: ( ruleEString )
             {
-            pushFollow(FOLLOW_5);
-            rule__Annotation__Group__1__Impl();
-
-            state._fsp--;
-
+            // InternalSemanticNodesDsl.g:3927:2: ( ruleEString )
+            // InternalSemanticNodesDsl.g:3928:3: ruleEString
+            {
+             before(grammarAccess.getRepositoryManagerAccess().getImportURIEStringParserRuleCall_1_2_1_0()); 
             pushFollow(FOLLOW_2);
-            rule__Annotation__Group__2();
+            ruleEString();
 
             state._fsp--;
 
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Annotation__Group__1"
-
-
-    // $ANTLR start "rule__Annotation__Group__1__Impl"
-    // InternalSemanticNodesDsl.g:3836:1: rule__Annotation__Group__1__Impl : ( '@' ) ;
-    public final void rule__Annotation__Group__1__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalSemanticNodesDsl.g:3840:1: ( ( '@' ) )
-            // InternalSemanticNodesDsl.g:3841:1: ( '@' )
-            {
-            // InternalSemanticNodesDsl.g:3841:1: ( '@' )
-            // InternalSemanticNodesDsl.g:3842:2: '@'
-            {
-             before(grammarAccess.getAnnotationAccess().getCommercialAtKeyword_1()); 
-            match(input,29,FOLLOW_2); 
-             after(grammarAccess.getAnnotationAccess().getCommercialAtKeyword_1()); 
+             after(grammarAccess.getRepositoryManagerAccess().getImportURIEStringParserRuleCall_1_2_1_0()); 
 
             }
 
@@ -11816,109 +12103,29 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
         }
         return ;
     }
-    // $ANTLR end "rule__Annotation__Group__1__Impl"
+    // $ANTLR end "rule__RepositoryManager__ImportURIAssignment_1_2_1"
 
 
-    // $ANTLR start "rule__Annotation__Group__2"
-    // InternalSemanticNodesDsl.g:3851:1: rule__Annotation__Group__2 : rule__Annotation__Group__2__Impl ;
-    public final void rule__Annotation__Group__2() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalSemanticNodesDsl.g:3855:1: ( rule__Annotation__Group__2__Impl )
-            // InternalSemanticNodesDsl.g:3856:2: rule__Annotation__Group__2__Impl
-            {
-            pushFollow(FOLLOW_2);
-            rule__Annotation__Group__2__Impl();
-
-            state._fsp--;
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Annotation__Group__2"
-
-
-    // $ANTLR start "rule__Annotation__Group__2__Impl"
-    // InternalSemanticNodesDsl.g:3862:1: rule__Annotation__Group__2__Impl : ( ( rule__Annotation__AnnotationAssignment_2 ) ) ;
-    public final void rule__Annotation__Group__2__Impl() throws RecognitionException {
+    // $ANTLR start "rule__RepositoryManager__RepositoriesAssignment_2_0"
+    // InternalSemanticNodesDsl.g:3937:1: rule__RepositoryManager__RepositoriesAssignment_2_0 : ( ruleRepository ) ;
+    public final void rule__RepositoryManager__RepositoriesAssignment_2_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:3866:1: ( ( ( rule__Annotation__AnnotationAssignment_2 ) ) )
-            // InternalSemanticNodesDsl.g:3867:1: ( ( rule__Annotation__AnnotationAssignment_2 ) )
+            // InternalSemanticNodesDsl.g:3941:1: ( ( ruleRepository ) )
+            // InternalSemanticNodesDsl.g:3942:2: ( ruleRepository )
             {
-            // InternalSemanticNodesDsl.g:3867:1: ( ( rule__Annotation__AnnotationAssignment_2 ) )
-            // InternalSemanticNodesDsl.g:3868:2: ( rule__Annotation__AnnotationAssignment_2 )
+            // InternalSemanticNodesDsl.g:3942:2: ( ruleRepository )
+            // InternalSemanticNodesDsl.g:3943:3: ruleRepository
             {
-             before(grammarAccess.getAnnotationAccess().getAnnotationAssignment_2()); 
-            // InternalSemanticNodesDsl.g:3869:2: ( rule__Annotation__AnnotationAssignment_2 )
-            // InternalSemanticNodesDsl.g:3869:3: rule__Annotation__AnnotationAssignment_2
-            {
-            pushFollow(FOLLOW_2);
-            rule__Annotation__AnnotationAssignment_2();
-
-            state._fsp--;
-
-
-            }
-
-             after(grammarAccess.getAnnotationAccess().getAnnotationAssignment_2()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Annotation__Group__2__Impl"
-
-
-    // $ANTLR start "rule__RepositoryManager__RepositoriesAssignment_1_0"
-    // InternalSemanticNodesDsl.g:3878:1: rule__RepositoryManager__RepositoriesAssignment_1_0 : ( ruleRepository ) ;
-    public final void rule__RepositoryManager__RepositoriesAssignment_1_0() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalSemanticNodesDsl.g:3882:1: ( ( ruleRepository ) )
-            // InternalSemanticNodesDsl.g:3883:2: ( ruleRepository )
-            {
-            // InternalSemanticNodesDsl.g:3883:2: ( ruleRepository )
-            // InternalSemanticNodesDsl.g:3884:3: ruleRepository
-            {
-             before(grammarAccess.getRepositoryManagerAccess().getRepositoriesRepositoryParserRuleCall_1_0_0()); 
+             before(grammarAccess.getRepositoryManagerAccess().getRepositoriesRepositoryParserRuleCall_2_0_0()); 
             pushFollow(FOLLOW_2);
             ruleRepository();
 
             state._fsp--;
 
-             after(grammarAccess.getRepositoryManagerAccess().getRepositoriesRepositoryParserRuleCall_1_0_0()); 
+             after(grammarAccess.getRepositoryManagerAccess().getRepositoriesRepositoryParserRuleCall_2_0_0()); 
 
             }
 
@@ -11937,29 +12144,29 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
         }
         return ;
     }
-    // $ANTLR end "rule__RepositoryManager__RepositoriesAssignment_1_0"
+    // $ANTLR end "rule__RepositoryManager__RepositoriesAssignment_2_0"
 
 
-    // $ANTLR start "rule__RepositoryManager__RepositoriesAssignment_1_1"
-    // InternalSemanticNodesDsl.g:3893:1: rule__RepositoryManager__RepositoriesAssignment_1_1 : ( ruleRepository ) ;
-    public final void rule__RepositoryManager__RepositoriesAssignment_1_1() throws RecognitionException {
+    // $ANTLR start "rule__RepositoryManager__RepositoriesAssignment_2_1"
+    // InternalSemanticNodesDsl.g:3952:1: rule__RepositoryManager__RepositoriesAssignment_2_1 : ( ruleRepository ) ;
+    public final void rule__RepositoryManager__RepositoriesAssignment_2_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:3897:1: ( ( ruleRepository ) )
-            // InternalSemanticNodesDsl.g:3898:2: ( ruleRepository )
+            // InternalSemanticNodesDsl.g:3956:1: ( ( ruleRepository ) )
+            // InternalSemanticNodesDsl.g:3957:2: ( ruleRepository )
             {
-            // InternalSemanticNodesDsl.g:3898:2: ( ruleRepository )
-            // InternalSemanticNodesDsl.g:3899:3: ruleRepository
+            // InternalSemanticNodesDsl.g:3957:2: ( ruleRepository )
+            // InternalSemanticNodesDsl.g:3958:3: ruleRepository
             {
-             before(grammarAccess.getRepositoryManagerAccess().getRepositoriesRepositoryParserRuleCall_1_1_0()); 
+             before(grammarAccess.getRepositoryManagerAccess().getRepositoriesRepositoryParserRuleCall_2_1_0()); 
             pushFollow(FOLLOW_2);
             ruleRepository();
 
             state._fsp--;
 
-             after(grammarAccess.getRepositoryManagerAccess().getRepositoriesRepositoryParserRuleCall_1_1_0()); 
+             after(grammarAccess.getRepositoryManagerAccess().getRepositoriesRepositoryParserRuleCall_2_1_0()); 
 
             }
 
@@ -11978,21 +12185,21 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
         }
         return ;
     }
-    // $ANTLR end "rule__RepositoryManager__RepositoriesAssignment_1_1"
+    // $ANTLR end "rule__RepositoryManager__RepositoriesAssignment_2_1"
 
 
     // $ANTLR start "rule__Repository__NameAssignment_2"
-    // InternalSemanticNodesDsl.g:3908:1: rule__Repository__NameAssignment_2 : ( ruleEString ) ;
+    // InternalSemanticNodesDsl.g:3967:1: rule__Repository__NameAssignment_2 : ( ruleEString ) ;
     public final void rule__Repository__NameAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:3912:1: ( ( ruleEString ) )
-            // InternalSemanticNodesDsl.g:3913:2: ( ruleEString )
+            // InternalSemanticNodesDsl.g:3971:1: ( ( ruleEString ) )
+            // InternalSemanticNodesDsl.g:3972:2: ( ruleEString )
             {
-            // InternalSemanticNodesDsl.g:3913:2: ( ruleEString )
-            // InternalSemanticNodesDsl.g:3914:3: ruleEString
+            // InternalSemanticNodesDsl.g:3972:2: ( ruleEString )
+            // InternalSemanticNodesDsl.g:3973:3: ruleEString
             {
              before(grammarAccess.getRepositoryAccess().getNameEStringParserRuleCall_2_0()); 
             pushFollow(FOLLOW_2);
@@ -12023,17 +12230,17 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__Repository__ResourcesAssignment_4"
-    // InternalSemanticNodesDsl.g:3923:1: rule__Repository__ResourcesAssignment_4 : ( ruleResource ) ;
+    // InternalSemanticNodesDsl.g:3982:1: rule__Repository__ResourcesAssignment_4 : ( ruleResource ) ;
     public final void rule__Repository__ResourcesAssignment_4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:3927:1: ( ( ruleResource ) )
-            // InternalSemanticNodesDsl.g:3928:2: ( ruleResource )
+            // InternalSemanticNodesDsl.g:3986:1: ( ( ruleResource ) )
+            // InternalSemanticNodesDsl.g:3987:2: ( ruleResource )
             {
-            // InternalSemanticNodesDsl.g:3928:2: ( ruleResource )
-            // InternalSemanticNodesDsl.g:3929:3: ruleResource
+            // InternalSemanticNodesDsl.g:3987:2: ( ruleResource )
+            // InternalSemanticNodesDsl.g:3988:3: ruleResource
             {
              before(grammarAccess.getRepositoryAccess().getResourcesResourceParserRuleCall_4_0()); 
             pushFollow(FOLLOW_2);
@@ -12064,17 +12271,17 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__Repository__ResourcesAssignment_5"
-    // InternalSemanticNodesDsl.g:3938:1: rule__Repository__ResourcesAssignment_5 : ( ruleResource ) ;
+    // InternalSemanticNodesDsl.g:3997:1: rule__Repository__ResourcesAssignment_5 : ( ruleResource ) ;
     public final void rule__Repository__ResourcesAssignment_5() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:3942:1: ( ( ruleResource ) )
-            // InternalSemanticNodesDsl.g:3943:2: ( ruleResource )
+            // InternalSemanticNodesDsl.g:4001:1: ( ( ruleResource ) )
+            // InternalSemanticNodesDsl.g:4002:2: ( ruleResource )
             {
-            // InternalSemanticNodesDsl.g:3943:2: ( ruleResource )
-            // InternalSemanticNodesDsl.g:3944:3: ruleResource
+            // InternalSemanticNodesDsl.g:4002:2: ( ruleResource )
+            // InternalSemanticNodesDsl.g:4003:3: ruleResource
             {
              before(grammarAccess.getRepositoryAccess().getResourcesResourceParserRuleCall_5_0()); 
             pushFollow(FOLLOW_2);
@@ -12104,67 +12311,34 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
     // $ANTLR end "rule__Repository__ResourcesAssignment_5"
 
 
-    // $ANTLR start "rule__Resource__AnnotationsAssignment_1_0"
-    // InternalSemanticNodesDsl.g:3953:1: rule__Resource__AnnotationsAssignment_1_0 : ( ruleAnnotation ) ;
-    public final void rule__Resource__AnnotationsAssignment_1_0() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalSemanticNodesDsl.g:3957:1: ( ( ruleAnnotation ) )
-            // InternalSemanticNodesDsl.g:3958:2: ( ruleAnnotation )
-            {
-            // InternalSemanticNodesDsl.g:3958:2: ( ruleAnnotation )
-            // InternalSemanticNodesDsl.g:3959:3: ruleAnnotation
-            {
-             before(grammarAccess.getResourceAccess().getAnnotationsAnnotationParserRuleCall_1_0_0()); 
-            pushFollow(FOLLOW_2);
-            ruleAnnotation();
-
-            state._fsp--;
-
-             after(grammarAccess.getResourceAccess().getAnnotationsAnnotationParserRuleCall_1_0_0()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Resource__AnnotationsAssignment_1_0"
-
-
     // $ANTLR start "rule__Resource__AnnotationsAssignment_1_1"
-    // InternalSemanticNodesDsl.g:3968:1: rule__Resource__AnnotationsAssignment_1_1 : ( ruleAnnotation ) ;
+    // InternalSemanticNodesDsl.g:4012:1: rule__Resource__AnnotationsAssignment_1_1 : ( ( ruleEString ) ) ;
     public final void rule__Resource__AnnotationsAssignment_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:3972:1: ( ( ruleAnnotation ) )
-            // InternalSemanticNodesDsl.g:3973:2: ( ruleAnnotation )
+            // InternalSemanticNodesDsl.g:4016:1: ( ( ( ruleEString ) ) )
+            // InternalSemanticNodesDsl.g:4017:2: ( ( ruleEString ) )
             {
-            // InternalSemanticNodesDsl.g:3973:2: ( ruleAnnotation )
-            // InternalSemanticNodesDsl.g:3974:3: ruleAnnotation
+            // InternalSemanticNodesDsl.g:4017:2: ( ( ruleEString ) )
+            // InternalSemanticNodesDsl.g:4018:3: ( ruleEString )
             {
-             before(grammarAccess.getResourceAccess().getAnnotationsAnnotationParserRuleCall_1_1_0()); 
+             before(grammarAccess.getResourceAccess().getAnnotationsAnnotationCrossReference_1_1_0()); 
+            // InternalSemanticNodesDsl.g:4019:3: ( ruleEString )
+            // InternalSemanticNodesDsl.g:4020:4: ruleEString
+            {
+             before(grammarAccess.getResourceAccess().getAnnotationsAnnotationEStringParserRuleCall_1_1_0_1()); 
             pushFollow(FOLLOW_2);
-            ruleAnnotation();
+            ruleEString();
 
             state._fsp--;
 
-             after(grammarAccess.getResourceAccess().getAnnotationsAnnotationParserRuleCall_1_1_0()); 
+             after(grammarAccess.getResourceAccess().getAnnotationsAnnotationEStringParserRuleCall_1_1_0_1()); 
+
+            }
+
+             after(grammarAccess.getResourceAccess().getAnnotationsAnnotationCrossReference_1_1_0()); 
 
             }
 
@@ -12186,26 +12360,83 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
     // $ANTLR end "rule__Resource__AnnotationsAssignment_1_1"
 
 
-    // $ANTLR start "rule__Resource__AssistantAssignment_2"
-    // InternalSemanticNodesDsl.g:3983:1: rule__Resource__AssistantAssignment_2 : ( ruleEString ) ;
-    public final void rule__Resource__AssistantAssignment_2() throws RecognitionException {
+    // $ANTLR start "rule__Resource__AnnotationsAssignment_1_2_1"
+    // InternalSemanticNodesDsl.g:4031:1: rule__Resource__AnnotationsAssignment_1_2_1 : ( ( ruleEString ) ) ;
+    public final void rule__Resource__AnnotationsAssignment_1_2_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:3987:1: ( ( ruleEString ) )
-            // InternalSemanticNodesDsl.g:3988:2: ( ruleEString )
+            // InternalSemanticNodesDsl.g:4035:1: ( ( ( ruleEString ) ) )
+            // InternalSemanticNodesDsl.g:4036:2: ( ( ruleEString ) )
             {
-            // InternalSemanticNodesDsl.g:3988:2: ( ruleEString )
-            // InternalSemanticNodesDsl.g:3989:3: ruleEString
+            // InternalSemanticNodesDsl.g:4036:2: ( ( ruleEString ) )
+            // InternalSemanticNodesDsl.g:4037:3: ( ruleEString )
             {
-             before(grammarAccess.getResourceAccess().getAssistantEStringParserRuleCall_2_0()); 
+             before(grammarAccess.getResourceAccess().getAnnotationsAnnotationCrossReference_1_2_1_0()); 
+            // InternalSemanticNodesDsl.g:4038:3: ( ruleEString )
+            // InternalSemanticNodesDsl.g:4039:4: ruleEString
+            {
+             before(grammarAccess.getResourceAccess().getAnnotationsAnnotationEStringParserRuleCall_1_2_1_0_1()); 
             pushFollow(FOLLOW_2);
             ruleEString();
 
             state._fsp--;
 
-             after(grammarAccess.getResourceAccess().getAssistantEStringParserRuleCall_2_0()); 
+             after(grammarAccess.getResourceAccess().getAnnotationsAnnotationEStringParserRuleCall_1_2_1_0_1()); 
+
+            }
+
+             after(grammarAccess.getResourceAccess().getAnnotationsAnnotationCrossReference_1_2_1_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Resource__AnnotationsAssignment_1_2_1"
+
+
+    // $ANTLR start "rule__Resource__AssistantAssignment_2"
+    // InternalSemanticNodesDsl.g:4050:1: rule__Resource__AssistantAssignment_2 : ( ( ruleEString ) ) ;
+    public final void rule__Resource__AssistantAssignment_2() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalSemanticNodesDsl.g:4054:1: ( ( ( ruleEString ) ) )
+            // InternalSemanticNodesDsl.g:4055:2: ( ( ruleEString ) )
+            {
+            // InternalSemanticNodesDsl.g:4055:2: ( ( ruleEString ) )
+            // InternalSemanticNodesDsl.g:4056:3: ( ruleEString )
+            {
+             before(grammarAccess.getResourceAccess().getAssistantFormatAssistantCrossReference_2_0()); 
+            // InternalSemanticNodesDsl.g:4057:3: ( ruleEString )
+            // InternalSemanticNodesDsl.g:4058:4: ruleEString
+            {
+             before(grammarAccess.getResourceAccess().getAssistantFormatAssistantEStringParserRuleCall_2_0_1()); 
+            pushFollow(FOLLOW_2);
+            ruleEString();
+
+            state._fsp--;
+
+             after(grammarAccess.getResourceAccess().getAssistantFormatAssistantEStringParserRuleCall_2_0_1()); 
+
+            }
+
+             after(grammarAccess.getResourceAccess().getAssistantFormatAssistantCrossReference_2_0()); 
 
             }
 
@@ -12228,17 +12459,17 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__Resource__NameAssignment_3"
-    // InternalSemanticNodesDsl.g:3998:1: rule__Resource__NameAssignment_3 : ( ruleEString ) ;
+    // InternalSemanticNodesDsl.g:4069:1: rule__Resource__NameAssignment_3 : ( ruleEString ) ;
     public final void rule__Resource__NameAssignment_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:4002:1: ( ( ruleEString ) )
-            // InternalSemanticNodesDsl.g:4003:2: ( ruleEString )
+            // InternalSemanticNodesDsl.g:4073:1: ( ( ruleEString ) )
+            // InternalSemanticNodesDsl.g:4074:2: ( ruleEString )
             {
-            // InternalSemanticNodesDsl.g:4003:2: ( ruleEString )
-            // InternalSemanticNodesDsl.g:4004:3: ruleEString
+            // InternalSemanticNodesDsl.g:4074:2: ( ruleEString )
+            // InternalSemanticNodesDsl.g:4075:3: ruleEString
             {
              before(grammarAccess.getResourceAccess().getNameEStringParserRuleCall_3_0()); 
             pushFollow(FOLLOW_2);
@@ -12269,17 +12500,17 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__Resource__ResourceElementsAssignment_5_0"
-    // InternalSemanticNodesDsl.g:4013:1: rule__Resource__ResourceElementsAssignment_5_0 : ( ruleResourceElement ) ;
+    // InternalSemanticNodesDsl.g:4084:1: rule__Resource__ResourceElementsAssignment_5_0 : ( ruleResourceElement ) ;
     public final void rule__Resource__ResourceElementsAssignment_5_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:4017:1: ( ( ruleResourceElement ) )
-            // InternalSemanticNodesDsl.g:4018:2: ( ruleResourceElement )
+            // InternalSemanticNodesDsl.g:4088:1: ( ( ruleResourceElement ) )
+            // InternalSemanticNodesDsl.g:4089:2: ( ruleResourceElement )
             {
-            // InternalSemanticNodesDsl.g:4018:2: ( ruleResourceElement )
-            // InternalSemanticNodesDsl.g:4019:3: ruleResourceElement
+            // InternalSemanticNodesDsl.g:4089:2: ( ruleResourceElement )
+            // InternalSemanticNodesDsl.g:4090:3: ruleResourceElement
             {
              before(grammarAccess.getResourceAccess().getResourceElementsResourceElementParserRuleCall_5_0_0()); 
             pushFollow(FOLLOW_2);
@@ -12310,17 +12541,17 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__Resource__ResourceElementsAssignment_5_1"
-    // InternalSemanticNodesDsl.g:4028:1: rule__Resource__ResourceElementsAssignment_5_1 : ( ruleResourceElement ) ;
+    // InternalSemanticNodesDsl.g:4099:1: rule__Resource__ResourceElementsAssignment_5_1 : ( ruleResourceElement ) ;
     public final void rule__Resource__ResourceElementsAssignment_5_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:4032:1: ( ( ruleResourceElement ) )
-            // InternalSemanticNodesDsl.g:4033:2: ( ruleResourceElement )
+            // InternalSemanticNodesDsl.g:4103:1: ( ( ruleResourceElement ) )
+            // InternalSemanticNodesDsl.g:4104:2: ( ruleResourceElement )
             {
-            // InternalSemanticNodesDsl.g:4033:2: ( ruleResourceElement )
-            // InternalSemanticNodesDsl.g:4034:3: ruleResourceElement
+            // InternalSemanticNodesDsl.g:4104:2: ( ruleResourceElement )
+            // InternalSemanticNodesDsl.g:4105:3: ruleResourceElement
             {
              before(grammarAccess.getResourceAccess().getResourceElementsResourceElementParserRuleCall_5_1_0()); 
             pushFollow(FOLLOW_2);
@@ -12350,26 +12581,26 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
     // $ANTLR end "rule__Resource__ResourceElementsAssignment_5_1"
 
 
-    // $ANTLR start "rule__Resource__MetadataAssignment_7_2"
-    // InternalSemanticNodesDsl.g:4043:1: rule__Resource__MetadataAssignment_7_2 : ( ruleMetaData ) ;
-    public final void rule__Resource__MetadataAssignment_7_2() throws RecognitionException {
+    // $ANTLR start "rule__Resource__MetaDataValueAssignment_7_1"
+    // InternalSemanticNodesDsl.g:4114:1: rule__Resource__MetaDataValueAssignment_7_1 : ( ruleMetaDataValue ) ;
+    public final void rule__Resource__MetaDataValueAssignment_7_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:4047:1: ( ( ruleMetaData ) )
-            // InternalSemanticNodesDsl.g:4048:2: ( ruleMetaData )
+            // InternalSemanticNodesDsl.g:4118:1: ( ( ruleMetaDataValue ) )
+            // InternalSemanticNodesDsl.g:4119:2: ( ruleMetaDataValue )
             {
-            // InternalSemanticNodesDsl.g:4048:2: ( ruleMetaData )
-            // InternalSemanticNodesDsl.g:4049:3: ruleMetaData
+            // InternalSemanticNodesDsl.g:4119:2: ( ruleMetaDataValue )
+            // InternalSemanticNodesDsl.g:4120:3: ruleMetaDataValue
             {
-             before(grammarAccess.getResourceAccess().getMetadataMetaDataParserRuleCall_7_2_0()); 
+             before(grammarAccess.getResourceAccess().getMetaDataValueMetaDataValueParserRuleCall_7_1_0()); 
             pushFollow(FOLLOW_2);
-            ruleMetaData();
+            ruleMetaDataValue();
 
             state._fsp--;
 
-             after(grammarAccess.getResourceAccess().getMetadataMetaDataParserRuleCall_7_2_0()); 
+             after(grammarAccess.getResourceAccess().getMetaDataValueMetaDataValueParserRuleCall_7_1_0()); 
 
             }
 
@@ -12388,29 +12619,29 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
         }
         return ;
     }
-    // $ANTLR end "rule__Resource__MetadataAssignment_7_2"
+    // $ANTLR end "rule__Resource__MetaDataValueAssignment_7_1"
 
 
-    // $ANTLR start "rule__Resource__MetadataAssignment_7_3_1"
-    // InternalSemanticNodesDsl.g:4058:1: rule__Resource__MetadataAssignment_7_3_1 : ( ruleMetaData ) ;
-    public final void rule__Resource__MetadataAssignment_7_3_1() throws RecognitionException {
+    // $ANTLR start "rule__Resource__MetaDataValueAssignment_7_2_1"
+    // InternalSemanticNodesDsl.g:4129:1: rule__Resource__MetaDataValueAssignment_7_2_1 : ( ruleMetaDataValue ) ;
+    public final void rule__Resource__MetaDataValueAssignment_7_2_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:4062:1: ( ( ruleMetaData ) )
-            // InternalSemanticNodesDsl.g:4063:2: ( ruleMetaData )
+            // InternalSemanticNodesDsl.g:4133:1: ( ( ruleMetaDataValue ) )
+            // InternalSemanticNodesDsl.g:4134:2: ( ruleMetaDataValue )
             {
-            // InternalSemanticNodesDsl.g:4063:2: ( ruleMetaData )
-            // InternalSemanticNodesDsl.g:4064:3: ruleMetaData
+            // InternalSemanticNodesDsl.g:4134:2: ( ruleMetaDataValue )
+            // InternalSemanticNodesDsl.g:4135:3: ruleMetaDataValue
             {
-             before(grammarAccess.getResourceAccess().getMetadataMetaDataParserRuleCall_7_3_1_0()); 
+             before(grammarAccess.getResourceAccess().getMetaDataValueMetaDataValueParserRuleCall_7_2_1_0()); 
             pushFollow(FOLLOW_2);
-            ruleMetaData();
+            ruleMetaDataValue();
 
             state._fsp--;
 
-             after(grammarAccess.getResourceAccess().getMetadataMetaDataParserRuleCall_7_3_1_0()); 
+             after(grammarAccess.getResourceAccess().getMetaDataValueMetaDataValueParserRuleCall_7_2_1_0()); 
 
             }
 
@@ -12429,21 +12660,21 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
         }
         return ;
     }
-    // $ANTLR end "rule__Resource__MetadataAssignment_7_3_1"
+    // $ANTLR end "rule__Resource__MetaDataValueAssignment_7_2_1"
 
 
     // $ANTLR start "rule__Enumeration__NameAssignment_2"
-    // InternalSemanticNodesDsl.g:4073:1: rule__Enumeration__NameAssignment_2 : ( ruleEString ) ;
+    // InternalSemanticNodesDsl.g:4144:1: rule__Enumeration__NameAssignment_2 : ( ruleEString ) ;
     public final void rule__Enumeration__NameAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:4077:1: ( ( ruleEString ) )
-            // InternalSemanticNodesDsl.g:4078:2: ( ruleEString )
+            // InternalSemanticNodesDsl.g:4148:1: ( ( ruleEString ) )
+            // InternalSemanticNodesDsl.g:4149:2: ( ruleEString )
             {
-            // InternalSemanticNodesDsl.g:4078:2: ( ruleEString )
-            // InternalSemanticNodesDsl.g:4079:3: ruleEString
+            // InternalSemanticNodesDsl.g:4149:2: ( ruleEString )
+            // InternalSemanticNodesDsl.g:4150:3: ruleEString
             {
              before(grammarAccess.getEnumerationAccess().getNameEStringParserRuleCall_2_0()); 
             pushFollow(FOLLOW_2);
@@ -12474,17 +12705,17 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__Enumeration__LiteralsAssignment_4_0"
-    // InternalSemanticNodesDsl.g:4088:1: rule__Enumeration__LiteralsAssignment_4_0 : ( ruleEnumerationLiteral ) ;
+    // InternalSemanticNodesDsl.g:4159:1: rule__Enumeration__LiteralsAssignment_4_0 : ( ruleEnumerationLiteral ) ;
     public final void rule__Enumeration__LiteralsAssignment_4_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:4092:1: ( ( ruleEnumerationLiteral ) )
-            // InternalSemanticNodesDsl.g:4093:2: ( ruleEnumerationLiteral )
+            // InternalSemanticNodesDsl.g:4163:1: ( ( ruleEnumerationLiteral ) )
+            // InternalSemanticNodesDsl.g:4164:2: ( ruleEnumerationLiteral )
             {
-            // InternalSemanticNodesDsl.g:4093:2: ( ruleEnumerationLiteral )
-            // InternalSemanticNodesDsl.g:4094:3: ruleEnumerationLiteral
+            // InternalSemanticNodesDsl.g:4164:2: ( ruleEnumerationLiteral )
+            // InternalSemanticNodesDsl.g:4165:3: ruleEnumerationLiteral
             {
              before(grammarAccess.getEnumerationAccess().getLiteralsEnumerationLiteralParserRuleCall_4_0_0()); 
             pushFollow(FOLLOW_2);
@@ -12515,17 +12746,17 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__Enumeration__LiteralsAssignment_4_1"
-    // InternalSemanticNodesDsl.g:4103:1: rule__Enumeration__LiteralsAssignment_4_1 : ( ruleEnumerationLiteral ) ;
+    // InternalSemanticNodesDsl.g:4174:1: rule__Enumeration__LiteralsAssignment_4_1 : ( ruleEnumerationLiteral ) ;
     public final void rule__Enumeration__LiteralsAssignment_4_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:4107:1: ( ( ruleEnumerationLiteral ) )
-            // InternalSemanticNodesDsl.g:4108:2: ( ruleEnumerationLiteral )
+            // InternalSemanticNodesDsl.g:4178:1: ( ( ruleEnumerationLiteral ) )
+            // InternalSemanticNodesDsl.g:4179:2: ( ruleEnumerationLiteral )
             {
-            // InternalSemanticNodesDsl.g:4108:2: ( ruleEnumerationLiteral )
-            // InternalSemanticNodesDsl.g:4109:3: ruleEnumerationLiteral
+            // InternalSemanticNodesDsl.g:4179:2: ( ruleEnumerationLiteral )
+            // InternalSemanticNodesDsl.g:4180:3: ruleEnumerationLiteral
             {
              before(grammarAccess.getEnumerationAccess().getLiteralsEnumerationLiteralParserRuleCall_4_1_0()); 
             pushFollow(FOLLOW_2);
@@ -12556,17 +12787,17 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__EnumerationLiteral__ValueAssignment_1"
-    // InternalSemanticNodesDsl.g:4118:1: rule__EnumerationLiteral__ValueAssignment_1 : ( ruleEInt ) ;
+    // InternalSemanticNodesDsl.g:4189:1: rule__EnumerationLiteral__ValueAssignment_1 : ( ruleEInt ) ;
     public final void rule__EnumerationLiteral__ValueAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:4122:1: ( ( ruleEInt ) )
-            // InternalSemanticNodesDsl.g:4123:2: ( ruleEInt )
+            // InternalSemanticNodesDsl.g:4193:1: ( ( ruleEInt ) )
+            // InternalSemanticNodesDsl.g:4194:2: ( ruleEInt )
             {
-            // InternalSemanticNodesDsl.g:4123:2: ( ruleEInt )
-            // InternalSemanticNodesDsl.g:4124:3: ruleEInt
+            // InternalSemanticNodesDsl.g:4194:2: ( ruleEInt )
+            // InternalSemanticNodesDsl.g:4195:3: ruleEInt
             {
              before(grammarAccess.getEnumerationLiteralAccess().getValueEIntParserRuleCall_1_0()); 
             pushFollow(FOLLOW_2);
@@ -12597,17 +12828,17 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__EnumerationLiteral__LiteralAssignment_3"
-    // InternalSemanticNodesDsl.g:4133:1: rule__EnumerationLiteral__LiteralAssignment_3 : ( ruleEString ) ;
+    // InternalSemanticNodesDsl.g:4204:1: rule__EnumerationLiteral__LiteralAssignment_3 : ( ruleEString ) ;
     public final void rule__EnumerationLiteral__LiteralAssignment_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:4137:1: ( ( ruleEString ) )
-            // InternalSemanticNodesDsl.g:4138:2: ( ruleEString )
+            // InternalSemanticNodesDsl.g:4208:1: ( ( ruleEString ) )
+            // InternalSemanticNodesDsl.g:4209:2: ( ruleEString )
             {
-            // InternalSemanticNodesDsl.g:4138:2: ( ruleEString )
-            // InternalSemanticNodesDsl.g:4139:3: ruleEString
+            // InternalSemanticNodesDsl.g:4209:2: ( ruleEString )
+            // InternalSemanticNodesDsl.g:4210:3: ruleEString
             {
              before(grammarAccess.getEnumerationLiteralAccess().getLiteralEStringParserRuleCall_3_0()); 
             pushFollow(FOLLOW_2);
@@ -12637,112 +12868,30 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
     // $ANTLR end "rule__EnumerationLiteral__LiteralAssignment_3"
 
 
-    // $ANTLR start "rule__SemanticNode__AnnotationsAssignment_1_0"
-    // InternalSemanticNodesDsl.g:4148:1: rule__SemanticNode__AnnotationsAssignment_1_0 : ( ruleAnnotation ) ;
-    public final void rule__SemanticNode__AnnotationsAssignment_1_0() throws RecognitionException {
+    // $ANTLR start "rule__SemanticNode__AbstractAssignment_1"
+    // InternalSemanticNodesDsl.g:4219:1: rule__SemanticNode__AbstractAssignment_1 : ( ( 'abstract' ) ) ;
+    public final void rule__SemanticNode__AbstractAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:4152:1: ( ( ruleAnnotation ) )
-            // InternalSemanticNodesDsl.g:4153:2: ( ruleAnnotation )
+            // InternalSemanticNodesDsl.g:4223:1: ( ( ( 'abstract' ) ) )
+            // InternalSemanticNodesDsl.g:4224:2: ( ( 'abstract' ) )
             {
-            // InternalSemanticNodesDsl.g:4153:2: ( ruleAnnotation )
-            // InternalSemanticNodesDsl.g:4154:3: ruleAnnotation
+            // InternalSemanticNodesDsl.g:4224:2: ( ( 'abstract' ) )
+            // InternalSemanticNodesDsl.g:4225:3: ( 'abstract' )
             {
-             before(grammarAccess.getSemanticNodeAccess().getAnnotationsAnnotationParserRuleCall_1_0_0()); 
-            pushFollow(FOLLOW_2);
-            ruleAnnotation();
-
-            state._fsp--;
-
-             after(grammarAccess.getSemanticNodeAccess().getAnnotationsAnnotationParserRuleCall_1_0_0()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__SemanticNode__AnnotationsAssignment_1_0"
-
-
-    // $ANTLR start "rule__SemanticNode__AnnotationsAssignment_1_1"
-    // InternalSemanticNodesDsl.g:4163:1: rule__SemanticNode__AnnotationsAssignment_1_1 : ( ruleAnnotation ) ;
-    public final void rule__SemanticNode__AnnotationsAssignment_1_1() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalSemanticNodesDsl.g:4167:1: ( ( ruleAnnotation ) )
-            // InternalSemanticNodesDsl.g:4168:2: ( ruleAnnotation )
+             before(grammarAccess.getSemanticNodeAccess().getAbstractAbstractKeyword_1_0()); 
+            // InternalSemanticNodesDsl.g:4226:3: ( 'abstract' )
+            // InternalSemanticNodesDsl.g:4227:4: 'abstract'
             {
-            // InternalSemanticNodesDsl.g:4168:2: ( ruleAnnotation )
-            // InternalSemanticNodesDsl.g:4169:3: ruleAnnotation
-            {
-             before(grammarAccess.getSemanticNodeAccess().getAnnotationsAnnotationParserRuleCall_1_1_0()); 
-            pushFollow(FOLLOW_2);
-            ruleAnnotation();
-
-            state._fsp--;
-
-             after(grammarAccess.getSemanticNodeAccess().getAnnotationsAnnotationParserRuleCall_1_1_0()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__SemanticNode__AnnotationsAssignment_1_1"
-
-
-    // $ANTLR start "rule__SemanticNode__AbstractAssignment_2"
-    // InternalSemanticNodesDsl.g:4178:1: rule__SemanticNode__AbstractAssignment_2 : ( ( 'abstract' ) ) ;
-    public final void rule__SemanticNode__AbstractAssignment_2() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalSemanticNodesDsl.g:4182:1: ( ( ( 'abstract' ) ) )
-            // InternalSemanticNodesDsl.g:4183:2: ( ( 'abstract' ) )
-            {
-            // InternalSemanticNodesDsl.g:4183:2: ( ( 'abstract' ) )
-            // InternalSemanticNodesDsl.g:4184:3: ( 'abstract' )
-            {
-             before(grammarAccess.getSemanticNodeAccess().getAbstractAbstractKeyword_2_0()); 
-            // InternalSemanticNodesDsl.g:4185:3: ( 'abstract' )
-            // InternalSemanticNodesDsl.g:4186:4: 'abstract'
-            {
-             before(grammarAccess.getSemanticNodeAccess().getAbstractAbstractKeyword_2_0()); 
+             before(grammarAccess.getSemanticNodeAccess().getAbstractAbstractKeyword_1_0()); 
             match(input,30,FOLLOW_2); 
-             after(grammarAccess.getSemanticNodeAccess().getAbstractAbstractKeyword_2_0()); 
+             after(grammarAccess.getSemanticNodeAccess().getAbstractAbstractKeyword_1_0()); 
 
             }
 
-             after(grammarAccess.getSemanticNodeAccess().getAbstractAbstractKeyword_2_0()); 
+             after(grammarAccess.getSemanticNodeAccess().getAbstractAbstractKeyword_1_0()); 
 
             }
 
@@ -12761,29 +12910,29 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
         }
         return ;
     }
-    // $ANTLR end "rule__SemanticNode__AbstractAssignment_2"
+    // $ANTLR end "rule__SemanticNode__AbstractAssignment_1"
 
 
-    // $ANTLR start "rule__SemanticNode__NameAssignment_4"
-    // InternalSemanticNodesDsl.g:4197:1: rule__SemanticNode__NameAssignment_4 : ( ruleEString ) ;
-    public final void rule__SemanticNode__NameAssignment_4() throws RecognitionException {
+    // $ANTLR start "rule__SemanticNode__NameAssignment_3"
+    // InternalSemanticNodesDsl.g:4238:1: rule__SemanticNode__NameAssignment_3 : ( ruleEString ) ;
+    public final void rule__SemanticNode__NameAssignment_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:4201:1: ( ( ruleEString ) )
-            // InternalSemanticNodesDsl.g:4202:2: ( ruleEString )
+            // InternalSemanticNodesDsl.g:4242:1: ( ( ruleEString ) )
+            // InternalSemanticNodesDsl.g:4243:2: ( ruleEString )
             {
-            // InternalSemanticNodesDsl.g:4202:2: ( ruleEString )
-            // InternalSemanticNodesDsl.g:4203:3: ruleEString
+            // InternalSemanticNodesDsl.g:4243:2: ( ruleEString )
+            // InternalSemanticNodesDsl.g:4244:3: ruleEString
             {
-             before(grammarAccess.getSemanticNodeAccess().getNameEStringParserRuleCall_4_0()); 
+             before(grammarAccess.getSemanticNodeAccess().getNameEStringParserRuleCall_3_0()); 
             pushFollow(FOLLOW_2);
             ruleEString();
 
             state._fsp--;
 
-             after(grammarAccess.getSemanticNodeAccess().getNameEStringParserRuleCall_4_0()); 
+             after(grammarAccess.getSemanticNodeAccess().getNameEStringParserRuleCall_3_0()); 
 
             }
 
@@ -12802,29 +12951,29 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
         }
         return ;
     }
-    // $ANTLR end "rule__SemanticNode__NameAssignment_4"
+    // $ANTLR end "rule__SemanticNode__NameAssignment_3"
 
 
-    // $ANTLR start "rule__SemanticNode__PropertiesAssignment_6_0"
-    // InternalSemanticNodesDsl.g:4212:1: rule__SemanticNode__PropertiesAssignment_6_0 : ( ruleProperty ) ;
-    public final void rule__SemanticNode__PropertiesAssignment_6_0() throws RecognitionException {
+    // $ANTLR start "rule__SemanticNode__PropertiesAssignment_5_0"
+    // InternalSemanticNodesDsl.g:4253:1: rule__SemanticNode__PropertiesAssignment_5_0 : ( ruleProperty ) ;
+    public final void rule__SemanticNode__PropertiesAssignment_5_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:4216:1: ( ( ruleProperty ) )
-            // InternalSemanticNodesDsl.g:4217:2: ( ruleProperty )
+            // InternalSemanticNodesDsl.g:4257:1: ( ( ruleProperty ) )
+            // InternalSemanticNodesDsl.g:4258:2: ( ruleProperty )
             {
-            // InternalSemanticNodesDsl.g:4217:2: ( ruleProperty )
-            // InternalSemanticNodesDsl.g:4218:3: ruleProperty
+            // InternalSemanticNodesDsl.g:4258:2: ( ruleProperty )
+            // InternalSemanticNodesDsl.g:4259:3: ruleProperty
             {
-             before(grammarAccess.getSemanticNodeAccess().getPropertiesPropertyParserRuleCall_6_0_0()); 
+             before(grammarAccess.getSemanticNodeAccess().getPropertiesPropertyParserRuleCall_5_0_0()); 
             pushFollow(FOLLOW_2);
             ruleProperty();
 
             state._fsp--;
 
-             after(grammarAccess.getSemanticNodeAccess().getPropertiesPropertyParserRuleCall_6_0_0()); 
+             after(grammarAccess.getSemanticNodeAccess().getPropertiesPropertyParserRuleCall_5_0_0()); 
 
             }
 
@@ -12843,29 +12992,29 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
         }
         return ;
     }
-    // $ANTLR end "rule__SemanticNode__PropertiesAssignment_6_0"
+    // $ANTLR end "rule__SemanticNode__PropertiesAssignment_5_0"
 
 
-    // $ANTLR start "rule__SemanticNode__PropertiesAssignment_6_1"
-    // InternalSemanticNodesDsl.g:4227:1: rule__SemanticNode__PropertiesAssignment_6_1 : ( ruleProperty ) ;
-    public final void rule__SemanticNode__PropertiesAssignment_6_1() throws RecognitionException {
+    // $ANTLR start "rule__SemanticNode__PropertiesAssignment_5_1"
+    // InternalSemanticNodesDsl.g:4268:1: rule__SemanticNode__PropertiesAssignment_5_1 : ( ruleProperty ) ;
+    public final void rule__SemanticNode__PropertiesAssignment_5_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:4231:1: ( ( ruleProperty ) )
-            // InternalSemanticNodesDsl.g:4232:2: ( ruleProperty )
+            // InternalSemanticNodesDsl.g:4272:1: ( ( ruleProperty ) )
+            // InternalSemanticNodesDsl.g:4273:2: ( ruleProperty )
             {
-            // InternalSemanticNodesDsl.g:4232:2: ( ruleProperty )
-            // InternalSemanticNodesDsl.g:4233:3: ruleProperty
+            // InternalSemanticNodesDsl.g:4273:2: ( ruleProperty )
+            // InternalSemanticNodesDsl.g:4274:3: ruleProperty
             {
-             before(grammarAccess.getSemanticNodeAccess().getPropertiesPropertyParserRuleCall_6_1_0()); 
+             before(grammarAccess.getSemanticNodeAccess().getPropertiesPropertyParserRuleCall_5_1_0()); 
             pushFollow(FOLLOW_2);
             ruleProperty();
 
             state._fsp--;
 
-             after(grammarAccess.getSemanticNodeAccess().getPropertiesPropertyParserRuleCall_6_1_0()); 
+             after(grammarAccess.getSemanticNodeAccess().getPropertiesPropertyParserRuleCall_5_1_0()); 
 
             }
 
@@ -12884,29 +13033,29 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
         }
         return ;
     }
-    // $ANTLR end "rule__SemanticNode__PropertiesAssignment_6_1"
+    // $ANTLR end "rule__SemanticNode__PropertiesAssignment_5_1"
 
 
-    // $ANTLR start "rule__SemanticNode__MetadataAssignment_8_1"
-    // InternalSemanticNodesDsl.g:4242:1: rule__SemanticNode__MetadataAssignment_8_1 : ( ruleMetaData ) ;
-    public final void rule__SemanticNode__MetadataAssignment_8_1() throws RecognitionException {
+    // $ANTLR start "rule__SemanticNode__MetaDataValueAssignment_7_1"
+    // InternalSemanticNodesDsl.g:4283:1: rule__SemanticNode__MetaDataValueAssignment_7_1 : ( ruleMetaDataValue ) ;
+    public final void rule__SemanticNode__MetaDataValueAssignment_7_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:4246:1: ( ( ruleMetaData ) )
-            // InternalSemanticNodesDsl.g:4247:2: ( ruleMetaData )
+            // InternalSemanticNodesDsl.g:4287:1: ( ( ruleMetaDataValue ) )
+            // InternalSemanticNodesDsl.g:4288:2: ( ruleMetaDataValue )
             {
-            // InternalSemanticNodesDsl.g:4247:2: ( ruleMetaData )
-            // InternalSemanticNodesDsl.g:4248:3: ruleMetaData
+            // InternalSemanticNodesDsl.g:4288:2: ( ruleMetaDataValue )
+            // InternalSemanticNodesDsl.g:4289:3: ruleMetaDataValue
             {
-             before(grammarAccess.getSemanticNodeAccess().getMetadataMetaDataParserRuleCall_8_1_0()); 
+             before(grammarAccess.getSemanticNodeAccess().getMetaDataValueMetaDataValueParserRuleCall_7_1_0()); 
             pushFollow(FOLLOW_2);
-            ruleMetaData();
+            ruleMetaDataValue();
 
             state._fsp--;
 
-             after(grammarAccess.getSemanticNodeAccess().getMetadataMetaDataParserRuleCall_8_1_0()); 
+             after(grammarAccess.getSemanticNodeAccess().getMetaDataValueMetaDataValueParserRuleCall_7_1_0()); 
 
             }
 
@@ -12925,29 +13074,29 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
         }
         return ;
     }
-    // $ANTLR end "rule__SemanticNode__MetadataAssignment_8_1"
+    // $ANTLR end "rule__SemanticNode__MetaDataValueAssignment_7_1"
 
 
-    // $ANTLR start "rule__SemanticNode__MetadataAssignment_8_2_1"
-    // InternalSemanticNodesDsl.g:4257:1: rule__SemanticNode__MetadataAssignment_8_2_1 : ( ruleMetaData ) ;
-    public final void rule__SemanticNode__MetadataAssignment_8_2_1() throws RecognitionException {
+    // $ANTLR start "rule__SemanticNode__MetaDataValueAssignment_7_2_1"
+    // InternalSemanticNodesDsl.g:4298:1: rule__SemanticNode__MetaDataValueAssignment_7_2_1 : ( ruleMetaDataValue ) ;
+    public final void rule__SemanticNode__MetaDataValueAssignment_7_2_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:4261:1: ( ( ruleMetaData ) )
-            // InternalSemanticNodesDsl.g:4262:2: ( ruleMetaData )
+            // InternalSemanticNodesDsl.g:4302:1: ( ( ruleMetaDataValue ) )
+            // InternalSemanticNodesDsl.g:4303:2: ( ruleMetaDataValue )
             {
-            // InternalSemanticNodesDsl.g:4262:2: ( ruleMetaData )
-            // InternalSemanticNodesDsl.g:4263:3: ruleMetaData
+            // InternalSemanticNodesDsl.g:4303:2: ( ruleMetaDataValue )
+            // InternalSemanticNodesDsl.g:4304:3: ruleMetaDataValue
             {
-             before(grammarAccess.getSemanticNodeAccess().getMetadataMetaDataParserRuleCall_8_2_1_0()); 
+             before(grammarAccess.getSemanticNodeAccess().getMetaDataValueMetaDataValueParserRuleCall_7_2_1_0()); 
             pushFollow(FOLLOW_2);
-            ruleMetaData();
+            ruleMetaDataValue();
 
             state._fsp--;
 
-             after(grammarAccess.getSemanticNodeAccess().getMetadataMetaDataParserRuleCall_8_2_1_0()); 
+             after(grammarAccess.getSemanticNodeAccess().getMetaDataValueMetaDataValueParserRuleCall_7_2_1_0()); 
 
             }
 
@@ -12966,21 +13115,21 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
         }
         return ;
     }
-    // $ANTLR end "rule__SemanticNode__MetadataAssignment_8_2_1"
+    // $ANTLR end "rule__SemanticNode__MetaDataValueAssignment_7_2_1"
 
 
     // $ANTLR start "rule__ObjectProperty__NameAssignment_1"
-    // InternalSemanticNodesDsl.g:4272:1: rule__ObjectProperty__NameAssignment_1 : ( ruleEString ) ;
+    // InternalSemanticNodesDsl.g:4313:1: rule__ObjectProperty__NameAssignment_1 : ( ruleEString ) ;
     public final void rule__ObjectProperty__NameAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:4276:1: ( ( ruleEString ) )
-            // InternalSemanticNodesDsl.g:4277:2: ( ruleEString )
+            // InternalSemanticNodesDsl.g:4317:1: ( ( ruleEString ) )
+            // InternalSemanticNodesDsl.g:4318:2: ( ruleEString )
             {
-            // InternalSemanticNodesDsl.g:4277:2: ( ruleEString )
-            // InternalSemanticNodesDsl.g:4278:3: ruleEString
+            // InternalSemanticNodesDsl.g:4318:2: ( ruleEString )
+            // InternalSemanticNodesDsl.g:4319:3: ruleEString
             {
              before(grammarAccess.getObjectPropertyAccess().getNameEStringParserRuleCall_1_0()); 
             pushFollow(FOLLOW_2);
@@ -13011,21 +13160,21 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__ObjectProperty__RangeAssignment_3"
-    // InternalSemanticNodesDsl.g:4287:1: rule__ObjectProperty__RangeAssignment_3 : ( ( ruleEString ) ) ;
+    // InternalSemanticNodesDsl.g:4328:1: rule__ObjectProperty__RangeAssignment_3 : ( ( ruleEString ) ) ;
     public final void rule__ObjectProperty__RangeAssignment_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:4291:1: ( ( ( ruleEString ) ) )
-            // InternalSemanticNodesDsl.g:4292:2: ( ( ruleEString ) )
+            // InternalSemanticNodesDsl.g:4332:1: ( ( ( ruleEString ) ) )
+            // InternalSemanticNodesDsl.g:4333:2: ( ( ruleEString ) )
             {
-            // InternalSemanticNodesDsl.g:4292:2: ( ( ruleEString ) )
-            // InternalSemanticNodesDsl.g:4293:3: ( ruleEString )
+            // InternalSemanticNodesDsl.g:4333:2: ( ( ruleEString ) )
+            // InternalSemanticNodesDsl.g:4334:3: ( ruleEString )
             {
              before(grammarAccess.getObjectPropertyAccess().getRangeSemanticNodeCrossReference_3_0()); 
-            // InternalSemanticNodesDsl.g:4294:3: ( ruleEString )
-            // InternalSemanticNodesDsl.g:4295:4: ruleEString
+            // InternalSemanticNodesDsl.g:4335:3: ( ruleEString )
+            // InternalSemanticNodesDsl.g:4336:4: ruleEString
             {
              before(grammarAccess.getObjectPropertyAccess().getRangeSemanticNodeEStringParserRuleCall_3_0_1()); 
             pushFollow(FOLLOW_2);
@@ -13060,17 +13209,17 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__ObjectProperty__LowerBoundAssignment_4_1"
-    // InternalSemanticNodesDsl.g:4306:1: rule__ObjectProperty__LowerBoundAssignment_4_1 : ( ruleEInt ) ;
+    // InternalSemanticNodesDsl.g:4347:1: rule__ObjectProperty__LowerBoundAssignment_4_1 : ( ruleEInt ) ;
     public final void rule__ObjectProperty__LowerBoundAssignment_4_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:4310:1: ( ( ruleEInt ) )
-            // InternalSemanticNodesDsl.g:4311:2: ( ruleEInt )
+            // InternalSemanticNodesDsl.g:4351:1: ( ( ruleEInt ) )
+            // InternalSemanticNodesDsl.g:4352:2: ( ruleEInt )
             {
-            // InternalSemanticNodesDsl.g:4311:2: ( ruleEInt )
-            // InternalSemanticNodesDsl.g:4312:3: ruleEInt
+            // InternalSemanticNodesDsl.g:4352:2: ( ruleEInt )
+            // InternalSemanticNodesDsl.g:4353:3: ruleEInt
             {
              before(grammarAccess.getObjectPropertyAccess().getLowerBoundEIntParserRuleCall_4_1_0()); 
             pushFollow(FOLLOW_2);
@@ -13101,17 +13250,17 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__ObjectProperty__UpperBoundAssignment_4_3"
-    // InternalSemanticNodesDsl.g:4321:1: rule__ObjectProperty__UpperBoundAssignment_4_3 : ( ruleEInt ) ;
+    // InternalSemanticNodesDsl.g:4362:1: rule__ObjectProperty__UpperBoundAssignment_4_3 : ( ruleEInt ) ;
     public final void rule__ObjectProperty__UpperBoundAssignment_4_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:4325:1: ( ( ruleEInt ) )
-            // InternalSemanticNodesDsl.g:4326:2: ( ruleEInt )
+            // InternalSemanticNodesDsl.g:4366:1: ( ( ruleEInt ) )
+            // InternalSemanticNodesDsl.g:4367:2: ( ruleEInt )
             {
-            // InternalSemanticNodesDsl.g:4326:2: ( ruleEInt )
-            // InternalSemanticNodesDsl.g:4327:3: ruleEInt
+            // InternalSemanticNodesDsl.g:4367:2: ( ruleEInt )
+            // InternalSemanticNodesDsl.g:4368:3: ruleEInt
             {
              before(grammarAccess.getObjectPropertyAccess().getUpperBoundEIntParserRuleCall_4_3_0()); 
             pushFollow(FOLLOW_2);
@@ -13141,26 +13290,26 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
     // $ANTLR end "rule__ObjectProperty__UpperBoundAssignment_4_3"
 
 
-    // $ANTLR start "rule__ObjectProperty__MetadataAssignment_5_1"
-    // InternalSemanticNodesDsl.g:4336:1: rule__ObjectProperty__MetadataAssignment_5_1 : ( ruleMetaData ) ;
-    public final void rule__ObjectProperty__MetadataAssignment_5_1() throws RecognitionException {
+    // $ANTLR start "rule__ObjectProperty__MetaDataValueAssignment_5_1"
+    // InternalSemanticNodesDsl.g:4377:1: rule__ObjectProperty__MetaDataValueAssignment_5_1 : ( ruleMetaDataValue ) ;
+    public final void rule__ObjectProperty__MetaDataValueAssignment_5_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:4340:1: ( ( ruleMetaData ) )
-            // InternalSemanticNodesDsl.g:4341:2: ( ruleMetaData )
+            // InternalSemanticNodesDsl.g:4381:1: ( ( ruleMetaDataValue ) )
+            // InternalSemanticNodesDsl.g:4382:2: ( ruleMetaDataValue )
             {
-            // InternalSemanticNodesDsl.g:4341:2: ( ruleMetaData )
-            // InternalSemanticNodesDsl.g:4342:3: ruleMetaData
+            // InternalSemanticNodesDsl.g:4382:2: ( ruleMetaDataValue )
+            // InternalSemanticNodesDsl.g:4383:3: ruleMetaDataValue
             {
-             before(grammarAccess.getObjectPropertyAccess().getMetadataMetaDataParserRuleCall_5_1_0()); 
+             before(grammarAccess.getObjectPropertyAccess().getMetaDataValueMetaDataValueParserRuleCall_5_1_0()); 
             pushFollow(FOLLOW_2);
-            ruleMetaData();
+            ruleMetaDataValue();
 
             state._fsp--;
 
-             after(grammarAccess.getObjectPropertyAccess().getMetadataMetaDataParserRuleCall_5_1_0()); 
+             after(grammarAccess.getObjectPropertyAccess().getMetaDataValueMetaDataValueParserRuleCall_5_1_0()); 
 
             }
 
@@ -13179,29 +13328,29 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
         }
         return ;
     }
-    // $ANTLR end "rule__ObjectProperty__MetadataAssignment_5_1"
+    // $ANTLR end "rule__ObjectProperty__MetaDataValueAssignment_5_1"
 
 
-    // $ANTLR start "rule__ObjectProperty__MetadataAssignment_5_2_1"
-    // InternalSemanticNodesDsl.g:4351:1: rule__ObjectProperty__MetadataAssignment_5_2_1 : ( ruleMetaData ) ;
-    public final void rule__ObjectProperty__MetadataAssignment_5_2_1() throws RecognitionException {
+    // $ANTLR start "rule__ObjectProperty__MetaDataValueAssignment_5_2_1"
+    // InternalSemanticNodesDsl.g:4392:1: rule__ObjectProperty__MetaDataValueAssignment_5_2_1 : ( ruleMetaDataValue ) ;
+    public final void rule__ObjectProperty__MetaDataValueAssignment_5_2_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:4355:1: ( ( ruleMetaData ) )
-            // InternalSemanticNodesDsl.g:4356:2: ( ruleMetaData )
+            // InternalSemanticNodesDsl.g:4396:1: ( ( ruleMetaDataValue ) )
+            // InternalSemanticNodesDsl.g:4397:2: ( ruleMetaDataValue )
             {
-            // InternalSemanticNodesDsl.g:4356:2: ( ruleMetaData )
-            // InternalSemanticNodesDsl.g:4357:3: ruleMetaData
+            // InternalSemanticNodesDsl.g:4397:2: ( ruleMetaDataValue )
+            // InternalSemanticNodesDsl.g:4398:3: ruleMetaDataValue
             {
-             before(grammarAccess.getObjectPropertyAccess().getMetadataMetaDataParserRuleCall_5_2_1_0()); 
+             before(grammarAccess.getObjectPropertyAccess().getMetaDataValueMetaDataValueParserRuleCall_5_2_1_0()); 
             pushFollow(FOLLOW_2);
-            ruleMetaData();
+            ruleMetaDataValue();
 
             state._fsp--;
 
-             after(grammarAccess.getObjectPropertyAccess().getMetadataMetaDataParserRuleCall_5_2_1_0()); 
+             after(grammarAccess.getObjectPropertyAccess().getMetaDataValueMetaDataValueParserRuleCall_5_2_1_0()); 
 
             }
 
@@ -13220,21 +13369,21 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
         }
         return ;
     }
-    // $ANTLR end "rule__ObjectProperty__MetadataAssignment_5_2_1"
+    // $ANTLR end "rule__ObjectProperty__MetaDataValueAssignment_5_2_1"
 
 
     // $ANTLR start "rule__PrimitiveTypeDataProperty__NameAssignment_1"
-    // InternalSemanticNodesDsl.g:4366:1: rule__PrimitiveTypeDataProperty__NameAssignment_1 : ( ruleEString ) ;
+    // InternalSemanticNodesDsl.g:4407:1: rule__PrimitiveTypeDataProperty__NameAssignment_1 : ( ruleEString ) ;
     public final void rule__PrimitiveTypeDataProperty__NameAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:4370:1: ( ( ruleEString ) )
-            // InternalSemanticNodesDsl.g:4371:2: ( ruleEString )
+            // InternalSemanticNodesDsl.g:4411:1: ( ( ruleEString ) )
+            // InternalSemanticNodesDsl.g:4412:2: ( ruleEString )
             {
-            // InternalSemanticNodesDsl.g:4371:2: ( ruleEString )
-            // InternalSemanticNodesDsl.g:4372:3: ruleEString
+            // InternalSemanticNodesDsl.g:4412:2: ( ruleEString )
+            // InternalSemanticNodesDsl.g:4413:3: ruleEString
             {
              before(grammarAccess.getPrimitiveTypeDataPropertyAccess().getNameEStringParserRuleCall_1_0()); 
             pushFollow(FOLLOW_2);
@@ -13265,17 +13414,17 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__PrimitiveTypeDataProperty__TypeAssignment_2_1"
-    // InternalSemanticNodesDsl.g:4381:1: rule__PrimitiveTypeDataProperty__TypeAssignment_2_1 : ( ruleType ) ;
+    // InternalSemanticNodesDsl.g:4422:1: rule__PrimitiveTypeDataProperty__TypeAssignment_2_1 : ( ruleType ) ;
     public final void rule__PrimitiveTypeDataProperty__TypeAssignment_2_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:4385:1: ( ( ruleType ) )
-            // InternalSemanticNodesDsl.g:4386:2: ( ruleType )
+            // InternalSemanticNodesDsl.g:4426:1: ( ( ruleType ) )
+            // InternalSemanticNodesDsl.g:4427:2: ( ruleType )
             {
-            // InternalSemanticNodesDsl.g:4386:2: ( ruleType )
-            // InternalSemanticNodesDsl.g:4387:3: ruleType
+            // InternalSemanticNodesDsl.g:4427:2: ( ruleType )
+            // InternalSemanticNodesDsl.g:4428:3: ruleType
             {
              before(grammarAccess.getPrimitiveTypeDataPropertyAccess().getTypeTypeEnumRuleCall_2_1_0()); 
             pushFollow(FOLLOW_2);
@@ -13306,17 +13455,17 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__PrimitiveTypeDataProperty__LowerBoundAssignment_3_1"
-    // InternalSemanticNodesDsl.g:4396:1: rule__PrimitiveTypeDataProperty__LowerBoundAssignment_3_1 : ( ruleEInt ) ;
+    // InternalSemanticNodesDsl.g:4437:1: rule__PrimitiveTypeDataProperty__LowerBoundAssignment_3_1 : ( ruleEInt ) ;
     public final void rule__PrimitiveTypeDataProperty__LowerBoundAssignment_3_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:4400:1: ( ( ruleEInt ) )
-            // InternalSemanticNodesDsl.g:4401:2: ( ruleEInt )
+            // InternalSemanticNodesDsl.g:4441:1: ( ( ruleEInt ) )
+            // InternalSemanticNodesDsl.g:4442:2: ( ruleEInt )
             {
-            // InternalSemanticNodesDsl.g:4401:2: ( ruleEInt )
-            // InternalSemanticNodesDsl.g:4402:3: ruleEInt
+            // InternalSemanticNodesDsl.g:4442:2: ( ruleEInt )
+            // InternalSemanticNodesDsl.g:4443:3: ruleEInt
             {
              before(grammarAccess.getPrimitiveTypeDataPropertyAccess().getLowerBoundEIntParserRuleCall_3_1_0()); 
             pushFollow(FOLLOW_2);
@@ -13347,17 +13496,17 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__PrimitiveTypeDataProperty__UpperBoundAssignment_3_3"
-    // InternalSemanticNodesDsl.g:4411:1: rule__PrimitiveTypeDataProperty__UpperBoundAssignment_3_3 : ( ruleEInt ) ;
+    // InternalSemanticNodesDsl.g:4452:1: rule__PrimitiveTypeDataProperty__UpperBoundAssignment_3_3 : ( ruleEInt ) ;
     public final void rule__PrimitiveTypeDataProperty__UpperBoundAssignment_3_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:4415:1: ( ( ruleEInt ) )
-            // InternalSemanticNodesDsl.g:4416:2: ( ruleEInt )
+            // InternalSemanticNodesDsl.g:4456:1: ( ( ruleEInt ) )
+            // InternalSemanticNodesDsl.g:4457:2: ( ruleEInt )
             {
-            // InternalSemanticNodesDsl.g:4416:2: ( ruleEInt )
-            // InternalSemanticNodesDsl.g:4417:3: ruleEInt
+            // InternalSemanticNodesDsl.g:4457:2: ( ruleEInt )
+            // InternalSemanticNodesDsl.g:4458:3: ruleEInt
             {
              before(grammarAccess.getPrimitiveTypeDataPropertyAccess().getUpperBoundEIntParserRuleCall_3_3_0()); 
             pushFollow(FOLLOW_2);
@@ -13387,26 +13536,26 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
     // $ANTLR end "rule__PrimitiveTypeDataProperty__UpperBoundAssignment_3_3"
 
 
-    // $ANTLR start "rule__PrimitiveTypeDataProperty__MetadataAssignment_4_1"
-    // InternalSemanticNodesDsl.g:4426:1: rule__PrimitiveTypeDataProperty__MetadataAssignment_4_1 : ( ruleMetaData ) ;
-    public final void rule__PrimitiveTypeDataProperty__MetadataAssignment_4_1() throws RecognitionException {
+    // $ANTLR start "rule__PrimitiveTypeDataProperty__MetaDataValueAssignment_4_1"
+    // InternalSemanticNodesDsl.g:4467:1: rule__PrimitiveTypeDataProperty__MetaDataValueAssignment_4_1 : ( ruleMetaDataValue ) ;
+    public final void rule__PrimitiveTypeDataProperty__MetaDataValueAssignment_4_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:4430:1: ( ( ruleMetaData ) )
-            // InternalSemanticNodesDsl.g:4431:2: ( ruleMetaData )
+            // InternalSemanticNodesDsl.g:4471:1: ( ( ruleMetaDataValue ) )
+            // InternalSemanticNodesDsl.g:4472:2: ( ruleMetaDataValue )
             {
-            // InternalSemanticNodesDsl.g:4431:2: ( ruleMetaData )
-            // InternalSemanticNodesDsl.g:4432:3: ruleMetaData
+            // InternalSemanticNodesDsl.g:4472:2: ( ruleMetaDataValue )
+            // InternalSemanticNodesDsl.g:4473:3: ruleMetaDataValue
             {
-             before(grammarAccess.getPrimitiveTypeDataPropertyAccess().getMetadataMetaDataParserRuleCall_4_1_0()); 
+             before(grammarAccess.getPrimitiveTypeDataPropertyAccess().getMetaDataValueMetaDataValueParserRuleCall_4_1_0()); 
             pushFollow(FOLLOW_2);
-            ruleMetaData();
+            ruleMetaDataValue();
 
             state._fsp--;
 
-             after(grammarAccess.getPrimitiveTypeDataPropertyAccess().getMetadataMetaDataParserRuleCall_4_1_0()); 
+             after(grammarAccess.getPrimitiveTypeDataPropertyAccess().getMetaDataValueMetaDataValueParserRuleCall_4_1_0()); 
 
             }
 
@@ -13425,29 +13574,29 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
         }
         return ;
     }
-    // $ANTLR end "rule__PrimitiveTypeDataProperty__MetadataAssignment_4_1"
+    // $ANTLR end "rule__PrimitiveTypeDataProperty__MetaDataValueAssignment_4_1"
 
 
-    // $ANTLR start "rule__PrimitiveTypeDataProperty__MetadataAssignment_4_2_1"
-    // InternalSemanticNodesDsl.g:4441:1: rule__PrimitiveTypeDataProperty__MetadataAssignment_4_2_1 : ( ruleMetaData ) ;
-    public final void rule__PrimitiveTypeDataProperty__MetadataAssignment_4_2_1() throws RecognitionException {
+    // $ANTLR start "rule__PrimitiveTypeDataProperty__MetaDataValueAssignment_4_2_1"
+    // InternalSemanticNodesDsl.g:4482:1: rule__PrimitiveTypeDataProperty__MetaDataValueAssignment_4_2_1 : ( ruleMetaDataValue ) ;
+    public final void rule__PrimitiveTypeDataProperty__MetaDataValueAssignment_4_2_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:4445:1: ( ( ruleMetaData ) )
-            // InternalSemanticNodesDsl.g:4446:2: ( ruleMetaData )
+            // InternalSemanticNodesDsl.g:4486:1: ( ( ruleMetaDataValue ) )
+            // InternalSemanticNodesDsl.g:4487:2: ( ruleMetaDataValue )
             {
-            // InternalSemanticNodesDsl.g:4446:2: ( ruleMetaData )
-            // InternalSemanticNodesDsl.g:4447:3: ruleMetaData
+            // InternalSemanticNodesDsl.g:4487:2: ( ruleMetaDataValue )
+            // InternalSemanticNodesDsl.g:4488:3: ruleMetaDataValue
             {
-             before(grammarAccess.getPrimitiveTypeDataPropertyAccess().getMetadataMetaDataParserRuleCall_4_2_1_0()); 
+             before(grammarAccess.getPrimitiveTypeDataPropertyAccess().getMetaDataValueMetaDataValueParserRuleCall_4_2_1_0()); 
             pushFollow(FOLLOW_2);
-            ruleMetaData();
+            ruleMetaDataValue();
 
             state._fsp--;
 
-             after(grammarAccess.getPrimitiveTypeDataPropertyAccess().getMetadataMetaDataParserRuleCall_4_2_1_0()); 
+             after(grammarAccess.getPrimitiveTypeDataPropertyAccess().getMetaDataValueMetaDataValueParserRuleCall_4_2_1_0()); 
 
             }
 
@@ -13466,21 +13615,21 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
         }
         return ;
     }
-    // $ANTLR end "rule__PrimitiveTypeDataProperty__MetadataAssignment_4_2_1"
+    // $ANTLR end "rule__PrimitiveTypeDataProperty__MetaDataValueAssignment_4_2_1"
 
 
     // $ANTLR start "rule__EnumerationDataProperty__NameAssignment_1"
-    // InternalSemanticNodesDsl.g:4456:1: rule__EnumerationDataProperty__NameAssignment_1 : ( ruleEString ) ;
+    // InternalSemanticNodesDsl.g:4497:1: rule__EnumerationDataProperty__NameAssignment_1 : ( ruleEString ) ;
     public final void rule__EnumerationDataProperty__NameAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:4460:1: ( ( ruleEString ) )
-            // InternalSemanticNodesDsl.g:4461:2: ( ruleEString )
+            // InternalSemanticNodesDsl.g:4501:1: ( ( ruleEString ) )
+            // InternalSemanticNodesDsl.g:4502:2: ( ruleEString )
             {
-            // InternalSemanticNodesDsl.g:4461:2: ( ruleEString )
-            // InternalSemanticNodesDsl.g:4462:3: ruleEString
+            // InternalSemanticNodesDsl.g:4502:2: ( ruleEString )
+            // InternalSemanticNodesDsl.g:4503:3: ruleEString
             {
              before(grammarAccess.getEnumerationDataPropertyAccess().getNameEStringParserRuleCall_1_0()); 
             pushFollow(FOLLOW_2);
@@ -13511,21 +13660,21 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__EnumerationDataProperty__TypeAssignment_2_1"
-    // InternalSemanticNodesDsl.g:4471:1: rule__EnumerationDataProperty__TypeAssignment_2_1 : ( ( ruleEString ) ) ;
+    // InternalSemanticNodesDsl.g:4512:1: rule__EnumerationDataProperty__TypeAssignment_2_1 : ( ( ruleEString ) ) ;
     public final void rule__EnumerationDataProperty__TypeAssignment_2_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:4475:1: ( ( ( ruleEString ) ) )
-            // InternalSemanticNodesDsl.g:4476:2: ( ( ruleEString ) )
+            // InternalSemanticNodesDsl.g:4516:1: ( ( ( ruleEString ) ) )
+            // InternalSemanticNodesDsl.g:4517:2: ( ( ruleEString ) )
             {
-            // InternalSemanticNodesDsl.g:4476:2: ( ( ruleEString ) )
-            // InternalSemanticNodesDsl.g:4477:3: ( ruleEString )
+            // InternalSemanticNodesDsl.g:4517:2: ( ( ruleEString ) )
+            // InternalSemanticNodesDsl.g:4518:3: ( ruleEString )
             {
              before(grammarAccess.getEnumerationDataPropertyAccess().getTypeEnumerationCrossReference_2_1_0()); 
-            // InternalSemanticNodesDsl.g:4478:3: ( ruleEString )
-            // InternalSemanticNodesDsl.g:4479:4: ruleEString
+            // InternalSemanticNodesDsl.g:4519:3: ( ruleEString )
+            // InternalSemanticNodesDsl.g:4520:4: ruleEString
             {
              before(grammarAccess.getEnumerationDataPropertyAccess().getTypeEnumerationEStringParserRuleCall_2_1_0_1()); 
             pushFollow(FOLLOW_2);
@@ -13560,17 +13709,17 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__EnumerationDataProperty__LowerBoundAssignment_3_1"
-    // InternalSemanticNodesDsl.g:4490:1: rule__EnumerationDataProperty__LowerBoundAssignment_3_1 : ( ruleEInt ) ;
+    // InternalSemanticNodesDsl.g:4531:1: rule__EnumerationDataProperty__LowerBoundAssignment_3_1 : ( ruleEInt ) ;
     public final void rule__EnumerationDataProperty__LowerBoundAssignment_3_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:4494:1: ( ( ruleEInt ) )
-            // InternalSemanticNodesDsl.g:4495:2: ( ruleEInt )
+            // InternalSemanticNodesDsl.g:4535:1: ( ( ruleEInt ) )
+            // InternalSemanticNodesDsl.g:4536:2: ( ruleEInt )
             {
-            // InternalSemanticNodesDsl.g:4495:2: ( ruleEInt )
-            // InternalSemanticNodesDsl.g:4496:3: ruleEInt
+            // InternalSemanticNodesDsl.g:4536:2: ( ruleEInt )
+            // InternalSemanticNodesDsl.g:4537:3: ruleEInt
             {
              before(grammarAccess.getEnumerationDataPropertyAccess().getLowerBoundEIntParserRuleCall_3_1_0()); 
             pushFollow(FOLLOW_2);
@@ -13601,17 +13750,17 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__EnumerationDataProperty__UpperBoundAssignment_3_3"
-    // InternalSemanticNodesDsl.g:4505:1: rule__EnumerationDataProperty__UpperBoundAssignment_3_3 : ( ruleEInt ) ;
+    // InternalSemanticNodesDsl.g:4546:1: rule__EnumerationDataProperty__UpperBoundAssignment_3_3 : ( ruleEInt ) ;
     public final void rule__EnumerationDataProperty__UpperBoundAssignment_3_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:4509:1: ( ( ruleEInt ) )
-            // InternalSemanticNodesDsl.g:4510:2: ( ruleEInt )
+            // InternalSemanticNodesDsl.g:4550:1: ( ( ruleEInt ) )
+            // InternalSemanticNodesDsl.g:4551:2: ( ruleEInt )
             {
-            // InternalSemanticNodesDsl.g:4510:2: ( ruleEInt )
-            // InternalSemanticNodesDsl.g:4511:3: ruleEInt
+            // InternalSemanticNodesDsl.g:4551:2: ( ruleEInt )
+            // InternalSemanticNodesDsl.g:4552:3: ruleEInt
             {
              before(grammarAccess.getEnumerationDataPropertyAccess().getUpperBoundEIntParserRuleCall_3_3_0()); 
             pushFollow(FOLLOW_2);
@@ -13641,26 +13790,26 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
     // $ANTLR end "rule__EnumerationDataProperty__UpperBoundAssignment_3_3"
 
 
-    // $ANTLR start "rule__EnumerationDataProperty__MetadataAssignment_4_1"
-    // InternalSemanticNodesDsl.g:4520:1: rule__EnumerationDataProperty__MetadataAssignment_4_1 : ( ruleMetaData ) ;
-    public final void rule__EnumerationDataProperty__MetadataAssignment_4_1() throws RecognitionException {
+    // $ANTLR start "rule__EnumerationDataProperty__MetaDataValueAssignment_4_1"
+    // InternalSemanticNodesDsl.g:4561:1: rule__EnumerationDataProperty__MetaDataValueAssignment_4_1 : ( ruleMetaDataValue ) ;
+    public final void rule__EnumerationDataProperty__MetaDataValueAssignment_4_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:4524:1: ( ( ruleMetaData ) )
-            // InternalSemanticNodesDsl.g:4525:2: ( ruleMetaData )
+            // InternalSemanticNodesDsl.g:4565:1: ( ( ruleMetaDataValue ) )
+            // InternalSemanticNodesDsl.g:4566:2: ( ruleMetaDataValue )
             {
-            // InternalSemanticNodesDsl.g:4525:2: ( ruleMetaData )
-            // InternalSemanticNodesDsl.g:4526:3: ruleMetaData
+            // InternalSemanticNodesDsl.g:4566:2: ( ruleMetaDataValue )
+            // InternalSemanticNodesDsl.g:4567:3: ruleMetaDataValue
             {
-             before(grammarAccess.getEnumerationDataPropertyAccess().getMetadataMetaDataParserRuleCall_4_1_0()); 
+             before(grammarAccess.getEnumerationDataPropertyAccess().getMetaDataValueMetaDataValueParserRuleCall_4_1_0()); 
             pushFollow(FOLLOW_2);
-            ruleMetaData();
+            ruleMetaDataValue();
 
             state._fsp--;
 
-             after(grammarAccess.getEnumerationDataPropertyAccess().getMetadataMetaDataParserRuleCall_4_1_0()); 
+             after(grammarAccess.getEnumerationDataPropertyAccess().getMetaDataValueMetaDataValueParserRuleCall_4_1_0()); 
 
             }
 
@@ -13679,29 +13828,29 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
         }
         return ;
     }
-    // $ANTLR end "rule__EnumerationDataProperty__MetadataAssignment_4_1"
+    // $ANTLR end "rule__EnumerationDataProperty__MetaDataValueAssignment_4_1"
 
 
-    // $ANTLR start "rule__EnumerationDataProperty__MetadataAssignment_4_2_1"
-    // InternalSemanticNodesDsl.g:4535:1: rule__EnumerationDataProperty__MetadataAssignment_4_2_1 : ( ruleMetaData ) ;
-    public final void rule__EnumerationDataProperty__MetadataAssignment_4_2_1() throws RecognitionException {
+    // $ANTLR start "rule__EnumerationDataProperty__MetaDataValueAssignment_4_2_1"
+    // InternalSemanticNodesDsl.g:4576:1: rule__EnumerationDataProperty__MetaDataValueAssignment_4_2_1 : ( ruleMetaDataValue ) ;
+    public final void rule__EnumerationDataProperty__MetaDataValueAssignment_4_2_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:4539:1: ( ( ruleMetaData ) )
-            // InternalSemanticNodesDsl.g:4540:2: ( ruleMetaData )
+            // InternalSemanticNodesDsl.g:4580:1: ( ( ruleMetaDataValue ) )
+            // InternalSemanticNodesDsl.g:4581:2: ( ruleMetaDataValue )
             {
-            // InternalSemanticNodesDsl.g:4540:2: ( ruleMetaData )
-            // InternalSemanticNodesDsl.g:4541:3: ruleMetaData
+            // InternalSemanticNodesDsl.g:4581:2: ( ruleMetaDataValue )
+            // InternalSemanticNodesDsl.g:4582:3: ruleMetaDataValue
             {
-             before(grammarAccess.getEnumerationDataPropertyAccess().getMetadataMetaDataParserRuleCall_4_2_1_0()); 
+             before(grammarAccess.getEnumerationDataPropertyAccess().getMetaDataValueMetaDataValueParserRuleCall_4_2_1_0()); 
             pushFollow(FOLLOW_2);
-            ruleMetaData();
+            ruleMetaDataValue();
 
             state._fsp--;
 
-             after(grammarAccess.getEnumerationDataPropertyAccess().getMetadataMetaDataParserRuleCall_4_2_1_0()); 
+             after(grammarAccess.getEnumerationDataPropertyAccess().getMetaDataValueMetaDataValueParserRuleCall_4_2_1_0()); 
 
             }
 
@@ -13720,70 +13869,37 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
         }
         return ;
     }
-    // $ANTLR end "rule__EnumerationDataProperty__MetadataAssignment_4_2_1"
+    // $ANTLR end "rule__EnumerationDataProperty__MetaDataValueAssignment_4_2_1"
 
 
-    // $ANTLR start "rule__MetaData__KeyAssignment_1"
-    // InternalSemanticNodesDsl.g:4550:1: rule__MetaData__KeyAssignment_1 : ( ruleEString ) ;
-    public final void rule__MetaData__KeyAssignment_1() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalSemanticNodesDsl.g:4554:1: ( ( ruleEString ) )
-            // InternalSemanticNodesDsl.g:4555:2: ( ruleEString )
-            {
-            // InternalSemanticNodesDsl.g:4555:2: ( ruleEString )
-            // InternalSemanticNodesDsl.g:4556:3: ruleEString
-            {
-             before(grammarAccess.getMetaDataAccess().getKeyEStringParserRuleCall_1_0()); 
-            pushFollow(FOLLOW_2);
-            ruleEString();
-
-            state._fsp--;
-
-             after(grammarAccess.getMetaDataAccess().getKeyEStringParserRuleCall_1_0()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__MetaData__KeyAssignment_1"
-
-
-    // $ANTLR start "rule__MetaData__ValueAssignment_3"
-    // InternalSemanticNodesDsl.g:4565:1: rule__MetaData__ValueAssignment_3 : ( ruleEString ) ;
-    public final void rule__MetaData__ValueAssignment_3() throws RecognitionException {
+    // $ANTLR start "rule__MetaDataValue__KeyMetaDataAssignment_1"
+    // InternalSemanticNodesDsl.g:4591:1: rule__MetaDataValue__KeyMetaDataAssignment_1 : ( ( ruleEString ) ) ;
+    public final void rule__MetaDataValue__KeyMetaDataAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:4569:1: ( ( ruleEString ) )
-            // InternalSemanticNodesDsl.g:4570:2: ( ruleEString )
+            // InternalSemanticNodesDsl.g:4595:1: ( ( ( ruleEString ) ) )
+            // InternalSemanticNodesDsl.g:4596:2: ( ( ruleEString ) )
             {
-            // InternalSemanticNodesDsl.g:4570:2: ( ruleEString )
-            // InternalSemanticNodesDsl.g:4571:3: ruleEString
+            // InternalSemanticNodesDsl.g:4596:2: ( ( ruleEString ) )
+            // InternalSemanticNodesDsl.g:4597:3: ( ruleEString )
             {
-             before(grammarAccess.getMetaDataAccess().getValueEStringParserRuleCall_3_0()); 
+             before(grammarAccess.getMetaDataValueAccess().getKeyMetaDataMetaDataCrossReference_1_0()); 
+            // InternalSemanticNodesDsl.g:4598:3: ( ruleEString )
+            // InternalSemanticNodesDsl.g:4599:4: ruleEString
+            {
+             before(grammarAccess.getMetaDataValueAccess().getKeyMetaDataMetaDataEStringParserRuleCall_1_0_1()); 
             pushFollow(FOLLOW_2);
             ruleEString();
 
             state._fsp--;
 
-             after(grammarAccess.getMetaDataAccess().getValueEStringParserRuleCall_3_0()); 
+             after(grammarAccess.getMetaDataValueAccess().getKeyMetaDataMetaDataEStringParserRuleCall_1_0_1()); 
+
+            }
+
+             after(grammarAccess.getMetaDataValueAccess().getKeyMetaDataMetaDataCrossReference_1_0()); 
 
             }
 
@@ -13802,29 +13918,29 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
         }
         return ;
     }
-    // $ANTLR end "rule__MetaData__ValueAssignment_3"
+    // $ANTLR end "rule__MetaDataValue__KeyMetaDataAssignment_1"
 
 
-    // $ANTLR start "rule__Annotation__AnnotationAssignment_2"
-    // InternalSemanticNodesDsl.g:4580:1: rule__Annotation__AnnotationAssignment_2 : ( ruleEString ) ;
-    public final void rule__Annotation__AnnotationAssignment_2() throws RecognitionException {
+    // $ANTLR start "rule__MetaDataValue__ValueAssignment_3"
+    // InternalSemanticNodesDsl.g:4610:1: rule__MetaDataValue__ValueAssignment_3 : ( ruleEString ) ;
+    public final void rule__MetaDataValue__ValueAssignment_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemanticNodesDsl.g:4584:1: ( ( ruleEString ) )
-            // InternalSemanticNodesDsl.g:4585:2: ( ruleEString )
+            // InternalSemanticNodesDsl.g:4614:1: ( ( ruleEString ) )
+            // InternalSemanticNodesDsl.g:4615:2: ( ruleEString )
             {
-            // InternalSemanticNodesDsl.g:4585:2: ( ruleEString )
-            // InternalSemanticNodesDsl.g:4586:3: ruleEString
+            // InternalSemanticNodesDsl.g:4615:2: ( ruleEString )
+            // InternalSemanticNodesDsl.g:4616:3: ruleEString
             {
-             before(grammarAccess.getAnnotationAccess().getAnnotationEStringParserRuleCall_2_0()); 
+             before(grammarAccess.getMetaDataValueAccess().getValueEStringParserRuleCall_3_0()); 
             pushFollow(FOLLOW_2);
             ruleEString();
 
             state._fsp--;
 
-             after(grammarAccess.getAnnotationAccess().getAnnotationEStringParserRuleCall_2_0()); 
+             after(grammarAccess.getMetaDataValueAccess().getValueEStringParserRuleCall_3_0()); 
 
             }
 
@@ -13843,85 +13959,44 @@ public class InternalSemanticNodesDslParser extends AbstractInternalContentAssis
         }
         return ;
     }
-    // $ANTLR end "rule__Annotation__AnnotationAssignment_2"
+    // $ANTLR end "rule__MetaDataValue__ValueAssignment_3"
 
     // Delegated rules
 
 
-    protected DFA1 dfa1 = new DFA1(this);
-    static final String dfa_1s = "\12\uffff";
-    static final String dfa_2s = "\2\4\3\uffff\5\4";
-    static final String dfa_3s = "\1\36\1\5\3\uffff\2\36\1\5\2\36";
-    static final String dfa_4s = "\2\uffff\1\1\1\2\1\3\5\uffff";
-    static final String dfa_5s = "\12\uffff}>";
-    static final String[] dfa_6s = {
-            "\2\2\17\uffff\1\4\1\uffff\1\3\5\uffff\1\1\1\3",
-            "\1\5\1\6",
-            "",
-            "",
-            "",
-            "\2\2\21\uffff\1\3\5\uffff\1\7\1\3",
-            "\2\2\21\uffff\1\3\5\uffff\1\7\1\3",
-            "\1\10\1\11",
-            "\2\2\21\uffff\1\3\5\uffff\1\7\1\3",
-            "\2\2\21\uffff\1\3\5\uffff\1\7\1\3"
-    };
-
-    static final short[] dfa_1 = DFA.unpackEncodedString(dfa_1s);
-    static final char[] dfa_2 = DFA.unpackEncodedStringToUnsignedChars(dfa_2s);
-    static final char[] dfa_3 = DFA.unpackEncodedStringToUnsignedChars(dfa_3s);
-    static final short[] dfa_4 = DFA.unpackEncodedString(dfa_4s);
-    static final short[] dfa_5 = DFA.unpackEncodedString(dfa_5s);
-    static final short[][] dfa_6 = unpackEncodedStringArray(dfa_6s);
-
-    class DFA1 extends DFA {
-
-        public DFA1(BaseRecognizer recognizer) {
-            this.recognizer = recognizer;
-            this.decisionNumber = 1;
-            this.eot = dfa_1;
-            this.eof = dfa_1;
-            this.min = dfa_2;
-            this.max = dfa_3;
-            this.accept = dfa_4;
-            this.special = dfa_5;
-            this.transition = dfa_6;
-        }
-        public String getDescription() {
-            return "443:1: rule__ResourceElement__Alternatives : ( ( ruleResource ) | ( ruleSemanticNode ) | ( ruleEnumeration ) );";
-        }
-    }
  
 
     public static final BitSet FOLLOW_1 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_2 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_3 = new BitSet(new long[]{0x0000000000010000L});
-    public static final BitSet FOLLOW_4 = new BitSet(new long[]{0x0000000000010002L});
-    public static final BitSet FOLLOW_5 = new BitSet(new long[]{0x0000000000000030L});
-    public static final BitSet FOLLOW_6 = new BitSet(new long[]{0x0000000000020000L});
-    public static final BitSet FOLLOW_7 = new BitSet(new long[]{0x0000000020000030L});
-    public static final BitSet FOLLOW_8 = new BitSet(new long[]{0x0000000020040030L});
-    public static final BitSet FOLLOW_9 = new BitSet(new long[]{0x0000000020000032L});
-    public static final BitSet FOLLOW_10 = new BitSet(new long[]{0x0000000060A40030L});
-    public static final BitSet FOLLOW_11 = new BitSet(new long[]{0x0000000000080000L});
-    public static final BitSet FOLLOW_12 = new BitSet(new long[]{0x0000000020000000L});
-    public static final BitSet FOLLOW_13 = new BitSet(new long[]{0x0000000020000002L});
-    public static final BitSet FOLLOW_14 = new BitSet(new long[]{0x0000000060A00030L});
-    public static final BitSet FOLLOW_15 = new BitSet(new long[]{0x0000000060A00032L});
-    public static final BitSet FOLLOW_16 = new BitSet(new long[]{0x0000000000140000L});
-    public static final BitSet FOLLOW_17 = new BitSet(new long[]{0x0000000000100002L});
-    public static final BitSet FOLLOW_18 = new BitSet(new long[]{0x0000000010040040L});
-    public static final BitSet FOLLOW_19 = new BitSet(new long[]{0x0000000010000040L});
-    public static final BitSet FOLLOW_20 = new BitSet(new long[]{0x0000000010000042L});
-    public static final BitSet FOLLOW_21 = new BitSet(new long[]{0x0000000000400000L});
-    public static final BitSet FOLLOW_22 = new BitSet(new long[]{0x0000000060800000L});
-    public static final BitSet FOLLOW_23 = new BitSet(new long[]{0x0000000000040030L});
-    public static final BitSet FOLLOW_24 = new BitSet(new long[]{0x0000000000000032L});
-    public static final BitSet FOLLOW_25 = new BitSet(new long[]{0x0000000001020000L});
-    public static final BitSet FOLLOW_26 = new BitSet(new long[]{0x0000000000100000L});
-    public static final BitSet FOLLOW_27 = new BitSet(new long[]{0x0000000002000000L});
-    public static final BitSet FOLLOW_28 = new BitSet(new long[]{0x0000000004000000L});
-    public static final BitSet FOLLOW_29 = new BitSet(new long[]{0x000000000000F800L});
+    public static final BitSet FOLLOW_3 = new BitSet(new long[]{0x0000000000030000L});
+    public static final BitSet FOLLOW_4 = new BitSet(new long[]{0x0000000000000030L});
+    public static final BitSet FOLLOW_5 = new BitSet(new long[]{0x0000000000010000L});
+    public static final BitSet FOLLOW_6 = new BitSet(new long[]{0x0000000000010002L});
+    public static final BitSet FOLLOW_7 = new BitSet(new long[]{0x0000000000020000L});
+    public static final BitSet FOLLOW_8 = new BitSet(new long[]{0x0000000000020002L});
+    public static final BitSet FOLLOW_9 = new BitSet(new long[]{0x0000000000040000L});
+    public static final BitSet FOLLOW_10 = new BitSet(new long[]{0x0000000000100030L});
+    public static final BitSet FOLLOW_11 = new BitSet(new long[]{0x0000000000180030L});
+    public static final BitSet FOLLOW_12 = new BitSet(new long[]{0x0000000000100032L});
+    public static final BitSet FOLLOW_13 = new BitSet(new long[]{0x0000000041580030L});
+    public static final BitSet FOLLOW_14 = new BitSet(new long[]{0x0000000000100000L});
+    public static final BitSet FOLLOW_15 = new BitSet(new long[]{0x0000000000100002L});
+    public static final BitSet FOLLOW_16 = new BitSet(new long[]{0x0000000041500030L});
+    public static final BitSet FOLLOW_17 = new BitSet(new long[]{0x0000000041500032L});
+    public static final BitSet FOLLOW_18 = new BitSet(new long[]{0x0000000000280000L});
+    public static final BitSet FOLLOW_19 = new BitSet(new long[]{0x0000000000200002L});
+    public static final BitSet FOLLOW_20 = new BitSet(new long[]{0x0000000020080040L});
+    public static final BitSet FOLLOW_21 = new BitSet(new long[]{0x0000000020000040L});
+    public static final BitSet FOLLOW_22 = new BitSet(new long[]{0x0000000020000042L});
+    public static final BitSet FOLLOW_23 = new BitSet(new long[]{0x0000000000800000L});
+    public static final BitSet FOLLOW_24 = new BitSet(new long[]{0x0000000041000000L});
+    public static final BitSet FOLLOW_25 = new BitSet(new long[]{0x0000000000080030L});
+    public static final BitSet FOLLOW_26 = new BitSet(new long[]{0x0000000000000032L});
+    public static final BitSet FOLLOW_27 = new BitSet(new long[]{0x0000000002040000L});
+    public static final BitSet FOLLOW_28 = new BitSet(new long[]{0x0000000000200000L});
+    public static final BitSet FOLLOW_29 = new BitSet(new long[]{0x0000000004000000L});
     public static final BitSet FOLLOW_30 = new BitSet(new long[]{0x0000000008000000L});
+    public static final BitSet FOLLOW_31 = new BitSet(new long[]{0x000000000000F800L});
+    public static final BitSet FOLLOW_32 = new BitSet(new long[]{0x0000000010000000L});
 
 }

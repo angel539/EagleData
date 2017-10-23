@@ -14,11 +14,10 @@ import org.eclipse.xtext.serializer.ISerializationContext;
 import org.eclipse.xtext.serializer.acceptor.SequenceFeeder;
 import org.eclipse.xtext.serializer.sequencer.AbstractDelegatingSemanticSequencer;
 import org.eclipse.xtext.serializer.sequencer.ITransientValueService.ValueTransient;
-import semanticmanager.Annotation;
 import semanticmanager.EnumDataProperty;
 import semanticmanager.Enumeration;
 import semanticmanager.EnumerationLiteral;
-import semanticmanager.MetaData;
+import semanticmanager.MetaDataValue;
 import semanticmanager.ObjectProperty;
 import semanticmanager.PrimitiveTypeDataProperty;
 import semanticmanager.Repository;
@@ -42,9 +41,6 @@ public class SemanticNodesDslSemanticSequencer extends AbstractDelegatingSemanti
 		Set<Parameter> parameters = context.getEnabledBooleanParameters();
 		if (epackage == SemanticmanagerPackage.eINSTANCE)
 			switch (semanticObject.eClass().getClassifierID()) {
-			case SemanticmanagerPackage.ANNOTATION:
-				sequence_Annotation(context, (Annotation) semanticObject); 
-				return; 
 			case SemanticmanagerPackage.ENUM_DATA_PROPERTY:
 				sequence_EnumerationDataProperty(context, (EnumDataProperty) semanticObject); 
 				return; 
@@ -54,8 +50,8 @@ public class SemanticNodesDslSemanticSequencer extends AbstractDelegatingSemanti
 			case SemanticmanagerPackage.ENUMERATION_LITERAL:
 				sequence_EnumerationLiteral(context, (EnumerationLiteral) semanticObject); 
 				return; 
-			case SemanticmanagerPackage.META_DATA:
-				sequence_MetaData(context, (MetaData) semanticObject); 
+			case SemanticmanagerPackage.META_DATA_VALUE:
+				sequence_MetaDataValue(context, (MetaDataValue) semanticObject); 
 				return; 
 			case SemanticmanagerPackage.OBJECT_PROPERTY:
 				sequence_ObjectProperty(context, (ObjectProperty) semanticObject); 
@@ -82,29 +78,11 @@ public class SemanticNodesDslSemanticSequencer extends AbstractDelegatingSemanti
 	
 	/**
 	 * Contexts:
-	 *     Annotation returns Annotation
-	 *
-	 * Constraint:
-	 *     annotation=EString
-	 */
-	protected void sequence_Annotation(ISerializationContext context, Annotation semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient((EObject) semanticObject, SemanticmanagerPackage.Literals.ANNOTATION__ANNOTATION) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing((EObject) semanticObject, SemanticmanagerPackage.Literals.ANNOTATION__ANNOTATION));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, (EObject) semanticObject);
-		feeder.accept(grammarAccess.getAnnotationAccess().getAnnotationEStringParserRuleCall_2_0(), semanticObject.getAnnotation());
-		feeder.finish();
-	}
-	
-	
-	/**
-	 * Contexts:
 	 *     Property returns EnumDataProperty
 	 *     EnumerationDataProperty returns EnumDataProperty
 	 *
 	 * Constraint:
-	 *     (name=EString type=[Enumeration|EString] (lowerBound=EInt upperBound=EInt)? (metadata+=MetaData metadata+=MetaData*)?)
+	 *     (name=EString type=[Enumeration|EString] (lowerBound=EInt upperBound=EInt)? (metaDataValue+=MetaDataValue metaDataValue+=MetaDataValue*)?)
 	 */
 	protected void sequence_EnumerationDataProperty(ISerializationContext context, EnumDataProperty semanticObject) {
 		genericSequencer.createSequence(context, (EObject) semanticObject);
@@ -147,21 +125,21 @@ public class SemanticNodesDslSemanticSequencer extends AbstractDelegatingSemanti
 	
 	/**
 	 * Contexts:
-	 *     MetaData returns MetaData
+	 *     MetaDataValue returns MetaDataValue
 	 *
 	 * Constraint:
-	 *     (key=EString value=EString)
+	 *     (keyMetaData=[MetaData|EString] value=EString)
 	 */
-	protected void sequence_MetaData(ISerializationContext context, MetaData semanticObject) {
+	protected void sequence_MetaDataValue(ISerializationContext context, MetaDataValue semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient((EObject) semanticObject, SemanticmanagerPackage.Literals.META_DATA__KEY) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing((EObject) semanticObject, SemanticmanagerPackage.Literals.META_DATA__KEY));
-			if (transientValues.isValueTransient((EObject) semanticObject, SemanticmanagerPackage.Literals.META_DATA__VALUE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing((EObject) semanticObject, SemanticmanagerPackage.Literals.META_DATA__VALUE));
+			if (transientValues.isValueTransient((EObject) semanticObject, SemanticmanagerPackage.Literals.META_DATA_VALUE__KEY_META_DATA) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing((EObject) semanticObject, SemanticmanagerPackage.Literals.META_DATA_VALUE__KEY_META_DATA));
+			if (transientValues.isValueTransient((EObject) semanticObject, SemanticmanagerPackage.Literals.META_DATA_VALUE__VALUE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing((EObject) semanticObject, SemanticmanagerPackage.Literals.META_DATA_VALUE__VALUE));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, (EObject) semanticObject);
-		feeder.accept(grammarAccess.getMetaDataAccess().getKeyEStringParserRuleCall_1_0(), semanticObject.getKey());
-		feeder.accept(grammarAccess.getMetaDataAccess().getValueEStringParserRuleCall_3_0(), semanticObject.getValue());
+		feeder.accept(grammarAccess.getMetaDataValueAccess().getKeyMetaDataMetaDataEStringParserRuleCall_1_0_1(), semanticObject.getKeyMetaData());
+		feeder.accept(grammarAccess.getMetaDataValueAccess().getValueEStringParserRuleCall_3_0(), semanticObject.getValue());
 		feeder.finish();
 	}
 	
@@ -172,7 +150,7 @@ public class SemanticNodesDslSemanticSequencer extends AbstractDelegatingSemanti
 	 *     ObjectProperty returns ObjectProperty
 	 *
 	 * Constraint:
-	 *     (name=EString range=[SemanticNode|EString] (lowerBound=EInt upperBound=EInt)? (metadata+=MetaData metadata+=MetaData*)?)
+	 *     (name=EString range=[SemanticNode|EString] (lowerBound=EInt upperBound=EInt)? (metaDataValue+=MetaDataValue metaDataValue+=MetaDataValue*)?)
 	 */
 	protected void sequence_ObjectProperty(ISerializationContext context, ObjectProperty semanticObject) {
 		genericSequencer.createSequence(context, (EObject) semanticObject);
@@ -185,7 +163,7 @@ public class SemanticNodesDslSemanticSequencer extends AbstractDelegatingSemanti
 	 *     PrimitiveTypeDataProperty returns PrimitiveTypeDataProperty
 	 *
 	 * Constraint:
-	 *     (name=EString type=Type (lowerBound=EInt upperBound=EInt)? (metadata+=MetaData metadata+=MetaData*)?)
+	 *     (name=EString type=Type (lowerBound=EInt upperBound=EInt)? (metaDataValue+=MetaDataValue metaDataValue+=MetaDataValue*)?)
 	 */
 	protected void sequence_PrimitiveTypeDataProperty(ISerializationContext context, PrimitiveTypeDataProperty semanticObject) {
 		genericSequencer.createSequence(context, (EObject) semanticObject);
@@ -197,7 +175,7 @@ public class SemanticNodesDslSemanticSequencer extends AbstractDelegatingSemanti
 	 *     RepositoryManager returns RepositoryManager
 	 *
 	 * Constraint:
-	 *     (repositories+=Repository repositories+=Repository*)?
+	 *     ((importURI+=EString importURI+=EString*)? (repositories+=Repository repositories+=Repository*)?)
 	 */
 	protected void sequence_RepositoryManager(ISerializationContext context, RepositoryManager semanticObject) {
 		genericSequencer.createSequence(context, (EObject) semanticObject);
@@ -223,11 +201,11 @@ public class SemanticNodesDslSemanticSequencer extends AbstractDelegatingSemanti
 	 *
 	 * Constraint:
 	 *     (
-	 *         (annotations+=Annotation annotations+=Annotation*)? 
-	 *         assistant=EString 
+	 *         (annotations+=[Annotation|EString] annotations+=[Annotation|EString]*)? 
+	 *         assistant=[FormatAssistant|EString]? 
 	 *         name=EString 
 	 *         (resourceElements+=ResourceElement resourceElements+=ResourceElement*)? 
-	 *         (metadata+=MetaData metadata+=MetaData*)?
+	 *         (metaDataValue+=MetaDataValue metaDataValue+=MetaDataValue*)?
 	 *     )
 	 */
 	protected void sequence_Resource(ISerializationContext context, Resource semanticObject) {
@@ -241,13 +219,7 @@ public class SemanticNodesDslSemanticSequencer extends AbstractDelegatingSemanti
 	 *     SemanticNode returns SemanticNode
 	 *
 	 * Constraint:
-	 *     (
-	 *         (annotations+=Annotation annotations+=Annotation*)? 
-	 *         abstract?='abstract'? 
-	 *         name=EString 
-	 *         (properties+=Property properties+=Property*)? 
-	 *         (metadata+=MetaData metadata+=MetaData*)?
-	 *     )
+	 *     (abstract?='abstract'? name=EString (properties+=Property properties+=Property*)? (metaDataValue+=MetaDataValue metaDataValue+=MetaDataValue*)?)
 	 */
 	protected void sequence_SemanticNode(ISerializationContext context, SemanticNode semanticObject) {
 		genericSequencer.createSequence(context, (EObject) semanticObject);

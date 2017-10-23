@@ -1,0 +1,15 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: uam.eagledata.dsl.annotations.ide
+Bundle-Vendor: My Company
+Bundle-Version: 1.0.0.qualifier
+Bundle-SymbolicName: uam.eagledata.dsl.annotations.ide; singleton:=true
+Bundle-ActivationPolicy: lazy
+Require-Bundle: uam.eagledata.dsl.annotations,
+ uam.extremo.core,
+ org.eclipse.xtext.ide,
+ org.eclipse.xtext.xbase.ide
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Export-Package: uam.eagledata.dsl.annotations.ide.contentassist.antlr.internal,
+ uam.eagledata.dsl.annotations.ide.contentassist.antlr
+

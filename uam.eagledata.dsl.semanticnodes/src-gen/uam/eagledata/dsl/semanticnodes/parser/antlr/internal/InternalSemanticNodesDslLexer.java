@@ -59,10 +59,10 @@ public class InternalSemanticNodesDslLexer extends Lexer {
         try {
             int _type = T__11;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalSemanticNodesDsl.g:11:7: ( 'repository' )
-            // InternalSemanticNodesDsl.g:11:9: 'repository'
+            // InternalSemanticNodesDsl.g:11:7: ( 'import' )
+            // InternalSemanticNodesDsl.g:11:9: 'import'
             {
-            match("repository"); 
+            match("import"); 
 
 
             }
@@ -80,10 +80,11 @@ public class InternalSemanticNodesDslLexer extends Lexer {
         try {
             int _type = T__12;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalSemanticNodesDsl.g:12:7: ( '{' )
-            // InternalSemanticNodesDsl.g:12:9: '{'
+            // InternalSemanticNodesDsl.g:12:7: ( 'repository' )
+            // InternalSemanticNodesDsl.g:12:9: 'repository'
             {
-            match('{'); 
+            match("repository"); 
+
 
             }
 
@@ -100,10 +101,10 @@ public class InternalSemanticNodesDslLexer extends Lexer {
         try {
             int _type = T__13;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalSemanticNodesDsl.g:13:7: ( '}' )
-            // InternalSemanticNodesDsl.g:13:9: '}'
+            // InternalSemanticNodesDsl.g:13:7: ( '{' )
+            // InternalSemanticNodesDsl.g:13:9: '{'
             {
-            match('}'); 
+            match('{'); 
 
             }
 
@@ -120,11 +121,10 @@ public class InternalSemanticNodesDslLexer extends Lexer {
         try {
             int _type = T__14;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalSemanticNodesDsl.g:14:7: ( 'metadata' )
-            // InternalSemanticNodesDsl.g:14:9: 'metadata'
+            // InternalSemanticNodesDsl.g:14:7: ( '}' )
+            // InternalSemanticNodesDsl.g:14:9: '}'
             {
-            match("metadata"); 
-
+            match('}'); 
 
             }
 
@@ -141,10 +141,10 @@ public class InternalSemanticNodesDslLexer extends Lexer {
         try {
             int _type = T__15;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalSemanticNodesDsl.g:15:7: ( ',' )
-            // InternalSemanticNodesDsl.g:15:9: ','
+            // InternalSemanticNodesDsl.g:15:7: ( '@' )
+            // InternalSemanticNodesDsl.g:15:9: '@'
             {
-            match(','); 
+            match('@'); 
 
             }
 
@@ -161,11 +161,10 @@ public class InternalSemanticNodesDslLexer extends Lexer {
         try {
             int _type = T__16;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalSemanticNodesDsl.g:16:7: ( 'enum' )
-            // InternalSemanticNodesDsl.g:16:9: 'enum'
+            // InternalSemanticNodesDsl.g:16:7: ( ',' )
+            // InternalSemanticNodesDsl.g:16:9: ','
             {
-            match("enum"); 
-
+            match(','); 
 
             }
 
@@ -182,10 +181,10 @@ public class InternalSemanticNodesDslLexer extends Lexer {
         try {
             int _type = T__17;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalSemanticNodesDsl.g:17:7: ( '->' )
-            // InternalSemanticNodesDsl.g:17:9: '->'
+            // InternalSemanticNodesDsl.g:17:7: ( 'enum' )
+            // InternalSemanticNodesDsl.g:17:9: 'enum'
             {
-            match("->"); 
+            match("enum"); 
 
 
             }
@@ -203,10 +202,10 @@ public class InternalSemanticNodesDslLexer extends Lexer {
         try {
             int _type = T__18;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalSemanticNodesDsl.g:18:7: ( 'abstract' )
-            // InternalSemanticNodesDsl.g:18:9: 'abstract'
+            // InternalSemanticNodesDsl.g:18:7: ( '->' )
+            // InternalSemanticNodesDsl.g:18:9: '->'
             {
-            match("abstract"); 
+            match("->"); 
 
 
             }
@@ -224,10 +223,10 @@ public class InternalSemanticNodesDslLexer extends Lexer {
         try {
             int _type = T__19;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalSemanticNodesDsl.g:19:7: ( 'node' )
-            // InternalSemanticNodesDsl.g:19:9: 'node'
+            // InternalSemanticNodesDsl.g:19:7: ( 'abstract' )
+            // InternalSemanticNodesDsl.g:19:9: 'abstract'
             {
-            match("node"); 
+            match("abstract"); 
 
 
             }
@@ -245,10 +244,11 @@ public class InternalSemanticNodesDslLexer extends Lexer {
         try {
             int _type = T__20;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalSemanticNodesDsl.g:20:7: ( '[' )
-            // InternalSemanticNodesDsl.g:20:9: '['
+            // InternalSemanticNodesDsl.g:20:7: ( 'node' )
+            // InternalSemanticNodesDsl.g:20:9: 'node'
             {
-            match('['); 
+            match("node"); 
+
 
             }
 
@@ -265,10 +265,10 @@ public class InternalSemanticNodesDslLexer extends Lexer {
         try {
             int _type = T__21;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalSemanticNodesDsl.g:21:7: ( ']' )
-            // InternalSemanticNodesDsl.g:21:9: ']'
+            // InternalSemanticNodesDsl.g:21:7: ( '[' )
+            // InternalSemanticNodesDsl.g:21:9: '['
             {
-            match(']'); 
+            match('['); 
 
             }
 
@@ -285,10 +285,10 @@ public class InternalSemanticNodesDslLexer extends Lexer {
         try {
             int _type = T__22;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalSemanticNodesDsl.g:22:7: ( ':' )
-            // InternalSemanticNodesDsl.g:22:9: ':'
+            // InternalSemanticNodesDsl.g:22:7: ( ']' )
+            // InternalSemanticNodesDsl.g:22:9: ']'
             {
-            match(':'); 
+            match(']'); 
 
             }
 
@@ -305,10 +305,10 @@ public class InternalSemanticNodesDslLexer extends Lexer {
         try {
             int _type = T__23;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalSemanticNodesDsl.g:23:7: ( '=' )
-            // InternalSemanticNodesDsl.g:23:9: '='
+            // InternalSemanticNodesDsl.g:23:7: ( ':' )
+            // InternalSemanticNodesDsl.g:23:9: ':'
             {
-            match('='); 
+            match(':'); 
 
             }
 
@@ -325,10 +325,10 @@ public class InternalSemanticNodesDslLexer extends Lexer {
         try {
             int _type = T__24;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalSemanticNodesDsl.g:24:7: ( '-' )
-            // InternalSemanticNodesDsl.g:24:9: '-'
+            // InternalSemanticNodesDsl.g:24:7: ( '=' )
+            // InternalSemanticNodesDsl.g:24:9: '='
             {
-            match('-'); 
+            match('='); 
 
             }
 
@@ -345,10 +345,10 @@ public class InternalSemanticNodesDslLexer extends Lexer {
         try {
             int _type = T__25;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalSemanticNodesDsl.g:25:7: ( '@' )
-            // InternalSemanticNodesDsl.g:25:9: '@'
+            // InternalSemanticNodesDsl.g:25:7: ( '-' )
+            // InternalSemanticNodesDsl.g:25:9: '-'
             {
-            match('@'); 
+            match('-'); 
 
             }
 
@@ -470,10 +470,10 @@ public class InternalSemanticNodesDslLexer extends Lexer {
         try {
             int _type = RULE_ID;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalSemanticNodesDsl.g:1650:9: ( ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )* )
-            // InternalSemanticNodesDsl.g:1650:11: ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
+            // InternalSemanticNodesDsl.g:1605:9: ( ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )* )
+            // InternalSemanticNodesDsl.g:1605:11: ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
             {
-            // InternalSemanticNodesDsl.g:1650:11: ( '^' )?
+            // InternalSemanticNodesDsl.g:1605:11: ( '^' )?
             int alt1=2;
             int LA1_0 = input.LA(1);
 
@@ -482,7 +482,7 @@ public class InternalSemanticNodesDslLexer extends Lexer {
             }
             switch (alt1) {
                 case 1 :
-                    // InternalSemanticNodesDsl.g:1650:11: '^'
+                    // InternalSemanticNodesDsl.g:1605:11: '^'
                     {
                     match('^'); 
 
@@ -500,7 +500,7 @@ public class InternalSemanticNodesDslLexer extends Lexer {
                 recover(mse);
                 throw mse;}
 
-            // InternalSemanticNodesDsl.g:1650:40: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
+            // InternalSemanticNodesDsl.g:1605:40: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
             loop2:
             do {
                 int alt2=2;
@@ -549,10 +549,10 @@ public class InternalSemanticNodesDslLexer extends Lexer {
         try {
             int _type = RULE_INT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalSemanticNodesDsl.g:1652:10: ( ( '0' .. '9' )+ )
-            // InternalSemanticNodesDsl.g:1652:12: ( '0' .. '9' )+
+            // InternalSemanticNodesDsl.g:1607:10: ( ( '0' .. '9' )+ )
+            // InternalSemanticNodesDsl.g:1607:12: ( '0' .. '9' )+
             {
-            // InternalSemanticNodesDsl.g:1652:12: ( '0' .. '9' )+
+            // InternalSemanticNodesDsl.g:1607:12: ( '0' .. '9' )+
             int cnt3=0;
             loop3:
             do {
@@ -566,7 +566,7 @@ public class InternalSemanticNodesDslLexer extends Lexer {
 
                 switch (alt3) {
             	case 1 :
-            	    // InternalSemanticNodesDsl.g:1652:13: '0' .. '9'
+            	    // InternalSemanticNodesDsl.g:1607:13: '0' .. '9'
             	    {
             	    matchRange('0','9'); 
 
@@ -598,10 +598,10 @@ public class InternalSemanticNodesDslLexer extends Lexer {
         try {
             int _type = RULE_STRING;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalSemanticNodesDsl.g:1654:13: ( ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' ) )
-            // InternalSemanticNodesDsl.g:1654:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
+            // InternalSemanticNodesDsl.g:1609:13: ( ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' ) )
+            // InternalSemanticNodesDsl.g:1609:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
             {
-            // InternalSemanticNodesDsl.g:1654:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
+            // InternalSemanticNodesDsl.g:1609:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
             int alt6=2;
             int LA6_0 = input.LA(1);
 
@@ -619,10 +619,10 @@ public class InternalSemanticNodesDslLexer extends Lexer {
             }
             switch (alt6) {
                 case 1 :
-                    // InternalSemanticNodesDsl.g:1654:16: '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
+                    // InternalSemanticNodesDsl.g:1609:16: '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
                     {
                     match('\"'); 
-                    // InternalSemanticNodesDsl.g:1654:20: ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )*
+                    // InternalSemanticNodesDsl.g:1609:20: ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )*
                     loop4:
                     do {
                         int alt4=3;
@@ -638,7 +638,7 @@ public class InternalSemanticNodesDslLexer extends Lexer {
 
                         switch (alt4) {
                     	case 1 :
-                    	    // InternalSemanticNodesDsl.g:1654:21: '\\\\' .
+                    	    // InternalSemanticNodesDsl.g:1609:21: '\\\\' .
                     	    {
                     	    match('\\'); 
                     	    matchAny(); 
@@ -646,7 +646,7 @@ public class InternalSemanticNodesDslLexer extends Lexer {
                     	    }
                     	    break;
                     	case 2 :
-                    	    // InternalSemanticNodesDsl.g:1654:28: ~ ( ( '\\\\' | '\"' ) )
+                    	    // InternalSemanticNodesDsl.g:1609:28: ~ ( ( '\\\\' | '\"' ) )
                     	    {
                     	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='!')||(input.LA(1)>='#' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFF') ) {
                     	        input.consume();
@@ -671,10 +671,10 @@ public class InternalSemanticNodesDslLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // InternalSemanticNodesDsl.g:1654:48: '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\''
+                    // InternalSemanticNodesDsl.g:1609:48: '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\''
                     {
                     match('\''); 
-                    // InternalSemanticNodesDsl.g:1654:53: ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )*
+                    // InternalSemanticNodesDsl.g:1609:53: ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )*
                     loop5:
                     do {
                         int alt5=3;
@@ -690,7 +690,7 @@ public class InternalSemanticNodesDslLexer extends Lexer {
 
                         switch (alt5) {
                     	case 1 :
-                    	    // InternalSemanticNodesDsl.g:1654:54: '\\\\' .
+                    	    // InternalSemanticNodesDsl.g:1609:54: '\\\\' .
                     	    {
                     	    match('\\'); 
                     	    matchAny(); 
@@ -698,7 +698,7 @@ public class InternalSemanticNodesDslLexer extends Lexer {
                     	    }
                     	    break;
                     	case 2 :
-                    	    // InternalSemanticNodesDsl.g:1654:61: ~ ( ( '\\\\' | '\\'' ) )
+                    	    // InternalSemanticNodesDsl.g:1609:61: ~ ( ( '\\\\' | '\\'' ) )
                     	    {
                     	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='&')||(input.LA(1)>='(' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFF') ) {
                     	        input.consume();
@@ -741,12 +741,12 @@ public class InternalSemanticNodesDslLexer extends Lexer {
         try {
             int _type = RULE_ML_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalSemanticNodesDsl.g:1656:17: ( '/*' ( options {greedy=false; } : . )* '*/' )
-            // InternalSemanticNodesDsl.g:1656:19: '/*' ( options {greedy=false; } : . )* '*/'
+            // InternalSemanticNodesDsl.g:1611:17: ( '/*' ( options {greedy=false; } : . )* '*/' )
+            // InternalSemanticNodesDsl.g:1611:19: '/*' ( options {greedy=false; } : . )* '*/'
             {
             match("/*"); 
 
-            // InternalSemanticNodesDsl.g:1656:24: ( options {greedy=false; } : . )*
+            // InternalSemanticNodesDsl.g:1611:24: ( options {greedy=false; } : . )*
             loop7:
             do {
                 int alt7=2;
@@ -771,7 +771,7 @@ public class InternalSemanticNodesDslLexer extends Lexer {
 
                 switch (alt7) {
             	case 1 :
-            	    // InternalSemanticNodesDsl.g:1656:52: .
+            	    // InternalSemanticNodesDsl.g:1611:52: .
             	    {
             	    matchAny(); 
 
@@ -801,12 +801,12 @@ public class InternalSemanticNodesDslLexer extends Lexer {
         try {
             int _type = RULE_SL_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalSemanticNodesDsl.g:1658:17: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
-            // InternalSemanticNodesDsl.g:1658:19: '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
+            // InternalSemanticNodesDsl.g:1613:17: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
+            // InternalSemanticNodesDsl.g:1613:19: '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
             {
             match("//"); 
 
-            // InternalSemanticNodesDsl.g:1658:24: (~ ( ( '\\n' | '\\r' ) ) )*
+            // InternalSemanticNodesDsl.g:1613:24: (~ ( ( '\\n' | '\\r' ) ) )*
             loop8:
             do {
                 int alt8=2;
@@ -819,7 +819,7 @@ public class InternalSemanticNodesDslLexer extends Lexer {
 
                 switch (alt8) {
             	case 1 :
-            	    // InternalSemanticNodesDsl.g:1658:24: ~ ( ( '\\n' | '\\r' ) )
+            	    // InternalSemanticNodesDsl.g:1613:24: ~ ( ( '\\n' | '\\r' ) )
             	    {
             	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='\t')||(input.LA(1)>='\u000B' && input.LA(1)<='\f')||(input.LA(1)>='\u000E' && input.LA(1)<='\uFFFF') ) {
             	        input.consume();
@@ -839,7 +839,7 @@ public class InternalSemanticNodesDslLexer extends Lexer {
                 }
             } while (true);
 
-            // InternalSemanticNodesDsl.g:1658:40: ( ( '\\r' )? '\\n' )?
+            // InternalSemanticNodesDsl.g:1613:40: ( ( '\\r' )? '\\n' )?
             int alt10=2;
             int LA10_0 = input.LA(1);
 
@@ -848,9 +848,9 @@ public class InternalSemanticNodesDslLexer extends Lexer {
             }
             switch (alt10) {
                 case 1 :
-                    // InternalSemanticNodesDsl.g:1658:41: ( '\\r' )? '\\n'
+                    // InternalSemanticNodesDsl.g:1613:41: ( '\\r' )? '\\n'
                     {
-                    // InternalSemanticNodesDsl.g:1658:41: ( '\\r' )?
+                    // InternalSemanticNodesDsl.g:1613:41: ( '\\r' )?
                     int alt9=2;
                     int LA9_0 = input.LA(1);
 
@@ -859,7 +859,7 @@ public class InternalSemanticNodesDslLexer extends Lexer {
                     }
                     switch (alt9) {
                         case 1 :
-                            // InternalSemanticNodesDsl.g:1658:41: '\\r'
+                            // InternalSemanticNodesDsl.g:1613:41: '\\r'
                             {
                             match('\r'); 
 
@@ -891,10 +891,10 @@ public class InternalSemanticNodesDslLexer extends Lexer {
         try {
             int _type = RULE_WS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalSemanticNodesDsl.g:1660:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
-            // InternalSemanticNodesDsl.g:1660:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // InternalSemanticNodesDsl.g:1615:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
+            // InternalSemanticNodesDsl.g:1615:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             {
-            // InternalSemanticNodesDsl.g:1660:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // InternalSemanticNodesDsl.g:1615:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             int cnt11=0;
             loop11:
             do {
@@ -948,8 +948,8 @@ public class InternalSemanticNodesDslLexer extends Lexer {
         try {
             int _type = RULE_ANY_OTHER;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalSemanticNodesDsl.g:1662:16: ( . )
-            // InternalSemanticNodesDsl.g:1662:18: .
+            // InternalSemanticNodesDsl.g:1617:16: ( . )
+            // InternalSemanticNodesDsl.g:1617:18: .
             {
             matchAny(); 
 
@@ -1165,29 +1165,29 @@ public class InternalSemanticNodesDslLexer extends Lexer {
 
     protected DFA12 dfa12 = new DFA12(this);
     static final String DFA12_eotS =
-        "\1\uffff\1\35\2\uffff\1\35\1\uffff\1\35\1\44\2\35\5\uffff\5\35\1\33\2\uffff\3\33\2\uffff\1\35\3\uffff\1\35\1\uffff\1\35\2\uffff\2\35\5\uffff\5\35\5\uffff\6\35\1\106\5\35\1\114\1\35\1\116\1\35\1\uffff\5\35\1\uffff\1\35\1\uffff\2\35\1\130\4\35\1\135\1\35\1\uffff\1\137\3\35\1\uffff\1\143\1\uffff\1\35\1\145\1\146\1\uffff\1\35\2\uffff\1\150\1\uffff";
+        "\1\uffff\2\35\4\uffff\1\35\1\45\2\35\4\uffff\5\35\1\33\2\uffff\3\33\2\uffff\1\35\1\uffff\1\35\4\uffff\1\35\2\uffff\2\35\4\uffff\5\35\5\uffff\6\35\1\106\5\35\1\114\1\35\1\116\1\35\1\uffff\5\35\1\uffff\1\35\1\uffff\2\35\1\130\1\35\1\132\2\35\1\135\1\35\1\uffff\1\137\1\uffff\2\35\1\uffff\1\142\1\uffff\1\35\1\144\1\uffff\1\35\1\uffff\1\146\1\uffff";
     static final String DFA12_eofS =
-        "\151\uffff";
+        "\147\uffff";
     static final String DFA12_minS =
-        "\1\0\1\145\2\uffff\1\145\1\uffff\1\156\1\76\1\142\1\157\5\uffff\1\164\1\156\1\157\1\154\1\157\1\101\2\uffff\2\0\1\52\2\uffff\1\160\3\uffff\1\164\1\uffff\1\165\2\uffff\1\163\1\144\5\uffff\1\162\1\164\2\157\1\165\5\uffff\1\157\1\141\1\155\1\164\1\145\1\151\1\60\1\154\1\141\1\142\1\163\1\144\1\60\1\162\1\60\1\156\1\uffff\1\145\1\164\1\154\1\151\1\141\1\uffff\1\141\1\uffff\1\147\1\141\1\60\1\145\2\164\1\143\1\60\1\156\1\uffff\1\60\1\157\1\141\1\164\1\uffff\1\60\1\uffff\1\162\2\60\1\uffff\1\171\2\uffff\1\60\1\uffff";
+        "\1\0\1\155\1\145\4\uffff\1\156\1\76\1\142\1\157\4\uffff\1\164\1\156\1\157\1\154\1\157\1\101\2\uffff\2\0\1\52\2\uffff\1\160\1\uffff\1\160\4\uffff\1\165\2\uffff\1\163\1\144\4\uffff\1\162\1\164\2\157\1\165\5\uffff\2\157\1\155\1\164\1\145\1\151\1\60\1\154\1\141\1\142\1\162\1\163\1\60\1\162\1\60\1\156\1\uffff\1\145\1\164\1\154\1\164\1\151\1\uffff\1\141\1\uffff\1\147\1\141\1\60\1\145\1\60\1\164\1\143\1\60\1\156\1\uffff\1\60\1\uffff\1\157\1\164\1\uffff\1\60\1\uffff\1\162\1\60\1\uffff\1\171\1\uffff\1\60\1\uffff";
     static final String DFA12_maxS =
-        "\1\uffff\1\145\2\uffff\1\145\1\uffff\1\156\1\76\1\142\1\157\5\uffff\1\164\1\156\1\157\1\154\1\157\1\172\2\uffff\2\uffff\1\57\2\uffff\1\160\3\uffff\1\164\1\uffff\1\165\2\uffff\1\163\1\144\5\uffff\1\162\1\164\2\157\1\165\5\uffff\1\157\1\141\1\155\1\164\1\145\1\151\1\172\1\154\1\141\1\142\1\163\1\144\1\172\1\162\1\172\1\156\1\uffff\1\145\1\164\1\154\1\151\1\141\1\uffff\1\141\1\uffff\1\147\1\141\1\172\1\145\2\164\1\143\1\172\1\156\1\uffff\1\172\1\157\1\141\1\164\1\uffff\1\172\1\uffff\1\162\2\172\1\uffff\1\171\2\uffff\1\172\1\uffff";
+        "\1\uffff\1\155\1\145\4\uffff\1\156\1\76\1\142\1\157\4\uffff\1\164\1\156\1\157\1\154\1\157\1\172\2\uffff\2\uffff\1\57\2\uffff\1\160\1\uffff\1\160\4\uffff\1\165\2\uffff\1\163\1\144\4\uffff\1\162\1\164\2\157\1\165\5\uffff\2\157\1\155\1\164\1\145\1\151\1\172\1\154\1\141\1\142\1\162\1\163\1\172\1\162\1\172\1\156\1\uffff\1\145\1\164\1\154\1\164\1\151\1\uffff\1\141\1\uffff\1\147\1\141\1\172\1\145\1\172\1\164\1\143\1\172\1\156\1\uffff\1\172\1\uffff\1\157\1\164\1\uffff\1\172\1\uffff\1\162\1\172\1\uffff\1\171\1\uffff\1\172\1\uffff";
     static final String DFA12_acceptS =
-        "\2\uffff\1\2\1\3\1\uffff\1\5\4\uffff\1\12\1\13\1\14\1\15\1\17\6\uffff\1\25\1\26\3\uffff\1\32\1\33\1\uffff\1\25\1\2\1\3\1\uffff\1\5\1\uffff\1\7\1\16\2\uffff\1\12\1\13\1\14\1\15\1\17\5\uffff\1\26\1\27\1\30\1\31\1\32\20\uffff\1\21\5\uffff\1\6\1\uffff\1\11\11\uffff\1\23\4\uffff\1\20\1\uffff\1\24\3\uffff\1\22\1\uffff\1\4\1\10\1\uffff\1\1";
+        "\3\uffff\1\3\1\4\1\5\1\6\4\uffff\1\13\1\14\1\15\1\16\6\uffff\1\25\1\26\3\uffff\1\32\1\33\1\uffff\1\25\1\uffff\1\3\1\4\1\5\1\6\1\uffff\1\10\1\17\2\uffff\1\13\1\14\1\15\1\16\5\uffff\1\26\1\27\1\30\1\31\1\32\20\uffff\1\21\5\uffff\1\7\1\uffff\1\12\11\uffff\1\23\1\uffff\1\1\2\uffff\1\20\1\uffff\1\24\2\uffff\1\22\1\uffff\1\11\1\uffff\1\2";
     static final String DFA12_specialS =
-        "\1\2\26\uffff\1\1\1\0\120\uffff}>";
+        "\1\0\26\uffff\1\2\1\1\116\uffff}>";
     static final String[] DFA12_transitionS = {
-            "\11\33\2\32\2\33\1\32\22\33\1\32\1\33\1\27\4\33\1\30\4\33\1\5\1\7\1\33\1\31\12\26\1\14\2\33\1\15\2\33\1\16\1\25\1\21\1\25\1\23\1\25\1\22\2\25\1\20\11\25\1\17\7\25\1\12\1\33\1\13\1\24\1\25\1\33\1\10\3\25\1\6\7\25\1\4\1\11\3\25\1\1\10\25\1\2\1\33\1\3\uff82\33",
+            "\11\33\2\32\2\33\1\32\22\33\1\32\1\33\1\27\4\33\1\30\4\33\1\6\1\10\1\33\1\31\12\26\1\15\2\33\1\16\2\33\1\5\1\25\1\21\1\25\1\23\1\25\1\22\2\25\1\20\11\25\1\17\7\25\1\13\1\33\1\14\1\24\1\25\1\33\1\11\3\25\1\7\3\25\1\1\4\25\1\12\3\25\1\2\10\25\1\3\1\33\1\4\uff82\33",
             "\1\34",
+            "\1\36",
             "",
             "",
-            "\1\40",
             "",
-            "\1\42",
+            "",
             "\1\43",
-            "\1\45",
+            "\1\44",
             "\1\46",
-            "",
+            "\1\47",
             "",
             "",
             "",
@@ -1207,16 +1207,16 @@ public class InternalSemanticNodesDslLexer extends Lexer {
             "",
             "\1\66",
             "",
-            "",
-            "",
             "\1\67",
+            "",
+            "",
+            "",
             "",
             "\1\70",
             "",
             "",
             "\1\71",
             "\1\72",
-            "",
             "",
             "",
             "",
@@ -1260,25 +1260,23 @@ public class InternalSemanticNodesDslLexer extends Lexer {
             "\1\127",
             "\12\35\7\uffff\32\35\4\uffff\1\35\1\uffff\32\35",
             "\1\131",
-            "\1\132",
+            "\12\35\7\uffff\32\35\4\uffff\1\35\1\uffff\32\35",
             "\1\133",
             "\1\134",
             "\12\35\7\uffff\32\35\4\uffff\1\35\1\uffff\32\35",
             "\1\136",
             "",
             "\12\35\7\uffff\32\35\4\uffff\1\35\1\uffff\32\35",
+            "",
             "\1\140",
             "\1\141",
-            "\1\142",
             "",
             "\12\35\7\uffff\32\35\4\uffff\1\35\1\uffff\32\35",
             "",
-            "\1\144",
-            "\12\35\7\uffff\32\35\4\uffff\1\35\1\uffff\32\35",
+            "\1\143",
             "\12\35\7\uffff\32\35\4\uffff\1\35\1\uffff\32\35",
             "",
-            "\1\147",
-            "",
+            "\1\145",
             "",
             "\12\35\7\uffff\32\35\4\uffff\1\35\1\uffff\32\35",
             ""
@@ -1321,56 +1319,36 @@ public class InternalSemanticNodesDslLexer extends Lexer {
         	int _s = s;
             switch ( s ) {
                     case 0 : 
-                        int LA12_24 = input.LA(1);
-
-                        s = -1;
-                        if ( ((LA12_24>='\u0000' && LA12_24<='\uFFFF')) ) {s = 50;}
-
-                        else s = 27;
-
-                        if ( s>=0 ) return s;
-                        break;
-                    case 1 : 
-                        int LA12_23 = input.LA(1);
-
-                        s = -1;
-                        if ( ((LA12_23>='\u0000' && LA12_23<='\uFFFF')) ) {s = 50;}
-
-                        else s = 27;
-
-                        if ( s>=0 ) return s;
-                        break;
-                    case 2 : 
                         int LA12_0 = input.LA(1);
 
                         s = -1;
-                        if ( (LA12_0=='r') ) {s = 1;}
+                        if ( (LA12_0=='i') ) {s = 1;}
 
-                        else if ( (LA12_0=='{') ) {s = 2;}
+                        else if ( (LA12_0=='r') ) {s = 2;}
 
-                        else if ( (LA12_0=='}') ) {s = 3;}
+                        else if ( (LA12_0=='{') ) {s = 3;}
 
-                        else if ( (LA12_0=='m') ) {s = 4;}
+                        else if ( (LA12_0=='}') ) {s = 4;}
 
-                        else if ( (LA12_0==',') ) {s = 5;}
+                        else if ( (LA12_0=='@') ) {s = 5;}
 
-                        else if ( (LA12_0=='e') ) {s = 6;}
+                        else if ( (LA12_0==',') ) {s = 6;}
 
-                        else if ( (LA12_0=='-') ) {s = 7;}
+                        else if ( (LA12_0=='e') ) {s = 7;}
 
-                        else if ( (LA12_0=='a') ) {s = 8;}
+                        else if ( (LA12_0=='-') ) {s = 8;}
 
-                        else if ( (LA12_0=='n') ) {s = 9;}
+                        else if ( (LA12_0=='a') ) {s = 9;}
 
-                        else if ( (LA12_0=='[') ) {s = 10;}
+                        else if ( (LA12_0=='n') ) {s = 10;}
 
-                        else if ( (LA12_0==']') ) {s = 11;}
+                        else if ( (LA12_0=='[') ) {s = 11;}
 
-                        else if ( (LA12_0==':') ) {s = 12;}
+                        else if ( (LA12_0==']') ) {s = 12;}
 
-                        else if ( (LA12_0=='=') ) {s = 13;}
+                        else if ( (LA12_0==':') ) {s = 13;}
 
-                        else if ( (LA12_0=='@') ) {s = 14;}
+                        else if ( (LA12_0=='=') ) {s = 14;}
 
                         else if ( (LA12_0=='S') ) {s = 15;}
 
@@ -1384,7 +1362,7 @@ public class InternalSemanticNodesDslLexer extends Lexer {
 
                         else if ( (LA12_0=='^') ) {s = 20;}
 
-                        else if ( (LA12_0=='A'||LA12_0=='C'||LA12_0=='E'||(LA12_0>='G' && LA12_0<='H')||(LA12_0>='J' && LA12_0<='R')||(LA12_0>='T' && LA12_0<='Z')||LA12_0=='_'||(LA12_0>='b' && LA12_0<='d')||(LA12_0>='f' && LA12_0<='l')||(LA12_0>='o' && LA12_0<='q')||(LA12_0>='s' && LA12_0<='z')) ) {s = 21;}
+                        else if ( (LA12_0=='A'||LA12_0=='C'||LA12_0=='E'||(LA12_0>='G' && LA12_0<='H')||(LA12_0>='J' && LA12_0<='R')||(LA12_0>='T' && LA12_0<='Z')||LA12_0=='_'||(LA12_0>='b' && LA12_0<='d')||(LA12_0>='f' && LA12_0<='h')||(LA12_0>='j' && LA12_0<='m')||(LA12_0>='o' && LA12_0<='q')||(LA12_0>='s' && LA12_0<='z')) ) {s = 21;}
 
                         else if ( ((LA12_0>='0' && LA12_0<='9')) ) {s = 22;}
 
@@ -1397,6 +1375,26 @@ public class InternalSemanticNodesDslLexer extends Lexer {
                         else if ( ((LA12_0>='\t' && LA12_0<='\n')||LA12_0=='\r'||LA12_0==' ') ) {s = 26;}
 
                         else if ( ((LA12_0>='\u0000' && LA12_0<='\b')||(LA12_0>='\u000B' && LA12_0<='\f')||(LA12_0>='\u000E' && LA12_0<='\u001F')||LA12_0=='!'||(LA12_0>='#' && LA12_0<='&')||(LA12_0>='(' && LA12_0<='+')||LA12_0=='.'||(LA12_0>=';' && LA12_0<='<')||(LA12_0>='>' && LA12_0<='?')||LA12_0=='\\'||LA12_0=='`'||LA12_0=='|'||(LA12_0>='~' && LA12_0<='\uFFFF')) ) {s = 27;}
+
+                        if ( s>=0 ) return s;
+                        break;
+                    case 1 : 
+                        int LA12_24 = input.LA(1);
+
+                        s = -1;
+                        if ( ((LA12_24>='\u0000' && LA12_24<='\uFFFF')) ) {s = 50;}
+
+                        else s = 27;
+
+                        if ( s>=0 ) return s;
+                        break;
+                    case 2 : 
+                        int LA12_23 = input.LA(1);
+
+                        s = -1;
+                        if ( ((LA12_23>='\u0000' && LA12_23<='\uFFFF')) ) {s = 50;}
+
+                        else s = 27;
 
                         if ( s>=0 ) return s;
                         break;

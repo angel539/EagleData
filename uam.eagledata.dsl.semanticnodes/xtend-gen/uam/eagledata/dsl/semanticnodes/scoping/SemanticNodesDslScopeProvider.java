@@ -3,7 +3,22 @@
  */
 package uam.eagledata.dsl.semanticnodes.scoping;
 
+import com.google.common.base.Objects;
+import java.util.List;
+import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EReference;
+import org.eclipse.xtext.EcoreUtil2;
+import org.eclipse.xtext.scoping.IScope;
+import org.eclipse.xtext.scoping.Scopes;
+import semanticmanager.FormatAssistant;
+import semanticmanager.MetaData;
+import semanticmanager.MetaDataValue;
+import semanticmanager.RepositoryManager;
+import semanticmanager.Resource;
+import semanticmanager.SemanticmanagerPackage;
 import uam.eagledata.dsl.semanticnodes.scoping.AbstractSemanticNodesDslScopeProvider;
+import uam.extremo.extensions.AssistantFactory;
 
 /**
  * This class contains custom scoping description.
@@ -13,4 +28,56 @@ import uam.eagledata.dsl.semanticnodes.scoping.AbstractSemanticNodesDslScopeProv
  */
 @SuppressWarnings("all")
 public class SemanticNodesDslScopeProvider extends AbstractSemanticNodesDslScopeProvider {
+  @Override
+  public IScope getScope(final EObject context, final EReference reference) {
+    boolean _and = false;
+    if (!(context instanceof Resource)) {
+      _and = false;
+    } else {
+      boolean _equals = Objects.equal(reference, SemanticmanagerPackage.Literals.RESOURCE__ASSISTANT);
+      _and = _equals;
+    }
+    if (_and) {
+      EObject _rootContainer = EcoreUtil2.getRootContainer(context);
+      final RepositoryManager rootElement = ((RepositoryManager) _rootContainer);
+      AssistantFactory _instance = AssistantFactory.getInstance();
+      final List<FormatAssistant> assistants = _instance.getAssistances();
+      EList<FormatAssistant> _assistants = rootElement.getAssistants();
+      boolean _equals_1 = _assistants.equals(assistants);
+      boolean _not = (!_equals_1);
+      if (_not) {
+        EList<FormatAssistant> _assistants_1 = rootElement.getAssistants();
+        _assistants_1.clear();
+        EList<FormatAssistant> _assistants_2 = rootElement.getAssistants();
+        _assistants_2.addAll(assistants);
+      }
+      List<FormatAssistant> _allContentsOfType = EcoreUtil2.<FormatAssistant>getAllContentsOfType(rootElement, FormatAssistant.class);
+      return Scopes.scopeFor(_allContentsOfType);
+    }
+    boolean _and_1 = false;
+    if (!(context instanceof MetaDataValue)) {
+      _and_1 = false;
+    } else {
+      boolean _equals_2 = Objects.equal(reference, SemanticmanagerPackage.Literals.META_DATA_VALUE__KEY_META_DATA);
+      _and_1 = _equals_2;
+    }
+    if (_and_1) {
+      EObject _rootContainer_1 = EcoreUtil2.getRootContainer(context);
+      final RepositoryManager rootElement_1 = ((RepositoryManager) _rootContainer_1);
+      AssistantFactory _instance_1 = AssistantFactory.getInstance();
+      final List<MetaData> metadata = _instance_1.getRegisteredMetaData();
+      EList<MetaData> _metadata = rootElement_1.getMetadata();
+      boolean _equals_3 = _metadata.equals(metadata);
+      boolean _not_1 = (!_equals_3);
+      if (_not_1) {
+        EList<MetaData> _metadata_1 = rootElement_1.getMetadata();
+        _metadata_1.clear();
+        EList<MetaData> _metadata_2 = rootElement_1.getMetadata();
+        _metadata_2.addAll(metadata);
+      }
+      List<MetaData> _allContentsOfType_1 = EcoreUtil2.<MetaData>getAllContentsOfType(rootElement_1, MetaData.class);
+      return Scopes.scopeFor(_allContentsOfType_1);
+    }
+    return super.getScope(context, reference);
+  }
 }

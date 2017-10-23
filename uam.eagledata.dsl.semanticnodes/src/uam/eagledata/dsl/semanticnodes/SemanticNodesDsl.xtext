@@ -6,6 +6,7 @@ import "http://www.eclipse.org/emf/2002/Ecore" as ecore
 
 RepositoryManager returns semantics::RepositoryManager:
 	{semantics::RepositoryManager}
+	('import' importURI+=EString ('import' importURI+=EString)*)?
 	(repositories+=Repository (repositories+=Repository)*)?;
 
 Repository returns semantics::Repository:
@@ -15,12 +16,12 @@ Repository returns semantics::Repository:
 
 Resource returns semantics::Resource:
 	{semantics::Resource}
-	(annotations+=Annotation (annotations+=Annotation)*)?
-	assistant=EString name=EString '{'
+	('@'annotations+=[semantics::Annotation|EString] ('@'annotations+=[semantics::Annotation|EString])*)?
+	(assistant=[semantics::FormatAssistant|EString])? name=EString '{'
 		//('descriptors' '(' descriptors+=[semantics::Resource|EString] ( "," descriptors+=[semantics::Resource|EString])* ')' )?		
 		(resourceElements+=ResourceElement (resourceElements+=ResourceElement)*)?
 	'}'
-	('metadata' '{' metadata+=MetaData ( "," metadata+=MetaData)* '}' )?;
+	('{' metaDataValue+=MetaDataValue ( "," metaDataValue+=MetaDataValue)* '}' )?;
 
 ResourceElement returns semantics::ResourceElement:
 	Resource | SemanticNode | Enumeration;
@@ -38,7 +39,6 @@ EnumerationLiteral returns semantics::EnumerationLiteral:
 
 SemanticNode returns semantics::SemanticNode:
 	{semantics::SemanticNode}
-	(annotations+=Annotation (annotations+=Annotation)*)?
 	(abstract?='abstract')? 'node' name=EString
 	'{'
 		//('descriptors' '(' descriptors+=[NamedElement|EString] ( "," descriptors+=[NamedElement|EString])* ')' )?
@@ -49,7 +49,7 @@ SemanticNode returns semantics::SemanticNode:
 		//('constraints' '{' constraints+=Constraint ( "," constraints+=Constraint)* '}' )?
 		(properties+=Property (properties+=Property)*)?
 	'}'
-	('{' metadata+=MetaData ( "," metadata+=MetaData)* '}')?;
+	('{' metaDataValue+=MetaDataValue ( "," metaDataValue+=MetaDataValue)* '}')?;
 
 Property returns semantics::Property:
 	ObjectProperty | PrimitiveTypeDataProperty | EnumerationDataProperty;
@@ -64,7 +64,7 @@ ObjectProperty returns semantics::ObjectProperty:
 		//('subs' '(' subs+=[semantics::ObjectProperty|EString] ( "," subs+=[semantics::ObjectProperty|EString])* ')' )?	
 		//('inverseOf' inverseOf=[semantics::ObjectProperty|EString])?
 	//'}'
-	('{' metadata+=MetaData ( "," metadata+=MetaData)* '}')?;
+	('{' metaDataValue+=MetaDataValue ( "," metaDataValue+=MetaDataValue)* '}')?;
 
 PrimitiveTypeDataProperty returns semantics::PrimitiveTypeDataProperty:
 	{semantics::PrimitiveTypeDataProperty}
@@ -76,7 +76,7 @@ PrimitiveTypeDataProperty returns semantics::PrimitiveTypeDataProperty:
 		//('supers' '(' supers+=[semantics::DataProperty|EString] ( "," supers+=[semantics::DataProperty|EString])* ')' )?
 		//('subs' '(' subs+=[semantics::DataProperty|EString] ( "," subs+=[semantics::DataProperty|EString])* ')' )?
 	//'}'
-	('{' metadata+=MetaData ( "," metadata+=MetaData)* '}' )?;
+	('{' metaDataValue+=MetaDataValue ( "," metaDataValue+=MetaDataValue)* '}' )?;
 	
 EnumerationDataProperty returns semantics::EnumDataProperty:
 	{semantics::EnumDataProperty}
@@ -88,14 +88,14 @@ EnumerationDataProperty returns semantics::EnumDataProperty:
 		//('supers' '(' supers+=[semantics::DataProperty|EString] ( "," supers+=[semantics::DataProperty|EString])* ')' )?
 		//('subs' '(' subs+=[semantics::DataProperty|EString] ( "," subs+=[semantics::DataProperty|EString])* ')' )?
 	//'}'
-	('{' metadata+=MetaData ( "," metadata+=MetaData)* '}' )?;
+	('{' metaDataValue+=MetaDataValue ( "," metaDataValue+=MetaDataValue)* '}' )?;
 
 enum Type returns semantics::Type:
 				String = 'String' | Int = 'Int' | Boolean = 'Boolean' | Float = 'Float' | Double = 'Double';
 
-MetaData returns semantics::MetaData:
-	{semantics::MetaData}
-	key=EString '=' value=EString;
+MetaDataValue returns semantics::MetaDataValue:
+	{semantics::MetaDataValue}
+	keyMetaData=[semantics::MetaData|EString] '=' value=EString;
 
 EString returns ecore::EString:
 	STRING | ID;
@@ -105,10 +105,6 @@ EInt returns ecore::EInt:
 
 EBoolean returns ecore::EBoolean:
 	'true' | 'false';
-
-Annotation returns semantics::Annotation:
-	{semantics::Annotation}
-	"@"annotation=EString;
 /*
 
 RepositoryManager returns RepositoryManager:

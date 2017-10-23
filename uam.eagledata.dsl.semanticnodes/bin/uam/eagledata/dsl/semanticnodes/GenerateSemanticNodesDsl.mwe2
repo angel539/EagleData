@@ -36,6 +36,7 @@ Workflow {
 
 			fragment = org.eclipse.xtext.generator.adapter.FragmentAdapter {
 				fragment = org.eclipse.xtext.generator.ecore2xtext.FormatterFragment {}
+				//fragment = org.eclipse.xtext.generator.scoping.ImportURIScopingFragment auto-inject {}
 				//fragment = org.eclipse.xtext.ui.generator.outline.OutlineTreeProviderFragment {}
 				//fragment = org.eclipse.xtext.ui.generator.labeling.LabelProviderFragment{}
 			}
@@ -44,7 +45,8 @@ Workflow {
 				generateStub = false
 			}
 			validator = {
-				// composedCheck = "org.eclipse.xtext.validation.NamesAreUniqueValidator"
+				//composedCheck = "org.eclipse.xtext.validation.ImportUriValidator"
+				composedCheck = "org.eclipse.xtext.validation.NamesAreUniqueValidator"
 			}
 		}
 	}
