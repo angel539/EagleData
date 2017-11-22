@@ -21,7 +21,7 @@ import java.util.ArrayList;
 @SuppressWarnings("all")
 public class InternalAnnotationsDslParser extends AbstractInternalAntlrParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID", "RULE_INT", "RULE_STRING", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'@'", "'<'", "':'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID", "RULE_INT", "RULE_STRING", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'@'", "'<'", "','", "':'"
     };
     public static final int RULE_ID=4;
     public static final int RULE_WS=9;
@@ -33,6 +33,7 @@ public class InternalAnnotationsDslParser extends AbstractInternalAntlrParser {
     public static final int RULE_ML_COMMENT=7;
     public static final int T__12=12;
     public static final int T__13=13;
+    public static final int T__14=14;
     public static final int EOF=-1;
 
     // delegates
@@ -330,7 +331,7 @@ public class InternalAnnotationsDslParser extends AbstractInternalAntlrParser {
                         alt3=1;
                         }
                         break;
-                    case 13:
+                    case 14:
                         {
                         alt3=3;
                         }
@@ -598,7 +599,7 @@ public class InternalAnnotationsDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleAnnotationHierarchy"
-    // InternalAnnotationsDsl.g:231:1: ruleAnnotationHierarchy returns [EObject current=null] : ( () otherlv_1= '@' ( (lv_name_2_0= ruleQualifiedName ) ) (otherlv_3= '<' otherlv_4= '@' ( ( ruleQualifiedName ) ) (otherlv_6= '<' otherlv_7= '@' ( ( ruleQualifiedName ) ) )* ) ) ;
+    // InternalAnnotationsDsl.g:231:1: ruleAnnotationHierarchy returns [EObject current=null] : ( () otherlv_1= '@' ( (lv_name_2_0= ruleQualifiedName ) ) (otherlv_3= '<' otherlv_4= '@' ( ( ruleQualifiedName ) ) (otherlv_6= ',' otherlv_7= '@' ( ( ruleQualifiedName ) ) )* ) ) ;
     public final EObject ruleAnnotationHierarchy() throws RecognitionException {
         EObject current = null;
 
@@ -614,11 +615,11 @@ public class InternalAnnotationsDslParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalAnnotationsDsl.g:237:2: ( ( () otherlv_1= '@' ( (lv_name_2_0= ruleQualifiedName ) ) (otherlv_3= '<' otherlv_4= '@' ( ( ruleQualifiedName ) ) (otherlv_6= '<' otherlv_7= '@' ( ( ruleQualifiedName ) ) )* ) ) )
-            // InternalAnnotationsDsl.g:238:2: ( () otherlv_1= '@' ( (lv_name_2_0= ruleQualifiedName ) ) (otherlv_3= '<' otherlv_4= '@' ( ( ruleQualifiedName ) ) (otherlv_6= '<' otherlv_7= '@' ( ( ruleQualifiedName ) ) )* ) )
+            // InternalAnnotationsDsl.g:237:2: ( ( () otherlv_1= '@' ( (lv_name_2_0= ruleQualifiedName ) ) (otherlv_3= '<' otherlv_4= '@' ( ( ruleQualifiedName ) ) (otherlv_6= ',' otherlv_7= '@' ( ( ruleQualifiedName ) ) )* ) ) )
+            // InternalAnnotationsDsl.g:238:2: ( () otherlv_1= '@' ( (lv_name_2_0= ruleQualifiedName ) ) (otherlv_3= '<' otherlv_4= '@' ( ( ruleQualifiedName ) ) (otherlv_6= ',' otherlv_7= '@' ( ( ruleQualifiedName ) ) )* ) )
             {
-            // InternalAnnotationsDsl.g:238:2: ( () otherlv_1= '@' ( (lv_name_2_0= ruleQualifiedName ) ) (otherlv_3= '<' otherlv_4= '@' ( ( ruleQualifiedName ) ) (otherlv_6= '<' otherlv_7= '@' ( ( ruleQualifiedName ) ) )* ) )
-            // InternalAnnotationsDsl.g:239:3: () otherlv_1= '@' ( (lv_name_2_0= ruleQualifiedName ) ) (otherlv_3= '<' otherlv_4= '@' ( ( ruleQualifiedName ) ) (otherlv_6= '<' otherlv_7= '@' ( ( ruleQualifiedName ) ) )* )
+            // InternalAnnotationsDsl.g:238:2: ( () otherlv_1= '@' ( (lv_name_2_0= ruleQualifiedName ) ) (otherlv_3= '<' otherlv_4= '@' ( ( ruleQualifiedName ) ) (otherlv_6= ',' otherlv_7= '@' ( ( ruleQualifiedName ) ) )* ) )
+            // InternalAnnotationsDsl.g:239:3: () otherlv_1= '@' ( (lv_name_2_0= ruleQualifiedName ) ) (otherlv_3= '<' otherlv_4= '@' ( ( ruleQualifiedName ) ) (otherlv_6= ',' otherlv_7= '@' ( ( ruleQualifiedName ) ) )* )
             {
             // InternalAnnotationsDsl.g:239:3: ()
             // InternalAnnotationsDsl.g:240:4: 
@@ -666,8 +667,8 @@ public class InternalAnnotationsDslParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalAnnotationsDsl.g:269:3: (otherlv_3= '<' otherlv_4= '@' ( ( ruleQualifiedName ) ) (otherlv_6= '<' otherlv_7= '@' ( ( ruleQualifiedName ) ) )* )
-            // InternalAnnotationsDsl.g:270:4: otherlv_3= '<' otherlv_4= '@' ( ( ruleQualifiedName ) ) (otherlv_6= '<' otherlv_7= '@' ( ( ruleQualifiedName ) ) )*
+            // InternalAnnotationsDsl.g:269:3: (otherlv_3= '<' otherlv_4= '@' ( ( ruleQualifiedName ) ) (otherlv_6= ',' otherlv_7= '@' ( ( ruleQualifiedName ) ) )* )
+            // InternalAnnotationsDsl.g:270:4: otherlv_3= '<' otherlv_4= '@' ( ( ruleQualifiedName ) ) (otherlv_6= ',' otherlv_7= '@' ( ( ruleQualifiedName ) ) )*
             {
             otherlv_3=(Token)match(input,12,FOLLOW_6); 
 
@@ -705,24 +706,24 @@ public class InternalAnnotationsDslParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalAnnotationsDsl.g:294:4: (otherlv_6= '<' otherlv_7= '@' ( ( ruleQualifiedName ) ) )*
+            // InternalAnnotationsDsl.g:294:4: (otherlv_6= ',' otherlv_7= '@' ( ( ruleQualifiedName ) ) )*
             loop4:
             do {
                 int alt4=2;
                 int LA4_0 = input.LA(1);
 
-                if ( (LA4_0==12) ) {
+                if ( (LA4_0==13) ) {
                     alt4=1;
                 }
 
 
                 switch (alt4) {
             	case 1 :
-            	    // InternalAnnotationsDsl.g:295:5: otherlv_6= '<' otherlv_7= '@' ( ( ruleQualifiedName ) )
+            	    // InternalAnnotationsDsl.g:295:5: otherlv_6= ',' otherlv_7= '@' ( ( ruleQualifiedName ) )
             	    {
-            	    otherlv_6=(Token)match(input,12,FOLLOW_6); 
+            	    otherlv_6=(Token)match(input,13,FOLLOW_6); 
 
-            	    					newLeafNode(otherlv_6, grammarAccess.getAnnotationHierarchyAccess().getLessThanSignKeyword_3_3_0());
+            	    					newLeafNode(otherlv_6, grammarAccess.getAnnotationHierarchyAccess().getCommaKeyword_3_3_0());
             	    				
             	    otherlv_7=(Token)match(input,11,FOLLOW_4); 
 
@@ -827,7 +828,7 @@ public class InternalAnnotationsDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleAnnotationInstance"
-    // InternalAnnotationsDsl.g:332:1: ruleAnnotationInstance returns [EObject current=null] : ( () otherlv_1= '@' ( (lv_name_2_0= ruleQualifiedName ) ) (otherlv_3= ':' otherlv_4= '@' ( ( ruleQualifiedName ) ) (otherlv_6= ':' otherlv_7= '@' ( ( ruleQualifiedName ) ) )* ) ) ;
+    // InternalAnnotationsDsl.g:332:1: ruleAnnotationInstance returns [EObject current=null] : ( () otherlv_1= '@' ( (lv_name_2_0= ruleQualifiedName ) ) (otherlv_3= ':' otherlv_4= '@' ( ( ruleQualifiedName ) ) (otherlv_6= ',' otherlv_7= '@' ( ( ruleQualifiedName ) ) )* ) ) ;
     public final EObject ruleAnnotationInstance() throws RecognitionException {
         EObject current = null;
 
@@ -843,11 +844,11 @@ public class InternalAnnotationsDslParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalAnnotationsDsl.g:338:2: ( ( () otherlv_1= '@' ( (lv_name_2_0= ruleQualifiedName ) ) (otherlv_3= ':' otherlv_4= '@' ( ( ruleQualifiedName ) ) (otherlv_6= ':' otherlv_7= '@' ( ( ruleQualifiedName ) ) )* ) ) )
-            // InternalAnnotationsDsl.g:339:2: ( () otherlv_1= '@' ( (lv_name_2_0= ruleQualifiedName ) ) (otherlv_3= ':' otherlv_4= '@' ( ( ruleQualifiedName ) ) (otherlv_6= ':' otherlv_7= '@' ( ( ruleQualifiedName ) ) )* ) )
+            // InternalAnnotationsDsl.g:338:2: ( ( () otherlv_1= '@' ( (lv_name_2_0= ruleQualifiedName ) ) (otherlv_3= ':' otherlv_4= '@' ( ( ruleQualifiedName ) ) (otherlv_6= ',' otherlv_7= '@' ( ( ruleQualifiedName ) ) )* ) ) )
+            // InternalAnnotationsDsl.g:339:2: ( () otherlv_1= '@' ( (lv_name_2_0= ruleQualifiedName ) ) (otherlv_3= ':' otherlv_4= '@' ( ( ruleQualifiedName ) ) (otherlv_6= ',' otherlv_7= '@' ( ( ruleQualifiedName ) ) )* ) )
             {
-            // InternalAnnotationsDsl.g:339:2: ( () otherlv_1= '@' ( (lv_name_2_0= ruleQualifiedName ) ) (otherlv_3= ':' otherlv_4= '@' ( ( ruleQualifiedName ) ) (otherlv_6= ':' otherlv_7= '@' ( ( ruleQualifiedName ) ) )* ) )
-            // InternalAnnotationsDsl.g:340:3: () otherlv_1= '@' ( (lv_name_2_0= ruleQualifiedName ) ) (otherlv_3= ':' otherlv_4= '@' ( ( ruleQualifiedName ) ) (otherlv_6= ':' otherlv_7= '@' ( ( ruleQualifiedName ) ) )* )
+            // InternalAnnotationsDsl.g:339:2: ( () otherlv_1= '@' ( (lv_name_2_0= ruleQualifiedName ) ) (otherlv_3= ':' otherlv_4= '@' ( ( ruleQualifiedName ) ) (otherlv_6= ',' otherlv_7= '@' ( ( ruleQualifiedName ) ) )* ) )
+            // InternalAnnotationsDsl.g:340:3: () otherlv_1= '@' ( (lv_name_2_0= ruleQualifiedName ) ) (otherlv_3= ':' otherlv_4= '@' ( ( ruleQualifiedName ) ) (otherlv_6= ',' otherlv_7= '@' ( ( ruleQualifiedName ) ) )* )
             {
             // InternalAnnotationsDsl.g:340:3: ()
             // InternalAnnotationsDsl.g:341:4: 
@@ -895,10 +896,10 @@ public class InternalAnnotationsDslParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalAnnotationsDsl.g:370:3: (otherlv_3= ':' otherlv_4= '@' ( ( ruleQualifiedName ) ) (otherlv_6= ':' otherlv_7= '@' ( ( ruleQualifiedName ) ) )* )
-            // InternalAnnotationsDsl.g:371:4: otherlv_3= ':' otherlv_4= '@' ( ( ruleQualifiedName ) ) (otherlv_6= ':' otherlv_7= '@' ( ( ruleQualifiedName ) ) )*
+            // InternalAnnotationsDsl.g:370:3: (otherlv_3= ':' otherlv_4= '@' ( ( ruleQualifiedName ) ) (otherlv_6= ',' otherlv_7= '@' ( ( ruleQualifiedName ) ) )* )
+            // InternalAnnotationsDsl.g:371:4: otherlv_3= ':' otherlv_4= '@' ( ( ruleQualifiedName ) ) (otherlv_6= ',' otherlv_7= '@' ( ( ruleQualifiedName ) ) )*
             {
-            otherlv_3=(Token)match(input,13,FOLLOW_6); 
+            otherlv_3=(Token)match(input,14,FOLLOW_6); 
 
             				newLeafNode(otherlv_3, grammarAccess.getAnnotationInstanceAccess().getColonKeyword_3_0());
             			
@@ -920,7 +921,7 @@ public class InternalAnnotationsDslParser extends AbstractInternalAntlrParser {
 
             						newCompositeNode(grammarAccess.getAnnotationInstanceAccess().getDescriptorsAnnotationCrossReference_3_2_0());
             					
-            pushFollow(FOLLOW_9);
+            pushFollow(FOLLOW_7);
             ruleQualifiedName();
 
             state._fsp--;
@@ -934,7 +935,7 @@ public class InternalAnnotationsDslParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalAnnotationsDsl.g:395:4: (otherlv_6= ':' otherlv_7= '@' ( ( ruleQualifiedName ) ) )*
+            // InternalAnnotationsDsl.g:395:4: (otherlv_6= ',' otherlv_7= '@' ( ( ruleQualifiedName ) ) )*
             loop5:
             do {
                 int alt5=2;
@@ -947,11 +948,11 @@ public class InternalAnnotationsDslParser extends AbstractInternalAntlrParser {
 
                 switch (alt5) {
             	case 1 :
-            	    // InternalAnnotationsDsl.g:396:5: otherlv_6= ':' otherlv_7= '@' ( ( ruleQualifiedName ) )
+            	    // InternalAnnotationsDsl.g:396:5: otherlv_6= ',' otherlv_7= '@' ( ( ruleQualifiedName ) )
             	    {
             	    otherlv_6=(Token)match(input,13,FOLLOW_6); 
 
-            	    					newLeafNode(otherlv_6, grammarAccess.getAnnotationInstanceAccess().getColonKeyword_3_3_0());
+            	    					newLeafNode(otherlv_6, grammarAccess.getAnnotationInstanceAccess().getCommaKeyword_3_3_0());
             	    				
             	    otherlv_7=(Token)match(input,11,FOLLOW_4); 
 
@@ -971,7 +972,7 @@ public class InternalAnnotationsDslParser extends AbstractInternalAntlrParser {
 
             	    							newCompositeNode(grammarAccess.getAnnotationInstanceAccess().getDescriptorsAnnotationCrossReference_3_3_2_0());
             	    						
-            	    pushFollow(FOLLOW_9);
+            	    pushFollow(FOLLOW_7);
             	    ruleQualifiedName();
 
             	    state._fsp--;
@@ -1105,8 +1106,7 @@ public class InternalAnnotationsDslParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_4 = new BitSet(new long[]{0x0000000000000010L});
     public static final BitSet FOLLOW_5 = new BitSet(new long[]{0x0000000000001000L});
     public static final BitSet FOLLOW_6 = new BitSet(new long[]{0x0000000000000800L});
-    public static final BitSet FOLLOW_7 = new BitSet(new long[]{0x0000000000001002L});
-    public static final BitSet FOLLOW_8 = new BitSet(new long[]{0x0000000000002000L});
-    public static final BitSet FOLLOW_9 = new BitSet(new long[]{0x0000000000002002L});
+    public static final BitSet FOLLOW_7 = new BitSet(new long[]{0x0000000000002002L});
+    public static final BitSet FOLLOW_8 = new BitSet(new long[]{0x0000000000004000L});
 
 }

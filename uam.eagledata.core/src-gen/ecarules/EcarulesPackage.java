@@ -40,7 +40,7 @@ public interface EcarulesPackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	String eNS_URI = "http://www.core.eagledata/ECARules";
+	String eNS_URI = "http://www.core.eagledata/EcaRules";
 
 	/**
 	 * The package namespace name.
@@ -105,13 +105,22 @@ public interface EcarulesPackage extends EPackage {
 	int EVENT_SET_MANAGER__GEOS = 3;
 
 	/**
+	 * The feature id for the '<em><b>Imported Namespace</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EVENT_SET_MANAGER__IMPORTED_NAMESPACE = 4;
+
+	/**
 	 * The number of structural features of the '<em>Event Set Manager</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int EVENT_SET_MANAGER_FEATURE_COUNT = 4;
+	int EVENT_SET_MANAGER_FEATURE_COUNT = 5;
 
 	/**
 	 * The number of operations of the '<em>Event Set Manager</em>' class.
@@ -276,7 +285,6 @@ public interface EcarulesPackage extends EPackage {
 	 * @ordered
 	 */
 	int EVENT_OPERATION_COUNT = NAMED_ELEMENT_OPERATION_COUNT + 0;
-
 
 	/**
 	 * The meta object id for the '{@link ecarules.impl.ConceptImpl <em>Concept</em>}' class.
@@ -819,16 +827,7 @@ public interface EcarulesPackage extends EPackage {
 	 * @see ecarules.impl.EcarulesPackageImpl#getAction()
 	 * @generated
 	 */
-	int ACTION = 14;
-
-	/**
-	 * The feature id for the '<em><b>Params</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ACTION__PARAMS = 0;
+	int ACTION = 23;
 
 	/**
 	 * The feature id for the '<em><b>Calls</b></em>' reference.
@@ -837,7 +836,16 @@ public interface EcarulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ACTION__CALLS = 1;
+	int ACTION__CALLS = 0;
+
+	/**
+	 * The feature id for the '<em><b>Action Params</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTION__ACTION_PARAMS = 1;
 
 	/**
 	 * The number of structural features of the '<em>Action</em>' class.
@@ -856,6 +864,52 @@ public interface EcarulesPackage extends EPackage {
 	 * @ordered
 	 */
 	int ACTION_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link ecarules.impl.ActionCallImpl <em>Action Call</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ecarules.impl.ActionCallImpl
+	 * @see ecarules.impl.EcarulesPackageImpl#getActionCall()
+	 * @generated
+	 */
+	int ACTION_CALL = 14;
+
+	/**
+	 * The feature id for the '<em><b>Calls</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTION_CALL__CALLS = ACTION__CALLS;
+
+	/**
+	 * The feature id for the '<em><b>Action Params</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTION_CALL__ACTION_PARAMS = ACTION__ACTION_PARAMS;
+
+	/**
+	 * The number of structural features of the '<em>Action Call</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTION_CALL_FEATURE_COUNT = ACTION_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Action Call</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTION_CALL_OPERATION_COUNT = ACTION_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link ecarules.impl.GeographicalElementImpl <em>Geographical Element</em>}' class.
@@ -996,6 +1050,209 @@ public interface EcarulesPackage extends EPackage {
 	int REGION_OPERATION_COUNT = GEOGRAPHICAL_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link ecarules.impl.QueryCallImpl <em>Query Call</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ecarules.impl.QueryCallImpl
+	 * @see ecarules.impl.EcarulesPackageImpl#getQueryCall()
+	 * @generated
+	 */
+	int QUERY_CALL = 18;
+
+	/**
+	 * The feature id for the '<em><b>Calls</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int QUERY_CALL__CALLS = ACTION__CALLS;
+
+	/**
+	 * The feature id for the '<em><b>Action Params</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int QUERY_CALL__ACTION_PARAMS = ACTION__ACTION_PARAMS;
+
+	/**
+	 * The feature id for the '<em><b>Select</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int QUERY_CALL__SELECT = ACTION_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Query Params</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int QUERY_CALL__QUERY_PARAMS = ACTION_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Method</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int QUERY_CALL__METHOD = ACTION_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of structural features of the '<em>Query Call</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int QUERY_CALL_FEATURE_COUNT = ACTION_FEATURE_COUNT + 3;
+
+	/**
+	 * The number of operations of the '<em>Query Call</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int QUERY_CALL_OPERATION_COUNT = ACTION_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link ecarules.impl.ParamValueImpl <em>Param Value</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ecarules.impl.ParamValueImpl
+	 * @see ecarules.impl.EcarulesPackageImpl#getParamValue()
+	 * @generated
+	 */
+	int PARAM_VALUE = 19;
+
+	/**
+	 * The feature id for the '<em><b>Value</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAM_VALUE__VALUE = 0;
+
+	/**
+	 * The feature id for the '<em><b>Param</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAM_VALUE__PARAM = 1;
+
+	/**
+	 * The number of structural features of the '<em>Param Value</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAM_VALUE_FEATURE_COUNT = 2;
+
+	/**
+	 * The number of operations of the '<em>Param Value</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAM_VALUE_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link ecarules.impl.MethodImpl <em>Method</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ecarules.impl.MethodImpl
+	 * @see ecarules.impl.EcarulesPackageImpl#getMethod()
+	 * @generated
+	 */
+	int METHOD = 20;
+
+	/**
+	 * The number of structural features of the '<em>Method</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int METHOD_FEATURE_COUNT = 0;
+
+	/**
+	 * The number of operations of the '<em>Method</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int METHOD_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link ecarules.impl.FirstImpl <em>First</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ecarules.impl.FirstImpl
+	 * @see ecarules.impl.EcarulesPackageImpl#getFirst()
+	 * @generated
+	 */
+	int FIRST = 21;
+
+	/**
+	 * The number of structural features of the '<em>First</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FIRST_FEATURE_COUNT = METHOD_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>First</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FIRST_OPERATION_COUNT = METHOD_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link ecarules.impl.LastImpl <em>Last</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ecarules.impl.LastImpl
+	 * @see ecarules.impl.EcarulesPackageImpl#getLast()
+	 * @generated
+	 */
+	int LAST = 22;
+
+	/**
+	 * The number of structural features of the '<em>Last</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LAST_FEATURE_COUNT = METHOD_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Last</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LAST_OPERATION_COUNT = METHOD_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link ecarules.Type <em>Type</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1003,7 +1260,7 @@ public interface EcarulesPackage extends EPackage {
 	 * @see ecarules.impl.EcarulesPackageImpl#getType()
 	 * @generated
 	 */
-	int TYPE = 18;
+	int TYPE = 24;
 
 
 	/**
@@ -1059,6 +1316,17 @@ public interface EcarulesPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getEventSetManager_Geos();
+
+	/**
+	 * Returns the meta object for the attribute list '{@link ecarules.EventSetManager#getImportedNamespace <em>Imported Namespace</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute list '<em>Imported Namespace</em>'.
+	 * @see ecarules.EventSetManager#getImportedNamespace()
+	 * @see #getEventSetManager()
+	 * @generated
+	 */
+	EAttribute getEventSetManager_ImportedNamespace();
 
 	/**
 	 * Returns the meta object for class '{@link ecarules.Event <em>Event</em>}'.
@@ -1474,6 +1742,16 @@ public interface EcarulesPackage extends EPackage {
 	EAttribute getStringParam_Value();
 
 	/**
+	 * Returns the meta object for class '{@link ecarules.ActionCall <em>Action Call</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Action Call</em>'.
+	 * @see ecarules.ActionCall
+	 * @generated
+	 */
+	EClass getActionCall();
+
+	/**
 	 * Returns the meta object for class '{@link ecarules.Action <em>Action</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1482,17 +1760,6 @@ public interface EcarulesPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getAction();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link ecarules.Action#getParams <em>Params</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Params</em>'.
-	 * @see ecarules.Action#getParams()
-	 * @see #getAction()
-	 * @generated
-	 */
-	EReference getAction_Params();
 
 	/**
 	 * Returns the meta object for the reference '{@link ecarules.Action#getCalls <em>Calls</em>}'.
@@ -1504,6 +1771,17 @@ public interface EcarulesPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getAction_Calls();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link ecarules.Action#getActionParams <em>Action Params</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Action Params</em>'.
+	 * @see ecarules.Action#getActionParams()
+	 * @see #getAction()
+	 * @generated
+	 */
+	EReference getAction_ActionParams();
 
 	/**
 	 * Returns the meta object for class '{@link ecarules.GeographicalElement <em>Geographical Element</em>}'.
@@ -1580,6 +1858,111 @@ public interface EcarulesPackage extends EPackage {
 	EReference getRegion_Points();
 
 	/**
+	 * Returns the meta object for class '{@link ecarules.QueryCall <em>Query Call</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Query Call</em>'.
+	 * @see ecarules.QueryCall
+	 * @generated
+	 */
+	EClass getQueryCall();
+
+	/**
+	 * Returns the meta object for the reference '{@link ecarules.QueryCall#getSelect <em>Select</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Select</em>'.
+	 * @see ecarules.QueryCall#getSelect()
+	 * @see #getQueryCall()
+	 * @generated
+	 */
+	EReference getQueryCall_Select();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link ecarules.QueryCall#getQueryParams <em>Query Params</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Query Params</em>'.
+	 * @see ecarules.QueryCall#getQueryParams()
+	 * @see #getQueryCall()
+	 * @generated
+	 */
+	EReference getQueryCall_QueryParams();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link ecarules.QueryCall#getMethod <em>Method</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Method</em>'.
+	 * @see ecarules.QueryCall#getMethod()
+	 * @see #getQueryCall()
+	 * @generated
+	 */
+	EReference getQueryCall_Method();
+
+	/**
+	 * Returns the meta object for class '{@link ecarules.ParamValue <em>Param Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Param Value</em>'.
+	 * @see ecarules.ParamValue
+	 * @generated
+	 */
+	EClass getParamValue();
+
+	/**
+	 * Returns the meta object for the reference '{@link ecarules.ParamValue#getValue <em>Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Value</em>'.
+	 * @see ecarules.ParamValue#getValue()
+	 * @see #getParamValue()
+	 * @generated
+	 */
+	EReference getParamValue_Value();
+
+	/**
+	 * Returns the meta object for the reference '{@link ecarules.ParamValue#getParam <em>Param</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Param</em>'.
+	 * @see ecarules.ParamValue#getParam()
+	 * @see #getParamValue()
+	 * @generated
+	 */
+	EReference getParamValue_Param();
+
+	/**
+	 * Returns the meta object for class '{@link ecarules.Method <em>Method</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Method</em>'.
+	 * @see ecarules.Method
+	 * @generated
+	 */
+	EClass getMethod();
+
+	/**
+	 * Returns the meta object for class '{@link ecarules.First <em>First</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>First</em>'.
+	 * @see ecarules.First
+	 * @generated
+	 */
+	EClass getFirst();
+
+	/**
+	 * Returns the meta object for class '{@link ecarules.Last <em>Last</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Last</em>'.
+	 * @see ecarules.Last
+	 * @generated
+	 */
+	EClass getLast();
+
+	/**
 	 * Returns the meta object for enum '{@link ecarules.Type <em>Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1653,6 +2036,14 @@ public interface EcarulesPackage extends EPackage {
 		 * @generated
 		 */
 		EReference EVENT_SET_MANAGER__GEOS = eINSTANCE.getEventSetManager_Geos();
+
+		/**
+		 * The meta object literal for the '<em><b>Imported Namespace</b></em>' attribute list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute EVENT_SET_MANAGER__IMPORTED_NAMESPACE = eINSTANCE.getEventSetManager_ImportedNamespace();
 
 		/**
 		 * The meta object literal for the '{@link ecarules.impl.EventImpl <em>Event</em>}' class.
@@ -1993,6 +2384,16 @@ public interface EcarulesPackage extends EPackage {
 		EAttribute STRING_PARAM__VALUE = eINSTANCE.getStringParam_Value();
 
 		/**
+		 * The meta object literal for the '{@link ecarules.impl.ActionCallImpl <em>Action Call</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see ecarules.impl.ActionCallImpl
+		 * @see ecarules.impl.EcarulesPackageImpl#getActionCall()
+		 * @generated
+		 */
+		EClass ACTION_CALL = eINSTANCE.getActionCall();
+
+		/**
 		 * The meta object literal for the '{@link ecarules.impl.ActionImpl <em>Action</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2003,20 +2404,20 @@ public interface EcarulesPackage extends EPackage {
 		EClass ACTION = eINSTANCE.getAction();
 
 		/**
-		 * The meta object literal for the '<em><b>Params</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference ACTION__PARAMS = eINSTANCE.getAction_Params();
-
-		/**
 		 * The meta object literal for the '<em><b>Calls</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EReference ACTION__CALLS = eINSTANCE.getAction_Calls();
+
+		/**
+		 * The meta object literal for the '<em><b>Action Params</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ACTION__ACTION_PARAMS = eINSTANCE.getAction_ActionParams();
 
 		/**
 		 * The meta object literal for the '{@link ecarules.impl.GeographicalElementImpl <em>Geographical Element</em>}' class.
@@ -2079,6 +2480,96 @@ public interface EcarulesPackage extends EPackage {
 		 * @generated
 		 */
 		EReference REGION__POINTS = eINSTANCE.getRegion_Points();
+
+		/**
+		 * The meta object literal for the '{@link ecarules.impl.QueryCallImpl <em>Query Call</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see ecarules.impl.QueryCallImpl
+		 * @see ecarules.impl.EcarulesPackageImpl#getQueryCall()
+		 * @generated
+		 */
+		EClass QUERY_CALL = eINSTANCE.getQueryCall();
+
+		/**
+		 * The meta object literal for the '<em><b>Select</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference QUERY_CALL__SELECT = eINSTANCE.getQueryCall_Select();
+
+		/**
+		 * The meta object literal for the '<em><b>Query Params</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference QUERY_CALL__QUERY_PARAMS = eINSTANCE.getQueryCall_QueryParams();
+
+		/**
+		 * The meta object literal for the '<em><b>Method</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference QUERY_CALL__METHOD = eINSTANCE.getQueryCall_Method();
+
+		/**
+		 * The meta object literal for the '{@link ecarules.impl.ParamValueImpl <em>Param Value</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see ecarules.impl.ParamValueImpl
+		 * @see ecarules.impl.EcarulesPackageImpl#getParamValue()
+		 * @generated
+		 */
+		EClass PARAM_VALUE = eINSTANCE.getParamValue();
+
+		/**
+		 * The meta object literal for the '<em><b>Value</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PARAM_VALUE__VALUE = eINSTANCE.getParamValue_Value();
+
+		/**
+		 * The meta object literal for the '<em><b>Param</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PARAM_VALUE__PARAM = eINSTANCE.getParamValue_Param();
+
+		/**
+		 * The meta object literal for the '{@link ecarules.impl.MethodImpl <em>Method</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see ecarules.impl.MethodImpl
+		 * @see ecarules.impl.EcarulesPackageImpl#getMethod()
+		 * @generated
+		 */
+		EClass METHOD = eINSTANCE.getMethod();
+
+		/**
+		 * The meta object literal for the '{@link ecarules.impl.FirstImpl <em>First</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see ecarules.impl.FirstImpl
+		 * @see ecarules.impl.EcarulesPackageImpl#getFirst()
+		 * @generated
+		 */
+		EClass FIRST = eINSTANCE.getFirst();
+
+		/**
+		 * The meta object literal for the '{@link ecarules.impl.LastImpl <em>Last</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see ecarules.impl.LastImpl
+		 * @see ecarules.impl.EcarulesPackageImpl#getLast()
+		 * @generated
+		 */
+		EClass LAST = eINSTANCE.getLast();
 
 		/**
 		 * The meta object literal for the '{@link ecarules.Type <em>Type</em>}' enum.

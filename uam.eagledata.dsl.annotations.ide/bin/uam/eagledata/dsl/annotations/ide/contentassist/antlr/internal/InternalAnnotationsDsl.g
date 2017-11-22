@@ -649,9 +649,9 @@ rule__AnnotationHierarchy__Group_3_3__0__Impl
 	}
 :
 (
-	{ before(grammarAccess.getAnnotationHierarchyAccess().getLessThanSignKeyword_3_3_0()); }
-	'<'
-	{ after(grammarAccess.getAnnotationHierarchyAccess().getLessThanSignKeyword_3_3_0()); }
+	{ before(grammarAccess.getAnnotationHierarchyAccess().getCommaKeyword_3_3_0()); }
+	','
+	{ after(grammarAccess.getAnnotationHierarchyAccess().getCommaKeyword_3_3_0()); }
 )
 ;
 finally {
@@ -946,9 +946,9 @@ rule__AnnotationInstance__Group_3_3__0__Impl
 	}
 :
 (
-	{ before(grammarAccess.getAnnotationInstanceAccess().getColonKeyword_3_3_0()); }
-	':'
-	{ after(grammarAccess.getAnnotationInstanceAccess().getColonKeyword_3_3_0()); }
+	{ before(grammarAccess.getAnnotationInstanceAccess().getCommaKeyword_3_3_0()); }
+	','
+	{ after(grammarAccess.getAnnotationInstanceAccess().getCommaKeyword_3_3_0()); }
 )
 ;
 finally {

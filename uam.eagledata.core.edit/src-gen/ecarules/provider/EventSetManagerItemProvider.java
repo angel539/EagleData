@@ -24,6 +24,7 @@ import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
@@ -62,29 +63,29 @@ public class EventSetManagerItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addDataconnectionsPropertyDescriptor(object);
+			addImportedNamespacePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Dataconnections feature.
+	 * This adds a property descriptor for the Imported Namespace feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addDataconnectionsPropertyDescriptor(Object object) {
+	protected void addImportedNamespacePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_EventSetManager_dataconnections_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_EventSetManager_dataconnections_feature", "_UI_EventSetManager_type"),
-				 EcarulesPackage.Literals.EVENT_SET_MANAGER__DATACONNECTIONS,
+				 getString("_UI_EventSetManager_importedNamespace_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_EventSetManager_importedNamespace_feature", "_UI_EventSetManager_type"),
+				 EcarulesPackage.Literals.EVENT_SET_MANAGER__IMPORTED_NAMESPACE,
 				 true,
 				 false,
-				 true,
-				 null,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
 	}
@@ -102,6 +103,7 @@ public class EventSetManagerItemProvider
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(EcarulesPackage.Literals.EVENT_SET_MANAGER__EVENTS);
+			childrenFeatures.add(EcarulesPackage.Literals.EVENT_SET_MANAGER__DATACONNECTIONS);
 			childrenFeatures.add(EcarulesPackage.Literals.EVENT_SET_MANAGER__ACTIONS);
 			childrenFeatures.add(EcarulesPackage.Literals.EVENT_SET_MANAGER__GEOS);
 		}
@@ -156,7 +158,11 @@ public class EventSetManagerItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(EventSetManager.class)) {
+			case EcarulesPackage.EVENT_SET_MANAGER__IMPORTED_NAMESPACE:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
 			case EcarulesPackage.EVENT_SET_MANAGER__EVENTS:
+			case EcarulesPackage.EVENT_SET_MANAGER__DATACONNECTIONS:
 			case EcarulesPackage.EVENT_SET_MANAGER__ACTIONS:
 			case EcarulesPackage.EVENT_SET_MANAGER__GEOS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
@@ -180,6 +186,11 @@ public class EventSetManagerItemProvider
 			(createChildParameter
 				(EcarulesPackage.Literals.EVENT_SET_MANAGER__EVENTS,
 				 EcarulesFactory.eINSTANCE.createEvent()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(EcarulesPackage.Literals.EVENT_SET_MANAGER__DATACONNECTIONS,
+				 EcarulesFactory.eINSTANCE.createDataConnection()));
 
 		newChildDescriptors.add
 			(createChildParameter

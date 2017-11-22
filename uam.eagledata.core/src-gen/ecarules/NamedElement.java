@@ -3,6 +3,7 @@
 package ecarules;
 
 import fr.inria.atlanmod.neoemf.core.PersistentEObject;
+
 import org.eclipse.emf.common.util.EList;
 
 /**

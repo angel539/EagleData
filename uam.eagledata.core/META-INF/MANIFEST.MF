@@ -3,16 +3,25 @@ Bundle-ManifestVersion: 2
 Bundle-Name: %pluginName
 Bundle-SymbolicName: uam.eagledata.core;singleton:=true
 Bundle-Version: 1.0.0.qualifier
-Bundle-ClassPath: .
+Bundle-ClassPath: .,
+ model/,
+ src/
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Bundle-Activator: uam.eagledata.core.Activator
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
  org.eclipse.emf.ecore;visibility:=reexport,
- fr.inria.atlanmod.neoemf.core;visibility:=reexport
+ fr.inria.atlanmod.neoemf.core;visibility:=reexport,
+ org.eclipse.xtext.common.types;visibility:=reexport,
+ org.eclipse.xtext.xbase;visibility:=reexport,
+ uam.extremo.core;bundle-version="1.0.0";visibility:=reexport,
+ uam.eagledata.core;visibility:=reexport
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Export-Package: ecarules,
  ecarules.impl,
- ecarules.util
+ ecarules.util,
+ query,
+ query.impl,
+ query.util
 Bundle-ActivationPolicy: lazy

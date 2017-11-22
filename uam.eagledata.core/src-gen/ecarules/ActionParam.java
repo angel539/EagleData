@@ -22,7 +22,6 @@ import fr.inria.atlanmod.neoemf.core.PersistentEObject;
  * @generated
  */
 public interface ActionParam extends PersistentEObject {
-
 	/**
 	 * Returns the value of the '<em><b>Key</b></em>' attribute.
 	 * <!-- begin-user-doc -->
@@ -48,4 +47,5 @@ public interface ActionParam extends PersistentEObject {
 	 * @generated
 	 */
 	void setKey(String value);
+
 } // ActionParam

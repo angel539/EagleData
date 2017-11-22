@@ -3,9 +3,6 @@ package uam.eagledata.extensions;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.eclipse.core.resources.IContainer;
-import org.eclipse.core.resources.IFolder;
-import org.eclipse.core.resources.IResource;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IConfigurationElement;
 import org.eclipse.core.runtime.IContributor;
@@ -22,7 +19,6 @@ import org.osgi.framework.Bundle;
 import org.osgi.framework.FrameworkUtil;
 
 import com.google.inject.Inject;
-
 import ecarules.ActionExecutableExtension;
 import ecarules.DataConnection;
 import ecarules.EventSetManager;
@@ -167,7 +163,7 @@ public class EventSetControlManager{
 		}
 	}
 	
-	public EventSetManager getModelDocument() {
+	public EventSetManager getModelDocumentFromEditor() {
 		IXtextDocument xtextDocument = EditorUtils.getActiveXtextEditor().getDocument();
 		
 		XtextResource xtextResource = xtextDocument.readOnly(new IUnitOfWork<XtextResource, XtextResource>() {

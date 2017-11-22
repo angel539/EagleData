@@ -22,7 +22,7 @@ import java.util.ArrayList;
 @SuppressWarnings("all")
 public class InternalAnnotationsDslParser extends AbstractInternalContentAssistParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID", "RULE_INT", "RULE_STRING", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'@'", "'<'", "':'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID", "RULE_INT", "RULE_STRING", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'@'", "'<'", "','", "':'"
     };
     public static final int RULE_ID=4;
     public static final int RULE_WS=9;
@@ -34,6 +34,7 @@ public class InternalAnnotationsDslParser extends AbstractInternalContentAssistP
     public static final int RULE_ML_COMMENT=7;
     public static final int T__12=12;
     public static final int T__13=13;
+    public static final int T__14=14;
     public static final int EOF=-1;
 
     // delegates
@@ -539,7 +540,7 @@ public class InternalAnnotationsDslParser extends AbstractInternalContentAssistP
 
                 if ( (LA1_1==RULE_ID) ) {
                     switch ( input.LA(3) ) {
-                    case 13:
+                    case 14:
                         {
                         alt1=3;
                         }
@@ -1705,7 +1706,7 @@ public class InternalAnnotationsDslParser extends AbstractInternalContentAssistP
             // InternalAnnotationsDsl.g:584:1: ( rule__AnnotationHierarchy__Group_3__2__Impl rule__AnnotationHierarchy__Group_3__3 )
             // InternalAnnotationsDsl.g:585:2: rule__AnnotationHierarchy__Group_3__2__Impl rule__AnnotationHierarchy__Group_3__3
             {
-            pushFollow(FOLLOW_6);
+            pushFollow(FOLLOW_7);
             rule__AnnotationHierarchy__Group_3__2__Impl();
 
             state._fsp--;
@@ -1833,7 +1834,7 @@ public class InternalAnnotationsDslParser extends AbstractInternalContentAssistP
                 int alt4=2;
                 int LA4_0 = input.LA(1);
 
-                if ( (LA4_0==12) ) {
+                if ( (LA4_0==13) ) {
                     alt4=1;
                 }
 
@@ -1842,7 +1843,7 @@ public class InternalAnnotationsDslParser extends AbstractInternalContentAssistP
             	case 1 :
             	    // InternalAnnotationsDsl.g:625:3: rule__AnnotationHierarchy__Group_3_3__0
             	    {
-            	    pushFollow(FOLLOW_7);
+            	    pushFollow(FOLLOW_8);
             	    rule__AnnotationHierarchy__Group_3_3__0();
 
             	    state._fsp--;
@@ -1917,21 +1918,21 @@ public class InternalAnnotationsDslParser extends AbstractInternalContentAssistP
 
 
     // $ANTLR start "rule__AnnotationHierarchy__Group_3_3__0__Impl"
-    // InternalAnnotationsDsl.g:646:1: rule__AnnotationHierarchy__Group_3_3__0__Impl : ( '<' ) ;
+    // InternalAnnotationsDsl.g:646:1: rule__AnnotationHierarchy__Group_3_3__0__Impl : ( ',' ) ;
     public final void rule__AnnotationHierarchy__Group_3_3__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAnnotationsDsl.g:650:1: ( ( '<' ) )
-            // InternalAnnotationsDsl.g:651:1: ( '<' )
+            // InternalAnnotationsDsl.g:650:1: ( ( ',' ) )
+            // InternalAnnotationsDsl.g:651:1: ( ',' )
             {
-            // InternalAnnotationsDsl.g:651:1: ( '<' )
-            // InternalAnnotationsDsl.g:652:2: '<'
+            // InternalAnnotationsDsl.g:651:1: ( ',' )
+            // InternalAnnotationsDsl.g:652:2: ','
             {
-             before(grammarAccess.getAnnotationHierarchyAccess().getLessThanSignKeyword_3_3_0()); 
-            match(input,12,FOLLOW_2); 
-             after(grammarAccess.getAnnotationHierarchyAccess().getLessThanSignKeyword_3_3_0()); 
+             before(grammarAccess.getAnnotationHierarchyAccess().getCommaKeyword_3_3_0()); 
+            match(input,13,FOLLOW_2); 
+             after(grammarAccess.getAnnotationHierarchyAccess().getCommaKeyword_3_3_0()); 
 
             }
 
@@ -2268,7 +2269,7 @@ public class InternalAnnotationsDslParser extends AbstractInternalContentAssistP
             // InternalAnnotationsDsl.g:773:1: ( rule__AnnotationInstance__Group__2__Impl rule__AnnotationInstance__Group__3 )
             // InternalAnnotationsDsl.g:774:2: rule__AnnotationInstance__Group__2__Impl rule__AnnotationInstance__Group__3
             {
-            pushFollow(FOLLOW_8);
+            pushFollow(FOLLOW_9);
             rule__AnnotationInstance__Group__2__Impl();
 
             state._fsp--;
@@ -2475,7 +2476,7 @@ public class InternalAnnotationsDslParser extends AbstractInternalContentAssistP
             // InternalAnnotationsDsl.g:841:2: ':'
             {
              before(grammarAccess.getAnnotationInstanceAccess().getColonKeyword_3_0()); 
-            match(input,13,FOLLOW_2); 
+            match(input,14,FOLLOW_2); 
              after(grammarAccess.getAnnotationInstanceAccess().getColonKeyword_3_0()); 
 
             }
@@ -2583,7 +2584,7 @@ public class InternalAnnotationsDslParser extends AbstractInternalContentAssistP
             // InternalAnnotationsDsl.g:881:1: ( rule__AnnotationInstance__Group_3__2__Impl rule__AnnotationInstance__Group_3__3 )
             // InternalAnnotationsDsl.g:882:2: rule__AnnotationInstance__Group_3__2__Impl rule__AnnotationInstance__Group_3__3
             {
-            pushFollow(FOLLOW_8);
+            pushFollow(FOLLOW_7);
             rule__AnnotationInstance__Group_3__2__Impl();
 
             state._fsp--;
@@ -2720,7 +2721,7 @@ public class InternalAnnotationsDslParser extends AbstractInternalContentAssistP
             	case 1 :
             	    // InternalAnnotationsDsl.g:922:3: rule__AnnotationInstance__Group_3_3__0
             	    {
-            	    pushFollow(FOLLOW_9);
+            	    pushFollow(FOLLOW_8);
             	    rule__AnnotationInstance__Group_3_3__0();
 
             	    state._fsp--;
@@ -2795,21 +2796,21 @@ public class InternalAnnotationsDslParser extends AbstractInternalContentAssistP
 
 
     // $ANTLR start "rule__AnnotationInstance__Group_3_3__0__Impl"
-    // InternalAnnotationsDsl.g:943:1: rule__AnnotationInstance__Group_3_3__0__Impl : ( ':' ) ;
+    // InternalAnnotationsDsl.g:943:1: rule__AnnotationInstance__Group_3_3__0__Impl : ( ',' ) ;
     public final void rule__AnnotationInstance__Group_3_3__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAnnotationsDsl.g:947:1: ( ( ':' ) )
-            // InternalAnnotationsDsl.g:948:1: ( ':' )
+            // InternalAnnotationsDsl.g:947:1: ( ( ',' ) )
+            // InternalAnnotationsDsl.g:948:1: ( ',' )
             {
-            // InternalAnnotationsDsl.g:948:1: ( ':' )
-            // InternalAnnotationsDsl.g:949:2: ':'
+            // InternalAnnotationsDsl.g:948:1: ( ',' )
+            // InternalAnnotationsDsl.g:949:2: ','
             {
-             before(grammarAccess.getAnnotationInstanceAccess().getColonKeyword_3_3_0()); 
+             before(grammarAccess.getAnnotationInstanceAccess().getCommaKeyword_3_3_0()); 
             match(input,13,FOLLOW_2); 
-             after(grammarAccess.getAnnotationInstanceAccess().getColonKeyword_3_3_0()); 
+             after(grammarAccess.getAnnotationInstanceAccess().getCommaKeyword_3_3_0()); 
 
             }
 
@@ -3397,8 +3398,8 @@ public class InternalAnnotationsDslParser extends AbstractInternalContentAssistP
     public static final BitSet FOLLOW_4 = new BitSet(new long[]{0x0000000000000802L});
     public static final BitSet FOLLOW_5 = new BitSet(new long[]{0x0000000000000010L});
     public static final BitSet FOLLOW_6 = new BitSet(new long[]{0x0000000000001000L});
-    public static final BitSet FOLLOW_7 = new BitSet(new long[]{0x0000000000001002L});
-    public static final BitSet FOLLOW_8 = new BitSet(new long[]{0x0000000000002000L});
-    public static final BitSet FOLLOW_9 = new BitSet(new long[]{0x0000000000002002L});
+    public static final BitSet FOLLOW_7 = new BitSet(new long[]{0x0000000000002000L});
+    public static final BitSet FOLLOW_8 = new BitSet(new long[]{0x0000000000002002L});
+    public static final BitSet FOLLOW_9 = new BitSet(new long[]{0x0000000000004000L});
 
 }

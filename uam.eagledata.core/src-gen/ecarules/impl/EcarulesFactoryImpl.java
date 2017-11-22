@@ -68,9 +68,13 @@ public class EcarulesFactoryImpl extends EFactoryImpl implements EcarulesFactory
 			case EcarulesPackage.ACTION_EXECUTABLE_EXTENSION: return (EObject)createActionExecutableExtension();
 			case EcarulesPackage.CONCEPT_PARAM: return (EObject)createConceptParam();
 			case EcarulesPackage.STRING_PARAM: return (EObject)createStringParam();
-			case EcarulesPackage.ACTION: return (EObject)createAction();
+			case EcarulesPackage.ACTION_CALL: return (EObject)createActionCall();
 			case EcarulesPackage.POINT: return (EObject)createPoint();
 			case EcarulesPackage.REGION: return (EObject)createRegion();
+			case EcarulesPackage.QUERY_CALL: return (EObject)createQueryCall();
+			case EcarulesPackage.PARAM_VALUE: return (EObject)createParamValue();
+			case EcarulesPackage.FIRST: return (EObject)createFirst();
+			case EcarulesPackage.LAST: return (EObject)createLast();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -221,9 +225,9 @@ public class EcarulesFactoryImpl extends EFactoryImpl implements EcarulesFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Action createAction() {
-		ActionImpl action = new ActionImpl();
-		return action;
+	public ActionCall createActionCall() {
+		ActionCallImpl actionCall = new ActionCallImpl();
+		return actionCall;
 	}
 
 	/**
@@ -244,6 +248,46 @@ public class EcarulesFactoryImpl extends EFactoryImpl implements EcarulesFactory
 	public Region createRegion() {
 		RegionImpl region = new RegionImpl();
 		return region;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public QueryCall createQueryCall() {
+		QueryCallImpl queryCall = new QueryCallImpl();
+		return queryCall;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ParamValue createParamValue() {
+		ParamValueImpl paramValue = new ParamValueImpl();
+		return paramValue;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public First createFirst() {
+		FirstImpl first = new FirstImpl();
+		return first;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Last createLast() {
+		LastImpl last = new LastImpl();
+		return last;
 	}
 
 	/**

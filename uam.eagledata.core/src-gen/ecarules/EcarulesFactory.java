@@ -121,13 +121,13 @@ public interface EcarulesFactory extends EFactory {
 	StringParam createStringParam();
 
 	/**
-	 * Returns a new object of class '<em>Action</em>'.
+	 * Returns a new object of class '<em>Action Call</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Action</em>'.
+	 * @return a new object of class '<em>Action Call</em>'.
 	 * @generated
 	 */
-	Action createAction();
+	ActionCall createActionCall();
 
 	/**
 	 * Returns a new object of class '<em>Point</em>'.
@@ -146,6 +146,42 @@ public interface EcarulesFactory extends EFactory {
 	 * @generated
 	 */
 	Region createRegion();
+
+	/**
+	 * Returns a new object of class '<em>Query Call</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Query Call</em>'.
+	 * @generated
+	 */
+	QueryCall createQueryCall();
+
+	/**
+	 * Returns a new object of class '<em>Param Value</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Param Value</em>'.
+	 * @generated
+	 */
+	ParamValue createParamValue();
+
+	/**
+	 * Returns a new object of class '<em>First</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>First</em>'.
+	 * @generated
+	 */
+	First createFirst();
+
+	/**
+	 * Returns a new object of class '<em>Last</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Last</em>'.
+	 * @generated
+	 */
+	Last createLast();
 
 	/**
 	 * Returns the package supported by this factory.

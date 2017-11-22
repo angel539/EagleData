@@ -32,6 +32,7 @@ Workflow {
 			name = "uam.eagledata.dsl.events.EventSetManagerDsl"
 			fileExtensions = "events"
 			referencedResource = "platform:/resource/uam.eagledata.core/model/ecarules.genmodel"
+			referencedResource = "platform:/resource/uam.eagledata.core/model/query.genmodel"
 			
 			fragment = ecore2xtext.Ecore2XtextValueConverterServiceFragment2 auto-inject {}
 

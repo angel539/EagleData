@@ -8,6 +8,7 @@ import ecarules.NamedElement;
 import fr.inria.atlanmod.neoemf.core.DefaultPersistentEObject;
 
 import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EClass;
 
 /**

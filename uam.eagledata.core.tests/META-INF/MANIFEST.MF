@@ -7,9 +7,13 @@ Bundle-ClassPath: .
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
-Export-Package: ecarules.tests
+Export-Package: ecarules.tests,
+ query.tests
 Require-Bundle: org.eclipse.core.runtime,
  uam.eagledata.core;visibility:=reexport,
+ uam.extremo.core;visibility:=reexport,
+ org.eclipse.xtext.common.types;visibility:=reexport,
+ org.eclipse.xtext.xbase;visibility:=reexport,
  org.eclipse.emf.ecore.xmi;visibility:=reexport,
  org.junit;visibility:=reexport
 Bundle-ActivationPolicy: lazy

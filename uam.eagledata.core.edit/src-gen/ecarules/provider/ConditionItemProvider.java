@@ -6,6 +6,7 @@ package ecarules.provider;
 import ecarules.Condition;
 import ecarules.EcarulesFactory;
 import ecarules.EcarulesPackage;
+
 import java.util.Collection;
 import java.util.List;
 
@@ -13,7 +14,9 @@ import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.ResourceLocator;
+
 import org.eclipse.emf.ecore.EStructuralFeature;
+
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -118,6 +121,17 @@ public class ConditionItemProvider
 	}
 
 	/**
+	 * This returns Condition.gif.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object getImage(Object object) {
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/Condition"));
+	}
+
+	/**
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -168,7 +182,12 @@ public class ConditionItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(EcarulesPackage.Literals.CONDITION__TRIGGERS,
-				 EcarulesFactory.eINSTANCE.createAction()));
+				 EcarulesFactory.eINSTANCE.createActionCall()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(EcarulesPackage.Literals.CONDITION__TRIGGERS,
+				 EcarulesFactory.eINSTANCE.createQueryCall()));
 	}
 
 	/**

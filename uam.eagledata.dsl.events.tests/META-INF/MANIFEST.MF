@@ -20,3 +20,8 @@ Import-Package: org.hamcrest.core,
  org.junit.runners;version="4.5.0",
  org.junit.runner.manipulation;version="4.5.0",
  org.junit.runner.notification;version="4.5.0"
+Bundle-ClassPath: lib/guice-4.0.jar,
+ lib/guice-assistedinject-4.0.jar,
+ lib/guice-multibindings-4.0.jar,
+ lib/junit-4.12.jar,
+ .

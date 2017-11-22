@@ -157,6 +157,8 @@ import org.eclipse.emf.edit.ui.view.ExtendedPropertySheetPage;
 import ecarules.provider.EcarulesItemProviderAdapterFactory;
 
 import org.eclipse.ui.actions.WorkspaceModifyOperation;
+import query.provider.QueryItemProviderAdapterFactory;
+import semanticmanager.provider.SemanticmanagerItemProviderAdapterFactory;
 
 
 /**
@@ -702,6 +704,8 @@ public class EcarulesEditor
 
 		adapterFactory.addAdapterFactory(new ResourceItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new EcarulesItemProviderAdapterFactory());
+		adapterFactory.addAdapterFactory(new SemanticmanagerItemProviderAdapterFactory());
+		adapterFactory.addAdapterFactory(new QueryItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new ReflectiveItemProviderAdapterFactory());
 
 		// Create the command stack that will notify this editor as commands are executed.

@@ -4,6 +4,7 @@ package ecarules.impl;
 
 import ecarules.EcarulesPackage;
 import ecarules.KeyConcept;
+
 import org.eclipse.emf.ecore.EClass;
 
 /**

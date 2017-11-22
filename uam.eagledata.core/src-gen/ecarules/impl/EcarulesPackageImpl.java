@@ -3,6 +3,7 @@
 package ecarules.impl;
 
 import ecarules.Action;
+import ecarules.ActionCall;
 import ecarules.ActionExecutableExtension;
 import ecarules.ActionParam;
 import ecarules.Concept;
@@ -13,17 +14,22 @@ import ecarules.EcarulesFactory;
 import ecarules.EcarulesPackage;
 import ecarules.Event;
 import ecarules.EventSetManager;
-
 import ecarules.Expression;
+import ecarules.First;
 import ecarules.GeographicalElement;
 import ecarules.KeyConcept;
+import ecarules.Last;
 import ecarules.Literal;
+import ecarules.Method;
 import ecarules.NamedElement;
+import ecarules.ParamValue;
 import ecarules.Point;
+import ecarules.QueryCall;
 import ecarules.RegexConcept;
 import ecarules.Region;
 import ecarules.StringParam;
 import ecarules.Type;
+
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EEnum;
@@ -32,6 +38,7 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
 import org.eclipse.emf.ecore.impl.EPackageImpl;
+import query.QueryPackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -143,6 +150,13 @@ public class EcarulesPackageImpl extends EPackageImpl implements EcarulesPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass actionCallEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EClass actionEClass = null;
 
 	/**
@@ -165,6 +179,41 @@ public class EcarulesPackageImpl extends EPackageImpl implements EcarulesPackage
 	 * @generated
 	 */
 	private EClass regionEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass queryCallEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass paramValueEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass methodEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass firstEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass lastEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -218,6 +267,9 @@ public class EcarulesPackageImpl extends EPackageImpl implements EcarulesPackage
 		EcarulesPackageImpl theEcarulesPackage = (EcarulesPackageImpl)(EPackage.Registry.INSTANCE.get(eNS_URI) instanceof EcarulesPackageImpl ? EPackage.Registry.INSTANCE.get(eNS_URI) : new EcarulesPackageImpl());
 
 		isInited = true;
+
+		// Initialize simple dependencies
+		QueryPackage.eINSTANCE.eClass();
 
 		// Create package meta-data objects
 		theEcarulesPackage.createPackageContents();
@@ -277,6 +329,15 @@ public class EcarulesPackageImpl extends EPackageImpl implements EcarulesPackage
 	 */
 	public EReference getEventSetManager_Geos() {
 		return (EReference)eventSetManagerEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getEventSetManager_ImportedNamespace() {
+		return (EAttribute)eventSetManagerEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -635,6 +696,15 @@ public class EcarulesPackageImpl extends EPackageImpl implements EcarulesPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getActionCall() {
+		return actionCallEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getAction() {
 		return actionEClass;
 	}
@@ -644,7 +714,7 @@ public class EcarulesPackageImpl extends EPackageImpl implements EcarulesPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getAction_Params() {
+	public EReference getAction_Calls() {
 		return (EReference)actionEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -653,7 +723,7 @@ public class EcarulesPackageImpl extends EPackageImpl implements EcarulesPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getAction_Calls() {
+	public EReference getAction_ActionParams() {
 		return (EReference)actionEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -725,6 +795,96 @@ public class EcarulesPackageImpl extends EPackageImpl implements EcarulesPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getQueryCall() {
+		return queryCallEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getQueryCall_Select() {
+		return (EReference)queryCallEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getQueryCall_QueryParams() {
+		return (EReference)queryCallEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getQueryCall_Method() {
+		return (EReference)queryCallEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getParamValue() {
+		return paramValueEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getParamValue_Value() {
+		return (EReference)paramValueEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getParamValue_Param() {
+		return (EReference)paramValueEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getMethod() {
+		return methodEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getFirst() {
+		return firstEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getLast() {
+		return lastEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getType() {
 		return typeEEnum;
 	}
@@ -762,6 +922,7 @@ public class EcarulesPackageImpl extends EPackageImpl implements EcarulesPackage
 		createEReference(eventSetManagerEClass, EVENT_SET_MANAGER__DATACONNECTIONS);
 		createEReference(eventSetManagerEClass, EVENT_SET_MANAGER__ACTIONS);
 		createEReference(eventSetManagerEClass, EVENT_SET_MANAGER__GEOS);
+		createEAttribute(eventSetManagerEClass, EVENT_SET_MANAGER__IMPORTED_NAMESPACE);
 
 		eventEClass = createEClass(EVENT);
 		createEReference(eventEClass, EVENT__WHEN);
@@ -815,9 +976,7 @@ public class EcarulesPackageImpl extends EPackageImpl implements EcarulesPackage
 		stringParamEClass = createEClass(STRING_PARAM);
 		createEAttribute(stringParamEClass, STRING_PARAM__VALUE);
 
-		actionEClass = createEClass(ACTION);
-		createEReference(actionEClass, ACTION__PARAMS);
-		createEReference(actionEClass, ACTION__CALLS);
+		actionCallEClass = createEClass(ACTION_CALL);
 
 		geographicalElementEClass = createEClass(GEOGRAPHICAL_ELEMENT);
 		createEAttribute(geographicalElementEClass, GEOGRAPHICAL_ELEMENT__NAME);
@@ -828,6 +987,25 @@ public class EcarulesPackageImpl extends EPackageImpl implements EcarulesPackage
 
 		regionEClass = createEClass(REGION);
 		createEReference(regionEClass, REGION__POINTS);
+
+		queryCallEClass = createEClass(QUERY_CALL);
+		createEReference(queryCallEClass, QUERY_CALL__SELECT);
+		createEReference(queryCallEClass, QUERY_CALL__QUERY_PARAMS);
+		createEReference(queryCallEClass, QUERY_CALL__METHOD);
+
+		paramValueEClass = createEClass(PARAM_VALUE);
+		createEReference(paramValueEClass, PARAM_VALUE__VALUE);
+		createEReference(paramValueEClass, PARAM_VALUE__PARAM);
+
+		methodEClass = createEClass(METHOD);
+
+		firstEClass = createEClass(FIRST);
+
+		lastEClass = createEClass(LAST);
+
+		actionEClass = createEClass(ACTION);
+		createEReference(actionEClass, ACTION__CALLS);
+		createEReference(actionEClass, ACTION__ACTION_PARAMS);
 
 		// Create enums
 		typeEEnum = createEEnum(TYPE);
@@ -856,6 +1034,9 @@ public class EcarulesPackageImpl extends EPackageImpl implements EcarulesPackage
 		setNsPrefix(eNS_PREFIX);
 		setNsURI(eNS_URI);
 
+		// Obtain other dependent packages
+		QueryPackage theQueryPackage = (QueryPackage)EPackage.Registry.INSTANCE.getEPackage(QueryPackage.eNS_URI);
+
 		// Create type parameters
 
 		// Set bounds for type parameters
@@ -866,8 +1047,12 @@ public class EcarulesPackageImpl extends EPackageImpl implements EcarulesPackage
 		regexConceptEClass.getESuperTypes().add(this.getConcept());
 		conceptParamEClass.getESuperTypes().add(this.getActionParam());
 		stringParamEClass.getESuperTypes().add(this.getActionParam());
+		actionCallEClass.getESuperTypes().add(this.getAction());
 		pointEClass.getESuperTypes().add(this.getGeographicalElement());
 		regionEClass.getESuperTypes().add(this.getGeographicalElement());
+		queryCallEClass.getESuperTypes().add(this.getAction());
+		firstEClass.getESuperTypes().add(this.getMethod());
+		lastEClass.getESuperTypes().add(this.getMethod());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(eventSetManagerEClass, EventSetManager.class, "EventSetManager", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -875,6 +1060,7 @@ public class EcarulesPackageImpl extends EPackageImpl implements EcarulesPackage
 		initEReference(getEventSetManager_Dataconnections(), this.getDataConnection(), null, "dataconnections", null, 0, -1, EventSetManager.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getEventSetManager_Actions(), this.getActionExecutableExtension(), null, "actions", null, 0, -1, EventSetManager.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getEventSetManager_Geos(), this.getGeographicalElement(), null, "geos", null, 0, -1, EventSetManager.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getEventSetManager_ImportedNamespace(), ecorePackage.getEString(), "importedNamespace", null, 0, -1, EventSetManager.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(eventEClass, Event.class, "Event", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getEvent_When(), this.getCondition(), null, "when", null, 1, -1, Event.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -907,7 +1093,7 @@ public class EcarulesPackageImpl extends EPackageImpl implements EcarulesPackage
 
 		initEClass(conditionEClass, Condition.class, "Condition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getCondition_Expression(), this.getExpression(), null, "expression", null, 0, 1, Condition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getCondition_Triggers(), this.getAction(), null, "triggers", null, 0, -1, Condition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getCondition_Triggers(), this.getAction(), null, "triggers", null, 1, -1, Condition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getCondition_Geo(), this.getGeographicalElement(), null, "geo", null, 0, 1, Condition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(expressionEClass, Expression.class, "Expression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -933,9 +1119,7 @@ public class EcarulesPackageImpl extends EPackageImpl implements EcarulesPackage
 		initEClass(stringParamEClass, StringParam.class, "StringParam", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getStringParam_Value(), ecorePackage.getEString(), "value", null, 0, 1, StringParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(actionEClass, Action.class, "Action", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getAction_Params(), this.getActionParam(), null, "params", null, 0, -1, Action.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getAction_Calls(), this.getActionExecutableExtension(), null, "calls", null, 1, 1, Action.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(actionCallEClass, ActionCall.class, "ActionCall", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(geographicalElementEClass, GeographicalElement.class, "GeographicalElement", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getGeographicalElement_Name(), ecorePackage.getEString(), "name", null, 0, 1, GeographicalElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -946,6 +1130,26 @@ public class EcarulesPackageImpl extends EPackageImpl implements EcarulesPackage
 
 		initEClass(regionEClass, Region.class, "Region", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getRegion_Points(), this.getPoint(), null, "points", null, 0, -1, Region.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(queryCallEClass, QueryCall.class, "QueryCall", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getQueryCall_Select(), theQueryPackage.getSelect(), null, "select", null, 1, 1, QueryCall.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getQueryCall_QueryParams(), this.getParamValue(), null, "queryParams", null, 0, -1, QueryCall.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getQueryCall_Method(), this.getMethod(), null, "method", null, 1, 1, QueryCall.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(paramValueEClass, ParamValue.class, "ParamValue", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getParamValue_Value(), this.getConcept(), null, "value", null, 1, 1, ParamValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		getParamValue_Value().getEKeys().add(this.getConcept_Name());
+		initEReference(getParamValue_Param(), theQueryPackage.getQueryParam(), null, "param", null, 0, 1, ParamValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(methodEClass, Method.class, "Method", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(firstEClass, First.class, "First", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(lastEClass, Last.class, "Last", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(actionEClass, Action.class, "Action", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getAction_Calls(), this.getActionExecutableExtension(), null, "calls", null, 1, 1, Action.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getAction_ActionParams(), this.getActionParam(), null, "actionParams", null, 0, -1, Action.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(typeEEnum, Type.class, "Type");

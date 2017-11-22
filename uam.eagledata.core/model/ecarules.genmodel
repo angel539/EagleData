@@ -4,8 +4,9 @@
     editorDirectory="/uam.eagledata.core.editor/src-gen" modelPluginID="uam.eagledata.core"
     modelName="Ecarules" rootExtendsInterface="fr.inria.atlanmod.neoemf.core.PersistentEObject"
     rootExtendsClass="fr.inria.atlanmod.neoemf.core.DefaultPersistentEObject" reflectiveDelegation="true"
-    importerID="fr.inria.atlanmod.neoemf.eclipse.ui.migrator.NeoImporter" featureDelegation="Reflective"
-    complianceLevel="8.0" copyrightFields="false" operationReflection="true" importOrganizing="true">
+    testsDirectory="/uam.eagledata.core.tests/src-gen" importerID="fr.inria.atlanmod.neoemf.eclipse.ui.migrator.NeoImporter"
+    featureDelegation="Reflective" complianceLevel="8.0" copyrightFields="false" usedGenPackages="../../uam.extremo.core/model/Extremo.genmodel#//semanticmanager query.genmodel#//query"
+    operationReflection="true" importOrganizing="true">
   <foreignModel>ecarules.ecore</foreignModel>
   <modelPluginVariables>NEOEMF=fr.inria.atlanmod.neoemf.core</modelPluginVariables>
   <genPackages prefix="Ecarules" disposableProviderFactory="true" ecorePackage="ecarules.ecore#/">
@@ -18,9 +19,10 @@
     </genEnums>
     <genClasses ecoreClass="ecarules.ecore#//EventSetManager">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ecarules.ecore#//EventSetManager/events"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ecarules.ecore#//EventSetManager/dataconnections"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ecarules.ecore#//EventSetManager/dataconnections"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ecarules.ecore#//EventSetManager/actions"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ecarules.ecore#//EventSetManager/geos"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ecarules.ecore#//EventSetManager/importedNamespace"/>
     </genClasses>
     <genClasses ecoreClass="ecarules.ecore#//Event">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ecarules.ecore#//Event/when"/>
@@ -49,7 +51,7 @@
         <genParameters ecoreParameter="ecarules.ecore#//DataConnection/matches/event"/>
       </genOperations>
     </genClasses>
-    <genClasses image="false" ecoreClass="ecarules.ecore#//Condition">
+    <genClasses ecoreClass="ecarules.ecore#//Condition">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ecarules.ecore#//Condition/expression"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ecarules.ecore#//Condition/triggers"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ecarules.ecore#//Condition/geo"/>
@@ -77,10 +79,7 @@
     <genClasses ecoreClass="ecarules.ecore#//StringParam">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ecarules.ecore#//StringParam/value"/>
     </genClasses>
-    <genClasses ecoreClass="ecarules.ecore#//Action">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ecarules.ecore#//Action/params"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ecarules.ecore#//Action/calls"/>
-    </genClasses>
+    <genClasses ecoreClass="ecarules.ecore#//ActionCall"/>
     <genClasses image="false" ecoreClass="ecarules.ecore#//GeographicalElement">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ecarules.ecore#//GeographicalElement/name"/>
     </genClasses>
@@ -89,7 +88,23 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ecarules.ecore#//Point/long"/>
     </genClasses>
     <genClasses ecoreClass="ecarules.ecore#//Region">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ecarules.ecore#//Region/points"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ecarules.ecore#//Region/points"/>
+    </genClasses>
+    <genClasses ecoreClass="ecarules.ecore#//QueryCall">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ecarules.ecore#//QueryCall/select"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ecarules.ecore#//QueryCall/queryParams"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ecarules.ecore#//QueryCall/method"/>
+    </genClasses>
+    <genClasses ecoreClass="ecarules.ecore#//ParamValue">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ecarules.ecore#//ParamValue/value"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ecarules.ecore#//ParamValue/param"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="ecarules.ecore#//Method"/>
+    <genClasses ecoreClass="ecarules.ecore#//First"/>
+    <genClasses ecoreClass="ecarules.ecore#//Last"/>
+    <genClasses ecoreClass="ecarules.ecore#//Action">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ecarules.ecore#//Action/calls"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ecarules.ecore#//Action/actionParams"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

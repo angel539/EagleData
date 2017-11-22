@@ -13,7 +13,7 @@ public abstract class AbstractEventSetManagerDslValidator extends AbstractDeclar
 	@Override
 	protected List<EPackage> getEPackages() {
 	    List<EPackage> result = new ArrayList<EPackage>();
-	    result.add(EPackage.Registry.INSTANCE.getEPackage("http://www.core.eagledata/ECARules"));
+	    result.add(EPackage.Registry.INSTANCE.getEPackage("http://www.core.eagledata/EcaRules"));
 		return result;
 	}
 	

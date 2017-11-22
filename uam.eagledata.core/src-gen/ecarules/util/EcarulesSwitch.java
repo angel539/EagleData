@@ -155,9 +155,10 @@ public class EcarulesSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case EcarulesPackage.ACTION: {
-				Action action = (Action)theEObject;
-				T result = caseAction(action);
+			case EcarulesPackage.ACTION_CALL: {
+				ActionCall actionCall = (ActionCall)theEObject;
+				T result = caseActionCall(actionCall);
+				if (result == null) result = caseAction(actionCall);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -178,6 +179,45 @@ public class EcarulesSwitch<T> extends Switch<T> {
 				Region region = (Region)theEObject;
 				T result = caseRegion(region);
 				if (result == null) result = caseGeographicalElement(region);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case EcarulesPackage.QUERY_CALL: {
+				QueryCall queryCall = (QueryCall)theEObject;
+				T result = caseQueryCall(queryCall);
+				if (result == null) result = caseAction(queryCall);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case EcarulesPackage.PARAM_VALUE: {
+				ParamValue paramValue = (ParamValue)theEObject;
+				T result = caseParamValue(paramValue);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case EcarulesPackage.METHOD: {
+				Method method = (Method)theEObject;
+				T result = caseMethod(method);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case EcarulesPackage.FIRST: {
+				First first = (First)theEObject;
+				T result = caseFirst(first);
+				if (result == null) result = caseMethod(first);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case EcarulesPackage.LAST: {
+				Last last = (Last)theEObject;
+				T result = caseLast(last);
+				if (result == null) result = caseMethod(last);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case EcarulesPackage.ACTION: {
+				Action action = (Action)theEObject;
+				T result = caseAction(action);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -396,6 +436,21 @@ public class EcarulesSwitch<T> extends Switch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Action Call</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Action Call</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseActionCall(ActionCall object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Action</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -452,6 +507,81 @@ public class EcarulesSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseRegion(Region object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Query Call</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Query Call</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseQueryCall(QueryCall object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Param Value</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Param Value</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseParamValue(ParamValue object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Method</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Method</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseMethod(Method object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>First</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>First</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseFirst(First object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Last</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Last</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseLast(Last object) {
 		return null;
 	}
 

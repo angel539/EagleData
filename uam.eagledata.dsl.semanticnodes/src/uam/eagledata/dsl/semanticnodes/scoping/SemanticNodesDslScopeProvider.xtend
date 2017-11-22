@@ -65,11 +65,11 @@ class SemanticNodesDslScopeProvider extends AbstractSemanticNodesDslScopeProvide
 			
 			//metadataApplicable = rootElement.metadata.filter[m | m.select(context.eContainer as NamedElement)].toList
 			
-			println("after... " + metadataApplicable)
+			//println("after... " + metadataApplicable)
 			
 			return Scopes.scopeFor(metadataApplicable)
 		}
-	
+
 		return super.getScope(context, reference);
 	}
 }

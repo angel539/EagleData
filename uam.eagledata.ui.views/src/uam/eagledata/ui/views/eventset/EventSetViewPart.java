@@ -55,7 +55,7 @@ public class EventSetViewPart extends ViewPart {
 		EventSetControlManager assistantFactory = EventSetControlManager.getInstance();
 		//viewer.setSorter(new NameSorter());
 		viewer.setLabelProvider(new DelegatingStyledCellLabelProvider(new TreeViewAdapterFactoryLabelProvider(adapterFactory)));		  
-		viewer.setInput(assistantFactory.getModelDocument());
+		//viewer.setInput(assistantFactory.getModelDocument());
 		
 		PlatformUI.getWorkbench().getHelpSystem().setHelp(viewer.getControl(), "extremo.ui.viewer");
 		

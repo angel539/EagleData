@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="ecarules" nsURI="http://www.core.eagledata/ECARules" nsPrefix="ecarules">
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="ecarules" nsURI="http://www.core.eagledata/EcaRules" nsPrefix="ecarules">
   <eClassifiers xsi:type="ecore:EClass" name="EventSetManager">
     <eStructuralFeatures xsi:type="ecore:EReference" name="events" upperBound="-1"
         eType="#//Event" containment="true"/>
@@ -10,6 +10,8 @@
         eType="#//ActionExecutableExtension" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="geos" upperBound="-1" eType="#//GeographicalElement"
         containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="importedNamespace" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Event" eSuperTypes="#//NamedElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="when" lowerBound="1" upperBound="-1"
@@ -52,8 +54,8 @@
   <eClassifiers xsi:type="ecore:EClass" name="Condition">
     <eStructuralFeatures xsi:type="ecore:EReference" name="expression" eType="#//Expression"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="triggers" upperBound="-1"
-        eType="#//Action" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="triggers" lowerBound="1"
+        upperBound="-1" eType="#//Action" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="geo" eType="#//GeographicalElement"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Expression">
@@ -80,11 +82,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="StringParam" eSuperTypes="#//ActionParam">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Action">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="params" upperBound="-1"
-        eType="#//ActionParam" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="calls" lowerBound="1" eType="#//ActionExecutableExtension"/>
-  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ActionCall" eSuperTypes="#//Action"/>
   <eClassifiers xsi:type="ecore:EClass" name="GeographicalElement" abstract="true">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
@@ -96,4 +94,26 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="points" upperBound="-1"
         eType="#//Point" containment="true"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="QueryCall" eSuperTypes="#//Action">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="select" lowerBound="1"
+        eType="ecore:EClass query.ecore#//Select"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="queryParams" upperBound="-1"
+        eType="#//ParamValue" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="method" lowerBound="1"
+        eType="#//Method" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ParamValue">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="value" lowerBound="1" eType="#//Concept"
+        eKeys="#//Concept/name"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="param" eType="ecore:EClass query.ecore#//QueryParam"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Method" abstract="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="First" eSuperTypes="#//Method"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Last" eSuperTypes="#//Method"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Action" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="calls" lowerBound="1" eType="#//ActionExecutableExtension"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="actionParams" upperBound="-1"
+        eType="#//ActionParam" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ForEach" eSuperTypes="#//Method"/>
 </ecore:EPackage>

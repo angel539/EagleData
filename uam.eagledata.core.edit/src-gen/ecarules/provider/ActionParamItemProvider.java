@@ -5,6 +5,7 @@ package ecarules.provider;
 
 import ecarules.ActionParam;
 import ecarules.EcarulesPackage;
+
 import java.util.Collection;
 import java.util.List;
 

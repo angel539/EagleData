@@ -2,6 +2,9 @@ module uam.eagledata.dsl.semanticnodes.GenerateSemanticNodesDsl
 
 import org.eclipse.xtext.xtext.generator.*
 import org.eclipse.xtext.xtext.generator.model.project.*
+import org.eclipse.emf.mwe.utils.*
+import org.eclipse.xtext.generator.*
+import org.eclipse.xtext.ui.generator.*
 
 var rootPath = ".."
 
@@ -36,16 +39,23 @@ Workflow {
 
 			fragment = org.eclipse.xtext.generator.adapter.FragmentAdapter {
 				fragment = org.eclipse.xtext.generator.ecore2xtext.FormatterFragment {}
-				//fragment = org.eclipse.xtext.generator.scoping.ImportURIScopingFragment auto-inject {}
-				//fragment = org.eclipse.xtext.ui.generator.outline.OutlineTreeProviderFragment {}
-				//fragment = org.eclipse.xtext.ui.generator.labeling.LabelProviderFragment{}
 			}
+			
+			fragment = scoping.ImportNamespacesScopingFragment2 auto-inject {}	
+			fragment = exporting.QualifiedNamesFragment2 auto-inject {}
+			fragment = builder.BuilderIntegrationFragment2 auto-inject{}
+			// outline API
+    		fragment = ui.outline.OutlineTreeProviderFragment2 auto-inject {}
+    		fragment = ui.outline.QuickOutlineFragment2 auto-inject {}
+    		// quickfix API
+    		fragment = ui.quickfix.QuickfixProviderFragment2 auto-inject {}
+    		// content assist API
+    		fragment = ui.contentAssist.ContentAssistFragment2 auto-inject {}
 
 			serializer = {
 				generateStub = false
 			}
 			validator = {
-				//composedCheck = "org.eclipse.xtext.validation.ImportUriValidator"
 				composedCheck = "org.eclipse.xtext.validation.NamesAreUniqueValidator"
 			}
 		}

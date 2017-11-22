@@ -3,7 +3,6 @@
 package ecarules;
 
 import fr.inria.atlanmod.neoemf.core.PersistentEObject;
-
 import org.eclipse.emf.common.util.EList;
 
 /**
@@ -15,31 +14,16 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link ecarules.Action#getParams <em>Params</em>}</li>
  *   <li>{@link ecarules.Action#getCalls <em>Calls</em>}</li>
+ *   <li>{@link ecarules.Action#getActionParams <em>Action Params</em>}</li>
  * </ul>
  *
  * @see ecarules.EcarulesPackage#getAction()
- * @model
+ * @model abstract="true"
  * @extends PersistentEObject
  * @generated
  */
 public interface Action extends PersistentEObject {
-	/**
-	 * Returns the value of the '<em><b>Params</b></em>' containment reference list.
-	 * The list contents are of type {@link ecarules.ActionParam}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Params</em>' reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Params</em>' containment reference list.
-	 * @see ecarules.EcarulesPackage#getAction_Params()
-	 * @model containment="true"
-	 * @generated
-	 */
-	EList<ActionParam> getParams();
 
 	/**
 	 * Returns the value of the '<em><b>Calls</b></em>' reference.
@@ -66,5 +50,21 @@ public interface Action extends PersistentEObject {
 	 * @generated
 	 */
 	void setCalls(ActionExecutableExtension value);
+
+	/**
+	 * Returns the value of the '<em><b>Action Params</b></em>' containment reference list.
+	 * The list contents are of type {@link ecarules.ActionParam}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Action Params</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Action Params</em>' containment reference list.
+	 * @see ecarules.EcarulesPackage#getAction_ActionParams()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<ActionParam> getActionParams();
 
 } // Action

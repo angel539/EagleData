@@ -14,5 +14,4 @@ package ecarules;
  * @generated
  */
 public interface KeyConcept extends Concept {
-
 } // KeyConcept

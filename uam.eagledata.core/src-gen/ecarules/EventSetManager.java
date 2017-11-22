@@ -19,6 +19,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link ecarules.EventSetManager#getDataconnections <em>Dataconnections</em>}</li>
  *   <li>{@link ecarules.EventSetManager#getActions <em>Actions</em>}</li>
  *   <li>{@link ecarules.EventSetManager#getGeos <em>Geos</em>}</li>
+ *   <li>{@link ecarules.EventSetManager#getImportedNamespace <em>Imported Namespace</em>}</li>
  * </ul>
  *
  * @see ecarules.EcarulesPackage#getEventSetManager()
@@ -48,7 +49,7 @@ public interface EventSetManager extends PersistentEObject {
 	 * The list contents are of type {@link ecarules.DataConnection}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Dataconnections</em>' reference isn't clear,
+	 * If the meaning of the '<em>Dataconnections</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
@@ -64,7 +65,7 @@ public interface EventSetManager extends PersistentEObject {
 	 * The list contents are of type {@link ecarules.ActionExecutableExtension}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Actions</em>' containment reference isn't clear,
+	 * If the meaning of the '<em>Actions</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
@@ -90,5 +91,21 @@ public interface EventSetManager extends PersistentEObject {
 	 * @generated
 	 */
 	EList<GeographicalElement> getGeos();
+
+	/**
+	 * Returns the value of the '<em><b>Imported Namespace</b></em>' attribute list.
+	 * The list contents are of type {@link java.lang.String}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Imported Namespace</em>' attribute list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Imported Namespace</em>' attribute list.
+	 * @see ecarules.EcarulesPackage#getEventSetManager_ImportedNamespace()
+	 * @model
+	 * @generated
+	 */
+	EList<String> getImportedNamespace();
 
 } // EventSetManager

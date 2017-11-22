@@ -14,7 +14,9 @@ Require-Bundle: uam.extremo.core,
  org.eclipse.xtext.util,
  org.eclipse.xtend.lib,
  uam.extremo.extensions;bundle-version="1.0.0",
- uam.eagledata.dsl.annotations;bundle-version="1.0.0"
+ uam.eagledata.dsl.annotations;bundle-version="1.0.0",
+ org.eclipse.xtext.common.types,
+ org.objectweb.asm;bundle-version="[5.0.1,6.0.0)";resolution:=optional
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Export-Package: uam.eagledata.dsl.semanticnodes.parser.antlr,
  uam.eagledata.dsl.semanticnodes.parser.antlr.internal,
@@ -24,5 +26,11 @@ Export-Package: uam.eagledata.dsl.semanticnodes.parser.antlr,
  uam.eagledata.dsl.semanticnodes.serializer,
  uam.eagledata.dsl.semanticnodes,
  uam.eagledata.dsl.semanticnodes.validation,
- uam.eagledata.dsl.semanticnodes.formatting
+ uam.eagledata.dsl.semanticnodes.formatting,
+ uam.eagledata.dsl.semanticnodes.jvmmodel
 Import-Package: org.apache.log4j
+Bundle-ClassPath: lib/guice-4.0.jar,
+ lib/guice-assistedinject-4.0.jar,
+ lib/guice-multibindings-4.0.jar,
+ lib/junit-4.12.jar,
+ .

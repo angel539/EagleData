@@ -3,7 +3,7 @@
  */
 package uam.eagledata.dsl.semanticnodes.scoping;
 
-import org.eclipse.xtext.scoping.impl.DelegatingScopeProvider;
+import org.eclipse.xtext.xbase.scoping.batch.XbaseBatchScopeProvider;
 
-public abstract class AbstractSemanticNodesDslScopeProvider extends DelegatingScopeProvider {
+public abstract class AbstractSemanticNodesDslScopeProvider extends XbaseBatchScopeProvider {
 }

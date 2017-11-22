@@ -31,49 +31,129 @@ public class EventSetManagerDslGrammarAccess extends AbstractGrammarElementFinde
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "uam.eagledata.dsl.events.EventSetManagerDsl.EventSetManager");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Group cGroup_0 = (Group)cGroup.eContents().get(0);
-		private final Assignment cGeosAssignment_0_0 = (Assignment)cGroup_0.eContents().get(0);
-		private final RuleCall cGeosGeographicalElementParserRuleCall_0_0_0 = (RuleCall)cGeosAssignment_0_0.eContents().get(0);
-		private final Assignment cGeosAssignment_0_1 = (Assignment)cGroup_0.eContents().get(1);
-		private final RuleCall cGeosGeographicalElementParserRuleCall_0_1_0 = (RuleCall)cGeosAssignment_0_1.eContents().get(0);
-		private final Assignment cEventsAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cEventsEventParserRuleCall_1_0 = (RuleCall)cEventsAssignment_1.eContents().get(0);
+		private final Keyword cImportKeyword_0_0 = (Keyword)cGroup_0.eContents().get(0);
+		private final Assignment cImportedNamespaceAssignment_0_1 = (Assignment)cGroup_0.eContents().get(1);
+		private final RuleCall cImportedNamespaceQualifiedNameWithWildcardParserRuleCall_0_1_0 = (RuleCall)cImportedNamespaceAssignment_0_1.eContents().get(0);
+		private final Group cGroup_0_2 = (Group)cGroup_0.eContents().get(2);
+		private final Keyword cImportKeyword_0_2_0 = (Keyword)cGroup_0_2.eContents().get(0);
+		private final Assignment cImportedNamespaceAssignment_0_2_1 = (Assignment)cGroup_0_2.eContents().get(1);
+		private final RuleCall cImportedNamespaceQualifiedNameWithWildcardParserRuleCall_0_2_1_0 = (RuleCall)cImportedNamespaceAssignment_0_2_1.eContents().get(0);
+		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
+		private final Assignment cGeosAssignment_1_0 = (Assignment)cGroup_1.eContents().get(0);
+		private final RuleCall cGeosGeographicalElementParserRuleCall_1_0_0 = (RuleCall)cGeosAssignment_1_0.eContents().get(0);
+		private final Assignment cGeosAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
+		private final RuleCall cGeosGeographicalElementParserRuleCall_1_1_0 = (RuleCall)cGeosAssignment_1_1.eContents().get(0);
 		private final Assignment cEventsAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final RuleCall cEventsEventParserRuleCall_2_0 = (RuleCall)cEventsAssignment_2.eContents().get(0);
+		private final Assignment cEventsAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cEventsEventParserRuleCall_3_0 = (RuleCall)cEventsAssignment_3.eContents().get(0);
 		
-		//EventSetManager events::EventSetManager:
+		//EventSetManager ecarules::EventSetManager:
+		//	('import' importedNamespace+=QualifiedNameWithWildcard ('import' importedNamespace+=QualifiedNameWithWildcard)*)?
 		//	(geos+=GeographicalElement geos+=GeographicalElement*)?
 		//	events+=Event events+=Event*
 		@Override public ParserRule getRule() { return rule; }
 		
+		//('import' importedNamespace+=QualifiedNameWithWildcard ('import' importedNamespace+=QualifiedNameWithWildcard)*)?
 		//(geos+=GeographicalElement geos+=GeographicalElement*)? events+=Event events+=Event*
 		public Group getGroup() { return cGroup; }
 		
-		//(geos+=GeographicalElement geos+=GeographicalElement*)?
+		//('import' importedNamespace+=QualifiedNameWithWildcard ('import' importedNamespace+=QualifiedNameWithWildcard)*)?
 		public Group getGroup_0() { return cGroup_0; }
 		
+		//'import'
+		public Keyword getImportKeyword_0_0() { return cImportKeyword_0_0; }
+		
+		//importedNamespace+=QualifiedNameWithWildcard
+		public Assignment getImportedNamespaceAssignment_0_1() { return cImportedNamespaceAssignment_0_1; }
+		
+		//QualifiedNameWithWildcard
+		public RuleCall getImportedNamespaceQualifiedNameWithWildcardParserRuleCall_0_1_0() { return cImportedNamespaceQualifiedNameWithWildcardParserRuleCall_0_1_0; }
+		
+		//('import' importedNamespace+=QualifiedNameWithWildcard)*
+		public Group getGroup_0_2() { return cGroup_0_2; }
+		
+		//'import'
+		public Keyword getImportKeyword_0_2_0() { return cImportKeyword_0_2_0; }
+		
+		//importedNamespace+=QualifiedNameWithWildcard
+		public Assignment getImportedNamespaceAssignment_0_2_1() { return cImportedNamespaceAssignment_0_2_1; }
+		
+		//QualifiedNameWithWildcard
+		public RuleCall getImportedNamespaceQualifiedNameWithWildcardParserRuleCall_0_2_1_0() { return cImportedNamespaceQualifiedNameWithWildcardParserRuleCall_0_2_1_0; }
+		
+		//(geos+=GeographicalElement geos+=GeographicalElement*)?
+		public Group getGroup_1() { return cGroup_1; }
+		
 		//geos+=GeographicalElement
-		public Assignment getGeosAssignment_0_0() { return cGeosAssignment_0_0; }
+		public Assignment getGeosAssignment_1_0() { return cGeosAssignment_1_0; }
 		
 		//GeographicalElement
-		public RuleCall getGeosGeographicalElementParserRuleCall_0_0_0() { return cGeosGeographicalElementParserRuleCall_0_0_0; }
+		public RuleCall getGeosGeographicalElementParserRuleCall_1_0_0() { return cGeosGeographicalElementParserRuleCall_1_0_0; }
 		
 		//geos+=GeographicalElement*
-		public Assignment getGeosAssignment_0_1() { return cGeosAssignment_0_1; }
+		public Assignment getGeosAssignment_1_1() { return cGeosAssignment_1_1; }
 		
 		//GeographicalElement
-		public RuleCall getGeosGeographicalElementParserRuleCall_0_1_0() { return cGeosGeographicalElementParserRuleCall_0_1_0; }
+		public RuleCall getGeosGeographicalElementParserRuleCall_1_1_0() { return cGeosGeographicalElementParserRuleCall_1_1_0; }
 		
 		//events+=Event
-		public Assignment getEventsAssignment_1() { return cEventsAssignment_1; }
-		
-		//Event
-		public RuleCall getEventsEventParserRuleCall_1_0() { return cEventsEventParserRuleCall_1_0; }
-		
-		//events+=Event*
 		public Assignment getEventsAssignment_2() { return cEventsAssignment_2; }
 		
 		//Event
 		public RuleCall getEventsEventParserRuleCall_2_0() { return cEventsEventParserRuleCall_2_0; }
+		
+		//events+=Event*
+		public Assignment getEventsAssignment_3() { return cEventsAssignment_3; }
+		
+		//Event
+		public RuleCall getEventsEventParserRuleCall_3_0() { return cEventsEventParserRuleCall_3_0; }
+	}
+	public class QualifiedNameWithWildcardElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "uam.eagledata.dsl.events.EventSetManagerDsl.QualifiedNameWithWildcard");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final RuleCall cQualifiedNameParserRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
+		private final Keyword cFullStopAsteriskKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		
+		//QualifiedNameWithWildcard:
+		//	QualifiedName '.*'?;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//QualifiedName '.*'?
+		public Group getGroup() { return cGroup; }
+		
+		//QualifiedName
+		public RuleCall getQualifiedNameParserRuleCall_0() { return cQualifiedNameParserRuleCall_0; }
+		
+		//'.*'?
+		public Keyword getFullStopAsteriskKeyword_1() { return cFullStopAsteriskKeyword_1; }
+	}
+	public class QualifiedNameElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "uam.eagledata.dsl.events.EventSetManagerDsl.QualifiedName");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final RuleCall cIDTerminalRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
+		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
+		private final Keyword cFullStopKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
+		private final RuleCall cIDTerminalRuleCall_1_1 = (RuleCall)cGroup_1.eContents().get(1);
+		
+		//QualifiedName:
+		//	ID ('.' ID)*;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//ID ('.' ID)*
+		public Group getGroup() { return cGroup; }
+		
+		//ID
+		public RuleCall getIDTerminalRuleCall_0() { return cIDTerminalRuleCall_0; }
+		
+		//('.' ID)*
+		public Group getGroup_1() { return cGroup_1; }
+		
+		//'.'
+		public Keyword getFullStopKeyword_1_0() { return cFullStopKeyword_1_0; }
+		
+		//ID
+		public RuleCall getIDTerminalRuleCall_1_1() { return cIDTerminalRuleCall_1_1; }
 	}
 	public class GeographicalElementElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "uam.eagledata.dsl.events.EventSetManagerDsl.GeographicalElement");
@@ -81,7 +161,7 @@ public class EventSetManagerDslGrammarAccess extends AbstractGrammarElementFinde
 		private final RuleCall cPointParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
 		private final RuleCall cRegionParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
 		
-		//GeographicalElement events::GeographicalElement:
+		//GeographicalElement ecarules::GeographicalElement:
 		//	Point | Region
 		@Override public ParserRule getRule() { return rule; }
 		
@@ -108,14 +188,14 @@ public class EventSetManagerDslGrammarAccess extends AbstractGrammarElementFinde
 		private final RuleCall cLongDOUBLETerminalRuleCall_5_0 = (RuleCall)cLongAssignment_5.eContents().get(0);
 		private final Keyword cRightCurlyBracketKeyword_6 = (Keyword)cGroup.eContents().get(6);
 		
-		//Point events::Point:
-		//	{events::Point} name=EString '{' lat=DOUBLE "," long=DOUBLE '}'
+		//Point ecarules::Point:
+		//	{ecarules::Point} name=EString '{' lat=DOUBLE "," long=DOUBLE '}'
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{events::Point} name=EString '{' lat=DOUBLE "," long=DOUBLE '}'
+		//{ecarules::Point} name=EString '{' lat=DOUBLE "," long=DOUBLE '}'
 		public Group getGroup() { return cGroup; }
 		
-		//{events::Point}
+		//{ecarules::Point}
 		public Action getPointAction_0() { return cPointAction_0; }
 		
 		//name=EString
@@ -160,14 +240,14 @@ public class EventSetManagerDslGrammarAccess extends AbstractGrammarElementFinde
 		private final RuleCall cPointsPointParserRuleCall_4_1_0 = (RuleCall)cPointsAssignment_4_1.eContents().get(0);
 		private final Keyword cRightSquareBracketKeyword_5 = (Keyword)cGroup.eContents().get(5);
 		
-		//Region events::Region:
-		//	{events::Region} name=EString '[' points+=Point (',' points+=Point)* ']'
+		//Region ecarules::Region:
+		//	{ecarules::Region} name=EString '[' points+=Point (',' points+=Point)* ']'
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{events::Region} name=EString '[' points+=Point (',' points+=Point)* ']'
+		//{ecarules::Region} name=EString '[' points+=Point (',' points+=Point)* ']'
 		public Group getGroup() { return cGroup; }
 		
-		//{events::Region}
+		//{ecarules::Region}
 		public Action getRegionAction_0() { return cRegionAction_0; }
 		
 		//name=EString
@@ -229,47 +309,47 @@ public class EventSetManagerDslGrammarAccess extends AbstractGrammarElementFinde
 		private final Assignment cWhenAssignment_8_1 = (Assignment)cGroup_8.eContents().get(1);
 		private final RuleCall cWhenConditionParserRuleCall_8_1_0 = (RuleCall)cWhenAssignment_8_1.eContents().get(0);
 		
-		//Event events::Event:
-		//	{events::Event} ('connection' dataconnections+=[events::DataConnection] ('and'
-		//	dataconnections+=[events::DataConnection])*)?
+		//Event ecarules::Event:
+		//	{ecarules::Event} ('connection' dataconnections+=[ecarules::DataConnection] ('and'
+		//	dataconnections+=[ecarules::DataConnection])*)?
 		//	'pattern' name=EString '{'
 		//	concepts+=Concept concepts+=Concept*
 		//	'}' (when+=Condition when+=Condition*)
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{events::Event} ('connection' dataconnections+=[events::DataConnection] ('and'
-		//dataconnections+=[events::DataConnection])*)? 'pattern' name=EString '{' concepts+=Concept concepts+=Concept* '}'
+		//{ecarules::Event} ('connection' dataconnections+=[ecarules::DataConnection] ('and'
+		//dataconnections+=[ecarules::DataConnection])*)? 'pattern' name=EString '{' concepts+=Concept concepts+=Concept* '}'
 		//(when+=Condition when+=Condition*)
 		public Group getGroup() { return cGroup; }
 		
-		//{events::Event}
+		//{ecarules::Event}
 		public Action getEventAction_0() { return cEventAction_0; }
 		
-		//('connection' dataconnections+=[events::DataConnection] ('and' dataconnections+=[events::DataConnection])*)?
+		//('connection' dataconnections+=[ecarules::DataConnection] ('and' dataconnections+=[ecarules::DataConnection])*)?
 		public Group getGroup_1() { return cGroup_1; }
 		
 		//'connection'
 		public Keyword getConnectionKeyword_1_0() { return cConnectionKeyword_1_0; }
 		
-		//dataconnections+=[events::DataConnection]
+		//dataconnections+=[ecarules::DataConnection]
 		public Assignment getDataconnectionsAssignment_1_1() { return cDataconnectionsAssignment_1_1; }
 		
-		//[events::DataConnection]
+		//[ecarules::DataConnection]
 		public CrossReference getDataconnectionsDataConnectionCrossReference_1_1_0() { return cDataconnectionsDataConnectionCrossReference_1_1_0; }
 		
 		//ID
 		public RuleCall getDataconnectionsDataConnectionIDTerminalRuleCall_1_1_0_1() { return cDataconnectionsDataConnectionIDTerminalRuleCall_1_1_0_1; }
 		
-		//('and' dataconnections+=[events::DataConnection])*
+		//('and' dataconnections+=[ecarules::DataConnection])*
 		public Group getGroup_1_2() { return cGroup_1_2; }
 		
 		//'and'
 		public Keyword getAndKeyword_1_2_0() { return cAndKeyword_1_2_0; }
 		
-		//dataconnections+=[events::DataConnection]
+		//dataconnections+=[ecarules::DataConnection]
 		public Assignment getDataconnectionsAssignment_1_2_1() { return cDataconnectionsAssignment_1_2_1; }
 		
-		//[events::DataConnection]
+		//[ecarules::DataConnection]
 		public CrossReference getDataconnectionsDataConnectionCrossReference_1_2_1_0() { return cDataconnectionsDataConnectionCrossReference_1_2_1_0; }
 		
 		//ID
@@ -339,16 +419,16 @@ public class EventSetManagerDslGrammarAccess extends AbstractGrammarElementFinde
 		private final Assignment cTriggersAssignment_3_2_1 = (Assignment)cGroup_3_2.eContents().get(1);
 		private final RuleCall cTriggersActionParserRuleCall_3_2_1_0 = (RuleCall)cTriggersAssignment_3_2_1.eContents().get(0);
 		
-		//Condition events::Condition:
-		//	{events::Condition} ('if' expression=Expression)? ('in' geo=[events::GeographicalElement])? ('then' triggers+=Action
-		//	('and' triggers+=Action)*)
+		//Condition ecarules::Condition:
+		//	{ecarules::Condition} ('if' expression=Expression)? ('in' geo=[ecarules::GeographicalElement])? ('then'
+		//	triggers+=Action ('and' triggers+=Action)*)
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{events::Condition} ('if' expression=Expression)? ('in' geo=[events::GeographicalElement])? ('then' triggers+=Action
+		//{ecarules::Condition} ('if' expression=Expression)? ('in' geo=[ecarules::GeographicalElement])? ('then' triggers+=Action
 		//('and' triggers+=Action)*)
 		public Group getGroup() { return cGroup; }
 		
-		//{events::Condition}
+		//{ecarules::Condition}
 		public Action getConditionAction_0() { return cConditionAction_0; }
 		
 		//('if' expression=Expression)?
@@ -363,16 +443,16 @@ public class EventSetManagerDslGrammarAccess extends AbstractGrammarElementFinde
 		//Expression
 		public RuleCall getExpressionExpressionParserRuleCall_1_1_0() { return cExpressionExpressionParserRuleCall_1_1_0; }
 		
-		//('in' geo=[events::GeographicalElement])?
+		//('in' geo=[ecarules::GeographicalElement])?
 		public Group getGroup_2() { return cGroup_2; }
 		
 		//'in'
 		public Keyword getInKeyword_2_0() { return cInKeyword_2_0; }
 		
-		//geo=[events::GeographicalElement]
+		//geo=[ecarules::GeographicalElement]
 		public Assignment getGeoAssignment_2_1() { return cGeoAssignment_2_1; }
 		
-		//[events::GeographicalElement]
+		//[ecarules::GeographicalElement]
 		public CrossReference getGeoGeographicalElementCrossReference_2_1_0() { return cGeoGeographicalElementCrossReference_2_1_0; }
 		
 		//ID
@@ -413,20 +493,20 @@ public class EventSetManagerDslGrammarAccess extends AbstractGrammarElementFinde
 		private final Assignment cRightAssignment_3 = (Assignment)cGroup.eContents().get(3);
 		private final RuleCall cRightLiteralParserRuleCall_3_0 = (RuleCall)cRightAssignment_3.eContents().get(0);
 		
-		//Expression events::Expression:
-		//	{events::Expression} left=[events::Concept|EString] '=' right=Literal
+		//Expression ecarules::Expression:
+		//	{ecarules::Expression} left=[ecarules::Concept|EString] '=' right=Literal
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{events::Expression} left=[events::Concept|EString] '=' right=Literal
+		//{ecarules::Expression} left=[ecarules::Concept|EString] '=' right=Literal
 		public Group getGroup() { return cGroup; }
 		
-		//{events::Expression}
+		//{ecarules::Expression}
 		public Action getExpressionAction_0() { return cExpressionAction_0; }
 		
-		//left=[events::Concept|EString]
+		//left=[ecarules::Concept|EString]
 		public Assignment getLeftAssignment_1() { return cLeftAssignment_1; }
 		
-		//[events::Concept|EString]
+		//[ecarules::Concept|EString]
 		public CrossReference getLeftConceptCrossReference_1_0() { return cLeftConceptCrossReference_1_0; }
 		
 		//EString
@@ -448,14 +528,14 @@ public class EventSetManagerDslGrammarAccess extends AbstractGrammarElementFinde
 		private final Assignment cValueAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cValueEStringParserRuleCall_1_0 = (RuleCall)cValueAssignment_1.eContents().get(0);
 		
-		//Literal events::Literal:
-		//	{events::Literal} value=EString
+		//Literal ecarules::Literal:
+		//	{ecarules::Literal} value=EString
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{events::Literal} value=EString
+		//{ecarules::Literal} value=EString
 		public Group getGroup() { return cGroup; }
 		
-		//{events::Literal}
+		//{ecarules::Literal}
 		public Action getLiteralAction_0() { return cLiteralAction_0; }
 		
 		//value=EString
@@ -470,7 +550,7 @@ public class EventSetManagerDslGrammarAccess extends AbstractGrammarElementFinde
 		private final RuleCall cKeyConceptParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
 		private final RuleCall cRegexConceptParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
 		
-		//Concept events::Concept:
+		//Concept ecarules::Concept:
 		//	KeyConcept | RegexConcept
 		@Override public ParserRule getRule() { return rule; }
 		
@@ -492,14 +572,14 @@ public class EventSetManagerDslGrammarAccess extends AbstractGrammarElementFinde
 		private final Assignment cNameAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final RuleCall cNameEStringParserRuleCall_2_0 = (RuleCall)cNameAssignment_2.eContents().get(0);
 		
-		//KeyConcept events::KeyConcept:
-		//	{events::KeyConcept} type=Type name=EString
+		//KeyConcept ecarules::KeyConcept:
+		//	{ecarules::KeyConcept} type=Type name=EString
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{events::KeyConcept} type=Type name=EString
+		//{ecarules::KeyConcept} type=Type name=EString
 		public Group getGroup() { return cGroup; }
 		
-		//{events::KeyConcept}
+		//{ecarules::KeyConcept}
 		public Action getKeyConceptAction_0() { return cKeyConceptAction_0; }
 		
 		//type=Type
@@ -526,14 +606,14 @@ public class EventSetManagerDslGrammarAccess extends AbstractGrammarElementFinde
 		private final Assignment cRegexAssignment_4 = (Assignment)cGroup.eContents().get(4);
 		private final RuleCall cRegexEStringParserRuleCall_4_0 = (RuleCall)cRegexAssignment_4.eContents().get(0);
 		
-		//RegexConcept events::RegexConcept:
-		//	{events::RegexConcept} type=Type name=EString '=' regex=EString
+		//RegexConcept ecarules::RegexConcept:
+		//	{ecarules::RegexConcept} type=Type name=EString '=' regex=EString
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{events::RegexConcept} type=Type name=EString '=' regex=EString
+		//{ecarules::RegexConcept} type=Type name=EString '=' regex=EString
 		public Group getGroup() { return cGroup; }
 		
-		//{events::RegexConcept}
+		//{ecarules::RegexConcept}
 		public Action getRegexConceptAction_0() { return cRegexConceptAction_0; }
 		
 		//type=Type
@@ -559,66 +639,22 @@ public class EventSetManagerDslGrammarAccess extends AbstractGrammarElementFinde
 	}
 	public class ActionElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "uam.eagledata.dsl.events.EventSetManagerDsl.Action");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Action cActionAction_0 = (Action)cGroup.eContents().get(0);
-		private final Assignment cCallsAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final CrossReference cCallsActionExecutableExtensionCrossReference_1_0 = (CrossReference)cCallsAssignment_1.eContents().get(0);
-		private final RuleCall cCallsActionExecutableExtensionIDTerminalRuleCall_1_0_1 = (RuleCall)cCallsActionExecutableExtensionCrossReference_1_0.eContents().get(1);
-		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
-		private final Keyword cLeftParenthesisKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
-		private final Assignment cParamsAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
-		private final RuleCall cParamsActionParamParserRuleCall_2_1_0 = (RuleCall)cParamsAssignment_2_1.eContents().get(0);
-		private final Group cGroup_2_2 = (Group)cGroup_2.eContents().get(2);
-		private final Keyword cCommaKeyword_2_2_0 = (Keyword)cGroup_2_2.eContents().get(0);
-		private final Assignment cParamsAssignment_2_2_1 = (Assignment)cGroup_2_2.eContents().get(1);
-		private final RuleCall cParamsActionParamParserRuleCall_2_2_1_0 = (RuleCall)cParamsAssignment_2_2_1.eContents().get(0);
-		private final Keyword cRightParenthesisKeyword_2_3 = (Keyword)cGroup_2.eContents().get(3);
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final RuleCall cActionCallParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cQueryCallParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
 		
-		//Action events::Action:
-		//	{events::Action} calls=[events::ActionExecutableExtension] ('(' params+=ActionParam (',' params+=ActionParam)* ')')?
+		//Action ecarules::Action:
+		//	ActionCall | QueryCall
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{events::Action} calls=[events::ActionExecutableExtension] ('(' params+=ActionParam (',' params+=ActionParam)* ')')?
-		public Group getGroup() { return cGroup; }
+		//ActionCall | QueryCall
+		public Alternatives getAlternatives() { return cAlternatives; }
 		
-		//{events::Action}
-		public Action getActionAction_0() { return cActionAction_0; }
+		//ActionCall
+		public RuleCall getActionCallParserRuleCall_0() { return cActionCallParserRuleCall_0; }
 		
-		//calls=[events::ActionExecutableExtension]
-		public Assignment getCallsAssignment_1() { return cCallsAssignment_1; }
-		
-		//[events::ActionExecutableExtension]
-		public CrossReference getCallsActionExecutableExtensionCrossReference_1_0() { return cCallsActionExecutableExtensionCrossReference_1_0; }
-		
-		//ID
-		public RuleCall getCallsActionExecutableExtensionIDTerminalRuleCall_1_0_1() { return cCallsActionExecutableExtensionIDTerminalRuleCall_1_0_1; }
-		
-		//('(' params+=ActionParam (',' params+=ActionParam)* ')')?
-		public Group getGroup_2() { return cGroup_2; }
-		
-		//'('
-		public Keyword getLeftParenthesisKeyword_2_0() { return cLeftParenthesisKeyword_2_0; }
-		
-		//params+=ActionParam
-		public Assignment getParamsAssignment_2_1() { return cParamsAssignment_2_1; }
-		
-		//ActionParam
-		public RuleCall getParamsActionParamParserRuleCall_2_1_0() { return cParamsActionParamParserRuleCall_2_1_0; }
-		
-		//(',' params+=ActionParam)*
-		public Group getGroup_2_2() { return cGroup_2_2; }
-		
-		//','
-		public Keyword getCommaKeyword_2_2_0() { return cCommaKeyword_2_2_0; }
-		
-		//params+=ActionParam
-		public Assignment getParamsAssignment_2_2_1() { return cParamsAssignment_2_2_1; }
-		
-		//ActionParam
-		public RuleCall getParamsActionParamParserRuleCall_2_2_1_0() { return cParamsActionParamParserRuleCall_2_2_1_0; }
-		
-		//')'
-		public Keyword getRightParenthesisKeyword_2_3() { return cRightParenthesisKeyword_2_3; }
+		//QueryCall
+		public RuleCall getQueryCallParserRuleCall_1() { return cQueryCallParserRuleCall_1; }
 	}
 	public class ActionParamElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "uam.eagledata.dsl.events.EventSetManagerDsl.ActionParam");
@@ -626,7 +662,7 @@ public class EventSetManagerDslGrammarAccess extends AbstractGrammarElementFinde
 		private final RuleCall cConceptParamParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
 		private final RuleCall cStringParamParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
 		
-		//ActionParam events::ActionParam:
+		//ActionParam ecarules::ActionParam:
 		//	ConceptParam | StringParam
 		@Override public ParserRule getRule() { return rule; }
 		
@@ -650,14 +686,14 @@ public class EventSetManagerDslGrammarAccess extends AbstractGrammarElementFinde
 		private final CrossReference cValueConceptCrossReference_3_0 = (CrossReference)cValueAssignment_3.eContents().get(0);
 		private final RuleCall cValueConceptIDTerminalRuleCall_3_0_1 = (RuleCall)cValueConceptCrossReference_3_0.eContents().get(1);
 		
-		//ConceptParam events::ConceptParam:
-		//	{events::ConceptParam} key=EString '<=' value=[events::Concept]
+		//ConceptParam ecarules::ConceptParam:
+		//	{ecarules::ConceptParam} key=EString '<=' value=[ecarules::Concept]
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{events::ConceptParam} key=EString '<=' value=[events::Concept]
+		//{ecarules::ConceptParam} key=EString '<=' value=[ecarules::Concept]
 		public Group getGroup() { return cGroup; }
 		
-		//{events::ConceptParam}
+		//{ecarules::ConceptParam}
 		public Action getConceptParamAction_0() { return cConceptParamAction_0; }
 		
 		//key=EString
@@ -669,10 +705,10 @@ public class EventSetManagerDslGrammarAccess extends AbstractGrammarElementFinde
 		//'<='
 		public Keyword getLessThanSignEqualsSignKeyword_2() { return cLessThanSignEqualsSignKeyword_2; }
 		
-		//value=[events::Concept]
+		//value=[ecarules::Concept]
 		public Assignment getValueAssignment_3() { return cValueAssignment_3; }
 		
-		//[events::Concept]
+		//[ecarules::Concept]
 		public CrossReference getValueConceptCrossReference_3_0() { return cValueConceptCrossReference_3_0; }
 		
 		//ID
@@ -688,14 +724,14 @@ public class EventSetManagerDslGrammarAccess extends AbstractGrammarElementFinde
 		private final Assignment cValueAssignment_3 = (Assignment)cGroup.eContents().get(3);
 		private final RuleCall cValueEStringParserRuleCall_3_0 = (RuleCall)cValueAssignment_3.eContents().get(0);
 		
-		//StringParam events::StringParam:
-		//	{events::StringParam} key=EString '=' value=EString
+		//StringParam ecarules::StringParam:
+		//	{ecarules::StringParam} key=EString '=' value=EString
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{events::StringParam} key=EString '=' value=EString
+		//{ecarules::StringParam} key=EString '=' value=EString
 		public Group getGroup() { return cGroup; }
 		
-		//{events::StringParam}
+		//{ecarules::StringParam}
 		public Action getStringParamAction_0() { return cStringParamAction_0; }
 		
 		//key=EString
@@ -712,6 +748,301 @@ public class EventSetManagerDslGrammarAccess extends AbstractGrammarElementFinde
 		
 		//EString
 		public RuleCall getValueEStringParserRuleCall_3_0() { return cValueEStringParserRuleCall_3_0; }
+	}
+	public class ActionCallElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "uam.eagledata.dsl.events.EventSetManagerDsl.ActionCall");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cActionCallAction_0 = (Action)cGroup.eContents().get(0);
+		private final Assignment cCallsAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final CrossReference cCallsActionExecutableExtensionCrossReference_1_0 = (CrossReference)cCallsAssignment_1.eContents().get(0);
+		private final RuleCall cCallsActionExecutableExtensionIDTerminalRuleCall_1_0_1 = (RuleCall)cCallsActionExecutableExtensionCrossReference_1_0.eContents().get(1);
+		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
+		private final Keyword cLeftParenthesisKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
+		private final Assignment cActionParamsAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
+		private final RuleCall cActionParamsActionParamParserRuleCall_2_1_0 = (RuleCall)cActionParamsAssignment_2_1.eContents().get(0);
+		private final Group cGroup_2_2 = (Group)cGroup_2.eContents().get(2);
+		private final Keyword cCommaKeyword_2_2_0 = (Keyword)cGroup_2_2.eContents().get(0);
+		private final Assignment cActionParamsAssignment_2_2_1 = (Assignment)cGroup_2_2.eContents().get(1);
+		private final RuleCall cActionParamsActionParamParserRuleCall_2_2_1_0 = (RuleCall)cActionParamsAssignment_2_2_1.eContents().get(0);
+		private final Keyword cRightParenthesisKeyword_2_3 = (Keyword)cGroup_2.eContents().get(3);
+		
+		//ActionCall ecarules::ActionCall:
+		//	{ecarules::ActionCall} calls=[ecarules::ActionExecutableExtension] ('(' actionParams+=ActionParam (','
+		//	actionParams+=ActionParam)* ')')?
+		@Override public ParserRule getRule() { return rule; }
+		
+		//{ecarules::ActionCall} calls=[ecarules::ActionExecutableExtension] ('(' actionParams+=ActionParam (','
+		//actionParams+=ActionParam)* ')')?
+		public Group getGroup() { return cGroup; }
+		
+		//{ecarules::ActionCall}
+		public Action getActionCallAction_0() { return cActionCallAction_0; }
+		
+		//calls=[ecarules::ActionExecutableExtension]
+		public Assignment getCallsAssignment_1() { return cCallsAssignment_1; }
+		
+		//[ecarules::ActionExecutableExtension]
+		public CrossReference getCallsActionExecutableExtensionCrossReference_1_0() { return cCallsActionExecutableExtensionCrossReference_1_0; }
+		
+		//ID
+		public RuleCall getCallsActionExecutableExtensionIDTerminalRuleCall_1_0_1() { return cCallsActionExecutableExtensionIDTerminalRuleCall_1_0_1; }
+		
+		//('(' actionParams+=ActionParam (',' actionParams+=ActionParam)* ')')?
+		public Group getGroup_2() { return cGroup_2; }
+		
+		//'('
+		public Keyword getLeftParenthesisKeyword_2_0() { return cLeftParenthesisKeyword_2_0; }
+		
+		//actionParams+=ActionParam
+		public Assignment getActionParamsAssignment_2_1() { return cActionParamsAssignment_2_1; }
+		
+		//ActionParam
+		public RuleCall getActionParamsActionParamParserRuleCall_2_1_0() { return cActionParamsActionParamParserRuleCall_2_1_0; }
+		
+		//(',' actionParams+=ActionParam)*
+		public Group getGroup_2_2() { return cGroup_2_2; }
+		
+		//','
+		public Keyword getCommaKeyword_2_2_0() { return cCommaKeyword_2_2_0; }
+		
+		//actionParams+=ActionParam
+		public Assignment getActionParamsAssignment_2_2_1() { return cActionParamsAssignment_2_2_1; }
+		
+		//ActionParam
+		public RuleCall getActionParamsActionParamParserRuleCall_2_2_1_0() { return cActionParamsActionParamParserRuleCall_2_2_1_0; }
+		
+		//')'
+		public Keyword getRightParenthesisKeyword_2_3() { return cRightParenthesisKeyword_2_3; }
+	}
+	public class QueryCallElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "uam.eagledata.dsl.events.EventSetManagerDsl.QueryCall");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cQueryCallAction_0 = (Action)cGroup.eContents().get(0);
+		private final Assignment cSelectAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final CrossReference cSelectSelectCrossReference_1_0 = (CrossReference)cSelectAssignment_1.eContents().get(0);
+		private final RuleCall cSelectSelectQualifiedNameParserRuleCall_1_0_1 = (RuleCall)cSelectSelectCrossReference_1_0.eContents().get(1);
+		private final Keyword cLeftParenthesisKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cQueryParamsAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cQueryParamsParamValueParserRuleCall_3_0 = (RuleCall)cQueryParamsAssignment_3.eContents().get(0);
+		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
+		private final Keyword cCommaKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
+		private final Assignment cQueryParamsAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
+		private final RuleCall cQueryParamsParamValueParserRuleCall_4_1_0 = (RuleCall)cQueryParamsAssignment_4_1.eContents().get(0);
+		private final Keyword cRightParenthesisKeyword_5 = (Keyword)cGroup.eContents().get(5);
+		private final Keyword cFullStopKeyword_6 = (Keyword)cGroup.eContents().get(6);
+		private final Assignment cMethodAssignment_7 = (Assignment)cGroup.eContents().get(7);
+		private final RuleCall cMethodMethodParserRuleCall_7_0 = (RuleCall)cMethodAssignment_7.eContents().get(0);
+		private final Keyword cHyphenMinusGreaterThanSignKeyword_8 = (Keyword)cGroup.eContents().get(8);
+		private final Assignment cCallsAssignment_9 = (Assignment)cGroup.eContents().get(9);
+		private final CrossReference cCallsActionExecutableExtensionCrossReference_9_0 = (CrossReference)cCallsAssignment_9.eContents().get(0);
+		private final RuleCall cCallsActionExecutableExtensionIDTerminalRuleCall_9_0_1 = (RuleCall)cCallsActionExecutableExtensionCrossReference_9_0.eContents().get(1);
+		private final Group cGroup_10 = (Group)cGroup.eContents().get(10);
+		private final Keyword cLeftParenthesisKeyword_10_0 = (Keyword)cGroup_10.eContents().get(0);
+		private final Assignment cActionParamsAssignment_10_1 = (Assignment)cGroup_10.eContents().get(1);
+		private final RuleCall cActionParamsActionParamParserRuleCall_10_1_0 = (RuleCall)cActionParamsAssignment_10_1.eContents().get(0);
+		private final Group cGroup_10_2 = (Group)cGroup_10.eContents().get(2);
+		private final Keyword cCommaKeyword_10_2_0 = (Keyword)cGroup_10_2.eContents().get(0);
+		private final Assignment cActionParamsAssignment_10_2_1 = (Assignment)cGroup_10_2.eContents().get(1);
+		private final RuleCall cActionParamsActionParamParserRuleCall_10_2_1_0 = (RuleCall)cActionParamsAssignment_10_2_1.eContents().get(0);
+		private final Keyword cRightParenthesisKeyword_10_3 = (Keyword)cGroup_10.eContents().get(3);
+		
+		//QueryCall ecarules::QueryCall:
+		//	{ecarules::QueryCall} select=[query::Select|QualifiedName]
+		//	'(' queryParams+=ParamValue (',' queryParams+=ParamValue)* ')' '.' method=Method
+		//	'->'
+		//	calls=[ecarules::ActionExecutableExtension] ('(' actionParams+=ActionParam (',' actionParams+=ActionParam)* ')')?
+		@Override public ParserRule getRule() { return rule; }
+		
+		//{ecarules::QueryCall} select=[query::Select|QualifiedName] '(' queryParams+=ParamValue (',' queryParams+=ParamValue)*
+		//')' '.' method=Method '->' calls=[ecarules::ActionExecutableExtension] ('(' actionParams+=ActionParam (','
+		//actionParams+=ActionParam)* ')')?
+		public Group getGroup() { return cGroup; }
+		
+		//{ecarules::QueryCall}
+		public Action getQueryCallAction_0() { return cQueryCallAction_0; }
+		
+		//select=[query::Select|QualifiedName]
+		public Assignment getSelectAssignment_1() { return cSelectAssignment_1; }
+		
+		//[query::Select|QualifiedName]
+		public CrossReference getSelectSelectCrossReference_1_0() { return cSelectSelectCrossReference_1_0; }
+		
+		//QualifiedName
+		public RuleCall getSelectSelectQualifiedNameParserRuleCall_1_0_1() { return cSelectSelectQualifiedNameParserRuleCall_1_0_1; }
+		
+		//'('
+		public Keyword getLeftParenthesisKeyword_2() { return cLeftParenthesisKeyword_2; }
+		
+		//queryParams+=ParamValue
+		public Assignment getQueryParamsAssignment_3() { return cQueryParamsAssignment_3; }
+		
+		//ParamValue
+		public RuleCall getQueryParamsParamValueParserRuleCall_3_0() { return cQueryParamsParamValueParserRuleCall_3_0; }
+		
+		//(',' queryParams+=ParamValue)*
+		public Group getGroup_4() { return cGroup_4; }
+		
+		//','
+		public Keyword getCommaKeyword_4_0() { return cCommaKeyword_4_0; }
+		
+		//queryParams+=ParamValue
+		public Assignment getQueryParamsAssignment_4_1() { return cQueryParamsAssignment_4_1; }
+		
+		//ParamValue
+		public RuleCall getQueryParamsParamValueParserRuleCall_4_1_0() { return cQueryParamsParamValueParserRuleCall_4_1_0; }
+		
+		//')'
+		public Keyword getRightParenthesisKeyword_5() { return cRightParenthesisKeyword_5; }
+		
+		//'.'
+		public Keyword getFullStopKeyword_6() { return cFullStopKeyword_6; }
+		
+		//method=Method
+		public Assignment getMethodAssignment_7() { return cMethodAssignment_7; }
+		
+		//Method
+		public RuleCall getMethodMethodParserRuleCall_7_0() { return cMethodMethodParserRuleCall_7_0; }
+		
+		//'->'
+		public Keyword getHyphenMinusGreaterThanSignKeyword_8() { return cHyphenMinusGreaterThanSignKeyword_8; }
+		
+		//calls=[ecarules::ActionExecutableExtension]
+		public Assignment getCallsAssignment_9() { return cCallsAssignment_9; }
+		
+		//[ecarules::ActionExecutableExtension]
+		public CrossReference getCallsActionExecutableExtensionCrossReference_9_0() { return cCallsActionExecutableExtensionCrossReference_9_0; }
+		
+		//ID
+		public RuleCall getCallsActionExecutableExtensionIDTerminalRuleCall_9_0_1() { return cCallsActionExecutableExtensionIDTerminalRuleCall_9_0_1; }
+		
+		//('(' actionParams+=ActionParam (',' actionParams+=ActionParam)* ')')?
+		public Group getGroup_10() { return cGroup_10; }
+		
+		//'('
+		public Keyword getLeftParenthesisKeyword_10_0() { return cLeftParenthesisKeyword_10_0; }
+		
+		//actionParams+=ActionParam
+		public Assignment getActionParamsAssignment_10_1() { return cActionParamsAssignment_10_1; }
+		
+		//ActionParam
+		public RuleCall getActionParamsActionParamParserRuleCall_10_1_0() { return cActionParamsActionParamParserRuleCall_10_1_0; }
+		
+		//(',' actionParams+=ActionParam)*
+		public Group getGroup_10_2() { return cGroup_10_2; }
+		
+		//','
+		public Keyword getCommaKeyword_10_2_0() { return cCommaKeyword_10_2_0; }
+		
+		//actionParams+=ActionParam
+		public Assignment getActionParamsAssignment_10_2_1() { return cActionParamsAssignment_10_2_1; }
+		
+		//ActionParam
+		public RuleCall getActionParamsActionParamParserRuleCall_10_2_1_0() { return cActionParamsActionParamParserRuleCall_10_2_1_0; }
+		
+		//')'
+		public Keyword getRightParenthesisKeyword_10_3() { return cRightParenthesisKeyword_10_3; }
+	}
+	public class ParamValueElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "uam.eagledata.dsl.events.EventSetManagerDsl.ParamValue");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cParamValueAction_0 = (Action)cGroup.eContents().get(0);
+		private final Assignment cParamAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final CrossReference cParamQueryParamCrossReference_1_0 = (CrossReference)cParamAssignment_1.eContents().get(0);
+		private final RuleCall cParamQueryParamQualifiedNameParserRuleCall_1_0_1 = (RuleCall)cParamQueryParamCrossReference_1_0.eContents().get(1);
+		private final Keyword cColonKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cValueAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final CrossReference cValueConceptCrossReference_3_0 = (CrossReference)cValueAssignment_3.eContents().get(0);
+		private final RuleCall cValueConceptIDTerminalRuleCall_3_0_1 = (RuleCall)cValueConceptCrossReference_3_0.eContents().get(1);
+		
+		//ParamValue ecarules::ParamValue:
+		//	{ecarules::ParamValue} param=[query::QueryParam|QualifiedName] ':' value=[ecarules::Concept]
+		@Override public ParserRule getRule() { return rule; }
+		
+		//{ecarules::ParamValue} param=[query::QueryParam|QualifiedName] ':' value=[ecarules::Concept]
+		public Group getGroup() { return cGroup; }
+		
+		//{ecarules::ParamValue}
+		public Action getParamValueAction_0() { return cParamValueAction_0; }
+		
+		//param=[query::QueryParam|QualifiedName]
+		public Assignment getParamAssignment_1() { return cParamAssignment_1; }
+		
+		//[query::QueryParam|QualifiedName]
+		public CrossReference getParamQueryParamCrossReference_1_0() { return cParamQueryParamCrossReference_1_0; }
+		
+		//QualifiedName
+		public RuleCall getParamQueryParamQualifiedNameParserRuleCall_1_0_1() { return cParamQueryParamQualifiedNameParserRuleCall_1_0_1; }
+		
+		//':'
+		public Keyword getColonKeyword_2() { return cColonKeyword_2; }
+		
+		//value=[ecarules::Concept]
+		public Assignment getValueAssignment_3() { return cValueAssignment_3; }
+		
+		//[ecarules::Concept]
+		public CrossReference getValueConceptCrossReference_3_0() { return cValueConceptCrossReference_3_0; }
+		
+		//ID
+		public RuleCall getValueConceptIDTerminalRuleCall_3_0_1() { return cValueConceptIDTerminalRuleCall_3_0_1; }
+	}
+	public class MethodElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "uam.eagledata.dsl.events.EventSetManagerDsl.Method");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final RuleCall cFirstParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cLastParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		
+		//Method ecarules::Method:
+		//	First | Last
+		@Override public ParserRule getRule() { return rule; }
+		
+		//First | Last
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//First
+		public RuleCall getFirstParserRuleCall_0() { return cFirstParserRuleCall_0; }
+		
+		//Last
+		public RuleCall getLastParserRuleCall_1() { return cLastParserRuleCall_1; }
+	}
+	public class FirstElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "uam.eagledata.dsl.events.EventSetManagerDsl.First");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cFirstAction_0 = (Action)cGroup.eContents().get(0);
+		private final Keyword cFirstKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		
+		//First ecarules::First:
+		//	{ecarules::First}
+		//	'first'
+		@Override public ParserRule getRule() { return rule; }
+		
+		//{ecarules::First} 'first'
+		public Group getGroup() { return cGroup; }
+		
+		//{ecarules::First}
+		public Action getFirstAction_0() { return cFirstAction_0; }
+		
+		//'first'
+		public Keyword getFirstKeyword_1() { return cFirstKeyword_1; }
+	}
+	public class LastElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "uam.eagledata.dsl.events.EventSetManagerDsl.Last");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cLastAction_0 = (Action)cGroup.eContents().get(0);
+		private final Keyword cLastKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		
+		//Last ecarules::Last:
+		//	{ecarules::Last}
+		//	'last'
+		@Override public ParserRule getRule() { return rule; }
+		
+		//{ecarules::Last} 'last'
+		public Group getGroup() { return cGroup; }
+		
+		//{ecarules::Last}
+		public Action getLastAction_0() { return cLastAction_0; }
+		
+		//'last'
+		public Keyword getLastKeyword_1() { return cLastKeyword_1; }
 	}
 	public class EStringElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "uam.eagledata.dsl.events.EventSetManagerDsl.EString");
@@ -747,7 +1078,7 @@ public class EventSetManagerDslGrammarAccess extends AbstractGrammarElementFinde
 		private final EnumLiteralDeclaration cDoubleEnumLiteralDeclaration_4 = (EnumLiteralDeclaration)cAlternatives.eContents().get(4);
 		private final Keyword cDoubleDoubleKeyword_4_0 = (Keyword)cDoubleEnumLiteralDeclaration_4.eContents().get(0);
 		
-		//enum Type returns events::Type:
+		//enum Type returns ecarules::Type:
 		//	String | Int | Boolean | Float | Double;
 		public EnumRule getRule() { return rule; }
 		
@@ -786,6 +1117,8 @@ public class EventSetManagerDslGrammarAccess extends AbstractGrammarElementFinde
 	}
 	
 	private final EventSetManagerElements pEventSetManager;
+	private final QualifiedNameWithWildcardElements pQualifiedNameWithWildcard;
+	private final QualifiedNameElements pQualifiedName;
 	private final GeographicalElementElements pGeographicalElement;
 	private final PointElements pPoint;
 	private final RegionElements pRegion;
@@ -801,6 +1134,12 @@ public class EventSetManagerDslGrammarAccess extends AbstractGrammarElementFinde
 	private final ActionParamElements pActionParam;
 	private final ConceptParamElements pConceptParam;
 	private final StringParamElements pStringParam;
+	private final ActionCallElements pActionCall;
+	private final QueryCallElements pQueryCall;
+	private final ParamValueElements pParamValue;
+	private final MethodElements pMethod;
+	private final FirstElements pFirst;
+	private final LastElements pLast;
 	private final EStringElements pEString;
 	private final TypeElements eType;
 	
@@ -814,6 +1153,8 @@ public class EventSetManagerDslGrammarAccess extends AbstractGrammarElementFinde
 		this.grammar = internalFindGrammar(grammarProvider);
 		this.gaTerminals = gaTerminals;
 		this.pEventSetManager = new EventSetManagerElements();
+		this.pQualifiedNameWithWildcard = new QualifiedNameWithWildcardElements();
+		this.pQualifiedName = new QualifiedNameElements();
 		this.pGeographicalElement = new GeographicalElementElements();
 		this.pPoint = new PointElements();
 		this.pRegion = new RegionElements();
@@ -829,6 +1170,12 @@ public class EventSetManagerDslGrammarAccess extends AbstractGrammarElementFinde
 		this.pActionParam = new ActionParamElements();
 		this.pConceptParam = new ConceptParamElements();
 		this.pStringParam = new StringParamElements();
+		this.pActionCall = new ActionCallElements();
+		this.pQueryCall = new QueryCallElements();
+		this.pParamValue = new ParamValueElements();
+		this.pMethod = new MethodElements();
+		this.pFirst = new FirstElements();
+		this.pLast = new LastElements();
 		this.pEString = new EStringElements();
 		this.eType = new TypeElements();
 	}
@@ -860,7 +1207,8 @@ public class EventSetManagerDslGrammarAccess extends AbstractGrammarElementFinde
 	}
 
 	
-	//EventSetManager events::EventSetManager:
+	//EventSetManager ecarules::EventSetManager:
+	//	('import' importedNamespace+=QualifiedNameWithWildcard ('import' importedNamespace+=QualifiedNameWithWildcard)*)?
 	//	(geos+=GeographicalElement geos+=GeographicalElement*)?
 	//	events+=Event events+=Event*
 	public EventSetManagerElements getEventSetManagerAccess() {
@@ -871,7 +1219,27 @@ public class EventSetManagerDslGrammarAccess extends AbstractGrammarElementFinde
 		return getEventSetManagerAccess().getRule();
 	}
 	
-	//GeographicalElement events::GeographicalElement:
+	//QualifiedNameWithWildcard:
+	//	QualifiedName '.*'?;
+	public QualifiedNameWithWildcardElements getQualifiedNameWithWildcardAccess() {
+		return pQualifiedNameWithWildcard;
+	}
+	
+	public ParserRule getQualifiedNameWithWildcardRule() {
+		return getQualifiedNameWithWildcardAccess().getRule();
+	}
+	
+	//QualifiedName:
+	//	ID ('.' ID)*;
+	public QualifiedNameElements getQualifiedNameAccess() {
+		return pQualifiedName;
+	}
+	
+	public ParserRule getQualifiedNameRule() {
+		return getQualifiedNameAccess().getRule();
+	}
+	
+	//GeographicalElement ecarules::GeographicalElement:
 	//	Point | Region
 	public GeographicalElementElements getGeographicalElementAccess() {
 		return pGeographicalElement;
@@ -881,8 +1249,8 @@ public class EventSetManagerDslGrammarAccess extends AbstractGrammarElementFinde
 		return getGeographicalElementAccess().getRule();
 	}
 	
-	//Point events::Point:
-	//	{events::Point} name=EString '{' lat=DOUBLE "," long=DOUBLE '}'
+	//Point ecarules::Point:
+	//	{ecarules::Point} name=EString '{' lat=DOUBLE "," long=DOUBLE '}'
 	public PointElements getPointAccess() {
 		return pPoint;
 	}
@@ -891,8 +1259,8 @@ public class EventSetManagerDslGrammarAccess extends AbstractGrammarElementFinde
 		return getPointAccess().getRule();
 	}
 	
-	//Region events::Region:
-	//	{events::Region} name=EString '[' points+=Point (',' points+=Point)* ']'
+	//Region ecarules::Region:
+	//	{ecarules::Region} name=EString '[' points+=Point (',' points+=Point)* ']'
 	public RegionElements getRegionAccess() {
 		return pRegion;
 	}
@@ -907,9 +1275,9 @@ public class EventSetManagerDslGrammarAccess extends AbstractGrammarElementFinde
 		return tDOUBLE;
 	}
 	
-	//Event events::Event:
-	//	{events::Event} ('connection' dataconnections+=[events::DataConnection] ('and'
-	//	dataconnections+=[events::DataConnection])*)?
+	//Event ecarules::Event:
+	//	{ecarules::Event} ('connection' dataconnections+=[ecarules::DataConnection] ('and'
+	//	dataconnections+=[ecarules::DataConnection])*)?
 	//	'pattern' name=EString '{'
 	//	concepts+=Concept concepts+=Concept*
 	//	'}' (when+=Condition when+=Condition*)
@@ -921,9 +1289,9 @@ public class EventSetManagerDslGrammarAccess extends AbstractGrammarElementFinde
 		return getEventAccess().getRule();
 	}
 	
-	//Condition events::Condition:
-	//	{events::Condition} ('if' expression=Expression)? ('in' geo=[events::GeographicalElement])? ('then' triggers+=Action
-	//	('and' triggers+=Action)*)
+	//Condition ecarules::Condition:
+	//	{ecarules::Condition} ('if' expression=Expression)? ('in' geo=[ecarules::GeographicalElement])? ('then'
+	//	triggers+=Action ('and' triggers+=Action)*)
 	public ConditionElements getConditionAccess() {
 		return pCondition;
 	}
@@ -932,8 +1300,8 @@ public class EventSetManagerDslGrammarAccess extends AbstractGrammarElementFinde
 		return getConditionAccess().getRule();
 	}
 	
-	//Expression events::Expression:
-	//	{events::Expression} left=[events::Concept|EString] '=' right=Literal
+	//Expression ecarules::Expression:
+	//	{ecarules::Expression} left=[ecarules::Concept|EString] '=' right=Literal
 	public ExpressionElements getExpressionAccess() {
 		return pExpression;
 	}
@@ -942,8 +1310,8 @@ public class EventSetManagerDslGrammarAccess extends AbstractGrammarElementFinde
 		return getExpressionAccess().getRule();
 	}
 	
-	//Literal events::Literal:
-	//	{events::Literal} value=EString
+	//Literal ecarules::Literal:
+	//	{ecarules::Literal} value=EString
 	public LiteralElements getLiteralAccess() {
 		return pLiteral;
 	}
@@ -952,7 +1320,7 @@ public class EventSetManagerDslGrammarAccess extends AbstractGrammarElementFinde
 		return getLiteralAccess().getRule();
 	}
 	
-	//Concept events::Concept:
+	//Concept ecarules::Concept:
 	//	KeyConcept | RegexConcept
 	public ConceptElements getConceptAccess() {
 		return pConcept;
@@ -962,8 +1330,8 @@ public class EventSetManagerDslGrammarAccess extends AbstractGrammarElementFinde
 		return getConceptAccess().getRule();
 	}
 	
-	//KeyConcept events::KeyConcept:
-	//	{events::KeyConcept} type=Type name=EString
+	//KeyConcept ecarules::KeyConcept:
+	//	{ecarules::KeyConcept} type=Type name=EString
 	public KeyConceptElements getKeyConceptAccess() {
 		return pKeyConcept;
 	}
@@ -972,8 +1340,8 @@ public class EventSetManagerDslGrammarAccess extends AbstractGrammarElementFinde
 		return getKeyConceptAccess().getRule();
 	}
 	
-	//RegexConcept events::RegexConcept:
-	//	{events::RegexConcept} type=Type name=EString '=' regex=EString
+	//RegexConcept ecarules::RegexConcept:
+	//	{ecarules::RegexConcept} type=Type name=EString '=' regex=EString
 	public RegexConceptElements getRegexConceptAccess() {
 		return pRegexConcept;
 	}
@@ -982,8 +1350,8 @@ public class EventSetManagerDslGrammarAccess extends AbstractGrammarElementFinde
 		return getRegexConceptAccess().getRule();
 	}
 	
-	//Action events::Action:
-	//	{events::Action} calls=[events::ActionExecutableExtension] ('(' params+=ActionParam (',' params+=ActionParam)* ')')?
+	//Action ecarules::Action:
+	//	ActionCall | QueryCall
 	public ActionElements getActionAccess() {
 		return pAction;
 	}
@@ -992,7 +1360,7 @@ public class EventSetManagerDslGrammarAccess extends AbstractGrammarElementFinde
 		return getActionAccess().getRule();
 	}
 	
-	//ActionParam events::ActionParam:
+	//ActionParam ecarules::ActionParam:
 	//	ConceptParam | StringParam
 	public ActionParamElements getActionParamAccess() {
 		return pActionParam;
@@ -1002,8 +1370,8 @@ public class EventSetManagerDslGrammarAccess extends AbstractGrammarElementFinde
 		return getActionParamAccess().getRule();
 	}
 	
-	//ConceptParam events::ConceptParam:
-	//	{events::ConceptParam} key=EString '<=' value=[events::Concept]
+	//ConceptParam ecarules::ConceptParam:
+	//	{ecarules::ConceptParam} key=EString '<=' value=[ecarules::Concept]
 	public ConceptParamElements getConceptParamAccess() {
 		return pConceptParam;
 	}
@@ -1012,14 +1380,80 @@ public class EventSetManagerDslGrammarAccess extends AbstractGrammarElementFinde
 		return getConceptParamAccess().getRule();
 	}
 	
-	//StringParam events::StringParam:
-	//	{events::StringParam} key=EString '=' value=EString
+	//StringParam ecarules::StringParam:
+	//	{ecarules::StringParam} key=EString '=' value=EString
 	public StringParamElements getStringParamAccess() {
 		return pStringParam;
 	}
 	
 	public ParserRule getStringParamRule() {
 		return getStringParamAccess().getRule();
+	}
+	
+	//ActionCall ecarules::ActionCall:
+	//	{ecarules::ActionCall} calls=[ecarules::ActionExecutableExtension] ('(' actionParams+=ActionParam (','
+	//	actionParams+=ActionParam)* ')')?
+	public ActionCallElements getActionCallAccess() {
+		return pActionCall;
+	}
+	
+	public ParserRule getActionCallRule() {
+		return getActionCallAccess().getRule();
+	}
+	
+	//QueryCall ecarules::QueryCall:
+	//	{ecarules::QueryCall} select=[query::Select|QualifiedName]
+	//	'(' queryParams+=ParamValue (',' queryParams+=ParamValue)* ')' '.' method=Method
+	//	'->'
+	//	calls=[ecarules::ActionExecutableExtension] ('(' actionParams+=ActionParam (',' actionParams+=ActionParam)* ')')?
+	public QueryCallElements getQueryCallAccess() {
+		return pQueryCall;
+	}
+	
+	public ParserRule getQueryCallRule() {
+		return getQueryCallAccess().getRule();
+	}
+	
+	//ParamValue ecarules::ParamValue:
+	//	{ecarules::ParamValue} param=[query::QueryParam|QualifiedName] ':' value=[ecarules::Concept]
+	public ParamValueElements getParamValueAccess() {
+		return pParamValue;
+	}
+	
+	public ParserRule getParamValueRule() {
+		return getParamValueAccess().getRule();
+	}
+	
+	//Method ecarules::Method:
+	//	First | Last
+	public MethodElements getMethodAccess() {
+		return pMethod;
+	}
+	
+	public ParserRule getMethodRule() {
+		return getMethodAccess().getRule();
+	}
+	
+	//First ecarules::First:
+	//	{ecarules::First}
+	//	'first'
+	public FirstElements getFirstAccess() {
+		return pFirst;
+	}
+	
+	public ParserRule getFirstRule() {
+		return getFirstAccess().getRule();
+	}
+	
+	//Last ecarules::Last:
+	//	{ecarules::Last}
+	//	'last'
+	public LastElements getLastAccess() {
+		return pLast;
+	}
+	
+	public ParserRule getLastRule() {
+		return getLastAccess().getRule();
 	}
 	
 	//EString:
@@ -1032,7 +1466,7 @@ public class EventSetManagerDslGrammarAccess extends AbstractGrammarElementFinde
 		return getEStringAccess().getRule();
 	}
 	
-	//enum Type returns events::Type:
+	//enum Type returns ecarules::Type:
 	//	String | Int | Boolean | Float | Double;
 	public TypeElements getTypeAccess() {
 		return eType;

@@ -29,4 +29,8 @@ Export-Package: uam.eagledata.dsl.events.ui.quickfix,
  uam.eagledata.dsl.events.ui.contentassist
 Bundle-Activator: uam.eagledata.dsl.events.ui.internal.EventsActivator
 Bundle-ClassPath: icons/,
- .
+ .,
+ lib/guice-4.0.jar,
+ lib/guice-assistedinject-4.0.jar,
+ lib/guice-multibindings-4.0.jar,
+ lib/junit-4.12.jar

@@ -7,6 +7,8 @@ import org.eclipse.emf.common.EMFPlugin;
 import org.eclipse.emf.common.ui.EclipseUIPlugin;
 
 import org.eclipse.emf.common.util.ResourceLocator;
+import query.provider.QueryEditPlugin;
+import semanticmanager.provider.ExtremoEditPlugin;
 
 /**
  * This is the central singleton for the Ecarules editor plugin.
@@ -40,6 +42,8 @@ public final class EcarulesEditorPlugin extends EMFPlugin {
 	public EcarulesEditorPlugin() {
 		super
 			(new ResourceLocator [] {
+				ExtremoEditPlugin.INSTANCE,
+				QueryEditPlugin.INSTANCE,
 			});
 	}
 

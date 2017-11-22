@@ -4,10 +4,10 @@
    <extension
          point="extremo.core.extensions.metadata">
       <metadata
-            class="uam.eagledata.metadata.MetaDataDelimiter"
-            id="metadata.delimiter"
-            key="delimiter"
-            name="delimiter">
+            class="uam.eagledata.metadata.MetaDataInt"
+            id="metadata.min"
+            key="min"
+            name="min">
       </metadata>
    </extension>
 

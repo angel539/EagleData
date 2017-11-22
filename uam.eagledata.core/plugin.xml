@@ -9,9 +9,17 @@
    <extension point="org.eclipse.emf.ecore.generated_package">
       <!-- @generated ecarules -->
       <package
-            uri="http://www.core.eagledata/ECARules"
+            uri="http://www.core.eagledata/EcaRules"
             class="ecarules.EcarulesPackage"
             genModel="model/ecarules.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated query -->
+      <package
+            uri="http://www.core.eagledata/Query"
+            class="query.QueryPackage"
+            genModel="model/query.genmodel"/>
    </extension>
 
 </plugin>

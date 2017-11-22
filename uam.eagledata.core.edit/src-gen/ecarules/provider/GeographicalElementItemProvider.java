@@ -5,6 +5,7 @@ package ecarules.provider;
 
 import ecarules.EcarulesPackage;
 import ecarules.GeographicalElement;
+
 import java.util.Collection;
 import java.util.List;
 

@@ -4,15 +4,20 @@
 package uam.eagledata.dsl.events.serializer;
 
 import com.google.inject.Inject;
+import ecarules.ActionCall;
 import ecarules.ConceptParam;
 import ecarules.Condition;
 import ecarules.EcarulesPackage;
 import ecarules.Event;
 import ecarules.EventSetManager;
 import ecarules.Expression;
+import ecarules.First;
 import ecarules.KeyConcept;
+import ecarules.Last;
 import ecarules.Literal;
+import ecarules.ParamValue;
 import ecarules.Point;
+import ecarules.QueryCall;
 import ecarules.RegexConcept;
 import ecarules.Region;
 import ecarules.StringParam;
@@ -42,8 +47,8 @@ public class EventSetManagerDslSemanticSequencer extends AbstractDelegatingSeman
 		Set<Parameter> parameters = context.getEnabledBooleanParameters();
 		if (epackage == EcarulesPackage.eINSTANCE)
 			switch (semanticObject.eClass().getClassifierID()) {
-			case EcarulesPackage.ACTION:
-				sequence_Action(context, (ecarules.Action) semanticObject); 
+			case EcarulesPackage.ACTION_CALL:
+				sequence_ActionCall(context, (ActionCall) semanticObject); 
 				return; 
 			case EcarulesPackage.CONCEPT_PARAM:
 				sequence_ConceptParam(context, (ConceptParam) semanticObject); 
@@ -60,14 +65,26 @@ public class EventSetManagerDslSemanticSequencer extends AbstractDelegatingSeman
 			case EcarulesPackage.EXPRESSION:
 				sequence_Expression(context, (Expression) semanticObject); 
 				return; 
+			case EcarulesPackage.FIRST:
+				sequence_First(context, (First) semanticObject); 
+				return; 
 			case EcarulesPackage.KEY_CONCEPT:
 				sequence_KeyConcept(context, (KeyConcept) semanticObject); 
+				return; 
+			case EcarulesPackage.LAST:
+				sequence_Last(context, (Last) semanticObject); 
 				return; 
 			case EcarulesPackage.LITERAL:
 				sequence_Literal(context, (Literal) semanticObject); 
 				return; 
+			case EcarulesPackage.PARAM_VALUE:
+				sequence_ParamValue(context, (ParamValue) semanticObject); 
+				return; 
 			case EcarulesPackage.POINT:
 				sequence_Point(context, (Point) semanticObject); 
+				return; 
+			case EcarulesPackage.QUERY_CALL:
+				sequence_QueryCall(context, (QueryCall) semanticObject); 
 				return; 
 			case EcarulesPackage.REGEX_CONCEPT:
 				sequence_RegexConcept(context, (RegexConcept) semanticObject); 
@@ -85,12 +102,13 @@ public class EventSetManagerDslSemanticSequencer extends AbstractDelegatingSeman
 	
 	/**
 	 * Contexts:
-	 *     Action returns Action
+	 *     Action returns ActionCall
+	 *     ActionCall returns ActionCall
 	 *
 	 * Constraint:
-	 *     (calls=[ActionExecutableExtension|ID] (params+=ActionParam params+=ActionParam*)?)
+	 *     (calls=[ActionExecutableExtension|ID] (actionParams+=ActionParam actionParams+=ActionParam*)?)
 	 */
-	protected void sequence_Action(ISerializationContext context, ecarules.Action semanticObject) {
+	protected void sequence_ActionCall(ISerializationContext context, ActionCall semanticObject) {
 		genericSequencer.createSequence(context, (EObject) semanticObject);
 	}
 	
@@ -134,7 +152,12 @@ public class EventSetManagerDslSemanticSequencer extends AbstractDelegatingSeman
 	 *     EventSetManager returns EventSetManager
 	 *
 	 * Constraint:
-	 *     ((geos+=GeographicalElement geos+=GeographicalElement*)? events+=Event events+=Event*)
+	 *     (
+	 *         (importedNamespace+=QualifiedNameWithWildcard importedNamespace+=QualifiedNameWithWildcard*)? 
+	 *         (geos+=GeographicalElement geos+=GeographicalElement*)? 
+	 *         events+=Event 
+	 *         events+=Event*
+	 *     )
 	 */
 	protected void sequence_EventSetManager(ISerializationContext context, EventSetManager semanticObject) {
 		genericSequencer.createSequence(context, (EObject) semanticObject);
@@ -183,6 +206,19 @@ public class EventSetManagerDslSemanticSequencer extends AbstractDelegatingSeman
 	
 	/**
 	 * Contexts:
+	 *     Method returns First
+	 *     First returns First
+	 *
+	 * Constraint:
+	 *     {First}
+	 */
+	protected void sequence_First(ISerializationContext context, First semanticObject) {
+		genericSequencer.createSequence(context, (EObject) semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     Concept returns KeyConcept
 	 *     KeyConcept returns KeyConcept
 	 *
@@ -205,6 +241,19 @@ public class EventSetManagerDslSemanticSequencer extends AbstractDelegatingSeman
 	
 	/**
 	 * Contexts:
+	 *     Method returns Last
+	 *     Last returns Last
+	 *
+	 * Constraint:
+	 *     {Last}
+	 */
+	protected void sequence_Last(ISerializationContext context, Last semanticObject) {
+		genericSequencer.createSequence(context, (EObject) semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     Literal returns Literal
 	 *
 	 * Constraint:
@@ -217,6 +266,27 @@ public class EventSetManagerDslSemanticSequencer extends AbstractDelegatingSeman
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, (EObject) semanticObject);
 		feeder.accept(grammarAccess.getLiteralAccess().getValueEStringParserRuleCall_1_0(), semanticObject.getValue());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     ParamValue returns ParamValue
+	 *
+	 * Constraint:
+	 *     (param=[QueryParam|QualifiedName] value=[Concept|ID])
+	 */
+	protected void sequence_ParamValue(ISerializationContext context, ParamValue semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient((EObject) semanticObject, EcarulesPackage.Literals.PARAM_VALUE__PARAM) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing((EObject) semanticObject, EcarulesPackage.Literals.PARAM_VALUE__PARAM));
+			if (transientValues.isValueTransient((EObject) semanticObject, EcarulesPackage.Literals.PARAM_VALUE__VALUE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing((EObject) semanticObject, EcarulesPackage.Literals.PARAM_VALUE__VALUE));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, (EObject) semanticObject);
+		feeder.accept(grammarAccess.getParamValueAccess().getParamQueryParamQualifiedNameParserRuleCall_1_0_1(), semanticObject.getParam());
+		feeder.accept(grammarAccess.getParamValueAccess().getValueConceptIDTerminalRuleCall_3_0_1(), semanticObject.getValue());
 		feeder.finish();
 	}
 	
@@ -243,6 +313,26 @@ public class EventSetManagerDslSemanticSequencer extends AbstractDelegatingSeman
 		feeder.accept(grammarAccess.getPointAccess().getLatDOUBLETerminalRuleCall_3_0(), semanticObject.getLat());
 		feeder.accept(grammarAccess.getPointAccess().getLongDOUBLETerminalRuleCall_5_0(), semanticObject.getLong());
 		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Action returns QueryCall
+	 *     QueryCall returns QueryCall
+	 *
+	 * Constraint:
+	 *     (
+	 *         select=[Select|QualifiedName] 
+	 *         queryParams+=ParamValue 
+	 *         queryParams+=ParamValue* 
+	 *         method=Method 
+	 *         calls=[ActionExecutableExtension|ID] 
+	 *         (actionParams+=ActionParam actionParams+=ActionParam*)?
+	 *     )
+	 */
+	protected void sequence_QueryCall(ISerializationContext context, QueryCall semanticObject) {
+		genericSequencer.createSequence(context, (EObject) semanticObject);
 	}
 	
 	

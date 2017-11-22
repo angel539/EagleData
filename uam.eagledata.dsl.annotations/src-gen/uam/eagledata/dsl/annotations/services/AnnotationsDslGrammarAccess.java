@@ -34,14 +34,14 @@ public class AnnotationsDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cAnnotationsAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
 		private final RuleCall cAnnotationsAnnotationParserRuleCall_1_1_0 = (RuleCall)cAnnotationsAssignment_1_1.eContents().get(0);
 		
-		//RepositoryManager semantics::RepositoryManager:
-		//	{semantics::RepositoryManager} (annotations+=Annotation annotations+=Annotation*)?
+		//RepositoryManager semanticmanager::RepositoryManager:
+		//	{semanticmanager::RepositoryManager} (annotations+=Annotation annotations+=Annotation*)?
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{semantics::RepositoryManager} (annotations+=Annotation annotations+=Annotation*)?
+		//{semanticmanager::RepositoryManager} (annotations+=Annotation annotations+=Annotation*)?
 		public Group getGroup() { return cGroup; }
 		
-		//{semantics::RepositoryManager}
+		//{semanticmanager::RepositoryManager}
 		public Action getRepositoryManagerAction_0() { return cRepositoryManagerAction_0; }
 		
 		//(annotations+=Annotation annotations+=Annotation*)?
@@ -66,7 +66,7 @@ public class AnnotationsDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cAnnotationHierarchyParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
 		private final RuleCall cAnnotationInstanceParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
 		
-		//Annotation semantics::Annotation:
+		//Annotation semanticmanager::Annotation:
 		//	SimpleAnnotation | AnnotationHierarchy | AnnotationInstance
 		@Override public ParserRule getRule() { return rule; }
 		
@@ -90,15 +90,15 @@ public class AnnotationsDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cNameAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final RuleCall cNameQualifiedNameParserRuleCall_2_0 = (RuleCall)cNameAssignment_2.eContents().get(0);
 		
-		//SimpleAnnotation semantics::Annotation:
-		//	{semantics::Annotation}
+		//SimpleAnnotation semanticmanager::Annotation:
+		//	{semanticmanager::Annotation}
 		//	'@' name=QualifiedName
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{semantics::Annotation} '@' name=QualifiedName
+		//{semanticmanager::Annotation} '@' name=QualifiedName
 		public Group getGroup() { return cGroup; }
 		
-		//{semantics::Annotation}
+		//{semanticmanager::Annotation}
 		public Action getAnnotationAction_0() { return cAnnotationAction_0; }
 		
 		//'@'
@@ -124,26 +124,23 @@ public class AnnotationsDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final CrossReference cSupersAnnotationCrossReference_3_2_0 = (CrossReference)cSupersAssignment_3_2.eContents().get(0);
 		private final RuleCall cSupersAnnotationQualifiedNameParserRuleCall_3_2_0_1 = (RuleCall)cSupersAnnotationCrossReference_3_2_0.eContents().get(1);
 		private final Group cGroup_3_3 = (Group)cGroup_3.eContents().get(3);
-		private final Keyword cLessThanSignKeyword_3_3_0 = (Keyword)cGroup_3_3.eContents().get(0);
+		private final Keyword cCommaKeyword_3_3_0 = (Keyword)cGroup_3_3.eContents().get(0);
 		private final Keyword cCommercialAtKeyword_3_3_1 = (Keyword)cGroup_3_3.eContents().get(1);
 		private final Assignment cSupersAssignment_3_3_2 = (Assignment)cGroup_3_3.eContents().get(2);
 		private final CrossReference cSupersAnnotationCrossReference_3_3_2_0 = (CrossReference)cSupersAssignment_3_3_2.eContents().get(0);
 		private final RuleCall cSupersAnnotationQualifiedNameParserRuleCall_3_3_2_0_1 = (RuleCall)cSupersAnnotationCrossReference_3_3_2_0.eContents().get(1);
 		
-		////('{'
-		////	annotations+=Annotation (annotations+=Annotation)*'}'
-		////)?;
-		//AnnotationHierarchy semantics::Annotation:
-		//	{semantics::Annotation}
-		//	'@' name=QualifiedName ('<' '@' supers+=[semantics::Annotation|QualifiedName] ("<" '@'
-		//	supers+=[semantics::Annotation|QualifiedName])*)
+		//AnnotationHierarchy semanticmanager::Annotation:
+		//	{semanticmanager::Annotation}
+		//	'@' name=QualifiedName ('<' '@' supers+=[semanticmanager::Annotation|QualifiedName] ("," '@'
+		//	supers+=[semanticmanager::Annotation|QualifiedName])*)
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{semantics::Annotation} '@' name=QualifiedName ('<' '@' supers+=[semantics::Annotation|QualifiedName] ("<" '@'
-		//supers+=[semantics::Annotation|QualifiedName])*)
+		//{semanticmanager::Annotation} '@' name=QualifiedName ('<' '@' supers+=[semanticmanager::Annotation|QualifiedName] (","
+		//'@' supers+=[semanticmanager::Annotation|QualifiedName])*)
 		public Group getGroup() { return cGroup; }
 		
-		//{semantics::Annotation}
+		//{semanticmanager::Annotation}
 		public Action getAnnotationAction_0() { return cAnnotationAction_0; }
 		
 		//'@'
@@ -155,7 +152,8 @@ public class AnnotationsDslGrammarAccess extends AbstractGrammarElementFinder {
 		//QualifiedName
 		public RuleCall getNameQualifiedNameParserRuleCall_2_0() { return cNameQualifiedNameParserRuleCall_2_0; }
 		
-		//('<' '@' supers+=[semantics::Annotation|QualifiedName] ("<" '@' supers+=[semantics::Annotation|QualifiedName])*)
+		//('<' '@' supers+=[semanticmanager::Annotation|QualifiedName] ("," '@'
+		//supers+=[semanticmanager::Annotation|QualifiedName])*)
 		public Group getGroup_3() { return cGroup_3; }
 		
 		//'<'
@@ -164,28 +162,28 @@ public class AnnotationsDslGrammarAccess extends AbstractGrammarElementFinder {
 		//'@'
 		public Keyword getCommercialAtKeyword_3_1() { return cCommercialAtKeyword_3_1; }
 		
-		//supers+=[semantics::Annotation|QualifiedName]
+		//supers+=[semanticmanager::Annotation|QualifiedName]
 		public Assignment getSupersAssignment_3_2() { return cSupersAssignment_3_2; }
 		
-		//[semantics::Annotation|QualifiedName]
+		//[semanticmanager::Annotation|QualifiedName]
 		public CrossReference getSupersAnnotationCrossReference_3_2_0() { return cSupersAnnotationCrossReference_3_2_0; }
 		
 		//QualifiedName
 		public RuleCall getSupersAnnotationQualifiedNameParserRuleCall_3_2_0_1() { return cSupersAnnotationQualifiedNameParserRuleCall_3_2_0_1; }
 		
-		//("<" '@' supers+=[semantics::Annotation|QualifiedName])*
+		//("," '@' supers+=[semanticmanager::Annotation|QualifiedName])*
 		public Group getGroup_3_3() { return cGroup_3_3; }
 		
-		//"<"
-		public Keyword getLessThanSignKeyword_3_3_0() { return cLessThanSignKeyword_3_3_0; }
+		//","
+		public Keyword getCommaKeyword_3_3_0() { return cCommaKeyword_3_3_0; }
 		
 		//'@'
 		public Keyword getCommercialAtKeyword_3_3_1() { return cCommercialAtKeyword_3_3_1; }
 		
-		//supers+=[semantics::Annotation|QualifiedName]
+		//supers+=[semanticmanager::Annotation|QualifiedName]
 		public Assignment getSupersAssignment_3_3_2() { return cSupersAssignment_3_3_2; }
 		
-		//[semantics::Annotation|QualifiedName]
+		//[semanticmanager::Annotation|QualifiedName]
 		public CrossReference getSupersAnnotationCrossReference_3_3_2_0() { return cSupersAnnotationCrossReference_3_3_2_0; }
 		
 		//QualifiedName
@@ -205,26 +203,23 @@ public class AnnotationsDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final CrossReference cDescriptorsAnnotationCrossReference_3_2_0 = (CrossReference)cDescriptorsAssignment_3_2.eContents().get(0);
 		private final RuleCall cDescriptorsAnnotationQualifiedNameParserRuleCall_3_2_0_1 = (RuleCall)cDescriptorsAnnotationCrossReference_3_2_0.eContents().get(1);
 		private final Group cGroup_3_3 = (Group)cGroup_3.eContents().get(3);
-		private final Keyword cColonKeyword_3_3_0 = (Keyword)cGroup_3_3.eContents().get(0);
+		private final Keyword cCommaKeyword_3_3_0 = (Keyword)cGroup_3_3.eContents().get(0);
 		private final Keyword cCommercialAtKeyword_3_3_1 = (Keyword)cGroup_3_3.eContents().get(1);
 		private final Assignment cDescriptorsAssignment_3_3_2 = (Assignment)cGroup_3_3.eContents().get(2);
 		private final CrossReference cDescriptorsAnnotationCrossReference_3_3_2_0 = (CrossReference)cDescriptorsAssignment_3_3_2.eContents().get(0);
 		private final RuleCall cDescriptorsAnnotationQualifiedNameParserRuleCall_3_3_2_0_1 = (RuleCall)cDescriptorsAnnotationCrossReference_3_3_2_0.eContents().get(1);
 		
-		////('{'
-		////	annotations+=Annotation (annotations+=Annotation)*'}'
-		////)?;
-		//AnnotationInstance semantics::Annotation:
-		//	{semantics::Annotation}
-		//	'@' name=QualifiedName (':' '@' descriptors+=[semantics::Annotation|QualifiedName] (":" '@'
-		//	descriptors+=[semantics::Annotation|QualifiedName])*)
+		//AnnotationInstance semanticmanager::Annotation:
+		//	{semanticmanager::Annotation}
+		//	'@' name=QualifiedName (':' '@' descriptors+=[semanticmanager::Annotation|QualifiedName] ("," '@'
+		//	descriptors+=[semanticmanager::Annotation|QualifiedName])*)
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{semantics::Annotation} '@' name=QualifiedName (':' '@' descriptors+=[semantics::Annotation|QualifiedName] (":" '@'
-		//descriptors+=[semantics::Annotation|QualifiedName])*)
+		//{semanticmanager::Annotation} '@' name=QualifiedName (':' '@' descriptors+=[semanticmanager::Annotation|QualifiedName]
+		//("," '@' descriptors+=[semanticmanager::Annotation|QualifiedName])*)
 		public Group getGroup() { return cGroup; }
 		
-		//{semantics::Annotation}
+		//{semanticmanager::Annotation}
 		public Action getAnnotationAction_0() { return cAnnotationAction_0; }
 		
 		//'@'
@@ -236,8 +231,8 @@ public class AnnotationsDslGrammarAccess extends AbstractGrammarElementFinder {
 		//QualifiedName
 		public RuleCall getNameQualifiedNameParserRuleCall_2_0() { return cNameQualifiedNameParserRuleCall_2_0; }
 		
-		//(':' '@' descriptors+=[semantics::Annotation|QualifiedName] (":" '@'
-		//descriptors+=[semantics::Annotation|QualifiedName])*)
+		//(':' '@' descriptors+=[semanticmanager::Annotation|QualifiedName] ("," '@'
+		//descriptors+=[semanticmanager::Annotation|QualifiedName])*)
 		public Group getGroup_3() { return cGroup_3; }
 		
 		//':'
@@ -246,28 +241,28 @@ public class AnnotationsDslGrammarAccess extends AbstractGrammarElementFinder {
 		//'@'
 		public Keyword getCommercialAtKeyword_3_1() { return cCommercialAtKeyword_3_1; }
 		
-		//descriptors+=[semantics::Annotation|QualifiedName]
+		//descriptors+=[semanticmanager::Annotation|QualifiedName]
 		public Assignment getDescriptorsAssignment_3_2() { return cDescriptorsAssignment_3_2; }
 		
-		//[semantics::Annotation|QualifiedName]
+		//[semanticmanager::Annotation|QualifiedName]
 		public CrossReference getDescriptorsAnnotationCrossReference_3_2_0() { return cDescriptorsAnnotationCrossReference_3_2_0; }
 		
 		//QualifiedName
 		public RuleCall getDescriptorsAnnotationQualifiedNameParserRuleCall_3_2_0_1() { return cDescriptorsAnnotationQualifiedNameParserRuleCall_3_2_0_1; }
 		
-		//(":" '@' descriptors+=[semantics::Annotation|QualifiedName])*
+		//("," '@' descriptors+=[semanticmanager::Annotation|QualifiedName])*
 		public Group getGroup_3_3() { return cGroup_3_3; }
 		
-		//":"
-		public Keyword getColonKeyword_3_3_0() { return cColonKeyword_3_3_0; }
+		//","
+		public Keyword getCommaKeyword_3_3_0() { return cCommaKeyword_3_3_0; }
 		
 		//'@'
 		public Keyword getCommercialAtKeyword_3_3_1() { return cCommercialAtKeyword_3_3_1; }
 		
-		//descriptors+=[semantics::Annotation|QualifiedName]
+		//descriptors+=[semanticmanager::Annotation|QualifiedName]
 		public Assignment getDescriptorsAssignment_3_3_2() { return cDescriptorsAssignment_3_3_2; }
 		
-		//[semantics::Annotation|QualifiedName]
+		//[semanticmanager::Annotation|QualifiedName]
 		public CrossReference getDescriptorsAnnotationCrossReference_3_3_2_0() { return cDescriptorsAnnotationCrossReference_3_3_2_0; }
 		
 		//QualifiedName
@@ -277,9 +272,6 @@ public class AnnotationsDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "uam.eagledata.dsl.annotations.AnnotationsDsl.QualifiedName");
 		private final RuleCall cIDTerminalRuleCall = (RuleCall)rule.eContents().get(1);
 		
-		////('{'
-		////	annotations+=Annotation (annotations+=Annotation)*'}'
-		////)?;
 		//QualifiedName:
 		//	ID;
 		@Override public ParserRule getRule() { return rule; }
@@ -340,8 +332,8 @@ public class AnnotationsDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	
-	//RepositoryManager semantics::RepositoryManager:
-	//	{semantics::RepositoryManager} (annotations+=Annotation annotations+=Annotation*)?
+	//RepositoryManager semanticmanager::RepositoryManager:
+	//	{semanticmanager::RepositoryManager} (annotations+=Annotation annotations+=Annotation*)?
 	public RepositoryManagerElements getRepositoryManagerAccess() {
 		return pRepositoryManager;
 	}
@@ -350,7 +342,7 @@ public class AnnotationsDslGrammarAccess extends AbstractGrammarElementFinder {
 		return getRepositoryManagerAccess().getRule();
 	}
 	
-	//Annotation semantics::Annotation:
+	//Annotation semanticmanager::Annotation:
 	//	SimpleAnnotation | AnnotationHierarchy | AnnotationInstance
 	public AnnotationElements getAnnotationAccess() {
 		return pAnnotation;
@@ -360,8 +352,8 @@ public class AnnotationsDslGrammarAccess extends AbstractGrammarElementFinder {
 		return getAnnotationAccess().getRule();
 	}
 	
-	//SimpleAnnotation semantics::Annotation:
-	//	{semantics::Annotation}
+	//SimpleAnnotation semanticmanager::Annotation:
+	//	{semanticmanager::Annotation}
 	//	'@' name=QualifiedName
 	public SimpleAnnotationElements getSimpleAnnotationAccess() {
 		return pSimpleAnnotation;
@@ -371,13 +363,10 @@ public class AnnotationsDslGrammarAccess extends AbstractGrammarElementFinder {
 		return getSimpleAnnotationAccess().getRule();
 	}
 	
-	////('{'
-	////	annotations+=Annotation (annotations+=Annotation)*'}'
-	////)?;
-	//AnnotationHierarchy semantics::Annotation:
-	//	{semantics::Annotation}
-	//	'@' name=QualifiedName ('<' '@' supers+=[semantics::Annotation|QualifiedName] ("<" '@'
-	//	supers+=[semantics::Annotation|QualifiedName])*)
+	//AnnotationHierarchy semanticmanager::Annotation:
+	//	{semanticmanager::Annotation}
+	//	'@' name=QualifiedName ('<' '@' supers+=[semanticmanager::Annotation|QualifiedName] ("," '@'
+	//	supers+=[semanticmanager::Annotation|QualifiedName])*)
 	public AnnotationHierarchyElements getAnnotationHierarchyAccess() {
 		return pAnnotationHierarchy;
 	}
@@ -386,13 +375,10 @@ public class AnnotationsDslGrammarAccess extends AbstractGrammarElementFinder {
 		return getAnnotationHierarchyAccess().getRule();
 	}
 	
-	////('{'
-	////	annotations+=Annotation (annotations+=Annotation)*'}'
-	////)?;
-	//AnnotationInstance semantics::Annotation:
-	//	{semantics::Annotation}
-	//	'@' name=QualifiedName (':' '@' descriptors+=[semantics::Annotation|QualifiedName] (":" '@'
-	//	descriptors+=[semantics::Annotation|QualifiedName])*)
+	//AnnotationInstance semanticmanager::Annotation:
+	//	{semanticmanager::Annotation}
+	//	'@' name=QualifiedName (':' '@' descriptors+=[semanticmanager::Annotation|QualifiedName] ("," '@'
+	//	descriptors+=[semanticmanager::Annotation|QualifiedName])*)
 	public AnnotationInstanceElements getAnnotationInstanceAccess() {
 		return pAnnotationInstance;
 	}
@@ -401,9 +387,6 @@ public class AnnotationsDslGrammarAccess extends AbstractGrammarElementFinder {
 		return getAnnotationInstanceAccess().getRule();
 	}
 	
-	////('{'
-	////	annotations+=Annotation (annotations+=Annotation)*'}'
-	////)?;
 	//QualifiedName:
 	//	ID;
 	public QualifiedNameElements getQualifiedNameAccess() {

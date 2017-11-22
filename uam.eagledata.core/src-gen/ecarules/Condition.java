@@ -3,6 +3,7 @@
 package ecarules;
 
 import fr.inria.atlanmod.neoemf.core.PersistentEObject;
+
 import org.eclipse.emf.common.util.EList;
 
 /**
@@ -25,7 +26,6 @@ import org.eclipse.emf.common.util.EList;
  * @generated
  */
 public interface Condition extends PersistentEObject {
-
 	/**
 	 * Returns the value of the '<em><b>Expression</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
@@ -63,7 +63,7 @@ public interface Condition extends PersistentEObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Triggers</em>' containment reference list.
 	 * @see ecarules.EcarulesPackage#getCondition_Triggers()
-	 * @model containment="true"
+	 * @model containment="true" required="true"
 	 * @generated
 	 */
 	EList<Action> getTriggers();
@@ -93,4 +93,5 @@ public interface Condition extends PersistentEObject {
 	 * @generated
 	 */
 	void setGeo(GeographicalElement value);
+
 } // Condition

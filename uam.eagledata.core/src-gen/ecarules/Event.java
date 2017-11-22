@@ -23,13 +23,12 @@ import org.eclipse.emf.common.util.EList;
  * @generated
  */
 public interface Event extends NamedElement {
-
 	/**
 	 * Returns the value of the '<em><b>When</b></em>' containment reference list.
 	 * The list contents are of type {@link ecarules.Condition}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>When</em>' containment reference isn't clear,
+	 * If the meaning of the '<em>When</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->

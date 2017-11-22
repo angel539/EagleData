@@ -15,6 +15,7 @@ import ecarules.DataConnection
 import java.util.List
 import ecarules.ActionExecutableExtension
 import ecarules.Action
+import ecarules.ActionCall
 
 /**
  * This class contains custom scoping description.

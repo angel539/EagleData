@@ -26,7 +26,7 @@ public interface Region extends GeographicalElement {
 	 * The list contents are of type {@link ecarules.Point}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Points</em>' reference list isn't clear,
+	 * If the meaning of the '<em>Points</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->

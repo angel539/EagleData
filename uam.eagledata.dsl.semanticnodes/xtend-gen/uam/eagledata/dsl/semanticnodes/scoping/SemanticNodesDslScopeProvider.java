@@ -12,7 +12,6 @@ import org.eclipse.emf.ecore.EReference;
 import org.eclipse.xtext.EcoreUtil2;
 import org.eclipse.xtext.scoping.IScope;
 import org.eclipse.xtext.scoping.Scopes;
-import org.eclipse.xtext.xbase.lib.InputOutput;
 import semanticmanager.FormatAssistant;
 import semanticmanager.MetaData;
 import semanticmanager.MetaDataValue;
@@ -87,7 +86,6 @@ public class SemanticNodesDslScopeProvider extends AbstractSemanticNodesDslScope
           metadataApplicable.add(m);
         }
       }
-      InputOutput.<String>println(("after... " + metadataApplicable));
       return Scopes.scopeFor(metadataApplicable);
     }
     return super.getScope(context, reference);

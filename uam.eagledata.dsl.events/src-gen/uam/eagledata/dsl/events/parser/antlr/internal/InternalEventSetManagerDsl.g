@@ -78,12 +78,62 @@ ruleEventSetManager returns [EObject current=null]
 }:
 	(
 		(
+			otherlv_0='import'
+			{
+				newLeafNode(otherlv_0, grammarAccess.getEventSetManagerAccess().getImportKeyword_0_0());
+			}
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getEventSetManagerAccess().getGeosGeographicalElementParserRuleCall_0_0_0());
+						newCompositeNode(grammarAccess.getEventSetManagerAccess().getImportedNamespaceQualifiedNameWithWildcardParserRuleCall_0_1_0());
 					}
-					lv_geos_0_0=ruleGeographicalElement
+					lv_importedNamespace_1_0=ruleQualifiedNameWithWildcard
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getEventSetManagerRule());
+						}
+						add(
+							$current,
+							"importedNamespace",
+							lv_importedNamespace_1_0,
+							"uam.eagledata.dsl.events.EventSetManagerDsl.QualifiedNameWithWildcard");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+			(
+				otherlv_2='import'
+				{
+					newLeafNode(otherlv_2, grammarAccess.getEventSetManagerAccess().getImportKeyword_0_2_0());
+				}
+				(
+					(
+						{
+							newCompositeNode(grammarAccess.getEventSetManagerAccess().getImportedNamespaceQualifiedNameWithWildcardParserRuleCall_0_2_1_0());
+						}
+						lv_importedNamespace_3_0=ruleQualifiedNameWithWildcard
+						{
+							if ($current==null) {
+								$current = createModelElementForParent(grammarAccess.getEventSetManagerRule());
+							}
+							add(
+								$current,
+								"importedNamespace",
+								lv_importedNamespace_3_0,
+								"uam.eagledata.dsl.events.EventSetManagerDsl.QualifiedNameWithWildcard");
+							afterParserOrEnumRuleCall();
+						}
+					)
+				)
+			)*
+		)?
+		(
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getEventSetManagerAccess().getGeosGeographicalElementParserRuleCall_1_0_0());
+					}
+					lv_geos_4_0=ruleGeographicalElement
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getEventSetManagerRule());
@@ -91,7 +141,7 @@ ruleEventSetManager returns [EObject current=null]
 						add(
 							$current,
 							"geos",
-							lv_geos_0_0,
+							lv_geos_4_0,
 							"uam.eagledata.dsl.events.EventSetManagerDsl.GeographicalElement");
 						afterParserOrEnumRuleCall();
 					}
@@ -100,9 +150,9 @@ ruleEventSetManager returns [EObject current=null]
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getEventSetManagerAccess().getGeosGeographicalElementParserRuleCall_0_1_0());
+						newCompositeNode(grammarAccess.getEventSetManagerAccess().getGeosGeographicalElementParserRuleCall_1_1_0());
 					}
-					lv_geos_1_0=ruleGeographicalElement
+					lv_geos_5_0=ruleGeographicalElement
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getEventSetManagerRule());
@@ -110,7 +160,7 @@ ruleEventSetManager returns [EObject current=null]
 						add(
 							$current,
 							"geos",
-							lv_geos_1_0,
+							lv_geos_5_0,
 							"uam.eagledata.dsl.events.EventSetManagerDsl.GeographicalElement");
 						afterParserOrEnumRuleCall();
 					}
@@ -120,9 +170,9 @@ ruleEventSetManager returns [EObject current=null]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getEventSetManagerAccess().getEventsEventParserRuleCall_1_0());
+					newCompositeNode(grammarAccess.getEventSetManagerAccess().getEventsEventParserRuleCall_2_0());
 				}
-				lv_events_2_0=ruleEvent
+				lv_events_6_0=ruleEvent
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getEventSetManagerRule());
@@ -130,7 +180,7 @@ ruleEventSetManager returns [EObject current=null]
 					add(
 						$current,
 						"events",
-						lv_events_2_0,
+						lv_events_6_0,
 						"uam.eagledata.dsl.events.EventSetManagerDsl.Event");
 					afterParserOrEnumRuleCall();
 				}
@@ -139,9 +189,9 @@ ruleEventSetManager returns [EObject current=null]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getEventSetManagerAccess().getEventsEventParserRuleCall_2_0());
+					newCompositeNode(grammarAccess.getEventSetManagerAccess().getEventsEventParserRuleCall_3_0());
 				}
-				lv_events_3_0=ruleEvent
+				lv_events_7_0=ruleEvent
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getEventSetManagerRule());
@@ -149,11 +199,87 @@ ruleEventSetManager returns [EObject current=null]
 					add(
 						$current,
 						"events",
-						lv_events_3_0,
+						lv_events_7_0,
 						"uam.eagledata.dsl.events.EventSetManagerDsl.Event");
 					afterParserOrEnumRuleCall();
 				}
 			)
+		)*
+	)
+;
+
+// Entry rule entryRuleQualifiedNameWithWildcard
+entryRuleQualifiedNameWithWildcard returns [String current=null]:
+	{ newCompositeNode(grammarAccess.getQualifiedNameWithWildcardRule()); }
+	iv_ruleQualifiedNameWithWildcard=ruleQualifiedNameWithWildcard
+	{ $current=$iv_ruleQualifiedNameWithWildcard.current.getText(); }
+	EOF;
+
+// Rule QualifiedNameWithWildcard
+ruleQualifiedNameWithWildcard returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		{
+			newCompositeNode(grammarAccess.getQualifiedNameWithWildcardAccess().getQualifiedNameParserRuleCall_0());
+		}
+		this_QualifiedName_0=ruleQualifiedName
+		{
+			$current.merge(this_QualifiedName_0);
+		}
+		{
+			afterParserOrEnumRuleCall();
+		}
+		(
+			kw='.*'
+			{
+				$current.merge(kw);
+				newLeafNode(kw, grammarAccess.getQualifiedNameWithWildcardAccess().getFullStopAsteriskKeyword_1());
+			}
+		)?
+	)
+;
+
+// Entry rule entryRuleQualifiedName
+entryRuleQualifiedName returns [String current=null]:
+	{ newCompositeNode(grammarAccess.getQualifiedNameRule()); }
+	iv_ruleQualifiedName=ruleQualifiedName
+	{ $current=$iv_ruleQualifiedName.current.getText(); }
+	EOF;
+
+// Rule QualifiedName
+ruleQualifiedName returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		this_ID_0=RULE_ID
+		{
+			$current.merge(this_ID_0);
+		}
+		{
+			newLeafNode(this_ID_0, grammarAccess.getQualifiedNameAccess().getIDTerminalRuleCall_0());
+		}
+		(
+			kw='.'
+			{
+				$current.merge(kw);
+				newLeafNode(kw, grammarAccess.getQualifiedNameAccess().getFullStopKeyword_1_0());
+			}
+			this_ID_2=RULE_ID
+			{
+				$current.merge(this_ID_2);
+			}
+			{
+				newLeafNode(this_ID_2, grammarAccess.getQualifiedNameAccess().getIDTerminalRuleCall_1_1());
+			}
 		)*
 	)
 ;
@@ -990,80 +1116,23 @@ ruleAction returns [EObject current=null]
 	leaveRule();
 }:
 	(
-		(
-			{
-				$current = forceCreateModelElement(
-					grammarAccess.getActionAccess().getActionAction_0(),
-					$current);
-			}
-		)
-		(
-			(
-				{
-					if ($current==null) {
-						$current = createModelElement(grammarAccess.getActionRule());
-					}
-				}
-				otherlv_1=RULE_ID
-				{
-					newLeafNode(otherlv_1, grammarAccess.getActionAccess().getCallsActionExecutableExtensionCrossReference_1_0());
-				}
-			)
-		)
-		(
-			otherlv_2='('
-			{
-				newLeafNode(otherlv_2, grammarAccess.getActionAccess().getLeftParenthesisKeyword_2_0());
-			}
-			(
-				(
-					{
-						newCompositeNode(grammarAccess.getActionAccess().getParamsActionParamParserRuleCall_2_1_0());
-					}
-					lv_params_3_0=ruleActionParam
-					{
-						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getActionRule());
-						}
-						add(
-							$current,
-							"params",
-							lv_params_3_0,
-							"uam.eagledata.dsl.events.EventSetManagerDsl.ActionParam");
-						afterParserOrEnumRuleCall();
-					}
-				)
-			)
-			(
-				otherlv_4=','
-				{
-					newLeafNode(otherlv_4, grammarAccess.getActionAccess().getCommaKeyword_2_2_0());
-				}
-				(
-					(
-						{
-							newCompositeNode(grammarAccess.getActionAccess().getParamsActionParamParserRuleCall_2_2_1_0());
-						}
-						lv_params_5_0=ruleActionParam
-						{
-							if ($current==null) {
-								$current = createModelElementForParent(grammarAccess.getActionRule());
-							}
-							add(
-								$current,
-								"params",
-								lv_params_5_0,
-								"uam.eagledata.dsl.events.EventSetManagerDsl.ActionParam");
-							afterParserOrEnumRuleCall();
-						}
-					)
-				)
-			)*
-			otherlv_6=')'
-			{
-				newLeafNode(otherlv_6, grammarAccess.getActionAccess().getRightParenthesisKeyword_2_3());
-			}
-		)?
+		{
+			newCompositeNode(grammarAccess.getActionAccess().getActionCallParserRuleCall_0());
+		}
+		this_ActionCall_0=ruleActionCall
+		{
+			$current = $this_ActionCall_0.current;
+			afterParserOrEnumRuleCall();
+		}
+		    |
+		{
+			newCompositeNode(grammarAccess.getActionAccess().getQueryCallParserRuleCall_1());
+		}
+		this_QueryCall_1=ruleQueryCall
+		{
+			$current = $this_QueryCall_1.current;
+			afterParserOrEnumRuleCall();
+		}
 	)
 ;
 
@@ -1230,6 +1299,442 @@ ruleStringParam returns [EObject current=null]
 				}
 			)
 		)
+	)
+;
+
+// Entry rule entryRuleActionCall
+entryRuleActionCall returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getActionCallRule()); }
+	iv_ruleActionCall=ruleActionCall
+	{ $current=$iv_ruleActionCall.current; }
+	EOF;
+
+// Rule ActionCall
+ruleActionCall returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			{
+				$current = forceCreateModelElement(
+					grammarAccess.getActionCallAccess().getActionCallAction_0(),
+					$current);
+			}
+		)
+		(
+			(
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getActionCallRule());
+					}
+				}
+				otherlv_1=RULE_ID
+				{
+					newLeafNode(otherlv_1, grammarAccess.getActionCallAccess().getCallsActionExecutableExtensionCrossReference_1_0());
+				}
+			)
+		)
+		(
+			otherlv_2='('
+			{
+				newLeafNode(otherlv_2, grammarAccess.getActionCallAccess().getLeftParenthesisKeyword_2_0());
+			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getActionCallAccess().getActionParamsActionParamParserRuleCall_2_1_0());
+					}
+					lv_actionParams_3_0=ruleActionParam
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getActionCallRule());
+						}
+						add(
+							$current,
+							"actionParams",
+							lv_actionParams_3_0,
+							"uam.eagledata.dsl.events.EventSetManagerDsl.ActionParam");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+			(
+				otherlv_4=','
+				{
+					newLeafNode(otherlv_4, grammarAccess.getActionCallAccess().getCommaKeyword_2_2_0());
+				}
+				(
+					(
+						{
+							newCompositeNode(grammarAccess.getActionCallAccess().getActionParamsActionParamParserRuleCall_2_2_1_0());
+						}
+						lv_actionParams_5_0=ruleActionParam
+						{
+							if ($current==null) {
+								$current = createModelElementForParent(grammarAccess.getActionCallRule());
+							}
+							add(
+								$current,
+								"actionParams",
+								lv_actionParams_5_0,
+								"uam.eagledata.dsl.events.EventSetManagerDsl.ActionParam");
+							afterParserOrEnumRuleCall();
+						}
+					)
+				)
+			)*
+			otherlv_6=')'
+			{
+				newLeafNode(otherlv_6, grammarAccess.getActionCallAccess().getRightParenthesisKeyword_2_3());
+			}
+		)?
+	)
+;
+
+// Entry rule entryRuleQueryCall
+entryRuleQueryCall returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getQueryCallRule()); }
+	iv_ruleQueryCall=ruleQueryCall
+	{ $current=$iv_ruleQueryCall.current; }
+	EOF;
+
+// Rule QueryCall
+ruleQueryCall returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			{
+				$current = forceCreateModelElement(
+					grammarAccess.getQueryCallAccess().getQueryCallAction_0(),
+					$current);
+			}
+		)
+		(
+			(
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getQueryCallRule());
+					}
+				}
+				{
+					newCompositeNode(grammarAccess.getQueryCallAccess().getSelectSelectCrossReference_1_0());
+				}
+				ruleQualifiedName
+				{
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		otherlv_2='('
+		{
+			newLeafNode(otherlv_2, grammarAccess.getQueryCallAccess().getLeftParenthesisKeyword_2());
+		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getQueryCallAccess().getQueryParamsParamValueParserRuleCall_3_0());
+				}
+				lv_queryParams_3_0=ruleParamValue
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getQueryCallRule());
+					}
+					add(
+						$current,
+						"queryParams",
+						lv_queryParams_3_0,
+						"uam.eagledata.dsl.events.EventSetManagerDsl.ParamValue");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		(
+			otherlv_4=','
+			{
+				newLeafNode(otherlv_4, grammarAccess.getQueryCallAccess().getCommaKeyword_4_0());
+			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getQueryCallAccess().getQueryParamsParamValueParserRuleCall_4_1_0());
+					}
+					lv_queryParams_5_0=ruleParamValue
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getQueryCallRule());
+						}
+						add(
+							$current,
+							"queryParams",
+							lv_queryParams_5_0,
+							"uam.eagledata.dsl.events.EventSetManagerDsl.ParamValue");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+		)*
+		otherlv_6=')'
+		{
+			newLeafNode(otherlv_6, grammarAccess.getQueryCallAccess().getRightParenthesisKeyword_5());
+		}
+		otherlv_7='.'
+		{
+			newLeafNode(otherlv_7, grammarAccess.getQueryCallAccess().getFullStopKeyword_6());
+		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getQueryCallAccess().getMethodMethodParserRuleCall_7_0());
+				}
+				lv_method_8_0=ruleMethod
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getQueryCallRule());
+					}
+					set(
+						$current,
+						"method",
+						lv_method_8_0,
+						"uam.eagledata.dsl.events.EventSetManagerDsl.Method");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		otherlv_9='->'
+		{
+			newLeafNode(otherlv_9, grammarAccess.getQueryCallAccess().getHyphenMinusGreaterThanSignKeyword_8());
+		}
+		(
+			(
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getQueryCallRule());
+					}
+				}
+				otherlv_10=RULE_ID
+				{
+					newLeafNode(otherlv_10, grammarAccess.getQueryCallAccess().getCallsActionExecutableExtensionCrossReference_9_0());
+				}
+			)
+		)
+		(
+			otherlv_11='('
+			{
+				newLeafNode(otherlv_11, grammarAccess.getQueryCallAccess().getLeftParenthesisKeyword_10_0());
+			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getQueryCallAccess().getActionParamsActionParamParserRuleCall_10_1_0());
+					}
+					lv_actionParams_12_0=ruleActionParam
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getQueryCallRule());
+						}
+						add(
+							$current,
+							"actionParams",
+							lv_actionParams_12_0,
+							"uam.eagledata.dsl.events.EventSetManagerDsl.ActionParam");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+			(
+				otherlv_13=','
+				{
+					newLeafNode(otherlv_13, grammarAccess.getQueryCallAccess().getCommaKeyword_10_2_0());
+				}
+				(
+					(
+						{
+							newCompositeNode(grammarAccess.getQueryCallAccess().getActionParamsActionParamParserRuleCall_10_2_1_0());
+						}
+						lv_actionParams_14_0=ruleActionParam
+						{
+							if ($current==null) {
+								$current = createModelElementForParent(grammarAccess.getQueryCallRule());
+							}
+							add(
+								$current,
+								"actionParams",
+								lv_actionParams_14_0,
+								"uam.eagledata.dsl.events.EventSetManagerDsl.ActionParam");
+							afterParserOrEnumRuleCall();
+						}
+					)
+				)
+			)*
+			otherlv_15=')'
+			{
+				newLeafNode(otherlv_15, grammarAccess.getQueryCallAccess().getRightParenthesisKeyword_10_3());
+			}
+		)?
+	)
+;
+
+// Entry rule entryRuleParamValue
+entryRuleParamValue returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getParamValueRule()); }
+	iv_ruleParamValue=ruleParamValue
+	{ $current=$iv_ruleParamValue.current; }
+	EOF;
+
+// Rule ParamValue
+ruleParamValue returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			{
+				$current = forceCreateModelElement(
+					grammarAccess.getParamValueAccess().getParamValueAction_0(),
+					$current);
+			}
+		)
+		(
+			(
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getParamValueRule());
+					}
+				}
+				{
+					newCompositeNode(grammarAccess.getParamValueAccess().getParamQueryParamCrossReference_1_0());
+				}
+				ruleQualifiedName
+				{
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		otherlv_2=':'
+		{
+			newLeafNode(otherlv_2, grammarAccess.getParamValueAccess().getColonKeyword_2());
+		}
+		(
+			(
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getParamValueRule());
+					}
+				}
+				otherlv_3=RULE_ID
+				{
+					newLeafNode(otherlv_3, grammarAccess.getParamValueAccess().getValueConceptCrossReference_3_0());
+				}
+			)
+		)
+	)
+;
+
+// Entry rule entryRuleMethod
+entryRuleMethod returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getMethodRule()); }
+	iv_ruleMethod=ruleMethod
+	{ $current=$iv_ruleMethod.current; }
+	EOF;
+
+// Rule Method
+ruleMethod returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		{
+			newCompositeNode(grammarAccess.getMethodAccess().getFirstParserRuleCall_0());
+		}
+		this_First_0=ruleFirst
+		{
+			$current = $this_First_0.current;
+			afterParserOrEnumRuleCall();
+		}
+		    |
+		{
+			newCompositeNode(grammarAccess.getMethodAccess().getLastParserRuleCall_1());
+		}
+		this_Last_1=ruleLast
+		{
+			$current = $this_Last_1.current;
+			afterParserOrEnumRuleCall();
+		}
+	)
+;
+
+// Entry rule entryRuleFirst
+entryRuleFirst returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getFirstRule()); }
+	iv_ruleFirst=ruleFirst
+	{ $current=$iv_ruleFirst.current; }
+	EOF;
+
+// Rule First
+ruleFirst returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			{
+				$current = forceCreateModelElement(
+					grammarAccess.getFirstAccess().getFirstAction_0(),
+					$current);
+			}
+		)
+		otherlv_1='first'
+		{
+			newLeafNode(otherlv_1, grammarAccess.getFirstAccess().getFirstKeyword_1());
+		}
+	)
+;
+
+// Entry rule entryRuleLast
+entryRuleLast returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getLastRule()); }
+	iv_ruleLast=ruleLast
+	{ $current=$iv_ruleLast.current; }
+	EOF;
+
+// Rule Last
+ruleLast returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			{
+				$current = forceCreateModelElement(
+					grammarAccess.getLastAccess().getLastAction_0(),
+					$current);
+			}
+		)
+		otherlv_1='last'
+		{
+			newLeafNode(otherlv_1, grammarAccess.getLastAccess().getLastKeyword_1());
+		}
 	)
 ;
 

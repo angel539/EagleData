@@ -124,8 +124,8 @@ public class EcarulesAdapterFactory extends AdapterFactoryImpl {
 				return createStringParamAdapter();
 			}
 			@Override
-			public Adapter caseAction(Action object) {
-				return createActionAdapter();
+			public Adapter caseActionCall(ActionCall object) {
+				return createActionCallAdapter();
 			}
 			@Override
 			public Adapter caseGeographicalElement(GeographicalElement object) {
@@ -138,6 +138,30 @@ public class EcarulesAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseRegion(Region object) {
 				return createRegionAdapter();
+			}
+			@Override
+			public Adapter caseQueryCall(QueryCall object) {
+				return createQueryCallAdapter();
+			}
+			@Override
+			public Adapter caseParamValue(ParamValue object) {
+				return createParamValueAdapter();
+			}
+			@Override
+			public Adapter caseMethod(Method object) {
+				return createMethodAdapter();
+			}
+			@Override
+			public Adapter caseFirst(First object) {
+				return createFirstAdapter();
+			}
+			@Override
+			public Adapter caseLast(Last object) {
+				return createLastAdapter();
+			}
+			@Override
+			public Adapter caseAction(Action object) {
+				return createActionAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -356,6 +380,20 @@ public class EcarulesAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link ecarules.ActionCall <em>Action Call</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see ecarules.ActionCall
+	 * @generated
+	 */
+	public Adapter createActionCallAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link ecarules.Action <em>Action</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -408,6 +446,76 @@ public class EcarulesAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createRegionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link ecarules.QueryCall <em>Query Call</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see ecarules.QueryCall
+	 * @generated
+	 */
+	public Adapter createQueryCallAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link ecarules.ParamValue <em>Param Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see ecarules.ParamValue
+	 * @generated
+	 */
+	public Adapter createParamValueAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link ecarules.Method <em>Method</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see ecarules.Method
+	 * @generated
+	 */
+	public Adapter createMethodAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link ecarules.First <em>First</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see ecarules.First
+	 * @generated
+	 */
+	public Adapter createFirstAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link ecarules.Last <em>Last</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see ecarules.Last
+	 * @generated
+	 */
+	public Adapter createLastAdapter() {
 		return null;
 	}
 

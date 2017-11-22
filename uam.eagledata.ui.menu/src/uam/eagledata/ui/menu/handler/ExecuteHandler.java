@@ -14,24 +14,20 @@ import org.osgi.framework.Bundle;
 import org.osgi.framework.FrameworkUtil;
 
 import ecarules.ActionExecutableExtension;
-import ecarules.Event;
-import ecarules.EventSetManager;
 import ecarules.ExtendedActionExecutableExtension;
-import ecarules.PatternEvent;
-import uam.eagledata.extensions.EventSetControlManager;
 
 public class ExecuteHandler extends AbstractHandler {
 	public static final String ACTION_EXTENSIONS_ID = "eagledata.core.extensions.actions";
 
 	@Override
 	public Object execute(ExecutionEvent event) throws ExecutionException {
-		EventSetManager eventSetManager = EventSetControlManager.getInstance().getModelDocument();
+		/*EventSetManager eventSetManager = EventSetControlManager.getInstance().getModelDocument();
 		
 		for(Event e : eventSetManager.getEvents()){
 			if (e instanceof PatternEvent) {
 				PatternEvent patternE = (PatternEvent) e;
 				
-				/*for(Action trigger : patternE.getTriggers()){
+				for(Action trigger : patternE.getTriggers()){
 					ActionExecutableExtension actionBundle = callActionExecutableExtension(trigger.getCalls());
 					
 					if(actionBundle != null){
@@ -41,9 +37,9 @@ public class ExecuteHandler extends AbstractHandler {
 					else{
 						System.out.println("ES NULO...");
 					}
-				}*/
+				}
 			}
-		}
+		}*/
 		
 		return Status.OK_STATUS;
 	}

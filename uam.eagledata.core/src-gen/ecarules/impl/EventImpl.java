@@ -7,7 +7,9 @@ import ecarules.Condition;
 import ecarules.DataConnection;
 import ecarules.EcarulesPackage;
 import ecarules.Event;
+
 import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EClass;
 
 /**

@@ -5,12 +5,13 @@ package ecarules.impl;
 import ecarules.Action;
 import ecarules.Condition;
 import ecarules.EcarulesPackage;
-
 import ecarules.Expression;
 import ecarules.GeographicalElement;
+
 import fr.inria.atlanmod.neoemf.core.DefaultPersistentEObject;
 
 import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EClass;
 
 /**

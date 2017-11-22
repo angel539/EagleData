@@ -325,26 +325,26 @@ public class EcarulesItemProviderAdapterFactory extends EcarulesAdapterFactory i
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link ecarules.Action} instances.
+	 * This keeps track of the one adapter used for all {@link ecarules.ActionCall} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected ActionItemProvider actionItemProvider;
+	protected ActionCallItemProvider actionCallItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link ecarules.Action}.
+	 * This creates an adapter for a {@link ecarules.ActionCall}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createActionAdapter() {
-		if (actionItemProvider == null) {
-			actionItemProvider = new ActionItemProvider(this);
+	public Adapter createActionCallAdapter() {
+		if (actionCallItemProvider == null) {
+			actionCallItemProvider = new ActionCallItemProvider(this);
 		}
 
-		return actionItemProvider;
+		return actionCallItemProvider;
 	}
 
 	/**
@@ -391,6 +391,98 @@ public class EcarulesItemProviderAdapterFactory extends EcarulesAdapterFactory i
 		}
 
 		return regionItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link ecarules.QueryCall} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected QueryCallItemProvider queryCallItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link ecarules.QueryCall}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createQueryCallAdapter() {
+		if (queryCallItemProvider == null) {
+			queryCallItemProvider = new QueryCallItemProvider(this);
+		}
+
+		return queryCallItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link ecarules.ParamValue} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ParamValueItemProvider paramValueItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link ecarules.ParamValue}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createParamValueAdapter() {
+		if (paramValueItemProvider == null) {
+			paramValueItemProvider = new ParamValueItemProvider(this);
+		}
+
+		return paramValueItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link ecarules.First} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected FirstItemProvider firstItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link ecarules.First}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createFirstAdapter() {
+		if (firstItemProvider == null) {
+			firstItemProvider = new FirstItemProvider(this);
+		}
+
+		return firstItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link ecarules.Last} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected LastItemProvider lastItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link ecarules.Last}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createLastAdapter() {
+		if (lastItemProvider == null) {
+			lastItemProvider = new LastItemProvider(this);
+		}
+
+		return lastItemProvider;
 	}
 
 	/**
@@ -503,9 +595,13 @@ public class EcarulesItemProviderAdapterFactory extends EcarulesAdapterFactory i
 		if (actionExecutableExtensionItemProvider != null) actionExecutableExtensionItemProvider.dispose();
 		if (conceptParamItemProvider != null) conceptParamItemProvider.dispose();
 		if (stringParamItemProvider != null) stringParamItemProvider.dispose();
-		if (actionItemProvider != null) actionItemProvider.dispose();
+		if (actionCallItemProvider != null) actionCallItemProvider.dispose();
 		if (pointItemProvider != null) pointItemProvider.dispose();
 		if (regionItemProvider != null) regionItemProvider.dispose();
+		if (queryCallItemProvider != null) queryCallItemProvider.dispose();
+		if (paramValueItemProvider != null) paramValueItemProvider.dispose();
+		if (firstItemProvider != null) firstItemProvider.dispose();
+		if (lastItemProvider != null) lastItemProvider.dispose();
 	}
 
 }

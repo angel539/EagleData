@@ -4,8 +4,8 @@ package ecarules.impl;
 
 import ecarules.Concept;
 import ecarules.EcarulesPackage;
-
 import ecarules.Type;
+
 import fr.inria.atlanmod.neoemf.core.DefaultPersistentEObject;
 
 import org.eclipse.emf.ecore.EClass;

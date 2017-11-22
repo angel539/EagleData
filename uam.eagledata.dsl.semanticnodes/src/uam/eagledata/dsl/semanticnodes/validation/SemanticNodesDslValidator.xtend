@@ -3,6 +3,9 @@
  */
 package uam.eagledata.dsl.semanticnodes.validation
 
+import semanticmanager.MetaDataValue
+import org.eclipse.xtext.validation.Check
+import semanticmanager.SemanticmanagerPackage
 
 /**
  * This class contains custom validation rules. 
@@ -10,16 +13,14 @@ package uam.eagledata.dsl.semanticnodes.validation
  * See https://www.eclipse.org/Xtext/documentation/303_runtime_concepts.html#validation
  */
 class SemanticNodesDslValidator extends AbstractSemanticNodesDslValidator {
-	
-//  public static val INVALID_NAME = 'invalidName'
-//
-//	@Check
-//	def checkGreetingStartsWithCapital(Greeting greeting) {
-//		if (!Character.isUpperCase(greeting.name.charAt(0))) {
-//			warning('Name should start with a capital', 
-//					SemanticNodesDslPackage.Literals.GREETING__NAME,
-//					INVALID_NAME)
-//		}
-//	}
-	
+	public static val VALUE_NOT_VALID = 'metaDataValue'
+
+	@Check
+	def checkMetaDataValueValidator(MetaDataValue metaDataValue) {
+		if (!metaDataValue.keyMetaData.validateValue(metaDataValue.value)) {
+			error('MetaData value is not valid', 
+				SemanticmanagerPackage.Literals.META_DATA_VALUE__KEY_META_DATA,
+				VALUE_NOT_VALID)
+		}
+	}
 }

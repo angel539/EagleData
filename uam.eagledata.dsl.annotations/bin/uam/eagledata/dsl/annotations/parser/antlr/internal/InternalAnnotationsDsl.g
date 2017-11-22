@@ -292,9 +292,9 @@ ruleAnnotationHierarchy returns [EObject current=null]
 				)
 			)
 			(
-				otherlv_6='<'
+				otherlv_6=','
 				{
-					newLeafNode(otherlv_6, grammarAccess.getAnnotationHierarchyAccess().getLessThanSignKeyword_3_3_0());
+					newLeafNode(otherlv_6, grammarAccess.getAnnotationHierarchyAccess().getCommaKeyword_3_3_0());
 				}
 				otherlv_7='@'
 				{
@@ -393,9 +393,9 @@ ruleAnnotationInstance returns [EObject current=null]
 				)
 			)
 			(
-				otherlv_6=':'
+				otherlv_6=','
 				{
-					newLeafNode(otherlv_6, grammarAccess.getAnnotationInstanceAccess().getColonKeyword_3_3_0());
+					newLeafNode(otherlv_6, grammarAccess.getAnnotationInstanceAccess().getCommaKeyword_3_3_0());
 				}
 				otherlv_7='@'
 				{

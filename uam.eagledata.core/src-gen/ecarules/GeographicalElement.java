@@ -22,7 +22,6 @@ import fr.inria.atlanmod.neoemf.core.PersistentEObject;
  * @generated
  */
 public interface GeographicalElement extends PersistentEObject {
-
 	/**
 	 * Returns the value of the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
@@ -48,4 +47,5 @@ public interface GeographicalElement extends PersistentEObject {
 	 * @generated
 	 */
 	void setName(String value);
+
 } // GeographicalElement

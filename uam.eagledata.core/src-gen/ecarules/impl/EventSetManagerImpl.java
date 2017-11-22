@@ -7,8 +7,8 @@ import ecarules.DataConnection;
 import ecarules.EcarulesPackage;
 import ecarules.Event;
 import ecarules.EventSetManager;
-
 import ecarules.GeographicalElement;
+
 import fr.inria.atlanmod.neoemf.core.DefaultPersistentEObject;
 
 import org.eclipse.emf.common.util.EList;
@@ -27,6 +27,7 @@ import org.eclipse.emf.ecore.EClass;
  *   <li>{@link ecarules.impl.EventSetManagerImpl#getDataconnections <em>Dataconnections</em>}</li>
  *   <li>{@link ecarules.impl.EventSetManagerImpl#getActions <em>Actions</em>}</li>
  *   <li>{@link ecarules.impl.EventSetManagerImpl#getGeos <em>Geos</em>}</li>
+ *   <li>{@link ecarules.impl.EventSetManagerImpl#getImportedNamespace <em>Imported Namespace</em>}</li>
  * </ul>
  *
  * @generated
@@ -99,6 +100,16 @@ public class EventSetManagerImpl extends DefaultPersistentEObject implements Eve
 	@SuppressWarnings("unchecked")
 	public EList<GeographicalElement> getGeos() {
 		return (EList<GeographicalElement>)eGet(EcarulesPackage.Literals.EVENT_SET_MANAGER__GEOS, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@SuppressWarnings("unchecked")
+	public EList<String> getImportedNamespace() {
+		return (EList<String>)eGet(EcarulesPackage.Literals.EVENT_SET_MANAGER__IMPORTED_NAMESPACE, true);
 	}
 
 } //EventSetManagerImpl
